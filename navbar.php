@@ -41,7 +41,7 @@
             <li><a href="../jbrowse/index.html">Jbrowse</a></li>
             <li><a href="./download.php">Download</a></li>
             <li><a href="./help.php">Help</a></li>
-            <li><a href="./contact.php">Contact us</a></li>
+            <li><a href="./contactus.php">Contact us</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </nav>
