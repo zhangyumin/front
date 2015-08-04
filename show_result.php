@@ -499,6 +499,7 @@
     </script>  
 </div>
     <?php
+        include './wheelmenu.php';
         include './footer.php';
     ?>
 </body>
