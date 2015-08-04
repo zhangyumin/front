@@ -156,7 +156,7 @@ and open the template in the editor.
                  $test=shell_exec($cmd12);
                  echo"<pre>$test</pre>";
                   
-                 echo '<script>window.location.href="task_summery.php";</script>';
+                 echo '<script>window.location.href="task_summary.php";</script>';
             ?>
 <!--        <div id="task_summery" align="center">
             <div id="title">
