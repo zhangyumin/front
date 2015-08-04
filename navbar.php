@@ -14,13 +14,16 @@
             @media ( min-width: 768px) {
                     .navbar-nav > li > a {text-align:center;border-right:1px solid rgba(0,0,0,0.1)}
             }
-            @media (max-width:1270px){
+            @media (max-width:1300px){
                     .navbar-logo{display: none}
                     .navbar-theme{display: none}
-                    ul.nav.navbar-nav li a{padding: 0px 1px !important}
+                    ul.nav.navbar-nava{padding: 0px 1px !important}
                     .iconbar{display: none;}
-                    .navbar.navbar-default.equinav{height:auto !important;}
+                    .navbar.navbar-default.equinav{height:110px !important;}
                     .container{width:auto !important;}
+                    ul.nav.navbar-nav{width:100%}
+                    ul.nav.navbar-nav li{width:16%;overflow: hidden;}
+                    
             }
             .icon img{opacity:0.4;padding-top: 3px;cursor:pointer;width: 32px;height: 32px;}
             .icon img:hover{opacity: 1;padding-top: 3px;cursor:pointer;width: 32px;height: 32px;}
@@ -44,12 +47,12 @@
       </div>
       <div class="collapse navbar-collapse">    
         <ul class="nav navbar-nav">
-            <li><a href="./index.php">Home</a></li>
-            <li><a href="./upload_option.php">Run</a></li>
-            <li><a href="../jbrowse/index.html">Jbrowse</a></li>
-            <li><a href="./download.php">Download</a></li>
-            <li><a href="./help.php">Help</a></li>
-            <li><a href="./contactus.php">Contact us</a></li>
+            <li class="home"><a href="./index.php">Home</a></li>
+            <li class="run"><a href="./upload_option.php">Run</a></li>
+            <li class="jbrowse"><a href="../jbrowse/index.html">Jbrowse</a></li>
+            <li class="download"><a href="./download.php">Download</a></li>
+            <li class="help"><a href="./help.php">Help</a></li>
+            <li class="contactus"><a href="./contactus.php">Contact us</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </nav>
