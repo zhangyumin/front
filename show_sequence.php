@@ -2462,7 +2462,7 @@ and open the template in the editor.
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
                                                                                 <div class="swiper-slide">
-				   <div class="content-slide">
+                                                                                <div class="content-slide">
                                                             <form action='./aftertreatment_test.php?action=search' method="post">
                                                                                               <span class="slidebar-content">Chr:</span>
                                                                                               <select name="chr">
@@ -2475,12 +2475,12 @@ and open the template in the editor.
                                                                                                     <option value='chloroplast'>chloroplast</option>
                                                                                                     <option value='mitochondria'>mitochondria</option>
                                                                                               </select><br>
-                                                                                            <span class="slidebar-content">Start:</span><br><input type='text' name='start'/><br>
-                                                                                            <span class="slidebar-content">End:</span><br><input type='text' name='end'/><br>
+                                                                                            <span class="slidebar-content">Start:</span><input type='text' name='start'/><br>
+                                                                                            <span class="slidebar-content">End: </span><input type='text' name='end'/><br>
                                                                                             <span class="slidebar-content">Gene ID:(use ',' to split different gene id)</span><br><textarea rows="3" cols="30" name="gene_id"></textarea><br>
                                                                                             <span class="slidebar-content">Go term accession:<br>(use ',' to split different gene id)</span><br><textarea rows="3" cols="30" name='go_accession'></textarea><br>
-                                                                                            <span class="slidebar-content">Go term name:</span><br><input type='text' name='go_name'/><br>
-                                                                                            <span class="slidebar-content">Function:</span><br><input type='text' name='function'/><br>
+                                                                                            <span class="slidebar-content">Go term name:</span><input type='text' name='go_name'/><br>
+                                                                                            <span class="slidebar-content">Function&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name='function'/><br>
                                                                                             <span class="slidebar-content">Samples:<br>&nbsp;&nbsp;&nbsp;System:</span><br>
                                                                                                         <?php
                                                                                                             $con=  mysql_connect("localhost","root","root");
