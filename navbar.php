@@ -14,6 +14,14 @@
             @media ( min-width: 768px) {
                     .navbar-nav > li > a {text-align:center;border-right:1px solid rgba(0,0,0,0.1)}
             }
+            @media (max-width:1270px){
+                    .navbar-logo{display: none}
+                    .navbar-theme{display: none}
+                    ul.nav.navbar-nav li a{padding: 0px 1px !important}
+                    .iconbar{display: none;}
+                    .navbar.navbar-default.equinav{height:auto !important;}
+                    .container{width:auto !important;}
+            }
             .icon img{opacity:0.4;padding-top: 3px;cursor:pointer;width: 32px;height: 32px;}
             .icon img:hover{opacity: 1;padding-top: 3px;cursor:pointer;width: 32px;height: 32px;}
     </style>
