@@ -2446,9 +2446,9 @@ and open the template in the editor.
         </div>
          </div>
             <br style="clear:both;">
-                <?php
-                                   include './footer.php';
-                                   ?>
+                <?php 
+                        include './footer.php';
+                ?>
          </div>
         <div class="sidebar jsc-sidebar" id="jsi-nav" data-sidebar-options="">
 	<div class="sidebar-list">
@@ -2894,6 +2894,8 @@ and open the template in the editor.
             });
             </script>
         
-           
+                           <?php
+                        include './wheelmenu.php';
+                        ?>
     </body>
 </html>
