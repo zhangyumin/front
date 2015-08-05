@@ -3139,6 +3139,8 @@ and open the template in the editor.
             });
             </script>
         
-           
+                           <?php
+                        include './wheelmenu.php';
+                        ?>
     </body>
 </html>
