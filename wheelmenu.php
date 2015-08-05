@@ -19,7 +19,7 @@
 </div>
 <script type="text/javascript">
     $(".wheel-button").wheelmenu({
-        trigger: "hover",
+//        trigger: "hover",
         animation: "fly",
         angle: "NW"
     });
