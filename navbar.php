@@ -41,7 +41,7 @@
       </div>  
       <div class='navbar-logo'>
           <img style="float: left;width:15%;height: 110px;padding-left: 15px;" src='./pic/logo.jpg'>
-          <div class="navbar-theme" style="float:left;font-size: 45px;font-style: normal;color:#fff;height:110px;text-align: center;padding: 21px 61px 21px 61px;">
+          <div class="navbar-theme" style="float:left;font-size: 45px;font-style: normal;color:#fff;height:89px;text-align: center;padding: 21px 61px 0px 61px;">
               Browser
           </div>
       </div>
