@@ -134,29 +134,37 @@ and open the template in the editor.
                  
                  #PAT导入jbrowse显示
                  //shell_exec("cp ./data/".$_SESSION['file']."/$file_real[0].qc.fa.noT.fa.sam.M30S10.PA ./tojbrowse/pat.txt");//移动文件
-                shell_exec("cp -r ../jbrowse/data/arabidopsis/ ../jbrowse/data/".$_SESSION['file']."/"); 
+                shell_exec("cp -r ../jbrowse/data/arabidopsis/ ../jbrowse/data/".$_SESSION['file']."/");
+                shell_exec("chmod -R 777 ../jbrowse/data/".$_SESSION['file']."/");
                 foreach ($file_real as $key => $value) {
-                     shell_exec("cp ./data/".$_SESSION['file']."/$file_real[0].qc.fa.noT.fa.sam.M30S10.PA ./tojbrowse/pat.txt");
+                     shell_exec("cp ./data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA ../jbrowse/data/".$_SESSION['file']."/$value.txt");
+                     shell_exec("./src/c/txt2bedgraph ../jbrowse/data/".$_SESSION['file']."/$value.txt ../jbrowse/data/".$_SESSION['file']."/$value.positive.bedGraph ../jbrowse/data/".$_SESSION['file']."/$value.negative.bedGraph");
+                     shell_exec("sort -k1,1 -k2,2n ../jbrowse/data/".$_SESSION['file']."/$value.positive.bedGraph > ../jbrowse/data/".$_SESSION['file']."/$value.positive.sorted.bedGraph ");
+                     shell_exec("sort -k1,1 -k2,2n ../jbrowse/data/".$_SESSION['file']."/$value.negative.bedGraph > ../jbrowse/data/".$_SESSION['file']."/$value.negative.sorted.bedGraph ");
+                     shell_exec("uniq -u ../jbrowse/data/".$_SESSION['file']."/$value.positive.sorted.bedGraph > ../jbrowse/data/".$_SESSION['file']."/$value.positive.sorted.uniq.bedGraph");
+                     shell_exec("uniq -u ../jbrowse/data/".$_SESSION['file']."/$value.negative.sorted.bedGraph > ../jbrowse/data/".$_SESSION['file']."/$value.negative.sorted.uniq.bedGraph");
+                     shell_exec("./src/c/bedGraphToBigWig ../jbrowse/data/".$_SESSION['file']."/$value.positive.sorted.bedGraph ./src/arab.sizes ../jbrowse/data/".$_SESSION['file']."/$value.UsrPosPA.bw");
+                     shell_exec("./src/c/bedGraphToBigWig ../jbrowse/data/".$_SESSION['file']."/$value.negative.sorted.bedGraph ./src/arab.sizes ../jbrowse/data/".$_SESSION['file']."/$value.UsrNegPA.bw");
                 }
-                 shell_exec("./tojbrowse/txt2bedgraph");//转换为bedgraph文件
-                 shell_exec("sort -k1,1 -k2,2n ./tojbrowse/Uppat.bedGraph > ./tojbrowse/Uppat.sorted.bedGraph ");
-                 shell_exec("sort -k1,1 -k2,2n ./tojbrowse/Unpat.bedGraph > ./tojbrowse/Unpat.sorted.bedGraph ");#排序
-                 shell_exec("uniq -u ./tojbrowse/Uppat.sorted.bedGraph > ./tojbrowse/Uppat.sorted.uniq.bedGraph");
-                 shell_exec("uniq -u ./tojbrowse/Unpat.sorted.bedGraph > ./tojbrowse/Unpat.sorted.uniq.bedGraph");#去除重复行
-                 shell_exec("./tojbrowse/bedGraphToBigWig ./tojbrowse/Uppat.sorted.uniq.bedGraph ./tojbrowse/arab.sizes ./tojbrowse/Uppat.bw");
-                 shell_exec("./tojbrowse/bedGraphToBigWig ./tojbrowse/Unpat.sorted.uniq.bedGraph ./tojbrowse/arab.sizes ./tojbrowse/Unpat.bw");
-                 shell_exec("cp ./tojbrowse/Uppat.bw ../jbrowse/data/");
-                 shell_exec("cp ./tojbrowse/Unpat.bw ../jbrowse/data/");
+                 //shell_exec("./tojbrowse/txt2bedgraph");//转换为bedgraph文件
+                 //shell_exec("sort -k1,1 -k2,2n ./tojbrowse/Uppat.bedGraph > ./tojbrowse/Uppat.sorted.bedGraph ");
+                 //shell_exec("sort -k1,1 -k2,2n ./tojbrowse/Unpat.bedGraph > ./tojbrowse/Unpat.sorted.bedGraph ");#排序
+                 //shell_exec("uniq -u ./tojbrowse/Uppat.sorted.bedGraph > ./tojbrowse/Uppat.sorted.uniq.bedGraph");
+                 //shell_exec("uniq -u ./tojbrowse/Unpat.sorted.bedGraph > ./tojbrowse/Unpat.sorted.uniq.bedGraph");#去除重复行
+                 //shell_exec("./tojbrowse/bedGraphToBigWig ./tojbrowse/Uppat.sorted.uniq.bedGraph ./tojbrowse/arab.sizes ./tojbrowse/Uppat.bw");
+                 //shell_exec("./tojbrowse/bedGraphToBigWig ./tojbrowse/Unpat.sorted.uniq.bedGraph ./tojbrowse/arab.sizes ./tojbrowse/Unpat.bw");
+                 //shell_exec("cp ./tojbrowse/Uppat.bw ../jbrowse/data/");
+                 //shell_exec("cp ./tojbrowse/Unpat.bw ../jbrowse/data/");
                  
-                 #PAC导入jbrowse显示
-                 $tag_num=$_SESSION['file'];
-                 $cmd11="select chr,strand,coord,$tag_num from pac_arab10 into outfile '/var/www/html/front/tojbrowse/pac.txt' ";
-                 //echo $cmd11;
-                 mysql_query($cmd11);
-                 shell_exec("./tojbrowse/txt2bed");
-                 $cmd12="/var/www/html/jbrowse/bin/flatfile-to-json.pl --bed /var/www/html/front/tojbrowse/pac.bed --trackLabel usrPac --out /var/www/html/jbrowse/data/";
-                 //echo $cmd12;
-                 $test=shell_exec($cmd12);
+//                 #PAC导入jbrowse显示
+//                 $tag_num=$_SESSION['file'];
+//                 $cmd11="select chr,strand,coord,$tag_num from pac_arab10 into outfile '/var/www/html/front/tojbrowse/pac.txt' ";
+//                 //echo $cmd11;
+//                 mysql_query($cmd11);
+//                 shell_exec("./tojbrowse/txt2bed");
+//                 $cmd12="/var/www/html/jbrowse/bin/flatfile-to-json.pl --bed /var/www/html/front/tojbrowse/pac.bed --trackLabel usrPac --out /var/www/html/jbrowse/data/";
+//                 //echo $cmd12;
+//                 $test=shell_exec($cmd12);
                  echo"<pre>$test</pre>";
                   
                  echo '<script>window.location.href="task_summary.php";</script>';
