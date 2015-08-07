@@ -133,8 +133,11 @@ and open the template in the editor.
                 
                  
                  #PAT导入jbrowse显示
-                 shell_exec("cp ./data/".$_SESSION['file']."/$file_real[0].qc.fa.noT.fa.sam.M30S10.PA ./tojbrowse/pat.txt");//移动文件
-                 ///shell_exec("chown 777 ./tojbrowse/pat.txt");
+                 //shell_exec("cp ./data/".$_SESSION['file']."/$file_real[0].qc.fa.noT.fa.sam.M30S10.PA ./tojbrowse/pat.txt");//移动文件
+                shell_exec("cp -r ../jbrowse/data/arabidopsis/ ../jbrowse/data/".$_SESSION['file']."/"); 
+                foreach ($file_real as $key => $value) {
+                     shell_exec("cp ./data/".$_SESSION['file']."/$file_real[0].qc.fa.noT.fa.sam.M30S10.PA ./tojbrowse/pat.txt");
+                }
                  shell_exec("./tojbrowse/txt2bedgraph");//转换为bedgraph文件
                  shell_exec("sort -k1,1 -k2,2n ./tojbrowse/Uppat.bedGraph > ./tojbrowse/Uppat.sorted.bedGraph ");
                  shell_exec("sort -k1,1 -k2,2n ./tojbrowse/Unpat.bedGraph > ./tojbrowse/Unpat.sorted.bedGraph ");#排序
