@@ -138,6 +138,7 @@ and open the template in the editor.
                 shell_exec("chmod -R 777 ../jbrowse/data/".$_SESSION['file']."/");
                 foreach ($file_real as $key => $value) {
                      shell_exec("cp ./data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA ../jbrowse/data/".$_SESSION['file']."/$value.txt");
+                     //echo "./src/c/txt2bedgraph ../jbrowse/data/".$_SESSION['file']."/$value.txt ../jbrowse/data/".$_SESSION['file']."/$value.positive.bedGraph ../jbrowse/data/".$_SESSION['file']."/$value.negative.bedGraph";
                      shell_exec("./src/c/txt2bedgraph ../jbrowse/data/".$_SESSION['file']."/$value.txt ../jbrowse/data/".$_SESSION['file']."/$value.positive.bedGraph ../jbrowse/data/".$_SESSION['file']."/$value.negative.bedGraph");
                      shell_exec("sort -k1,1 -k2,2n ../jbrowse/data/".$_SESSION['file']."/$value.positive.bedGraph > ../jbrowse/data/".$_SESSION['file']."/$value.positive.sorted.bedGraph ");
                      shell_exec("sort -k1,1 -k2,2n ../jbrowse/data/".$_SESSION['file']."/$value.negative.bedGraph > ../jbrowse/data/".$_SESSION['file']."/$value.negative.sorted.bedGraph ");
@@ -167,7 +168,7 @@ and open the template in the editor.
 //                 $test=shell_exec($cmd12);
                  echo"<pre>$test</pre>";
                   
-                 echo '<script>window.location.href="task_summary.php";</script>';
+//                 echo '<script>window.location.href="task_summary.php";</script>';
             ?>
 <!--        <div id="task_summery" align="center">
             <div id="title">
