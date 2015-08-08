@@ -9,7 +9,9 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-            echo shell_exec("cp -r ../jbrowse/data/arabidopsis/ ../jbrowse/data/haha/ 2>&1");
+            $file=fopen("./tojbrowse/trackList.json", "r+");
+            fseek($file, -74, SEEK_END);
+            fwrite($file,"i write here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         ?>
     </body>
 </html>
