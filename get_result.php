@@ -145,6 +145,45 @@ and open the template in the editor.
                      shell_exec("uniq -u ../jbrowse/data/".$_SESSION['file']."/$value.negative.sorted.bedGraph > ../jbrowse/data/".$_SESSION['file']."/$value.negative.sorted.uniq.bedGraph");
                      shell_exec("./src/c/bedGraphToBigWig ../jbrowse/data/".$_SESSION['file']."/$value.positive.sorted.bedGraph ./src/arab.sizes ../jbrowse/data/".$_SESSION['file']."/$value.UsrPosPA.bw");
                      shell_exec("./src/c/bedGraphToBigWig ../jbrowse/data/".$_SESSION['file']."/$value.negative.sorted.bedGraph ./src/arab.sizes ../jbrowse/data/".$_SESSION['file']."/$value.UsrNegPA.bw");
+                     $configure_file=fopen("../jbrowse/data/".$_SESSION['file']."/trackList.json", "r+");
+                    fseek($configure_file, -3, SEEK_END);
+                    fwrite($configure_file,",\n"
+                            . "\r{\n"
+                            . "\r\r \"storeClass\" : \"JBrowse/Store/SeqFeature/BigWig\","
+                            . "\r\r\"type\" : \"JBrowse/View/Track/Wiggle/XYPlot\","
+                            . "\r\r\"urlTemplate\" : \"./$value.UsrPosPA.bw\","
+                            . "\r\r\"uniqueStoreName\" : {"
+                            . "\r\r\r\"type\" : \"JBrowse/View/Track/Wiggle/XYPlot\","
+                            . "\r\r\r\"urlTemplate\" : \"./$value.UsrPosPA.bw\","
+                            . "\r\r},"
+                            . "\r\r\"style\" : {"
+                            . "\r\r\r\"pos_color\" : \"blue\","
+                            . "\r\r\r\"neg_color\" : \"red\""
+                            . "\r\r},"
+                            . "\r\r\"key\" : \"PAT positive tagNum\","
+                            . "\r\r\"autoscale\" : \"local\","
+                            . "\r\r\"variance_band\" : false,"
+                            . "\r\r\"label\" : \"$value positive polyA site\""
+                            . "\r}");
+                    fwrite($file,",\n"
+                            . "{\n"
+                            . "\r\r \"storeClass\" : \"JBrowse/Store/SeqFeature/BigWig\","
+                            . "\r\r\"type\" : \"JBrowse/View/Track/Wiggle/XYPlot\","
+                            . "\r\r\"urlTemplate\" : \"./$value.UsrNegPA.bw\","
+                            . "\r\r\"uniqueStoreName\" : {"
+                            . "\r\r\r\"type\" : \"JBrowse/View/Track/Wiggle/XYPlot\","
+                            . "\r\r\r\"urlTemplate\" : \"./$value.UsrNegPA.bw\","
+                            . "\r\r},"
+                            . "\r\r\"style\" : {"
+                            . "\r\r\r\"pos_color\" : \"blue\","
+                            . "\r\r\r\"neg_color\" : \"red\""
+                            . "\r\r},"
+                            . "\r\r\"key\" : \"PAT negative tagNum\","
+                            . "\r\r\"autoscale\" : \"local\","
+                            . "\r\r\"variance_band\" : false,"
+                            . "\r\r\"label\" : \"$value negative polyA site\""
+                            . "\r}]}");
+                    fclose($configure_file);
                 }
                  //shell_exec("./tojbrowse/txt2bedgraph");//转换为bedgraph文件
                  //shell_exec("sort -k1,1 -k2,2n ./tojbrowse/Uppat.bedGraph > ./tojbrowse/Uppat.sorted.bedGraph ");
@@ -167,7 +206,7 @@ and open the template in the editor.
 //                 $test=shell_exec($cmd12);
                  echo"<pre>$test</pre>";
                   
-//                 echo '<script>window.location.href="task_summary.php";</script>';
+                 echo '<script>window.location.href="task_summary.php";</script>';
             ?>
 <!--        <div id="task_summery" align="center">
             <div id="title">
