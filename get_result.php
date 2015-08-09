@@ -185,6 +185,11 @@ and open the template in the editor.
                             . "\t}]}\n");
                     fclose($configure_file);
                 }
+                foreach ($file_real as $key => $value) {
+                    mysql_query("select chr,strand,coord,$value from db_user.PAC_$value into outfile '../jbrowse/data/".$_SESSION['file']."/$value.txt'");
+                    shell_exec("./src/c/txt2bed ../jbrowse/data/".$_SESSION['file']."/$value.txt ../jbrowse/data/".$_SESSION['file']."/$value.bed");
+                    shell_exec("../jbrowse/bin/flatfile-to-json.pl --bed ../jbrowse/data/".$_SESSION['file']."/$value.bed --trackLabel PAC_$value --out ../jbrowse/data/".$_SESSION['file']."/");
+                }
                  //shell_exec("./tojbrowse/txt2bedgraph");//转换为bedgraph文件
                  //shell_exec("sort -k1,1 -k2,2n ./tojbrowse/Uppat.bedGraph > ./tojbrowse/Uppat.sorted.bedGraph ");
                  //shell_exec("sort -k1,1 -k2,2n ./tojbrowse/Unpat.bedGraph > ./tojbrowse/Unpat.sorted.bedGraph ");#排序
@@ -207,6 +212,7 @@ and open the template in the editor.
                  echo"<pre>$test</pre>";
                   
                  echo '<script>window.location.href="task_summary.php";</script>';
+//                 echo '<script>window.location.href="http://127.0.0.1/jbrowse/?data=data/'.$_SESSION['file'].'";</script>';
             ?>
 <!--        <div id="task_summery" align="center">
             <div id="title">
