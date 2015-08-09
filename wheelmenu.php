@@ -12,9 +12,9 @@
         <i class="customicon-plus"></i>
     </a>
         <ul id="wheel" data-angle="NW" class="wheel">
-            <li class="item"><a href="./task_summary.php"><i class="customicon-file-edit"></i></a></li>
-            <li class="item"><a href="./show_result.php"><i class="customicon-picture"></i></a></li>
-            <li class="item"><a href="./show_sequence_searched.php?chr=1&gene=31185&strand=-1"><i class="customicon-search"></i></a></li>
+            <li class="item"><a href="./task_summary.php" title="Click to show the task summary"><i class="customicon-file-edit"></i></a></li>
+            <li class="item"><a href="./show_result.php" title="Click to show task results"><i class="customicon-picture"></i></a></li>
+            <li class="item"><a href="./show_sequence_searched.php?chr=1&gene=31185&strand=-1" title="Click to show sequence"><i class="customicon-search"></i></a></li>
         </ul>
 </div>
 <script type="text/javascript">
