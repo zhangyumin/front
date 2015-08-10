@@ -10,7 +10,7 @@ and open the template in the editor.
     <body>
         <?php
             $file=fopen("./tojbrowse/trackList.json", "r+");
-            fseek($file, -3, SEEK_END);
+            fseek($file, -8, SEEK_END);
             fwrite($file,"i write here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!]}");
         ?>
     </body>
