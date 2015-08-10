@@ -9,9 +9,10 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-            $file=fopen("./tojbrowse/trackList.json", "r+");
-            fseek($file, -8, SEEK_END);
-            fwrite($file,"i write here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!]}");
+           $txt=file('./tojbrowse/trackList.json');
+           echo $txt[count($txt)-2];
+           if(strlen($txt[count($txt)-2])!=1)
+               echo "\nhoho\n";
         ?>
     </body>
 </html>
