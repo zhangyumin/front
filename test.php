@@ -12,7 +12,11 @@ and open the template in the editor.
            $txt=file('./tojbrowse/trackList.json');
            echo $txt[count($txt)-2];
            if(strlen($txt[count($txt)-2])!=1)
+           {
                echo "\nhoho\n";
+               echo strlen($txt[count($txt)-2]);
+           }
+          
         ?>
     </body>
 </html>
