@@ -185,11 +185,13 @@ and open the template in the editor.
                             . "\t}]}\n");
                     fclose($configure_file);
                 }
+                $txt=file('../jbrowse/data/".$_SESSION[\"file\']."/trackList.json');
                 foreach ($file_real as $key => $value) {
                     mysql_query("select chr,strand,coord,$value from db_user.PAC_$value into outfile '../jbrowse/data/".$_SESSION['file']."/$value.txt'");
                     shell_exec("./src/c/txt2bed ../jbrowse/data/".$_SESSION['file']."/$value.txt ../jbrowse/data/".$_SESSION['file']."/$value.bed");
                     shell_exec("../jbrowse/bin/flatfile-to-json.pl --bed ../jbrowse/data/".$_SESSION['file']."/$value.bed --trackLabel PAC_$value --out ../jbrowse/data/".$_SESSION['file']."/");
                     $configure_file=fopen("../jbrowse/data/".$_SESSION['file']."/trackList.json", "r+");
+                    if($txt[count($txt)-4])
                     fseek($configure_file, -9, SEEK_END);
                     fwrite($configure_file,",\n"
                             . "\t\"onClick\" : {\n"
