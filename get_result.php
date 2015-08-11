@@ -191,9 +191,9 @@ and open the template in the editor.
                     shell_exec("./src/c/txt2bed ../jbrowse/data/".$_SESSION['file']."/$value.txt ../jbrowse/data/".$_SESSION['file']."/$value.bed");
                     shell_exec("../jbrowse/bin/flatfile-to-json.pl --bed ../jbrowse/data/".$_SESSION['file']."/$value.bed --trackLabel PAC_$value --out ../jbrowse/data/".$_SESSION['file']."/");
                     $configure_file=fopen("../jbrowse/data/".$_SESSION['file']."/trackList.json", "r+");
-                    if($txt[count($txt)-2]==5)
+                    if(strlen($txt[count($txt)-2])==5)
                         fseek($configure_file, -9, SEEK_END);
-                    else if($txt[count($txt)-2]==23)
+                    else if(strlen($txt[count($txt)-2])==23)
                         fseek($configure_file,-33,SEEK_END);
                     fwrite($configure_file,",\n"
                             . "\t\"onClick\" : {\n"
@@ -201,6 +201,7 @@ and open the template in the editor.
                             . "\t\t\"label\" : \"see polyA site\",\n"
                             . "\t\t\"action\" : \"newwindow\"\n"
                             . "\t}]}\n");
+                    fclose($configure_file);
                 }
                  //shell_exec("./tojbrowse/txt2bedgraph");//转换为bedgraph文件
                  //shell_exec("sort -k1,1 -k2,2n ./tojbrowse/Uppat.bedGraph > ./tojbrowse/Uppat.sorted.bedGraph ");
@@ -223,7 +224,7 @@ and open the template in the editor.
 //                 $test=shell_exec($cmd12);
                  echo"<pre>$test</pre>";
                   
-                 echo '<script>window.location.href="task_summary.php";</script>';
+//                 echo '<script>window.location.href="task_summary.php";</script>';
 //                 echo '<script>window.location.href="http://127.0.0.1/jbrowse/?data=data/'.$_SESSION['file'].'";</script>';
             ?>
 <!--        <div id="task_summery" align="center">
