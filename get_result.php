@@ -191,8 +191,10 @@ and open the template in the editor.
                     shell_exec("./src/c/txt2bed ../jbrowse/data/".$_SESSION['file']."/$value.txt ../jbrowse/data/".$_SESSION['file']."/$value.bed");
                     shell_exec("../jbrowse/bin/flatfile-to-json.pl --bed ../jbrowse/data/".$_SESSION['file']."/$value.bed --trackLabel PAC_$value --out ../jbrowse/data/".$_SESSION['file']."/");
                     $configure_file=fopen("../jbrowse/data/".$_SESSION['file']."/trackList.json", "r+");
-                    if($txt[count($txt)-4])
-                    fseek($configure_file, -9, SEEK_END);
+                    if($txt[count($txt)-2]==5)
+                        fseek($configure_file, -9, SEEK_END);
+                    else if($txt[count($txt)-2]==23)
+                        fseek($configure_file,-33,SEEK_END);
                     fwrite($configure_file,",\n"
                             . "\t\"onClick\" : {\n"
                             . "\t\t\"url\" : \"../front/sequence.php?chr={seq_id}&gene={start}&strand={strand}\",\n"
