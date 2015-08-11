@@ -20,7 +20,8 @@ and open the template in the editor.
                 . "\t\t\"url\" : \"../front/sequence.php?chr={seq_id}&gene={start}&strand={strand}\",\n"
                 . "\t\t\"label\" : \"see polyA site\",\n"
                 . "\t\t\"action\" : \"newwindow\"\n"
-                . "\t}]}\n");
+                . "\t}}]}\n");
+//        fwrite($configure_file, "heheheheheheheheeh!!!!");
         ?>
     </body>
 </html>
