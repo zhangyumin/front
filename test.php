@@ -9,10 +9,18 @@ and open the template in the editor.
     </head>
     <body>
         <?php
+        $configure_file=fopen("./tojbrowse/trackList.json", "r+");
            $txt=file('./tojbrowse/trackList.json');
-           echo $txt[count($txt)-2];
-           echo strlen($txt[count($txt)-2]);
-         
+           if(strlen($txt[count($txt)-2])==5)
+                    fseek($configure_file, -9, SEEK_END);
+            else if(strlen($txt[count($txt)-2])==23)
+                    fseek($configure_file,-33,SEEK_END);
+            fwrite($configure_file,",\n"
+                . "\t\"onClick\" : {\n"
+                . "\t\t\"url\" : \"../front/sequence.php?chr={seq_id}&gene={start}&strand={strand}\",\n"
+                . "\t\t\"label\" : \"see polyA site\",\n"
+                . "\t\t\"action\" : \"newwindow\"\n"
+                . "\t}]}\n");
         ?>
     </body>
 </html>
