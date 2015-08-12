@@ -185,12 +185,14 @@ and open the template in the editor.
                             . "\t}]}\n");
                     fclose($configure_file);
                 }
-                $txt=file('../jbrowse/data/".$_SESSION[\"file\']."/trackList.json');
                 foreach ($file_real as $key => $value) {
                     mysql_query("select chr,strand,coord,$value from db_user.PAC_$value into outfile '../jbrowse/data/".$_SESSION['file']."/$value.txt'");
                     shell_exec("./src/c/txt2bed ../jbrowse/data/".$_SESSION['file']."/$value.txt ../jbrowse/data/".$_SESSION['file']."/$value.bed");
-                    shell_exec("../jbrowse/bin/flatfile-to-json.pl --bed ../jbrowse/data/".$_SESSION['file']."/$value.bed --trackLabel PAC_$value --out ../jbrowse/data/".$_SESSION['file']."/");
+                    shell_exec("../jbrowse/bin/flatfile-to-json.pl --bed ../jbrowse/data/".$_SESSION['file']."/$value.bed --trackLabel PAC_$value --out ../jbrowse/data/".$_SESSION['file']."/");                    
+                    $txt=file("../jbrowse/data/".$_SESSION['file']."/trackList.json");
                     $configure_file=fopen("../jbrowse/data/".$_SESSION['file']."/trackList.json", "r+");
+                    rewind($configure_file);
+                    echo $txt[count($txt)-2];
                     if(strlen($txt[count($txt)-2])==5){
                         echo "short";
                         fseek($configure_file, -9, SEEK_END);
@@ -211,8 +213,10 @@ and open the template in the editor.
                             . "\t\t\"action\" : \"newwindow\"\n"
                             . "\t}}]}\n");
                     }
-                    else
-                        echo "Oh no";
+                    else{
+                        echo "Oh no\n";
+                        echo strlen($txt[count($txt)-2]);
+                    }
                     fclose($configure_file);
                 }
                  //shell_exec("./tojbrowse/txt2bedgraph");//转换为bedgraph文件
@@ -236,7 +240,7 @@ and open the template in the editor.
 //                 $test=shell_exec($cmd12);
                  echo"<pre>$test</pre>";
                   
-//                 echo '<script>window.location.href="task_summary.php";</script>';
+                 echo '<script>window.location.href="task_summary.php";</script>';
 //                 echo '<script>window.location.href="http://127.0.0.1/jbrowse/?data=data/'.$_SESSION['file'].'";</script>';
             ?>
 <!--        <div id="task_summery" align="center">
