@@ -271,9 +271,10 @@ and open the template in the editor.
          }
          
 //gene viewer数据支持        
-         $a="SELECT * from gff_arab10_all where gff_arab10_all.ftr_start<=$gene and gff_arab10_all.ftr_end>=$gene and chr=$chr;";
+         $a="SELECT * from gff_arab10_all where gff_arab10_all.ftr_start<=$gene and gff_arab10_all.ftr_end>=$gene and chr='$chr';";
          $result=mysql_query($a);
          //var_dump($result);
+//         var_dump($a);
          while($row=mysql_fetch_row($result))
          {
              //echo "in it";
@@ -283,7 +284,7 @@ and open the template in the editor.
          }
          //print_r($gene_name);
         $b="select substring(seq,$gene_start,$gene_end-$gene_start) from fa_arab10 where title='$chr';";
-        //echo $b;
+//        echo $b;
         $seq_result=  mysql_query($b);
         while($rows=mysql_fetch_row($seq_result))
          {
