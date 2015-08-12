@@ -192,6 +192,7 @@ and open the template in the editor.
                     shell_exec("../jbrowse/bin/flatfile-to-json.pl --bed ../jbrowse/data/".$_SESSION['file']."/$value.bed --trackLabel PAC_$value --out ../jbrowse/data/".$_SESSION['file']."/");
                     $configure_file=fopen("../jbrowse/data/".$_SESSION['file']."/trackList.json", "r+");
                     if(strlen($txt[count($txt)-2])==5){
+                        echo "short";
                         fseek($configure_file, -9, SEEK_END);
                          fwrite($configure_file,",\n"
                             . "\t\"onClick\" : {\n"
@@ -200,7 +201,8 @@ and open the template in the editor.
                             . "\t\t\"action\" : \"newwindow\"\n"
                             . "\t}}]}\n");
                     }
-                    else if(strlen($txt[count($txt)-2])==23){
+                    elseif(strlen($txt[count($txt)-2])==23){
+                        echo "long";
                         fseek($configure_file,-33,SEEK_END);
                          fwrite($configure_file,",\n"
                             . "\t\"onClick\" : {\n"
@@ -209,6 +211,8 @@ and open the template in the editor.
                             . "\t\t\"action\" : \"newwindow\"\n"
                             . "\t}}]}\n");
                     }
+                    else
+                        echo "Oh no";
                     fclose($configure_file);
                 }
                  //shell_exec("./tojbrowse/txt2bedgraph");//转换为bedgraph文件
