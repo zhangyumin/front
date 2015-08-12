@@ -321,7 +321,7 @@ and open the template in the editor.
          }
          //print_r($ftr);
          if($seq==NULL||$seq_area==NULL)
-             echo"<script language=javascript>alert('No data in this position');window.opener=null;window.close();</script>";
+             echo"<script language=javascript>alert('No data in this position');history.go(-1);</script>";
          echo "<script type=\"text/javascript\">";
          //echo "var sequences = ['AAAATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA','AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA','AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'];"; 
          //echo "var current_seq='AAAATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';";
@@ -2271,7 +2271,7 @@ and open the template in the editor.
                                 {
                                         short_name = data.record.gene.substr(0,30) + "...";
                                 }
-                                return short_name + "<a target='_blank' style='display:inline;' href='./show_sequence_searched.php?chr="+data.record.chr+"&gene="+data.record.coord+"&strand="+data.record.strand+"1' ><img src = './pic/score.png' hight='10px' width='80px' title='view PASS score' align='right' /></a><a style='display:inline;' href='../jbrowse/?loc="+data.record.chr+":"+data.record.coord+"&tracks=DNA%2CUser%20positive%20PAT%2CUser%20negative%20PAT%2CArabidopsis%2CusrPac' target='_blank'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
+                                return short_name + "<a target='_self' style='display:inline;' href='./show_sequence_searched.php?chr="+data.record.chr+"&gene="+data.record.coord+"&strand="+data.record.strand+"1' ><img src = './pic/score.png' hight='10px' width='80px' title='view PASS score' align='right' /></a><a style='display:inline;' href='../jbrowse/?data=data/<?php echo $_SESSION['file']?>&loc="+data.record.chr+":"+data.record.coord+"' target='_blank'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
                             }
                         },
                         chr:{
@@ -2330,7 +2330,7 @@ and open the template in the editor.
                                 {
                                         short_name = data.record.gene.substr(0,30) + "...";
                                 }
-                                return short_name + "<a target='_blank' style='display:inline;' href='./show_sequence_searched.php?chr="+data.record.chr+"&gene="+data.record.coord+"&strand="+data.record.strand+"1' ><img src = './pic/score.png' hight='10px' width='80px' title='view PASS score' align='right' /></a><a style='display:inline;' href='../jbrowse/?loc="+data.record.chr+":"+data.record.coord+"&tracks=DNA%2CUser%20positive%20PAT%2CUser%20negative%20PAT%2CArabidopsis%2CusrPac' target='_blank'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
+                                return short_name + "<a target='_self' style='display:inline;' href='./show_sequence_searched.php?chr="+data.record.chr+"&gene="+data.record.coord+"&strand="+data.record.strand+"1'><img src = './pic/score.png' hight='10px' width='80px' title='view PASS score' align='right' /></a><a style='display:inline;' href='../jbrowse/?data=data/<?php echo $_SESSION['file']?>&loc="+data.record.chr+":"+data.record.coord+"' target='_blank'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
                             }
                         },
                         chr:{
