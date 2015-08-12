@@ -191,16 +191,24 @@ and open the template in the editor.
                     shell_exec("./src/c/txt2bed ../jbrowse/data/".$_SESSION['file']."/$value.txt ../jbrowse/data/".$_SESSION['file']."/$value.bed");
                     shell_exec("../jbrowse/bin/flatfile-to-json.pl --bed ../jbrowse/data/".$_SESSION['file']."/$value.bed --trackLabel PAC_$value --out ../jbrowse/data/".$_SESSION['file']."/");
                     $configure_file=fopen("../jbrowse/data/".$_SESSION['file']."/trackList.json", "r+");
-                    if(strlen($txt[count($txt)-2])==5)
+                    if(strlen($txt[count($txt)-2])==5){
                         fseek($configure_file, -9, SEEK_END);
-                    else if(strlen($txt[count($txt)-2])==23)
-                        fseek($configure_file,-33,SEEK_END);
-                    fwrite($configure_file,",\n"
+                         fwrite($configure_file,",\n"
                             . "\t\"onClick\" : {\n"
                             . "\t\t\"url\" : \"../front/sequence.php?chr={seq_id}&gene={start}&strand={strand}\",\n"
                             . "\t\t\"label\" : \"see polyA site\",\n"
                             . "\t\t\"action\" : \"newwindow\"\n"
-                            . "\t}]}\n");
+                            . "\t}}]}\n");
+                    }
+                    else if(strlen($txt[count($txt)-2])==23){
+                        fseek($configure_file,-33,SEEK_END);
+                         fwrite($configure_file,",\n"
+                            . "\t\"onClick\" : {\n"
+                            . "\t\t\"url\" : \"../front/sequence.php?chr={seq_id}&gene={start}&strand={strand}\",\n"
+                            . "\t\t\"label\" : \"see polyA site\",\n"
+                            . "\t\t\"action\" : \"newwindow\"\n"
+                            . "\t}}]}\n");
+                    }
                     fclose($configure_file);
                 }
                  //shell_exec("./tojbrowse/txt2bedgraph");//转换为bedgraph文件
