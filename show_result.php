@@ -139,6 +139,7 @@
                     echo "<br>Internal priming reads : $internal_priming_reads";
                     echo "<br>PAT : $pat";
                     echo "<br>PAC : $pac";
+                    echo "<a style='display:block;text-align:right;color:red;' href='./download.php?data=".$_SESSION['file']."'>Click to download results</a>";
                 ?>
             </fieldset>
     </div><br>
