@@ -466,7 +466,7 @@
                     $minpat=0;
                     $minrep=0;
                 }
-                $degene_cmd="Rscript /var/www/html/front/src/r/R_pairDEgene.r minrep=$minrep minpat=$minpat donorm=$donorm path='/var/www/html/front/searched/' intbl=SearchedPAC_$file cols='".implode(':',$_SESSION['usr_checked'] ).";".implode(':', $_SESSION['sys_checked'])."' groups=user:sys conf=/var/www/html/front/src/r/db_2.xml 2>&1";
+                $degene_cmd="Rscript /var/www/html/front/src/r/R_pairDEgene.r minrep=$minrep minpat=$minpat donorm=$donorm path='/var/www/html/front/searched/' intbl=SearchedPAC_$file cols='".implode(':',$_SESSION['usr_checked'] ).";".implode(':', $_SESSION['sys_checked'])."' groups=column1:column2 conf=/var/www/html/front/src/r/db_2.xml 2>&1";
                 //$degene_cmd="Rscript /var/www/html/front/src/r/R_pairDEgene.r minrep=1 minpat=5 donorm=0 path='/home/zym/data/' intbl=PAC_sys_arab10 cols='oxt6_leaf_1:oxt6_leaf_2;wt_leaf_1:wt_leaf_2' groups=sys:user conf=/var/www/html/front/db.xml 2>&1";
                 if(count($_SESSION['usr_checked'])>1&&count($_SESSION['usr_checked']>1))
                 {
