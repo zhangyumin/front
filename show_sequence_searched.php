@@ -2694,7 +2694,7 @@ and open the template in the editor.
                                                                                                                             foreach ($_SESSION['usr_checked'] as $key => $value)
                                                                                                                                 echo "<div><input type='checkbox' id='column1'/><label for='column1'>$value</label></div>";
                                                                                                                             ?>
-                                                                                                                            <div class="foot1"><a href="#" id="submit1">确定</a></div>
+                                                                                                                            <div class="foot1"><a href="#" id="submit1">ok</a></div>
                                                                                                                         </div>
                                                                                                                     </div>
                                                                                                                 </div>
@@ -2709,7 +2709,7 @@ and open the template in the editor.
                                                                                                                             foreach ($_SESSION['usr_checked'] as $key => $value)
                                                                                                                                 echo "<div><input type='checkbox' id='column1'/><label for='column1'>$value</label></div>";
                                                                                                                             ?>
-                                                                                                                            <div class="foot2"><a href="#" id="submit2">确定</a></div>
+                                                                                                                            <div class="foot2"><a href="#" id="submit2">ok</a></div>
                                                                                                                         </div>
                                                                                                                     </div>
                                                                                                                 </div>
@@ -2816,7 +2816,7 @@ and open the template in the editor.
                                                                                                                                 foreach ($_SESSION['usr_checked'] as $key => $value)
                                                                                                                                     echo "<div><input type='checkbox' id='column3'/><label for='column3'>$value</label></div>";
                                                                                                                                 ?>
-                                                                                                                                <div class="foot3"><a href="#" id="submit3">确定</a></div>
+                                                                                                                                <div class="foot3"><a href="#" id="submit3">ok</a></div>
                                                                                                                             </div>
                                                                                                                         </div>
                                                                                                                     </div>
@@ -2831,7 +2831,7 @@ and open the template in the editor.
                                                                                                                                 foreach ($_SESSION['usr_checked'] as $key => $value)
                                                                                                                                     echo "<div><input type='checkbox' id='column4'/><label for='column4'>$value</label></div>";
                                                                                                                                 ?>
-                                                                                                                                <div class="foot4"><a href="#" id="submit4">确定</a></div>
+                                                                                                                                <div class="foot4"><a href="#" id="submit4">ok</a></div>
                                                                                                                             </div>
                                                                                                                         </div>
                                                                                                                     </div>
@@ -2920,7 +2920,7 @@ and open the template in the editor.
                                                                                                                             foreach ($_SESSION['usr_checked'] as $key => $value)
                                                                                                                                 echo "<div><input type='checkbox' id='column5'/><label for='column5'>$value</label></div>";
                                                                                                                             ?>
-                                                                                                                            <div class="foot5"><a href="#" id="submit5">确定</a></div>
+                                                                                                                            <div class="foot5"><a href="#" id="submit5">ok</a></div>
                                                                                                                         </div>
                                                                                                                     </div>
                                                                                                                 </div>
@@ -2935,7 +2935,7 @@ and open the template in the editor.
                                                                                                                             foreach ($_SESSION['usr_checked'] as $key => $value)
                                                                                                                                 echo "<div><input type='checkbox' id='column6'/><label for='column6'>$value</label></div>";
                                                                                                                             ?>
-                                                                                                                            <div class="foot6"><a href="#" id="submit6">确定</a></div>
+                                                                                                                            <div class="foot6"><a href="#" id="submit6">ok</a></div>
                                                                                                                         </div>
                                                                                                                     </div>
                                                                                                                 </div>
@@ -3024,7 +3024,7 @@ and open the template in the editor.
                                                                                                                             foreach ($_SESSION['usr_checked'] as $key => $value)
                                                                                                                                 echo "<div><input type='checkbox' id='column7'/><label for='column7'>$value</label></div>";
                                                                                                                             ?>
-                                                                                                                            <div class="foot7"><a href="#" id="submit7">确定</a></div>
+                                                                                                                            <div class="foot7"><a href="#" id="submit7">ok</a></div>
                                                                                                                         </div>
                                                                                                                     </div>
                                                                                                                 </div>
@@ -3039,7 +3039,7 @@ and open the template in the editor.
                                                                                                                             foreach ($_SESSION['usr_checked'] as $key => $value)
                                                                                                                                 echo "<div><input type='checkbox' id='column8'/><label for='column8'>$value</label></div>";
                                                                                                                             ?>
-                                                                                                                            <div class="foot8"><a href="#" id="submit8">确定</a></div>
+                                                                                                                            <div class="foot8"><a href="#" id="submit8">ok</a></div>
                                                                                                                         </div>
                                                                                                                     </div>
                                                                                                                 </div>
