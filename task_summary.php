@@ -25,6 +25,7 @@ and open the template in the editor.
                     line-height: 1.8;
                     letter-spacing: 0px;
                     border-style: dashed;
+                    width:800px;
             }
             #title{
                     font-weight: lighter;
