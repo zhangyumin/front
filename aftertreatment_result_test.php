@@ -43,23 +43,23 @@
             echo"<script language=javascript>alert('Error file format , please try again');window.opener=null;window.close();</script>";
         }
         if($_GET['result']=='degene'){
-            $a=file("./searched/SearchedPAC_$file.gene.userXsys.minpat5_minrep1_norm0");
+            $a=file(glob("./searched/SearchedPAC_$file.gene.column1Xcolumn2.minpat*")[0]);
             $b=file("./searched/SearchedPAC_$file.gene.stat");
-            $c="/var/www/html/front/searched/SearchedPAC_$file.gene.sysXuser.minpat5_minrep1_norm0";
+//            $c=glob("./searched/SearchedPAC_$file.gene.column1Xcolumn2.minpat*")[0];
         }
         if($_GET['result']=='depac'){
-            $a=file("./searched/SearchedPAC_$file.APAgene.pac.userXsys.minpat5_minrep1_norm0");
-            $c="/var/www/html/front/searched/SearchedPAC_$file.APAgene.pac.userXsys.minpat5_minrep1_norm0";
+            $a=file(glob("./searched/SearchedPAC_$file.APAgene.pac.column1Xcolumn2.minpat*")[0]);
+//            $c="./searched/SearchedPAC_$file.APAgene.pac.userXsys.minpat5_minrep1_norm0";
         }
         if($_GET['result']=='switchinggene_o'){
-            $a=file("./searched/SearchedPAC_$file.xx.avgPAT5.userXsys.FU");
-            $b=file("./searched/SearchedPAC_$file.xx.avgPAT5.FU.stat");
-            $c="/var/www/html/front/searched/SearchedPAC_$file.xx.avgPAT5.userXsys.FU";
+            $a=file(glob("./searched/SearchedPAC_$file.xx.avgPAT?.column1Xcolumn2.FU")[0]);
+            $b=file(glob("./searched/SearchedPAC_$file.xx.avgPAT?.FU.stat")[0]);
+//            $c="/var/www/html/front/searched/SearchedPAC_$file.xx.avgPAT5.userXsys.FU";
         }
         if($_GET['result']=='switchinggene_n'){
-            $a=file("./searched/SearchedPAC_$file.xx.userXsys.switch");
+            $a=file("./searched/SearchedPAC_$file.xx.column1Xcolumn2.switch");
             $b=file("./searched/SearchedPAC_$file.xx.switch.stat");
-            $c="/var/www/html/front/searched/SearchedPAC_$file.xx.userXsys.switch";
+//            $c="/var/www/html/front/searched/SearchedPAC_$file.xx.userXsys.switch";
         }
         ?>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -126,7 +126,7 @@
         <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"type="text/javascript" ></script>
         <link href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.css"type="text/css" rel="stylesheet"></link>
         <div id="task_summery" align="center" style="clear: both;color:#224055;font-size: 24px;margin: auto;">summary<br>
-            <table style="border-top-style:dashed;border-right-style: dashed;border-left-style: dashed;border-bottom-style: dashed;font-size: 18px;width: 60%;" borderColor="#4a4a84" align=center>
+            <table style="border-top-style:dashed;border-right-style: dashed;border-left-style: dashed;border-bottom-style: dashed;font-size: 18px;width: 80%;" borderColor="#4a4a84" align=center>
                 <?php
                         foreach ($b as $key => $value) {
                             echo "<tr>";
