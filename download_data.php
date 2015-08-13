@@ -6,7 +6,7 @@
         $file_path="/var/www/html/front/download/";
     }
     elseif($_GET['type']==2){
-        $file_path="./data/";
+        $file_path="./data/".$_SESSION['file']."/";
     }
     elseif ($_GET['type']==3) {
         $file_path="./result/";
