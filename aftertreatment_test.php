@@ -404,7 +404,7 @@
                 $avgpat=0;
             $column5=$_POST['column5'];
             $column6=$_POST['column6'];
-            $sg_ocmd="Rscript /var/www/html/front/src/r/R_switchFU.r ogene=F avgPAT=$avgpat suffix=xx path='/var/www/html/front/searched/' intbl=SearchedPAC_$file cols='$column5;$column6' groups=user:sys conf=/var/www/html/front/src/r/db_2.xml 2>&1";
+            $sg_ocmd="Rscript /var/www/html/front/src/r/R_switchFU.r ogene=F avgPAT=$avgpat suffix=xx path='/var/www/html/front/searched/' intbl=SearchedPAC_$file cols='$column5;$column6' groups=cokumn1:column2 conf=/var/www/html/front/src/r/db_2.xml 2>&1";
             //echo $sg_ocmd;
             echo shell_exec($sg_ocmd);
             echo '<script>window.location.href="aftertreatment_result_test.php?result=switchinggene_o&chr=1&gene=31185&strand=-1";</script>';
@@ -421,7 +421,7 @@
             $minpat6=$_POST['minpat6'];
             $column7=$_POST['column7'];
             $column8=$_POST['column8'];
-            $sg_ncmd="Rscript /var/www/html/front/src/r/R_switchMangone.r path='/var/www/html/front/searched/' intbl=SearchedPAC_$file switch=$minpat1:$minpat2:$minpat3:$minpat4:$minpat5:$minpat6 cond='' suffix=xx cols='$column7;$column8' groups=user:sys conf=/var/www/html/front/src/r/db_2.xml 2>&1";
+            $sg_ncmd="Rscript /var/www/html/front/src/r/R_switchMangone.r path='/var/www/html/front/searched/' intbl=SearchedPAC_$file switch=$minpat1:$minpat2:$minpat3:$minpat4:$minpat5:$minpat6 cond='' suffix=xx cols='$column7;$column8' groups=column1:column2 conf=/var/www/html/front/src/r/db_2.xml 2>&1";
             //echo $sg_ncmd;
             echo shell_exec($sg_ncmd);
             echo '<script>window.location.href="aftertreatment_result_test.php?result=switchinggene_n&chr=1&gene=31185&strand=-1";</script>';
@@ -492,7 +492,7 @@
                     $minpat=0;
                     $minrep=0;
                 }
-                $depac_cmd="Rscript /var/www/html/front/src/r/R_pairDEPAC.r minrep=$minrep minpat=$minpat donorm=$donorm path='/var/www/html/front/searched/' intbl=SearchedPAC_$file cols='".implode(':',$_SESSION['usr_checked'] ).";".implode(':', $_SESSION['sys_checked'])."' groups=user:sys conf=/var/www/html/front/src/r/db_2.xml 2>&1";
+                $depac_cmd="Rscript /var/www/html/front/src/r/R_pairDEPAC.r minrep=$minrep minpat=$minpat donorm=$donorm path='/var/www/html/front/searched/' intbl=SearchedPAC_$file cols='".implode(':',$_SESSION['usr_checked'] ).";".implode(':', $_SESSION['sys_checked'])."' groups=column1:column2 conf=/var/www/html/front/src/r/db_2.xml 2>&1";
                 echo "<br><br>$depac_cmd<br><br>";
                 echo shell_exec($depac_cmd);
                 echo '<script>window.location.href="aftertreatment_result_test.php?result=depac&chr=1&gene=31185&strand=-1";</script>';
@@ -503,7 +503,7 @@
                         $avgpat=$_POST['sgminpat'];
                     else
                         $avgpat=0;
-                    $sg_ocmd="Rscript /var/www/html/front/src/r/R_switchFU.r ogene=F avgPAT=$avgpat suffix=xx path='/var/www/html/front/searched/' intbl=SearchedPAC_$file cols='".implode(':',$_SESSION['usr_checked'] ).";".implode(':', $_SESSION['sys_checked'])."' groups=user:sys conf=/var/www/html/front/src/r/db_2.xml 2>&1";
+                    $sg_ocmd="Rscript /var/www/html/front/src/r/R_switchFU.r ogene=F avgPAT=$avgpat suffix=xx path='/var/www/html/front/searched/' intbl=SearchedPAC_$file cols='".implode(':',$_SESSION['usr_checked'] ).";".implode(':', $_SESSION['sys_checked'])."' groups=column1:column2 conf=/var/www/html/front/src/r/db_2.xml 2>&1";
                     //echo $sg_ocmd;
                     echo shell_exec($sg_ocmd);
                     echo '<script>window.location.href="aftertreatment_result_test.php?result=switchinggene_o&chr=1&gene=31185&strand=-1";</script>';
@@ -518,7 +518,7 @@
                     $minpat4=$_POST['minpat4'];
                     $minpat5=$_POST['minpat5'];
                     $minpat6=$_POST['minpat6'];
-                    $sg_ncmd="Rscript /var/www/html/front/src/r/R_switchMangone.r path='/var/www/html/front/searched/' intbl=SearchedPAC_$file switch=$minpat1:$minpat2:$minpat3:$minpat4:$minpat5:$minpat6 cond='' suffix=xx cols='".implode(':',$_SESSION['usr_checked'] ).";".implode(':', $_SESSION['sys_checked'])."' groups=user:sys conf=/var/www/html/front/src/r/db_2.xml 2>&1";
+                    $sg_ncmd="Rscript /var/www/html/front/src/r/R_switchMangone.r path='/var/www/html/front/searched/' intbl=SearchedPAC_$file switch=$minpat1:$minpat2:$minpat3:$minpat4:$minpat5:$minpat6 cond='' suffix=xx cols='".implode(':',$_SESSION['usr_checked'] ).";".implode(':', $_SESSION['sys_checked'])."' groups=column1:column2 conf=/var/www/html/front/src/r/db_2.xml 2>&1";
                     //echo $sg_ncmd;
                     echo shell_exec($sg_ncmd);
                     echo '<script>window.location.href="aftertreatment_result_test.php?result=switchinggene_n&chr=1&gene=31185&strand=-1";</script>';
