@@ -45,21 +45,21 @@
         if($_GET['result']=='degene'){
             $a=file(glob("./searched/SearchedPAC_$file.gene.column1Xcolumn2.minpat*")[0]);
             $b=file("./searched/SearchedPAC_$file.gene.stat");
-//            $c=glob("./searched/SearchedPAC_$file.gene.column1Xcolumn2.minpat*")[0];
+            $c = substr(glob("./searched/SearchedPAC_$file.gene.column1Xcolumn2.minpat*")[0], 11);
         }
         if($_GET['result']=='depac'){
             $a=file(glob("./searched/SearchedPAC_$file.APAgene.pac.column1Xcolumn2.minpat*")[0]);
-//            $c="./searched/SearchedPAC_$file.APAgene.pac.userXsys.minpat5_minrep1_norm0";
+            $c = substr(glob("./searched/SearchedPAC_$file.APAgene.pac.column1Xcolumn2.minpat*")[0], 11);
         }
         if($_GET['result']=='switchinggene_o'){
             $a=file(glob("./searched/SearchedPAC_$file.xx.avgPAT?.column1Xcolumn2.FU")[0]);
             $b=file(glob("./searched/SearchedPAC_$file.xx.avgPAT?.FU.stat")[0]);
-//            $c="/var/www/html/front/searched/SearchedPAC_$file.xx.avgPAT5.userXsys.FU";
+            $c = substr(glob("./searched/SearchedPAC_$file.xx.avgPAT?.column1Xcolumn2.FU")[0], 11);
         }
         if($_GET['result']=='switchinggene_n'){
             $a=file("./searched/SearchedPAC_$file.xx.column1Xcolumn2.switch");
             $b=file("./searched/SearchedPAC_$file.xx.switch.stat");
-//            $c="/var/www/html/front/searched/SearchedPAC_$file.xx.userXsys.switch";
+            $c = substr("./searched/SearchedPAC_$file.xx.column1Xcolumn2.switch", 11);
         }
         ?>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -179,7 +179,7 @@
             });
         </script>
         <div id="download"style="border: #ff6600 2px dotted;border-collapse: collapse;text-align: center">
-            CLick to download the list data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="javascript:window.location.href='./download_data.php?file=<?php echo $c; ?>'">download</button>
+            CLick to download the list data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="javascript:window.location.href='./download_data.php?type=4&name=<?php echo $c; ?>'">download</button>
         </div>
     <?php
          $singnals = array("AATAAA","TATAAA","CATAAA","GATAAA","ATTAAA","ACTAAA","AGTAAA","AAAAAA","AACAAA","AAGAAA","AATTAA","AATCAA","AATGAA","AATATA","AATACA","AATAGA","AATAAT","AATAAC","AATAAG");        
