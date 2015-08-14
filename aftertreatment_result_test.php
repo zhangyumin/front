@@ -158,8 +158,15 @@
                                         echo "<tr>";
                                         $tmp=  explode("\t", $a[$key]);
                                         foreach ($tmp as $key1 => $value1) {
-                                            if($key1==0)
-                                            echo "<td><a href='./aftertreatment_result_test.php?result=depac&chr=$tmp[2]&gene=$tmp[1]&strand=$tmp[3]1'>$value1</a></td>";
+                                            if($key1==0){
+                                                if($_GET['result']=='degene'){
+                                                    $pos_sql=mysql_query("select ftr_start from db_bio.gff_arab10_all where gene='$tmp[1]';");
+                                                    $pos=  mysql_fetch_row($pos_sql)[0];
+                                                    echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$tmp[3]&gene=$pos&strand=$tmp[4]1'>$value1</a></td>";
+                                                }
+                                                else
+                                                    echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$tmp[2]&gene=$tmp[1]&strand=$tmp[3]1'>$value1</a></td>";
+                                            }
                                         else
                                             echo "<td>$value1</td>";
                                         }
