@@ -9,7 +9,7 @@
         $file_path="./data/".$_SESSION['file']."/";
     }
     elseif ($_GET['type']==3) {
-        $file_path="./result/";
+        $file_path="./result/".$_SESSION['file']."/";
     }
     elseif($_GET['type']==4){
         $file_path="./searched/";
