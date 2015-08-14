@@ -1640,6 +1640,9 @@
             </div>
         </div>
     <?php
+        include './wheelmenu.php';
+        ?>
+    <?php
         include './footer.php';
     ?>
 </body>
