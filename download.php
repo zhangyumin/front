@@ -17,6 +17,7 @@ and open the template in the editor.
         </style>
     </head>
     <body>
+    <script src="./src/jquery-2.0.0.min.js"></script>
         <?php
             include"./navbar.php";
         ?>
@@ -78,6 +79,54 @@ and open the template in the editor.
             </table><br>
         </fieldset>
         </div><br>
+        <?php
+            session_start();
+            if($_GET['data']!=NULL){
+                echo "<div class=\"table-result\" style=\"border-style: dotted;border-color: #366fa5;width:80%;margin: auto;\">"
+                . "<fieldset class=\"download\" style=\"text-align: center;min-width: 100%;\">"
+                    . " <legend>"
+                    . "<span style=\"margin:auto;\">"
+                    . "<font color=\"#224055\" size=\"18px;\"><b>Results</b></font>"
+                    . "</span>"
+                    . "</legend>"
+                    . "<table style=\"margin:auto;border-color: #87cefa;border:2px;\" border rules='rows'>"
+                    . "<tr>"
+                    . "<td>Name</td>"
+                    . "<td>Description</td>"
+                    . "<td>File Type</td>"
+                    . "<td>Download</td>"
+                    . "</tr>"
+                    . "<tr>";
+                echo "<td>hexamer</td>"
+                    . "<td>hexamer statistics</td>"
+                    . "<td>txt</td>"
+                    . "<td><a href=\"./download_data.php?type=3&name=db_user.PAC_".$_SESSION['file'].".SQL.400nt.".$_SESSION['file'].".PAT2.5236s_265to290_k6_top50_sort_once\"/>Click here</td>"
+                    . "</tr>";
+                echo "<td>Single Nucleotide</td>"
+                    . "<td>Single Nucleotide Compositions</td>"
+                    . "<td>cnt</td>"
+                    . "<td><a href=\"./download_data.php?type=3&name=db_user.PAC_".$_SESSION['file'].".SQL.400nt.".$_SESSION['file'].".PAT2.5236s_atcg.cnt\"/>Click here</td>"
+                    . "</tr>";
+                foreach ($_SESSION['file_real'] as $key =>$value){
+                    echo "<td>$value</td>"
+                    . "<td>polyA site file</td>"
+                    . "<td>PA</td>"
+                    . "<td><a href=\"./download_data.php?type=2&name=$value.qc.fa.noT.fa.sam.M30S10.PA\"/>Click here</td>"
+                    . "</tr>";
+                    echo "<td>$value</td>"
+                    . "<td>PAT file</td>"
+                    . "<td>PAT</td>"
+                    . "<td><a href=\"./download_data.php?type=2&name=$value.qc.fa.noT.fa.sam.M30S10.PA_PAT\"/>Click here</td>"
+                    . "</tr>";
+                }
+                    echo " </table><br>"
+                    . "</fieldset>"
+                    . "</div><br>";
+            }
+        ?>
+        <?php
+            include"./wheelmenu.php";
+        ?>
         <?php
             include"./footer.php";
           ?>
