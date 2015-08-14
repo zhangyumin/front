@@ -82,6 +82,10 @@ and open the template in the editor.
         <?php
             session_start();
             if($_GET['data']!=NULL){
+                $hexamer=  glob("./result/".$_SESSION['file']."/db_user.PAC_".$_SESSION['file'].".SQL.400nt.".$_SESSION['file'].".PAT*sort_once")[0];
+                $hexamer = substr($hexamer, 28);
+                $snc=  glob("./result/".$_SESSION['file']."/db_user.PAC_".$_SESSION['file'].".SQL.400nt.".$_SESSION['file'].".PAT*.cnt")[0];
+                $snc = substr($snc, 28);
                 echo "<div class=\"table-result\" style=\"border-style: dotted;border-color: #366fa5;width:80%;margin: auto;\">"
                 . "<fieldset class=\"download\" style=\"text-align: center;min-width: 100%;\">"
                     . " <legend>"
@@ -100,12 +104,12 @@ and open the template in the editor.
                 echo "<td>hexamer</td>"
                     . "<td>hexamer statistics</td>"
                     . "<td>txt</td>"
-                    . "<td><a href=\"./download_data.php?type=3&name=db_user.PAC_".$_SESSION['file'].".SQL.400nt.".$_SESSION['file'].".PAT2.5236s_265to290_k6_top50_sort_once\"/>Click here</td>"
+                    . "<td><a href=\"./download_data.php?type=3&name=$hexamer\"/>Click here</td>"
                     . "</tr>";
                 echo "<td>Single Nucleotide</td>"
                     . "<td>Single Nucleotide Compositions</td>"
                     . "<td>cnt</td>"
-                    . "<td><a href=\"./download_data.php?type=3&name=db_user.PAC_".$_SESSION['file'].".SQL.400nt.".$_SESSION['file'].".PAT2.5236s_atcg.cnt\"/>Click here</td>"
+                    . "<td><a href=\"./download_data.php?type=3&name=$snc\"/>Click here</td>"
                     . "</tr>";
                 foreach ($_SESSION['file_real'] as $key =>$value){
                     echo "<td>$value</td>"
