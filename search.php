@@ -8,6 +8,14 @@
         <?php
             include"navbar.php";
         ?>
+        <div class="search">
+            <div class="search_block">
+                
+            </div>
+            <div class="jump_block">
+                
+            </div>
+        </div>
         <?php
             include"wheelmenu.php";
             ?>
