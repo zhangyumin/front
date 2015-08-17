@@ -16,6 +16,20 @@
                 
             </div>
         </div>
+        <br>
+        <div class="getback">
+            <form method="post" id="getback" action="#">
+                <input name="getback"/>
+                <button type="submit">submit</button>
+            </form>
+        </div>
+        <?php
+            session_start();
+            if($_POST['getback']!=NULL){
+                $_SESSION['file']=$_POST['getback'];
+                 echo '<script>window.location.href="show_result.php";</script>';
+            }
+            ?>
         <?php
             include"wheelmenu.php";
             ?>
