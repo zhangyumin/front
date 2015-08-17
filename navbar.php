@@ -49,7 +49,8 @@
         <ul class="nav navbar-nav">
             <li class="home"><a href="./index.php">Home</a></li>
             <li class="run"><a href="./upload_option.php">Run</a></li>
-            <li class="jbrowse"><a href="../jbrowse/?data=data/arabidopsis">Browse</a></li>
+<!--            <li class="jbrowse"><a href="../jbrowse/?data=data/arabidopsis">Browse</a></li>-->
+            <li class="jbrowse"><a href="./search.php">Browse</a></li>
             <li class="download"><a href="./download.php">Download</a></li>
             <li class="help"><a href="./help.php">Help</a></li>
             <li class="contactus"><a href="./contactus.php">Contact us</a></li>
