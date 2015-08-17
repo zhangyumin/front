@@ -9,24 +9,13 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        $configure_file=fopen("./tojbrowse/trackList.json", "r+");
-           $txt=file('../jbrowse/data/arab20150812035603/trackList.json');
-           echo strlen($txt[count($txt)-2]);
-           if(strlen($txt[count($txt)-2])==5){
-                echo "short";
-                    fseek($configure_file, -9, SEEK_END);
-           }
-            else if(strlen($txt[count($txt)-2])==23){
-                echo "long";
-                    fseek($configure_file,-33,SEEK_END);
-            }
-//            fwrite($configure_file,",\n"
-//                . "\t\"onClick\" : {\n"
-//                . "\t\t\"url\" : \"../front/sequence.php?chr={seq_id}&gene={start}&strand={strand}\",\n"
-//                . "\t\t\"label\" : \"see polyA site\",\n"
-//                . "\t\t\"action\" : \"newwindow\"\n"
-//                . "\t}}]}\n");
-//        fwrite($configure_file, "heheheheheheheheeh!!!!");
+//        $list=  scandir("./data/arab20150817021749/");
+//        foreach ($list as $key => $value) {
+//            if(preg_match("(\w*\.)(fastq$|fa$)", $value))
+//                    echo "$value<br>";
+//        }
+//        var_dump($list);
+            var_dump(preg_match("/^\w*", "arabfastq"));
         ?>
     </body>
 </html>
