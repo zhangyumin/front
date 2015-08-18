@@ -150,7 +150,8 @@
                     $internal_priming_reads=$array_internal[1];
                     $pat=$array_pat[0];
                     $pac=$array_pac[0];
-
+                    
+                    echo "<span style=\"color:red\">Task id :".$_SESSION['file']."</span><br>";
                     echo "Input reads : $input_reads";
                     echo "<br>Low quality reads : $low_quality_reads";
                     echo "<br>Reads with tail : $reads_with_tail";
