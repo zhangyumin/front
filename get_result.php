@@ -25,14 +25,21 @@ and open the template in the editor.
                 #echo  $_SESSION['file'] ;
                 $file_name = scandir("./data/".$_SESSION['file']."");
                 $file_name = array_slice($file_name, 2);
-                $file_num = sizeof($file_name);
+//                $file_num = sizeof($file_name);
                 $file_real=array();
+                $upload_name = array();
                 foreach ($file_name as $key => $value) {
-                    array_push($file_real,str_replace(strrchr($value, "."), '', $value));
+                    array_push($file_real,str_replace(strchr($value, "."), '', $value));
                     //var_dump($file_real);
                 }
+                array_push($upload_name, $file_real[0]);
+                foreach ($file_real as $key => $value) {
+                    if($value!=$file_real[0])
+                        array_push ($upload_name, $value);
+                }
+                $upload_name = array_unique($upload_name);
                 //$_SESSION['file_real']=array();
-                $_SESSION['file_real']=$file_real;
+                $_SESSION['file_real']=$upload_name;
                 foreach($file_real as $key => $value)
                 {
                     //echo "step1:原始序列预处理";
