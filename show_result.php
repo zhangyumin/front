@@ -24,6 +24,26 @@
 <body>
     <?php
            session_start();
+           if(!isset($_SESSION['file_real']))
+           {
+               $file_name = scandir("./data/".$_SESSION['file']."");
+                $file_name = array_slice($file_name, 2);
+//                $file_num = sizeof($file_name);
+                $file_real=array();
+                $upload_name = array();
+                foreach ($file_name as $key => $value) {
+                    array_push($file_real,str_replace(strchr($value, "."), '', $value));
+                    //var_dump($file_real);
+                }
+                array_push($upload_name, $file_real[0]);
+                foreach ($file_real as $key => $value) {
+                    if($value!=$file_real[0])
+                        array_push ($upload_name, $value);
+                }
+                $upload_name = array_unique($upload_name);
+                //$_SESSION['file_real']=array();
+                $_SESSION['file_real']=$upload_name;
+           }
            $atcg_name=glob("./result/".$_SESSION['file']."/*.".$_SESSION['file'].".*.cnt");
            $file_atcg="$atcg_name[0]";
            #echo $file_atcg;
