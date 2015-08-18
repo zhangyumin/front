@@ -9,13 +9,20 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-//        $list=  scandir("./data/arab20150817021749/");
-//        foreach ($list as $key => $value) {
-//            if(preg_match("(\w*\.)(fastq$|fa$)", $value))
-//                    echo "$value<br>";
-//        }
-//        var_dump($list);
-            var_dump(preg_match("/^\w*", "arabfastq"));
+        $list=  scandir("./data/arab20150817021749/");
+        $list = array_slice($list, 2);
+        $list_name=array();
+        $list_real=array();
+        foreach ($list as $key => $value) {
+                    array_push($list_name,str_replace(strchr($value, "."), '', $value));
+                }
+        foreach ($list_name as $key => $value) {
+            if($value!=$list_name[0])
+                array_push ($list_real, $value);
+        }
+        array_push($list_real, $list_name[0]);
+        $list_real = array_unique($list_real);
+        var_dump($list_real);
         ?>
     </body>
 </html>
