@@ -2597,12 +2597,12 @@ and open the template in the editor.
                                                                                                     <option value='chloroplast'>chloroplast</option>
                                                                                                     <option value='mitochondria'>mitochondria</option>
                                                                                               </select><br>
-                                                                                            Start:<br><input type='text' name='start' style="color:black;"/><br>
-                                                                                            End:<br><input type='text' name='end' style="color:black;"/><br>
+                                                                                            Start:<input type='text' name='start' style="color:black;"/><br>
+                                                                                            End:&nbsp<input type='text' name='end' style="color:black;"/><br>
                                                                                             Gene ID:(use ',' to split different gene id)<br><textarea rows="3" cols="30" name="gene_id" style="color:black;"></textarea><br>
                                                                                             Go term accession:<br>(use ',' to split different gene id)<br><textarea rows="3" cols="30" name='go_accession' style="color:black;"></textarea><br>
-                                                                                            Go term name:<br><input type='text' name='go_name' style="color:black;"/><br>
-                                                                                            Function:<br><input type='text' name='function' style="color:black;"/><br>
+                                                                                            Go term name:<input type='text' name='go_name' style="color:black;"/><br>
+                                                                                            Function:<input type='text' name='function' style="color:black;"/><br>
                                                                                             Samples:<br>&nbsp;&nbsp;&nbsp;System:<br>
                                                                                                         <?php
                                                                                                             $con=  mysql_connect("localhost","root","root");
