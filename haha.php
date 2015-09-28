@@ -1,3 +1,3 @@
 <?php
-    echo "haha";
+    echo "what the fuck";
     ?>
