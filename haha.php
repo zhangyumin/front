@@ -1,3 +1,3 @@
 <?php
-    echo "double fuck";
+    echo "triple fuck";
     ?>
