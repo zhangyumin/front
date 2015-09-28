@@ -129,9 +129,6 @@ and open the template in the editor.
             }
         ?>
         <?php
-            include"./wheelmenu.php";
-        ?>
-        <?php
             include"./footer.php";
           ?>
     </body>

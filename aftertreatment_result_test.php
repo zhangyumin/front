@@ -123,8 +123,8 @@
             include './navbar.php'
         ?>
         <script src="./src/jquery-1.10.1.min.js" type="text/javascript"></script>
-        <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"type="text/javascript" ></script>
-        <link href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.css"type="text/css" rel="stylesheet"></link>
+        <script src="./src/jquery.dataTables.min.js"type="text/javascript" ></script>
+        <link href="./src/jquery.dataTables.css"type="text/css" rel="stylesheet"></link>
         <div id="task_summery" align="center" style="clear: both;color:#224055;font-size: 24px;margin: auto;">summary<br>
             <table style="border-top-style:dashed;border-right-style: dashed;border-left-style: dashed;border-bottom-style: dashed;font-size: 18px;width: 80%;" borderColor="#4a4a84" align=center>
                 <?php
@@ -158,19 +158,56 @@
                                         echo "<tr>";
                                         $tmp=  explode("\t", $a[$key]);
                                         foreach ($tmp as $key1 => $value1) {
-                                            if($key1==0){
-                                                if($_GET['result']=='degene'){
+                                            if($_GET['result']=='degene'){
+                                                if($key1==1){
                                                     $pos_sql=mysql_query("select ftr_start from db_bio.gff_arab10_all where gene='$tmp[1]';");
                                                     $pos=  mysql_fetch_row($pos_sql)[0];
-                                                    echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$tmp[3]&gene=$pos&strand=$tmp[4]1'>$value1</a></td>";
+                                                    if($tmp[4]=='+')
+                                                        echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$tmp[3]&gene=$pos&strand=1'>$value1</a></td>";
+                                                    else
+                                                        echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$tmp[3]&gene=$pos&strand=$tmp[4]1'>$value1</a></td>";
                                                 }
                                                 else
-                                                    echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$tmp[2]&gene=$tmp[1]&strand=$tmp[3]1'>$value1</a></td>";
+                                                    echo "<td>$value1</td>";
                                             }
-                                        else
-                                            echo "<td>$value1</td>";
+                                            else if($_GET['result']=='depac'){
+                                                if($key1==0){
+                                                    if($tmp[3]=='+')
+                                                    echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$tmp[2]&gene=$tmp[1]&strand=1'>$value1</a></td>";
+                                                else
+                                                    echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$tmp[2]&gene=$tmp[1]&strand=$tmp[3]1'>$value1</a></td>";
+                                                }
+                                                else
+                                                    echo "<td>$value1</td>";
+                                            }
+                                            else if($_GET['result']=='switchinggene_o'){
+                                                if($key1==0){
+                                                    $pos_sql=mysql_query("select chr,strand,ftr_start from db_bio.gff_arab10_all where gene='$tmp[0]';");
+                                                    while($o_row=  mysql_fetch_row($pos_sql)){
+                                                        $o_chr=$o_row[0];
+                                                        $pos=$o_row[2];
+                                                        $o_strand=$o_row[1];
+                                                    }
+                                                    if($o_strand=='+')
+                                                        echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$o_chr&gene=$pos&strand=1'>$value1</a></td>";
+                                                    else
+                                                        echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$o_chr&gene=$pos&strand=-1'>$value1</a></td>";
+                                                }
+                                                else
+                                                    echo "<td>$value1</td>";
+                                            }
+                                            else if($_GET['result']=='switchinggene_n'){
+                                                if($key1==7){
+                                                    if($tmp[1]=='+')
+                                                        echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$tmp[0]&gene=$tmp[2]&strand=1'>$value1</a></td>";
+                                                    else
+                                                        echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$tmp[0]&gene=$tmp[2]&strand=$tmp[1]1'>$value1</a></td>";
+                                                }
+                                                else
+                                                    echo "<td>$value1</td>";
+                                            }
                                         }
-                                        echo "</tr>";
+                                        echo "</tr >";
                                     }
                             }
                         ?>

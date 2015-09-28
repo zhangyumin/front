@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-         <?php
-         session_start();
-         if($_POST['chr'])
-        {
-            $chr=$_POST['chr'];
-        }
-        else if($_GET['chr'])
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Search</title>
+        <script src="./src/jquery-2.0.0.min.js"></script>
+        <?php
+        if($_GET['chr'])
         {
             $chr=$_GET['chr'];
         }
@@ -20,23 +12,11 @@ and open the template in the editor.
         {
             echo"<script language=javascript>alert('Error file format , please try again');window.opener=null;window.close();</script>";
         }
-        if($_POST['gene'])
+        if($_GET['ftr_start']&&$_GET['ftr_end'])
         {
-            $gene=$_POST['gene'];
+            $gene=($_GET['ftr_start']+$_GET['ftr_end'])/2;
         }
-        else if($_GET['gene'])
-        {
-            $gene=$_GET['gene'];
-        }
-        else
-        {
-            echo"<script language=javascript>alert('Please type gene ID');window.opener=null;window.close();</script>";
-        }
-        if($_POST['strand'])
-        {
-            $strand=$_POST['strand'];
-        }
-        else if($_GET['strand'])
+        if($_GET['strand'])
         {
             $strand=$_GET['strand'];
         }
@@ -45,13 +25,15 @@ and open the template in the editor.
             echo"<script language=javascript>alert('Error file format , please try again');window.opener=null;window.close();</script>";
         }
         ?>
-        <link href="./src/navbar.css" rel="stylesheet"/>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
-        <style type="text/css">
-            body{
+        <style>
+            table{
+                font-size: 12px;
+            }
+            #gotable td,#genetable td,#polyatable td{
+                padding: 4px 4px;
+            }
+            #straight_matter{
                 font-family:Courier New;
-                font-size: 14px;
             }
              span.pt1{
                 color:black;
@@ -89,125 +71,25 @@ and open the template in the editor.
                 color:black;
                 background-color: #984B4B;
             }
-            div.filter_class{
-                //float: left;
-                //button:5;
-                //display: inline;
-                text-align: right;
-                //margin-left: 150px;
-            }
-            .jtable-title-text{
-                font-size:20px;
-                text-align: center;
-            }
-            html, body { height: 100%; overflow-x: hidden; }
-            .wrapper { width: 100%; box-sizing: border-box; border-top: 2px solid #6c6c6c; background-color: #fefefe; }
-            .link-menu { font-size: 2.2rem; }
-            .link-menu:hover { color: #807d7d; }
-            .sidebar { background-color: #312f2f; }
-            .sidebar li + li { margin-top: 12px; }
-            .sidebar li a { padding: 4px 10px; display: block; color: #cecece; }
-            .sidebar li a:hover { background-color: #424242; }
-            .sidebar li a.current { background-color: #6b6464; }
-            .jsc-sidebar { position: fixed; top: 0; left: 0; width: 310px; height: 100%; font-family: "Microsoft Yahei" }
-            .jsc-sidebar-content { position: relative; top: 0; left: 0; min-height: 100%; z-index: 10; background-color: white; }
-            .jsc-sidebar-pulled { transition: transform 0.5s ease; -webkit-transition: -webkit-transform 0.5s ease; -moz-transition: -moz-transform 0.5s ease; -ms-transition: -ms-transform 0.5s ease; transform: translate3d(0, 0, 0); -webkit-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; -webkit-perspective: 1000; }
-            .jsc-sidebar-pushed { transform: translate3d(310px, 0, 0); -webkit-transform: translate3d(310, 0, 0); -moz-transform: translate3d(310px, 0, 0); -ms-transform: translate3d(300px, 0, 0); }
-            .jsc-sidebar-scroll-disabled { position: fixed; overflow: hidden; }
-            
             fieldset{
                 border-color: #5499c9 !important;
                 border-style: solid !important;
                 border-width: 2px !important;
                 padding: 5px 10px !important;
             }
-            legend{
-                margin-bottom: 0 !important;
-            }
-            span.slidebar-content{
-                color:#fff;
-            }
-            div.swiper-slide{
-                color:black;
-            }
         </style>
-        <script src="./src/jquery-2.0.0.min.js" type="text/javascript"></script>
     </head>
     <body>
-        <link rel="stylesheet" href="./src/slidebar.css">
-        <script src="./src/idangerous.swiper.min.js"></script> 
-             <?php
-                     include './navbar.php';
-                     ?>
-            <div class="whole-page" style="float:left;width:100%">               
         <?php
-        $con=  mysql_connect("localhost","root","root");
-        mysql_select_db("db_bio",$con);
+            include"navbar.php";
+        ?>
+        <?php
+            $con=  mysql_connect("localhost","root","root");
+            mysql_select_db("db_bio",$con);
         ?>
         <?php
          $singnals = array("AATAAA","TATAAA","CATAAA","GATAAA","ATTAAA","ACTAAA","AGTAAA","AAAAAA","AACAAA","AAGAAA","AATTAA","AATCAA","AATGAA","AATATA","AATACA","AATAGA","AATAAT","AATAAC","AATAAG");        
-//pattern viewer数据支持
-         $pa_file=$_SESSION['file'];
-         $pa_high100=$gene+100;
-         $pa_high200=$gene+200;
-         $pa_low100=$gene-100;
-         $pa_low200=$gene-200;
-         if(strcmp($strand,1)==0){
-             $a_area="SELECT substring(seq,$gene-200,300) from fa_arab10 WHERE title='$chr';";
-             $pa_query="select * from db_user.PA_$pa_file where chr=$chr and db_user.PA_$pa_file.coord>=$pa_low200 and db_user.PA_$pa_file.coord<=$pa_high100 and db_user.PA_$pa_file.tot_tagnum>0;";
-            //echo $a;
-             //echo "in 1";
-         }
-         if(strcmp($strand,-1)==0){
-             $a_area="SELECT substring(seq,$gene-100,300) from fa_arab10 WHERE title='$chr';";
-             $pa_query="select * from db_user.PA_$pa_file where chr=$chr and db_user.PA_$pa_file.coord>=$pa_low100 and db_user.PA_$pa_file.coord<=$pa_high200 and db_user.PA_$pa_file.tot_tagnum>0;";
-              //echo $a;
-             //echo "in 2";
-         }
-         
-         $result_area=mysql_query($a_area);
-         while($row_area=mysql_fetch_row($result_area))
-         {
-             //echo "in it";
-             $seq_area=$row_area[0];
-         }
-         if(strcmp($strand,-1)==0)
-         {
-             $seq_area= strrev($seq_area);
-             $seq_arr_area=str_split($seq_area);
-             //$seq_arr=['G','A','T','C','G','T','A'];
-             foreach ($seq_arr_area as &$value) {
-                 if($value=='A')
-                     $value='T';
-                 else if($value=='T'||$value=='U')
-                     $value='A';
-                 else if($value=='C')
-                     $value='G';
-                 else if($value=='G')
-                     $value='C';
-                 else
-                     $value='N';
-             }
-             $seq_area=  implode($seq_arr_area);
-         }
-         $pa_result=  mysql_query($pa_query);
-         while ($pa_row=  mysql_fetch_row($pa_result))
-         {
-             $pa_start[]=$pa_row[2];
-         }
-         foreach($pa_start as $key => $value)
-         {
-             if(strcmp($strand,-1)==0)
-             {
-                 $pa_start[$key]=$pa_start[$key]-$pa_low100;
-             }
-             else if(strcmp($strand,1)==0)
-            {
-                $pa_start[$key]=$pa_start[$key]-$pa_low200;
-             }
-         }
-         
-//gene viewer数据支持        
+ 
          $a="SELECT * from gff_arab10_all where gff_arab10_all.ftr_start<=$gene and gff_arab10_all.ftr_end>=$gene and chr=$chr;";
          $result=mysql_query($a);
          //var_dump($result);
@@ -257,8 +139,7 @@ and open the template in the editor.
              $f_end[]=$row_f[5];
          }
          //print_r($ftr);
-         if($seq==NULL||$seq_area==NULL)
-             echo"<script language=javascript>alert('No data in this position');go.history(-1);</script>";
+
          echo "<script type=\"text/javascript\">";
          //echo "var sequences = ['AAAATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA','AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA','AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'];"; 
          //echo "var current_seq='AAAATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';";
@@ -266,12 +147,6 @@ and open the template in the editor.
          //echo "sequences.push('$row[0]');";
          echo "var current_seq = '$seq';";
          echo "sequences.push('$seq');";
-         
-         echo "var sequences_area=[];";
-         //echo "sequences.push('$row[0]');";
-         echo "var current_seq_area = '$seq_area';";
-         echo "sequences_area.push('$seq_area');";
-         
          echo "var sutr_start=[];";
          echo "var sutr_end=[];";
          echo "var wutr_start=[];";
@@ -282,12 +157,6 @@ and open the template in the editor.
          echo "var intron_end=[];";
          echo "var exon_start=[];";
          echo "var exon_end=[];";
-         echo "var pa_start=[];";
-         foreach ($pa_start as $key => $value)
-         {
-             echo "pa_start.push('$value');";
-         }
-         
          while(list($f_key,$val)=each($ftr))
          {
              if(strcmp($val, '3UTR')==0)
@@ -396,28 +265,13 @@ and open the template in the editor.
                  }
              }
          }
-         
          //echo "var ftr[]='$ftr';";
          //echo "var f_start[]='$f_start';";
          //echo "var f_end[]='$f_end';";
          echo "</script>";
 
          ?>
-        <div class="filter" id="filter">
-            <form>
-                <input type="text" name="search" id="search" />
-                <button type="submit" id="search_button">search</button>
-                <button type="reset" id="reset_button">reset</button>
-            </form>
-        </div>
-        <div class="page" style="width:100%;float:left;">         
-        <div id="jtable" style="width: 100%;"></div>
-        <link href="src/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
-        <link href="src/jtable.css" rel="stylesheet" type="text/css" />
-
-        
-        
-        <script type="text/javascript">
+          <script type="text/javascript">
         function find_pattern_onload()
         {
   	//reset($("#seq_switch").val());
@@ -428,7 +282,7 @@ and open the template in the editor.
   	var patts2 = [];
   	var user_patt = $("#user_pattern").val();
   	patts1 = user_patt.split(",");
-  	$("input[name='cbox1']:checked").each(function(){ 
+  	$("input[type=checkbox]:checked").each(function(){ 
                             if($(this).val() != "checkall")
                             {
                                                         patts2.push($(this).val());
@@ -436,26 +290,6 @@ and open the template in the editor.
 	}); 
 	//find_pattern(patts1,patts2,pas[cur_seq_id],rpas[cur_seq_id]);
                       find_pattern(patts1,patts2);
-        }
-        
-        function find_pattern_onload_area()
-        {
-  	//reset($("#seq_switch").val());
-                    reset_area(0);
-  	//var cur_seq_id = $("#seq_switch").val();
-                    var cur_seq_id=0;
-  	var patts1 = [];
-  	var patts2 = [];
-  	var user_patt = $("#user_pattern_area").val();
-  	patts1 = user_patt.split(",");
-  	$("input[name='cbox2']:checked").each(function(){ 
-                            if($(this).val() != "checkall")
-                            {
-                                                        patts2.push($(this).val());
-                            }
-	}); 
-	//find_pattern(patts1,patts2,pas[cur_seq_id],rpas[cur_seq_id]);
-                      find_pattern_area(patts1,patts2);
         }
 
         //function find_pattern(patts1,patts2,pa,rpa)
@@ -631,7 +465,6 @@ and open the template in the editor.
 //            var wutr=[];
 //            var cds=[]
 //            var intron=[];
-            
             if(sutr_start.length&&sutr_end.length!=0)
             {
                 for(var sutrkey in sutr_start)
@@ -1526,520 +1359,6 @@ and open the template in the editor.
 
             load_current_seq(newSeq);
         }
-        
-        function find_pattern_area(patts1,patts2)
-        {
-            var original_seq = current_seq_area;
-            var seq = current_seq_area;
-            var len = original_seq.length;
-            var pos1_start = [];
-            var pos1_end = [];
-            var pos2_start = [];
-            var pos2_end = [];
-            var aat_start = [];
-            var aat_end = [];
-            var tgt_start = [];
-            var tgt_end = [];
-            for(var key1 in patts1)
-            {  
-                    var patt = patts1[key1];
-                    if(patt != "")
-                    {
-                            patt = patt.replace(/[ ]/g,""); 
-                            if(patt.length == 1)
-                            {
-                                    alert('The minimum length of pattern is 2!');
-                                    return;
-                            }
-                            var reg=new RegExp(patt,"gi");
-                            var result;
-                            while((result = reg.exec(original_seq)) != null)
-                            {
-                                    pos1_start.push(result.index);
-                                    var end = patt.length + result.index -1;
-                                    if(end > 99)
-                                    {
-                                            var str1 = result.index.toString();
-                                            var str2 = end.toString();
-                                            if(str1.substr(str1.length-3,1) == str2.substr(str2.length-3,1))
-                                            {
-                                                    pos1_end[result.index] = end;
-                                            }
-                                            else
-                                            {
-                                                    var end1;
-                                                    for(var i = result.index;i<=end;i++)
-                                                    {
-                                                            if(i.toString().substr(i.toString().length-2,2) == "00")
-                                                            {
-                                                                    end1 = parseInt(i)-1;
-                                                            }
-                                                    }
-                                                    pos1_end[result.index] = end1;
-                                                    pos1_start.push(end1+1);
-                                                    pos1_end[end1+1] = end;
-                                            }
-                                    }
-                                    else
-                                    {
-                                            pos1_end[result.index] = end;
-                                    }
-                            }
-
-                            var fake = "pppppppppppp";
-                            fake = fake.substr(0,patt.length);
-                            original_seq = original_seq.replace(reg, fake);
-                    }
-            }
-            for(var key2 in patts2)
-            {  
-                    var patt = patts2[key2];
-                    if(patt != "")
-                    {
-                            var reg=new RegExp(patt,"gi");
-                            var result;
-                            while((result = reg.exec(original_seq)) != null)
-                            {
-                                    if(patt.toUpperCase() == "AATAAA")
-                                    {
-                                            aat_start.push(result.index);
-                                    }
-                                    else if(patt.toUpperCase() == "TGTAA")
-                                    {
-                                            tgt_start.push(result.index);
-                                    }
-                                    else
-                                    {
-                                            pos2_start.push(result.index);
-                                    }
-                                    var end = patt.length + result.index -1;
-                                    if(end > 99)
-                                    {
-                                            var str1 = result.index.toString();
-                                            var str2 = end.toString();
-                                            if(str1.substr(str1.length-3,1) == str2.substr(str2.length-3,1))
-                                            {
-                                                    if(patt.toUpperCase() == "AATAAA")
-                                                    {
-                                                            aat_end[result.index] = end;
-                                                    }
-                                                    else if(patt.toUpperCase() == "TGTAA")
-                                                    {
-                                                            tgt_end[result.index] = end;
-                                                    }
-                                                    else
-                                                    {
-                                                            pos2_end[result.index] = end;
-                                                    }
-                                            }
-                                            else
-                                            {
-                                                    var end1;
-                                                    for(var i = result.index;i<=end;i++)
-                                                    {
-                                                            if(i.toString().substr(i.toString().length-2,2) == "00")
-                                                            {
-                                                                    end1 = parseInt(i)-1;
-                                                            }
-                                                    }
-                                                    if(patt.toUpperCase() == "AATAAA")
-                                                    {
-                                                            aat_end[result.index] = end1;
-                                                            aat_start.push(end1+1);
-                                                            aat_end[end1+1] = end;
-                                                    }
-                                                    else if(patt.toUpperCase() == "TGTAA")
-                                                    {
-                                                            tgt_end[result.index] = end1;
-                                                            tgt_start.push(end1+1);
-                                                            tgt_end[end1+1] = end;
-                                                    }
-                                                    else
-                                                    {
-                                                            pos2_end[result.index] = end1;
-                                                            pos2_start.push(end1+1);
-                                                            pos2_end[end1+1] = end;
-                                                    }
-                                            }
-                                    }
-                                    else
-                                    {
-                                            if(patt.toUpperCase() == "AATAAA")
-                                            {
-                                                    aat_end[result.index] = end;
-                                            }
-                                            else if(patt.toUpperCase() == "TGTAA")
-                                            {
-                                                    tgt_end[result.index] = end;
-                                            }
-                                            else
-                                            {
-                                                    pos2_end[result.index] = end;
-                                            }
-                                    }
-                            }
-                            var fake = "pppppppppppp";
-                            fake = fake.substr(0,patt.length);
-                            original_seq = original_seq.replace(reg, fake);
-                    }
-            }
-            pos1_start.sort(function(a,b){return a>b?1:-1});
-            pos2_start.sort(function(a,b){return a>b?1:-1});
-            aat_start.sort(function(a,b){return a>b?1:-1});
-            tgt_start.sort(function(a,b){return a>b?1:-1});
-
-            if(pa_start.length != 0)
-            {
-                for(var pakey in pa_start)
-                {
-                        var pos = pa_start[pakey];
-                        pos1 = pos - 1;
-                        var sub1 = seq.substring(0,pos1);
-                        var sub2 = seq.substring(pos);
-                        var mid = "";
-                        switch(seq.charAt(pos1))
-                        {
-                        case "A":
-                                mid = "W";
-                                break;
-                        case "T":
-                                mid = "X";
-                                break;
-                        case "C":
-                                mid = "Y";
-                                break;
-                        case "G":
-                                mid = "Z";
-                                break;
-                        }
-                        seq = sub1+mid+sub2;
-                }
-            }
-     
-            var miss = [];
-            var spaces_9 = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-            var newSeq = "";
-            var rulerLeadingSpaces = "&nbsp;";
-            var rows = Div(seq.length,100) + 1;
-            if (rows.toString().length - 1 > 0) 
-            {
-                    for (var n = 0; n < rows.toString().length - 1; n++) 
-                    {
-                            rulerLeadingSpaces += "&nbsp;";
-                    }
-            }
-            var arr = [];
-            var tmp_str = seq;
-            //var tmp_str="AATAAAAAAA,TTTTTTTTTT,TAAAAAAAAA,AAAAAAAAAA,AAAAAAAAAA";
-            for(var i=0;i<rows;i++)
-            {
-                    arr[i] = seq.substr(0+100*i,100);
-            }
-
-            newSeq += "<font color='#324A17'><strong>" + rulerLeadingSpaces + "&nbsp;" + spaces_9 + "10" + spaces_9 + "20" + spaces_9 + "30" + spaces_9 + "40" + spaces_9 + "50" + spaces_9 + "60" + spaces_9 + "70" + spaces_9 + "80" + spaces_9 + "90" + spaces_9 + "100" + "</strong></font><br>";
-            for(var key3 in arr)
-            {
-                    var row = parseInt(key3)+1;
-                    newSeq += "<font color='#324A17'><strong>" + row + "</strong></font>";
-                    var tmp_arr = [];
-                    for(var n = 0;n<10;n++)
-                    {
-                            tmp_arr[n] = arr[key3].substr(0+10*n,10);
-                    }
-
-                    var tmp = tmp_arr.join(",");
-                    var range_min = key3*100;
-                    var range_max = row*100-1 ;
-                    var tmp_str = "";
-
-                    var insert = [];
-                    var slices = [];
-
-                    while(pos1_start[0] <= range_max)
-                    {
-                            var pos1 = pos1_start[0];
-                            var pos2 = pos1_end[pos1];
-                            pos1 -=  range_min;
-                            if(pos1 > 9)
-                            {
-                                    var tmp_num = parseInt(pos1.toString().substr(0,1)) ;
-                                    //document.write(pos1);
-                                    pos1 +=  tmp_num;
-                                    //document.write("+"+tmp_num+"=");
-                                    //document.write(pos1);
-                            }
-                            pos2 -= range_min;
-                            if(pos2 > 9)
-                            {
-                                    var tmp_num = parseInt(pos2.toString().substr(0,1)) ;
-                                    //document.write(pos2);
-                                    if(tmp_num == 0)
-                                    {
-                                            pos2 += 9;
-                                    }
-                                    else
-                                    {
-                                            pos2 +=  tmp_num;
-                                    }
-
-                                    //document.write("+"+tmp_num+"=");
-                                    //document.write(pos2);
-                            }
-                            insert[pos1] = "<span class='pt1'>";
-                            if(pos1 != pos2)
-                            {
-                                    insert[parseInt(pos2)] = "</span>";
-                                    slices.push(pos1);
-                                    slices.push(pos2);
-                            }
-                            else
-                            {
-                                    miss.push(pos1);
-                                    slices.push(pos2);
-                            }
-
-                            pos1_start.shift();
-                    }
-                    while(pos2_start[0] <= range_max)
-                    {
-                            var pos1 = pos2_start[0];
-                            var pos2 = pos2_end[pos1];
-                            pos1 -= range_min;
-                            if(pos1 > 9)
-                            {
-                                    var tmp_num = parseInt(pos1.toString().substr(0,1)) ;
-                                    //document.write(pos1);
-                                    pos1 +=  tmp_num;
-                                    //document.write("+"+tmp_num+"=");
-                                    //document.write(pos1);
-                            }
-                            pos2 = pos2 - range_min;
-                            if(pos2 > 9)
-                            {
-                                    var tmp_num = parseInt(pos2.toString().substr(0,1)) ;
-                                    //document.write(pos2);
-                                    if(tmp_num == 0)
-                                    {
-                                            pos2 += 9;
-                                    }
-                                    else
-                                    {
-                                            pos2 +=  tmp_num;
-                                    }
-                                    //document.write("+"+tmp_num+"=");
-                                    //document.write(pos2);
-                            }
-                            insert[parseInt(pos1)] = "<span class='pt2'>";
-                            if(pos1 != pos2)
-                            {
-                                    insert[parseInt(pos2)] = "</span>";
-                                    slices.push(pos1);
-                                    slices.push(pos2);
-                            }
-                            else
-                            {
-                                    miss.push(pos1);
-                                    slices.push(pos2);
-                            }
-                            //insert[parseInt(pos1)] = "qq";
-                            //insert[parseInt(pos2)] = "pp";
-
-                            pos2_start.shift();
-                    }
-                    while(aat_start[0] <= range_max)
-                    {
-                            var pos1 = aat_start[0];
-                            var pos2 = aat_end[pos1];
-                            pos1 = pos1 - range_min;
-                            if(pos1 > 9)
-                            {
-                                    var tmp_num = parseInt(pos1.toString().substr(0,1)) ;
-                                    //document.write(pos1);
-                                    pos1 +=  tmp_num;
-                                    //document.write("+"+tmp_num+"=");
-                                    //document.write(pos1);
-                            }
-                            pos2 = pos2 - range_min;
-                            if(pos2 > 9)
-                            {
-                                    var tmp_num = parseInt(pos2.toString().substr(0,1)) ;
-                                    //document.write(pos2);
-                                    if(tmp_num == 0)
-                                    {
-                                            pos2 += 9;
-                                    }
-                                    else
-                                    {
-                                            pos2 +=  tmp_num;
-                                    }
-                                    //document.write("+"+tmp_num+"=");
-                                    //document.write(pos2);
-                            }
-                            insert[parseInt(pos1)] = "<span class='pt3'>";
-                            if(pos1 != pos2)
-                            {
-                                    insert[parseInt(pos2)] = "</span>";
-                                    slices.push(pos1);
-                                    slices.push(pos2);
-                            }
-                            else
-                            {
-                                    miss.push(pos1);
-                                    slices.push(pos2);
-                            }
-                            //insert[parseInt(pos1)] = "qq";
-                            //insert[parseInt(pos2)] = "pp";
-
-                            aat_start.shift();
-                    }
-                    while(tgt_start[0] <= range_max)
-                    {
-                            var pos1 = tgt_start[0];
-                            var pos2 = tgt_end[pos1];
-                            pos1 = pos1 - range_min;
-                            if(pos1 > 9)
-                            {
-                                    var tmp_num = parseInt(pos1.toString().substr(0,1)) ;
-                                    //document.write(pos1);
-                                    pos1 +=  tmp_num;
-                                    //document.write("+"+tmp_num+"=");
-                                    //document.write(pos1);
-                            }
-                            pos2 = pos2 - range_min;
-                            if(pos2 > 9)
-                            {
-                                    var tmp_num = parseInt(pos2.toString().substr(0,1)) ;
-                                    //document.write(pos2);
-                                    if(tmp_num == 0)
-                                    {
-                                            pos2 += 9;
-                                    }
-                                    else
-                                    {
-                                            pos2 +=  tmp_num;
-                                    }
-                                    //document.write("+"+tmp_num+"=");
-                                    //document.write(pos2);
-                            }
-                            insert[parseInt(pos1)] = "<span class='pt4'>";
-                            if(pos1 != pos2)
-                            {
-                                    insert[parseInt(pos2)] = "</span>";
-                                    slices.push(pos1);
-                                    slices.push(pos2);
-                            }
-                            else
-                            {
-                                    miss.push(pos1);
-                                    slices.push(pos2);
-                            }
-                            //insert[parseInt(pos1)] = "qq";
-                            //insert[parseInt(pos2)] = "pp";
-
-
-                            tgt_start.shift();
-                    }
-                    slices.sort(function(a,b){return a>b?1:-1});
-                    /*
-                    document.write(key3+"============="+range_min+":"+range_max);
-                    document.write("<br>");
-                    for (var test in slices)
-                    {
-                            document.write(slices[test]);
-                            document.write("<br>");
-                    }
-                    */
-                    var sign = 0;
-                    for(var subkey5 in slices)
-                    {
-                            if(subkey5 == 0)
-                            {
-                                    /*
-                                    if(insert[slices[subkey5]].substr(1,1) == "s")
-                                    {
-                                            tmp_str = tmp.substring(0,slices[subkey5]);
-                                            tmp_str += insert[slices[subkey5]];
-                                    }
-                                    else
-                                    {
-                                            tmp_str = tmp.substring(0,slices[subkey5]+1);
-                                            tmp_str += insert[slices[subkey5]+1];
-                                    }
-                                    */
-                                    if(slices[0] == 0)
-                                    {
-                                            //tmp_str = tmp.substring(0,slices[subkey5]);
-                                            tmp_str = insert[slices[subkey5]];
-                                    }
-                                    else
-                                    {
-                                            tmp_str = tmp.substring(0,slices[subkey5]);
-                                            tmp_str += insert[slices[subkey5]];
-                                    }		
-                            }
-                            else
-                            {
-                                    if(insert[slices[subkey5]].substr(1,1) == "s")
-                                    {
-                                            if(sign == 1)
-                                            {
-                                                    //tmp_str += tmp.substring(slices[subkey5-1]+1,slices[subkey5]);
-                                                    tmp_str += tmp.substr(slices[subkey5-1],1);
-                                                    tmp_str += "</span>";
-                                                    tmp_str += tmp.substring(slices[subkey5-1]+1,slices[subkey5]);
-                                                    sign = 0;
-                                            }
-                                            else
-                                            {
-                                                    tmp_str += tmp.substring(slices[subkey5-1]+1,slices[subkey5]);
-                                            }
-                                            tmp_str += insert[slices[subkey5]];
-                                    }
-                                    else
-                                    {
-                                            tmp_str += tmp.substring(slices[subkey5-1],slices[subkey5]+1);
-                                            tmp_str += insert[slices[subkey5]];
-                                    }
-                            }
-                            if(in_array(miss,slices[subkey5]))
-                            {
-                                    sign = 1;
-                            }
-                    }
-                    if(insert.length%2 != 0)
-                    //if(insert[insert.length-1].substr(1,1) == "s")
-                    {
-                            if(insert[insert.length-1].substr(1,1) == "s")
-                            {
-                                    tmp_str += tmp.substring(slices[slices.length -1]);
-                                    tmp_str += "</span>";
-                            }
-                            else
-                            {	
-                                    tmp_str += tmp.substring(slices[slices.length -1]+1);
-                            }	
-                    }
-                    else
-                    {
-                            tmp_str += tmp.substring(slices[slices.length -1]+1);
-                    }
-                    if(row.toString().length < rows.toString().length)
-                    {
-                            var q = rows.toString().length - key3.toString().length;
-                            for (var p = 0; p < q; p++) {
-                                    newSeq +=  "&nbsp;";
-                            };
-                    }
-                    newSeq += "&nbsp;" + tmp_str + "<br>";
-            }
-            newSeq = newSeq.replace(/,/g,"&nbsp;");
-            newSeq = newSeq.replace(/W/g,"<font color='red'><strong><u>A</u></strong></font>");
-            newSeq = newSeq.replace(/X/g,"<font color='red'><strong><u>T</u></strong></font>");
-            newSeq = newSeq.replace(/Y/g,"<font color='red'><strong><u>C</u></strong></font>");
-            newSeq = newSeq.replace(/Z/g,"<font color='red'><strong><u>G</u></strong></font>");
-
-            load_current_seq_area(newSeq);
-        }
 
         function in_array(array,value)
         {
@@ -2056,13 +1375,6 @@ and open the template in the editor.
                 var seq = sequences[value];
                 var makeseq  = make(seq);
                 load_current_seq(makeseq);
-        }
-        
-        function reset_area(value)
-        {
-                var seq = sequences_area[value];
-                var makeseq  = make_area(seq);
-                load_current_seq_area(makeseq);
         }
 
         function Div(exp1, exp2)  
@@ -2125,141 +1437,18 @@ and open the template in the editor.
                 }
                 return newSeq;
         }
-        
-         function make_area(seq)
-        {
-                var spaces_9 = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-                var newSeq = "";
-                var rulerLeadingSpaces = "&nbsp;";
-                var rows = Div(seq.length,100) + 1;
-                if (rows.toString().length - 1 > 0) 
-                {
-                        for (var n = 0; n < rows.toString().length - 1; n++) 
-                        {
-                                rulerLeadingSpaces += "&nbsp;";
-                        }
-                }
-                var arr = [];
-                for(var i=0;i<rows;i++)
-                {
-                        arr[i] = seq.substr(0+100*i,100);
-                }
-
-                newSeq += "<font color='#324F17'><strong>" + rulerLeadingSpaces + "&nbsp;" + spaces_9 + "10" + spaces_9 + "20" + spaces_9 + "30" + spaces_9 + "40" + spaces_9 + "50" + spaces_9 + "60" + spaces_9 + "70" + spaces_9 + "80" + spaces_9 + "90" + spaces_9 + "100" + "</strong></font><br>";
-                for(var key in arr)
-                {
-                        var row = parseInt(key)+1;
-                        newSeq += "<font color='#324F17'><strong>" + row + "</strong></font>";
-                        var tmp_arr = [];
-                        for(var n = 0;n<10;n++)
-                        {
-                                tmp_arr[n] = arr[key].substr(0+10*n,10);
-                        }
-                        var tmp = tmp_arr.join("&nbsp;");
-                        if(row.toString().length < rows.toString().length)
-                        {
-                                var q = rows.toString().length - key.toString().length;
-                                for (var p = 0; p < q; p++) {
-                                        newSeq +=  "&nbsp;";
-                                };
-                        }
-                        newSeq += "&nbsp;" + tmp + "<br>";
-                }
-                return newSeq;
-        }
 
         function load_current_seq(current_seq)
         {
                 $('#seq_content').html(current_seq);
         }
-        
-        function load_current_seq_area(current_seq)
-        {
-                $('#seq_content_area').html(current_seq);
-        }
 
         </script>
-        
-        <script src="src/jquery-ui-1.8.16.custom.min.js" type="text/javascript" ></script>
-        <script src="src/jquery.jtable.js" type="text/javascript" ></script>
-        <script type="text/javascript">                                                                                                                                                             
+        <script type="text/javascript">
             $(document).ready(function (){
-                $('#jtable').jtable({
-                    title:'PAC List',
-                    paging:true,
-                    pageSize:5,
-                    sorting:true,
-                    defaultSorting:'gene ASC',
-                    actions:{
-                        listAction:'PAClist.php'
-                    },
-                    fields:{
-                        gene:{
-                            key:true,
-                            edit:false,
-                            width:'30%',
-                            create:false,
-                            columnResizable:false,
-                            title:'Gene ID',
-                            display: function (data) {
-                                var short_name = data.record.gene;
-                                if(data.record.gene.length > 30)
-                                {
-                                        short_name = data.record.gene.substr(0,30) + "...";
-                                }
-                                return short_name + "<a target='_self' style='display:inline;' href='./show_sequence.php?chr="+data.record.chr+"&gene="+data.record.coord+"&strand="+data.record.strand+"1' ><img src = './pic/score.png' hight='10px' width='80px' title='view PASS score' align='right' /></a><a style='display:inline;' href='../jbrowse/?data=data/<?php echo $_SESSION['file']?>&loc="+data.record.chr+":"+data.record.coord+"' target='_self'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
-                            }
-                        },
-                        chr:{
-                            title:'chromosome',
-                            edit:false,
-                            width:'10%'
-                        },
-                        strand:{
-                            title:'strand',
-                            edit:false,
-                            width:'10%'
-                        },
-                        coord:{
-                            title:'coordinate',
-                            edit:false,
-                            width:'20%'
-                        },
-                        ftr:{
-                            title:'ftr',
-                            edit:false,
-                            width:'20%'
-                        },
-                        <?php
-                     foreach ($_SESSION['file_real'] as $key => $value) {
-                            echo $value.":{
-                                title:'$value',
-                                edit:false
-                                }";
-                            if($key!=count($_SESSION['file_real'])-1)
-                                    echo ",";
-                     }
-                     ?>
-                    }
-                });
-                $('#filter').appendTo(".jtable-title").addClass('filter_class');
-                $('#jtable').jtable('load');
-                $('#search_button').click(function (e){
-                    e.preventDefault();
-                            $('#jtable').jtable('load',{
-                                search: $('#search').val()
-                            });
-                        });
-                $('#reset_button').click(function(e){
-                    e.preventDefault();
-                            $('#jtable').jtable('load');
-                        });
-                
+
                 $('#find_patt').click(function(){
   	find_pattern_onload();
-                });
-                $('#find_patt_area').click(function(){
-  	find_pattern_onload_area();
                 });
 
                 $('#reset').click(function(){
@@ -2267,43 +1456,20 @@ and open the template in the editor.
                   reset(0);
                 });
 
-                $('#reset_area').click(function(){
-                  //reset($("#seq_switch").val());
-                  reset_area(0);
-                });
-                
                 $('#checkall1').click(function(){
   	//reset($("#seq_switch").val());
   	var value = $('#checkall1').val();
   	if(value == "checkall")
   	{
   		$('#checkall1').val('uncheck');
-  		$("input[name='cbox1']:checked").each(function(){ 
+  		$("input[type=checkbox]:checked").each(function(){ 
 	  		this.checked = false;
 		}); 
   	}
   	else if(value == "uncheck")
   	{
   		$('#checkall1').val('checkall');
-		$("input[name='cbox1']").each(function(){ 
-	  		this.checked = true;
-		}); 
-  	}
-                });
-                $('#checkall2').click(function(){
-  	//reset($("#seq_switch").val());
-  	var value = $('#checkall2').val();
-  	if(value == "checkall")
-  	{
-  		$('#checkall2').val('uncheck');
-  		$("input[name='cbox2']:checked").each(function(){ 
-	  		this.checked = false;
-		}); 
-  	}
-  	else if(value == "uncheck")
-  	{
-  		$('#checkall2').val('checkall');
-		$("input[name='cbox2']").each(function(){ 
+		$("input[type=checkbox]").each(function(){ 
 	  		this.checked = true;
 		}); 
   	}
@@ -2311,75 +1477,115 @@ and open the template in the editor.
                 var makeseq  = make(current_seq);
                 load_current_seq(makeseq);
                 find_pattern_onload();
-                
-                var makeseq  = make_area(current_seq_area);
-                load_current_seq_area(makeseq);
-                find_pattern_onload_area();
             });
             </script>
             
-<!--pattern viewer -->
-            <div  class="straight_matter_area">
-                <fieldset style="margin-top: 20px;margin-left: 2%;margin-right: 2%;">
-                    <legend>
-                        <span class="h3_italic">
-                            <font color="#224055" size="18px;"><b>Pattern Viewer</b></font>
-                        </span>
-                    </legend>
-	<div class = "seq_viewer_area" id="seq_viewer_area">
-                    <div id = "pattern">	
-        	<legend><span class="h3_italic">Typical Pattern</span>&nbsp;<span class='pt2' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;(AATAAA&nbsp;<span class='pt3' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;TGTAA&nbsp;<span class='pt4' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;)</legend>
-        	<table style="width:900px;margin-top:10px;margin-bottom:10px;font-family:Courier New;font-size:16px;">
-                    <?php
-                    echo "<tr>";
-                    echo '<td><input type="checkbox" checked = "true" name = "cbox" id = "checkall2" value = "checkall" /><em>&nbsp;Change All</em></td>';
-                    $i = 0;
-                    foreach ($singnals as $key => $value) {
-                            if($i == 6||$i == 13)
-                            {
-                                    echo "</tr><tr>";
-                            }
-                            echo '<td><input type="checkbox" name = "cbox2" checked = "true" value = "'.$value.'"/>&nbsp;'.$value.'</td>';
-                            $i++;
-                    }
-                    echo "</tr>";
-                    ?>
-           	</table>
-
-                    <legend><span class="h3_italic">User’s Pattern </span>&nbsp;&nbsp;<span class='pt1' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;(Ex. AATAAA, TGTAAA)</legend>
-                    <input type = "text" id = "user_pattern_area" style="margin-top:10px;margin-bottom:10px;"></input>
-                        <legend>
-                                    <span class="h3_italic">poly(A) site</span>
-                                    &nbsp;&nbsp;
-                                    <span style="text-align:center;color:red;"><strong><u>N</u></strong></span>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                        </legend>
-<!--                            <legend>
-                                    <span class="h3_italic">Predicted poly(A) site</span>
-                                    &nbsp;&nbsp;
-                                    <span style="text-align:center;"><font size="2" color='red'><u>N</u></font></span>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <span class="h3_italic">Real poly(A) site</span>
-                                    &nbsp;&nbsp;
-                                    <span style="text-align:center;"><font size="2" color='blue'><u>N</u></font></span>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <span class="h3_italic">Predicted&Real poly(A) site</span>
-                                    &nbsp;&nbsp;
-                                    <span style="text-align:center;"><font size="2" color='green'><u>N</u></font></span>
-                            </legend>-->
-                            </br>
-                            <button id = "find_patt_area" style="width:100px;"  class = "button blue medium">Show</button>
-                            <button id = "reset_area" style = "width:100px;"  class = "button blue medium">Clear</button>
-                    </div>
-                    <div id = "seq_content_area" style="max-height:400px;overflow:auto;margin-top:20px;font-family: Courier New;font-size:15px;">
-                            <p class = "sequence" id = "sequence"style="word-break:break-all;"><?php echo "AATAAAAAA";  ?>
-                            </p>	            	
-                    </div>
-	</div>
-	</fieldset>
-            </div>
-<!--            sequence viewer-->
-            <div  class="straight_matter">
+        <div  id="page">
+            <table width="99%" cellspacing="0" cellpadding="0" border="0" style="margin: 20px auto;">
+            <tbody>
+                <tr>
+                    <td width="50%" valign="top">
+                          <hr width="98%" size="1" align="left" style="border-top: 1px dotted #5499c9;">
+                        <div id="gene">
+                            <table id="genetable">
+                                <tbody>
+                                    <tr>
+                                        <td>Gene name:</td>
+                                        <td><?php echo $_GET['seq']?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chromosome:</td>
+                                        <td>Chr<?php echo $_GET['chr']?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gene locus:</td>
+                                        <td><?php echo $_GET['chr'].":".$_GET['ftr_start']."-".$_GET['ftr_end']?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gene Type:</td>
+                                        <?php
+                                                    $sql="select gene_type from db_bio.gff_arab10_all where gene=\"".$_GET['seq']."\";";
+                                                    $type=mysql_query($sql);
+//                                                    echo $sql;
+//                                                    $type=mysql_query("select * from db_bio.gff_arab10_all where gene=\"AT2G01008\";");
+//                                                    echo "select gene_type from db_bio.gff_arab10_all where gene=\"".$_GET['seq']."\";";
+//                                                        var_dump($type);
+                                                    while($gene_type= mysql_fetch_row($type)){
+                                                            echo "<td>$gene_type[0]</td>";
+                                                    }
+                                                ?>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr width="98%" size="1" align="left" style="border-top: 1px dotted #5499c9;">
+                        <div id="go">
+                            <table id="gotable" nowrap="true" >
+                                <thead>
+                                    <tr>
+                                        <th>Go id</th>
+                                        <th>Go term</th>
+                                        <th>Go function</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <?php
+                                                    $go_sql="select * from db_bio.go_arab10 where gene=\"".$_GET['seq']."\";";
+                                                    $go_result=mysql_query($go_sql);
+//                                                    echo $sql;
+//                                                    $type=mysql_query("select * from db_bio.gff_arab10_all where gene=\"AT2G01008\";");
+//                                                    echo "select gene_type from db_bio.gff_arab10_all where gene=\"".$_GET['seq']."\";";
+//                                                        var_dump($type);
+                                                    while($go_result_row= mysql_fetch_row($go_result)){
+                                                            echo "<tr>";
+                                                            echo "<td>$go_result_row[1]</td>";
+                                                            echo "<td>$go_result_row[2]</td>";
+                                                            echo "<td>$go_result_row[5]</td>";
+                                                            echo "</tr>";
+                                                    }
+                                                ?>
+                                </tbody>
+                            </table>
+                        </div>                        
+                        <hr width="98%" size="1" align="left" style="border-top: 1px dotted #5499c9;">
+                        <div id="polya">
+                            <table id="polyatable">
+                                <tbody>
+                                    <tr>
+                                        <td>PolyA site:</td>
+                                        <td>
+                                        <?php
+                                                    $polya_sql="select * from db_bio.PAS_sys_arab10 where chr=".$_GET['chr']." and coord>=".$_GET['ftr_start']." and coord<=".$_GET['ftr_end'].";";
+                                                    $polya_result=mysql_query($polya_sql);
+//                                                    echo $sql;
+//                                                    $type=mysql_query("select * from db_bio.gff_arab10_all where gene=\"AT2G01008\";");
+//                                                    echo "select gene_type from db_bio.gff_arab10_all where gene=\"".$_GET['seq']."\";";
+//                                                        var_dump($type);
+                                                    $i=0;
+                                                    while($polya_result_row= mysql_fetch_row($polya_result)){
+                                                          echo $polya_result_row[2].",";
+                                                          $i++;
+                                                          if(($i%15)==0)
+                                                              echo "\n";
+                                                    }
+                                                ?>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                    <td width="50%" height="400px" valign="top">
+                        <div style="height:100%">
+                            <iframe style="border: 1px solid black" src="../jbrowse/?data=data/arabidopsis&loc=<?php echo $_GET['chr']?>:<?php echo $_GET['ftr_start']?>..<?php echo $_GET['ftr_end']?>&tracks=Arabidopsis,sys_polya" width=100% height=100%>
+                            </iframe>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        <div  class="straight_matter">
 	<fieldset style="margin-top: 20px;margin-left: 2%;margin-right: 2%;">
                     <legend>
                         <span class="h3_italic">
@@ -2435,14 +1641,8 @@ and open the template in the editor.
 	</div>
 	</fieldset>
             </div>
-        </div>
-         </div>
-            <br style="clear:both;">
-                <?php 
-                        include './footer.php';
-                ?>
-                           <?php
-                        include './wheelmenu.php';
-                        ?>
+        <?php
+            include"footer.php";
+            ?>
     </body>
 </html>

@@ -129,6 +129,7 @@ and open the template in the editor.
                         <option value="mtr">Medicago truncatula</option>
                         <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
                     </select>
+                    <input type="checkbox" id="sys_example" name="sys_example" style="margin-left:20px;">Use system example
    
                 <ul id="foobar"></ul>
                 <div id="examples">

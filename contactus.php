@@ -11,7 +11,7 @@
         <?php
             if($_POST['username']!=NULL&&$_POST['email']!=NULL){
                 $content="\n\r"."name:".$_POST['username']."\n\r"."Email:".$_POST['email']."\n\r"."Phone:".$_POST['phone']."\n\r"."comment:".$_POST['comment']."\n\r"."=================================================================================================================";
-                file_put_contents("/var/www/html/front/message.txt", $content,FILE_APPEND);
+                file_put_contents("/var/www/front/message.txt", $content,FILE_APPEND);
                 echo "<script>alert('Thank you, and we will contact you later.');</script>";
             }
         ?>

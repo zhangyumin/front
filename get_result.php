@@ -95,14 +95,14 @@ and open the template in the editor.
                  if($_SESSION['rip']=='yes')
                  {
                     //echo"step5:去除internal priming";
-                    $cmd5="./src/perl/PAT_setIP.pl -itbl /var/www/html/front/data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA -otbl /var/www/html/front/data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA -flds 0:1:2 -format file -conf ./db.xml >>./log/".$_SESSION['file'].".txt";
+                    $cmd5="./src/perl/PAT_setIP.pl -itbl /var/www/front/data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA -otbl /var/www/front/data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA -flds 0:1:2 -format file -conf ./db.xml >>./log/".$_SESSION['file'].".txt";
                     #echo $cmd5;
                     $out5=  shell_exec($cmd5);
                     echo"<pre>$out5</pre>";
                  }
                  
                  //echo"step6:导入PA表到数据库";
-                    $cmd6="./src/perl/PAT_alterPA.pl -master db_user.PA_".$_SESSION['file']." -aptbl '/var/www/html/front/data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA' -apsmp  $value -format file -conf ./db.xml 1>/dev/null";
+                    $cmd6="./src/perl/PAT_alterPA.pl -master db_user.PA_".$_SESSION['file']." -aptbl '/var/www/front/data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA' -apsmp  $value -format file -conf ./db.xml 1>/dev/null";
                     #echo $cmd6;
                     $out6=  shell_exec($cmd6);
                     echo"<pre>$out6</pre>";
@@ -153,7 +153,12 @@ and open the template in the editor.
                      shell_exec("./src/c/bedGraphToBigWig ../jbrowse/data/".$_SESSION['file']."/$value.positive.sorted.bedGraph ./src/arab.sizes ../jbrowse/data/".$_SESSION['file']."/$value.UsrPosPA.bw");
                      shell_exec("./src/c/bedGraphToBigWig ../jbrowse/data/".$_SESSION['file']."/$value.negative.sorted.bedGraph ./src/arab.sizes ../jbrowse/data/".$_SESSION['file']."/$value.UsrNegPA.bw");
                      $configure_file=fopen("../jbrowse/data/".$_SESSION['file']."/trackList.json", "r+");
-                    fseek($configure_file, -3, SEEK_END);
+                    if($key==0){
+                        fseek($configure_file, -98, SEEK_END);
+                     }
+                     else{
+                         fseek($configure_file, -3, SEEK_END);
+                     }
                     fwrite($configure_file,",\n"
                             . "\t{\n"
                             . "\t\t\"storeClass\" : \"JBrowse/Store/SeqFeature/BigWig\",\n"
@@ -199,26 +204,51 @@ and open the template in the editor.
                     $txt=file("../jbrowse/data/".$_SESSION['file']."/trackList.json");
                     $configure_file=fopen("../jbrowse/data/".$_SESSION['file']."/trackList.json", "r+");
                     rewind($configure_file);
-                    echo $txt[count($txt)-2];
-                    if(strlen($txt[count($txt)-2])==5){
+                    echo $txt[count($txt)-3];
+                    if(strlen($txt[count($txt)-3])==6){
                         echo "short";
-                        fseek($configure_file, -9, SEEK_END);
+                        fseek($configure_file, -106, SEEK_END);
                          fwrite($configure_file,",\n"
                             . "\t\"onClick\" : {\n"
                             . "\t\t\"url\" : \"../front/sequence.php?chr={seq_id}&gene={start}&strand={strand}\",\n"
                             . "\t\t\"label\" : \"see polyA site\",\n"
                             . "\t\t\"action\" : \"newwindow\"\n"
-                            . "\t}}]}\n");
+                            . "\t}}],"
+                                 . "   \"names\" : {\n"
+                                 . "      \"type\" : \"Hash\",\n"
+                                 . "      \"url\" : \"names/\"\n"
+                                 . "   }\n"
+                                 . "}\n");
                     }
-                    elseif(strlen($txt[count($txt)-2])==23){
-                        echo "long";
-                        fseek($configure_file,-33,SEEK_END);
+                    elseif(strlen($txt[count($txt)-3])==8){
+                        echo "short";
+                        fseek($configure_file, -15, SEEK_END);
                          fwrite($configure_file,",\n"
                             . "\t\"onClick\" : {\n"
                             . "\t\t\"url\" : \"../front/sequence.php?chr={seq_id}&gene={start}&strand={strand}\",\n"
                             . "\t\t\"label\" : \"see polyA site\",\n"
                             . "\t\t\"action\" : \"newwindow\"\n"
-                            . "\t}}]}\n");
+                            . "\t}}],"
+                                 . "   \"names\" : {\n"
+                                 . "      \"type\" : \"Hash\",\n"
+                                 . "      \"url\" : \"names/\"\n"
+                                 . "   }\n"
+                                 . "}\n");
+                    }
+                    elseif(strlen($txt[count($txt)-3])==23){
+                        echo "middle";
+                        fseek($configure_file,-82,SEEK_END);
+                         fwrite($configure_file,",\n"
+                            . "\t\"onClick\" : {\n"
+                            . "\t\t\"url\" : \"../front/sequence.php?chr={seq_id}&gene={start}&strand={strand}\",\n"
+                            . "\t\t\"label\" : \"see polyA site\",\n"
+                            . "\t\t\"action\" : \"newwindow\"\n"
+                            . "\t}}],"
+                                 . "   \"names\" : {\n"
+                                 . "      \"type\" : \"Hash\",\n"
+                                 . "      \"url\" : \"names/\"\n"
+                                 . "   }\n"
+                                 . "}\n");
                     }
                     else{
                         echo "Oh no\n";

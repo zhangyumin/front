@@ -136,10 +136,18 @@ and open the template in the editor.
     <body>
         <link rel="stylesheet" href="./src/slidebar.css">
         <script src="./src/idangerous.swiper.min.js"></script> 
+        <div style="width: 100%;background-color: #ddddff;" class="wrapper jsc-sidebar-content jsc-sidebar-pulled">
              <?php
                      include './navbar.php';
                      ?>
-            <div class="whole-page" style="float:left;width:100%">               
+            <div class="whole-page" style="float:left;width:100%">  
+            <div class="icon-menu link-menu jsc-sidebar-trigger" style="float:left;width:7%;height:1571px;text-align: center;">
+                <div  style="padding-top:250%;">
+                    <img src="./pic/continue.png" style="width:60px;"/><br>
+                    <span style="margin-top:300px;">Click for further search</span>
+                </div>
+             </div>
+             
         <?php
         $con=  mysql_connect("localhost","root","root");
         mysql_select_db("db_bio",$con);
@@ -410,7 +418,7 @@ and open the template in the editor.
                 <button type="reset" id="reset_button">reset</button>
             </form>
         </div>
-        <div class="page" style="width:100%;float:left;">         
+        <div class="page" style="width:93%;float:left;">         
         <div id="jtable" style="width: 100%;"></div>
         <link href="src/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
         <link href="src/jtable.css" rel="stylesheet" type="text/css" />
@@ -2441,6 +2449,451 @@ and open the template in the editor.
                 <?php 
                         include './footer.php';
                 ?>
+         </div>
+        <div class="sidebar jsc-sidebar" id="jsi-nav" data-sidebar-options="">
+	<div class="sidebar-list">
+		<div class="wrap">
+			<div class="tabs">
+				<a href="#" hidefocus="true" class="active">Search</a>
+				<a href="#" hidefocus="true">DE Gene</a>
+				<a href="#" hidefocus="true">DE PAC</a>
+                                                                                <a href="#" hidefocus="true" class='four' >Switching Gene</a>
+			</div>    
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+                                                                                <div class="swiper-slide">
+                                                                                <div class="content-slide">
+                                                            <form action='./aftertreatment_test.php?action=search' method="post">
+                                                                                              <span class="slidebar-content">Chr:</span>
+                                                                                              <select name="chr">
+                                                                                                    <option value='0'>all</option>
+                                                                                                    <option value='1'>1</option>
+                                                                                                    <option value='2'>2</option>
+                                                                                                    <option value='3'>3</option>
+                                                                                                    <option value='4'>4</option>
+                                                                                                    <option value='5'>5</option>
+                                                                                                    <option value='chloroplast'>chloroplast</option>
+                                                                                                    <option value='mitochondria'>mitochondria</option>
+                                                                                              </select><br>
+                                                                                            <span class="slidebar-content">Start:</span><input type='text' name='start'/><br>
+                                                                                            <span class="slidebar-content">End: </span><input type='text' name='end'/><br>
+                                                                                            <span class="slidebar-content">Gene ID:(use ',' to split different gene id)</span><br><textarea rows="3" cols="30" name="gene_id"></textarea><br>
+                                                                                            <span class="slidebar-content">Go term accession:<br>(use ',' to split different gene id)</span><br><textarea rows="3" cols="30" name='go_accession'></textarea><br>
+                                                                                            <span class="slidebar-content">Go term name:</span><input type='text' name='go_name'/><br>
+                                                                                            <span class="slidebar-content">Function&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name='function'/><br>
+                                                                                            <span class="slidebar-content">Samples:<br>&nbsp;&nbsp;&nbsp;System:</span><br>
+                                                                                                        <?php
+                                                                                                            $con=  mysql_connect("localhost","root","root");
+                                                                                                            mysql_select_db("db_bio",$con);
+                                                                                                            $out1=mysql_query("select distinct _group from sample_arab10;");
+                                                                                                            while($row= mysql_fetch_row($out1))
+                                                                                                            {
+                                                                                                                echo "<input name='$row[0]' type='checkbox' id='$row[0]' onclick='CheckToSelect()'>";
+                                                                                                                echo "<span class='slidebar-content'>$row[0]&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>";
+                                                                                                                echo "<select id='sl_$row[0]' name='sl_$row[0]' disabled='disabled'>";
+                                                                                                                $out2=mysql_query("select distinct label from sample_arab10 where _group='$row[0]';");
+                                                                                                                    echo $out2;
+                                                                                                                while (($row1= mysql_fetch_row($out2)))
+                                                                                                                {
+                                                                                                                    echo "<option value=',$row1[0]'>$row1[0]";
+                                                                                                                    $all.=','.$row1[0];
+                                                                                                                }
+                                                                                                                echo "<option value='$all' selected='true'>all";
+                                                                                                                echo "</select>";
+                                                                                                                echo "<br>";
+                                                                                                                $all="";
+                                                                                                            }
+                                                                                                            echo "<script> function CheckToSelect(){";
+                                                                                                            $out3=mysql_query("select distinct _group from sample_arab10;");
+                                                                                                            while($row2= mysql_fetch_row($out3))
+                                                                                                                    echo"if(document.getElementById('$row2[0]').checked==true)
+                                                                                                                                {
+                                                                                                                                    document.getElementById('sl_$row2[0]').disabled=false;
+                                                                                                                                }
+                                                                                                                                else
+                                                                                                                                {
+                                                                                                                                    document.getElementById('sl_$row2[0]').disabled=true;
+                                                                                                                                }";
+                                                                                                            echo"}</script>";
+                                                                                                //            var_dump($out);
+                                                                                                        ?>
+                                                                                                <span class='slidebar-content'>&nbsp;&nbsp;&nbsp;User:</span><br>
+                                                                                                        <?php
+                                                                                                            foreach ($_SESSION['file_real'] as $key => $value) {
+                                                                                                                echo "<input name='$value' type='checkbox' id='$value' />";
+                                                                                                                echo "<span class='slidebar-content'>$value</span>";
+                                                                                                            }
+                                                                                                        ?>
+                                                                                                        <br>
+                                                                                                            <!--<br><input type="checkbox" name="merge"/>merge data&nbsp;&nbsp;&nbsp;&nbsp;-->
+                                                                                                <button type="submit">submit</button>
+                                                                                                <button type="reset">reset</button>
+                                                                                    </form>      
+				  </div>
+				  </div>
+				<div class="swiper-slide">
+					<div class="content-slide">
+                                                                                                    <form action='./aftertreatment_test.php?action=o_degene' method="post">
+                                                                                                        <span class='slidebar-content'>Normalization method:</span><br>
+                                                                                                            <select name="nor_method" id="nor_method">
+                                                                                                                  <option value='none' selected="true">None</option>
+                                                                                                            </select><br>
+                                                                                                            <span class='slidebar-content'>Method:</span><br>
+                                                                                                            <select>
+                                                                                                                    <option value='EdgeR'>EdgeR</option>
+                                                                                                                    <option value='DESeq'>DESeq</option>
+                                                                                                              </select><br>
+                                                                                                            <span class='slidebar-content'>Min PAT:</span><br><input type='text' name='min_pat' value='5'/><br>
+                                                                                                            <span class='slidebar-content'>Multi-test adjustment method:</span><br>
+                                                                                                            <select>
+                                                                                                                    <option value='Bonferroni' selected="true">Bonferroni</option>
+                                                                                                                    <option value='Not'>Not adjust</option>
+                                                                                                              </select><br>
+                                                                                                            <span class='slidebar-content'>Significance Level:</span><br>
+                                                                                                              <select>
+                                                                                                                    <option value='0.01'>0.01</option>
+                                                                                                                    <option value='0.05' selected="true">0.05</option>
+                                                                                                                    <option value='0.1'>0.1</option>
+                                                                                                              </select><br>
+                                                                                                            <span class='slidebar-content'>Samples:<br>&nbsp;&nbsp;&nbsp;System:</span><br>
+                                                                                                        <?php
+                                                                                                            $out1a=mysql_query("select distinct _group from sample_arab10;");
+                                                                                                            while($rowa= mysql_fetch_row($out1a))
+                                                                                                            {
+                                                                                                                echo "<input name='$rowa[0]' type='checkbox' id='$rowa[0]a' onclick='CheckToSelecta()'>";
+                                                                                                                echo "<span class='slidebar-content'>$rowa[0]&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>";
+                                                                                                                echo "<select id='sl_$rowa[0]a' name='sl_$rowa[0]' disabled='disabled'>";
+                                                                                                                $out2a=mysql_query("select distinct label from sample_arab10 where _group='$rowa[0]';");
+                                                                                                                echo $out2a;
+                                                                                                                while (($row1a= mysql_fetch_row($out2a)))
+                                                                                                                {
+                                                                                                                    echo "<option value=',$row1a[0]'>$row1a[0]";
+                                                                                                                    $alla.=','.$row1a[0];
+                                                                                                                }
+                                                                                                                echo "<option value='$alla' selected='true'>all";
+                                                                                                                echo "</select>";
+                                                                                                                echo "<br>";
+                                                                                                                $alla="";
+                                                                                                            }
+                                                                                                            echo "<span class='slidebar-content'>&nbsp;&nbsp;&nbsp;User:</span><br>";
+                                                                                                            foreach ($_SESSION['file_real'] as $key => $value) {
+                                                                                                                echo "<input name='$value' type='checkbox' id='a$value' onclick='CheckToSelecta()' />";
+                                                                                                                echo "<span class='slidebar-content'>$value</span>";
+                                                                                                            }
+                                                                                                            echo "<script> function CheckToSelecta(){";
+                                                                                                            $out3a=mysql_query("select distinct _group from sample_arab10;");
+                                                                                                            while($row2a= mysql_fetch_row($out3a))
+                                                                                                                    echo"if(document.getElementById('$row2a[0]a').checked==true)
+                                                                                                                                {
+                                                                                                                                    document.getElementById('sl_$row2a[0]a').disabled=false;
+                                                                                                                                }
+                                                                                                                                else
+                                                                                                                                {
+                                                                                                                                    document.getElementById('sl_$row2a[0]a').disabled=true;
+                                                                                                                                }";
+                                                                                                            foreach ($_SESSION['file_real'] as $key => $value) {
+                                                                                                                $oif.="document.getElementById('a$value').checked==true";
+                                                                                                                if($key!=  sizeof($_SESSION['file_real'])-1)
+                                                                                                                    $oif.="||";
+                                                                                                            }
+                                                                                                            echo "if($oif)
+                                                                                                                      {
+                                                                                                                            document.getElementById('nor_method').options.length=0;
+                                                                                                                            document.getElementById('nor_method').options.add(new Option('None','none'));
+                                                                                                                            //alert('ifa');
+                                                                                                                      }
+                                                                                                                      else
+                                                                                                                      {
+                                                                                                                            document.getElementById('nor_method').options.length=0;
+                                                                                                                            document.getElementById('nor_method').options.add(new Option('None','none'));
+                                                                                                                            document.getElementById('nor_method').options.add(new Option('TPM','TPM'));
+                                                                                                                            document.getElementById('nor_method').options.add(new Option('DESeq','DESeq'));
+                                                                                                                            //alert('elsea');
+                                                                                                                      }";
+                                                                                                            echo"}</script>";
+                                                                                                //            var_dump($out);
+                                                                                                        ?>
+                                                                                                        <br>
+                                                                                                                <button type="submit">submit</button>
+                                                                                                                <button type="reset">reset</button>
+                                                                                                        </form>
+					</div>
+				  </div>
+				<div class="swiper-slide">
+					<div class="content-slide">
+                                                                                                    <form action='./aftertreatment_test.php?action=o_depac' method="post">
+                                                                                                            <span class='slidebar-content'>Normalization method:</span><br>
+                                                                                                            <select name="depac_normethod" id="depac_normethod">
+                                                                                                                  <option value='none' selected="true">None</option>
+                                                                                                            </select><br>
+                                                                                                          <span class='slidebar-content'>Method:</span><br>
+                                                                                                            <select>
+                                                                                                                    <option value='DESeq2'>DESeq</option>
+                                                                                                              </select><br>
+                                                                                                          <span class='slidebar-content'>Min PAT:</span><br><input type='text' name='depacmin_pat' value='5'/><br>
+                                                                                                          <span class='slidebar-content'>Multi-test adjustment method:</span><br>
+                                                                                                            <select>
+                                                                                                                    <option value='Bonferroni' selected="true">Bonferroni</option>
+                                                                                                                    <option value='Not'>Not adjust</option>
+                                                                                                              </select><br>
+                                                                                                          <span class='slidebar-content'>Significance Level:</span><br>
+                                                                                                              <select>
+                                                                                                                    <option value='0.01'>0.01</option>
+                                                                                                                    <option value='0.05' selected="true">0.05</option>
+                                                                                                                    <option value='0.1'>0.1</option>
+                                                                                                              </select><br>
+                                                                                                          <span class='slidebar-content'>Samples:<br>&nbsp;&nbsp;&nbsp;System:</span><br>
+                                                                                                        <?php
+                                                                                                            $out1b=mysql_query("select distinct _group from sample_arab10;");
+                                                                                                            while($rowb= mysql_fetch_row($out1b))
+                                                                                                            {
+                                                                                                                echo "<input name='$rowb[0]' type='checkbox' id='$rowb[0]b' onclick='CheckToSelectb()'>";
+                                                                                                                echo "<span class='slidebar-content'>$rowb[0]&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>";
+                                                                                                                echo "<select id='sl_$rowb[0]b' name='sl_$rowb[0]' disabled='disabled'>";
+                                                                                                                $out2b=mysql_query("select distinct label from sample_arab10 where _group='$rowb[0]';");
+                                                                                                                echo $out2b;
+                                                                                                                while (($row1b= mysql_fetch_row($out2b)))
+                                                                                                                {
+                                                                                                                    echo "<option value=',$row1b[0]'>$row1b[0]";
+                                                                                                                    $allb.=','.$row1b[0];
+                                                                                                                }
+                                                                                                                echo "<option value='$allb' selected='true'>all";
+                                                                                                                echo "</select>";
+                                                                                                                echo "<br>";
+                                                                                                                $allb="";
+                                                                                                            }
+                                                                                                            echo "<span class='slidebar-content'>&nbsp;&nbsp;&nbsp;User:<br>";
+                                                                                                            foreach ($_SESSION['file_real'] as $key => $value) {
+                                                                                                                echo "<input name='$value' type='checkbox' id='b$value' onclick='CheckToSelectb()'/>";
+                                                                                                                echo "<span class='slidebar-content'>$value</span>";
+                                                                                                            }
+                                                                                                            echo "<script> function CheckToSelectb(){";
+                                                                                                            $out3b=mysql_query("select distinct _group from sample_arab10;");
+                                                                                                            while($row2b= mysql_fetch_row($out3b))
+                                                                                                                    echo"if(document.getElementById('$row2b[0]b').checked==true)
+                                                                                                                                {
+                                                                                                                                    document.getElementById('sl_$row2b[0]b').disabled=false;
+                                                                                                                                }
+                                                                                                                                else
+                                                                                                                                {
+                                                                                                                                    document.getElementById('sl_$row2b[0]b').disabled=true;
+                                                                                                                                }";
+                                                                                                            foreach ($_SESSION['file_real'] as $key => $value) {
+                                                                                                            $boif.="document.getElementById('b$value').checked==true";
+                                                                                                            if($key!=  sizeof($_SESSION['file_real'])-1)
+                                                                                                                    $boif.="||";
+                                                                                                            }
+                                                                                                            echo "if($boif)
+                                                                                                                      {
+                                                                                                                            document.getElementById('depac_normethod').options.length=0;
+                                                                                                                            document.getElementById('depac_normethod').options.add(new Option('None','none'));
+                                                                                                                            //alert('ifa');
+                                                                                                                      }
+                                                                                                                      else
+                                                                                                                      {
+                                                                                                                            document.getElementById('depac_normethod').options.length=0;
+                                                                                                                            document.getElementById('depac_normethod').options.add(new Option('None','none'));
+                                                                                                                            document.getElementById('depac_normethod').options.add(new Option('TPM','TPM'));
+                                                                                                                            document.getElementById('depac_normethod').options.add(new Option('DESeq','DESeq'));
+                                                                                                                            //alert('elsea');
+                                                                                                                      }";
+                                                                                                            echo"}</script>";
+                                                                                                //            var_dump($out);
+                                                                                                        ?>
+                                                                                                        <br>
+                                                                                                                <button type="submit" style="color:black">submit</button>
+                                                                                                                <button type="reset" style="color:black">reset</button>
+                                                                                                        </form>
+					</div>
+				  </div>
+                                                                                        <div class="swiper-slide">
+                                                                                        <div class="content-slide">
+                                                                                                        <form action='./aftertreatment_test.php?action=o_switchinggene' method="post">
+                                                                                                            <select name="3utr" id="3utr" onchange="div_option(this)">
+                                                                                                                <option value="choose">please choose</option>
+                                                                                                                <option value="only3utr">only 3'UTR</option>
+                                                                                                                <option value="none3utr">none 3'UTR</option>
+                                                                                                            </select>
+                                                                                                            <div id="only3utr" style="display: none;">
+                                                                                                                <span class='slidebar-content'>Min PAT:</span><br>
+                                                                                                                <input type='text' value='5' name="sgminpat"/><br>
+                                                                                                                <span class='slidebar-content'>Multi-test adjustment method:</span><br>
+                                                                                                                <select>
+                                                                                                                    <option checked='true' value='bonferroni' />Bonferroni
+                                                                                                                    <option value='notadjust'/>Not adjust
+                                                                                                                </select><br>
+                                                                                                                <span class='slidebar-content'>Significance Level:</span><br>
+                                                                                                                <select>
+                                                                                                                    <option value="0.01"/>0.01
+                                                                                                                    <option checked='true' value="0.05"/>0.05
+                                                                                                                    <option value="0.1"/>0.1
+                                                                                                                </select><br><br>
+                                                                                                            <span class='slidebar-content'>Samples:<br>&nbsp;&nbsp;&nbsp;System:</span><br>            
+                                                                                                            <?php
+                                                                                                            $out1c=mysql_query("select distinct _group from sample_arab10;");
+                                                                                                            while($rowc= mysql_fetch_row($out1c))
+                                                                                                            {
+                                                                                                                echo "<input name='$rowc[0]' type='checkbox' id='$rowc[0]c' onclick='CheckToSelectc()'>";
+                                                                                                                echo "<span class='slidebar-content'>$rowc[0]&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>";
+                                                                                                                echo "<select id='sl_$rowc[0]c' name='sl_$rowc[0]' disabled='disabled'>";
+                                                                                                                $out2c=mysql_query("select distinct label from sample_arab10 where _group='$rowc[0]';");
+                                                                                                                echo $out2c;
+                                                                                                                while (($row1c= mysql_fetch_row($out2c)))
+                                                                                                                {
+                                                                                                                    echo "<option value=',$row1c[0]'>$row1c[0]";
+                                                                                                                    $allc.=','.$row1c[0];
+                                                                                                                }
+                                                                                                                echo "<option value='$allc' selected='true'>all";
+                                                                                                                echo "</select>";
+                                                                                                                echo "<br>";
+                                                                                                                $allc="";
+                                                                                                            }
+                                                                                                            echo "<span class='slidebar-content'>&nbsp;&nbsp;&nbsp;User:<br></span>";
+                                                                                                            foreach ($_SESSION['file_real'] as $key => $value) {
+                                                                                                                echo "<input name='$value' type='checkbox' id='c$value' onclick='CheckToSelectc()'/>";
+                                                                                                                echo "<span class='slidebar-content'>$value</span>";
+                                                                                                            }
+                                                                                                            echo "<script> function CheckToSelectc(){";
+                                                                                                            $out3c=mysql_query("select distinct _group from sample_arab10;");
+                                                                                                            while($row2c= mysql_fetch_row($out3c))
+                                                                                                                    echo"if(document.getElementById('$row2c[0]c').checked==true)
+                                                                                                                                {
+                                                                                                                                    document.getElementById('sl_$row2c[0]c').disabled=false;
+                                                                                                                                }
+                                                                                                                                else
+                                                                                                                                {
+                                                                                                                                    document.getElementById('sl_$row2c[0]c').disabled=true;
+                                                                                                                                }";
+                                                                                                            echo "}</script>";
+                                                                                                            ?><br>
+                                                                                                                <button type="submit">submit</button>
+                                                                                                                <button type="reset">reset</button>
+                                                                                                            </div>
+                                                                                                            <div id="none3utr"  style="display: none;">
+                                                                                                                <span class='slidebar-content'>Normalization method:</span>
+                                                                                                                <select id="sgnm">
+                                                                                                                    <option value="none" checked="true"/>None
+                                                                                                                </select><br>
+                                                                                                                 <span class='slidebar-content'>Distance(nt):</span><br>
+                                                                                                                <input type="text" value="50" name="minpat2"/><br>
+                                                                                                                <span class='slidebar-content'>Using top two PACs:</span>
+                                                                                                                <input type="checkbox" checked="true" name="uttp"/><br>
+                                                                                                                <span class='slidebar-content'>Min PAT of one PAC:</span><br>
+                                                                                                                <input type="text" value="10"name="minpat3"/><br>
+                                                                                                                <span class='slidebar-content'>Min total PAT of one PAC in both samples:</span><br>
+                                                                                                                <input type="text" value="5" name="minpat4"/><br>
+                                                                                                                <span class='slidebar-content'>Min difference of PAC between the two PAC:</span><br>
+                                                                                                                <input type="text" value="10" name="minpat5"/><br>
+                                                                                                                 <span class='slidebar-content'>Min fold change of two PAC in at least one sample:</span><br>
+                                                                                                                 <input type="text" value="2" name="minpat6"/><br><br>
+                                                                                                                 <span class='slidebar-content'>Samples:<br>&nbsp;&nbsp;&nbsp;System:</span><br>
+                                                                                                        <?php
+                                                                                                            $out1d=mysql_query("select distinct _group from sample_arab10;");
+                                                                                                            while($rowd= mysql_fetch_row($out1d))
+                                                                                                            {
+                                                                                                                echo "<input name='$rowd[0]' type='checkbox' id='$rowd[0]d' onclick='CheckToSelectd()'>";
+                                                                                                                echo "<span class='slidebar-content'>$rowd[0]&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>";
+                                                                                                                echo "<select id='sl_$rowd[0]d' name='sl_$rowd[0]' disabled='disabled'>";
+                                                                                                                $out2d=mysql_query("select distinct label from sample_arab10 where _group='$rowd[0]';");
+                                                                                                                echo $out2d;
+                                                                                                                while (($row1d= mysql_fetch_row($out2d)))
+                                                                                                                {
+                                                                                                                    echo "<option value=',$row1d[0]'>$row1d[0]";
+                                                                                                                    $alld.=','.$row1d[0];
+                                                                                                                }
+                                                                                                                echo "<option value='$alld' selected='true'>all";
+                                                                                                                echo "</select>";
+                                                                                                                echo "<br>";
+                                                                                                                $alld="";
+                                                                                                            }
+                                                                                                            echo "<span class='slidebar-content'>&nbsp;&nbsp;&nbsp;User:<br></span>";
+                                                                                                            foreach ($_SESSION['file_real'] as $key => $value) {
+                                                                                                                echo "<input name='$value' type='checkbox' id='d$value' onclick='CheckToSelectd()'/>";
+                                                                                                                echo "<span class='slidebar-content'>$value</span>";
+                                                                                                            }
+                                                                                                            echo "<script> function CheckToSelectd(){";
+                                                                                                            $out3d=mysql_query("select distinct _group from sample_arab10;");
+                                                                                                            while($row2d= mysql_fetch_row($out3d))
+                                                                                                                    echo"if(document.getElementById('$row2d[0]d').checked==true)
+                                                                                                                                {
+                                                                                                                                    document.getElementById('sl_$row2d[0]d').disabled=false;
+                                                                                                                                }
+                                                                                                                                else
+                                                                                                                                {
+                                                                                                                                    document.getElementById('sl_$row2d[0]d').disabled=true;
+                                                                                                                                }";
+                                                                                                            foreach ($_SESSION['file_real'] as $key => $value) {
+                                                                                                            $doif.="document.getElementById('d$value').checked==true";
+                                                                                                            if($key!=  sizeof($_SESSION['file_real'])-1)
+                                                                                                                    $doif.="||";
+                                                                                                            }
+                                                                                                            echo "if($doif)
+                                                                                                                      {
+                                                                                                                            document.getElementById('sgnm').options.length=0;
+                                                                                                                            document.getElementById('sgnm').options.add(new Option('None','none'));
+                                                                                                                            //alert('ifa');
+                                                                                                                      }
+                                                                                                                      else
+                                                                                                                      {
+                                                                                                                            document.getElementById('sgnm').options.length=0;
+                                                                                                                            document.getElementById('sgnm').options.add(new Option('None','none'));
+                                                                                                                            document.getElementById('sgnm').options.add(new Option('TPM','TPM'));
+                                                                                                                            document.getElementById('sgnm').options.add(new Option('DESeq','DESeq'));
+                                                                                                                            //alert('elsea');
+                                                                                                                      }";
+                                                                                                            echo"}</script>";
+                                                                                                //            var_dump($out);
+                                                                                                            ?><br>
+                                                                                                                 <button type="submit">submit</button>
+                                                                                                                <button type="reset">reset</button>
+                                                                                                            </div>
+                                                                                                        </form>
+                                                                                                            <script>
+                                                                                                                function div_option(t)
+                                                                                                                {
+                                                                                                                    for(var i=1;i<t.length;i++)
+                                                                                                                    {
+                                                                                                                        document.getElementById(t.options[i].value).style.display="none";
+                                                                                                                    }
+                                                                                                                    if(t.value!="choose")
+                                                                                                                    {
+                                                                                                                        document.getElementById(t.value).style.display="block";
+                                                                                                                     }   
+                                                                                                                }
+                                                                                                            </script>
+					</div>
+				  </div>
+			  </div>
+		   </div>
+		</div>		
+	</div>
+        </div>
+        <!--<script src="./src/jquery-1.8.3.min.js"></script>-->
+        <script src="./src/sidebar.js"></script> 
+        <script>
+            $('#jsi-nav').sidebar({
+                    trigger: '.jsc-sidebar-trigger'
+            });
+            var tabsSwiper = new Swiper('.swiper-container',{
+                    speed:500,
+                    onSlideChangeStart: function(){
+                            $(".tabs .active").removeClass('active');
+                            $(".tabs a").eq(tabsSwiper.activeIndex).addClass('active');
+                    }
+            });
+
+            $(".tabs a").on('touchstart mousedown',function(e){
+                    e.preventDefault()
+                    $(".tabs .active").removeClass('active');
+                    $(this).addClass('active');
+                    tabsSwiper.swipeTo($(this).index());
+            });
+
+            $(".tabs a").click(function(e){
+                    e.preventDefault();
+            });
+            </script>
+        
                            <?php
                         include './wheelmenu.php';
                         ?>

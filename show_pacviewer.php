@@ -69,9 +69,29 @@ and open the template in the editor.
                 color:black;
                 background-color: #EEEE00;
             }
+            fieldset{
+                border-color: #5499c9 !important;
+                border-style: solid !important;
+                border-width: 2px !important;
+                padding: 5px 10px !important;
+            }
+            div.filter_class{
+                //float: left;
+                //button:5;
+                //display: inline;
+                text-align: right;
+                //margin-left: 150px;
+            }
+            .jtable-title-text{
+                font-size:20px;
+                text-align: center;
+            }
         </style>
     </head>
     <body>
+        <?php
+            include'./navbar.php';
+            ?>
         <?php
         $con=  mysql_connect("localhost","root","root");
         mysql_select_db("db_bio",$con);
@@ -124,6 +144,13 @@ and open the template in the editor.
          echo "</script>";
 
          ?>
+        <div class="filter" id="filter">
+            <form>
+                <input type="text" name="search" id="search" />
+                <button type="submit" id="search_button">search</button>
+                <button type="reset" id="reset_button">reset</button>
+            </form>
+        </div>
          <div id="jtable" style="width: 100%;"></div>
     
         <link href="src/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
@@ -724,13 +751,13 @@ and open the template in the editor.
         <script type="text/javascript">
             $(document).ready(function (){
                 $('#jtable').jtable({
-                    title:'PAC',
+                    title:'System PAC list',
                     paging:true,
                     pageSize:5,
                     sorting:true,
                     defaultSorting:'gene ASC',
                     actions:{
-                        listAction:'PAClist.php'
+                        listAction:'system_PAClist.php'
                     },
                     fields:{
                         gene:{
@@ -776,8 +803,19 @@ and open the template in the editor.
                         }
                     }
                 });
-
+                $('#filter').appendTo(".jtable-title").addClass('filter_class');
                 $('#jtable').jtable('load');
+                $('#search_button').click(function (e){
+                    e.preventDefault();
+                            $('#jtable').jtable('load',{
+                                search: $('#search').val()
+                            });
+                        });
+                $('#reset_button').click(function(e){
+                    e.preventDefault();
+                            $('#jtable').jtable('load');
+                        });
+                
                 $('#find_patt').click(function(){
   	find_pattern_onload();
                 });
@@ -813,31 +851,40 @@ and open the template in the editor.
             
 <!--            sequence viewer-->
             <div  class="straight_matter">
-	<div id = "pattern_title" class = "container4" ><b>Pattern Viewer</b></div>
-	<fieldset style=" padding:none;">
-                    <legend><span class="h3_italic"></span></legend>
+                <fieldset style="margin-top: 20px;margin-left: 2%;margin-right: 2%;">
+                    <legend>
+                        <span class="h3_italic">
+                            <font color="#224055" size="18px;"><b>Pattern Viewer</b></font>
+                        </span>
+                    </legend>
 	<div class = "seq_viewer" id="seq_viewer">
                     <div id = "pattern">	
         	<legend><span class="h3_italic">Typical Pattern</span>&nbsp;<span class='pt2' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;(AATAAA&nbsp;<span class='pt3' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;TGTAA&nbsp;<span class='pt4' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;)</legend>
-        	<table style="width:900px;margin-top:10px;margin-bottom:10px;">
+        	<table style="width:900px;margin-top:10px;margin-bottom:10px;font-family:Courier New;font-size:16px;">
                     <?php
                     echo "<tr>";
-                    echo '<td><input type="checkbox" checked = "true" name = "cbox" id = "checkall" value = "checkall" /><em>&nbsp;Change All</em></td>';
+                    echo '<td><input type="checkbox" checked = "true" name = "cbox" id = "checkall2" value = "checkall" /><em>&nbsp;Change All</em></td>';
                     $i = 0;
                     foreach ($singnals as $key => $value) {
                             if($i == 6||$i == 13)
                             {
                                     echo "</tr><tr>";
                             }
-                            echo '<td><input type="checkbox" name = "cbox" checked = "true" value = "'.$value.'"/>&nbsp;'.$value.'</td>';
+                            echo '<td><input type="checkbox" name = "cbox2" checked = "true" value = "'.$value.'"/>&nbsp;'.$value.'</td>';
                             $i++;
                     }
                     echo "</tr>";
                     ?>
            	</table>
 
-                    <legend><span class="h3_italic">User’s Pattern </span>&nbsp;&nbsp;<span class='pt1' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;(Ex. AATAAA, TGTAA)</legend>
+                    <legend><span class="h3_italic">User’s Pattern </span>&nbsp;&nbsp;<span class='pt1' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;(Ex. AATAAA, TGTAAA)</legend>
                     <input type = "text" id = "user_pattern" style="margin-top:10px;margin-bottom:10px;"></input>
+                        <legend>
+                                    <span class="h3_italic">poly(A) site</span>
+                                    &nbsp;&nbsp;
+                                    <span style="text-align:center;color:red;"><strong><u>N</u></strong></span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                        </legend>
 <!--                            <legend>
                                     <span class="h3_italic">Predicted poly(A) site</span>
                                     &nbsp;&nbsp;
@@ -855,7 +902,7 @@ and open the template in the editor.
                             <button id = "find_patt" style="width:100px;"  class = "button blue medium">Show</button>
                             <button id = "reset" style = "width:100px;"  class = "button blue medium">Clear</button>
                     </div>
-                    <div id = "seq_content" style="max-height:400px;overflow:auto;margin-top:20px;">
+                    <div id = "seq_content" style="max-height:400px;overflow:auto;margin-top:20px;font-family: Courier New;font-size:15px;">
                             <p class = "sequence" id = "sequence"style="word-break:break-all;"><?php echo "AATAAAAAA";  ?>
                             </p>	            	
                     </div>
@@ -864,6 +911,8 @@ and open the template in the editor.
             </div>
             
 
-            
+            <?php
+                                include 'footer.php';
+            ?>
     </body>
 </html>

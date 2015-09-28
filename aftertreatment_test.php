@@ -3,7 +3,102 @@
     mysql_select_db("db_bio",$con);
     session_start();
     $file=$_SESSION['file'];
-    if($_GET['action']=='search')
+    if($_GET['action']=='sys_search'){
+        $chr=$_POST['chr'];
+        $start=$_POST['start'];
+        $end=$_POST['end'];
+        $go_accession=$_POST['go_accession'];
+        $go_name=$_POST['go_name'];
+        $function=$_POST['function'];
+        $go_array=array();
+        //选择的系统sample
+         $out1=mysql_query("select distinct _group from sample_arab10;");
+        while($row= mysql_fetch_row($out1))
+        {
+            if($_POST['sl_'.$row[0]]!=NULL)
+            {
+                $sys_sql.=$_POST["sl_$row[0]"];//系统pac数据表应当搜索的列名
+            }
+        }
+        $_SESSION['sys_checked']=  explode(',', substr($sys_sql, 1));
+        //分配search的user id 便于区分
+        if($_SESSION['file']==NULL){
+            $file=$_SESSION['file']=$_POST['species'].date("Y").date("m").date("d").date("h").date("i").date("s");
+        }
+        //查询是否存在数据表,若存在则清空
+         $sysQry_result=  mysql_query("select * from db_user.sysQryPAC_$file;");
+        if(mysql_num_rows($sysQry_result)>0){
+            mysql_query("drop table db_user.sysQryPAC_$file;");
+            echo "delete complete!!!";
+        }
+       //若go搜索无输入
+        if($go_accession==NULL&&$go_name==NULL&&$function==NULL){
+            $sysQry="create table db_user.sysQryPAC_$file as(select chr,strand,coord,gff_id,ftr,ftr_start,ftr_end,transcript,gene,gene_type,ftrs,trspt_cnt,UPA_start,UPA_end,tot_PAnum,tot_ftrs,ref_coord,ref_tagnum$sys_sql from db_bio.PAC_sys_arab10 where 1=1";
+            if($_POST['chr']!='all'){
+                $sysQry.=" and chr=".$_POST['chr']."";
+            }
+            if($_POST['start']!=NULL){
+                $sysQry.=" and ftr_start>=".$_POST['start']."";
+            }
+            if($_POST['end']!=NULL){
+                $sysQry.=" and ftr_end<=".$_POST['end']."";
+            }
+            $sysQry.=");";
+            mysql_query($sysQry);
+        }
+        else
+        {
+            $go_sysQry="select gene from db_bio.go_arab10 where 1=1";
+            if($_POST['go_name']!=NULL)
+            {
+                $go_sysQry.=" and goterm like '%$go_name%'";
+
+                 }
+                 if($_POST['function']!=NULL)
+                 {
+                     $go_sysQry.=" and genefunction like '%$function%'";
+                 } 
+                 if($_POST['go_accession']!=NULL)
+                 {
+                     $go_id=explode(',',$go_accession);
+                }
+                     $go_id=  array_unique($go_id);
+                     $go_sysQry.=" and";
+//                     foreach ($go_id as $key => $value) {
+//                         if($key==0)
+//                         {
+//                             $go_sql_search.=" goid='$value'";
+//                         }
+//                         else
+//                             $go_sql_search.=" or goid='$value'";
+//                     }
+//                     $go_sql_search.=")";
+                        $go_sysQry.=" goid in ('";
+                        $go_sysQry.=implode("','", $go_id);
+                 }
+                 $go_sysQry.="');";
+                 $go_sysQry_result=mysql_query($go_sysQry);
+                 while($go_sysQry_row=  mysql_fetch_row($go_sysQry_result))
+                 {
+                     array_push($go_array,$go_sysQry_row[0]);
+                 }
+                 $go_array=array_unique($go_array);
+                $go_insert="create table db_user.sysQryPAC_$file as(select chr,strand,coord,ftr,ftr_start,ftr_end,gene$sys_sql from db_bio.PAC_sys_arab10 where 1=0";
+                 if(count($go_array)>0){
+                    $go_insert.=" or gene in ('";
+                    $go_insert.=implode("','", $go_array);
+                }
+                    $go_insert.="'));";
+            mysql_query($go_insert);
+//            echo $_SESSION['file'];
+//            echo $go_sysQry;
+//            echo $go_insert;
+//            echo $go_array;
+//        var_dump($sysQry_result);
+             echo '<script>window.location.href="show_sequence_searched.php?chr=1&gene=31185&strand=-1";</script>';
+         
+    }
+    else if($_GET['action']=='search')
     {
         $chr=$_POST['chr'];
         $start=$_POST['start'];
@@ -336,7 +431,7 @@
        $usr_num= mysql_num_rows(mysql_query("select chr from db_user.sysQryPAC_$file;"));
        if($sys_num==0&&$usr_num==0&&$sql!=0)
            echo "<script type='text/javascript'>alert('no result');history.back();</script>";
-       $merge="./src/perl/PAT_mergePAC.pl -smptbls 'usrQryPAC_$file;sysQryPAC_$file' -reftbl usrQryPAC_$file -smpcols '".implode(':',$_SESSION['usr_checked'] ).";".implode(':', $_SESSION['sys_checked'])."' -smplbls '".implode(':',$_SESSION['usr_checked'] ).";".implode(':', $_SESSION['sys_checked'])."' -otbl SearchedPAC_$file -udist 24 -gff gff_arab10 -conf /var/www/html/front/src/r/db_2.xml";
+       $merge="./src/perl/PAT_mergePAC.pl -smptbls 'usrQryPAC_$file;sysQryPAC_$file' -reftbl usrQryPAC_$file -smpcols '".implode(':',$_SESSION['usr_checked'] ).";".implode(':', $_SESSION['sys_checked'])."' -smplbls '".implode(':',$_SESSION['usr_checked'] ).";".implode(':', $_SESSION['sys_checked'])."' -otbl SearchedPAC_$file -udist 24 -conf /var/www/html/front/src/r/db_2.xml";
        shell_exec($merge);
        echo '<script>window.location.href="show_sequence_searched.php?chr=1&gene=31185&strand=-1";</script>';
            
@@ -449,7 +544,7 @@
            echo "<script type='text/javascript'>alert('at least select one sample');history.back();</script>";
         if(strlen($sys_sql)>0)
             mysql_query("create table db_user.sys_pac_$file as(select chr,strand,coord,gff_id,ftr,ftr_start,ftr_end,transcript,gene,gene_type,ftrs,trspt_cnt,UPA_start,UPA_end,tot_PAnum,tot_ftrs,ref_coord,ref_tagnum$sys_sql from db_bio.PAC_sys_arab10);");
-       $merge="./src/perl/PAT_mergePAC.pl -smptbls 'PAC_$file;sys_pac_$file' -reftbl PAC_$file -smpcols '".implode(':',$_SESSION['usr_checked'] ).";".implode(':', $_SESSION['sys_checked'])."' -smplbls '".implode(':',$_SESSION['usr_checked'] ).";".implode(':', $_SESSION['sys_checked'])."' -otbl SearchedPAC_$file -udist 24 -gff gff_arab10 -conf /var/www/html/front/src/r/db_2.xml 2>&1";
+       $merge="./src/perl/PAT_mergePAC.pl -smptbls 'PAC_$file;sys_pac_$file' -reftbl PAC_$file -smpcols '".implode(':',$_SESSION['usr_checked'] ).";".implode(':', $_SESSION['sys_checked'])."' -smplbls '".implode(':',$_SESSION['usr_checked'] ).";".implode(':', $_SESSION['sys_checked'])."' -otbl SearchedPAC_$file -udist 24 -conf /var/www/html/front/src/r/db_2.xml 2>&1";
        echo shell_exec($merge);
             if($_GET['action']=='o_degene'){
                 if($_POST['nor_method']=='none')

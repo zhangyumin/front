@@ -34,9 +34,17 @@ and open the template in the editor.
             $_SESSION['distance']=$_POST['distance'];
 
            
-                if(!file_exists($tmppath))
+                if(!file_exists($tmppath)&&$_POST['sys_example']!='on')
                 {
                      echo "<script type='text/javascript'>alert('upload sequence file first'); history.back();</script>";
+                }
+                else if($_POST['sys_example']=='on'){
+                    mkdir("./data/".$_SESSION['file']."/");
+                    chmod("./data/".$_SESSION['file']."/", 0777);
+                    mkdir("./result/".$_SESSION['file']."/");
+                    chmod("./result/".$_SESSION['file']."/", 0777);
+                    copy("./data/sys_example/arab.fastq", "./data/".$_SESSION['file']."/arab.fastq");
+                    echo '<script>window.location.href="get_result.php";</script>';
                 }
                 else 
                 {

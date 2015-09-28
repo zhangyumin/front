@@ -220,11 +220,16 @@
                         edit:false,
                         width:'20%'
                     },
-                    tot_tagnum:{
-                        title:'tot_tagnum',
-                        edit:false,
-                        width:'10%'
-                    }
+                     <?php
+                     foreach ($_SESSION['file_real'] as $key => $value) {
+                            echo $value.":{
+                                title:'$value',
+                                edit:false
+                                }";
+                            if($key!=count($_SESSION['file_real'])-1)
+                                    echo ",";
+                     }
+                     ?>
                 }
             });
 
