@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<?php 
+    session_start();
+    $_SESSION['file']=0;
+    ?>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <p align="center"><font size="40">The data is uploading , please wait...</font></p>
+        <p align="center"><img src="./pic/loading.gif"</p>
+        <?php
+            #定义上传路径,文件名,允许上传文件类型,使用时间戳来保证文件名的唯一性.
+            $filepath="./data/";
+            
+            $_SESSION['file']=$_POST["species"].date("Y").date("m").date("d").date("h").date("i").date("s");
+            $filename=$_POST["species"].date("Y").date("m").date("d").date("h").date("i").date("s").".fa";
+           
+            #传递上传文件参数设置
+            $_SESSION['qct']=$_POST['qct'];
+            $_SESSION['mp']=$_POST['mp'];
+            $_SESSION['tailremove']=$_POST['tailremove'];
+            $_SESSION['aligner']=$_POST['aligner'];
+            $_SESSION['minlength']=$_POST['minlength'];
+            $_SESSION['rip']=$_POST['rip'];
+            $_SESSION['distance']=$_POST['distance'];
+
+            if($_POST['sequenceText']==NULL&&empty($_FILES['file']['tmp_name'])==1)#判断为无文件上传
+            {
+
+                echo "<script type='text/javascript'>alert('Please upload a sequence file or paste sequences in the text area.'); history.back();</script>";
+                exit;
+            }
+            if($_POST['sequenceText']&&!empty($_FILES['file']['tmp_name'])==1)#判断为两种上传方式都填写
+            {
+                 echo "<script type='text/javascript'>alert('Please just upload one kind of data.'); history.back();</script>";
+                 exit;
+            }
+            if($_POST['sequenceText']&&!empty($_FILES['file']['tmp_name'])==0)#判断为textarea方式上传
+            {
+                file_put_contents($filepath.$filename, $_POST['sequenceText']);#保存sequenceText
+                echo '<script>window.location.href="get_result.php";</script>';
+                #echo $_POST['sequenceText'];
+                exit;
+            }
+            if($_POST['sequenceText']||!empty($_FILES['file']['tmp_name'])==1)#判断为file方式上传
+            {
+                 $allowtype=array("fa","fas","fasta","fastq");
+                 $arr= explode(".", $_FILES["file"]["name"]);
+                 $hz=$arr[count($arr)-1];#获取上传文件的后缀名
+                 #
+//                if($_FILES["file"]["error"]>0)
+//                {
+//                     echo "Error:".$_FILES["file"]["error"]."<br>";
+//                }
+                if(!in_array($hz, $allowtype))
+                {
+                     echo "<script type='text/javascript'>alert('file type error'); history.back();</script>";
+                }
+                else 
+                {
+                        $x=move_uploaded_file($_FILES["file"]["tmp_name"], $filepath.$filename);
+                        echo '<script>window.location.href="get_result.php";</script>';
+                        #echo $x;
+                   }
+            }
+        ?>
+    </body>
+</html>

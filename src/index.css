@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+
+*{margin:0;padding:0;}
+.li{list-style:none;}
+.tagbox{width:960px;height:200px;margin:auto;overflow:hidden;}
+.tagbox ul li{width:220px;height:150px;float:left;position:relative;overflow:hidden;background: rgb(102,132,228);margin: 10px;}
+.tagbox ul li .a_text{width:190px;height:180px;padding:20px 0 0 30px;background:#000;opacity:0.9;position:absolute;top:-200px;left:0;color:rgb(102,132,228);text-decoration:none;}
+.tagbox ul li .a_text a{font-size: 25px;text-align: center;color: green;padding: 0 1px 0 3px;}
+.tagbox ul li .tag_text{font-size:45px;height: 3em;line-height:3em;text-align:center;}

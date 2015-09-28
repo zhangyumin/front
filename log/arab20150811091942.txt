@@ -1,0 +1,88 @@
+Quality cut-off: 20
+Minimum percentage: 50
+Input: 100000 reads.
+Output: 21809 reads.
+discarded 78191 (78%) low-quality reads.
+arab1.qc.fa polyT minlen=25 qc=1; total=21809; noTail=467; polyA=0; polyT=21342
+21342 reads; of these:
+  21342 (100.00%) were unpaired; of these:
+    6118 (28.67%) aligned 0 times
+    13694 (64.16%) aligned exactly 1 time
+    1530 (7.17%) aligned >1 times
+71.33% overall alignment rate
+9716 in /var/www/html/front/data/arab20150811091942/arab1.qc.fa.noT.fa.sam.M30S10.PA
+1 +; 1157 PA; -1 ips; 1020 reals
+1 -; 1305 PA; -1 ips; 1162 reals
+2 +; 759 PA; -1 ips; 651 reals
+2 -; 689 PA; -1 ips; 604 reals
+3 +; 997 PA; -1 ips; 876 reals
+3 -; 975 PA; -1 ips; 853 reals
+4 +; 696 PA; -1 ips; 636 reals
+4 -; 705 PA; -1 ips; 628 reals
+5 +; 997 PA; -1 ips; 882 reals
+5 -; 1032 PA; -1 ips; 914 reals
+chloroplast +; 156 PA; -1 ips; 28 reals
+chloroplast -; 224 PA; -1 ips; 44 reals
+mitochondria +; 5 PA; -1 ips; 2 reals
+mitochondria -; 19 PA; -1 ips; 8 reals
+********************
+Total 0/0 ips; 8308/8308 reals
+overwrite org file/table
+mtbl=db_user.PA_arab20150811091942
+gfftbl=db_bio.gff_arab10
+remap=T
+anti=1
+smps=arab1
+norms=
+rounds=
+remap=T: MAPGFF db_user.PA_arab20150811091942 + db_bio.gff_arab10 
+---- Map mtbl with gfftbl (remap=T OR haveID=0)----
+anti=0, mode=1(coord), from db_user.PA_arab20150811091942_xxflt, db_bio.gff_arab10 to db_user.PA_arab20150811091942xxPAxx
+
+***PA fields: chr strand coord tot_tagnum arab1; prefix=
+***GFF fields: gff_id ftr ftr_start ftr_end transcript gene gene_type ftrs trspt_cnt; prefix=
+
+1 + 45917 Gffs; 1020 PAs; 1020 maps
+1 - 47860 Gffs; 1162 PAs; 1162 maps
+2 + 27770 Gffs; 651 PAs; 651 maps
+2 - 27050 Gffs; 604 PAs; 603 maps
+3 + 34680 Gffs; 876 PAs; 876 maps
+3 - 35316 Gffs; 853 PAs; 852 maps
+4 + 27188 Gffs; 636 PAs; 636 maps
+4 - 27491 Gffs; 628 PAs; 627 maps
+5 + 41670 Gffs; 882 PAs; 882 maps
+5 - 40294 Gffs; 914 PAs; 914 maps
+chloroplast + 128 Gffs; 28 PAs; 28 maps
+chloroplast - 184 Gffs; 44 PAs; 44 maps
+mitochondria + 136 Gffs; 2 PAs; 2 maps
+mitochondria - 190 Gffs; 8 PAs; 8 maps
+********************
+8305 rows to db_user.PA_arab20150811091942xxPAxx
+---------------------------------------------------
+8305 PA
+5236 PAC
+0E0	tot_tagnum=0
+5236	db_user.PAC_arab20150811091942
+---------------- anti=T, add anti_xx to db_user.PAC_arab20150811091942 ------------------
+anti=1, mode=1(coord), from db_user.PAC_arab20150811091942, db_bio.gff_arab10 to db_user.PAC_arab20150811091942_xxAtxx
+
+***PA fields: chr strand coord tot_tagnum arab1 gff_id ftr ftr_start ftr_end transcript gene gene_type ftrs trspt_cnt UPA_start UPA_end tot_PAnum tot_ftrs ref_coord ref_tagnum; prefix=
+***GFF fields: gff_id strand ftr ftr_start ftr_end transcript gene gene_type; prefix=anti_
+
+1 + 47860 antiGffs; 627 PAs; 627 maps
+1 - 45917 antiGffs; 693 PAs; 693 maps
+2 + 27050 antiGffs; 413 PAs; 413 maps
+2 - 27770 antiGffs; 372 PAs; 372 maps
+3 + 35316 antiGffs; 531 PAs; 531 maps
+3 - 34680 antiGffs; 564 PAs; 564 maps
+4 + 27491 antiGffs; 404 PAs; 404 maps
+4 - 27188 antiGffs; 404 PAs; 404 maps
+5 + 40294 antiGffs; 586 PAs; 586 maps
+5 - 41670 antiGffs; 578 PAs; 578 maps
+chloroplast + 184 antiGffs; 21 PAs; 21 maps
+chloroplast - 128 antiGffs; 34 PAs; 34 maps
+mitochondria + 190 antiGffs; 2 PAs; 2 maps
+mitochondria - 136 antiGffs; 7 PAs; 7 maps
+********************
+5236 rows to db_user.PAC_arab20150811091942_xxAtxx
+----------------------------------------------------------------

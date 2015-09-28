@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+         <?php
+                $con=  mysql_connect("localhost","root","root");
+                 mysql_select_db("db_bio",$con);
+                 session_start();
+            ?>
+        <title>Task summary</title>
+        <link href="./src/navbar.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div style="width: 990px;margin:0 auto;" class="page">
+            <?php
+                include "./navbar.php";
+            ?>
+            <div id="task_summery" align="center" style="clear: both;"><br>
+            <div id="title">
+                Task Summary
+            </div>
+                <?php
+                    $file=  file_get_contents("./log/".$_SESSION['file'].".txt");
+                    $array_file=  explode("\n", $file);
+
+                    $array_input=explode(" ",$array_file[2]);
+                    $array_discard=explode(" ",$array_file[4]);
+                    $array_tail=explode(" ",$array_file[6]);
+                    $array_read=explode(" ",$array_file[9]);
+                    $array_internal=explode(" ",$array_file[28]);
+                    $array_pat=explode(" ",$array_file[61]);
+                    $array_pac=explode(" ",$array_file[62]);
+
+                    $input_reads=$array_input[1];
+                    $low_quality_reads=$array_discard[1];
+                    $reads_with_tail=$array_tail[0];
+                    $aligned_reads=$array_read[4];
+                    $array_read[5]=  substr($array_read[5], 1, strlen($array_read[5])-2);
+                    $alignment_rate=$array_read[5];
+                    $array_internal[1]=  substr($array_internal[1], 0,1);
+                    $internal_priming_reads=$array_internal[1];
+                    $pat=$array_pat[0];
+                    $pac=$array_pac[0];
+
+                    echo "<br><br><br><br><br>";
+                    echo "<br>Input reads : $input_reads<br>";
+                    echo "<br>Low quality reads : $low_quality_reads<br>";
+                    echo "<br>Reads with tail : $reads_with_tail<br>";
+                    echo "<br>Aligned reads : $aligned_reads<br>";
+                    echo "<br>Alignment rate : $alignment_rate<br>";
+                    echo "<br>Internal priming reads : $internal_priming_reads<br>";
+                    echo "<br>PAT : $pat<br>";
+                    echo "<br>PAC : $pac<br>";
+                    echo "<br><br><br><br>";
+                ?>
+                <input type="button" onclick="javascirpt:window.open('show_result.php','_blank');" value="continue"/>
+                <input type="button" onclick="javascirpt:window.open('download_data.php','_blank');" value="download" />
+            </div>
+        </div>
+        <?php
+                include './footer.php';
+                ?>
+    </body>
+</html>

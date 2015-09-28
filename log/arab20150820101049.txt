@@ -1,0 +1,21 @@
+Warning: Could not open read file "./data/arab20150820101049/arab1.qc.fa.noT.fa" for reading; skipping...
+Error: No input read files were valid
+(ERR): bowtie2-align exited with value 1
+mtbl=db_user.PA_arab20150820101049
+gfftbl=db_bio.gff_arab10
+remap=T
+anti=1
+smps=arab1
+norms=
+rounds=
+remap=T: MAPGFF db_user.PA_arab20150820101049 + db_bio.gff_arab10 
+---- Map mtbl with gfftbl (remap=T OR haveID=0)----
+anti=0, mode=1(coord), from db_user.PA_arab20150820101049_xxflt, db_bio.gff_arab10 to db_user.PA_arab20150820101049xxPAxx
+
+***PA fields: chr strand coord tot_tagnum arab1; prefix=
+***GFF fields: gff_id ftr ftr_start ftr_end transcript gene gene_type ftrs trspt_cnt; prefix=
+
+********************
+0E0 rows to db_user.PA_arab20150820101049xxPAxx
+---------------------------------------------------
+0 PAs in db_user.PA_arab20150820101049xxPAxx

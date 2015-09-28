@@ -1,0 +1,4 @@
+gene	coord	chr	strand	ftr	oxt6_leaf_1	oxt6_leaf_2	wt_leaf_3	wt_seed_1	arab3	oxt6_leaf_1.1	oxt6_leaf_2.1	wt_leaf_3.1	wt_seed_1.1	pval	padj
+AT1G01100	50114	1	-	3UTR	23	4	6	0	11	23	4	6	0	0.468395656091657	0.468409818769166
+AT1G01100	50173	1	-	3UTR	0	0	0	0	7	0	0	0	0	0.468409818769166	0.468409818769166
+AT1G01090	47613	1	-	3UTR	153	0	0	0	0	153	0	0	0	NA	NA

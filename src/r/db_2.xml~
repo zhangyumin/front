@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<xml>
+	<dbhost>localhost</dbhost>
+	<dbname>db_bio</dbname>
+	<user>root</user>
+	<password>root</password>
+	<chromosome>db_bio.fa_arab10</chromosome>
+</xml>

@@ -1,0 +1,128 @@
+{
+   "formatVersion" : 1,
+   "tracks" : [
+      {
+         "chunkSize" : 20000,
+         "key" : "Arabidopsis",
+         "label" : "DNA",
+         "urlTemplate" : "seq/{refseq_dirpath}/{refseq}-",
+         "category" : "Reference sequence",
+         "storeClass" : "JBrowse/Store/Sequence/StaticChunked",
+         "type" : "SequenceTrack"
+      },
+      {
+         "urlTemplate" : "./PATPO.bw",
+         "label" : "PAT positive tagNum",
+         "type" : "JBrowse/View/Track/Wiggle/XYPlot",
+         "autoscale" : "local",
+         "storeClass" : "JBrowse/Store/SeqFeature/BigWig",
+         "style" : {
+            "pos_color" : "blue",
+            "neg_color" : "red"
+         },
+         "variance_band" : false,
+         "uniqueStoreName" : {
+            "urlTemplate" : "./PATNE.bw",
+            "type" : "JBrowse/View/Track/Wiggle/XYPlot"
+         },
+         "key" : "PAT positive tagNum"
+      },
+      {
+         "type" : "JBrowse/View/Track/Wiggle/XYPlot",
+         "variance_ban" : false,
+         "storeClass" : "JBrowse/Store/SeqFeature/BigWig",
+         "autoscale" : "local",
+         "key" : "PAT negetive tagNum",
+         "style" : {
+            "pos_color" : "blue",
+            "neg_color" : "red"
+         },
+         "label" : "PAT negetive tagNum",
+         "urlTemplate" : "./PATNE.bw"
+      },
+      {
+         "compress" : 0,
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "type" : "FeatureTrack",
+         "style" : {
+            "className" : "feature"
+         },
+         "key" : "sys_polya",
+         "onClick" : {
+            "label" : "see polyA site",
+            "action" : "newwindow",
+            "url" : "http://localhost/front/show_sequence.php?chr={seq_id}&gene={start}&strand={strand}"
+         },
+         "trackType" : null,
+         "urlTemplate" : "tracks/polya/{refseq}/trackData.json",
+         "label" : "sys_polya"
+      },
+      {
+         "trackType" : null,
+         "onClick" : {
+            "label" : "view the pac score",
+            "action" : "newwindow",
+            "url" : "http://localhost/front/show_sequence.php?gene={Id}",
+            "title" : "{type}{name}"
+         },
+         "label" : "Arabidopsis",
+         "urlTemplate" : "tracks/Arabidopsis/{refseq}/trackData.json",
+         "type" : "FeatureTrack",
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "compress" : 0,
+         "key" : "Arabidopsis",
+         "style" : {
+            "className" : "feature"
+         }
+      },
+      {
+         "label" : "arab positive polyA site",
+         "urlTemplate" : "./arab.UsrPosPA.bw",
+         "key" : "arab positive polyA site",
+         "uniqueStoreName" : {
+            "type" : "JBrowse/View/Track/Wiggle/XYPlot",
+            "urlTemplate" : "./arab.UsrPosPA.bw"
+         },
+         "variance_band" : false,
+         "style" : {
+            "neg_color" : "red",
+            "pos_color" : "blue"
+         },
+         "autoscale" : "local",
+         "storeClass" : "JBrowse/Store/SeqFeature/BigWig",
+         "type" : "JBrowse/View/Track/Wiggle/XYPlot"
+      },
+      {
+         "uniqueStoreName" : {
+            "type" : "JBrowse/View/Track/Wiggle/XYPlot",
+            "urlTemplate" : "./arab.UsrNegPA.bw"
+         },
+         "key" : "arab negative polyA site",
+         "style" : {
+            "pos_color" : "blue",
+            "neg_color" : "red"
+         },
+         "variance_band" : false,
+         "type" : "JBrowse/View/Track/Wiggle/XYPlot",
+         "storeClass" : "JBrowse/Store/SeqFeature/BigWig",
+         "autoscale" : "local",
+         "label" : "arab negative polyA site",
+         "urlTemplate" : "./arab.UsrNegPA.bw"
+      },
+      {
+         "compress" : 0,
+         "type" : "FeatureTrack",
+         "storeClass" : "JBrowse/Store/SeqFeature/NCList",
+         "style" : {
+            "className" : "feature"
+         },
+         "key" : "PAC_arab",
+         "trackType" : null,
+         "urlTemplate" : "tracks/PAC_arab/{refseq}/trackData.json",
+         "label" : "PAC_arab"
+      ,
+	"onClick" : {
+		"url" : "../front/sequence.php?chr={seq_id}&gene={start}&strand={strand}",
+		"label" : "see polyA site",
+		"action" : "newwindow"
+	}}]}

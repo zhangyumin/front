@@ -1,0 +1,113 @@
+Quality cut-off: 20
+Minimum percentage: 50
+Input: 100000 reads.
+Output: 21809 reads.
+discarded 78191 (78%) low-quality reads.
+arab1.qc.fa polyA minlen=25 qc=1; total=21809; noTail=20131; polyA=1678; polyT=0
+1678 reads; of these:
+  1678 (100.00%) were unpaired; of these:
+    1646 (98.09%) aligned 0 times
+    28 (1.67%) aligned exactly 1 time
+    4 (0.24%) aligned >1 times
+1.91% overall alignment rate
+21 in /var/www/html/front/data/arab20150811074125/arab1.qc.fa.noT.fa.sam.M30S10.PA
+1 +; 0 PA; 
+-1 ips; 0 reals
+1 -; 1 PA; -1 ips; 1 reals
+3 +; 2 PA; -1 ips; 1 reals
+3 -; 3 PA; -1 ips; 1 reals
+5 +; 2 PA; -1 ips; 1 reals
+5 -; 0 PA; 
+-1 ips; 0 reals
+chloroplast +; 1 PA; -1 ips; 1 reals
+chloroplast -; 12 PA; -1 ips; 6 reals
+********************
+Total 0/0 ips; 11/11 reals
+overwrite org file/table
+mtbl=db_user.PA_arab20150811074125
+gfftbl=db_bio.gff_arab10
+remap=T
+anti=1
+smps=arab1
+norms=
+rounds=
+remap=T: MAPGFF db_user.PA_arab20150811074125 + db_bio.gff_arab10 
+---- Map mtbl with gfftbl (remap=T OR haveID=0)----
+anti=0, mode=1(coord), from db_user.PA_arab20150811074125_xxflt, db_bio.gff_arab10 to db_user.PA_arab20150811074125xxPAxx
+
+***PA fields: chr strand coord tot_tagnum arab1; prefix=
+***GFF fields: gff_id ftr ftr_start ftr_end transcript gene gene_type ftrs trspt_cnt; prefix=
+
+1 + 45917 Gffs; 0 PAs; 0 maps
+1 - 47860 Gffs; 1 PAs; 1 maps
+3 + 34680 Gffs; 1 PAs; 1 maps
+3 - 35316 Gffs; 1 PAs; 1 maps
+5 + 41670 Gffs; 1 PAs; 1 maps
+5 - 40294 Gffs; 0 PAs; 0 maps
+chloroplast + 128 Gffs; 1 PAs; 1 maps
+chloroplast - 184 Gffs; 6 PAs; 6 maps
+********************
+11 rows to db_user.PA_arab20150811074125xxPAxx
+---------------------------------------------------
+11 PA
+9 PAC
+0E0	tot_tagnum=0
+9	db_user.PAC_arab20150811074125
+---------------- anti=T, add anti_xx to db_user.PAC_arab20150811074125 ------------------
+anti=1, mode=1(coord), from db_user.PAC_arab20150811074125, db_bio.gff_arab10 to db_user.PAC_arab20150811074125_xxAtxx
+
+***PA fields: chr strand coord tot_tagnum arab1 gff_id ftr ftr_start ftr_end transcript gene gene_type ftrs trspt_cnt UPA_start UPA_end tot_PAnum tot_ftrs ref_coord ref_tagnum; prefix=
+***GFF fields: gff_id strand ftr ftr_start ftr_end transcript gene gene_type; prefix=anti_
+
+1 + 47860 antiGffs; 0 PAs; 0 maps
+1 - 45917 antiGffs; 1 PAs; 1 maps
+3 + 35316 antiGffs; 1 PAs; 1 maps
+3 - 34680 antiGffs; 1 PAs; 1 maps
+5 + 40294 antiGffs; 1 PAs; 1 maps
+5 - 41670 antiGffs; 0 PAs; 0 maps
+chloroplast + 184 antiGffs; 1 PAs; 1 maps
+chloroplast - 128 antiGffs; 4 PAs; 4 maps
+********************
+9 rows to db_user.PAC_arab20150811074125_xxAtxx
+----------------------------------------------------------------
+Quality cut-off: 20
+Minimum percentage: 50
+Input: 100000 reads.
+Output: 21809 reads.
+discarded 78191 (78%) low-quality reads.
+arab1.qc.fa polyA minlen=25 qc=1; total=21809; noTail=20131; polyA=1678; polyT=0
+1678 reads; of these:
+  1678 (100.00%) were unpaired; of these:
+    1646 (98.09%) aligned 0 times
+    28 (1.67%) aligned exactly 1 time
+    4 (0.24%) aligned >1 times
+1.91% overall alignment rate
+21 in /var/www/html/front/data/arab20150811074125/arab1.qc.fa.noT.fa.sam.M30S10.PA
+1 +; 0 PA; 
+-1 ips; 0 reals
+1 -; 1 PA; -1 ips; 1 reals
+3 +; 2 PA; -1 ips; 1 reals
+3 -; 3 PA; -1 ips; 1 reals
+5 +; 2 PA; -1 ips; 1 reals
+5 -; 0 PA; 
+-1 ips; 0 reals
+chloroplast +; 1 PA; -1 ips; 1 reals
+chloroplast -; 12 PA; -1 ips; 6 reals
+********************
+Total 0/0 ips; 11/11 reals
+overwrite org file/table
+Warning: Could not open read file "./data/arab20150811074125/arab1.qc.qc.fa.noT.fa" for reading; skipping...
+Error: No input read files were valid
+(ERR): bowtie2-align exited with value 1
+Warning: Could not open read file "./data/arab20150811074125/arab1.qc.noT.qc.fa.noT.fa" for reading; skipping...
+Error: No input read files were valid
+(ERR): bowtie2-align exited with value 1
+Warning: Could not open read file "./data/arab20150811074125/arab1.qc.fa.noT.fa.qc.fa.noT.fa" for reading; skipping...
+Error: No input read files were valid
+(ERR): bowtie2-align exited with value 1
+Warning: Could not open read file "./data/arab20150811074125/arab1.qc.fa.noT.fa.sam.M30S10.qc.fa.noT.fa" for reading; skipping...
+Error: No input read files were valid
+(ERR): bowtie2-align exited with value 1
+Warning: Could not open read file "./data/arab20150811074125/arab1.qc.fa.noT.fa.sam.M30S10.qc.fa.noT.fa" for reading; skipping...
+Error: No input read files were valid
+(ERR): bowtie2-align exited with value 1

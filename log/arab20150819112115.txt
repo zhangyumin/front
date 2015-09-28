@@ -1,0 +1,32 @@
+Quality cut-off: 20
+Minimum percentage: 50
+Input: 100000 reads.
+Output: 21809 reads.
+discarded 78191 (78%) low-quality reads.
+Warning: Could not open read file "./data/arab20150819112115/arab.qc.fa.noT.fa" for reading; skipping...
+Error: No input read files were valid
+(ERR): bowtie2-align exited with value 1
+Quality cut-off: 20
+Minimum percentage: 50
+Input: 100000 reads.
+Output: 21809 reads.
+discarded 78191 (78%) low-quality reads.
+Warning: Could not open read file "./data/arab20150819112115/arab1.qc.fa.noT.fa" for reading; skipping...
+Error: No input read files were valid
+(ERR): bowtie2-align exited with value 1
+Quality cut-off: 20
+Minimum percentage: 50
+Input: 100000 reads.
+Output: 21809 reads.
+discarded 78191 (78%) low-quality reads.
+Warning: Could not open read file "./data/arab20150819112115/arab2.qc.fa.noT.fa" for reading; skipping...
+Error: No input read files were valid
+(ERR): bowtie2-align exited with value 1
+Quality cut-off: 20
+Minimum percentage: 50
+Input: 100000 reads.
+Output: 21809 reads.
+discarded 78191 (78%) low-quality reads.
+Warning: Could not open read file "./data/arab20150819112115/arab3.qc.fa.noT.fa" for reading; skipping...
+Error: No input read files were valid
+(ERR): bowtie2-align exited with value 1

@@ -1,0 +1,8 @@
+
+/* container */
+#container{width:945px;height:34px;position:relative;overflow:hidden;margin:auto;font-family:Microsoft YaHei,Segoe UI,Tahoma,Arial,Verdana,sans-serif;}
+#container li{display:block;float:left;width:133px;height:32px;background:url(../pic/transparent.png);line-height:32px;padding-right:2px;line-height:32px;list-style:none;}
+#container li a{color:#fff;text-decoration:none;display:block;position:relative;background:url(../pic/black.png);width:123px;height:32px;padding-right:10px;font-size:14px;font-weight:bold;text-align:right;}
+#container li a:hover,#container li a.cur{background:#222;}
+#container li a span{display:block;position:absolute;left:10px;top:0;font-weight:normal;font-size:10px;-webkit-text-size-adjust:none;opacity:0.6;filter:alpha(opacity=60);}
+#buoy{position:absolute;width:133px;height:2px;background:#e9d008;bottom:0px;left:-157px;}
