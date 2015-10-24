@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<xml>
+	<dbhost>localhost</dbhost>
+	<dbname>db_server</dbname>
+	<user>root</user>
+	<password>root</password>
+	<chromosome>db_server.t_mtr_fa</chromosome>
+</xml>
