@@ -12,7 +12,7 @@ and open the template in the editor.
     <body>
             <?php
                 $con=  mysql_connect("localhost","root","root");
-                 mysql_select_db("db_bio",$con);
+                 mysql_select_db("db_server",$con);
             ?>
             <?php
                 session_start();
@@ -40,16 +40,18 @@ and open the template in the editor.
                 $upload_name = array_unique($upload_name);
                 //$_SESSION['file_real']=array();
                 $_SESSION['file_real']=$upload_name;
-                foreach($file_real as $key => $value)
+                foreach($upload_name as $key => $value)
                 {
-                    //echo "step1:原始序列预处理";
+                    //step0:统一文件后缀名
+                    shell_exec("mv ./data/".$_SESSION['file']."/$file_name[$key] ./data/".$_SESSION['file']."/$value.fastq");
+                    //echo "step1:原始序列预处理";与物种无关
                 
                     $cmd1="fastq_quality_filter -q ".$_SESSION['qct']." -p ".$_SESSION['mp']." -v -Q 33 -i ./data/".$_SESSION['file']."/$value.fastq -o ./data/".$_SESSION['file']."/$value.qc.fa  >>./log/".$_SESSION['file'].".txt";
                     #echo $cmd1;
                     $out1=shell_exec($cmd1);
                 echo "<pre>$out1</pre>";
 
-                //echo "step2:去除polyT/polyA tail";
+                //echo "step2:去除polyT/polyA tail";与物种无关
                     if($_SESSION['tailremove']=='T')
                     {
                         $cmd2="./src/perl/MAP_filterPolySeq.pl -s \"./data/".$_SESSION['file']."/$value.qc.fa\" -if fq -tl 8 -tr 20 -poly T -ml ".$_SESSION['minlength']." -qc T -of fq -st .noT.fa >>./log/".$_SESSION['file'].".txt";
@@ -76,17 +78,17 @@ and open the template in the editor.
                 //echo"step3: 序列比对";
                     if($_SESSION['aligner']=='bowtie2')
                     {
-                        $cmd3="./src/bowtie2-2.2.4/bowtie2 -L 25 -N 0 -i S,1,1.15 --no-unal -x ./src/bowtie2-2.2.4/indexes/bwt2_TAIR10 -q -U ./data/".$_SESSION['file']."/$value.qc.fa.noT.fa -S ./data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam 2>>./log/".$_SESSION['file'].".txt";
+                        $cmd3="./src/bowtie2-2.2.4/bowtie2 -L 25 -N 0 -i S,1,1.15 --no-unal -x ./src/bowtie2-2.2.4/indexes/bwt2_".$_SESSION['species']." -q -U ./data/".$_SESSION['file']."/$value.qc.fa.noT.fa -S ./data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam 2>>./log/".$_SESSION['file'].".txt";
                         #echo $cmd3;
                     }
                     else{
-                        $cmd3="./src/bowtie2-2.2.4/bowtie2 -L 25 -N 0 -i S,1,1.15 --no-unal -x ./src/bowtie2-2.2.4/indexes/bwt2_TAIR10 -q -U ./data/".$_SESSION['file']."/$value.qc.fa.noT.fa -S ./data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam 2>>./log/".$_SESSION['file'].".txt";
+                        $cmd3="./src/bowtie2-2.2.4/bowtie2 -L 25 -N 0 -i S,1,1.15 --no-unal -x ./src/bowtie2-2.2.4/indexes/bwt2_".$_SESSION['species']." -q -U ./data/".$_SESSION['file']."/$value.qc.fa.noT.fa -S ./data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam 2>>./log/".$_SESSION['file'].".txt";
                         #echo $cmd3;
                     }
                     $out3=  shell_exec($cmd3);
                 echo"<pre>$out3</pre>";
                 
-                //echo "step4:获取polyA位点";
+                //echo "step4:获取polyA位点";与物种无关
                     $cmd4="./src/perl/PAT_parseSAM2PA_II.pl -sam ./data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam -m 30 -s 10 -ofile ./data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA 1>/dev/null ";
                     #echo $cmd4;
                     $out4=  shell_exec($cmd4);
@@ -95,14 +97,14 @@ and open the template in the editor.
                  if($_SESSION['rip']=='yes')
                  {
                     //echo"step5:去除internal priming";
-                    $cmd5="./src/perl/PAT_setIP.pl -itbl /var/www/front/data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA -otbl /var/www/front/data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA -flds 0:1:2 -format file -conf ./db.xml >>./log/".$_SESSION['file'].".txt";
+                    $cmd5="./src/perl/PAT_setIP.pl -itbl /var/www/front/data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA -otbl /var/www/front/data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA -flds 0:1:2 -format file -conf ./config/db_".$_SESSION['species'].".xml >>./log/".$_SESSION['file'].".txt";
                     #echo $cmd5;
                     $out5=  shell_exec($cmd5);
                     echo"<pre>$out5</pre>";
                  }
                  
                  //echo"step6:导入PA表到数据库";
-                    $cmd6="./src/perl/PAT_alterPA.pl -master db_user.PA_".$_SESSION['file']." -aptbl '/var/www/front/data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA' -apsmp  $value -format file -conf ./db.xml 1>/dev/null";
+                    $cmd6="./src/perl/PAT_alterPA.pl -master db_user.PA_".$_SESSION['file']." -aptbl '/var/www/front/data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA' -apsmp  $value -format file -conf ./config/db_".$_SESSION['species'].".xml 1>/dev/null";
                     #echo $cmd6;
                     $out6=  shell_exec($cmd6);
                     echo"<pre>$out6</pre>";
@@ -110,21 +112,21 @@ and open the template in the editor.
                  
                 
                 //echo"step7:PA聚类成PAC";
-                //$cmd7="./src/perl/PAT_PA2PAC.pl -d ".$_SESSION['distance']." -remap T -mtbl db_user.PA_".$_SESSION['file']." -gfftbl db_bio.gff_arab10 -anti T -otbl db_user.PAC_".$_SESSION['file']." -smps $file_real[0] -conf ./db.xml  >>./log/".$_SESSION['file'].".txt";
-                $cmd7origin="./src/perl/PAT_PA2PAC.pl -d ".$_SESSION['distance']." -remap T -mtbl db_user.PA_".$_SESSION['file']." -gfftbl db_bio.gff_arab10 -anti T -otbl db_user.PAC_".$_SESSION['file']." -smps ";
-                foreach ($file_real as $key => $value) {
+//                $cmd7origin="./src/perl/PAT_PA2PAC.pl -d ".$_SESSION['distance']." -remap T -mtbl db_user.PA_".$_SESSION['file']." -gfftbl db_server.t_".$_SESSION['species']."_gff -anti T -otbl db_user.PAC_".$_SESSION['file']." -smps ";
+                $cmd7origin="Rscript ./src/r/PAT_PA2PAC.r path=\"/var/www/front/searched/\" bigmem=F mtbls=\"db_user.PA_".$_SESSION['file']."\" osmps=NULL d=24 noGFF=F anti=F gfftbl=\"db_server.t_".$_SESSION['species']."_gff\" otbl=\"db_user.PAC_".$_SESSION['file']."\" smps=";
+                foreach ($upload_name as $key => $value) {
                     if($key!=0)
                         $cmd7plus.=":".$value;
                     else
                         $cmd7plus.=$value;
                 }
-               $cmd7=$cmd7origin.$cmd7plus." -conf ./db.xml  >>./log/".$_SESSION['file'].".txt";
-                #echo $cmd7;
-                $out7=  shell_exec($cmd7);
+               $cmd7=$cmd7origin.$cmd7plus." conf=\"/var/www/front/config/db_".$_SESSION['species'].".xml\"  >>./log/".$_SESSION['file'].".txt";
+//               echo $cmd7; 
+               $out7=  shell_exec($cmd7);
                 echo"<pre>$out7</pre>";
 
                 //echo"step8:提取序列并计算单核苷分布 ";
-                $cmd8="./src/perl/PAT_trimSeq.pl -tbl db_user.PAC_".$_SESSION['file']." -cond  \"tot_tagnum>=2\" -suf ".$_SESSION['file'].".PAT2 -conf ./db.xml -opath './result/".$_SESSION['file']."/'  1>/dev/null";
+                $cmd8="./src/perl/PAT_trimSeq.pl -tbl db_user.PAC_".$_SESSION['file']." -cond  \"tot_tagnum>=2\" -suf ".$_SESSION['file'].".PAT2 -conf ./config/db_".$_SESSION['species'].".xml -opath './result/".$_SESSION['file']."/'  1>/dev/null";
                 #echo $cmd8;
                 $out8=  shell_exec($cmd8);
                 echo"<pre>$out8</pre>";
@@ -138,12 +140,12 @@ and open the template in the editor.
                 $out10=  shell_exec($cmd10);
                 echo"<pre>$out10</pre>";
                 
-                 
+ /*               
                  #PAT导入jbrowse显示
                  //shell_exec("cp ./data/".$_SESSION['file']."/$file_real[0].qc.fa.noT.fa.sam.M30S10.PA ./tojbrowse/pat.txt");//移动文件
                 shell_exec("cp -r ../jbrowse/data/arabidopsis/ ../jbrowse/data/".$_SESSION['file']."/");
                 shell_exec("chmod -R 777 ../jbrowse/data/".$_SESSION['file']."/");
-                foreach ($file_real as $key => $value) {
+                foreach ($upload_name as $key => $value) {
                      shell_exec("cp ./data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA ../jbrowse/data/".$_SESSION['file']."/$value.txt");
                      shell_exec("./src/c/txt2bedgraph ../jbrowse/data/".$_SESSION['file']."/$value.txt ../jbrowse/data/".$_SESSION['file']."/$value.positive.bedGraph ../jbrowse/data/".$_SESSION['file']."/$value.negative.bedGraph");
                      shell_exec("sort -k1,1 -k2,2n ../jbrowse/data/".$_SESSION['file']."/$value.positive.bedGraph > ../jbrowse/data/".$_SESSION['file']."/$value.positive.sorted.bedGraph ");
@@ -153,7 +155,7 @@ and open the template in the editor.
                      shell_exec("./src/c/bedGraphToBigWig ../jbrowse/data/".$_SESSION['file']."/$value.positive.sorted.bedGraph ./src/arab.sizes ../jbrowse/data/".$_SESSION['file']."/$value.UsrPosPA.bw");
                      shell_exec("./src/c/bedGraphToBigWig ../jbrowse/data/".$_SESSION['file']."/$value.negative.sorted.bedGraph ./src/arab.sizes ../jbrowse/data/".$_SESSION['file']."/$value.UsrNegPA.bw");
                      $configure_file=fopen("../jbrowse/data/".$_SESSION['file']."/trackList.json", "r+");
-                    if($key==0){
+                     if($key==0){
                         fseek($configure_file, -98, SEEK_END);
                      }
                      else{
@@ -197,7 +199,7 @@ and open the template in the editor.
                             . "\t}]}\n");
                     fclose($configure_file);
                 }
-                foreach ($file_real as $key => $value) {
+                foreach ($upload_name as $key => $value) {
                     mysql_query("select chr,strand,coord,$value from db_user.PAC_$value into outfile '../jbrowse/data/".$_SESSION['file']."/$value.txt'");
                     shell_exec("./src/c/txt2bed ../jbrowse/data/".$_SESSION['file']."/$value.txt ../jbrowse/data/".$_SESSION['file']."/$value.bed");
                     shell_exec("../jbrowse/bin/flatfile-to-json.pl --bed ../jbrowse/data/".$_SESSION['file']."/$value.bed --trackLabel PAC_$value --out ../jbrowse/data/".$_SESSION['file']."/");                    
@@ -276,7 +278,7 @@ and open the template in the editor.
 //                 //echo $cmd12;
 //                 $test=shell_exec($cmd12);
                  echo"<pre>$test</pre>";
-                  
+*/                  
                  echo '<script>window.location.href="task_summary.php";</script>';
 //                 echo '<script>window.location.href="http://127.0.0.1/jbrowse/?data=data/'.$_SESSION['file'].'";</script>';
             ?>

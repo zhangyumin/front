@@ -6,7 +6,7 @@
     <script src="./src/jquery-2.0.0.min.js"></script>
     <?php
                 $con=  mysql_connect("localhost","root","root");
-                 mysql_select_db("db_bio",$con);
+                 mysql_select_db("db_server",$con);
                  session_start();
             ?>
     <style>
@@ -197,7 +197,10 @@
                             {
                                     short_name = data.record.gene.substr(0,30) + "...";
                             }
-                            return short_name + "<a target='_blank' style='display:inline;' href='./show_sequence.php?chr="+data.record.chr+"&gene="+data.record.coord+"&strand="+data.record.strand+"1' ><img src = './pic/score.png' hight='10px' width='80px' title='view PASS score' align='right' /></a><a style='display:inline;' href='../jbrowse/?data=data/<?php echo $_SESSION['file']?>&loc="+data.record.chr+":"+data.record.coord+"' target='_blank'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
+                            if(data.record.strand=='-')
+                                return short_name + "<a target='_blank' style='display:inline;' href='./show_sequence.php?chr="+data.record.chr+"&gene="+data.record.coord+"&strand=-1' ><img src = './pic/score.png' hight='10px' width='80px' title='view PASS score' align='right' /></a><a style='display:inline;' href='../jbrowse/?data=data/<?php echo $_SESSION['file']?>&loc="+data.record.chr+":"+data.record.coord+"' target='_blank'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
+                            else if(data.record.strand=='+')
+                                return short_name + "<a target='_blank' style='display:inline;' href='./show_sequence.php?chr="+data.record.chr+"&gene="+data.record.coord+"&strand=1' ><img src = './pic/score.png' hight='10px' width='80px' title='view PASS score' align='right' /></a><a style='display:inline;' href='../jbrowse/?data=data/<?php echo $_SESSION['file']?>&loc="+data.record.chr+":"+data.record.coord+"' target='_blank'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
                         }
                     },
                     chr:{

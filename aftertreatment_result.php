@@ -89,7 +89,7 @@
 <body>
      <?php
         $con=  mysql_connect("localhost","root","root");
-        mysql_select_db("db_bio",$con);
+        mysql_select_db("db_server",$con);
         ?>
     <div style="width: 990px;margin:0 auto;" class="page">
         <?php
@@ -163,9 +163,10 @@
         });
     </script>
     <?php
+        session_start();
          $singnals = array("AATAAA","TATAAA","CATAAA","GATAAA","ATTAAA","ACTAAA","AGTAAA","AAAAAA","AACAAA","AAGAAA","AATTAA","AATCAA","AATGAA","AATATA","AATACA","AATAGA","AATAAT","AATAAC","AATAAG");        
  
-         $a="SELECT * from gff_arab10_all where gff_arab10_all.ftr_start<=$gene and gff_arab10_all.ftr_end>=$gene and chr=$chr;";
+         $a="SELECT * from t_".$_SESSION['species']."_gff where gff_arab10_all.ftr_start<=$gene and gff_arab10_all.ftr_end>=$gene and chr=$chr;";
          $result=mysql_query($a);
          //var_dump($result);
          while($row=mysql_fetch_row($result))

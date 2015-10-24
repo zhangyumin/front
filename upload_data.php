@@ -21,6 +21,7 @@ and open the template in the editor.
             
             $tmppath="./data/".$_SESSION['tmp']."/";
             $_SESSION['file']=$_POST["species"].$_SESSION['tmp'];
+            $_SESSION['species']=$_POST['species'];
             $filename=$_SESSION['file'].".fa";
             $filepath="./data/".$_SESSION['file']."/";
             //echo $filepath;

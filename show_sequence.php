@@ -142,7 +142,7 @@ and open the template in the editor.
             <div class="whole-page" style="float:left;width:100%">               
         <?php
         $con=  mysql_connect("localhost","root","root");
-        mysql_select_db("db_bio",$con);
+        mysql_select_db("db_server",$con);
         ?>
         <?php
          $singnals = array("AATAAA","TATAAA","CATAAA","GATAAA","ATTAAA","ACTAAA","AGTAAA","AAAAAA","AACAAA","AAGAAA","AATTAA","AATCAA","AATGAA","AATATA","AATACA","AATAGA","AATAAT","AATAAC","AATAAG");        
@@ -153,14 +153,14 @@ and open the template in the editor.
          $pa_low100=$gene-100;
          $pa_low200=$gene-200;
          if(strcmp($strand,1)==0){
-             $a_area="SELECT substring(seq,$gene-200,300) from fa_arab10 WHERE title='$chr';";
-             $pa_query="select * from db_user.PA_$pa_file where chr=$chr and db_user.PA_$pa_file.coord>=$pa_low200 and db_user.PA_$pa_file.coord<=$pa_high100 and db_user.PA_$pa_file.tot_tagnum>0;";
+             $a_area="SELECT substring(seq,$gene-200,300) from db_server.t_".$_SESSION['species']."_fa WHERE title='$chr';";
+             $pa_query="select * from db_server.t_".$_SESSION['species']."_pa1 where chr='$chr' and coord>=$pa_low200 and coord<=$pa_high100 and tot_tagnum>0;";
             //echo $a;
              //echo "in 1";
          }
          if(strcmp($strand,-1)==0){
-             $a_area="SELECT substring(seq,$gene-100,300) from fa_arab10 WHERE title='$chr';";
-             $pa_query="select * from db_user.PA_$pa_file where chr=$chr and db_user.PA_$pa_file.coord>=$pa_low100 and db_user.PA_$pa_file.coord<=$pa_high200 and db_user.PA_$pa_file.tot_tagnum>0;";
+             $a_area="SELECT substring(seq,$gene-100,300) from db_server.t_".$_SESSION['species']."_fa WHERE title='$chr';";
+             $pa_query="select * from db_server.t_".$_SESSION['species']."_pa1 where chr='$chr' and coord>=$pa_low100 and coord<=$pa_high200 and tot_tagnum>0;";
               //echo $a;
              //echo "in 2";
          }
@@ -208,18 +208,18 @@ and open the template in the editor.
          }
          
 //gene viewer数据支持        
-         $a="SELECT * from gff_arab10_all where gff_arab10_all.ftr_start<=$gene and gff_arab10_all.ftr_end>=$gene and chr=$chr;";
+         $a="SELECT * from db_server.t_".$_SESSION['species']."_gff_all where ftr_start<=$gene and ftr_end>=$gene and chr='$chr' and ftr='gene';";
          $result=mysql_query($a);
          //var_dump($result);
          while($row=mysql_fetch_row($result))
          {
              //echo "in it";
-             $gene_name=$row[0];
-             $gene_start=$row[4];
-             $gene_end=$row[5];
+             $gene_name=$row[6];
+             $gene_start=$row[3];
+             $gene_end=$row[4];
          }
          //print_r($gene_name);
-        $b="select substring(seq,$gene_start,$gene_end-$gene_start) from fa_arab10 where title='$chr';";
+        $b="select substring(seq,$gene_start,$gene_end-$gene_start) from db_server.t_".$_SESSION['species']."_fa where title='$chr';";
         //echo $b;
         $seq_result=  mysql_query($b);
         while($rows=mysql_fetch_row($seq_result))
@@ -246,15 +246,15 @@ and open the template in the editor.
              }
              $seq=  implode($seq_arr);
          }
-         $c="select * from gff_arab10_area where gene like '$gene_name' ;";
+         $c="select * from db_server.t_".$_SESSION['species']."_gff where gene like '$gene_name' ;";
          //echo $c;
          $seq_feature=  mysql_query($c);
          while($row_f=  mysql_fetch_row($seq_feature))
          {
              //echo "in it";
-             $ftr[]=$row_f[3];
-             $f_start[]=$row_f[4];
-             $f_end[]=$row_f[5];
+             $ftr[]=$row_f[2];
+             $f_start[]=$row_f[3];
+             $f_end[]=$row_f[4];
          }
          //print_r($ftr);
          if($seq==NULL||$seq_area==NULL)
@@ -2207,7 +2207,10 @@ and open the template in the editor.
                                 {
                                         short_name = data.record.gene.substr(0,30) + "...";
                                 }
-                                return short_name + "<a target='_self' style='display:inline;' href='./show_sequence.php?chr="+data.record.chr+"&gene="+data.record.coord+"&strand="+data.record.strand+"1' ><img src = './pic/score.png' hight='10px' width='80px' title='view PASS score' align='right' /></a><a style='display:inline;' href='../jbrowse/?data=data/<?php echo $_SESSION['file']?>&loc="+data.record.chr+":"+data.record.coord+"' target='_self'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
+                                if(data.record.strand=='-')
+                                    return short_name + "<a target='_self' style='display:inline;' href='./show_sequence.php?chr="+data.record.chr+"&gene="+data.record.coord+"&strand=-1' ><img src = './pic/score.png' hight='10px' width='80px' title='view PASS score' align='right' /></a><a style='display:inline;' href='../jbrowse/?data=data/<?php echo $_SESSION['file']?>&loc="+data.record.chr+":"+data.record.coord+"' target='_self'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
+                                else if(data.record.strand=='+')
+                                    return short_name + "<a target='_self' style='display:inline;' href='./show_sequence.php?chr="+data.record.chr+"&gene="+data.record.coord+"&strand=1' ><img src = './pic/score.png' hight='10px' width='80px' title='view PASS score' align='right' /></a><a style='display:inline;' href='../jbrowse/?data=data/<?php echo $_SESSION['file']?>&loc="+data.record.chr+":"+data.record.coord+"' target='_self'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
                             }
                         },
                         chr:{

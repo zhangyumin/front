@@ -1,6 +1,6 @@
 <?php
     $con=  mysql_connect("localhost","root","root");
-    mysql_select_db("db_bio",$con);
+    mysql_select_db("db_server",$con);
     session_start();
     $chr=$_POST['chr'];
     $start=$_POST['start'];
@@ -16,7 +16,7 @@
         $_SESSION['file']=$_POST['species'].date("Y").date("m").date("d").date("h").date("i").date("s");
         //若go搜索无输入
         if($go_accession==NULL&&$go_name==NULL&&$function==NULL){
-            $sysQry="create table db_user.SearchedPAC_".$_SESSION['file']." as(select * from db_bio.PAC_sys_arab10 where 1=1";
+            $sysQry="create table db_user.SearchedPAC_".$_SESSION['file']." as(select * from db_server.t_".$_SESSION['species'].".pac where 1=1";
             if($_POST['chr']!='all'){
                 $sysQry.=" and chr=".$_POST['chr']."";
             }
@@ -38,7 +38,7 @@
         }
         else
         {
-            $go_sysQry="select gene from db_bio.go_arab10 where 1=1";
+            $go_sysQry="select gene from db_server.t_".$_SESSION['species'].".go where 1=1";
             if($_POST['go_name']!=NULL)
             {
                 $go_sysQry.=" and goterm like '%$go_name%'";
@@ -64,7 +64,7 @@
                         array_push($go_array,$go_sysQry_row[0]);
                     }
                     $go_array=array_unique($go_array);
-                   $sysQry="create table db_user.SearchedPAC_".$_SESSION['file']." as(select * from db_bio.PAC_sys_arab10 where 1=1";
+                   $sysQry="create table db_user.SearchedPAC_".$_SESSION['file']." as(select * from db_server.t_".$_SESSION['species']."._pac where 1=1";
                    if($_POST['chr']!='all'){
                        $sysQry.=" and chr=".$_POST['chr']."";
                    }
@@ -100,7 +100,7 @@
             mysql_query("drop table db_user.usrQryPAC_".$_SESSION['file'].";");
             //系统及用户数据过滤筛选
            if($go_accession==NULL&&$go_name==NULL&&$function==NULL){
-            $sysQry="create table db_user.sysQryPAC_".$_SESSION['file']." as(select * from db_bio.PAC_sys_arab10 where 1=1";
+            $sysQry="create table db_user.sysQryPAC_".$_SESSION['file']." as(select * from db_server.t_".$_SESSION['species']."_pac where 1=1";
             $usrQry="create table db_user.usrQryPAC_".$_SESSION['file']." as(select * from db_user.PAC_".$_SESSION['file']." where 1=1";
             if($_POST['chr']!='all'){
                 $sysQry.=" and chr=".$_POST['chr']."";
@@ -131,7 +131,7 @@
         }
         else
         {
-            $go_sysQry="select gene from db_bio.go_arab10 where 1=1";
+            $go_sysQry="select gene from db_server.t_".$_SESSION['species']."_go where 1=1";
             if($_POST['go_name']!=NULL)
             {
                 $go_sysQry.=" and goterm like '%$go_name%'";
@@ -157,7 +157,7 @@
                         array_push($go_array,$go_sysQry_row[0]);
                     }
                     $go_array=array_unique($go_array);
-                   $sysQry="create table db_user.sysQryPAC_".$_SESSION['file']." as(select * from db_bio.PAC_sys_arab10 where 1=1";
+                   $sysQry="create table db_user.sysQryPAC_".$_SESSION['file']." as(select * from db_server.t_".$_SESSION['species']."_pac where 1=1";
                    $usrQry="create table db_user.usrQryPAC_".$_SESSION['file']." as(select * from db_user.PAC_".$_SESSION['file']." where 1=1";
                    if($_POST['chr']!='all'){
                        $sysQry.=" and chr=".$_POST['chr']."";
@@ -195,14 +195,14 @@
                $usr_query_result=mysql_query($usrQry);
              }
              $merge="./src/perl/PAT_mergePAC.pl -smptbls 'usrQryPAC_".$_SESSION['file'].";sysQryPAC_".$_SESSION['file']."' -reftbl usrQryPAC_".$_SESSION['file']." -smpcols '".implode(':',$_SESSION['file_real'] ).";".implode(':', $_SESSION['sys_real'])."' -smplbls '".implode(':',$_SESSION['file_real'] ).";".implode(':', $_SESSION['sys_real'])."' -otbl SearchedPAC_".$_SESSION['file']." -udist 24 -conf ./src/r/db_2.xml";
-//             echo $merge;
+             echo $merge;
              shell_exec($merge);
         }
         else{
             //删除之前搜索的系统数据
             mysql_query("drop table db_user.SearchedPAC_".$_SESSION['file'].";");
             if($go_accession==NULL&&$go_name==NULL&&$function==NULL){
-                $sysQry="create table db_user.SearchedPAC_".$_SESSION['file']." as(select * from db_bio.PAC_sys_arab10 where 1=1";
+                $sysQry="create table db_user.SearchedPAC_".$_SESSION['file']." as(select * from db_server.t_".$_SESSION['species']."_pac where 1=1";
                 if($_POST['chr']!='all'){
                     $sysQry.=" and chr=".$_POST['chr']."";
                 }
@@ -224,7 +224,7 @@
             }
             else
             {
-                $go_sysQry="select gene from db_bio.go_arab10 where 1=1";
+                $go_sysQry="select gene from db_server.t_".$_SESSION['species']."_go where 1=1";
                 if($_POST['go_name']!=NULL)
                 {
                     $go_sysQry.=" and goterm like '%$go_name%'";
@@ -249,7 +249,7 @@
                        array_push($go_array,$go_sysQry_row[0]);
                    }
                    $go_array=array_unique($go_array);
-                  $sysQry="create table db_user.SearchedPAC_".$_SESSION['file']." as(select * from db_bio.PAC_sys_arab10 where 1=1";
+                  $sysQry="create table db_user.SearchedPAC_".$_SESSION['file']." as(select * from db_server.t_".$_SESSION['species']."_pac where 1=1";
                   if($_POST['chr']!='all'){
                       $sysQry.=" and chr=".$_POST['chr']."";
                   }
@@ -293,7 +293,7 @@
             $minrep=0;
         }
         $degene_cmd="Rscript /var/www/front/src/r/R_pairDEgene.r minrep=$minrep minpat=$minpat donorm=$donorm path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['file']." cols='".implode(':',$_POST['sample1'] ).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml 2>&1";
-        //$degene_cmd="Rscript /var/www/front/src/r/R_pairDEgene.r minrep=1 minpat=5 donorm=0 path='/home/zym/data/' intbl=PAC_sys_arab10 cols='oxt6_leaf_1:oxt6_leaf_2;wt_leaf_1:wt_leaf_2' groups=sys:user conf=/var/www/front/db.xml 2>&1";
+        //$degene_cmd="Rscript /var/www/html/front/src/r/R_pairDEgene.r minrep=1 minpat=5 donorm=0 path='/home/zym/data/' intbl=PAC_sys_arab10 cols='oxt6_leaf_1:oxt6_leaf_2;wt_leaf_1:wt_leaf_2' groups=sys:user conf=/var/www/html/front/db.xml 2>&1";
         if(count($_POST['sample1'])>=1&&count($_POST['sampe2']>=1))
         {
            echo shell_exec($degene_cmd);

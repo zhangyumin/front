@@ -41,6 +41,7 @@
             session_start();
             if($_POST['getback']!=NULL){
                 $_SESSION['file']=$_POST['getback'];
+                $_SESSION['species']=substr($_SESSION['file'], 0,  strpos($_SESSION['file'], "201"));
                 $file_name = scandir("./data/".$_SESSION['file']."");
                 $file_name = array_slice($file_name, 2);
 //                $file_num = sizeof($file_name);

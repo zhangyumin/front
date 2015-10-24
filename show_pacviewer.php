@@ -94,17 +94,17 @@ and open the template in the editor.
             ?>
         <?php
         $con=  mysql_connect("localhost","root","root");
-        mysql_select_db("db_bio",$con);
+        mysql_select_db("db_server",$con);
         ?>
         <?php
          $singnals = array("AATAAA","TATAAA","CATAAA","GATAAA","ATTAAA","ACTAAA","AGTAAA","AAAAAA","AACAAA","AAGAAA","AATTAA","AATCAA","AATGAA","AATATA","AATACA","AATAGA","AATAAT","AATAAC","AATAAG");        
          if(strcmp($strand,1)==0){
-             $a="SELECT substring(seq,$gene-200,300) from fa_arab10 WHERE title='$chr';";
+             $a="SELECT substring(seq,$gene-200,300) from db_server.t_".$_GET['species']."_fa WHERE title='$chr';";
              //echo $a;
              //echo "in 1";
          }
          if(strcmp($strand,-1)==0){
-             $a="SELECT substring(seq,$gene-100,300) from fa_arab10 WHERE title='$chr';";
+             $a="SELECT substring(seq,$gene-100,300) from db_server.t_".$_GET['species']."_fa WHERE title='$chr';";
              //echo $a;
              //echo "in 2";
          }
@@ -757,7 +757,7 @@ and open the template in the editor.
                     sorting:true,
                     defaultSorting:'gene ASC',
                     actions:{
-                        listAction:'system_PAClist.php'
+                        listAction:'system_PAClist.php?species=<?php echo $_GET['species']?>'
                     },
                     fields:{
                         gene:{
@@ -773,7 +773,7 @@ and open the template in the editor.
                                 {
                                         short_name = data.record.gene.substr(0,30) + "...";
                                 }
-                                return short_name + "<a style='display:inline;' href='http://127.0.0.1/jbrowse/?loc="+data.record.chr+":"+data.record.coord+"' target='_blank'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
+                                return short_name + "<a style='display:inline;' href='http://127.0.0.1/jbrowse/?data=data/arabidopsis&loc="+data.record.chr+":"+data.record.coord+"' target='_blank'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
                             }
                         },
                         chr:{

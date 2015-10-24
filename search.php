@@ -25,8 +25,10 @@
             }*/
         </style>
     </head>
-    <body>
+    <body onload="getchr()">
         <?php
+            $con=  mysql_connect("localhost","root","root");
+            mysql_select_db("db_server",$con);
             include"navbar.php";
         ?>
         <script type="text/javascript">
@@ -46,6 +48,79 @@
                     $(".more2").html("More");
             });
         });
+            <?php
+                $arr_arab=array();
+                $arr_japonica=array();
+                $arr_mtr=array();
+                $arr_chlamy=array();
+                echo "var chr=[";
+                //arabidopsis
+                $arab_sql=mysql_query("select distinct chr from t_arab_gff;");
+                $i=0;
+                while($arab_row=  mysql_fetch_row($arab_sql)){
+                    array_push($arr_arab, $arab_row[0]);
+                }
+                echo "[\"";
+                foreach ($arr_arab as $key => $value) {
+                    if($key!=  count($arr_arab)-1)
+                        echo $value."\",\"";
+                    else
+                        echo $value;
+                }
+                echo "\"],";
+                //japonica
+                $arab_sql=mysql_query("select distinct chr from t_japonica_gff;");
+                $i=0;
+                while($arab_row=  mysql_fetch_row($arab_sql)){
+                    array_push($arr_japonica, $arab_row[0]);
+                }
+                echo "[\"";
+                foreach ($arr_japonica as $key => $value) {
+                    if($key!=  count($arr_japonica)-1)
+                        echo $value."\",\"";
+                    else
+                        echo $value;
+                }
+                echo "\"],";
+                //mtr
+                $arab_sql=mysql_query("select distinct chr from t_mtr_gff;");
+                $i=0;
+                while($arab_row=  mysql_fetch_row($arab_sql)){
+                    array_push($arr_mtr, $arab_row[0]);
+                }
+                echo "[\"";
+                foreach ($arr_mtr as $key => $value) {
+                    if($key!=  count($arr_mtr)-1)
+                        echo $value."\",\"";
+                    else
+                        echo $value;
+                }
+                echo "\"],";
+                //chlamy
+                $arab_sql=mysql_query("select distinct chr from t_chlamy_gff;");
+                $i=0;
+                while($arab_row=  mysql_fetch_row($arab_sql)){
+                    array_push($arr_chlamy, $arab_row[0]);
+                }
+                echo "[\"";
+                foreach ($arr_chlamy as $key => $value) {
+                    if($key!=  count($arr_chlamy)-1)
+                        echo $value."\",\"";
+                    else
+                        echo $value;
+                }
+                echo "\"]";
+                echo "];";
+            ?>
+                function getchr(){
+                    var sltSpecies=document.search.species;
+                    var sltChr=document.search.chr;
+                    var speciesChr=chr[sltSpecies.selectedIndex];
+                    sltChr.length=1;
+                    for(var i=0;i<speciesChr.length;i++){
+                        sltChr[i+1]=new Option(speciesChr[i],speciesChr[i]);
+                    }
+                }
         </script>
        <fieldset style="margin: 50px auto 0 auto ;width: 95%;">
                     <legend>
@@ -54,24 +129,17 @@
                         </span>
                     </legend>
            <div style="width:60%;margin:0 auto;">
-               <form method="post" id="getback" action="search_result.php">
+               <form name="search" method="post" id="getback" action="search_result.php">
                    <label for="species" style="margin-right:2%;">Species:</label>
-                   <select id="species" name="species" style="width:25%">
+                   <select id="species" name="species" style="width:25%" onclick="getchr()">
                         <option value="arab" selected="selected">Arabidopsis thaliana</option>
-                         <option value="rice">Oryza sativa (Rice)</option>
+                         <option value="japonica">Japonica rice</option>
                         <option value="mtr">Medicago truncatula</option>
                         <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
                     </select>
                    <label for="chr" style="margin: 0 1%">in</label>
                         <select id="chr" name="chr" style="width:6%">
                             <option value="all" selected="selected">All</option>
-                            <option value="1">Chr1</option>
-                            <option value="2">Chr2</option>
-                            <option value="3">Chr3</option>
-                            <option value="4">Chr4</option>
-                            <option value="5">Chr5</option>
-                            <option value="chloroplast">chloroplast</option>
-                            <option value="mitochondria">mitochondria</option>
                         </select>
                    <label for="start" style="margin:0 1%;"> from</label>
                         <input type="text" name="start" style="width:14%">

@@ -9,7 +9,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
          <?php
                 $con=  mysql_connect("localhost","root","root");
-                 mysql_select_db("db_bio",$con);
+                 mysql_select_db("db_user",$con);
                  session_start();
             ?>
         <title>Task summary</title>

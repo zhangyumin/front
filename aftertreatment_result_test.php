@@ -116,7 +116,7 @@
 <body>
      <?php
         $con=  mysql_connect("localhost","root","root");
-        mysql_select_db("db_bio",$con);
+        mysql_select_db("db_server",$con);
         ?>
     <div style="width: 100%;margin:0 auto;background-color: #ddddff;" class="page">
         <?php
@@ -160,7 +160,7 @@
                                         foreach ($tmp as $key1 => $value1) {
                                             if($_GET['result']=='degene'){
                                                 if($key1==1){
-                                                    $pos_sql=mysql_query("select ftr_start from db_bio.gff_arab10_all where gene='$tmp[1]';");
+                                                    $pos_sql=mysql_query("select ftr_start from t_".$_SESSION['species']."_gff where gene='$tmp[1]';");
                                                     $pos=  mysql_fetch_row($pos_sql)[0];
                                                     if($tmp[4]=='+')
                                                         echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$tmp[3]&gene=$pos&strand=1'>$value1</a></td>";
@@ -182,7 +182,7 @@
                                             }
                                             else if($_GET['result']=='switchinggene_o'){
                                                 if($key1==0){
-                                                    $pos_sql=mysql_query("select chr,strand,ftr_start from db_bio.gff_arab10_all where gene='$tmp[0]';");
+                                                    $pos_sql=mysql_query("select chr,strand,ftr_start from t_".$_SESSION['species']."_gff where gene='$tmp[0]';");
                                                     while($o_row=  mysql_fetch_row($pos_sql)){
                                                         $o_chr=$o_row[0];
                                                         $pos=$o_row[2];
@@ -225,21 +225,82 @@
         <div id="download"style="border: #ff6600 2px dotted;border-collapse: collapse;text-align: center">
             CLick to download the list data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="javascript:window.location.href='./download_data.php?type=4&name=<?php echo $c; ?>'">download</button>
         </div>
-    <?php
+   <?php
          $singnals = array("AATAAA","TATAAA","CATAAA","GATAAA","ATTAAA","ACTAAA","AGTAAA","AAAAAA","AACAAA","AAGAAA","AATTAA","AATCAA","AATGAA","AATATA","AATACA","AATAGA","AATAAT","AATAAC","AATAAG");        
- 
-         $a="SELECT * from gff_arab10_all where gff_arab10_all.ftr_start<=$gene and gff_arab10_all.ftr_end>=$gene and chr=$chr;";
+//pattern viewer数据支持
+         $pa_file=$_SESSION['file'];
+         $pa_high100=$gene+100;
+         $pa_high200=$gene+200;
+         $pa_low100=$gene-100;
+         $pa_low200=$gene-200;
+         if(strcmp($strand,1)==0){
+             $a_area="SELECT substring(seq,$gene-200,300) from db_server.t_".$_SESSION['species']."_fa WHERE title='$chr';";
+             $pa_query="select * from db_server.t_".$_SESSION['species']."_pa1 where chr='$chr' and coord>=$pa_low200 and coord<=$pa_high100 and tot_tagnum>0;";
+            //echo $a;
+             //echo "in 1";
+         }
+         if(strcmp($strand,-1)==0){
+             $a_area="SELECT substring(seq,$gene-100,300) from db_server.t_".$_SESSION['species']."_fa WHERE title='$chr';";
+             $pa_query="select * from db_server.t_".$_SESSION['species']."_pa1 where chr='$chr' and coord>=$pa_low100 and coord<=$pa_high200 and tot_tagnum>0;";
+              //echo $a;
+             //echo "in 2";
+         }
+         
+         $result_area=mysql_query($a_area);
+         while($row_area=mysql_fetch_row($result_area))
+         {
+             //echo "in it";
+             $seq_area=$row_area[0];
+         }
+         if(strcmp($strand,-1)==0)
+         {
+             $seq_area= strrev($seq_area);
+             $seq_arr_area=str_split($seq_area);
+             //$seq_arr=['G','A','T','C','G','T','A'];
+             foreach ($seq_arr_area as &$value) {
+                 if($value=='A')
+                     $value='T';
+                 else if($value=='T'||$value=='U')
+                     $value='A';
+                 else if($value=='C')
+                     $value='G';
+                 else if($value=='G')
+                     $value='C';
+                 else
+                     $value='N';
+             }
+             $seq_area=  implode($seq_arr_area);
+         }
+         $pa_result=  mysql_query($pa_query);
+         while ($pa_row=  mysql_fetch_row($pa_result))
+         {
+             $pa_start[]=$pa_row[2];
+         }
+         foreach($pa_start as $key => $value)
+         {
+             if(strcmp($strand,-1)==0)
+             {
+                 $pa_start[$key]=$pa_start[$key]-$pa_low100;
+             }
+             else if(strcmp($strand,1)==0)
+            {
+                $pa_start[$key]=$pa_start[$key]-$pa_low200;
+             }
+         }
+//         var_dump($seq_area);
+//gene viewer数据支持        
+         $a="SELECT * from db_server.t_".$_SESSION['species']."_gff_all where ftr_start<=$gene and ftr_end>=$gene and chr='$chr' and ftr='gene';";
          $result=mysql_query($a);
          //var_dump($result);
          while($row=mysql_fetch_row($result))
          {
              //echo "in it";
-             $gene_name=$row[0];
-             $gene_start=$row[4];
-             $gene_end=$row[5];
+             $gene_name=$row[6];
+             $gene_start=$row[3];
+             $gene_end=$row[4];
          }
          //print_r($gene_name);
-        $b="select substring(seq,$gene_start,$gene_end-$gene_start) from fa_arab10 where title='$chr';";
+        $b="select substring(seq,$gene_start,$gene_end-$gene_start) from db_server.t_".$_SESSION['species']."_fa where title='$chr';";
         //echo $b;
         $seq_result=  mysql_query($b);
         while($rows=mysql_fetch_row($seq_result))
@@ -266,15 +327,15 @@
              }
              $seq=  implode($seq_arr);
          }
-         $c="select * from gff_arab10_area where gene like '$gene_name' ;";
+         $c="select * from db_server.t_".$_SESSION['species']."_gff where gene like '$gene_name' ;";
          //echo $c;
          $seq_feature=  mysql_query($c);
          while($row_f=  mysql_fetch_row($seq_feature))
          {
              //echo "in it";
-             $ftr[]=$row_f[3];
-             $f_start[]=$row_f[4];
-             $f_end[]=$row_f[5];
+             $ftr[]=$row_f[2];
+             $f_start[]=$row_f[3];
+             $f_end[]=$row_f[4];
          }
          //print_r($ftr);
 

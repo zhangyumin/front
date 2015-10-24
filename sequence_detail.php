@@ -28,6 +28,10 @@
         <style>
             table{
                 font-size: 12px;
+                table-layout: fixed;
+                word-wrap: break-word;
+                word-break: break-all;
+                overflow: hidden;
             }
             #gotable td,#genetable td,#polyatable td{
                 padding: 4px 4px;
@@ -77,7 +81,20 @@
                 border-width: 2px !important;
                 padding: 5px 10px !important;
             }
+            .wrap{margin:0px auto;width: 100%;}
+            .tabs {width:100%;}
+            .tabs a{display: block;float: left;width:50%;color: #5499c9;text-align: center;background: #eee;line-height: 40px;font-size:16px;text-decoration: none;}
+            .tabs a.active {color: #fff;background: #5499c9;border-radius: 5px 5px 0px 0px;}
+            .swiper-container {height:425px;border-radius: 0 0 5px 5px;width: 100%;border-top: 0;}
+            .swiper-slide {height:325px;width:100%;background: none;color: #fff;}
+            /*.content-slide {padding: 40px;}*/
+            /*.content-slide{overflow-x: scroll;overflow-y: scroll}*/
+            .content-slide p{text-indent:2em;line-height:1.9;}
+            .slidebar-content{color: black;}
+            .swiper-slide{color:black;}
         </style>
+        <script src="./src/idangerous.swiper.min.js"></script> 
+        <link rel="stylesheet" href="./src/idangerous.swiper.css">
     </head>
     <body>
         <?php
@@ -85,23 +102,23 @@
         ?>
         <?php
             $con=  mysql_connect("localhost","root","root");
-            mysql_select_db("db_bio",$con);
+            mysql_select_db("db_server",$con);
         ?>
         <?php
          $singnals = array("AATAAA","TATAAA","CATAAA","GATAAA","ATTAAA","ACTAAA","AGTAAA","AAAAAA","AACAAA","AAGAAA","AATTAA","AATCAA","AATGAA","AATATA","AATACA","AATAGA","AATAAT","AATAAC","AATAAG");        
  
-         $a="SELECT * from gff_arab10_all where gff_arab10_all.ftr_start<=$gene and gff_arab10_all.ftr_end>=$gene and chr=$chr;";
+         $a="SELECT * from db_server.t_".$_GET['species']."_gff_all where ftr_start<=$gene and ftr_end>=$gene and chr='$chr' and ftr='gene';";
          $result=mysql_query($a);
          //var_dump($result);
          while($row=mysql_fetch_row($result))
          {
              //echo "in it";
-             $gene_name=$row[0];
-             $gene_start=$row[4];
-             $gene_end=$row[5];
+             $gene_name=$row[6];
+             $gene_start=$row[3];
+             $gene_end=$row[4];
          }
          //print_r($gene_name);
-        $b="select substring(seq,$gene_start,$gene_end-$gene_start) from fa_arab10 where title='$chr';";
+        $b="select substring(seq,$gene_start,$gene_end-$gene_start) from db_server.t_".$_GET['species']."_fa where title='$chr';";
         //echo $b;
         $seq_result=  mysql_query($b);
         while($rows=mysql_fetch_row($seq_result))
@@ -128,15 +145,15 @@
              }
              $seq=  implode($seq_arr);
          }
-         $c="select * from gff_arab10_area where gene like '$gene_name' ;";
+         $c="select * from db_server.t_".$_GET['species']."_gff where gene like '$gene_name' ;";
          //echo $c;
          $seq_feature=  mysql_query($c);
          while($row_f=  mysql_fetch_row($seq_feature))
          {
              //echo "in it";
-             $ftr[]=$row_f[3];
-             $f_start[]=$row_f[4];
-             $f_end[]=$row_f[5];
+             $ftr[]=$row_f[2];
+             $f_start[]=$row_f[3];
+             $f_end[]=$row_f[4];
          }
          //print_r($ftr);
 
@@ -1495,7 +1512,7 @@
                                     </tr>
                                     <tr>
                                         <td>Chromosome:</td>
-                                        <td>Chr<?php echo $_GET['chr']?></td>
+                                        <td><?php echo $_GET['chr']?></td>
                                     </tr>
                                     <tr>
                                         <td>Gene locus:</td>
@@ -1504,7 +1521,7 @@
                                     <tr>
                                         <td>Gene Type:</td>
                                         <?php
-                                                    $sql="select gene_type from db_bio.gff_arab10_all where gene=\"".$_GET['seq']."\";";
+                                                    $sql="select gene_type from t_".$_GET['species']."_gff_all where gene=\"".$_GET['seq']."\" and ftr='gene';";
                                                     $type=mysql_query($sql);
 //                                                    echo $sql;
 //                                                    $type=mysql_query("select * from db_bio.gff_arab10_all where gene=\"AT2G01008\";");
@@ -1520,17 +1537,17 @@
                         </div>
                         <hr width="98%" size="1" align="left" style="border-top: 1px dotted #5499c9;">
                         <div id="go">
-                            <table id="gotable" nowrap="true" >
+                            <table id="gotable" nowrap="true" style="table-layout:fixed;word-wrap: break-word;word-break: break-all;overflow: hidden;">
                                 <thead>
                                     <tr>
-                                        <th>Go id</th>
-                                        <th>Go term</th>
-                                        <th>Go function</th>
+                                        <th style="width:15%">Go id</th>
+                                        <th style="width:50%">Go term</th>
+                                        <th style="width:35%">Go function</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                         <?php
-                                                    $go_sql="select * from db_bio.go_arab10 where gene=\"".$_GET['seq']."\";";
+                                                    $go_sql="select * from t_".$_GET['species']."_go where gene=\"".$_GET['seq']."\";";
                                                     $go_result=mysql_query($go_sql);
 //                                                    echo $sql;
 //                                                    $type=mysql_query("select * from db_bio.gff_arab10_all where gene=\"AT2G01008\";");
@@ -1552,10 +1569,11 @@
                             <table id="polyatable">
                                 <tbody>
                                     <tr>
-                                        <td>PolyA site:</td>
+                                        <td style="width:20%">PolyA site:</td>
                                         <td>
                                         <?php
-                                                    $polya_sql="select * from db_bio.PAS_sys_arab10 where chr=".$_GET['chr']." and coord>=".$_GET['ftr_start']." and coord<=".$_GET['ftr_end'].";";
+                                                    $polya_sql="select * from t_".$_GET['species']."_pa1 where chr='$chr' and coord>=".$_GET['ftr_start']." and coord<=".$_GET['ftr_end']." and tot_tagnum>0;";
+//                                                    echo "select * from t_".$_GET['species']."_pa1 where chr='$chr' and coord>=".$_GET['ftr_start']." and coord<=".$_GET['ftr_end']." and tot_tagnum>0;";
                                                     $polya_result=mysql_query($polya_sql);
 //                                                    echo $sql;
 //                                                    $type=mysql_query("select * from db_bio.gff_arab10_all where gene=\"AT2G01008\";");
@@ -1576,10 +1594,58 @@
                         </div>
                     </td>
                     <td width="50%" height="400px" valign="top">
-                        <div style="height:100%">
+                        <div class="wrap">
+                            <div class="tabs">
+                                <a href="#" hidefocus="true" class="active">Jbrowse</a>
+                                <a href="#" hidefocus="true">Gene Pic</a>
+                            </div><br>    
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="content-slide">
+                                        <div style="height:99%">
+                                            <iframe src="../jbrowse/?data=data/arabidopsis&loc=<?php echo $_GET['chr']?>:<?php echo $_GET['ftr_start']?>..<?php echo $_GET['ftr_end']?>&tracks=Arabidopsis,sys_polya" width=100% height=100%>
+                                            </iframe>
+                                        </div>
+                                  </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="content-slide">
+                                        <div style="height:99%">
+                                            <iframe src="./genepic.php?species=<?php echo $_GET['species'] ?>&seq=<?php echo $_GET['seq'] ?>&chr=<?php echo $_GET['chr'] ?>&strand=<?php echo $_GET['strand'] ?>" width=100% height=100%>
+                                            </iframe>
+                                        </div>
+                                    </div>
+                                  </div>
+                                <div class="swiper-slide">
+                                    <div class="content-slide">
+                                        <script>
+                                            var tabsSwiper = new Swiper('.swiper-container',{
+                                              speed:500,
+                                              onSlideChangeStart: function(){
+                                                $(".tabs .active").removeClass('active');
+                                                $(".tabs a").eq(tabsSwiper.activeIndex).addClass('active');
+                                              }
+                                            });
+                                            $(".tabs a").on('touchstart mousedown',function(e){
+                                              e.preventDefault()
+                                              $(".tabs .active").removeClass('active');
+                                              $(this).addClass('active');
+                                              tabsSwiper.swipeTo($(this).index());
+                                            })
+                                            $(".tabs a").click(function(e){
+                                              e.preventDefault()
+                                            })
+                                        </script>
+                                    </div>
+                                  </div>
+                              </div>
+                           </div>
+                        </div>
+<!--                        <div style="height:100%">
                             <iframe style="border: 1px solid black" src="../jbrowse/?data=data/arabidopsis&loc=<?php echo $_GET['chr']?>:<?php echo $_GET['ftr_start']?>..<?php echo $_GET['ftr_end']?>&tracks=Arabidopsis,sys_polya" width=100% height=100%>
                             </iframe>
-                        </div>
+                        </div>-->
                     </td>
                 </tr>
             </tbody>
