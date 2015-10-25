@@ -243,7 +243,31 @@
                         <div style="text-align:center;">
                             <button type="submit">submit</button>
                             <button type="reset">reset</button>
-                            <button>Example</button>
+                            <input type="button" onclick="search_example()" value="Example">
+                            <script type="text/javascript">
+                                function search_example(){
+                                    if(document.getElementById("species").value=='arab'){
+                                        document.getElementById("go_accession").value="GO:0006888";
+                                        document.getElementById("start").value="10000";
+                                        document.getElementById("end").value="1000000";
+                                    }
+                                    else if(document.getElementById("species").value=='japonica'){
+                                        document.getElementById("go_accession").value="GO:0009987";
+                                        document.getElementById("start").value="10000";
+                                        document.getElementById("end").value="50000";
+                                    }
+                                    else if(document.getElementById("species").value=='mtr'){
+                                        document.getElementById("go_accession").value="GO:0003899";
+                                        document.getElementById("start").value="10000";
+                                        document.getElementById("end").value="1000000";
+                                    }
+                                    else if(document.getElementById("species").value=='chlamy'){
+                                        document.getElementById("go_accession").value="GO:0008131";
+                                        document.getElementById("start").value="10000";
+                                        document.getElementById("end").value="100000";
+                                    }
+                                }
+                            </script>
                         </div>
                     </form>
            </div>

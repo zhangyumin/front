@@ -142,19 +142,43 @@
                             <option value="all" selected="selected">All</option>
                         </select>
                    <label for="start" style="margin:0 1%;"> from</label>
-                        <input type="text" name="start" style="width:14%">
+                        <input type="text" name="start" id="start" style="width:14%">
                    <label for="end" style="margin:0 1%;"> to</label>
-                        <input type="text" name="end"style="width:14%"><br>
+                        <input type="text" name="end" id="end" style="width:14%"><br>
 <!--                        &nbsp;for
                         <input type="text" name="keyword" style="width:20%;">-->
                         <br><label for="gene_id">Gene ID:(use ',' to split different gene id)</label><br><textarea style="width:100%" name="gene_id"></textarea><br>
-                        <br><label for="go_accession">Go term accession:(use ',' to split different gene id)</label><br><textarea style="width:100%" name='go_accession'></textarea><br>
+                        <br><label for="go_accession">Go term accession:(use ',' to split different gene id)</label><br><textarea style="width:100%" name='go_accession' id="go_accession"></textarea><br>
                         <br><label for="go_name" style="padding-right:2%;">Go term name:</label><input type='text' name='go_name' style="width: 40%"/><br>
                         <br><label for="function" style="padding-right:6.7%;">Function:</label><input type='text' name='function' style="width:40%;"/><br>
                         <div style="text-align:center;">
                             <button type="submit">submit</button>
                             <button type="reset">reset</button>
-                            <button>Example</button>
+                            <input type="button" onclick="search_example()" value="Example">
+                            <script type="text/javascript">
+                                function search_example(){
+                                    if(document.getElementById("species").value=='arab'){
+                                        document.getElementById("go_accession").value="GO:0006888";
+                                        document.getElementById("start").value="10000";
+                                        document.getElementById("end").value="1000000";
+                                    }
+                                    else if(document.getElementById("species").value=='japonica'){
+                                        document.getElementById("go_accession").value="GO:0009987";
+                                        document.getElementById("start").value="10000";
+                                        document.getElementById("end").value="50000";
+                                    }
+                                    else if(document.getElementById("species").value=='mtr'){
+                                        document.getElementById("go_accession").value="GO:0003899";
+                                        document.getElementById("start").value="10000";
+                                        document.getElementById("end").value="1000000";
+                                    }
+                                    else if(document.getElementById("species").value=='chlamy'){
+                                        document.getElementById("go_accession").value="GO:0008131";
+                                        document.getElementById("start").value="10000";
+                                        document.getElementById("end").value="100000";
+                                    }
+                                }
+                            </script>
                         </div>
                     </form>
            </div>

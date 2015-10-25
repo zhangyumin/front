@@ -83,7 +83,7 @@
             }
             .wrap{margin:0px auto;width: 100%;}
             .tabs {width:100%;}
-            .tabs a{display: block;float: left;width:50%;color: #5499c9;text-align: center;background: #eee;line-height: 40px;font-size:16px;text-decoration: none;}
+            .tabs a{display: block;float: left;width:33.3%;color: #5499c9;text-align: center;background: #eee;line-height: 40px;font-size:16px;text-decoration: none;}
             .tabs a.active {color: #fff;background: #5499c9;border-radius: 5px 5px 0px 0px;}
             .swiper-container {height:425px;border-radius: 0 0 5px 5px;width: 100%;border-top: 0;}
             .swiper-slide {height:325px;width:100%;background: none;color: #fff;}
@@ -1598,6 +1598,7 @@
                             <div class="tabs">
                                 <a href="#" hidefocus="true" class="active">Jbrowse</a>
                                 <a href="#" hidefocus="true">Gene Pic</a>
+                                <a href="#" hidefocus="true">Pac Pic</a>
                             </div><br>    
                             <div class="swiper-container">
                                 <div class="swiper-wrapper">
@@ -1617,6 +1618,14 @@
                                         </div>
                                     </div>
                                   </div>
+                                    <div class="swiper-slide">
+                                    <div class="content-slide">
+                                        <div style="height:99%">
+                                             <iframe src="./pacpic.php?species=<?php echo $_GET['species'] ?>&seq=<?php echo $_GET['seq'] ?>&chr=<?php echo $_GET['chr'] ?>&strand=<?php echo $_GET['strand'] ?>" width=100% height=100%>
+                                            </iframe>
+                                        </div>
+                                  </div>
+                                </div>
                                 <div class="swiper-slide">
                                     <div class="content-slide">
                                         <script>
