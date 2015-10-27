@@ -201,16 +201,22 @@
                 <tbody>
                     <tr class="theme">
                         <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Species</td>
-                        <td class="theme" bgcolor="#e1e1e1" align="center" height="24">PolyA sites</td>
+                        <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Samples</td>
+                        <td class="theme" bgcolor="#e1e1e1" align="center" height="24">PAC</td>
+                        <td class="theme" bgcolor="#e1e1e1" align="center" height="24">PAT</td>
                         <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Description</td>
+                        <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Reference</td>
                         <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Jbrowse</td>
                         <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Example</td>
                         <td class="theme" bgcolor="#e1e1e1" align="center" height="24"></td>
                     </tr>
                     <tr>
                         <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
-                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">108290</td>
-                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Descripting dynamic APA sites and 3'UTRs, and detailing the heterogeneous cleavage sites during arabdopsis</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">14</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">62834</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">68388227</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">poly(A) sites from leaf, seed, and root tissues of WT and Oxt6 mutant by poly(A) tag sequencing</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Wu et al. PNAS, 2011; Thomas et al. Plant Cell, 2012; Liu et al. PloS One, 2014</td>                     
                         <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
                             <a target="_blank" href="../jbrowse/?data=data/arabidopsis">
                                 <span title="Browse polyA sites in Jbrowse" style="background-color:#0066cc;color: #FFFFFF">Chr</span>
@@ -229,9 +235,12 @@
                         <td colspan="6" style="text-align:center;"><div class="sss">this is the content<br>this is the content<br>this is the content<br>this is the content<br>this is the content<br></div></td>
                     </tr>
                     <tr>
-                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
-                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">108290</td>
-                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Descripting dynamic APA sites and 3'UTRs, and detailing the heterogeneous cleavage sites during arabdopsis</td>
+                       <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Oryza sativa</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">1</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">32657</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">57852</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">poly(A) sites extracted from ESTs</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Shen et al. Nucleic Acids Res, 2008</td>                     
                         <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
                             <a target="_blank" href="../jbrowse/?data=data/arabidopsis">
                                 <span title="Browse polyA sites in Jbrowse" style="background-color:#0066cc;color: #FFFFFF">Chr</span>
@@ -250,9 +259,12 @@
                         <td colspan="6" style="text-align:center;"><div class="sss">this is the content<br>this is the content<br>this is the content<br>this is the content<br>this is the content<br></div></td>
                     </tr>
                     <tr>
-                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
-                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">108290</td>
-                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Descripting dynamic APA sites and 3'UTRs, and detailing the heterogeneous cleavage sites during arabdopsis</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Medicago truncatula</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">1</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">42691</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">2747920</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">poly(A) sites from leaf tissue by poly(A) tag sequencing</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Wu et al. BMC Genomics, 2014</td>                     
                         <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
                             <a target="_blank" href="../jbrowse/?data=data/arabidopsis">
                                 <span title="Browse polyA sites in Jbrowse" style="background-color:#0066cc;color: #FFFFFF">Chr</span>
@@ -268,9 +280,12 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
-                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">108290</td>
-                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Descripting dynamic APA sites and 3'UTRs, and detailing the heterogeneous cleavage sites during arabdopsis</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Chlamydomonas reinhardtii</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">3</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">39295</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">1002767</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">poly(A) sites extracted from ESTs, 454, and Illumina sequence reads</td>
+                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>                     
                         <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
                             <a target="_blank" href="../jbrowse/?data=data/arabidopsis">
                                 <span title="Browse polyA sites in Jbrowse" style="background-color:#0066cc;color: #FFFFFF">Chr</span>
