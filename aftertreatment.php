@@ -195,7 +195,7 @@
                $usr_query_result=mysql_query($usrQry);
              }
              $merge="./src/perl/PAT_mergePAC.pl -smptbls 'usrQryPAC_".$_SESSION['file'].";sysQryPAC_".$_SESSION['file']."' -reftbl usrQryPAC_".$_SESSION['file']." -smpcols '".implode(':',$_SESSION['file_real'] ).";".implode(':', $_SESSION['sys_real'])."' -smplbls '".implode(':',$_SESSION['file_real'] ).";".implode(':', $_SESSION['sys_real'])."' -otbl SearchedPAC_".$_SESSION['file']." -udist 24 -conf ./src/r/db_2.xml";
-             echo $merge;
+//             echo $merge;
              shell_exec($merge);
         }
         else{
@@ -279,25 +279,23 @@
     if($_GET['method']=='degene'){
 //            echo "<script>alert('in it')</script>";
         if($_POST['nor_method']=='none')
-            $donorm=0;
+            $donorm=NULL;
         else
-            $donorm=1;
-        if($_POST['min_pat']>0)
-        {
-            $minpat=$_POST['min_pat'];
-            $minrep=1;
-        }
+            $donorm=$_POST['nor_method'];
+//        echo $_POST['nor_method'];
+        $minpat=$_POST['min_pat'];
+        $method=$_POST['method'];
+        $sig=$_POST['sig'];
+        if($_POST['multi_test']=='Bonferroni')
+            $Adj=1;
         else
-        {
-            $minpat=0;
-            $minrep=0;
-        }
-        $degene_cmd="Rscript /var/www/front/src/r/R_pairDEgene.r minrep=$minrep minpat=$minpat donorm=$donorm path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['file']." cols='".implode(':',$_POST['sample1'] ).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml 2>&1";
+            $Adj=0;
+        $degene_cmd="Rscript /var/www/front/src/r/R_DEgene.r method=$method adj=$Adj sig=$sig minpat=$minpat donorm=$donorm path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['file']." cols='".implode(':',$_POST['sample1'] ).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml 2>&1";
         //$degene_cmd="Rscript /var/www/html/front/src/r/R_pairDEgene.r minrep=1 minpat=5 donorm=0 path='/home/zym/data/' intbl=PAC_sys_arab10 cols='oxt6_leaf_1:oxt6_leaf_2;wt_leaf_1:wt_leaf_2' groups=sys:user conf=/var/www/html/front/db.xml 2>&1";
         if(count($_POST['sample1'])>=1&&count($_POST['sampe2']>=1))
         {
            echo shell_exec($degene_cmd);
-            echo "<br><br>$degene_cmd<br><br>";
+//            echo "<br><br>$degene_cmd<br><br>";
             echo '<script>window.location.href="aftertreatment_result_test.php?result=degene&chr=1&gene=31185&strand=-1";</script>';
         }
         else
@@ -305,30 +303,28 @@
     }
     else if($_GET['method']=='depac'){
         if($_POST['depac_normethod']=='none')
-            $donorm=0;
+            $donorm=NULL;
         else
-            $donorm=1;
-        if($_POST['depacmin_pat']>0)
-        {
-            $minpat=$_POST['depacmin_pat'];
-            $minrep=1;
-        }
+            $donorm=$_POST['depac_normethod'];
+        $method=$_POST['method'];
+        $minpat=$_POST['min_pat'];
+        $sig=$_POST['sig'];
+        if($_POST['multi_test']=='Bonferroni')
+            $Adj=1;
         else
-        {
-            $minpat=0;
-            $minrep=0;
-        }
-        $depac_cmd="Rscript /var/www/front/src/r/R_pairDEPAC.r minrep=$minrep minpat=$minpat donorm=$donorm path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['file']." cols='".implode(':',$_POST['sample1']).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml 2>&1";
+            $Adj=0;
+        $depac_cmd="Rscript /var/www/front/src/r/R_DEPAC.r method=$method adj=$Adj sig=$sig minpat=$minpat donorm=$donorm path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['file']." cols='".implode(':',$_POST['sample1']).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml 2>&1";
 //        echo "<br><br>$depac_cmd<br><br>";
         echo shell_exec($depac_cmd);
-        echo '<script>window.location.href="aftertreatment_result_test.php?result=depac&chr=1&gene=31185&strand=-1";</script>';
+//        echo '<script>window.location.href="aftertreatment_result_test.php?result=depac&chr=1&gene=31185&strand=-1";</script>';
     }
     else if($_GET['method']=='only3utr'){
             if($_POST['sgminpat']>0)
                 $avgpat=$_POST['sgminpat'];
             else
                 $avgpat=0;
-            $sg_ocmd="Rscript /var/www/front/src/r/R_switchFU.r ogene=F avgPAT=$avgpat suffix=xx path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['file']." cols='".implode(':',$_POST['sample1']).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml 2>&1";
+            $sig=$_POST['sig'];
+            $sg_ocmd="Rscript /var/www/front/src/r/R_switch3UTR.r adj=0 sig=$sig avgPAT=$avgpat path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['file']." cols='".implode(':',$_POST['sample1']).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml 2>&1";
             //echo $sg_ocmd;
             echo shell_exec($sg_ocmd);
             echo '<script>window.location.href="aftertreatment_result_test.php?result=switchinggene_o&chr=1&gene=31185&strand=-1";</script>';
@@ -343,7 +339,7 @@
         $minpat4=$_POST['minpat4'];
         $minpat5=$_POST['minpat5'];
         $minpat6=$_POST['minpat6'];
-        $sg_ncmd="Rscript /var/www/front/src/r/R_switchMangone.r path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['file']." switch=$minpat1:$minpat2:$minpat3:$minpat4:$minpat5:$minpat6 cond='' suffix=xx cols='".implode(':',$_POST['sample1']).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml 2>&1";
+        $sg_ncmd="Rscript /var/www/front/src/r/R_switchNon3UTR.r path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['file']." switch=$minpat1:$minpat2:$minpat3:$minpat4:$minpat5:$minpat6 cond='' cols='".implode(':',$_POST['sample1']).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml 2>&1";
         //echo $sg_ncmd;
         echo shell_exec($sg_ncmd);
         echo '<script>window.location.href="aftertreatment_result_test.php?result=switchinggene_n&chr=1&gene=31185&strand=-1";</script>';
