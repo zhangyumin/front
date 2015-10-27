@@ -43,23 +43,24 @@
             echo"<script language=javascript>alert('Error file format , please try again');window.opener=null;window.close();</script>";
         }
         if($_GET['result']=='degene'){
-            $a=file(glob("./searched/SearchedPAC_$file.gene.column1Xcolumn2.minpat*")[0]);
-            $b=file("./searched/SearchedPAC_$file.gene.stat");
-            $c = substr(glob("./searched/SearchedPAC_$file.gene.column1Xcolumn2.minpat*")[0], 11);
+            $a=file("./searched/degene.$file");
+            $b=file("./searched/degene.$file.stat");
+            $c = "degene.$file";
         }
         if($_GET['result']=='depac'){
-            $a=file(glob("./searched/SearchedPAC_$file.APAgene.pac.column1Xcolumn2.minpat*")[0]);
-            $c = substr(glob("./searched/SearchedPAC_$file.APAgene.pac.column1Xcolumn2.minpat*")[0], 11);
+            $a=file("./searched/depac.$file");
+            $b=file("./searched/depac.$file.stat");
+            $c = "depac.$file";
         }
         if($_GET['result']=='switchinggene_o'){
-            $a=file(glob("./searched/SearchedPAC_$file.xx.avgPAT?.column1Xcolumn2.FU")[0]);
-            $b=file(glob("./searched/SearchedPAC_$file.xx.avgPAT?.FU.stat")[0]);
-            $c = substr(glob("./searched/SearchedPAC_$file.xx.avgPAT?.column1Xcolumn2.FU")[0], 11);
+            $a=file("./searched/only3utr.$file");
+            $b=file("./searched/only3utr.$file.stat");
+            $c = "only3utr.$file";
         }
         if($_GET['result']=='switchinggene_n'){
-            $a=file("./searched/SearchedPAC_$file.xx.column1Xcolumn2.switch");
-            $b=file("./searched/SearchedPAC_$file.xx.switch.stat");
-            $c = substr("./searched/SearchedPAC_$file.xx.column1Xcolumn2.switch", 11);
+            $a=file("./searched/none3utr.$file");
+            $b=file("./searched/none3utr.$file.stat");
+            $c = "none3utr.$file";
         }
         ?>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
