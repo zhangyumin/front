@@ -187,6 +187,7 @@ and open the template in the editor.
   </style>
     </head>
     <body>
+      fsdfasdfaf
         <div style="width: 100%;margin:0 auto;" class="page">
             <?php include './navbar.php'; ?>
             <div class="slidepic">
