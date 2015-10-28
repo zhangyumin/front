@@ -8,35 +8,47 @@ and open the template in the editor.
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Download</title>
-        <link href="./src/navbar.css" rel="stylesheet"/>
-        <style>
-            td{
-                padding: 20px !important;
-                font-family: 'Latos',sans-serif;
-            }
-        </style>
+        <link href="./src/index.css" rel="stylesheet" type="text/css" />
+        <script src="./src/jquery-2.0.0.min.js"></script>
+        <script src="./src/jquery.slides.min.js"></script>
+        <!-- Mobile viewport optimisation -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="js/wowslider/style.css" />
+        <script type="text/javascript" src="js/wowslider/jquery.js"></script>
+
+        <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
+        <!--[if lte IE 7]>
+        <link href="./css/iehacks.min.css" rel="stylesheet" type="text/css" />
+        <![endif]-->
+
+        <!--[if lt IE 9]>
+        <script src="./js/html5shiv/html5shiv.js"></script>
+        <![endif]-->
+
+        <!--<link rel="stylesheet" href="./src/font-awesome.min.css">-->
+        <!--<link rel="stylesheet" href="./src/example.css">-->
+ 
     </head>
     <body>
-    <script src="./src/jquery-2.0.0.min.js"></script>
         <?php
             include"./navbar.php";
         ?>
-        <br>
-        <div class="table-tools" style="border-style: dotted;border-color: #366fa5;width:80%;margin: auto;">
-        <fieldset class="download" style="text-align: center;min-width: 100%;">
-            <legend>
-                <span style="margin:auto;">
-                            <font color="#224055" size="18px;"><b>Tools</b></font>
-                </span>
-            </legend>
-            <table style="margin:auto;border-color: #87cefa;border:2px;" border rules='rows'>
+    <div class="ym-wrapper">
+        <div class="ym-wbox">
+        <div class="download">
+            <h1 class="center">Tools</h1>
+            <table>
+                <thead>
                 <tr>
-                    <td>Name</td>
-                    <td>Description</td>
-                    <td>Size</td>
-                    <td>Release date</td>
-                    <td>Download</td>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Size</th>
+                    <th>Release date</th>
+                    <th>Download</th>
                 </tr>
+                </thead>
+                <tbody>
                 <tr>
                     <td>Perl</td>
                     <td>alterPA,pa2pac,switchgene and so on</td>
@@ -51,24 +63,23 @@ and open the template in the editor.
                     <td>2015-7-31</td>
                     <td><a href="./download_data.php?type=1&name=R.zip"/>Click here</td>
                 </tr>
+                </tbody>
             </table><br>
-        </fieldset>
-        </div><br>
-        <div class="table-dataset" style="border-style: dotted;border-color: #366fa5;width:80%;margin: auto;">
-        <fieldset class="download" style="text-align: center;min-width: 100%;">
-            <legend>
-                <span style="margin:auto;">
-                            <font color="#224055" size="18px;"><b>Datasets</b></font>
-                </span>
-            </legend>
-            <table style="margin:auto;border-color: #87cefa;border:2px;" border rules='rows'>
+        
+        </div>
+        <br>
+        <div class="download">
+            <h1 class="center">Datasets</h1>
+            <table>
+                <thead>
                 <tr>
-                    <td>Name</td>
-                    <td>Description</td>
-                    <td>Size</td>
-                    <td>File type</td>
-                    <td>Download</td>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Size</th>
+                    <th>File type</th>
+                    <th>Download</th>
                 </tr>
+                </thead>
                 <tr>
                     <td>Arabidopsis thaliana</td>
                     <td>sequence</td>
@@ -77,8 +88,10 @@ and open the template in the editor.
                     <td><a href="./download_data.php?type=1&name=Arabidopsis_thaliana.TAIR10.23.gff3"/>Click here</td>
                 </tr>
             </table><br>
-        </fieldset>
-        </div><br>
+        </div>
+    </div>
+    </div>
+        <br>
         <?php
             session_start();
             if($_GET['data']!=NULL){
