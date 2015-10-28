@@ -3,6 +3,28 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Search</title>
         <script src="./src/jquery-2.0.0.min.js"></script>
+
+        <link href="./src/index.css" rel="stylesheet" type="text/css" />
+
+        <script src="./src/jquery.slides.min.js"></script>
+        <!-- Mobile viewport optimisation -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="js/wowslider/style.css" />
+        <script type="text/javascript" src="js/wowslider/jquery.js"></script>
+
+        <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
+        <!--[if lte IE 7]>
+        <link href="./css/iehacks.min.css" rel="stylesheet" type="text/css" />
+        <![endif]-->
+
+        <!--[if lt IE 9]>
+        <script src="./js/html5shiv/html5shiv.js"></script>
+        <![endif]-->
+
+        <!--<link rel="stylesheet" href="./src/font-awesome.min.css">-->
+        <!--<link rel="stylesheet" href="./src/example.css">-->
+    
     </head>
     <body>
         <?php
