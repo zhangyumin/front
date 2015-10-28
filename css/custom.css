@@ -1,0 +1,122 @@
+#introduction{
+	height: 500px;
+}
+fieldset{
+    border-color: #5499c9 !important;
+    border-style: solid !important;
+    border-width: 2px !important;
+    padding: 5px 10px !important;
+}
+.style1{
+    font-size: 14px;
+    text-align: center;
+}
+.theme{
+    font-size: 16px;
+    text-align: center;
+}
+.download{
+	border-style: dotted;
+	border-color: #366fa5;
+	width:80%;
+	margin: auto;
+}
+.download table{
+	margin:auto;
+	border-color: #87cefa;
+	border:2px;
+}
+.download h1.center{
+	color: #224055;
+	margin: 0.5em auto 0.5em;
+	-moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color -moz-use-text-color #e5e5e5;
+    border-image: none;
+    border-style: none none solid;
+    border-width: 0 0 1px;
+}
+    
+    .style1 {
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    .theme {
+        font-size: 16px;
+        text-align: center;
+    }
+    
+    .wrap {
+        margin: 0px auto;
+        width: 100%;
+    }
+    
+    .tabs {
+        width: 100%;
+    }
+    
+    .tabs a {
+        display: block;
+        float: left;
+        width: 33.333333%;
+        color: #5499c9;
+        text-align: center;
+        background: #eee;
+        line-height: 40px;
+        font-size: 16px;
+        text-decoration: none;
+    }
+    
+    .tabs a.active {
+        color: #fff;
+        background: #5499c9;
+        border-radius: 5px 5px 0px 0px;
+    }
+    
+    .swiper-container {
+        background: #5499c9;
+        height: 520px;
+        border-radius: 0 0 5px 5px;
+        width: 100%;
+        border-top: 0;
+    }
+    
+    .swiper-slide {
+        height: 325px;
+        width: 100%;
+        background: none;
+        color: #fff;
+    }
+    
+    .content-slide {
+        padding: 40px;
+    }
+    
+    .content-slide p {
+        text-indent: 2em;
+        line-height: 1.9;
+    }
+    
+    .slidebar-content {
+        color: black;
+    }
+    
+    .swiper-slide {
+        color: black;
+    }
+    .summary{
+                border-color: #5499c9 !important;
+                border-style: solid !important;
+                border-width: 2px !important;
+                padding: 5px 10px !important;
+                width:60%;
+                font-size: 15px;
+                font-family: 'Lato', sans-serif;
+    }
+    .upload h3{
+        margin: 0;
+        color: #224055;
+    }
