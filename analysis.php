@@ -2,34 +2,23 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Search</title>
+        <link href="./src/index.css" rel="stylesheet" type="text/css" />
         <script src="./src/jquery-2.0.0.min.js"></script>
-        <style>
-            fieldset{
-                border-color: #5499c9 !important;
-                border-style: solid !important;
-                border-width: 2px !important;
-                padding: 5px 10px !important;
-            }
-            .style1{
-                font-size: 14px;
-                text-align: center;
-            }
-            .theme{
-                font-size: 16px;
-                text-align: center;
-            }
-            .wrap{margin:0px auto;width: 500px;}
-            .tabs {width:100%;}
-            .tabs a{display: block;float: left;width:33.333333%;color: #5499c9;text-align: center;background: #eee;line-height: 40px;font-size:16px;text-decoration: none;}
-            .tabs a.active {color: #fff;background: #5499c9;border-radius: 5px 5px 0px 0px;}
-            .swiper-container {background:#5499c9;height:425px;border-radius: 0 0 5px 5px;width: 100%;border-top: 0;}
-            .swiper-slide {height:325px;width:100%;background: none;color: #fff;}
-            .content-slide {padding: 40px;}
-            .content-slide p{text-indent:2em;line-height:1.9;}
-            .slidebar-content{color: black;}
-            .swiper-slide{color:black;}
-        </style>
-        <script src="./src/idangerous.swiper.min.js"></script> 
+        <script src="./src/jquery.slides.min.js"></script>
+        <!-- Mobile viewport optimisation -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="js/wowslider/style.css" />
+        <script type="text/javascript" src="js/wowslider/jquery.js"></script>
+        <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css" />
+        <!--[if lte IE 7]>
+            <link href="./css/iehacks.min.css" rel="stylesheet" type="text/css" />
+            <![endif]-->
+        <!--[if lt IE 9]>
+            <script src="./js/html5shiv/html5shiv.js"></script>
+            <![endif]-->
+        <!--<link rel="stylesheet" href="./src/font-awesome.min.css">-->
+        <!--<link rel="stylesheet" href="./src/example.css">-->
+        <script src="./src/idangerous.swiper.min.js"></script>
         <link rel="stylesheet" href="./src/idangerous.swiper.css">
     </head>
     <body 
