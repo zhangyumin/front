@@ -376,7 +376,7 @@ and open the template in the editor.
                 }
                 else{
                     context.fillRect(loc,100,3,-2*tagnum);
-                    context.fillText("PAC:"+tagnum,loc-20,110);
+                    context.fillText("PAT:"+tagnum,loc-20,110);
                 }
             }
         </script>
