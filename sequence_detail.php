@@ -3,28 +3,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Search</title>
         <script src="./src/jquery-2.0.0.min.js"></script>
-        <?php
-        if($_GET['chr'])
-        {
-            $chr=$_GET['chr'];
-        }
-        else
-        {
-            echo"<script language=javascript>alert('Error file format , please try again');window.opener=null;window.close();</script>";
-        }
-        if($_GET['ftr_start']&&$_GET['ftr_end'])
-        {
-            $gene=($_GET['ftr_start']+$_GET['ftr_end'])/2;
-        }
-        if($_GET['strand'])
-        {
-            $strand=$_GET['strand'];
-        }
-        else
-        {
-            echo"<script language=javascript>alert('Error file format , please try again');window.opener=null;window.close();</script>";
-        }
-        ?>
         <style>
             table{
                 font-size: 12px;
@@ -103,11 +81,23 @@
         <?php
             $con=  mysql_connect("localhost","root","root");
             mysql_select_db("db_server",$con);
+            session_start();
         ?>
         <?php
+        if(isset($_POST['species'])){
+            $species=$_POST['species'];
+        }
+        else {
+            $species=$_SESSION['species'];
+        }
+        $cgs=  mysql_query("select * from db_server.t_".$species."_gff_all where gene='".$_GET['seq']."' and ftr='gene';");
+        while($cgs_row=  mysql_fetch_row($cgs)){
+            $chr=$cgs_row[0];
+            $gene=($cgs_row[3]+$cgs_row[4])/2;
+            $strand=$cgs_row[1]."1";
+        }
          $singnals = array("AATAAA","TATAAA","CATAAA","GATAAA","ATTAAA","ACTAAA","AGTAAA","AAAAAA","AACAAA","AAGAAA","AATTAA","AATCAA","AATGAA","AATATA","AATACA","AATAGA","AATAAT","AATAAC","AATAAG");        
- 
-         $a="SELECT * from db_server.t_".$_GET['species']."_gff_all where ftr_start<=$gene and ftr_end>=$gene and chr='$chr' and ftr='gene';";
+         $a="SELECT * from db_server.t_".$species."_gff_all where ftr_start<=$gene and ftr_end>=$gene and chr='$chr' and ftr='gene';";
          $result=mysql_query($a);
          //var_dump($result);
          while($row=mysql_fetch_row($result))
@@ -118,7 +108,7 @@
              $gene_end=$row[4];
          }
          //print_r($gene_name);
-        $b="select substring(seq,$gene_start,$gene_end-$gene_start) from db_server.t_".$_GET['species']."_fa where title='$chr';";
+        $b="select substring(seq,$gene_start,$gene_end-$gene_start) from db_server.t_".$species."_fa where title='$chr';";
         //echo $b;
         $seq_result=  mysql_query($b);
         while($rows=mysql_fetch_row($seq_result))
@@ -145,7 +135,7 @@
              }
              $seq=  implode($seq_arr);
          }
-         $c="select * from db_server.t_".$_GET['species']."_gff where gene like '$gene_name' ;";
+         $c="select * from db_server.t_".$species."_gff where gene like '$gene_name' ;";
          //echo $c;
          $seq_feature=  mysql_query($c);
          while($row_f=  mysql_fetch_row($seq_feature))
@@ -155,7 +145,7 @@
              $f_start[]=$row_f[3];
              $f_end[]=$row_f[4];
          }
-         //print_r($ftr);
+//         print_r($f_start);
 
          echo "<script type=\"text/javascript\">";
          //echo "var sequences = ['AAAATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA','AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA','AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'];"; 
@@ -1512,16 +1502,16 @@
                                     </tr>
                                     <tr>
                                         <td>Chromosome:</td>
-                                        <td><?php echo $_GET['chr']?></td>
+                                        <td><?php echo $chr;?></td>
                                     </tr>
                                     <tr>
                                         <td>Gene locus:</td>
-                                        <td><?php echo $_GET['chr'].":".$_GET['ftr_start']."-".$_GET['ftr_end']?></td>
+                                        <td><?php echo $chr.":".$gene_start."-".$gene_end;?></td>
                                     </tr>
                                     <tr>
                                         <td>Gene Type:</td>
                                         <?php
-                                                    $sql="select gene_type from t_".$_GET['species']."_gff_all where gene=\"".$_GET['seq']."\" and ftr='gene';";
+                                                    $sql="select gene_type from t_".$species."_gff_all where gene=\"".$_GET['seq']."\" and ftr='gene';";
                                                     $type=mysql_query($sql);
 //                                                    echo $sql;
 //                                                    $type=mysql_query("select * from db_bio.gff_arab10_all where gene=\"AT2G01008\";");
@@ -1547,7 +1537,7 @@
                                 </thead>
                                 <tbody>
                                         <?php
-                                                    $go_sql="select * from t_".$_GET['species']."_go where gene=\"".$_GET['seq']."\";";
+                                                    $go_sql="select * from t_".$species."_go where gene=\"".$_GET['seq']."\";";
                                                     $go_result=mysql_query($go_sql);
 //                                                    echo $sql;
 //                                                    $type=mysql_query("select * from db_bio.gff_arab10_all where gene=\"AT2G01008\";");
@@ -1581,7 +1571,7 @@
                                                         <td>PAC range</td>
                                                     </tr>
                                                     <?php
-                                                            $pac_res=mysql_query("select * from t_".$_GET['species']."_pac where gene='$gene_name';");
+                                                            $pac_res=mysql_query("select * from t_".$species."_pac where gene='$gene_name';");
                                                             while($pac_r=  mysql_fetch_row($pac_res)){
                                                                 $i=1;
                                                                 echo "<tr>"
@@ -1615,7 +1605,7 @@
                                 <div class="swiper-slide">
                                     <div class="content-slide">
                                         <div style="height:99%">
-                                            <iframe src="../jbrowse/?data=data/arabidopsis&loc=<?php echo $_GET['chr']?>:<?php echo $_GET['ftr_start']?>..<?php echo $_GET['ftr_end']?>&tracks=Arabidopsis,sys_polya" width=100% height=100%>
+                                            <iframe src="../jbrowse/?data=data/arabidopsis&loc=<?php echo $chr;?>:<?php echo $gene_start;?>..<?php echo $gene_end;?>&tracks=Arabidopsis,sys_polya" width=100% height=100%>
                                             </iframe>
                                         </div>
                                   </div>
@@ -1623,7 +1613,7 @@
                                 <div class="swiper-slide">
                                     <div class="content-slide">
                                         <div style="height:99%">
-                                            <iframe src="./genepic.php?species=<?php echo $_GET['species'] ?>&seq=<?php echo $_GET['seq'] ?>&chr=<?php echo $_GET['chr'] ?>&strand=<?php echo $_GET['strand'] ?>" width=100% height=100%>
+                                            <iframe src="./genepic.php?species=<?php echo $species; ?>&seq=<?php echo $_GET['seq'] ?>&chr=<?php echo $chr; ?>&strand=<?php echo $strand; ?>" width=100% height=100%>
                                             </iframe>
                                         </div>
                                     </div>
@@ -1631,7 +1621,7 @@
                                     <div class="swiper-slide">
                                     <div class="content-slide">
                                         <div style="height:99%">
-                                             <iframe src="./pacpic.php?species=<?php echo $_GET['species'] ?>&seq=<?php echo $_GET['seq'] ?>&chr=<?php echo $_GET['chr'] ?>&strand=<?php echo $_GET['strand'] ?>" width=100% height=100%>
+                                             <iframe src="./pacpic.php?species=<?php echo $species; ?>&seq=<?php echo $_GET['seq'] ?>&chr=<?php echo $chr ?>&strand=<?php echo $strand; ?>" width=100% height=100%>
                                             </iframe>
                                         </div>
                                   </div>
@@ -1661,10 +1651,6 @@
                               </div>
                            </div>
                         </div>
-<!--                        <div style="height:100%">
-                            <iframe style="border: 1px solid black" src="../jbrowse/?data=data/arabidopsis&loc=<?php echo $_GET['chr']?>:<?php echo $_GET['ftr_start']?>..<?php echo $_GET['ftr_end']?>&tracks=Arabidopsis,sys_polya" width=100% height=100%>
-                            </iframe>
-                        </div>-->
                     </td>
                 </tr>
             </tbody>
