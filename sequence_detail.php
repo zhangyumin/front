@@ -1569,24 +1569,34 @@
                             <table id="polyatable">
                                 <tbody>
                                     <tr>
-                                        <td style="width:20%">PolyA site:</td>
+                                        <td style="width:10%">PolyA site:</td>
                                         <td>
-                                        <?php
-                                                    $polya_sql="select * from t_".$_GET['species']."_pa1 where chr='$chr' and coord>=".$_GET['ftr_start']." and coord<=".$_GET['ftr_end']." and tot_tagnum>0;";
-//                                                    echo "select * from t_".$_GET['species']."_pa1 where chr='$chr' and coord>=".$_GET['ftr_start']." and coord<=".$_GET['ftr_end']." and tot_tagnum>0;";
-                                                    $polya_result=mysql_query($polya_sql);
-//                                                    echo $sql;
-//                                                    $type=mysql_query("select * from db_bio.gff_arab10_all where gene=\"AT2G01008\";");
-//                                                    echo "select gene_type from db_bio.gff_arab10_all where gene=\"".$_GET['seq']."\";";
-//                                                        var_dump($type);
-                                                    $i=0;
-                                                    while($polya_result_row= mysql_fetch_row($polya_result)){
-                                                          echo $polya_result_row[2].",";
-                                                          $i++;
-                                                          if(($i%15)==0)
-                                                              echo "\n";
-                                                    }
-                                                ?>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>PAC</td>
+                                                        <td>Coordinate</td>
+                                                        <td>PA#</td>
+                                                        <td>PAT#</td>
+                                                        <td>PAC range</td>
+                                                    </tr>
+                                                    <?php
+                                                            $pac_res=mysql_query("select * from t_".$_GET['species']."_pac where gene='$gene_name';");
+                                                            while($pac_r=  mysql_fetch_row($pac_res)){
+                                                                $i=1;
+                                                                echo "<tr>"
+                                                                        . "<td>PAC$i</td>"
+                                                                        . "<td>$pac_r[2]</td>"
+                                                                        . "<td>$pac_r[12]</td>"
+                                                                        . "<td>$pac_r[3]</td>"
+                                                                        . "<td>$pac_r[10]~$pac_r[11]</td>"
+                                                                        . "</tr>";
+                                                                $i++;
+                                                                
+                                                            }
+                                                    ?>
+                                                </tbody>
+                                            </table>
                                         </td>
                                     </tr>
                                 </tbody>
