@@ -34,7 +34,7 @@
                 $go_array=array();
                //若go搜索无输入
                 if($go_accession==NULL&&$go_name==NULL&&$function==NULL){
-                    $sysQry="select * from db_server.t_".$_POST['species']."_gff_all where 1=1";
+                    $sysQry="select * from db_server.t_".$_POST['species']."_pac where 1=1";
                     if($_POST['chr']!='all'){
                         $sysQry.=" and chr='$chr'";
                     }
