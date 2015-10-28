@@ -47,6 +47,20 @@
                 else
                     $(".more2").html("More");
             });
+            $(".more3").click(function(){
+                $(".more3_content").slideToggle("slow");
+                if($(".more3").text()=='More')
+                    $(".more3").html("Close");
+                else
+                    $(".more3").html("More");
+            });
+            $(".more4").click(function(){
+                $(".more4_content").slideToggle("slow");
+                if($(".more4").text()=='More')
+                    $(".more4").html("Close");
+                else
+                    $(".more4").html("More");
+            });
         });
             <?php
                 $arr_arab=array();
@@ -227,12 +241,200 @@
                                 <span title="Browse search result for 'at1g0070'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                             </a>
                         </td>
-                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
+                        <td class="style1"  width='50' style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
                             <span class="more1" title="View more information about arabidopsis thanliana" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
                         </td>
                     </tr>
                     <tr class="more1_content" style="display:none;">
-                        <td colspan="6" style="text-align:center;"><div class="sss">this is the content<br>this is the content<br>this is the content<br>this is the content<br>this is the content<br></div></td>
+                            <td colspan="1" style="text-align:center;"></td>
+                            <td colspan="7" style="text-align:center;">
+                                <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5499c9;width:100%;margin: 10px 2px;">
+                                    <tbody>
+                                        <tr class="theme">
+                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Species</td>
+                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Lable</td>
+                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Cell Line</td>
+                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Tissue</td>
+                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Reference</td>
+                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Genome Annotation</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">wt leaf 1</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">WT</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">leaf</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Thomas et al. Plant Cell, 2012</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">TAIR 10</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">wt leaf 2</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">WT</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">leaf</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Wu et al. PNAS, 2012</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">TAIR 10</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">wt leaf 3</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">WT</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">leaf</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Thomas et al. Plant Cell, 2012</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">TAIR 10</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">wt seed 1</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">WT</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">seed</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Thomas et al. Plant Cell, 2012</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">TAIR 10</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">wt seed 2</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">WT</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">seed</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Wu et al. PNAS, 2012</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">TAIR 10</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">wt root 1</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">WT</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">root</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Liu et al. PloS, 2014</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">TAIR 10</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">wt root 2</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">WT</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">root</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Liu et al. PloS, 2014</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">TAIR 10</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">wt root 3</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">WT</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">root</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Liu et al. PloS, 2014</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">TAIR 10</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table cellspacing="1" cellpadding="0" border="0" style="width:100%;margin: 10px 2px;">
+                                    <tbody>
+                                        <tr class="theme">
+                                            <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">&nbsp;</td>
+                                            <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">PAC#</td>
+                                            <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">PAC%</td>
+                                            <td class="theme" align="center" height="24">&nbsp;</td>
+                                            <td class="theme" align="center" height="24">&nbsp;</td>
+                                            <td class="theme" align="center" height="24">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">3'UTR</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">32420</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">51.60%</td>
+                                            <td colspan="3" rowspan="18" style="text-align:center;">
+                                                <img src='./pic/arab_PACs.png'/>
+                                                <img src='./pic/arab_PATs.png'/>
+                                                <br>Distributions of poly(A) site clusters (PACs) and poly(A) tags (PATs)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">intergenic</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">9552</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">15.20%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">promoter</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">5332</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">8.49%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">CDS</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">8321</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">13.24%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">intron</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">3639</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">5.79%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">5'UTR</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">605</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">0.96%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">AMB</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">2965</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">4.72%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Total</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">62834</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">100.00%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">&nbsp;</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">&nbsp;</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">&nbsp;</td>
+                                            <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">PAT#</td>
+                                            <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">PAT%</td>
+                                            <td class="theme" align="center" height="24">&nbsp;</td>
+                                            <td class="theme" align="center" height="24">&nbsp;</td>
+                                            <td class="theme" align="center" height="24">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">3'UTR</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">6305645</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">92.20%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">AMB</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">2759330</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">4.03%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">intergenic</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">877180</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">1.28%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">promoter</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">597136</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">0.87%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">CDS</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">448162</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">0.66%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">5'UTR</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">446777</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">0.65%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">intron</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">203097</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">0.30%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Total</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">68388227</td>
+                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">100.00%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
                     </tr>
                     <tr>
                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Oryza sativa</td>
@@ -251,12 +453,134 @@
                                 <span title="Browse search result for 'at1g0070'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                             </a>
                         </td>
-                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
+                        <td class="style1" width='50' style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
                             <span class="more2" title="Browse search result for 'at1g0070'" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
                         </td>
                     </tr>
                     <tr class="more2_content" style="display:none;">
-                        <td colspan="6" style="text-align:center;"><div class="sss">this is the content<br>this is the content<br>this is the content<br>this is the content<br>this is the content<br></div></td>
+                        <td colspan="1" style="text-align:center;"></td>
+                        <td colspan="7" style="text-align:center;">
+                            <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5499c9;width:100%;margin: 10px 2px;">
+                                <tbody>
+                                    <tr class="theme">
+                                        <td class="theme" bgcolor="#5499c9" align="center" height="24">Species</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" height="24">Lable</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" height="24">Cell Line</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" height="24">Tissue</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" height="24">Reference</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" height="24">Genome Annotation</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Oryza sativa</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">from EST</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">mix</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">mix</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">shen et al. Plant Cell, 2012</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">TAIR 10</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table cellspacing="1" cellpadding="0" border="0" style="width:100%;margin: 10px 2px;">
+                                <tbody>
+                                    <tr class="theme">
+                                        <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">&nbsp;</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">PAC#</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">PAC%</td>
+                                        <td class="theme" align="center" height="24">&nbsp;</td>
+                                        <td class="theme" align="center" height="24">&nbsp;</td>
+                                        <td class="theme" align="center" height="24">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">3'UTR</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">28357</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">86.83%</td>
+                                        <td colspan="3" rowspan="18" style="text-align:center;">
+                                            <img src='./pic/japonica_PACs.png'/>
+                                            <img src='./pic/japonica_PATs.png'/>
+                                            <br>Distributions of poly(A) site clusters (PACs) and poly(A) tags (PATs)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">intergenic</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">1950</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">5.97%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">promoter</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">386</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">1.18%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">CDS</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">316</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">0.97%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">intron</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">1549</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">4.74%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">5'UTR</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">99</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">0.30%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Total</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">32657</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">100.00%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">&nbsp;</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">&nbsp;</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">&nbsp;</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">PAT#</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">PAT%</td>
+                                        <td class="theme" align="center" height="24">&nbsp;</td>
+                                        <td class="theme" align="center" height="24">&nbsp;</td>
+                                        <td class="theme" align="center" height="24">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">3'UTR</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">52173</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">90.18%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">intergenic</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">2491</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">4.31%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">intron</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">2201</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">3.80%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">promoter</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">503</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">0.87%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">CDS</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">361</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">0.62%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">5'UTR</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">123</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">0.21%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Total</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">57852</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">100.00%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
                     </tr>
                     <tr>
                         <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Medicago truncatula</td>
@@ -275,8 +599,143 @@
                                 <span title="Browse search result for 'at1g0070'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                             </a>
                         </td>
-                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
-                            <span title="Browse search result for 'at1g0070'" style="background-color:#0066cc;color: #FFFFFF">More</span>
+                        <td class="style1" width='50' style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
+                            <span class="more3" title="Browse search result for 'at1g0070'" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
+                        </td>
+                    </tr>
+                    <tr class="more3_content" style="display:none;">
+                        <td colspan="1" style="text-align:center;"></td>
+                        <td colspan="7" style="text-align:center;">
+                            <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5499c9;width:100%;margin: 10px 2px;">
+                                <tbody>
+                                    <tr class="theme">
+                                        <td class="theme" bgcolor="#5499c9" align="center" height="24">Species</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" height="24">Lable</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" height="24">Cell Line</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" height="24">Tissue</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" height="24">Reference</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" height="24">Genome Annotation</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Medicago truncatula</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">wt leaf</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">WT</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">leaf</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Wu et al. BMC Genomics, 2014</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">JCVI Medtr v4</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table cellspacing="1" cellpadding="0" border="0" style="width:100%;margin: 10px 2px;">
+                                <tbody>
+                                    <tr class="theme">
+                                        <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">&nbsp;</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">PAC#</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">PAC%</td>
+                                        <td class="theme" align="center" height="24">&nbsp;</td>
+                                        <td class="theme" align="center" height="24">&nbsp;</td>
+                                        <td class="theme" align="center" height="24">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">3'UTR</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">26792</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">62.76%</td>
+                                        <td colspan="3" rowspan="18" style="text-align:center;">
+                                            <img src='./pic/mtr_PACs.png'/>
+                                            <img src='./pic/mtr_PATs.png'/>
+                                            <br>Distributions of poly(A) site clusters (PACs) and poly(A) tags (PATs)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">intergenic</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">4973</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">11.66%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">promoter</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">740</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">1.73%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">CDS</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">4486</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">10.51%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">intron</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">2507</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">5.87%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">5'UTR</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">34</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">0.08%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">AMB</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">3156</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">7.39%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Total</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">42691</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">100.00%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">&nbsp;</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">&nbsp;</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">&nbsp;</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">PAT#</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">PAT%</td>
+                                        <td class="theme" align="center" height="24">&nbsp;</td>
+                                        <td class="theme" align="center" height="24">&nbsp;</td>
+                                        <td class="theme" align="center" height="24">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">3'UTR</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">2319373</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">84.40%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">AMB</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">235367</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">8.57%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">intergenic</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">89557</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">3.26%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">intron</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">56920</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">2.07%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">CDS</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">39336</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">1.43%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">promoter</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">7208</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">0.26%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">5'UTR</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">159</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">0.01%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Total</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">2747920</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">100.00%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </td>
                     </tr>
                     <tr>
@@ -296,11 +755,153 @@
                                 <span title="Browse search result for 'at1g0070'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                             </a>
                         </td>
-                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
-                            <span title="Browse search result for 'at1g0070'" style="background-color:#0066cc;color: #FFFFFF">More</span>
+                        <td class="style1" width='50' style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
+                            <span class="more4" title="Browse search result for 'at1g0070'" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
                         </td>
                     </tr>
-                    
+                    </tr>
+                    <tr class="more4_content" style="display:none;">
+                        <td colspan="1" style="text-align:center;"></td>
+                        <td colspan="7" style="text-align:center;">
+                            <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5499c9;width:100%;margin: 10px 2px;">
+                                <tbody>
+                                    <tr class="theme">
+                                        <td class="theme" bgcolor="#5499c9" align="center" height="24">Species</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" height="24">Lable</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" height="24">Cell Line</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" height="24">Tissue</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" height="24">Reference</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" height="24">Genome Annotation</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Chlamydomonas reinhardtii</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">from illumina</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">mix</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">mix</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Creinhardtii 281 v55</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Chlamydomonas reinhardtii</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">from 454</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">mix</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">mix</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Creinhardtii 281 v55</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Chlamydomonas reinhardtii</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">from EST</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">mix</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">mix</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Creinhardtii 281 v55</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table cellspacing="1" cellpadding="0" border="0" style="width:100%;margin: 10px 2px;">
+                                <tbody>
+                                    <tr class="theme">
+                                        <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">&nbsp;</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">PAC#</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">PAC%</td>
+                                        <td class="theme" align="center" height="24">&nbsp;</td>
+                                        <td class="theme" align="center" height="24">&nbsp;</td>
+                                        <td class="theme" align="center" height="24">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">3'UTR</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">22117</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">56.28%</td>
+                                        <td colspan="3" rowspan="18" style="text-align:center;">
+                                            <img src='./pic/chlamy_PACs.png'/>
+                                            <img src='./pic/chlamy_PATs.png'/>
+                                            <br>Distributions of poly(A) site clusters (PACs) and poly(A) tags (PATs)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">intergenic</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">10711</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">27.26%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">CDS</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">1669</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">4.25%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">intron</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">4327</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">11.01%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">5'UTR</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">263</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">0.67%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">AMB</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">208</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">0.53%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Total</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">39295</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">100.00%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">&nbsp;</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">&nbsp;</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">&nbsp;</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">PAT#</td>
+                                        <td class="theme" bgcolor="#5499c9" align="center" width="100" height="24">PAT%</td>
+                                        <td class="theme" align="center" height="24">&nbsp;</td>
+                                        <td class="theme" align="center" height="24">&nbsp;</td>
+                                        <td class="theme" align="center" height="24">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">3'UTR</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">742068</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">74.00%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">intergenic</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">211620</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">21.10%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">intron</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">34554</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">3.15%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">CDS</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">12903</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">1.29%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">AMB</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">3210</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">0.32%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">5'UTR</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">1412</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">0.14%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Total</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">1002767</td>
+                                        <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">100.00%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
                 </tbody>
             </table><br>
         </div>
