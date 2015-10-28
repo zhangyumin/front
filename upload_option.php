@@ -16,11 +16,22 @@ and open the template in the editor.
         
             <!--fineuploader的依赖包-->
          <script src="./src/fineuploader/jquery-2.0.0.min.js"></script>
-         <link href="./src/fineuploader/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="./src/fineuploader/fineuploader-gallery.css" rel="stylesheet" type="text/css"/>
+<!--          <link href="./src/fineuploader/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+ -->        <link href="./src/fineuploader/fineuploader-gallery.css" rel="stylesheet" type="text/css"/>
         <link href="./src/fineuploader/styles.css" rel="stylesheet" type="text/css"/>
         <script src="./src/fineuploader/all.fine-uploader.js"></script>
         <script src="./src/fineuploader/devenv.js"></script>
+        <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
+        <!--[if lte IE 7]>
+        <link href="./css/iehacks.min.css" rel="stylesheet" type="text/css" />
+        <![endif]-->
+
+        <!--[if lt IE 9]>
+        <script src="./js/html5shiv/html5shiv.js"></script>
+        <![endif]-->
+
+        <!--<link rel="stylesheet" href="./src/font-awesome.min.css">-->
+        <!--<link rel="stylesheet" href="./src/example.css">-->
         
         <script type="text/template" id="qq-template">
             <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Drop sequence files here">
