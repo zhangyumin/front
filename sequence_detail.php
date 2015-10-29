@@ -53,6 +53,10 @@
                 color:black;
                 background-color: #984B4B;
             }
+            span.pt10{
+                color:black;
+                background-color: #ffd700;
+            }
             fieldset{
                 border-color: #5499c9 !important;
                 border-style: solid !important;
@@ -169,6 +173,8 @@
          echo "var intron_end=[];";
          echo "var exon_start=[];";
          echo "var exon_end=[];";
+         echo "var amb_start=[];";
+         echo "var amb_end=[];";
          while(list($f_key,$val)=each($ftr))
          {
              if(strcmp($val, '3UTR')==0)
@@ -274,6 +280,27 @@
                     $e_end=$f_end[$f_key];
                     $es_p=$gene_end-$e_end+1;//exon start point
                     echo "exon_start.push('$es_p');";
+                 }
+             }
+             if(strcmp($val, 'AMB')==0)
+             {
+                 if(strcmp($strand,1)==0)
+                 {
+                    $a_start=$f_start[$f_key];
+                    $as_p=$a_start-$gene_start;//AMB start point
+                    echo "amb_start.push('$as_p');";
+                    $a_end=$f_end[$f_key];
+                    $ae_p=$a_end-$gene_start;//amb end point
+                    echo "amb_end.push('$ae_p');";
+                 }
+                 else if(strcmp($strand,-1)==0)
+                {
+                    $a_start=$f_start[$f_key];
+                    $ae_p=$gene_end-$a_start+1;//3utr end point
+                    echo "amb_end.push('$ae_p');";
+                    $a_end=$f_end[$f_key];
+                    $as_p=$gene_end-$a_end+1;//3utr start point
+                    echo "amb_start.push('$as_p');";
                  }
              }
          }
@@ -977,6 +1004,106 @@
                       seq=sub1+mid+sub2;
                 }
             }
+            if(amb_start.length&&amb_end.length!=0)
+            {
+                for(var ambkey in amb_start)
+                {
+                    var pos=amb_start[ambkey];
+                    pos2=pos+1;
+                    for(var a in pos1_start)
+                    {
+                        var i=pos1_start[a];
+                        if(pos>i&&pos<=pos1_end[i])
+                            pos=pos1_end[i]+2;
+                    }
+                    for(var b in pos2_start)
+                    {
+                        var i=pos2_start[b];
+                        if(pos>i&&pos<=pos2_end[i])
+                            pos=pos2_end[i]+2;
+                    }
+                    for(var c in aat_start)
+                    {
+                        var i=aat_start[c];
+                        if(pos>i&&pos<=aat_end[i])
+                            pos=aat_end[i]+2;
+                    }
+                    for(var d in tgt_start)
+                    {
+                        var i=tgt_start[d];
+                        if(pos>i&&pos<=tgt_end[i])
+                        pos=tgt_end[i]+2;
+                    }
+                    pos1=pos-1;
+                    var sub1=seq.substring(0,pos1);
+                    var sub2=seq.substring(pos);
+                    var mid="";
+                    switch(seq.charAt(pos1))
+                    {
+                        case "A":
+                            mid="哀";
+                            break;
+                        case "T":
+                            mid="挞";
+                            break;
+                        case "C":
+                            mid="财";
+                            break;
+                        case "G":
+                            mid="阁";
+                            break;
+                      }
+                      seq=sub1+mid+sub2;
+                }
+                for(var sutrkey1 in sutr_end)
+                {
+                    var pos=sutr_end[sutrkey1];
+                    for(var e in pos1_start)
+                    {
+                        var i=pos1_start[e]
+                        if(pos>i&&pos<pos1_end[i]+1)
+                            pos=i;
+                    }
+                    for(var f in pos2_start)
+                    {
+                        var i=pos2_start[f]
+                        if(pos>i&&pos<pos2_end[i]+1)
+                            pos=i;
+                    }
+                    for(var g in aat_start)
+                    {
+                        var i=aat_start[g]
+                        if(pos>i&&pos<aat_end[i]+1)
+                            pos=i;
+                    }
+                    for(var h in tgt_start)
+                    {
+                        var i=tgt_start[h]
+                        if(pos>i&&pos<tgt_end[i]+1)
+                        pos=i;
+                    }
+                    pos1=pos-1;
+                    var sub1=seq.substring(0,pos1);
+                    var sub2=seq.substring(pos);
+                    var mid="";
+                    switch(seq.charAt(pos1))
+                    {
+                        case "A":
+                            mid="碍";
+                            break;
+                        case "T":
+                            mid="獭";
+                            break;
+                        case "C":
+                            mid="蔡";
+                            break;
+                        case "G":
+                            mid="革";
+                            break;
+                      }
+                      seq=sub1+mid+sub2;
+                }
+            }
             
 
      
@@ -1366,6 +1493,14 @@
              newSeq = newSeq.replace(/祂/g,"T</span class='pt9'>");
             newSeq = newSeq.replace(/猜/g,"C</span class='pt9'>");
             newSeq = newSeq.replace(/高/g,"G</span class='pt9'>");
+            newSeq = newSeq.replace(/哀/g,"<span class='pt10'>A");
+            newSeq = newSeq.replace(/挞/g,"<span class='pt10'>T");
+            newSeq = newSeq.replace(/财/g,"<span class='pt10'>C");
+            newSeq = newSeq.replace(/阁/g,"<span class='pt10'>G");
+            newSeq = newSeq.replace(/碍/g,"A</span class='pt10'>");
+             newSeq = newSeq.replace(/獭/g,"T</span class='pt10'>");
+            newSeq = newSeq.replace(/蔡/g,"C</span class='pt10'>");
+            newSeq = newSeq.replace(/革/g,"G</span class='pt10'>");
 
             
 
@@ -1705,7 +1840,7 @@
                                     <span style="text-align:center;"><font size="2" color='green'><u>N</u></font></span>
                             </legend>-->
                             <br>
-                                <legend><span class="h3_ltalic">others</span>&nbsp;&nbsp;(3'UTR <span class='pt5' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;5'UTR&nbsp;<span class='pt6' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;CDS&nbsp;<span class='pt7' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;Intron&nbsp;<span class='pt8' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;exon&nbsp;<span class='pt9' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;)</legend>
+                                <legend><span class="h3_ltalic">others</span>&nbsp;&nbsp;(3'UTR <span class='pt5' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;5'UTR&nbsp;<span class='pt6' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;CDS&nbsp;<span class='pt7' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;Intron&nbsp;<span class='pt8' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;exon&nbsp;<span class='pt9' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;amb&nbsp;<span class='pt10' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;)</legend>
                             <br>
                             <button id = "find_patt" style="width:100px;"  class = "button blue medium">Show</button>
                             <button id = "reset" style = "width:100px;"  class = "button blue medium">Clear</button>
