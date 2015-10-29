@@ -1069,9 +1069,9 @@
                       }
                       seq=sub1+mid+sub2;
                 }
-                for(var sutrkey1 in sutr_end)
+                for(var ambkey1 in amb_end)
                 {
-                    var pos=sutr_end[sutrkey1];
+                    var pos=amb_end[ambkey1];
                     for(var e in pos1_start)
                     {
                         var i=pos1_start[e]
