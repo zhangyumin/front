@@ -137,6 +137,8 @@ and open the template in the editor.
                         $position = ($value-$gene_start) * $rate;
                         echo "pointer($position,$key,\"gene\");";
                     }
+                    if($_GET['intergenic']==1)
+                        echo "intergenic($strand,\"gene\");"
                 ?>
                 arrow("gene",<?php echo $_GET['strand'];?>);
                 title("#000000","<?php echo $seq;?>","gene");
@@ -297,6 +299,17 @@ and open the template in the editor.
                 }
                 else{
                     context.fillRect(startpos,80,endpos-startpos,40);
+                }
+            }
+            function intergenic(strand,id){
+                var canvas = document.getElementById(id);
+                var context = canvas.getContext("2d");
+                context.fillStyle="#7a8b8b";//intergenic为灰色
+                if(strand==1){
+                    context.fillRect(0,90,990,20);
+                }
+                else{
+                    context.fillRect(10,90,1000,20);
                 }
             }
             function arrow(id,strand){

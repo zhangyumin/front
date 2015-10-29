@@ -88,16 +88,25 @@
             session_start();
         ?>
         <?php
+        if(isset($_GET['strand'])){
+            $strand=$_GET['strand'];
+        }
         if(isset($_GET['species'])){
             $species=$_GET['species'];
         }
         else {
             $species=$_SESSION['species'];
         }
-        $cgs=  mysql_query("select * from db_server.t_".$species."_gff_all where gene='".$_GET['seq']."' and ftr='gene';");
+        if($_GET['flag']=='intergenic'){
+             $cgs=  mysql_query("select * from db_server.t_".$species."_gff_all where gene='".$_GET['seq']."' and ftr='intergenic';");
+        }
+        else{
+            $cgs=  mysql_query("select * from db_server.t_".$species."_gff_all where gene='".$_GET['seq']."' and ftr='gene';");
+        }
         while($cgs_row=  mysql_fetch_row($cgs)){
             $chr=$cgs_row[0];
             $gene=($cgs_row[3]+$cgs_row[4])/2;
+//            echo $gene;
             if($cgs_row[1]=='+'){
                 $strand=1;
             }
@@ -106,7 +115,12 @@
             }
         }
          $singnals = array("AATAAA","TATAAA","CATAAA","GATAAA","ATTAAA","ACTAAA","AGTAAA","AAAAAA","AACAAA","AAGAAA","AATTAA","AATCAA","AATGAA","AATATA","AATACA","AATAGA","AATAAT","AATAAC","AATAAG");        
-         $a="SELECT * from db_server.t_".$species."_gff_all where ftr_start<=$gene and ftr_end>=$gene and chr='$chr' and ftr='gene';";
+         if($_GET['flag']=='intergenic'){
+            $a="SELECT * from db_server.t_".$species."_gff_all where ftr_start<=$gene and ftr_end>=$gene and chr='$chr' and ftr='intergenic';";
+         }
+         else{
+            $a="SELECT * from db_server.t_".$species."_gff_all where ftr_start<=$gene and ftr_end>=$gene and chr='$chr' and ftr='gene';";
+         }
          $result=mysql_query($a);
          //var_dump($result);
          while($row=mysql_fetch_row($result))
@@ -1651,12 +1665,12 @@
                                     <tr>
                                         <td>Gene Type:</td>
                                         <?php
-                                                    $sql="select gene_type from t_".$species."_gff_all where gene=\"".$_GET['seq']."\" and ftr='gene';";
+                                                    if($_GET['flag']=='intergenic'){
+                                                        $sql="select gene_type from t_".$species."_gff_all where gene=\"".$_GET['seq']."\" and ftr='intergenic';";
+                                                    }
+                                                    else
+                                                        $sql="select gene_type from t_".$species."_gff_all where gene=\"".$_GET['seq']."\" and ftr='gene';";
                                                     $type=mysql_query($sql);
-//                                                    echo $sql;
-//                                                    $type=mysql_query("select * from db_bio.gff_arab10_all where gene=\"AT2G01008\";");
-//                                                    echo "select gene_type from db_bio.gff_arab10_all where gene=\"".$_GET['seq']."\";";
-//                                                        var_dump($type);
                                                     while($gene_type= mysql_fetch_row($type)){
                                                             echo "<td>$gene_type[0]</td>";
                                                     }
@@ -1753,16 +1767,24 @@
                                 <div class="swiper-slide">
                                     <div class="content-slide">
                                         <div style="height:99%">
-                                            <iframe src="./genepic.php?species=<?php echo $species; ?>&seq=<?php echo $_GET['seq'] ?>&chr=<?php echo $chr; ?>&strand=<?php echo $strand; ?>&analysis=1" width=100% height=100%>
-                                            </iframe>
+                                            <?php
+                                                if($_GET['flag']=='intergenic')
+                                                    echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&analysis=1&intergenic=1\" width=100% height=100%></iframe>";
+                                                else
+                                                    echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&analysis=1\" width=100% height=100%></iframe>";
+                                            ?>
                                         </div>
                                     </div>
                                   </div>
                                     <div class="swiper-slide">
                                     <div class="content-slide">
                                         <div style="height:99%">
-                                             <iframe src="./pacpic.php?species=<?php echo $species; ?>&seq=<?php echo $_GET['seq'] ?>&chr=<?php echo $chr ?>&strand=<?php echo $strand; ?>" width=100% height=100%>
-                                            </iframe>
+                                            <?php
+                                                if($_GET['flag']=='intergenic')
+                                                    echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1\" width=100% height=100%></iframe>";
+                                                else
+                                                    echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand\" width=100% height=100%></iframe>";
+                                            ?>
                                         </div>
                                   </div>
                                 </div>
