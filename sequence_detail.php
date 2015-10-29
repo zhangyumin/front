@@ -84,8 +84,8 @@
             session_start();
         ?>
         <?php
-        if(isset($_POST['species'])){
-            $species=$_POST['species'];
+        if(isset($_GET['species'])){
+            $species=$_GET['species'];
         }
         else {
             $species=$_SESSION['species'];
