@@ -125,8 +125,6 @@
                                         foreach ($tmp as $key1 => $value1) {
                                             if($_GET['result']=='degene'){
                                                 if($key1==0){
-                                                    $pos_sql=mysql_query("select ftr_start from t_".$_SESSION['species']."_gff where gene='$tmp[1]';");
-                                                    $pos=  mysql_fetch_row($pos_sql)[0];
                                                     echo "<td><a href='./sequence_detail.php?seq=$value1'>$value1</a></td>";
                                                     }
                                                 else
@@ -141,26 +139,14 @@
                                             }
                                             else if($_GET['result']=='switchinggene_o'){
                                                 if($key1==0){
-                                                    $pos_sql=mysql_query("select chr,strand,ftr_start from t_".$_SESSION['species']."_gff where gene='$tmp[0]';");
-                                                    while($o_row=  mysql_fetch_row($pos_sql)){
-                                                        $o_chr=$o_row[0];
-                                                        $pos=$o_row[2];
-                                                        $o_strand=$o_row[1];
-                                                    }
-                                                    if($o_strand=='+')
-                                                        echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$o_chr&gene=$pos&strand=1'>$value1</a></td>";
-                                                    else
-                                                        echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$o_chr&gene=$pos&strand=-1'>$value1</a></td>";
+                                                    echo "<td><a href='./sequence_detail.php?seq=$value1'>$value1</a></td>";
                                                 }
                                                 else
                                                     echo "<td>$value1</td>";
                                             }
                                             else if($_GET['result']=='switchinggene_n'){
-                                                if($key1==7){
-                                                    if($tmp[1]=='+')
-                                                        echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$tmp[0]&gene=$tmp[2]&strand=1'>$value1</a></td>";
-                                                    else
-                                                        echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$tmp[0]&gene=$tmp[2]&strand=$tmp[1]1'>$value1</a></td>";
+                                                if($key1==0){
+                                                    echo "<td><a href='./sequence_detail.php?seq=$value1'>$value1</a></td>";
                                                 }
                                                 else
                                                     echo "<td>$value1</td>";
