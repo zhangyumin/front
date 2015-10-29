@@ -1753,7 +1753,7 @@
                                 <div class="swiper-slide">
                                     <div class="content-slide">
                                         <div style="height:99%">
-                                            <iframe src="./genepic.php?species=<?php echo $species; ?>&seq=<?php echo $_GET['seq'] ?>&chr=<?php echo $chr; ?>&strand=<?php echo $strand; ?>" width=100% height=100%>
+                                            <iframe src="./genepic.php?species=<?php echo $species; ?>&seq=<?php echo $_GET['seq'] ?>&chr=<?php echo $chr; ?>&strand=<?php echo $strand; ?>&analysis=1" width=100% height=100%>
                                             </iframe>
                                         </div>
                                     </div>

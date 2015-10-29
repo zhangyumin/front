@@ -8,6 +8,7 @@ and open the template in the editor.
         <?php
             $con=  mysql_connect("localhost","root","root");
             mysql_select_db("db_server",$con);
+            session_start();
             $ftr_start=array();
             $ftr_end=array();
             $sutr_start=array();
@@ -23,12 +24,29 @@ and open the template in the editor.
             $cds_start=array();
             $cds_end=array();
             $samples=array();
+            $sample_selected=array();
             $num=0;
             //读取sample个数和名称
+            foreach ($_SESSION['sample'] as $key => $value){
+                $array_sample=  explode("_", $value);
+                $sam=  implode(" ", $array_sample);
+                array_push( $sample_selected,$sam);
+            }
+//            var_dump($sample_selected);
             $sample=  mysql_query("select label from t_sample_desc where species='".$_GET['species']."';");
-            while ($sample_num=  mysql_fetch_row($sample)){
-                $num++;
-                array_push($samples,$sample_num[0]);
+            if(isset($_SESSION['sample'])&&$_GET['analysis']==1){
+                while ($sample_num=  mysql_fetch_row($sample)){
+                    if(in_array($sample_num[0], $sample_selected)){
+                        $num++; 
+                        array_push($samples,$sample_num[0]);
+                    }
+                }
+            }
+            else{
+                while ($sample_num=  mysql_fetch_row($sample)){
+                    $num++;
+                    array_push($samples,$sample_num[0]);
+                }
             }
             //声明存储各个sample的loc,talbe,col和tagnum数组
             for($i=1;$i<=$num;$i++){
