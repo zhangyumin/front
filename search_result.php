@@ -307,15 +307,7 @@
                                     echo "<td>$query_row[1]</td>";
                                     echo "<td>$query_row[4]</td>";
                                     echo "<td>$query_row[9]</td>";
-                                    $coord=($query_row[5]+$query_row[6])/2;
-                                    if($query_row[1]=='+'){
-//                                        echo "<td><a target=\"_blank\" href=\"./show_pacviewer.php?species=".$_POST['species']."&gene=$coord&chr=$query_row[0]&strand=1\"><span title=\"Get pac information about this sequence\" style=\"background-color:#0066cc;color:#FFFFFF;\">PAC</span></a></td>";
-                                        echo "<td><a target=\"_blank\" href=\"./sequence_detail.php?species=".$_POST['species']."&seq=$query_row[8]&chr=$query_row[0]&ftr_start=$query_row[5]&ftr_end=$query_row[6]&strand=1\"><span title=\"Get more information about this sequence\" style=\"background-color:#0066cc;color:#FFFFFF;\">Detail</span></a></td>";
-                                    }
-                                    if($query_row[1]=='-'){
-//                                        echo "<td><a target=\"_blank\" href=\"./show_pacviewer.php?species=".$_POST['species']."&gene=$coord&chr=$query_row[0]&strand=-1\"><span title=\"Get pac information about this sequence\" style=\"background-color:#0066cc;color:#FFFFFF;\">PAC</span></a></td>";
-                                         echo "<td><a target=\"_blank\" href=\"./sequence_detail.php?species=".$_POST['species']."&seq=$query_row[8]&chr=$query_row[0]&ftr_start=$query_row[5]&ftr_end=$query_row[6]&strand=-1\"><span title=\"Get more information about this sequence\" style=\"background-color:#0066cc;color:#FFFFFF;\">Detail</span></a></td>";
-                                    }
+                                    echo "<td><a target=\"_blank\" href=\"./sequence_detail.php?species=".$_POST['species']."&seq=$query_row[8]\"><span title=\"Get more information about this sequence\" style=\"background-color:#0066cc;color:#FFFFFF;\">Detail</span></a></td>";
                                 echo "</tr>";
                             }
                 ?>
