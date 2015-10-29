@@ -94,7 +94,12 @@
         while($cgs_row=  mysql_fetch_row($cgs)){
             $chr=$cgs_row[0];
             $gene=($cgs_row[3]+$cgs_row[4])/2;
-            $strand=$cgs_row[1]."1";
+            if($cgs_row[1]=='+'){
+                $strand=1;
+            }
+            else{
+                $strand=-1;
+            }
         }
          $singnals = array("AATAAA","TATAAA","CATAAA","GATAAA","ATTAAA","ACTAAA","AGTAAA","AAAAAA","AACAAA","AAGAAA","AATTAA","AATCAA","AATGAA","AATATA","AATACA","AATAGA","AATAAT","AATAAC","AATAAG");        
          $a="SELECT * from db_server.t_".$species."_gff_all where ftr_start<=$gene and ftr_end>=$gene and chr='$chr' and ftr='gene';";
@@ -1666,7 +1671,7 @@
 	<div class = "seq_viewer" id="seq_viewer">
                     <div id = "pattern">	
         	<legend><span class="h3_italic">Typical Pattern</span>&nbsp;<span class='pt2' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;(AATAAA&nbsp;<span class='pt3' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;TGTAAA&nbsp;<span class='pt4' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;)</legend>
-        	<table style="width:900px;margin-top:10px;margin-bottom:10px;font-family: Courier New;font-size: 16px;">
+        	<table style="width:950px;margin-top:10px;margin-bottom:10px;font-family: Courier New;font-size: 16px;">
                     <?php
                     echo "<tr>";
                     echo '<td><input type="checkbox" checked = "true" name = "cbox" id = "checkall1" value = "checkall" /><em>&nbsp;Change All</em></td>';
