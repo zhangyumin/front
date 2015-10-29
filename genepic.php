@@ -43,6 +43,7 @@ and open the template in the editor.
             }
             $seq=$_GET['seq'];
             $chr=$_GET['chr'];
+            $strand=$_GET['strand'];
             //各部分坐标推入数组
             $result= mysql_query("select * from t_".$_GET['species']."_gff_org where gene='$seq' order by ftr_end;");
             while($row=  mysql_fetch_row($result)){
@@ -142,32 +143,32 @@ and open the template in the editor.
                     foreach ($sutr_start as $key => $value) {
                         $start=($sutr_start[$key]-$gene_start)*$rate;
                         $end=($sutr_end[$key]-$gene_start)*$rate;
-                        echo "sutr($start,$end,'gene');\n";
+                        echo "sutr($start,$end,$strand,'gene');\n";
                     }
                     foreach ($wutr_start as $key => $value) {
                         $start=($wutr_start[$key]-$gene_start)*$rate;
                         $end=($wutr_end[$key]-$gene_start)*$rate;
-                        echo "wutr($start,$end,'gene');\n";
+                        echo "wutr($start,$end,$strand,'gene');\n";
                     }
                     foreach ($intron_start as $key => $value) {
                         $start=($intron_start[$key]-$gene_start)*$rate;
                         $end=($intron_end[$key]-$gene_start)*$rate;
-                        echo "intron($start,$end,'gene');\n";
+                        echo "intron($start,$end,$strand,'gene');\n";
                     }
                     foreach ($exon as $key => $value) {
                         $start=($exon_start[$key]-$gene_start)*$rate;
                         $end=($exon_end[$key]-$gene_start)*$rate;
-                        echo "exon($start,$end,'gene');\n";
+                        echo "exon($start,$end,$strand,'gene');\n";
                     }
                     foreach ($cds_start as $key => $value) {
                         $start=($cds_start[$key]-$gene_start)*$rate;
                         $end=($cds_end[$key]-$gene_start)*$rate;
-                        echo "cds($start,$end,'gene');\n";
+                        echo "cds($start,$end,$strand,'gene');\n";
                     }
                     foreach ($amb_start as $key => $value) {
                         $start=($amb_start[$key]-$gene_start)*$rate;
                         $end=($amb_end[$key]-$gene_start)*$rate;
-                        echo "amb($start,$end,'gene');\n";
+                        echo "amb($start,$end,$strand,'gene');\n";
                     }
                     for($i=1;$i<=$num;$i++){
                         $pa_loc="pa_loc".$i;
@@ -282,49 +283,89 @@ and open the template in the editor.
                 }
                 context.stroke();
             }
-            function sutr(startpos,endpos,id){
+            function sutr(startpos,endpos,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle="#ff0000";//3utr为红色
-                if(endpos==1000){
+                if(endpos==1000&&strand==1){
                     context.fillRect(startpos,90,endpos-startpos-10,20);
                 }
-                else if(startpos==0){
+                else if(startpos==0&&strand==-1){
                     context.fillRect(startpos+10,90,endpos-startpos,20);
                 }
                 else{
                     context.fillRect(startpos,90,endpos-startpos,20);
                 }
             }
-            function wutr(startpos,endpos,id){
+            function wutr(startpos,endpos,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle="#BA55D3";//5utr为zise
-                context.fillRect(startpos,90,endpos-startpos,20);
+                if(endpos==1000&&strand==1){
+                    context.fillRect(startpos,90,endpos-startpos-10,20);
+                }
+                else if(startpos==0&&strand==-1){
+                    context.fillRect(startpos+10,90,endpos-startpos,20);
+                }
+                else{
+                    context.fillRect(startpos,90,endpos-startpos,20);
+                }
             }
-            function cds(startpos,endpos,id){
+            function cds(startpos,endpos,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle="#9AFF9A";//cds为绿色
-                context.fillRect(startpos,80,endpos-startpos,40);
+                if(endpos==1000&&strand==1){
+                    context.fillRect(startpos,80,endpos-startpos-10,40);
+                }
+                else if(startpos==0&&strand==-1){
+                    context.fillRect(startpos+10,80,endpos-startpos,40);
+                }
+                else{
+                    context.fillRect(startpos,80,endpos-startpos,40);
+                }
             }
-            function intron(startpos,endpos,id){
+            function intron(startpos,endpos,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle="#080808";//intron为黑色
-                context.fillRect(startpos,90,endpos-startpos,20);
+                if(endpos==1000&&strand==1){
+                    context.fillRect(startpos,90,endpos-startpos-10,20);
+                }
+                else if(startpos==0&&strand==-1){
+                    context.fillRect(startpos+10,90,endpos-startpos,20);
+                }
+                else{
+                    context.fillRect(startpos,90,endpos-startpos,20);
+                }
             }
-            function exon(startpos,endpos,id){
+            function exon(startpos,endpos,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle="#eeee00";//exon为黄色
-                context.fillRect(startpos,80,endpos-startpos,40);
+                if(endpos==1000&&strand==1){
+                    context.fillRect(startpos,80,endpos-startpos-10,40);
+                }
+                else if(startpos==0&&strand==-1){
+                    context.fillRect(startpos+10,80,endpos-startpos,40);
+                }
+                else{
+                    context.fillRect(startpos,80,endpos-startpos,40);
+                }
             }
-            function amb(startpos,endpos,id){
+            function amb(startpos,endpos,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle="#97ffff";//amb为兰色
-                context.fillRect(startpos,80,endpos-startpos,40);
+                if(endpos==1000&&strand==1){
+                    context.fillRect(startpos,80,endpos-startpos-10,40);
+                }
+                else if(startpos==0&&strand==-1){
+                    context.fillRect(startpos+10,80,endpos-startpos,40);
+                }
+                else{
+                    context.fillRect(startpos,80,endpos-startpos,40);
+                }
             }
             function arrow(id,strand){
                 var canvas = document.getElementById(id);
