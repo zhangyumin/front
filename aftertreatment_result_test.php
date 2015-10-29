@@ -134,10 +134,7 @@
                                             }
                                             else if($_GET['result']=='depac'){
                                                 if($key1==0){
-                                                    if($tmp[3]=='+')
-                                                    echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$tmp[2]&gene=$tmp[1]&strand=1'>$value1</a></td>";
-                                                else
-                                                    echo "<td><a href='./aftertreatment_result_test.php?result=".$_GET['result']."&chr=$tmp[2]&gene=$tmp[1]&strand=$tmp[3]1'>$value1</a></td>";
+                                                   echo "<td><a href='./sequence_detail.php?seq=$value1'>$value1</a></td>";
                                                 }
                                                 else
                                                     echo "<td>$value1</td>";
