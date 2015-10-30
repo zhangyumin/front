@@ -169,6 +169,26 @@
              $f_end[]=$row_f[4];
          }
 //         print_r($f_start);
+         //polyA 位点信息
+         $pa_start=array();
+         $pa_result=mysql_query("select * from db_server.t_".$_GET['species']."_pa1 where chr='$chr' and coord>=$gene_start and coord<=$gene_end and tot_tagnum>0;");
+         while ($pa_row=  mysql_fetch_row($pa_result))
+         {
+             array_push($pa_start, $pa_row[2]);
+         }
+//         var_dump($gene_start);
+//         var_dump($pa_start);
+         foreach($pa_start as $key => $value)
+         {
+             if(strcmp($strand,-1)==0)
+             {
+                 $pa_start[$key]=$gene_end-$pa_start[$key]+1;
+             }
+             else if(strcmp($strand,1)==0)
+            {
+                $pa_start[$key]=$pa_start[$key]-$gene_start+1;
+             }
+         }
 
          echo "<script type=\"text/javascript\">";
          //echo "var sequences = ['AAAATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA','AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA','AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'];"; 
@@ -189,6 +209,11 @@
          echo "var exon_end=[];";
          echo "var amb_start=[];";
          echo "var amb_end=[];";
+         echo "var pa_start=[];";
+         foreach ($pa_start as $key => $value)
+         {
+             echo "pa_start.push('$value');";
+         }
          while(list($f_key,$val)=each($ftr))
          {
              if(strcmp($val, '3UTR')==0)
@@ -1134,6 +1159,35 @@
                     }
                 }
             }
+            if(ftr.indexOf("PA")!=-1){
+                if(pa_start.length != 0)
+                {
+                    for(var pakey in pa_start)
+                    {
+                            var pos = pa_start[pakey];
+                            pos1 = pos - 1;
+                            var sub1 = seq.substring(0,pos1);
+                            var sub2 = seq.substring(pos);
+                            var mid = "";
+                            switch(seq.charAt(pos1))
+                            {
+                            case "A":
+                                    mid = "W";
+                                    break;
+                            case "T":
+                                    mid = "X";
+                                    break;
+                            case "C":
+                                    mid = "Y";
+                                    break;
+                            case "G":
+                                    mid = "Z";
+                                    break;
+                            }
+                            seq = sub1+mid+sub2;
+                    }
+                }
+            }
             
 
      
@@ -1531,6 +1585,10 @@
              newSeq = newSeq.replace(/獭/g,"T</span class='pt10'>");
             newSeq = newSeq.replace(/蔡/g,"C</span class='pt10'>");
             newSeq = newSeq.replace(/革/g,"G</span class='pt10'>");
+            newSeq = newSeq.replace(/W/g,"<font color='red'><strong><u>A</u></strong></font>");
+            newSeq = newSeq.replace(/X/g,"<font color='red'><strong><u>T</u></strong></font>");
+            newSeq = newSeq.replace(/Y/g,"<font color='red'><strong><u>C</u></strong></font>");
+            newSeq = newSeq.replace(/Z/g,"<font color='red'><strong><u>G</u></strong></font>");
 
             
 
@@ -1886,6 +1944,7 @@
                                     <input type="checkbox" name="cbox2" value="INTRON"/>Intron&nbsp;<span class='pt8' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
                                     <input type="checkbox" name="cbox2" value="EXON"/>exon&nbsp;<span class='pt9' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
                                     <input type="checkbox" name="cbox2" value="AMB"/>amb&nbsp;<span class='pt10' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+                                    <input type="checkbox" name="cbox2" value="PA"/><span style="text-align:center;color:red;"><strong><u>Poly(A) site</u></strong></span>
                                     )
                                 </legend>
                             <br>
