@@ -56,6 +56,7 @@
             span.pt10{
                 color:black;
                 background-color: #ffd700;
+                /*cursor: pointer;*/
             }
             fieldset{
                 border-color: #5499c9 !important;
@@ -960,7 +961,7 @@
                 {
                     for(var exonkey in exon_start)
                     {
-                        var pos=exon_start[exonskey];
+                        var pos=exon_start[exon_key];
                         pos2=pos+1;
                         for(var a in pos1_start)
                         {
