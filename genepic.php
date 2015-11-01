@@ -23,6 +23,20 @@ and open the template in the editor.
             $amb_end=array();
             $cds_start=array();
             $cds_end=array();
+            $ftr_start_org=array();
+            $ftr_end_org=array();
+            $sutr_start_org=array();
+            $sutr_end_org=array();
+            $wutr_start_org=array();
+            $wutr_end_org=array();
+            $intron_start_org=array();
+            $intron_end_org=array();
+            $exon_start_org=array();
+            $exon_end_org=array();
+            $amb_start_org=array();
+            $amb_end_org=array();
+            $cds_start_org=array();
+            $cds_end_org=array();
             $samples=array();
             $sample_selected=array();
             $num=0;
@@ -63,7 +77,40 @@ and open the template in the editor.
             $chr=$_GET['chr'];
             $strand=$_GET['strand'];
             //各部分坐标推入数组
-            $result= mysql_query("select * from t_".$_GET['species']."_gff_org where gene='$seq' order by ftr_end;");
+            //非延长
+            $result_org= mysql_query("select * from t_".$_GET['species']."_gff_org where gene='$seq' order by ftr_end;");
+            while($row_org=  mysql_fetch_row($result_org)){
+                array_push($ftr_start_org, $row_org[3]);
+                array_push($ftr_end_org,$row_org[4]);
+                if($row_org[2]=='3UTR'){
+                    array_push($sutr_start_org, $row_org[3]);
+                    array_push($sutr_end_org, $row_org[4]);
+                }
+                elseif($row_org[2]=='5UTR'){
+                    array_push($wutr_start_org, $row_org[3]);
+                    array_push($wutr_end_org, $row_org[4]);
+                }
+                elseif($row_org[2]=='intron'){
+                    array_push($intron_start_org, $row_org[3]);
+                    array_push($intron_end_org, $row_org[4]);
+                }
+                elseif($row_org[2]=='exon'){
+                    array_push($exon_start_org, $row_org[3]);
+                    array_push($exon_end_org, $row_org[4]);
+                }
+                elseif($row_org[2]=='AMB'){
+                    array_push($amb_start_org, $row_org[3]);
+                    array_push($amb_end_org, $row_org[4]);
+                }
+                elseif($row_org[2]=='CDS'){
+                    array_push($cds_start_org, $row_org[3]);
+                    array_push($cds_end_org, $row_org[4]);
+                }
+            }
+            $gene_start_org=  min($ftr_start_org);
+            $gene_end_org= max($ftr_end_org);
+            //延长3UTR部分
+            $result= mysql_query("select * from t_".$_GET['species']."_gff where gene='$seq' order by ftr_end;");
             while($row=  mysql_fetch_row($result)){
                 array_push($ftr_start, $row[3]);
                 array_push($ftr_end,$row[4]);
@@ -156,12 +203,15 @@ and open the template in the editor.
                 info("#080808",400,"INTRON","gene");
                 info("#eeee00",500,"EXON","gene");
                 info("#97ffff",600,"AMB","gene");
+                info("#1c86ee",700,"3UTR EXTEND","gene");
                 line("gene");
+                line("no_extend");
                 <?php
+                //extend部分
                     foreach ($sutr_start as $key => $value) {
                         $start=($sutr_start[$key]-$gene_start)*$rate;
                         $end=($sutr_end[$key]-$gene_start)*$rate;
-                        echo "sutr($start,$end,$strand,'gene');\n";
+                        echo "sutr($start,$end,0,1000,$strand,'gene');\n";
                     }
                     foreach ($wutr_start as $key => $value) {
                         $start=($wutr_start[$key]-$gene_start)*$rate;
@@ -202,8 +252,48 @@ and open the template in the editor.
                             echo "pac($loc,$value,'sample$i');\n";
                         }
                     }
+                    //非extend部分
+                foreach ($sutr_start_org as $key => $value) {
+                        $start=($sutr_start_org[$key]-$gene_start)*$rate;
+                        $end=($sutr_end_org[$key]-$gene_start)*$rate;
+                        $st=($gene_start_org-$gene_start)*$rate;
+                        $en=($gene_end_org-$gene_start)*$rate;
+                        echo "sutr($start,$end,$st,$en,$strand,'no_extend');\n";
+                        if($strand==-1){
+                            echo "sutr_extend(0,$start,0,1000,-1,'gene');\n";
+                        }
+                        else if($strand==1){
+                            echo "sutr_extend($end,1000,0,1000,1,'gene');\n";
+                        }
+                    }
+                    foreach ($wutr_start_org as $key => $value) {
+                        $start=($wutr_start_org[$key]-$gene_start)*$rate;
+                        $end=($wutr_end_org[$key]-$gene_start)*$rate;
+                        echo "wutr($start,$end,$strand,'no_extend');\n";
+                    }
+                    foreach ($intron_start_org as $key => $value) {
+                        $start=($intron_start_org[$key]-$gene_start)*$rate;
+                        $end=($intron_end_org[$key]-$gene_start)*$rate;
+                        echo "intron($start,$end,$strand,'no_extend');\n";
+                    }
+                    foreach ($exon_org as $key => $value) {
+                        $start=($exon_start_org[$key]-$gene_start)*$rate;
+                        $end=($exon_end_org[$key]-$gene_start)*$rate;
+                        echo "exon($start,$end,$strand,'no_extend');\n";
+                    }
+                    foreach ($cds_start_org as $key => $value) {
+                        $start=($cds_start_org[$key]-$gene_start)*$rate;
+                        $end=($cds_end_org[$key]-$gene_start)*$rate;
+                        echo "cds($start,$end,$strand,'no_extend');\n";
+                    }
+                    foreach ($amb_start_org as $key => $value) {
+                        $start=($amb_start_org[$key]-$gene_start)*$rate;
+                        $end=($amb_end_org[$key]-$gene_start)*$rate;
+                        echo "amb($start,$end,$strand,'no_extend');\n";
+                    }
                 ?>
                 arrow("gene",<?php echo $_GET['strand'];?>);
+                shorten_arrow("no_extend",<?php echo ($gene_start_org-$gene_start)*$rate;?>,<?php echo ($gene_end_org-$gene_start)*$rate;?>,<?php echo $_GET['strand'];?>);
                 <?php
                     for($i=1;$i<=$num;$i++){
                         $r=$i-1;
@@ -218,6 +308,9 @@ and open the template in the editor.
                 title("#000000","<?php echo $seq;?>","gene");
                 xscale("gene");
                 grid("gene","title");
+                title("#000000","3UTR Shorten","no_extend");
+//                xscale("3utr_extend");
+                grid("no_extend","1");
             }
             function title(color,text,id){
                 var canvas = document.getElementById(id);
@@ -303,14 +396,28 @@ and open the template in the editor.
                 }
                 context.stroke();
             }
-            function sutr(startpos,endpos,strand,id){
+            function sutr(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle="#ff0000";//3utr为红色
-                if(endpos==1000&&strand==1){
+                if(endpos==end&&strand==1){
                     context.fillRect(startpos,90,endpos-startpos-10,20);
                 }
-                else if(startpos==0&&strand==-1){
+                else if(startpos==start&&strand==-1){
+                    context.fillRect(startpos+10,90,endpos-startpos,20);
+                }
+                else{
+                    context.fillRect(startpos,90,endpos-startpos,20);
+                }
+            }
+            function sutr_extend(startpos,endpos,start,end,strand,id){
+                var canvas = document.getElementById(id);
+                var context = canvas.getContext("2d");
+                context.fillStyle="#1c86ee";//3utr_extend为蓝色
+                if(endpos==end&&strand==1){
+                    context.fillRect(startpos,90,endpos-startpos-10,20);
+                }
+                else if(startpos==start&&strand==-1){
                     context.fillRect(startpos+10,90,endpos-startpos,20);
                 }
                 else{
@@ -422,6 +529,30 @@ and open the template in the editor.
                 context.fillStyle="#878787";
                 context.fill();
             }
+            function shorten_arrow(id,start,end,strand){
+                var canvas = document.getElementById(id);
+                var context = canvas.getContext("2d");
+                context.beginPath();
+                if(strand==1){
+                    context.moveTo(end-10,110);
+                    context.lineTo(end-5,110);
+                    context.lineTo(end,100);
+                    context.lineTo(end-5,90);
+                    context.lineTo(end-10,90);
+                    context.lineTo(end-10,110);
+                }
+                else if(strand==-1){
+                    context.moveTo(start,100);
+                    context.lineTo(start+5,110);
+                    context.lineTo(start+10,110);
+                    context.lineTo(start+10,90);
+                    context.lineTo(start+5,90);
+                    context.lineTo(start,100);
+                }
+                context.closePath();
+                context.fillStyle="#878787";
+                context.fill();
+            } 
             function pa(loc,tagnum,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
@@ -455,6 +586,7 @@ and open the template in the editor.
     </head>
     <body>
         <canvas id="gene" width="1000px;" height="150px;"></canvas>
+        <canvas id='no_extend' width="1000px" height="150px;"></canvas>
         <?php
             for($i=1;$i<=$num;$i++){
                 if($i%2==0)
