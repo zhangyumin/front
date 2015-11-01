@@ -44,6 +44,28 @@ and open the template in the editor.
                 {
                     //step0:统一文件后缀名
                     shell_exec("mv ./data/".$_SESSION['file']."/$file_name[$key] ./data/".$_SESSION['file']."/$value.pa");
+                    //文件校验处理、
+                    $pafile=array();
+                    $tmp_pa=array();
+                    $row_pa=array();
+                    $pafile=file("./data/".$_SESSION['file']."/$value.pa");
+                    $tmp_pa=  explode("\t",$pafile[0]);
+                    if(count($tmp_pa)==3){
+                        foreach ($pafile as $pa_key => $pa_value) {
+                            $pa_value= chop($pa_value);
+                            $row_pa=  explode("\t", $pa_value);
+                            array_push($row_pa, 1);
+                            file_put_contents("./data/".$_SESSION['file']."/$value.new.pa", implode("\t", $row_pa)."\n",FILE_APPEND);
+                        }
+                        rename("./data/".$_SESSION['file']."/$value.pa", "./data/".$_SESSION['file']."/$value.old.pa");
+                        rename("./data/".$_SESSION['file']."/$value.new.pa", "./data/".$_SESSION['file']."/$value.pa");
+                    }
+                    else if(count($tmp_pa)==4){
+                        echo "ok";
+                    }
+                    else{
+                        echo"<script language=javascript>alert('Error file format');history.go(-1);</script>";
+                    }
                     
                  //echo"step6:导入PA表到数据库";
                     $cmd6="./src/perl/PAT_alterPA.pl -master db_user.PA_".$_SESSION['file']." -aptbl '/var/www/front/data/".$_SESSION['file']."/$value.pa' -apsmp  $value -format file -conf ./config/db_".$_SESSION['species'].".xml 1>/dev/null";

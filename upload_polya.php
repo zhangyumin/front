@@ -41,12 +41,12 @@ and open the template in the editor.
 //            }
             else 
             {
-                    chmod($tmppath, 0777);
-                    rename($tmppath, $filepath);
-                    mkdir("./result/".$_SESSION['file']."/");
-                    chmod("./result/".$_SESSION['file']."/", 0777);
-                    $x=move_uploaded_file($_FILES["file"]["tmp_name"], $filepath.$filename);
-                    echo '<script>window.location.href="get_result_polya.php";</script>';
+                chmod($tmppath, 0777);
+                rename($tmppath, $filepath);
+                mkdir("./result/".$_SESSION['file']."/");
+                chmod("./result/".$_SESSION['file']."/", 0777);
+                $x=move_uploaded_file($_FILES["file"]["tmp_name"], $filepath.$filename);
+                echo '<script>window.location.href="get_result_polya.php";</script>';
 //                    echo $x;
               }
             
