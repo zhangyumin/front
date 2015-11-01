@@ -14,8 +14,8 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <!--<p align="center"><font size="40">The data is uploading , please wait...</font></p>-->
-        <!--<p align="center"><img src="./pic/loading.gif"/></p>-->
+        <p align="center"><font size="40">The data is uploading , please wait...</font></p>
+        <p align="center"><img src="./pic/loading.gif"/></p>
         <?php
             #定义上传路径,文件名,允许上传文件类型,使用时间戳来保证文件名的唯一性.
             

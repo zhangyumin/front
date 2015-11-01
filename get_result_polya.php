@@ -43,7 +43,8 @@ and open the template in the editor.
                 foreach($upload_name as $key => $value)
                 {
                     //step0:统一文件后缀名
-                    shell_exec("mv ./data/".$_SESSION['file']."/$file_name[$key] ./data/".$_SESSION['file']."/$value.pa");
+                    rename("./data/".$_SESSION['file']."/$file_name[$key]", "./data/".$_SESSION['file']."/$value.pa");
+//                    shell_exec("mv ./data/".$_SESSION['file']."/$file_name[$key] ./data/".$_SESSION['file']."/$value.pa");
                     //文件校验处理、
                     $pafile=array();
                     $tmp_pa=array();
