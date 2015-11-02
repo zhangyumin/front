@@ -1798,18 +1798,33 @@
                                                         <td>PA#</td>
                                                         <td>PAT#</td>
                                                         <td>PAC range</td>
+                                                        <!--<td>Ftr</td>-->
                                                     </tr>
                                                     <?php
+                                                            $extend=  mysql_query("select * from t_".$species."_gff_org where gene='$gene_name';");
+                                                            while($ext_r=  mysql_fetch_row($extend)){
+                                                                if($ext_r[2]=='3UTR')
+                                                                    $ext_start=$ext_r[3];
+                                                                    $ext_end=$ext_r[4];
+                                                            }
                                                             $pac_res=mysql_query("select * from t_".$species."_pac where gene='$gene_name';");
                                                             while($pac_r=  mysql_fetch_row($pac_res)){
                                                                 $i=1;
                                                                 echo "<tr>"
-                                                                        . "<td>PAC$i</td>"
-                                                                        . "<td>$pac_r[2]</td>"
-                                                                        . "<td>$pac_r[12]</td>"
+                                                                        . "<td>PAC$i</td>";
+                                                                if($strand==1&&$pac_r[2]>$ext_end)
+                                                                    echo "<td>$pac_r[2](3UTR Extend)</td>";
+                                                                else if($strand==-1&&$pac_r[2]<$ext_start)
+                                                                    echo "<td>$pac_r[2](3UTR Extend)</td>";
+                                                                else
+                                                                    echo "<td>$pac_r[2](3UTR)</td>";
+                                                                echo "<td>$pac_r[12]</td>"
                                                                         . "<td>$pac_r[3]</td>"
-                                                                        . "<td>$pac_r[10]~$pac_r[11]</td>"
-                                                                        . "</tr>";
+                                                                        . "<td>$pac_r[10]~$pac_r[11]</td>";
+//                                                                if($pac_r[2]<$ext_start)
+//                                                                    echo "<td>3UTR extend</td>";
+//                                                                else 
+//                                                                    echo "<td>3UTR</td>"
                                                                 $i++;
                                                                 
                                                             }
