@@ -126,3 +126,12 @@ fieldset{
     #search .ym-fbox{
         padding: 0;
     }
+    .ym-form #getback label,.ym-form #getback select,.ym-form #getback input{
+        display: inline;
+    }
+    #getback .ym-fbox{
+        padding:0;
+    }
+    #getback input{
+        width:68px;
+    }

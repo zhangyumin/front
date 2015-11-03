@@ -49,9 +49,9 @@
     <div class="ym-wrapper">
        <fieldset style="margin: 50px auto 50px auto ;width: 95%;">
             <legend>
-                <span class="h3_italic" >
+                <h4 >
                     <font color="#224055" ><b>Search</b>:Search and view the system samples</font>
-                </span>
+                </h4>
             </legend>
             <div class="ym-grid">
                 <div id="search">
