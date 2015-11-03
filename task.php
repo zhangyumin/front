@@ -3,23 +3,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Search</title>
         <script src="./src/jquery-2.0.0.min.js"></script>
-        <style>
-            fieldset{
-                border-color: #5499c9 !important;
-                border-style: solid !important;
-                border-width: 2px !important;
-                padding: 5px 10px !important;
-            }
-           .summary{
-                border-color: #5499c9 !important;
-                border-style: solid !important;
-                border-width: 2px !important;
-                padding: 5px 10px !important;
-                width:60%;
-                font-size: 15px;
-                font-family: 'Lato', sans-serif;
-        }
-        </style>
+        <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
+        <!--[if lte IE 7]>
+        <link href="./css/iehacks.min.css" rel="stylesheet" type="text/css" />
+        <![endif]-->
+
+        <!--[if lt IE 9]>
+        <script src="./js/html5shiv/html5shiv.js"></script>
+        <![endif]-->
+
+        <!--<link rel="stylesheet" href="./src/font-awesome.min.css">-->
+        <!--<link rel="stylesheet" href="./src/example.css">-->
     </head>
     <body>
         <?php
