@@ -225,7 +225,8 @@
                             <div class="tabs">
                                 <a href="#" hidefocus="true" class="active">DE Gene</a>
                                 <a href="#" hidefocus="true">DE PAC</a>
-                                <a href="#" hidefocus="true">Switching Gene</a>
+                                <a href="#" hidefocus="true">3'UTR Lenghening</a>
+                                <a href="#" hidefocus="true">APA Switching</a>
                             </div><br>    
                             <div class="swiper-container">
                                 <div class="swiper-wrapper">
@@ -295,54 +296,24 @@
                                   </div>
                                 <div class="swiper-slide">
                                     <div class="content-slide">
-                                            <select name="3utr" id="3utr" onchange="div_option(this)">
-                                                <option value="choose">please choose</option>
-                                                <option value="only3utr">only 3'UTR</option>
-                                                <option value="none3utr">none 3'UTR</option>
-                                            </select>
-                                            <div id="only3utr" style="display: none;">
-                                                <form id="only3utr-form" method="post" action="./aftertreatment.php?method=only3utr">
-                                                    <span class='slidebar-content'>Min PAT:</span><br>
-                                                    <input type='text' value='5' name="sgminpat"/><br>
-                                                    <span class='slidebar-content'>Multi-test adjustment method:</span><br>
-                                                    <select>
-                                                        <option checked='true' value='bonferroni' />Bonferroni
-                                                        <option value='notadjust'/>Not adjust
-                                                    </select><br>
-                                                    <span class='slidebar-content'>Significance Level:</span><br>
-                                                    <select name="sig">
-                                                        <option value="0.01"/>0.01
-                                                        <option checked='true' value="0.05"/>0.05
-                                                        <option value="0.1"/>0.1
-                                                    </select><br>
-                                                    <button onclick="only3utr()">submit</button>
-                                                    <button type="reset">reset</button>
-                                                </form>
-                                    </div>
-                                        <div id="none3utr"  style="display: none;">      
-                                            <form id="none3utr-form" method="post" action="./aftertreatment.php?method=none3utr">
-                                                <span class='slidebar-content'>Normalization method:</span><br>
-                                                <select id="sgnm">
-                                                    <option value="none" checked="true"/>None
-                                                    <option value="TPM"/>None
-                                                    <option value="DESeq"/>None
+                                            <form id="only3utr-form" method="post" action="./aftertreatment.php?method=only3utr">
+                                                <span class='slidebar-content'>Min PAT:</span><br>
+                                                <input type='text' value='5' name="sgminpat"/><br>
+                                                <span class='slidebar-content'>Multi-test adjustment method:</span><br>
+                                                <select>
+                                                    <option checked='true' value='bonferroni' />Bonferroni
+                                                    <option value='notadjust'/>Not adjust
                                                 </select><br>
-                                                 <span class='slidebar-content'>Distance(nt):</span><br>
-                                                <input type="text" value="50" name="minpat2"/><br>
-                                                <span class='slidebar-content'>Using top two PACs:</span>
-                                                <input type="checkbox" checked="true" name="uttp"/><br>
-                                                <span class='slidebar-content'>Min PAT of one PAC:</span><br>
-                                                <input type="text" value="5"name="minpat3"/><br>
-                                                <span class='slidebar-content'>Min total PAT of one PAC in both samples:</span><br>
-                                                <input type="text" value="10" name="minpat4"/><br>
-                                                <span class='slidebar-content'>Min difference of PAC between the two PAC:</span><br>
-                                                <input type="text" value="5" name="minpat5"/><br>
-                                                 <span class='slidebar-content'>Min fold change of two PAC in at least one sample:</span><br>
-                                                 <input type="text" value="2" name="minpat6"/><br>
-                                                 <button onclick="none3utr()">submit</button>
+                                                <span class='slidebar-content'>Significance Level:</span><br>
+                                                <select name="sig">
+                                                    <option value="0.01"/>0.01
+                                                    <option checked='true' value="0.05"/>0.05
+                                                    <option value="0.1"/>0.1
+                                                </select><br>
+                                                <button onclick="only3utr()">submit</button>
                                                 <button type="reset">reset</button>
                                             </form>
-                                        </div>
+                                            
                                         <script>
                                             <?php
                                                 $arr_arab=array();
@@ -481,7 +452,33 @@
                                                 }
                                         </script>
                                     </div>
-                                  </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="content-slide">
+                                        <form id="none3utr-form" method="post" action="./aftertreatment.php?method=none3utr">
+                                            <span class='slidebar-content'>Normalization method:</span><br>
+                                            <select id="sgnm">
+                                                <option value="none" checked="true"/>None
+                                                <option value="TPM"/>None
+                                                <option value="DESeq"/>None
+                                            </select><br>
+                                             <span class='slidebar-content'>Distance(nt):</span><br>
+                                            <input type="text" value="50" name="minpat2"/><br>
+                                            <span class='slidebar-content'>Using top two PACs:</span>
+                                            <input type="checkbox" checked="true" name="uttp"/><br>
+                                            <span class='slidebar-content'>Min PAT of one PAC:</span><br>
+                                            <input type="text" value="5"name="minpat3"/><br>
+                                            <span class='slidebar-content'>Min total PAT of one PAC in both samples:</span><br>
+                                            <input type="text" value="10" name="minpat4"/><br>
+                                            <span class='slidebar-content'>Min difference of PAC between the two PAC:</span><br>
+                                            <input type="text" value="5" name="minpat5"/><br>
+                                             <span class='slidebar-content'>Min fold change of two PAC in at least one sample:</span><br>
+                                             <input type="text" value="2" name="minpat6"/><br>
+                                             <button onclick="none3utr()">submit</button>
+                                            <button type="reset">reset</button>
+                                        </form>
+                                    </div>
+                                </div>
                               </div>
                            </div>
                         </div>

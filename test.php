@@ -11,25 +11,7 @@ and open the template in the editor.
     <body>
             <?php
             session_start();
-//                echo $_GET['method']."<br>";
-//                echo $_POST['species']."<br>";
-//                echo $_POST['chr']."<br>";
-//                echo $_POST['start']."<br>";
-//                echo $_POST['end']."<br>";
-//                echo $_POST['gene_id']."<br>";
-//                echo $_POST['go_accession']."<br>";
-//                echo $_POST['go_name']."<br>";
-//                echo $_POST['function']."<br>";
-//                var_dump($_POST['sample1']."<br>");
-//                var_dump($_POST['sample2']."<br>");
-//                echo $_POST['nor_method']."<br>";
-//                echo $_POST['min_pat']."<br>";
-//                var_dump($_SESSION['file_real']."<br>");
-//                echo $_SESSION['sys_real']."<br>";
-            var_dump($_SESSION['sys_real']);
-            foreach ($_SESSION['sys_real'] as $key => $value) {
-                echo $value;
-            }
+            var_dump($_SESSION['sample']);
             ?>
         <?php
 //                session_start();

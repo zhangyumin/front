@@ -290,13 +290,14 @@
             $Adj=1;
         else
             $Adj=0;
+        $_SESSION['sample']=  array_merge($_POST['sample1'],$_POST['sample2']);
         $degene_cmd="Rscript /var/www/front/src/r/R_DEgene.r ofile='degene.".$_SESSION['file']."' method=$method adj=$Adj sig=$sig minpat=$minpat donorm=$donorm path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['file']." cols='".implode(':',$_POST['sample1'] ).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml 2>&1";
         //$degene_cmd="Rscript /var/www/html/front/src/r/R_pairDEgene.r minrep=1 minpat=5 donorm=0 path='/home/zym/data/' intbl=PAC_sys_arab10 cols='oxt6_leaf_1:oxt6_leaf_2;wt_leaf_1:wt_leaf_2' groups=sys:user conf=/var/www/html/front/db.xml 2>&1";
         if(count($_POST['sample1'])>=1&&count($_POST['sampe2']>=1))
         {
            echo shell_exec($degene_cmd);
 //            echo "<br><br>$degene_cmd<br><br>";
-            echo '<script>window.location.href="aftertreatment_result_test.php?result=degene&chr=1&gene=31185&strand=-1";</script>';
+            echo '<script>window.location.href="aftertreatment_result_test.php?result=degene";</script>';
         }
         else
             echo "<script>alert('choose two sample');history.go(-1);</script>";
@@ -313,10 +314,11 @@
             $Adj=1;
         else
             $Adj=0;
+        $_SESSION['sample']=  array_merge($_POST['sample1'],$_POST['sample2']);
         $depac_cmd="Rscript /var/www/front/src/r/R_DEPAC.r ofile='depac.".$_SESSION['file']."' method=$method adj=$Adj sig=$sig minpat=$minpat donorm=$donorm path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['file']." cols='".implode(':',$_POST['sample1']).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml 2>&1";
 //        echo "<br><br>$depac_cmd<br><br>";
         echo shell_exec($depac_cmd);
-        echo '<script>window.location.href="aftertreatment_result_test.php?result=depac&chr=1&gene=31185&strand=-1";</script>';
+        echo '<script>window.location.href="aftertreatment_result_test.php?result=depac";</script>';
     }
     else if($_GET['method']=='only3utr'){
             if($_POST['sgminpat']>0)
@@ -324,10 +326,11 @@
             else
                 $avgpat=0;
             $sig=$_POST['sig'];
+            $_SESSION['sample']=  array_merge($_POST['sample1'],$_POST['sample2']);
             $sg_ocmd="Rscript /var/www/front/src/r/R_switch3UTR.r ofile='only3utr.".$_SESSION['file']."' adj=0 sig=$sig avgPAT=$avgpat path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['file']." cols='".implode(':',$_POST['sample1']).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml 2>&1";
             //echo $sg_ocmd;
             echo shell_exec($sg_ocmd);
-            echo '<script>window.location.href="aftertreatment_result_test.php?result=switchinggene_o&chr=1&gene=31185&strand=-1";</script>';
+            echo '<script>window.location.href="aftertreatment_result_test.php?result=switchinggene_o";</script>';
     }
     else if($_GET['method']=='none3utr'){
         if($_POST['uttp']=='on')
@@ -339,8 +342,9 @@
         $minpat4=$_POST['minpat4'];
         $minpat5=$_POST['minpat5'];
         $minpat6=$_POST['minpat6'];
+        $_SESSION['sample']=  array_merge($_POST['sample1'],$_POST['sample2']);
         $sg_ncmd="Rscript /var/www/front/src/r/R_switchNon3UTR.r ofile='none3utr.".$_SESSION['file']."' path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['file']." switch=$minpat1:$minpat2:$minpat3:$minpat4:$minpat5:$minpat6 cond='' cols='".implode(':',$_POST['sample1']).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml 2>&1";
         //echo $sg_ncmd;
         echo shell_exec($sg_ncmd);
-        echo '<script>window.location.href="aftertreatment_result_test.php?result=switchinggene_n&chr=1&gene=31185&strand=-1";</script>';
+        echo '<script>window.location.href="aftertreatment_result_test.php?result=switchinggene_n";</script>';
     }

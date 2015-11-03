@@ -1,30 +1,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Search</title>
+        <title>Sequence Detail</title>
         <script src="./src/jquery-2.0.0.min.js"></script>
-        <?php
-        if($_GET['chr'])
-        {
-            $chr=$_GET['chr'];
-        }
-        else
-        {
-            echo"<script language=javascript>alert('Error file format , please try again');window.opener=null;window.close();</script>";
-        }
-        if($_GET['ftr_start']&&$_GET['ftr_end'])
-        {
-            $gene=($_GET['ftr_start']+$_GET['ftr_end'])/2;
-        }
-        if($_GET['strand'])
-        {
-            $strand=$_GET['strand'];
-        }
-        else
-        {
-            echo"<script language=javascript>alert('Error file format , please try again');window.opener=null;window.close();</script>";
-        }
-        ?>
         <style>
             table{
                 font-size: 12px;
@@ -75,6 +53,16 @@
                 color:black;
                 background-color: #984B4B;
             }
+            span.pt10{
+                color:black;
+                background-color: #ffd700;
+                /*cursor: pointer;*/
+            }
+            span.pt11{
+                color:black;
+                background-color: #9aff9a;
+                /*cursor: pointer;*/
+            }
             fieldset{
                 border-color: #5499c9 !important;
                 border-style: solid !important;
@@ -103,11 +91,42 @@
         <?php
             $con=  mysql_connect("localhost","root","root");
             mysql_select_db("db_server",$con);
+            session_start();
         ?>
         <?php
+        if(isset($_GET['strand'])){
+            $strand=$_GET['strand'];
+        }
+        if(isset($_GET['species'])){
+            $species=$_GET['species'];
+        }
+        else {
+            $species=$_SESSION['species'];
+        }
+        if($_GET['flag']=='intergenic'){
+             $cgs=  mysql_query("select * from db_server.t_".$species."_gff_all where gene='".$_GET['seq']."' and ftr='intergenic';");
+        }
+        else{
+            $cgs=  mysql_query("select * from db_server.t_".$species."_gff_all where gene='".$_GET['seq']."' and ftr='gene';");
+        }
+        while($cgs_row=  mysql_fetch_row($cgs)){
+            $chr=$cgs_row[0];
+            $gene=($cgs_row[3]+$cgs_row[4])/2;
+//            echo $gene;
+            if($cgs_row[1]=='+'){
+                $strand=1;
+            }
+            else{
+                $strand=-1;
+            }
+        }
          $singnals = array("AATAAA","TATAAA","CATAAA","GATAAA","ATTAAA","ACTAAA","AGTAAA","AAAAAA","AACAAA","AAGAAA","AATTAA","AATCAA","AATGAA","AATATA","AATACA","AATAGA","AATAAT","AATAAC","AATAAG");        
- 
-         $a="SELECT * from db_server.t_".$_GET['species']."_gff_all where ftr_start<=$gene and ftr_end>=$gene and chr='$chr' and ftr='gene';";
+         if($_GET['flag']=='intergenic'){
+            $a="SELECT * from db_server.t_".$species."_gff_all where ftr_start<=$gene and ftr_end>=$gene and chr='$chr' and ftr='intergenic';";
+         }
+         else{
+            $a="SELECT * from db_server.t_".$species."_gff_all where ftr_start<=$gene and ftr_end>=$gene and chr='$chr' and ftr='gene';";
+         }
          $result=mysql_query($a);
          //var_dump($result);
          while($row=mysql_fetch_row($result))
@@ -118,7 +137,7 @@
              $gene_end=$row[4];
          }
          //print_r($gene_name);
-        $b="select substring(seq,$gene_start,$gene_end-$gene_start) from db_server.t_".$_GET['species']."_fa where title='$chr';";
+        $b="select substring(seq,$gene_start,$gene_end-$gene_start) from db_server.t_".$species."_fa where title='$chr';";
         //echo $b;
         $seq_result=  mysql_query($b);
         while($rows=mysql_fetch_row($seq_result))
@@ -145,7 +164,7 @@
              }
              $seq=  implode($seq_arr);
          }
-         $c="select * from db_server.t_".$_GET['species']."_gff where gene like '$gene_name' ;";
+         $c="select * from db_server.t_".$species."_gff where gene like '$gene_name' ;";
          //echo $c;
          $seq_feature=  mysql_query($c);
          while($row_f=  mysql_fetch_row($seq_feature))
@@ -155,7 +174,34 @@
              $f_start[]=$row_f[3];
              $f_end[]=$row_f[4];
          }
-         //print_r($ftr);
+//         print_r($f_start);
+         //polyA 位点信息
+         $pa_start=array();
+         $pa_result=mysql_query("select * from db_server.t_".$_GET['species']."_pa1 where chr='$chr' and coord>=$gene_start and coord<=$gene_end and tot_tagnum>0;");
+         while ($pa_row=  mysql_fetch_row($pa_result))
+         {
+             array_push($pa_start, $pa_row[2]);
+         }
+//         var_dump($gene_start);
+//         var_dump($pa_start);
+         foreach($pa_start as $key => $value)
+         {
+             if(strcmp($strand,-1)==0)
+             {
+                 $pa_start[$key]=$gene_end-$pa_start[$key]+1;
+             }
+             else if(strcmp($strand,1)==0)
+            {
+                $pa_start[$key]=$pa_start[$key]-$gene_start+1;
+             }
+         }
+         //3utr extend 位置信息
+         $extend=  mysql_query("select * from t_".$species."_gff_org where gene='$gene_name';");
+        while($ext_r=  mysql_fetch_row($extend)){
+            if($ext_r[2]=='3UTR')
+                $ext_start=$ext_r[3];
+                $ext_end=$ext_r[4];
+        }
 
          echo "<script type=\"text/javascript\">";
          //echo "var sequences = ['AAAATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA','AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA','AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'];"; 
@@ -166,6 +212,8 @@
          echo "sequences.push('$seq');";
          echo "var sutr_start=[];";
          echo "var sutr_end=[];";
+         echo "var ext_start=[];";
+         echo "var ext_end=[];";
          echo "var wutr_start=[];";
          echo "var wutr_end=[];";
          echo "var cds_start=[];";
@@ -174,6 +222,13 @@
          echo "var intron_end=[];";
          echo "var exon_start=[];";
          echo "var exon_end=[];";
+         echo "var amb_start=[];";
+         echo "var amb_end=[];";
+         echo "var pa_start=[];";
+         foreach ($pa_start as $key => $value)
+         {
+             echo "pa_start.push('$value');";
+         }
          while(list($f_key,$val)=each($ftr))
          {
              if(strcmp($val, '3UTR')==0)
@@ -186,6 +241,10 @@
                     $s_end=$f_end[$f_key];
                     $se_p=$s_end-$gene_start;//3utr end point
                     echo "sutr_end.push('$se_p');";
+                    $ext_sp=$ext_end-$gene_start;
+                    $ext_ep=$gene_end-$gene_start;
+                    echo "ext_start.push('$ext_sp');";
+                    echo "ext_end.push('$ext_ep');";
                  }
                  else if(strcmp($strand,-1)==0)
                 {
@@ -195,6 +254,10 @@
                     $s_end=$f_end[$f_key];
                     $ss_p=$gene_end-$s_end+1;//3utr start point
                     echo "sutr_start.push('$ss_p');";
+                    $ext_sp=$gene_end-$ext_start;
+                    $ext_ep=$gene_end-$gene_start;
+                    echo "ext_start.push('$ext_sp');";
+                    echo "ext_end.push('$ext_ep');";
                  }
              }
               if(strcmp($val, '5UTR')==0)
@@ -281,6 +344,27 @@
                     echo "exon_start.push('$es_p');";
                  }
              }
+             if(strcmp($val, 'AMB')==0)
+             {
+                 if(strcmp($strand,1)==0)
+                 {
+                    $a_start=$f_start[$f_key];
+                    $as_p=$a_start-$gene_start;//AMB start point
+                    echo "amb_start.push('$as_p');";
+                    $a_end=$f_end[$f_key];
+                    $ae_p=$a_end-$gene_start;//amb end point
+                    echo "amb_end.push('$ae_p');";
+                 }
+                 else if(strcmp($strand,-1)==0)
+                {
+                    $a_start=$f_start[$f_key];
+                    $ae_p=$gene_end-$a_start+1;//3utr end point
+                    echo "amb_end.push('$ae_p');";
+                    $a_end=$f_end[$f_key];
+                    $as_p=$gene_end-$a_end+1;//3utr start point
+                    echo "amb_start.push('$as_p');";
+                 }
+             }
          }
          //echo "var ftr[]='$ftr';";
          //echo "var f_start[]='$f_start';";
@@ -294,23 +378,27 @@
   	//reset($("#seq_switch").val());
                     reset(0);
   	//var cur_seq_id = $("#seq_switch").val();
-                    var cur_seq_id=0;
+                var cur_seq_id=0;
   	var patts1 = [];
   	var patts2 = [];
+                var ftr = [];
   	var user_patt = $("#user_pattern").val();
   	patts1 = user_patt.split(",");
-  	$("input[type=checkbox]:checked").each(function(){ 
+  	$("input[name=cbox1]:checked").each(function(){ 
                             if($(this).val() != "checkall")
                             {
                                                         patts2.push($(this).val());
                             }
-	}); 
+	});
+                $("input[name=cbox2]:checked").each(function(){ 
+                        ftr.push($(this).val());
+                });
 	//find_pattern(patts1,patts2,pas[cur_seq_id],rpas[cur_seq_id]);
-                      find_pattern(patts1,patts2);
+                find_pattern(patts1,patts2,ftr);
         }
 
         //function find_pattern(patts1,patts2,pa,rpa)
-        function find_pattern(patts1,patts2)
+        function find_pattern(patts1,patts2,ftr)
         {
             var original_seq = current_seq;
             var seq = current_seq;
@@ -482,504 +570,747 @@
 //            var wutr=[];
 //            var cds=[]
 //            var intron=[];
-            if(sutr_start.length&&sutr_end.length!=0)
-            {
-                for(var sutrkey in sutr_start)
+            if(ftr.indexOf("3UTR")!=-1){
+                if(sutr_start.length&&sutr_end.length!=0)
                 {
-                    var pos=sutr_start[sutrkey];
-                    pos2=pos+1;
-                    for(var a in pos1_start)
+                    for(var sutrkey in sutr_start)
                     {
-                        var i=pos1_start[a];
-                        if(pos>i&&pos<=pos1_end[i])
-                            pos=pos1_end[i]+2;
+                        var pos=sutr_start[sutrkey];
+                        pos2=pos+1;
+                        for(var a in pos1_start)
+                        {
+                            var i=pos1_start[a];
+                            if(pos>i&&pos<=pos1_end[i])
+                                pos=pos1_end[i]+2;
+                        }
+                        for(var b in pos2_start)
+                        {
+                            var i=pos2_start[b];
+                            if(pos>i&&pos<=pos2_end[i])
+                                pos=pos2_end[i]+2;
+                        }
+                        for(var c in aat_start)
+                        {
+                            var i=aat_start[c];
+                            if(pos>i&&pos<=aat_end[i])
+                                pos=aat_end[i]+2;
+                        }
+                        for(var d in tgt_start)
+                        {
+                            var i=tgt_start[d];
+                            if(pos>i&&pos<=tgt_end[i])
+                            pos=tgt_end[i]+2;
+                        }
+                        pos1=pos-1;
+                        var sub1=seq.substring(0,pos1);
+                        var sub2=seq.substring(pos);
+                        var mid="";
+                        switch(seq.charAt(pos1))
+                        {
+                            case "A":
+                                mid="啊";
+                                break;
+                            case "T":
+                                mid="他";
+                                break;
+                            case "C":
+                                mid="擦";
+                                break;
+                            case "G":
+                                mid="个";
+                                break;
+                          }
+                          seq=sub1+mid+sub2;
                     }
-                    for(var b in pos2_start)
+                    for(var sutrkey1 in sutr_end)
                     {
-                        var i=pos2_start[b];
-                        if(pos>i&&pos<=pos2_end[i])
-                            pos=pos2_end[i]+2;
-                    }
-                    for(var c in aat_start)
-                    {
-                        var i=aat_start[c];
-                        if(pos>i&&pos<=aat_end[i])
-                            pos=aat_end[i]+2;
-                    }
-                    for(var d in tgt_start)
-                    {
-                        var i=tgt_start[d];
-                        if(pos>i&&pos<=tgt_end[i])
-                        pos=tgt_end[i]+2;
-                    }
-                    pos1=pos-1;
-                    var sub1=seq.substring(0,pos1);
-                    var sub2=seq.substring(pos);
-                    var mid="";
-                    switch(seq.charAt(pos1))
-                    {
-                        case "A":
-                            mid="啊";
-                            break;
-                        case "T":
-                            mid="他";
-                            break;
-                        case "C":
-                            mid="擦";
-                            break;
-                        case "G":
-                            mid="个";
-                            break;
-                      }
-                      seq=sub1+mid+sub2;
-                }
-                for(var sutrkey1 in sutr_end)
-                {
-                    var pos=sutr_end[sutrkey1];
-                    for(var e in pos1_start)
-                    {
-                        var i=pos1_start[e]
-                        if(pos>i&&pos<pos1_end[i]+1)
+                        var pos=sutr_end[sutrkey1];
+                        for(var e in pos1_start)
+                        {
+                            var i=pos1_start[e]
+                            if(pos>i&&pos<pos1_end[i]+1)
+                                pos=i;
+                        }
+                        for(var f in pos2_start)
+                        {
+                            var i=pos2_start[f]
+                            if(pos>i&&pos<pos2_end[i]+1)
+                                pos=i;
+                        }
+                        for(var g in aat_start)
+                        {
+                            var i=aat_start[g]
+                            if(pos>i&&pos<aat_end[i]+1)
+                                pos=i;
+                        }
+                        for(var h in tgt_start)
+                        {
+                            var i=tgt_start[h]
+                            if(pos>i&&pos<tgt_end[i]+1)
                             pos=i;
+                        }
+                        pos1=pos-1;
+                        var sub1=seq.substring(0,pos1);
+                        var sub2=seq.substring(pos);
+                        var mid="";
+                        switch(seq.charAt(pos1))
+                        {
+                            case "A":
+                                mid="阿";
+                                break;
+                            case "T":
+                                mid="它";
+                                break;
+                            case "C":
+                                mid="嚓";
+                                break;
+                            case "G":
+                                mid="噶";
+                                break;
+                          }
+                          seq=sub1+mid+sub2;
                     }
-                    for(var f in pos2_start)
-                    {
-                        var i=pos2_start[f]
-                        if(pos>i&&pos<pos2_end[i]+1)
-                            pos=i;
-                    }
-                    for(var g in aat_start)
-                    {
-                        var i=aat_start[g]
-                        if(pos>i&&pos<aat_end[i]+1)
-                            pos=i;
-                    }
-                    for(var h in tgt_start)
-                    {
-                        var i=tgt_start[h]
-                        if(pos>i&&pos<tgt_end[i]+1)
-                        pos=i;
-                    }
-                    pos1=pos-1;
-                    var sub1=seq.substring(0,pos1);
-                    var sub2=seq.substring(pos);
-                    var mid="";
-                    switch(seq.charAt(pos1))
-                    {
-                        case "A":
-                            mid="阿";
-                            break;
-                        case "T":
-                            mid="它";
-                            break;
-                        case "C":
-                            mid="嚓";
-                            break;
-                        case "G":
-                            mid="噶";
-                            break;
-                      }
-                      seq=sub1+mid+sub2;
-                }
-            }
-            if(wutr_start.length&&wutr_end.length!=0)
-            {
-                for(var wutrkey in wutr_start)
-                {
-                    var pos=wutr_start[wutrkey];
-                    pos2=pos+1;
-                    for(var a in pos1_start)
-                    {
-                        var i=pos1_start[a];
-                        if(pos>i&&pos<=pos1_end[i])
-                            pos=pos1_end[i]+2;
-                    }
-                    for(var b in pos2_start)
-                    {
-                        var i=pos2_start[b];
-                        if(pos>i&&pos<=pos2_end[i])
-                            pos=pos2_end[i]+2;
-                    }
-                    for(var c in aat_start)
-                    {
-                        var i=aat_start[c];
-                        if(pos>i&&pos<=aat_end[i])
-                            pos=aat_end[i]+2;
-                    }
-                    for(var d in tgt_start)
-                    {
-                        var i=tgt_start[d];
-                        if(pos>i&&pos<=tgt_end[i])
-                        pos=tgt_end[i]+2;
-                    }
-                    pos1=pos-1;
-                    var sub1=seq.substring(0,pos1);
-                    var sub2=seq.substring(pos);
-                    var mid="";
-                    switch(seq.charAt(pos1))
-                    {
-                        case "A":
-                            mid="吖";
-                            break;
-                        case "T":
-                            mid="她";
-                            break;
-                        case "C":
-                            mid="拆";
-                            break;
-                        case "G":
-                            mid="哥";
-                            break;
-                      }
-                      seq=sub1+mid+sub2;
-                }
-                for(var wutrkey1 in wutr_end)
-                {
-                    var pos=wutr_end[wutrkey1];
-                    for(var e in pos1_start)
-                    {
-                        var i=pos1_start[e]
-                        if(pos>i&&pos<pos1_end[i]+1)
-                            pos=i;
-                    }
-                    for(var f in pos2_start)
-                    {
-                        var i=pos2_start[f]
-                        if(pos>i&&pos<pos2_end[i]+1)
-                            pos=i;
-                    }
-                    for(var g in aat_start)
-                    {
-                        var i=aat_start[g]
-                        if(pos>i&&pos<aat_end[i]+1)
-                            pos=i;
-                    }
-                    for(var h in tgt_start)
-                    {
-                        var i=tgt_start[h]
-                        if(pos>i&&pos<tgt_end[i]+1)
-                        pos=i;
-                    }
-                    pos1=pos-1;
-                    var sub1=seq.substring(0,pos1);
-                    var sub2=seq.substring(pos);
-                    var mid="";
-                    switch(seq.charAt(pos1))
-                    {
-                        case "A":
-                            mid="嗄";
-                            break;
-                        case "T":
-                            mid="塔";
-                            break;
-                        case "C":
-                            mid="攃";
-                            break;
-                        case "G":
-                            mid="改";
-                            break;
-                      }
-                      seq=sub1+mid+sub2;
                 }
             }
-            if(cds_start.length&&cds_end.length!=0)
-            {
-                for(var cdskey in cds_start)
+            if(ftr.indexOf("EXT")!=-1){
+                if(ext_start.length&&ext_end.length!=0)
                 {
-                    var pos=cds_start[cdskey];
-                    pos2=pos+1;
-                    for(var a in pos1_start)
+                    for(var extkey in ext_start)
                     {
-                        var i=pos1_start[a];
-                        if(pos>i&&pos<=pos1_end[i])
-                            pos=pos1_end[i]+2;
+                        var pos=ext_start[extkey];
+                        pos2=pos+1;
+                        for(var a in pos1_start)
+                        {
+                            var i=pos1_start[a];
+                            if(pos>i&&pos<=pos1_end[i])
+                                pos=pos1_end[i]+2;
+                        }
+                        for(var b in pos2_start)
+                        {
+                            var i=pos2_start[b];
+                            if(pos>i&&pos<=pos2_end[i])
+                                pos=pos2_end[i]+2;
+                        }
+                        for(var c in aat_start)
+                        {
+                            var i=aat_start[c];
+                            if(pos>i&&pos<=aat_end[i])
+                                pos=aat_end[i]+2;
+                        }
+                        for(var d in tgt_start)
+                        {
+                            var i=tgt_start[d];
+                            if(pos>i&&pos<=tgt_end[i])
+                            pos=tgt_end[i]+2;
+                        }
+                        pos1=pos-1;
+                        var sub1=seq.substring(0,pos1);
+                        var sub2=seq.substring(pos);
+                        var mid="";
+                        switch(seq.charAt(pos1))
+                        {
+                            case "A":
+                                mid="癌";
+                                break;
+                            case "T":
+                                mid="蹋";
+                                break;
+                            case "C":
+                                mid="材";
+                                break;
+                            case "G":
+                                mid="割";
+                                break;
+                          }
+                          seq=sub1+mid+sub2;
                     }
-                    for(var b in pos2_start)
+                    for(var extkey1 in ext_end)
                     {
-                        var i=pos2_start[b];
-                        if(pos>i&&pos<=pos2_end[i])
-                            pos=pos2_end[i]+2;
-                    }
-                    for(var c in aat_start)
-                    {
-                        var i=aat_start[c];
-                        if(pos>i&&pos<=aat_end[i])
-                            pos=aat_end[i]+2;
-                    }
-                    for(var d in tgt_start)
-                    {
-                        var i=tgt_start[d];
-                        if(pos>i&&pos<=tgt_end[i])
-                        pos=tgt_end[i]+2;
-                    }
-                    pos1=pos-1;
-                    var sub1=seq.substring(0,pos1);
-                    var sub2=seq.substring(pos);
-                    var mid="";
-                    switch(seq.charAt(pos1))
-                    {
-                        case "A":
-                            mid="挨";
-                            break;
-                        case "T":
-                            mid="沓";
-                            break;
-                        case "C":
-                            mid="踩";
-                            break;
-                        case "G":
-                            mid="搞";
-                            break;
-                      }
-                      seq=sub1+mid+sub2;
-                }
-                for(var cdskey1 in cds_end)
-                {
-                    var pos=cds_end[cdskey1];
-                    for(var e in pos1_start)
-                    {
-                        var i=pos1_start[e]
-                        if(pos>i&&pos<pos1_end[i]+1)
+                        var pos=ext_end[extkey1];
+                        for(var e in pos1_start)
+                        {
+                            var i=pos1_start[e]
+                            if(pos>i&&pos<pos1_end[i]+1)
+                                pos=i;
+                        }
+                        for(var f in pos2_start)
+                        {
+                            var i=pos2_start[f]
+                            if(pos>i&&pos<pos2_end[i]+1)
+                                pos=i;
+                        }
+                        for(var g in aat_start)
+                        {
+                            var i=aat_start[g]
+                            if(pos>i&&pos<aat_end[i]+1)
+                                pos=i;
+                        }
+                        for(var h in tgt_start)
+                        {
+                            var i=tgt_start[h]
+                            if(pos>i&&pos<tgt_end[i]+1)
                             pos=i;
+                        }
+                        pos1=pos-1;
+                        var sub1=seq.substring(0,pos1);
+                        var sub2=seq.substring(pos);
+                        var mid="";
+                        switch(seq.charAt(pos1))
+                        {
+                            case "A":
+                                mid="埃";
+                                break;
+                            case "T":
+                                mid="铊";
+                                break;
+                            case "C":
+                                mid="裁";
+                                break;
+                            case "G":
+                                mid="嗝";
+                                break;
+                          }
+                          seq=sub1+mid+sub2;
                     }
-                    for(var f in pos2_start)
-                    {
-                        var i=pos2_start[f]
-                        if(pos>i&&pos<pos2_end[i]+1)
-                            pos=i;
-                    }
-                    for(var g in aat_start)
-                    {
-                        var i=aat_start[g]
-                        if(pos>i&&pos<aat_end[i]+1)
-                            pos=i;
-                    }
-                    for(var h in tgt_start)
-                    {
-                        var i=tgt_start[h]
-                        if(pos>i&&pos<tgt_end[i]+1)
-                        pos=i;
-                    }
-                    pos1=pos-1;
-                    var sub1=seq.substring(0,pos1);
-                    var sub2=seq.substring(pos);
-                    var mid="";
-                    switch(seq.charAt(pos1))
-                    {
-                        case "A":
-                            mid="艾";
-                            break;
-                        case "T":
-                            mid="牠";
-                            break;
-                        case "C":
-                            mid="彩";
-                            break;
-                        case "G":
-                            mid="工";
-                            break;
-                      }
-                      seq=sub1+mid+sub2;
                 }
             }
-             if(intron_start.length&&intron_end.length!=0)
-            {
-                for(var intronkey in intron_start)
+            if(ftr.indexOf("5UTR")!=-1){
+                if(wutr_start.length&&wutr_end.length!=0)
                 {
-                    var pos=intron_start[intronkey];
-                    pos2=pos+1;
-                    for(var a in pos1_start)
+                    for(var wutrkey in wutr_start)
                     {
-                        var i=pos1_start[a];
-                        if(pos>i&&pos<=pos1_end[i])
-                            pos=pos1_end[i]+2;
+                        var pos=wutr_start[wutrkey];
+                        pos2=pos+1;
+                        for(var a in pos1_start)
+                        {
+                            var i=pos1_start[a];
+                            if(pos>i&&pos<=pos1_end[i])
+                                pos=pos1_end[i]+2;
+                        }
+                        for(var b in pos2_start)
+                        {
+                            var i=pos2_start[b];
+                            if(pos>i&&pos<=pos2_end[i])
+                                pos=pos2_end[i]+2;
+                        }
+                        for(var c in aat_start)
+                        {
+                            var i=aat_start[c];
+                            if(pos>i&&pos<=aat_end[i])
+                                pos=aat_end[i]+2;
+                        }
+                        for(var d in tgt_start)
+                        {
+                            var i=tgt_start[d];
+                            if(pos>i&&pos<=tgt_end[i])
+                            pos=tgt_end[i]+2;
+                        }
+                        pos1=pos-1;
+                        var sub1=seq.substring(0,pos1);
+                        var sub2=seq.substring(pos);
+                        var mid="";
+                        switch(seq.charAt(pos1))
+                        {
+                            case "A":
+                                mid="吖";
+                                break;
+                            case "T":
+                                mid="她";
+                                break;
+                            case "C":
+                                mid="拆";
+                                break;
+                            case "G":
+                                mid="哥";
+                                break;
+                          }
+                          seq=sub1+mid+sub2;
                     }
-                    for(var b in pos2_start)
+                    for(var wutrkey1 in wutr_end)
                     {
-                        var i=pos2_start[b];
-                        if(pos>i&&pos<=pos2_end[i])
-                            pos=pos2_end[i]+2;
+                        var pos=wutr_end[wutrkey1];
+                        for(var e in pos1_start)
+                        {
+                            var i=pos1_start[e]
+                            if(pos>i&&pos<pos1_end[i]+1)
+                                pos=i;
+                        }
+                        for(var f in pos2_start)
+                        {
+                            var i=pos2_start[f]
+                            if(pos>i&&pos<pos2_end[i]+1)
+                                pos=i;
+                        }
+                        for(var g in aat_start)
+                        {
+                            var i=aat_start[g]
+                            if(pos>i&&pos<aat_end[i]+1)
+                                pos=i;
+                        }
+                        for(var h in tgt_start)
+                        {
+                            var i=tgt_start[h]
+                            if(pos>i&&pos<tgt_end[i]+1)
+                            pos=i;
+                        }
+                        pos1=pos-1;
+                        var sub1=seq.substring(0,pos1);
+                        var sub2=seq.substring(pos);
+                        var mid="";
+                        switch(seq.charAt(pos1))
+                        {
+                            case "A":
+                                mid="嗄";
+                                break;
+                            case "T":
+                                mid="塔";
+                                break;
+                            case "C":
+                                mid="攃";
+                                break;
+                            case "G":
+                                mid="改";
+                                break;
+                          }
+                          seq=sub1+mid+sub2;
                     }
-                    for(var c in aat_start)
-                    {
-                        var i=aat_start[c];
-                        if(pos>i&&pos<=aat_end[i])
-                            pos=aat_end[i]+2;
-                    }
-                    for(var d in tgt_start)
-                    {
-                        var i=tgt_start[d];
-                        if(pos>i&&pos<=tgt_end[i])
-                        pos=tgt_end[i]+2;
-                    }
-                    pos1=pos-1;
-                    var sub1=seq.substring(0,pos1);
-                    var sub2=seq.substring(pos);
-                    var mid="";
-                    switch(seq.charAt(pos1))
-                    {
-                        case "A":
-                            mid="哎";
-                            break;
-                        case "T":
-                            mid="踏";
-                            break;
-                        case "C":
-                            mid="礤";
-                            break;
-                        case "G":
-                            mid="跟";
-                            break;
-                      }
-                      seq=sub1+mid+sub2;
                 }
-                for(var intronkey1 in intron_end)
+            }
+            if(ftr.indexOf("CDS")!=-1){
+                if(cds_start.length&&cds_end.length!=0)
                 {
-                    var pos=intron_end[intronkey1];
-                    for(var e in pos1_start)
+                    for(var cdskey in cds_start)
                     {
-                        var i=pos1_start[e]
-                        if(pos>i&&pos<pos1_end[i]+1)
+                        var pos=cds_start[cdskey];
+                        pos2=pos+1;
+                        for(var a in pos1_start)
+                        {
+                            var i=pos1_start[a];
+                            if(pos>i&&pos<=pos1_end[i])
+                                pos=pos1_end[i]+2;
+                        }
+                        for(var b in pos2_start)
+                        {
+                            var i=pos2_start[b];
+                            if(pos>i&&pos<=pos2_end[i])
+                                pos=pos2_end[i]+2;
+                        }
+                        for(var c in aat_start)
+                        {
+                            var i=aat_start[c];
+                            if(pos>i&&pos<=aat_end[i])
+                                pos=aat_end[i]+2;
+                        }
+                        for(var d in tgt_start)
+                        {
+                            var i=tgt_start[d];
+                            if(pos>i&&pos<=tgt_end[i])
+                            pos=tgt_end[i]+2;
+                        }
+                        pos1=pos-1;
+                        var sub1=seq.substring(0,pos1);
+                        var sub2=seq.substring(pos);
+                        var mid="";
+                        switch(seq.charAt(pos1))
+                        {
+                            case "A":
+                                mid="挨";
+                                break;
+                            case "T":
+                                mid="沓";
+                                break;
+                            case "C":
+                                mid="踩";
+                                break;
+                            case "G":
+                                mid="搞";
+                                break;
+                          }
+                          seq=sub1+mid+sub2;
+                    }
+                    for(var cdskey1 in cds_end)
+                    {
+                        var pos=cds_end[cdskey1];
+                        for(var e in pos1_start)
+                        {
+                            var i=pos1_start[e]
+                            if(pos>i&&pos<pos1_end[i]+1)
+                                pos=i;
+                        }
+                        for(var f in pos2_start)
+                        {
+                            var i=pos2_start[f]
+                            if(pos>i&&pos<pos2_end[i]+1)
+                                pos=i;
+                        }
+                        for(var g in aat_start)
+                        {
+                            var i=aat_start[g]
+                            if(pos>i&&pos<aat_end[i]+1)
+                                pos=i;
+                        }
+                        for(var h in tgt_start)
+                        {
+                            var i=tgt_start[h]
+                            if(pos>i&&pos<tgt_end[i]+1)
                             pos=i;
+                        }
+                        pos1=pos-1;
+                        var sub1=seq.substring(0,pos1);
+                        var sub2=seq.substring(pos);
+                        var mid="";
+                        switch(seq.charAt(pos1))
+                        {
+                            case "A":
+                                mid="艾";
+                                break;
+                            case "T":
+                                mid="牠";
+                                break;
+                            case "C":
+                                mid="彩";
+                                break;
+                            case "G":
+                                mid="工";
+                                break;
+                          }
+                          seq=sub1+mid+sub2;
                     }
-                    for(var f in pos2_start)
-                    {
-                        var i=pos2_start[f]
-                        if(pos>i&&pos<pos2_end[i]+1)
-                            pos=i;
-                    }
-                    for(var g in aat_start)
-                    {
-                        var i=aat_start[g]
-                        if(pos>i&&pos<aat_end[i]+1)
-                            pos=i;
-                    }
-                    for(var h in tgt_start)
-                    {
-                        var i=tgt_start[h]
-                        if(pos>i&&pos<tgt_end[i]+1)
-                        pos=i;
-                    }
-                    pos1=pos-1;
-                    var sub1=seq.substring(0,pos1);
-                    var sub2=seq.substring(pos);
-                    var mid="";
-                    switch(seq.charAt(pos1))
-                    {
-                        case "A":
-                            mid="爱";
-                            break;
-                        case "T":
-                            mid="塌";
-                            break;
-                        case "C":
-                            mid="才";
-                            break;
-                        case "G":
-                            mid="挂";
-                            break;
-                      }
-                      seq=sub1+mid+sub2;
                 }
-            } 
-            if(exon_start.length&&exon_end.length!=0)
-            {
-                for(var exonkey in exon_start)
+            }
+            if(ftr.indexOf("INTRON")!=-1){
+                if(intron_start.length&&intron_end.length!=0)
+               {
+                   for(var intronkey in intron_start)
+                   {
+                       var pos=intron_start[intronkey];
+                       pos2=pos+1;
+                       for(var a in pos1_start)
+                       {
+                           var i=pos1_start[a];
+                           if(pos>i&&pos<=pos1_end[i])
+                               pos=pos1_end[i]+2;
+                       }
+                       for(var b in pos2_start)
+                       {
+                           var i=pos2_start[b];
+                           if(pos>i&&pos<=pos2_end[i])
+                               pos=pos2_end[i]+2;
+                       }
+                       for(var c in aat_start)
+                       {
+                           var i=aat_start[c];
+                           if(pos>i&&pos<=aat_end[i])
+                               pos=aat_end[i]+2;
+                       }
+                       for(var d in tgt_start)
+                       {
+                           var i=tgt_start[d];
+                           if(pos>i&&pos<=tgt_end[i])
+                           pos=tgt_end[i]+2;
+                       }
+                       pos1=pos-1;
+                       var sub1=seq.substring(0,pos1);
+                       var sub2=seq.substring(pos);
+                       var mid="";
+                       switch(seq.charAt(pos1))
+                       {
+                           case "A":
+                               mid="哎";
+                               break;
+                           case "T":
+                               mid="踏";
+                               break;
+                           case "C":
+                               mid="礤";
+                               break;
+                           case "G":
+                               mid="跟";
+                               break;
+                         }
+                         seq=sub1+mid+sub2;
+                   }
+                   for(var intronkey1 in intron_end)
+                   {
+                       var pos=intron_end[intronkey1];
+                       for(var e in pos1_start)
+                       {
+                           var i=pos1_start[e]
+                           if(pos>i&&pos<pos1_end[i]+1)
+                               pos=i;
+                       }
+                       for(var f in pos2_start)
+                       {
+                           var i=pos2_start[f]
+                           if(pos>i&&pos<pos2_end[i]+1)
+                               pos=i;
+                       }
+                       for(var g in aat_start)
+                       {
+                           var i=aat_start[g]
+                           if(pos>i&&pos<aat_end[i]+1)
+                               pos=i;
+                       }
+                       for(var h in tgt_start)
+                       {
+                           var i=tgt_start[h]
+                           if(pos>i&&pos<tgt_end[i]+1)
+                           pos=i;
+                       }
+                       pos1=pos-1;
+                       var sub1=seq.substring(0,pos1);
+                       var sub2=seq.substring(pos);
+                       var mid="";
+                       switch(seq.charAt(pos1))
+                       {
+                           case "A":
+                               mid="爱";
+                               break;
+                           case "T":
+                               mid="塌";
+                               break;
+                           case "C":
+                               mid="才";
+                               break;
+                           case "G":
+                               mid="挂";
+                               break;
+                         }
+                         seq=sub1+mid+sub2;
+                   }
+               } 
+            }
+            if(ftr.indexOf("EXON")!=-1){
+                if(exon_start.length&&exon_end.length!=0)
                 {
-                    var pos=exon_start[exonskey];
-                    pos2=pos+1;
-                    for(var a in pos1_start)
+                    for(var exonkey in exon_start)
                     {
-                        var i=pos1_start[a];
-                        if(pos>i&&pos<=pos1_end[i])
-                            pos=pos1_end[i]+2;
+                        var pos=exon_start[exon_key];
+                        pos2=pos+1;
+                        for(var a in pos1_start)
+                        {
+                            var i=pos1_start[a];
+                            if(pos>i&&pos<=pos1_end[i])
+                                pos=pos1_end[i]+2;
+                        }
+                        for(var b in pos2_start)
+                        {
+                            var i=pos2_start[b];
+                            if(pos>i&&pos<=pos2_end[i])
+                                pos=pos2_end[i]+2;
+                        }
+                        for(var c in aat_start)
+                        {
+                            var i=aat_start[c];
+                            if(pos>i&&pos<=aat_end[i])
+                                pos=aat_end[i]+2;
+                        }
+                        for(var d in tgt_start)
+                        {
+                            var i=tgt_start[d];
+                            if(pos>i&&pos<=tgt_end[i])
+                            pos=tgt_end[i]+2;
+                        }
+                        pos1=pos-1;
+                        var sub1=seq.substring(0,pos1);
+                        var sub2=seq.substring(pos);
+                        var mid="";
+                        switch(seq.charAt(pos1))
+                        {
+                            case "A":
+                                mid="唉";
+                                break;
+                            case "T":
+                                mid="榻";
+                                break;
+                            case "C":
+                                mid="菜";
+                                break;
+                            case "G":
+                                mid="过";
+                                break;
+                          }
+                          seq=sub1+mid+sub2;
                     }
-                    for(var b in pos2_start)
+                    for(var exonkey1 in exon_end)
                     {
-                        var i=pos2_start[b];
-                        if(pos>i&&pos<=pos2_end[i])
-                            pos=pos2_end[i]+2;
+                        var pos=exon_end[exonkey1];
+                        for(var e in pos1_start)
+                        {
+                            var i=pos1_start[e]
+                            if(pos>i&&pos<pos1_end[i]+1)
+                                pos=i;
+                        }
+                        for(var f in pos2_start)
+                        {
+                            var i=pos2_start[f]
+                            if(pos>i&&pos<pos2_end[i]+1)
+                                pos=i;
+                        }
+                        for(var g in aat_start)
+                        {
+                            var i=aat_start[g]
+                            if(pos>i&&pos<aat_end[i]+1)
+                                pos=i;
+                        }
+                        for(var h in tgt_start)
+                        {
+                            var i=tgt_start[h]
+                            if(pos>i&&pos<tgt_end[i]+1)
+                            pos=i;
+                        }
+                        pos1=pos-1;
+                        var sub1=seq.substring(0,pos1);
+                        var sub2=seq.substring(pos);
+                        var mid="";
+                        switch(seq.charAt(pos1))
+                        {
+                            case "A":
+                                mid="矮";
+                                break;
+                            case "T":
+                                mid="祂";
+                                break;
+                            case "C":
+                                mid="猜";
+                                break;
+                            case "G":
+                                mid="高";
+                                break;
+                          }
+                          seq=sub1+mid+sub2;
                     }
-                    for(var c in aat_start)
-                    {
-                        var i=aat_start[c];
-                        if(pos>i&&pos<=aat_end[i])
-                            pos=aat_end[i]+2;
-                    }
-                    for(var d in tgt_start)
-                    {
-                        var i=tgt_start[d];
-                        if(pos>i&&pos<=tgt_end[i])
-                        pos=tgt_end[i]+2;
-                    }
-                    pos1=pos-1;
-                    var sub1=seq.substring(0,pos1);
-                    var sub2=seq.substring(pos);
-                    var mid="";
-                    switch(seq.charAt(pos1))
-                    {
-                        case "A":
-                            mid="唉";
-                            break;
-                        case "T":
-                            mid="榻";
-                            break;
-                        case "C":
-                            mid="菜";
-                            break;
-                        case "G":
-                            mid="过";
-                            break;
-                      }
-                      seq=sub1+mid+sub2;
                 }
-                for(var exonkey1 in exon_end)
+            }
+            if(ftr.indexOf("AMB")!=-1){
+                if(amb_start.length&&amb_end.length!=0)
                 {
-                    var pos=exon_end[exonkey1];
-                    for(var e in pos1_start)
+                    for(var ambkey in amb_start)
                     {
-                        var i=pos1_start[e]
-                        if(pos>i&&pos<pos1_end[i]+1)
+                        var pos=amb_start[ambkey];
+                        pos2=pos+1;
+                        for(var a in pos1_start)
+                        {
+                            var i=pos1_start[a];
+                            if(pos>i&&pos<=pos1_end[i])
+                                pos=pos1_end[i]+2;
+                        }
+                        for(var b in pos2_start)
+                        {
+                            var i=pos2_start[b];
+                            if(pos>i&&pos<=pos2_end[i])
+                                pos=pos2_end[i]+2;
+                        }
+                        for(var c in aat_start)
+                        {
+                            var i=aat_start[c];
+                            if(pos>i&&pos<=aat_end[i])
+                                pos=aat_end[i]+2;
+                        }
+                        for(var d in tgt_start)
+                        {
+                            var i=tgt_start[d];
+                            if(pos>i&&pos<=tgt_end[i])
+                            pos=tgt_end[i]+2;
+                        }
+                        pos1=pos-1;
+                        var sub1=seq.substring(0,pos1);
+                        var sub2=seq.substring(pos);
+                        var mid="";
+                        switch(seq.charAt(pos1))
+                        {
+                            case "A":
+                                mid="哀";
+                                break;
+                            case "T":
+                                mid="挞";
+                                break;
+                            case "C":
+                                mid="财";
+                                break;
+                            case "G":
+                                mid="阁";
+                                break;
+                          }
+                          seq=sub1+mid+sub2;
+                    }
+                    for(var ambkey1 in amb_end)
+                    {
+                        var pos=amb_end[ambkey1];
+                        for(var e in pos1_start)
+                        {
+                            var i=pos1_start[e]
+                            if(pos>i&&pos<pos1_end[i]+1)
+                                pos=i;
+                        }
+                        for(var f in pos2_start)
+                        {
+                            var i=pos2_start[f]
+                            if(pos>i&&pos<pos2_end[i]+1)
+                                pos=i;
+                        }
+                        for(var g in aat_start)
+                        {
+                            var i=aat_start[g]
+                            if(pos>i&&pos<aat_end[i]+1)
+                                pos=i;
+                        }
+                        for(var h in tgt_start)
+                        {
+                            var i=tgt_start[h]
+                            if(pos>i&&pos<tgt_end[i]+1)
                             pos=i;
+                        }
+                        pos1=pos-1;
+                        var sub1=seq.substring(0,pos1);
+                        var sub2=seq.substring(pos);
+                        var mid="";
+                        switch(seq.charAt(pos1))
+                        {
+                            case "A":
+                                mid="碍";
+                                break;
+                            case "T":
+                                mid="獭";
+                                break;
+                            case "C":
+                                mid="蔡";
+                                break;
+                            case "G":
+                                mid="革";
+                                break;
+                          }
+                          seq=sub1+mid+sub2;
                     }
-                    for(var f in pos2_start)
+                }
+            }
+            if(ftr.indexOf("PA")!=-1){
+                if(pa_start.length != 0)
+                {
+                    for(var pakey in pa_start)
                     {
-                        var i=pos2_start[f]
-                        if(pos>i&&pos<pos2_end[i]+1)
-                            pos=i;
+                            var pos = pa_start[pakey];
+                            pos1 = pos - 1;
+                            var sub1 = seq.substring(0,pos1);
+                            var sub2 = seq.substring(pos);
+                            var mid = "";
+                            switch(seq.charAt(pos1))
+                            {
+                            case "A":
+                                    mid = "W";
+                                    break;
+                            case "T":
+                                    mid = "X";
+                                    break;
+                            case "C":
+                                    mid = "Y";
+                                    break;
+                            case "G":
+                                    mid = "Z";
+                                    break;
+                            }
+                            seq = sub1+mid+sub2;
                     }
-                    for(var g in aat_start)
-                    {
-                        var i=aat_start[g]
-                        if(pos>i&&pos<aat_end[i]+1)
-                            pos=i;
-                    }
-                    for(var h in tgt_start)
-                    {
-                        var i=tgt_start[h]
-                        if(pos>i&&pos<tgt_end[i]+1)
-                        pos=i;
-                    }
-                    pos1=pos-1;
-                    var sub1=seq.substring(0,pos1);
-                    var sub2=seq.substring(pos);
-                    var mid="";
-                    switch(seq.charAt(pos1))
-                    {
-                        case "A":
-                            mid="矮";
-                            break;
-                        case "T":
-                            mid="祂";
-                            break;
-                        case "C":
-                            mid="猜";
-                            break;
-                        case "G":
-                            mid="高";
-                            break;
-                      }
-                      seq=sub1+mid+sub2;
                 }
             }
             
@@ -1371,6 +1702,26 @@
              newSeq = newSeq.replace(/祂/g,"T</span class='pt9'>");
             newSeq = newSeq.replace(/猜/g,"C</span class='pt9'>");
             newSeq = newSeq.replace(/高/g,"G</span class='pt9'>");
+            newSeq = newSeq.replace(/哀/g,"<span class='pt10'>A");
+            newSeq = newSeq.replace(/挞/g,"<span class='pt10'>T");
+            newSeq = newSeq.replace(/财/g,"<span class='pt10'>C");
+            newSeq = newSeq.replace(/阁/g,"<span class='pt10'>G");
+            newSeq = newSeq.replace(/碍/g,"A</span class='pt10'>");
+             newSeq = newSeq.replace(/獭/g,"T</span class='pt10'>");
+            newSeq = newSeq.replace(/蔡/g,"C</span class='pt10'>");
+            newSeq = newSeq.replace(/革/g,"G</span class='pt10'>");
+            newSeq = newSeq.replace(/癌/g,"<span class='pt11'>A");
+            newSeq = newSeq.replace(/蹋/g,"<span class='pt11'>T");
+            newSeq = newSeq.replace(/材/g,"<span class='pt11'>C");
+            newSeq = newSeq.replace(/割/g,"<span class='pt11'>G");
+            newSeq = newSeq.replace(/埃/g,"A</span class='pt11'>");
+             newSeq = newSeq.replace(/铊/g,"T</span class='pt11'>");
+            newSeq = newSeq.replace(/裁/g,"C</span class='pt11'>");
+            newSeq = newSeq.replace(/嗝/g,"G</span class='pt11'>");
+            newSeq = newSeq.replace(/W/g,"<font color='red'><strong><u>A</u></strong></font>");
+            newSeq = newSeq.replace(/X/g,"<font color='red'><strong><u>T</u></strong></font>");
+            newSeq = newSeq.replace(/Y/g,"<font color='red'><strong><u>C</u></strong></font>");
+            newSeq = newSeq.replace(/Z/g,"<font color='red'><strong><u>G</u></strong></font>");
 
             
 
@@ -1512,21 +1863,21 @@
                                     </tr>
                                     <tr>
                                         <td>Chromosome:</td>
-                                        <td><?php echo $_GET['chr']?></td>
+                                        <td><?php echo $chr;?></td>
                                     </tr>
                                     <tr>
                                         <td>Gene locus:</td>
-                                        <td><?php echo $_GET['chr'].":".$_GET['ftr_start']."-".$_GET['ftr_end']?></td>
+                                        <td><?php echo $chr.":".$gene_start."-".$gene_end;?></td>
                                     </tr>
                                     <tr>
                                         <td>Gene Type:</td>
                                         <?php
-                                                    $sql="select gene_type from t_".$_GET['species']."_gff_all where gene=\"".$_GET['seq']."\" and ftr='gene';";
+                                                    if($_GET['flag']=='intergenic'){
+                                                        $sql="select gene_type from t_".$species."_gff_all where gene=\"".$_GET['seq']."\" and ftr='intergenic';";
+                                                    }
+                                                    else
+                                                        $sql="select gene_type from t_".$species."_gff_all where gene=\"".$_GET['seq']."\" and ftr='gene';";
                                                     $type=mysql_query($sql);
-//                                                    echo $sql;
-//                                                    $type=mysql_query("select * from db_bio.gff_arab10_all where gene=\"AT2G01008\";");
-//                                                    echo "select gene_type from db_bio.gff_arab10_all where gene=\"".$_GET['seq']."\";";
-//                                                        var_dump($type);
                                                     while($gene_type= mysql_fetch_row($type)){
                                                             echo "<td>$gene_type[0]</td>";
                                                     }
@@ -1547,7 +1898,7 @@
                                 </thead>
                                 <tbody>
                                         <?php
-                                                    $go_sql="select * from t_".$_GET['species']."_go where gene=\"".$_GET['seq']."\";";
+                                                    $go_sql="select * from t_".$species."_go where gene=\"".$_GET['seq']."\";";
                                                     $go_result=mysql_query($go_sql);
 //                                                    echo $sql;
 //                                                    $type=mysql_query("select * from db_bio.gff_arab10_all where gene=\"AT2G01008\";");
@@ -1569,24 +1920,43 @@
                             <table id="polyatable">
                                 <tbody>
                                     <tr>
-                                        <td style="width:20%">PolyA site:</td>
+                                        <td style="width:10%">PolyA site:</td>
                                         <td>
-                                        <?php
-                                                    $polya_sql="select * from t_".$_GET['species']."_pa1 where chr='$chr' and coord>=".$_GET['ftr_start']." and coord<=".$_GET['ftr_end']." and tot_tagnum>0;";
-//                                                    echo "select * from t_".$_GET['species']."_pa1 where chr='$chr' and coord>=".$_GET['ftr_start']." and coord<=".$_GET['ftr_end']." and tot_tagnum>0;";
-                                                    $polya_result=mysql_query($polya_sql);
-//                                                    echo $sql;
-//                                                    $type=mysql_query("select * from db_bio.gff_arab10_all where gene=\"AT2G01008\";");
-//                                                    echo "select gene_type from db_bio.gff_arab10_all where gene=\"".$_GET['seq']."\";";
-//                                                        var_dump($type);
-                                                    $i=0;
-                                                    while($polya_result_row= mysql_fetch_row($polya_result)){
-                                                          echo $polya_result_row[2].",";
-                                                          $i++;
-                                                          if(($i%15)==0)
-                                                              echo "\n";
-                                                    }
-                                                ?>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>PAC</td>
+                                                        <td>Coordinate</td>
+                                                        <td>PA#</td>
+                                                        <td>PAT#</td>
+                                                        <td>PAC range</td>
+                                                        <!--<td>Ftr</td>-->
+                                                    </tr>
+                                                    <?php
+                                                            $pac_res=mysql_query("select * from t_".$species."_pac where gene='$gene_name';");
+                                                            while($pac_r=  mysql_fetch_row($pac_res)){
+                                                                $i=1;
+                                                                echo "<tr>"
+                                                                        . "<td>PAC$i</td>";
+                                                                if($strand==1&&$pac_r[2]>$ext_end)
+                                                                    echo "<td>$pac_r[2](3UTR Extend)</td>";
+                                                                else if($strand==-1&&$pac_r[2]<$ext_start)
+                                                                    echo "<td>$pac_r[2](3UTR Extend)</td>";
+                                                                else
+                                                                    echo "<td>$pac_r[2](3UTR)</td>";
+                                                                echo "<td>$pac_r[12]</td>"
+                                                                        . "<td>$pac_r[3]</td>"
+                                                                        . "<td>$pac_r[10]~$pac_r[11]</td>";
+//                                                                if($pac_r[2]<$ext_start)
+//                                                                    echo "<td>3UTR extend</td>";
+//                                                                else 
+//                                                                    echo "<td>3UTR</td>"
+                                                                $i++;
+                                                                
+                                                            }
+                                                    ?>
+                                                </tbody>
+                                            </table>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -1605,7 +1975,7 @@
                                 <div class="swiper-slide">
                                     <div class="content-slide">
                                         <div style="height:99%">
-                                            <iframe src="../jbrowse/?data=data/arabidopsis&loc=<?php echo $_GET['chr']?>:<?php echo $_GET['ftr_start']?>..<?php echo $_GET['ftr_end']?>&tracks=Arabidopsis,sys_polya" width=100% height=100%>
+                                            <iframe src="../jbrowse/?data=data/arabidopsis&loc=<?php echo $chr;?>:<?php echo $gene_start;?>..<?php echo $gene_end;?>&tracks=Arabidopsis,sys_polya" width=100% height=100%>
                                             </iframe>
                                         </div>
                                   </div>
@@ -1613,16 +1983,24 @@
                                 <div class="swiper-slide">
                                     <div class="content-slide">
                                         <div style="height:99%">
-                                            <iframe src="./genepic.php?species=<?php echo $_GET['species'] ?>&seq=<?php echo $_GET['seq'] ?>&chr=<?php echo $_GET['chr'] ?>&strand=<?php echo $_GET['strand'] ?>" width=100% height=100%>
-                                            </iframe>
+                                            <?php
+                                                if($_GET['flag']=='intergenic')
+                                                    echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&analysis=1&intergenic=1\" width=100% height=100%></iframe>";
+                                                else
+                                                    echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&analysis=1\" width=100% height=100%></iframe>";
+                                            ?>
                                         </div>
                                     </div>
                                   </div>
                                     <div class="swiper-slide">
                                     <div class="content-slide">
                                         <div style="height:99%">
-                                             <iframe src="./pacpic.php?species=<?php echo $_GET['species'] ?>&seq=<?php echo $_GET['seq'] ?>&chr=<?php echo $_GET['chr'] ?>&strand=<?php echo $_GET['strand'] ?>" width=100% height=100%>
-                                            </iframe>
+                                            <?php
+                                                if($_GET['flag']=='intergenic')
+                                                    echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1\" width=100% height=100%></iframe>";
+                                                else
+                                                    echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand\" width=100% height=100%></iframe>";
+                                            ?>
                                         </div>
                                   </div>
                                 </div>
@@ -1651,10 +2029,6 @@
                               </div>
                            </div>
                         </div>
-<!--                        <div style="height:100%">
-                            <iframe style="border: 1px solid black" src="../jbrowse/?data=data/arabidopsis&loc=<?php echo $_GET['chr']?>:<?php echo $_GET['ftr_start']?>..<?php echo $_GET['ftr_end']?>&tracks=Arabidopsis,sys_polya" width=100% height=100%>
-                            </iframe>
-                        </div>-->
                     </td>
                 </tr>
             </tbody>
@@ -1670,7 +2044,7 @@
 	<div class = "seq_viewer" id="seq_viewer">
                     <div id = "pattern">	
         	<legend><span class="h3_italic">Typical Pattern</span>&nbsp;<span class='pt2' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;(AATAAA&nbsp;<span class='pt3' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;TGTAAA&nbsp;<span class='pt4' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;)</legend>
-        	<table style="width:900px;margin-top:10px;margin-bottom:10px;font-family: Courier New;font-size: 16px;">
+        	<table style="width:950px;margin-top:10px;margin-bottom:10px;font-family: Courier New;font-size: 16px;">
                     <?php
                     echo "<tr>";
                     echo '<td><input type="checkbox" checked = "true" name = "cbox" id = "checkall1" value = "checkall" /><em>&nbsp;Change All</em></td>';
@@ -1704,7 +2078,18 @@
                                     <span style="text-align:center;"><font size="2" color='green'><u>N</u></font></span>
                             </legend>-->
                             <br>
-                                <legend><span class="h3_ltalic">others</span>&nbsp;&nbsp;(3'UTR <span class='pt5' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;5'UTR&nbsp;<span class='pt6' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;CDS&nbsp;<span class='pt7' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;Intron&nbsp;<span class='pt8' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;exon&nbsp;<span class='pt9' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;)</legend>
+                                <legend><span class="h3_ltalic">others</span>&nbsp;&nbsp;
+                                    (
+                                    <input type="checkbox" name="cbox2" value="EXT"/>3'UTR Extend<span class='pt11' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+                                    <input type="checkbox" name="cbox2" value="3UTR"/>3'UTR <span class='pt5' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+                                    <input type="checkbox" name="cbox2" value="5UTR"/>5'UTR&nbsp;<span class='pt6' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
+                                    <input type="checkbox" name="cbox2" value="CDS"/>CDS&nbsp;<span class='pt7' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
+                                    <input type="checkbox" name="cbox2" value="INTRON"/>Intron&nbsp;<span class='pt8' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
+                                    <input type="checkbox" name="cbox2" value="EXON"/>exon&nbsp;<span class='pt9' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
+                                    <input type="checkbox" name="cbox2" value="AMB"/>amb&nbsp;<span class='pt10' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+                                    <input type="checkbox" name="cbox2" value="PA"/><span style="text-align:center;color:red;"><strong><u>Poly(A) site</u></strong></span>
+                                    )
+                                </legend>
                             <br>
                             <button id = "find_patt" style="width:100px;"  class = "button blue medium">Show</button>
                             <button id = "reset" style = "width:100px;"  class = "button blue medium">Clear</button>
