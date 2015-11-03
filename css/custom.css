@@ -61,7 +61,7 @@ fieldset{
     .tabs a {
         display: block;
         float: left;
-        width: 33.333333%;
+        width: 25%;
         color: #5499c9;
         text-align: center;
         background: #eee;
@@ -119,4 +119,10 @@ fieldset{
     .upload h3{
         margin: 0;
         color: #224055;
+    }
+    #search .ym-form label,#search .ym-form select,#search .ym-form input{
+        display: inline;
+    }
+    #search .ym-fbox{
+        padding: 0;
     }
