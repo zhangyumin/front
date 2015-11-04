@@ -145,3 +145,7 @@ fieldset{
     .upload .ym-fbox{
         padding:0;
     }
+    #get_back input{
+        display: inline; 
+       width: auto;
+    }
