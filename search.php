@@ -138,7 +138,7 @@
                 }
         </script>
         <div class="ym-wrapper">
-            <fieldset style="margin: 50px auto 0 auto ;width: 95%;">
+            <fieldset >
                 <legend>
                     <h4>
                         <font color="#224055" ><b>Search</b>:Search and view the system samples</font>
@@ -218,14 +218,14 @@
                </div>
             </fieldset>
             <br>
-            <div class="table-tools" >
+            <fieldset class="table-tools" >
                 <legend>
-                    <span style="margin:auto;">
+                    <h4>
                         <font color="#224055"><b>Datasets list:</b>all species documented in browser</font>
-                    </span>
+                    </h4>
                 </legend>
                 <table cellspacing="1" cellpadding="0" border="0" style="border:1px solid #5499c9;">
-                    <tbody>
+                    <thead>
                         <tr class="theme">
                             <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Species</td>
                             <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Samples</td>
@@ -237,19 +237,21 @@
                             <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Example</td>
                             <td class="theme" bgcolor="#e1e1e1" align="center" height="24"></td>
                         </tr>
+                    </thead>
+                    <tbody>
                         <tr>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">14</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">62834</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">68388227</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">poly(A) sites from leaf, seed, and root tissues of WT and Oxt6 mutant by poly(A) tag sequencing</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Wu et al. PNAS, 2011; Thomas et al. Plant Cell, 2012; Liu et al. PloS One, 2014</td>                     
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
+                            <td>Arabidopsis thanliana</td>
+                            <td>14</td>
+                            <td>62834</td>
+                            <td>68388227</td>
+                            <td>poly(A) sites from leaf, seed, and root tissues of WT and Oxt6 mutant by poly(A) tag sequencing</td>
+                            <td>Wu et al. PNAS, 2011; Thomas et al. Plant Cell, 2012; Liu et al. PloS One, 2014</td>                     
+                            <td>
                                 <a target="_blank" href="../jbrowse/?data=data/arabidopsis">
                                     <span title="Browse polyA sites in Jbrowse" style="background-color:#0066cc;color: #FFFFFF">Chr</span>
                                 </a>
                             </td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
+                            <td>
                                 <a target="_blank" href="./search_result.php?keyword=at1g0070">
                                     <span title="Browse search result for 'at1g0070'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                                 </a>
@@ -272,68 +274,68 @@
                                                 <td class="theme" bgcolor="#5499c9" align="center" height="24">Genome Annotation</td>
                                             </tr>
                                             <tr>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">wt leaf 1</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">WT</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">leaf</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Thomas et al. Plant Cell, 2012</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">TAIR 10</td>
+                                                <td>Arabidopsis thanliana</td>
+                                                <td>wt leaf 1</td>
+                                                <td>WT</td>
+                                                <td>leaf</td>
+                                                <td>Thomas et al. Plant Cell, 2012</td>
+                                                <td>TAIR 10</td>
                                             </tr>
                                             <tr>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">wt leaf 2</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">WT</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">leaf</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Wu et al. PNAS, 2012</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">TAIR 10</td>
+                                                <td>Arabidopsis thanliana</td>
+                                                <td>wt leaf 2</td>
+                                                <td>WT</td>
+                                                <td>leaf</td>
+                                                <td>Wu et al. PNAS, 2012</td>
+                                                <td>TAIR 10</td>
                                             </tr>
                                             <tr>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">wt leaf 3</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">WT</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">leaf</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Thomas et al. Plant Cell, 2012</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">TAIR 10</td>
+                                                <td>Arabidopsis thanliana</td>
+                                                <td>wt leaf 3</td>
+                                                <td>WT</td>
+                                                <td>leaf</td>
+                                                <td>Thomas et al. Plant Cell, 2012</td>
+                                                <td>TAIR 10</td>
                                             </tr>
                                             <tr>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">wt seed 1</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">WT</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">seed</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Thomas et al. Plant Cell, 2012</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">TAIR 10</td>
+                                                <td>Arabidopsis thanliana</td>
+                                                <td>wt seed 1</td>
+                                                <td>WT</td>
+                                                <td>seed</td>
+                                                <td>Thomas et al. Plant Cell, 2012</td>
+                                                <td>TAIR 10</td>
                                             </tr>
                                             <tr>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">wt seed 2</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">WT</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">seed</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Wu et al. PNAS, 2012</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">TAIR 10</td>
+                                                <td>Arabidopsis thanliana</td>
+                                                <td>wt seed 2</td>
+                                                <td>WT</td>
+                                                <td>seed</td>
+                                                <td>Wu et al. PNAS, 2012</td>
+                                                <td>TAIR 10</td>
                                             </tr>
                                             <tr>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">wt root 1</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">WT</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">root</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Liu et al. PloS, 2014</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">TAIR 10</td>
+                                                <td>Arabidopsis thanliana</td>
+                                                <td>wt root 1</td>
+                                                <td>WT</td>
+                                                <td>root</td>
+                                                <td>Liu et al. PloS, 2014</td>
+                                                <td>TAIR 10</td>
                                             </tr>
                                             <tr>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">wt root 2</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">WT</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">root</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Liu et al. PloS, 2014</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">TAIR 10</td>
+                                                <td>Arabidopsis thanliana</td>
+                                                <td>wt root 2</td>
+                                                <td>WT</td>
+                                                <td>root</td>
+                                                <td>Liu et al. PloS, 2014</td>
+                                                <td>TAIR 10</td>
                                             </tr>
                                             <tr>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Arabidopsis thanliana</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">wt root 3</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">WT</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">root</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Liu et al. PloS, 2014</td>
-                                                <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">TAIR 10</td>
+                                                <td>Arabidopsis thanliana</td>
+                                                <td>wt root 3</td>
+                                                <td>WT</td>
+                                                <td>root</td>
+                                                <td>Liu et al. PloS, 2014</td>
+                                                <td>TAIR 10</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -343,18 +345,18 @@
                                 </td>
                         </tr>
                         <tr>
-                           <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Oryza sativa</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">1</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">32657</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">57852</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">poly(A) sites extracted from ESTs</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Shen et al. Nucleic Acids Res, 2008</td>                     
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
+                           <td>Oryza sativa</td>
+                            <td>1</td>
+                            <td>32657</td>
+                            <td>57852</td>
+                            <td>poly(A) sites extracted from ESTs</td>
+                            <td>Shen et al. Nucleic Acids Res, 2008</td>                     
+                            <td>
                                 <a target="_blank" href="../jbrowse/?data=data/arabidopsis">
                                     <span title="Browse polyA sites in Jbrowse" style="background-color:#0066cc;color: #FFFFFF">Chr</span>
                                 </a>
                             </td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
+                            <td>
                                 <a target="_blank" href="./search_result.php?keyword=at1g0070">
                                     <span title="Browse search result for 'at1g0070'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                                 </a>
@@ -377,12 +379,12 @@
                                             <td class="theme" bgcolor="#5499c9" align="center" height="24">Genome Annotation</td>
                                         </tr>
                                         <tr>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Oryza sativa</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">from EST</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">mix</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">mix</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">shen et al. Plant Cell, 2012</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">TAIR 10</td>
+                                            <td>Oryza sativa</td>
+                                            <td>from EST</td>
+                                            <td>mix</td>
+                                            <td>mix</td>
+                                            <td>shen et al. Plant Cell, 2012</td>
+                                            <td>TAIR 10</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -392,18 +394,18 @@
                         </td>
                         </tr>
                         <tr>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Medicago truncatula</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">1</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">42691</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">2747920</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">poly(A) sites from leaf tissue by poly(A) tag sequencing</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Wu et al. BMC Genomics, 2014</td>                     
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
+                            <td>Medicago truncatula</td>
+                            <td>1</td>
+                            <td>42691</td>
+                            <td>2747920</td>
+                            <td>poly(A) sites from leaf tissue by poly(A) tag sequencing</td>
+                            <td>Wu et al. BMC Genomics, 2014</td>                     
+                            <td>
                                 <a target="_blank" href="../jbrowse/?data=data/arabidopsis">
                                     <span title="Browse polyA sites in Jbrowse" style="background-color:#0066cc;color: #FFFFFF">Chr</span>
                                 </a>
                             </td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
+                            <td>
                                 <a target="_blank" href="./search_result.php?keyword=at1g0070">
                                     <span title="Browse search result for 'at1g0070'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                                 </a>
@@ -426,12 +428,12 @@
                                             <td class="theme" bgcolor="#5499c9" align="center" height="24">Genome Annotation</td>
                                         </tr>
                                         <tr>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Medicago truncatula</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">wt leaf</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">WT</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">leaf</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Wu et al. BMC Genomics, 2014</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">JCVI Medtr v4</td>
+                                            <td>Medicago truncatula</td>
+                                            <td>wt leaf</td>
+                                            <td>WT</td>
+                                            <td>leaf</td>
+                                            <td>Wu et al. BMC Genomics, 2014</td>
+                                            <td>JCVI Medtr v4</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -441,18 +443,18 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Chlamydomonas reinhardtii</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">3</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">39295</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">1002767</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">poly(A) sites extracted from ESTs, 454, and Illumina sequence reads</td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>                     
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
+                            <td>Chlamydomonas reinhardtii</td>
+                            <td>3</td>
+                            <td>39295</td>
+                            <td>1002767</td>
+                            <td>poly(A) sites extracted from ESTs, 454, and Illumina sequence reads</td>
+                            <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>                     
+                            <td>
                                 <a target="_blank" href="../jbrowse/?data=data/arabidopsis">
                                     <span title="Browse polyA sites in Jbrowse" style="background-color:#0066cc;color: #FFFFFF">Chr</span>
                                 </a>
                             </td>
-                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
+                            <td>
                                 <a target="_blank" href="./search_result.php?keyword=at1g0070">
                                     <span title="Browse search result for 'at1g0070'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                                 </a>
@@ -476,28 +478,28 @@
                                             <td class="theme" bgcolor="#5499c9" align="center" height="24">Genome Annotation</td>
                                         </tr>
                                         <tr>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Chlamydomonas reinhardtii</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">from illumina</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">mix</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">mix</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Creinhardtii 281 v55</td>
+                                            <td>Chlamydomonas reinhardtii</td>
+                                            <td>from illumina</td>
+                                            <td>mix</td>
+                                            <td>mix</td>
+                                            <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
+                                            <td>Creinhardtii 281 v55</td>
                                         </tr>
                                         <tr>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Chlamydomonas reinhardtii</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">from 454</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">mix</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">mix</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Creinhardtii 281 v55</td>
+                                            <td>Chlamydomonas reinhardtii</td>
+                                            <td>from 454</td>
+                                            <td>mix</td>
+                                            <td>mix</td>
+                                            <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
+                                            <td>Creinhardtii 281 v55</td>
                                         </tr>
                                         <tr>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Chlamydomonas reinhardtii</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">from EST</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">mix</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">mix</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
-                                            <td class="style1" style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">Creinhardtii 281 v55</td>
+                                            <td>Chlamydomonas reinhardtii</td>
+                                            <td>from EST</td>
+                                            <td>mix</td>
+                                            <td>mix</td>
+                                            <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
+                                            <td>Creinhardtii 281 v55</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -509,7 +511,7 @@
                         <tr>
                     </tbody>
                 </table><br>
-            </div>
+            </fieldset> 
         </div>
         <div class="bottom">
         <?php

@@ -109,113 +109,112 @@ and open the template in the editor.
                     </div>
                 </dialog>
             </div>
-
         </script>
-        <style>
-            fieldset{
-                border-color: #5499c9 !important;
-                border-style: solid !important;
-                border-width: 2px !important;
-                padding: 5px 10px !important;
-            }    
-        </style>
     </head>
     <body>
-        <div style="width: 100%;margin:0 auto;" class="page">
+        
             <?php
                 include "./navbar.php";
                  $_SESSION['tmp']=date("Y").date("m").date("d").date("h").date("i").date("s");
             ?>
-            <fieldset style="margin-top: 20px;margin-left: 10%;width: 80%;">
+        <div class="ym-wrapper">
+            <fieldset >
                 <legend>
-                    <span class="h3_italic">
+                    <h4>
                         <font color="#224055"><b>STEP 1</b>:Select file(s) type</font>
-                    </span>
+                    </h4>
                 </legend>
-                <input type='radio' name='upload_method' value='upload' checked="true" onclick="SltFileType()"/>Sequence
-                <input type='radio' name='upload_method' value='upload_polya' onclick="SltFileType()"/>PolyA Site
+                <div class="box info ym-form">
+                    <input type='radio' name='upload_method' value='upload' checked="true" onclick="SltFileType()"/>Sequence
+                    <input type='radio' name='upload_method' value='upload_polya' onclick="SltFileType()"/>PolyA Site
+                </div>
             </fieldset>
             <div class="upload" id='upload'>
-                <form id="upload" action="upload_data.php" method="post">
-                    <fieldset style="margin-top: 20px;margin-left: 10%;width: 80%;">
+                <form id="upload" class="ym-form" action="upload_data.php" method="post">
+                    <fieldset>
                         <legend>
-                            <span class="h3_italic">
+                            <h4>
                                 <font color="#224055"><b>STEP 2</b>:Upload file(s)</font>
-                            </span>
+                            </h4>
                         </legend>
-                        <label title="Select species" for="species">Select species here:</label>
-                        <select id="species" name="species">
-                            <option value="arab" selected="selected">Arabidopsis thaliana</option>
-                             <option value="japonica">Japonica rice</option>
-                            <option value="mtr">Medicago truncatula</option>
-                            <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
-                        </select>
-                        <input type="checkbox" id="sys_example" name="sys_example" style="margin-left:20px;">Use system example
-
-                    <ul id="foobar"></ul>
-                    <div id="examples">
-                        <div class="example">
-                            <ul id="manual-example" class="unstyled"></ul>
-                            <button type="button" id="triggerUpload" class="btn btn-primary">Upload Queued Files</button>
+                        <div class="box info">
+                            <label title="Select species" for="species">Select species here:</label>
+                            <select id="species" name="species">
+                                <option value="arab" selected="selected">Arabidopsis thaliana</option>
+                                 <option value="japonica">Japonica rice</option>
+                                <option value="mtr">Medicago truncatula</option>
+                                <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
+                            </select>
+                            <input type="checkbox" id="sys_example" name="sys_example" style="margin-left:20px;">Use system example
+                            <ul id="foobar"></ul>
+                            <div id="examples">
+                                <div class="example">
+                                    <ul id="manual-example" class="unstyled"></ul>
+                                    <button type="button" id="triggerUpload" class="btn btn-primary">Upload Queued Files</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
                     </fieldset>
 
-                    <fieldset style="margin-top: 20px;margin-left: 10%;width: 80%;">
+                    <fieldset style="margin-top: 20px;">
                         <legend>
-                            <span class="h3_italic">
+                            <h4>
                                 <font color="#224055"><b>STEP 3</b>:Additional options</font>
-                            </span>
+                            </h4>
                         </legend>
-                        <font color="#224055" style="font-weight:100;"><b>1. quality filter
-                        <br>
-                        Quality cut-off: <input type="text" name="qct" value="20" size="1" style="margin-left: 2%;margin-right:10%;height:30px;"/>
-                        Minimum percentage: <input type="text" name="mp" value="50" size="1" style="margin-left:2%;height:30px;"/>
-                        <br><br>
-                            2. remove poly(A/T) tail
-                        <br>
-                        Poly type:<select id="tailremove" name="tailremove" style="margin-left:6%;margin-right: 10%;height:30px;width:210px;">
-                                            <option value="A">A</option>
-                                            <option value="T">T</option>
-                                            <option value="unknown">unknown</option>
-                                            </select>
-                            Min length: <input type="text" name="minlength" value="25" size="1" style="margin-left: 8.5%;height:30px;width:210px;"/>
-                        <br><br>
-                             3. read mapping
-                        <br>
-                            Aligner: <select id="aligner" name="aligner" style="margin-left: 7%;height:30px;width:210px;">
-                                            <option value="bowtie2">bowtie2</option>
-                                            <option value="bowtie">bowtie</option>
-                                            </select>
-                        <br><br>
-                            4. remove internal priming
-                        <br>
-                            <input type="radio" name="rip" value="yes" checked="checked"/>YES
-                            <input type="radio" name="rip" value="no" style="margin-left:9%;margin-top: 5px;"/>NO
-                        <br><br>
-                            5. cluster PAT
-                        <br>
-                            distance: <input type="text" name="distance" value="24" size="1" style="margin-left: 6.5%;height:30px;width:210px;"/>
-                            </b></font>
+                        <div class="box info">
+                            <font color="#224055" style="font-weight:100;"><b>1. quality filter
+                            <br>
+                            Quality cut-off: <input type="text" name="qct" value="20" size="1" style="margin-left: 2%;margin-right:10%;height:30px;"/>
+                            Minimum percentage: <input type="text" name="mp" value="50" size="1" style="margin-left:2%;height:30px;"/>
+                            <br><br>
+                                2. remove poly(A/T) tail
+                            <br>
+                            Poly type:<select id="tailremove" name="tailremove" style="margin-left:6%;margin-right: 10%;height:30px;width:210px;">
+                                                <option value="A">A</option>
+                                                <option value="T">T</option>
+                                                <option value="unknown">unknown</option>
+                                                </select>
+                                Min length: <input type="text" name="minlength" value="25" size="1" style="margin-left: 8.5%;height:30px;width:210px;"/>
+                            <br><br>
+                                 3. read mapping
+                            <br>
+                                Aligner: <select id="aligner" name="aligner" style="margin-left: 7%;height:30px;width:210px;">
+                                                <option value="bowtie2">bowtie2</option>
+                                                <option value="bowtie">bowtie</option>
+                                                </select>
+                            <br><br>
+                                4. remove internal priming
+                            <br>
+                                <input type="radio" name="rip" value="yes" checked="checked"/>YES
+                                <input type="radio" name="rip" value="no" style="margin-left:9%;margin-top: 5px;"/>NO
+                            <br><br>
+                                5. cluster PAT
+                            <br>
+                                distance: <input type="text" name="distance" value="24" size="1" style="margin-left: 6.5%;height:30px;width:210px;"/>
+                                </b></font>
+                        </div>
                     </fieldset>
-                    <fieldset style="margin-top: 20px;margin-left: 10%;margin-bottom: 5px;width: 80%;">
+                    <fieldset >
                         <legend>
-                            <span class="h3_italic">
+                            <h4>
                                 <font color="#224055"><b>STEP 4</b>:Submit</font>
-                            </span>
+                            </h4>
                         </legend>
-                            <button type="submit" name="submit" value="submit" style="margin-left: 40%;">Submit</button>
-                            <button type="reset"    name="reset"    value="reset" style="margin-left: 10%">Reset</button>
+                        <div class="box info">
+                            <button type="submit" name="submit" value="submit" >Submit</button>
+                            <button type="reset"    name="reset"    value="reset" style="margin-left: 1%">Reset</button>
+                        </div>
                     </fieldset>
                 </form>
         </div>
         <div class="upload_polya" id='upload_polya' style='display: none'>
              <form id="upload" action="upload_polya.php" method="post">
-                <fieldset style="margin-top: 20px;margin-left: 10%;width: 80%;">
+                <fieldset>
                     <legend>
-                        <span class="h3_italic">
+                        <h4>
                             <font color="#224055"><b>STEP 2</b>:Upload file(s)</font>
-                        </span>
+                        </h4>
                     </legend>
                     <label title="Select species" for="species">Select species here:</label>
                     <select id="species" name="species">
@@ -232,14 +231,16 @@ and open the template in the editor.
                         </div>
                     </div>
                 </fieldset>
-                <fieldset style="margin-top: 20px;margin-left: 10%;margin-bottom: 5px;width: 80%;">
+                <fieldset style="margin-top: 20px;margin-bottom: 5px;">
                     <legend>
-                        <span class="h3_italic">
+                        <h4>
                             <font color="#224055"><b>STEP 4</b>:Submit</font>
-                        </span>
+                        </h4>
                     </legend>
-                        <button type="submit" name="submit" value="submit" style="margin-left: 40%;">Submit</button>
+                    <div class="box info">
+                        <button type="submit" name="submit" value="submit" style="margin-left: 10%;">Submit</button>
                         <button type="reset"    name="reset"    value="reset" style="margin-left: 10%">Reset</button>
+                    </div>
                 </fieldset>
             </form>
         </div>

@@ -19,17 +19,20 @@
         <?php
             include"navbar.php";
         ?>
-        <fieldset id="get_back" style="margin:20px auto;;clear:both;width: 50%;text-align: center;">
+        <div class="ym-wrapper">
+        <fieldset id="get_back" >
                     <legend style="text-align:left;">
-                        <span class="h3_italic">
+                        <h4>
                             <font color="#224055"><b>Search task</b>:Get your results back</font>
-                        </span>
+                        </h4>
                     </legend>
-                    <form method="post" id="getback" action="#">
-                        Task ID:&nbsp;&nbsp;
-                        <input name="getback" style="width: 40%;"/>
-                        <button type="submit">submit</button>
-                    </form>
+                    <div class="box info ym-form">
+                        <form method="post" id="getback" action="#">
+                            Task ID:&nbsp;&nbsp;
+                            <input name="getback" style="width: 40%;"/>
+                            <button type="submit">submit</button>
+                        </form>
+                    </div>
         </fieldset>
         <?php
             session_start();
@@ -138,6 +141,7 @@
                     </div>";
                 }
              ?>
+        </div>
        <div class="bottom">
         <?php
             include"footer.php";

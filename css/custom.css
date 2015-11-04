@@ -6,6 +6,7 @@ fieldset{
     border-style: solid !important;
     border-width: 2px !important;
     padding: 5px 10px !important;
+    margin-top: 20px;
 }
 .style1{
     font-size: 14px;
@@ -133,5 +134,18 @@ fieldset{
         padding:0;
     }
     #getback input{
-        width:68px;
+        width:100px;
+    }
+
+    .upload .ym-form label,.upload .ym-form select,.upload .ym-form  input{
+       display: inline; 
+       width: auto;
+    }
+    
+    .upload .ym-fbox{
+        padding:0;
+    }
+    #get_back input{
+        display: inline; 
+       width: auto;
     }
