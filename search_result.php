@@ -278,12 +278,12 @@
                                         }
                                     }
                                 </script>
-                            </div>
+                            
                         </form>
                </div>
             </fieldset>
             <br><br>
-            <div id="table"  style="width: 90%;overflow-x: auto;background-color: #fff;margin:auto;">
+            <div id="table"  style="overflow-x: auto;background-color: #fff;margin:auto;">
                 <table id="result" class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
                 <thead>
                     <tr>
@@ -325,6 +325,7 @@
                 </tbody>
                 </table>
             </div>
+        </div>
             <script>
                 $(document).ready(function(){
                     $('#result').dataTable({
@@ -333,7 +334,7 @@
                     });
                 });
             </script>
-        </div>
+        
         <div class="bottom">
         <?php
             include"footer.php";
