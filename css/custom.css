@@ -136,3 +136,12 @@ fieldset{
     #getback input{
         width:100px;
     }
+
+    .upload .ym-form label,.upload .ym-form select,.upload .ym-form  input{
+       display: inline; 
+       width: auto;
+    }
+    
+    .upload .ym-fbox{
+        padding:0;
+    }
