@@ -10,9 +10,6 @@
         <!-- Mobile viewport optimisation -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" type="text/css" href="js/wowslider/style.css" />
-        <script type="text/javascript" src="js/wowslider/jquery.js"></script>
-
         <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
         <!--[if lte IE 7]>
         <link href="./css/iehacks.min.css" rel="stylesheet" type="text/css" />
@@ -21,9 +18,6 @@
         <!--[if lt IE 9]>
         <script src="./js/html5shiv/html5shiv.js"></script>
         <![endif]-->
-
-        <!--<link rel="stylesheet" href="./src/font-awesome.min.css">-->
-        <!--<link rel="stylesheet" href="./src/example.css">-->
     
     </head>
     <body onload="getchr()">
@@ -32,31 +26,34 @@
             mysql_select_db("db_server",$con);
             include"navbar.php";
         ?>
+
         <script type="text/javascript">
+
         $(document).ready(function(){
+            
             $(".more1").click(function(){
-                $(".more1_content").slideToggle("slow");
+                $(".more1_content div,.more1_content").slideToggle("slow");
                 if($(".more1").text()=='More')
                     $(".more1").html("Close");
                 else
                     $(".more1").html("More");
             });
             $(".more2").click(function(){
-                $(".more2_content").slideToggle("slow");
+                $(".more2_content div,.more2_content").slideToggle("slow");
                 if($(".more2").text()=='More')
                     $(".more2").html("Close");
                 else
                     $(".more2").html("More");
             });
             $(".more3").click(function(){
-                $(".more3_content").slideToggle("slow");
+                $(".more3_content div,.more3_content").slideToggle("slow");
                 if($(".more3").text()=='More')
                     $(".more3").html("Close");
                 else
                     $(".more3").html("More");
             });
             $(".more4").click(function(){
-                $(".more4_content").slideToggle("slow");
+                $(".more4_content div,.more4_content").slideToggle("slow");
                 if($(".more4").text()=='More')
                     $(".more4").html("Close");
                 else
@@ -260,19 +257,23 @@
                                 <span class="more1" title="View more information about arabidopsis thanliana" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
                             </td>
                         </tr>
-                        <tr class="more1_content" style="display:none;">
-                                <td colspan="1" style="text-align:center;"></td>
-                                <td colspan="7" style="text-align:center;">
-                                    <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5499c9;width:100%;margin: 10px 2px;">
-                                        <tbody>
-                                            <tr class="theme">
-                                                <td class="theme" bgcolor="#5499c9" align="center" height="24">Species</td>
-                                                <td class="theme" bgcolor="#5499c9" align="center" height="24">Lable</td>
-                                                <td class="theme" bgcolor="#5499c9" align="center" height="24">Cell Line</td>
-                                                <td class="theme" bgcolor="#5499c9" align="center" height="24">Tissue</td>
-                                                <td class="theme" bgcolor="#5499c9" align="center" height="24">Reference</td>
-                                                <td class="theme" bgcolor="#5499c9" align="center" height="24">Genome Annotation</td>
+                        <tr  >
+                                
+                                <td class="more1_content" colspan="9" >
+                                    <div class="box info">
+                                    
+                                    <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5499c9;width:90%;margin: 10px 5%;">
+                                        <thead>
+                                            <tr class="theme" bgcolor="#5499c9">
+                                                <td class="theme"  height="24">Species</td>
+                                                <td class="theme"  height="24">Lable</td>
+                                                <td class="theme"  height="24">Cell Line</td>
+                                                <td class="theme"  height="24">Tissue</td>
+                                                <td class="theme"  height="24">Reference</td>
+                                                <td class="theme"  height="24">Genome Annotation</td>
                                             </tr>
+                                        </thead>
+                                        <tbody>
                                             <tr>
                                                 <td>Arabidopsis thanliana</td>
                                                 <td>wt leaf 1</td>
@@ -339,10 +340,21 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <img src='./pic/arab_PACs.png'/>
-                                    <img src='./pic/arab_PATs.png'/>
-                                    <br>Distributions of poly(A) site clusters (PACs) and poly(A) tags (PATs)
+                                    <div class="ym-grid " >
+                                        <div class="ym-g50 ym-gl">
+                                            <img src='./pic/arab_PACs.png'/>
+                                        </div>
+                                        <div class="ym-g50 ym-gr" >
+                                            <img src='./pic/arab_PATs.png'/>
+                                        </div>
+
+                                    </div>
+                                    <div class="ym-grid " >
+                                        <h5 class="center">Distributions of poly(A) site clusters (PACs) and poly(A) tags (PATs)</h5>
+                                    </div>
+                                </div>
                                 </td>
+                                
                         </tr>
                         <tr>
                            <td>Oryza sativa</td>
@@ -365,32 +377,40 @@
                                 <span class="more2" title="Browse search result for 'at1g0070'" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
                             </td>
                         </tr>
-                        <tr class="more2_content" style="display:none;">
-                            <td colspan="1" style="text-align:center;"></td>
-                            <td colspan="7" style="text-align:center;">
-                                <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5499c9;width:100%;margin: 10px 2px;">
-                                    <tbody>
-                                        <tr class="theme">
-                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Species</td>
-                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Lable</td>
-                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Cell Line</td>
-                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Tissue</td>
-                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Reference</td>
-                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Genome Annotation</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Oryza sativa</td>
-                                            <td>from EST</td>
-                                            <td>mix</td>
-                                            <td>mix</td>
-                                            <td>shen et al. Plant Cell, 2012</td>
-                                            <td>TAIR 10</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <img src='./pic/japonica_PACs.png'/>
-                                <img src='./pic/japonica_PATs.png'/>
-                                <br>Distributions of poly(A) site clusters (PACs) and poly(A) tags (PATs)
+                        <tr >
+                            
+                            <td class="more2_content" colspan="9" >
+                                <div  class="box info">
+                                    <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5499c9;width:100%;margin: 10px 2px;">
+                                        <tbody>
+                                            <tr class="theme">
+                                                <td class="theme" bgcolor="#5499c9" align="center" height="24">Species</td>
+                                                <td class="theme" bgcolor="#5499c9" align="center" height="24">Lable</td>
+                                                <td class="theme" bgcolor="#5499c9" align="center" height="24">Cell Line</td>
+                                                <td class="theme" bgcolor="#5499c9" align="center" height="24">Tissue</td>
+                                                <td class="theme" bgcolor="#5499c9" align="center" height="24">Reference</td>
+                                                <td class="theme" bgcolor="#5499c9" align="center" height="24">Genome Annotation</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Oryza sativa</td>
+                                                <td>from EST</td>
+                                                <td>mix</td>
+                                                <td>mix</td>
+                                                <td>shen et al. Plant Cell, 2012</td>
+                                                <td>TAIR 10</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="ym-grid " >
+                                        <div class="ym-g50 ym-gl">
+                                            <img src='./pic/japonica_PACs.png'/>
+                                        </div>
+                                        <div class="ym-g50 ym-gl">
+                                            <img src='./pic/japonica_PATs.png'/>
+                                        </div>
+                                    </div>
+                                    <h5 class="center">Distributions of poly(A) site clusters (PACs) and poly(A) tags (PATs)</h5>
+                                </div>
                         </td>
                         </tr>
                         <tr>
@@ -414,32 +434,42 @@
                                 <span class="more3" title="Browse search result for 'at1g0070'" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
                             </td>
                         </tr>
-                        <tr class="more3_content" style="display:none;">
-                            <td colspan="1" style="text-align:center;"></td>
-                            <td colspan="7" style="text-align:center;">
-                                <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5499c9;width:100%;margin: 10px 2px;">
-                                    <tbody>
-                                        <tr class="theme">
-                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Species</td>
-                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Lable</td>
-                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Cell Line</td>
-                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Tissue</td>
-                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Reference</td>
-                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Genome Annotation</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Medicago truncatula</td>
-                                            <td>wt leaf</td>
-                                            <td>WT</td>
-                                            <td>leaf</td>
-                                            <td>Wu et al. BMC Genomics, 2014</td>
-                                            <td>JCVI Medtr v4</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <img src='./pic/mtr_PACs.png'/>
-                                <img src='./pic/mtr_PATs.png'/>
-                                <br>Distributions of poly(A) site clusters (PACs) and poly(A) tags (PATs)
+                        <tr class="more3_content">
+                            
+                            <td colspan="9" >
+                                <div class="box info">
+                                    <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5499c9;width:100%;margin: 10px 2px;">
+                                        <tbody>
+                                            <tr class="theme" bgcolor="#5499c9">
+                                                <td class="theme"  height="24">Species</td>
+                                                <td class="theme"  height="24">Lable</td>
+                                                <td class="theme"  height="24">Cell Line</td>
+                                                <td class="theme"  height="24">Tissue</td>
+                                                <td class="theme"  height="24">Reference</td>
+                                                <td class="theme"  height="24">Genome Annotation</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Medicago truncatula</td>
+                                                <td>wt leaf</td>
+                                                <td>WT</td>
+                                                <td>leaf</td>
+                                                <td>Wu et al. BMC Genomics, 2014</td>
+                                                <td>JCVI Medtr v4</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="ym-grid " >
+                                        <div class="ym-g50 ym-gl">
+                                            <img src='./pic/mtr_PACs.png'/>
+                                        </div>
+                                        <div class="ym-g50 ym-gl">
+                                            <img src='./pic/mtr_PATs.png'/>
+                                        </div>
+                                        
+                                    </div> 
+                                    <div class="ym-grid">   
+                                        <h5 class="center">Distributions of poly(A) site clusters (PACs) and poly(A) tags (PATs)</h5>
+                                    </div>
                             </td>
                         </tr>
                         <tr>
@@ -464,48 +494,57 @@
                             </td>
                         </tr>
                         </tr>
-                        <tr class="more4_content" style="display:none;">
-                            <td colspan="1" style="text-align:center;"></td>
-                            <td colspan="7" style="text-align:center;">
-                                <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5499c9;width:100%;margin: 10px 2px;">
-                                    <tbody>
-                                        <tr class="theme">
-                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Species</td>
-                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Lable</td>
-                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Cell Line</td>
-                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Tissue</td>
-                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Reference</td>
-                                            <td class="theme" bgcolor="#5499c9" align="center" height="24">Genome Annotation</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Chlamydomonas reinhardtii</td>
-                                            <td>from illumina</td>
-                                            <td>mix</td>
-                                            <td>mix</td>
-                                            <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
-                                            <td>Creinhardtii 281 v55</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Chlamydomonas reinhardtii</td>
-                                            <td>from 454</td>
-                                            <td>mix</td>
-                                            <td>mix</td>
-                                            <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
-                                            <td>Creinhardtii 281 v55</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Chlamydomonas reinhardtii</td>
-                                            <td>from EST</td>
-                                            <td>mix</td>
-                                            <td>mix</td>
-                                            <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
-                                            <td>Creinhardtii 281 v55</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <img src='./pic/chlamy_PACs.png'/>
-                                <img src='./pic/chlamy_PATs.png'/>
-                                <br>Distributions of poly(A) site clusters (PACs) and poly(A) tags (PATs)
+                        <tr class="more4_content" >
+                            <td colspan="9">
+                                <div class="box info">
+                                    <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5499c9;width:100%;margin: 10px 2px;">
+                                        <tbody>
+                                            <tr class="theme" bgcolor="#5499c9">
+                                                <td class="theme"  height="24">Species</td>
+                                                <td class="theme"  height="24">Lable</td>
+                                                <td class="theme"  height="24">Cell Line</td>
+                                                <td class="theme"  height="24">Tissue</td>
+                                                <td class="theme"  height="24">Reference</td>
+                                                <td class="theme"  height="24">Genome Annotation</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Chlamydomonas reinhardtii</td>
+                                                <td>from illumina</td>
+                                                <td>mix</td>
+                                                <td>mix</td>
+                                                <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
+                                                <td>Creinhardtii 281 v55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Chlamydomonas reinhardtii</td>
+                                                <td>from 454</td>
+                                                <td>mix</td>
+                                                <td>mix</td>
+                                                <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
+                                                <td>Creinhardtii 281 v55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Chlamydomonas reinhardtii</td>
+                                                <td>from EST</td>
+                                                <td>mix</td>
+                                                <td>mix</td>
+                                                <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
+                                                <td>Creinhardtii 281 v55</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="ym-grid">
+                                        <div class="ym-g50 ym-gl">
+                                            <img src='./pic/chlamy_PACs.png'/>
+                                        </div>
+                                        <div class="ym-g50 ym-gl">
+                                            <img src='./pic/chlamy_PATs.png'/>
+                                        </div>
+                                    </div>
+                                    <div class="ym-grid">
+                                        <h5 class="center">Distributions of poly(A) site clusters (PACs) and poly(A) tags (PATs)</h3>
+                                    </div>        
+                                </div>
                             </td>
                         </tr>
                         <tr>

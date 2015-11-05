@@ -19,7 +19,7 @@ fieldset{
 .download{
 	border-style: dotted;
 	border-color: #366fa5;
-	width:80%;
+	width:100%;
 	margin: auto;
 }
 .download table{
@@ -148,4 +148,13 @@ fieldset{
     #get_back input{
         display: inline; 
        width: auto;
+    }
+    .more1_content,.more1_content div,.more2_content,.more2_content div,.more3_content,.more3_content div,.more4_content,.more4_content div{display: none;}
+    .more1_content img,.more2_content img,.more3_content img,.more4_content img{
+        width: 100%;
+        height: 286px;
+    }
+    .more1_content .ym-grid,.more2_content .ym-grid,.more3_content .ym-grid,.more4_content .ym-grid{
+        width:90%;
+        margin-left: 5%;
     }
