@@ -108,7 +108,7 @@ fieldset{
     .swiper-slide {
         color: black;
     }
-    .summary{
+/*    .summary{
                 border-color: #5499c9 !important;
                 border-style: solid !important;
                 border-width: 2px !important;
@@ -116,7 +116,7 @@ fieldset{
                 width:60%;
                 font-size: 15px;
                 font-family: 'Lato', sans-serif;
-    }
+    }*/
     .upload h3{
         margin: 0;
         color: #224055;

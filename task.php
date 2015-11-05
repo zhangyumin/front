@@ -61,12 +61,12 @@
             <?php
                 if(isset($_SESSION['file']))
                 {
-                    echo "<div id=\"task_summery\" align=\"center\" style=\"clear: both;margin:40px auto 40px auto;\">
-                                    <fieldset class=\"summary\">
+                    echo "<div id=\"task_summery\" >
+                                    <fieldset >
                                         <legend>
-                                            <span class=\"h3_italic\">
+                                            <h4>
                                                 <font color=\"#224055\"><b>Task Summary</b></font>
-                                            </span>
+                                            </h4>
                                         </legend>";
                     $file=  file_get_contents("./log/".$_SESSION['file'].".txt");
                     $array_file=  explode("\n", $file);
@@ -136,7 +136,9 @@
                     echo "&nbsp&nbspPAC : $pac<br>";
                     
              echo "<div style=\"position:relative;margin-left: 40%;\">
-                        <a href=\"show_result.php\" target=\"_blank\" style=\"text-decoration:none;\"><img style=\"width:34px;height:34px\" src=./pic/continue.png /><span style=\"color:black;font-weight: bold;font-size: 24px;bottom:0;position:absolute;bottom: 0;\">Continue</span></a>
+                        <a href=\"show_result.php\" target=\"_blank\" class=\"ym-button ym-next\">
+                        Continue
+                        </a>
                     </div>
                     </div>";
                 }

@@ -1,7 +1,7 @@
 <header>
   <div class="ym-wrapper">
     <div class="ym-wbox">
-      <h1>Project Name</h1>
+      <h1>PolyA Browser</h1>
     </div>
   </div>
 </header>
