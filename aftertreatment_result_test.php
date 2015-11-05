@@ -11,6 +11,9 @@
     <!--[if lt IE 9]>
         <script src="./js/html5shiv/html5shiv.js"></script>
         <![endif]-->
+     <script src="./src/jquery-1.10.1.min.js" type="text/javascript"></script>
+        <script src="./src/jquery.dataTables.min.js"type="text/javascript" ></script>
+        <link href="./src/jquery.dataTables.css"type="text/css" rel="stylesheet"></link>
     <?php
         session_start();
         $file=$_SESSION['file'];
@@ -91,13 +94,12 @@
         $con=  mysql_connect("localhost","root","root");
         mysql_select_db("db_server",$con);
         ?>
-    <div style="width: 100%;margin:0 auto;background-color: #ddddff;" class="page">
+    
         <?php
             include './navbar.php'
         ?>
-        <script src="./src/jquery-1.10.1.min.js" type="text/javascript"></script>
-        <script src="./src/jquery.dataTables.min.js"type="text/javascript" ></script>
-        <link href="./src/jquery.dataTables.css"type="text/css" rel="stylesheet"></link>
+    <div class="ym-wrapper">
+       
         <div id="task_summery" align="center" style="clear: both;color:#224055;font-size: 24px;margin: auto;">summary<br>
             <table style="border-top-style:dashed;border-right-style: dashed;border-left-style: dashed;border-bottom-style: dashed;font-size: 18px;width: 80%;" borderColor="#4a4a84" align=center>
                 <?php
@@ -181,6 +183,7 @@
     <?php
         include './wheelmenu.php';
         ?>
+    </div>
     <?php
         include './footer.php';
     ?>
