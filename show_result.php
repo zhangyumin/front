@@ -4,22 +4,22 @@
     <title>show results</title>
     <link href="./src/navbar.css" rel="stylesheet"/>
     <script src="./src/jquery-2.0.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
+    <!--[if lte IE 7]>
+    <link href="./css/iehacks.min.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+    <script src="./js/html5shiv/html5shiv.js"></script>
+    <![endif]-->
+        
     <?php
                 $con=  mysql_connect("localhost","root","root");
                  mysql_select_db("db_server",$con);
                  session_start();
-            ?>
-    <style>
-        .summary{
-                border-color: #5499c9 !important;
-                border-style: solid !important;
-                border-width: 2px !important;
-                padding: 5px 10px !important;
-                width:60%;
-                font-size: 15px;
-                font-family: 'Lato', sans-serif;
-        }
-    </style>
+    ?>
+
 </head>
 <body>
     <?php
@@ -88,11 +88,11 @@
     
     <div id="task_summery" align="center" style="clear: both;">
         <fieldset class="summary">
-            <legend>
+            <h4>
                 <span class="h3_italic">
                     <font color="#224055"><b>Task Summary</b></font>
                 </span>
-            </legend>
+            </h4>
                 <?php
                     $file=  file_get_contents("./log/".$_SESSION['file'].".txt");
                     $array_file=  explode("\n", $file);
