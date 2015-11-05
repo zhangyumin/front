@@ -7,8 +7,6 @@
         <script src="./src/jquery.slides.min.js"></script>
         <!-- Mobile viewport optimisation -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="js/wowslider/style.css" />
-        <script type="text/javascript" src="js/wowslider/jquery.js"></script>
         <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css" />
         <!--[if lte IE 7]>
             <link href="./css/iehacks.min.css" rel="stylesheet" type="text/css" />
@@ -81,7 +79,7 @@
                                    echo "<div class=\"ym-grid ym-fbox\">
                                             <div class=\"ym-g33 ym-gl\">
                                                 <label for=\"chr\" style=\"margin: 0 1%\">in</label>
-                                                <select id=\"chr\" name=\"chr\" style=\"width:6%\">
+                                                <select id=\"chr\" name=\"chr\" style=\"width:80%\">
                                                       <option value=\"all\" selected=\"selected\">All</option>
                                                 </select>
                                             </div>

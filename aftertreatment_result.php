@@ -2,7 +2,15 @@
 <head>
     <meta charset="utf-8">
     <title>Aftertreatment Result</title>
-    <link href="./src/navbar.css" rel="stylesheet"/>
+    <!-- Mobile viewport optimisation -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css" />
+    <!--[if lte IE 7]>
+        <link href="./css/iehacks.min.css" rel="stylesheet" type="text/css" />
+        <![endif]-->
+    <!--[if lt IE 9]>
+        <script src="./js/html5shiv/html5shiv.js"></script>
+        <![endif]-->
     <?php
          if($_POST['chr'])
         {
