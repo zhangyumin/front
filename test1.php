@@ -29,6 +29,7 @@ $(document).ready(function(){
 });
 function update_page(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
 //    alert(json.one+json.two);
+        alert("successful");
 } 
 </script>
 <div id='all'>
