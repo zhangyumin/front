@@ -44,6 +44,61 @@
         <?php
             include"navbar.php";
         ?>
+        <script>  
+        $(document).ready(function(){  
+                 $('#degene-submit').click(function (){
+                    var params = $('input,textarea,select').serialize(); //序列化表单的值
+//                    console.log(params);
+//                    alert(params);
+                    $.ajax({  
+                        url:'aftertreatment.php?method=degene', //后台处理程序  
+                        type:'post',       //数据传送方式  
+                        dataType:'json',   //接受数据格式  
+                        data:params,       //要传送的数据  
+                        success:update_page//回传函数(这里是函数名字)  
+                    });  
+                 });
+                 $('#depac-submit').click(function (){
+                    var params = $('input,textarea,select').serialize(); //序列化表单的值
+//                    console.log(params);
+//                    alert(params);
+                    $.ajax({  
+                        url:'aftertreatment.php?method=depac', //后台处理程序  
+                        type:'post',       //数据传送方式  
+                        dataType:'json',   //接受数据格式  
+                        data:params,       //要传送的数据  
+                        success:update_page//回传函数(这里是函数名字)  
+                    });  
+                 });
+                 $('#only3utr-submit').click(function (){
+                    var params = $('input,textarea,select').serialize(); //序列化表单的值
+//                    console.log(params);
+//                    alert(params);
+                    $.ajax({  
+                        url:'aftertreatment.php?method=only3utr', //后台处理程序  
+                        type:'post',       //数据传送方式  
+                        dataType:'json',   //接受数据格式  
+                        data:params,       //要传送的数据  
+                        success:update_page//回传函数(这里是函数名字)  
+                    });  
+                 });
+                 $('#degene-submit').click(function (){
+                    var params = $('input,textarea,select').serialize(); //序列化表单的值
+//                    console.log(params);
+//                    alert(params);
+                    $.ajax({  
+                        url:'aftertreatment.php?method=none3utr', //后台处理程序  
+                        type:'post',       //数据传送方式  
+                        dataType:'json',   //接受数据格式  
+                        data:params,       //要传送的数据  
+                        success:update_page//回传函数(这里是函数名字)  
+                    });  
+                 });
+        });
+        function update_page(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
+            window.location.href="aftertreatment_result_test.php?result=degene"
+        } 
+        </script>
     <div class="ym-wrapper">
        <fieldset style="margin: 50px auto 50px auto ;width: 95%;">
             <legend>
@@ -87,27 +142,27 @@
                            }
                         ?>
                         <div class="ym-g33 ym-gl">
-                            <label for="start" style="margin:0 1%;"> from</label>
-                            <input type="text" name="start" style="width:40%">
+                            <label for="start"style="margin:0 1%;"> from</label>
+                            <input type="text" id='start' name="start" style="width:40%">
                             <label for="end" style="margin:0 1%;"> to</label>
-                            <input type="text" name="end"style="width:40%">
+                            <input type="text" id='end' name="end"style="width:40%">
                         </div>
                     </div>
                     <div class="ym-grid ym-fbox">
                         <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
-                        <textarea style="width:100%" name="gene_id"></textarea>
+                        <textarea style="width:100%" name="gene_id" id='gene_id'></textarea>
                     </div>
                     <div class="ym-grid ym-fbox">
                         <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
-                        <textarea style="width:100%" name='go_accession'></textarea>
+                        <textarea style="width:100%" name='go_accession' id='go_accession'></textarea>
                     </div>
                     <div class="ym-grid ym-fbox">
                         <label for="go_name" >Go term name:</label>
-                        <input type='text' name='go_name' class="ym-gr" style="width:89%;"/>
+                        <input type='text' name='go_name' class="ym-gr" id='go_name' style="width:89%;"/>
                     </div>
                     <div class="ym-grid ym-fbox">
                         <label for="function">Function:</label>
-                        <input type='text' name='function' class="ym-gr" style="width:89%;"/><br>
+                        <input type='text' name='function' id='function' class="ym-gr" style="width:89%;"/><br>
                     </div>
                 </div>
             </div>
@@ -263,12 +318,12 @@
                             <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="content-slide">
-                                    <form id="degene" method="post" class="ym-form" action="./aftertreatment.php?method=degene">
+                                    <div id="degene" class="ym-form">
                                         <div class="ym-grid ym-fbox">
                                             <div class="ym-g33 ym-gl">
                                                 <div class="ym-gbox-left">
                                                     <label for="nor_method">Normalization method</label>
-                                                    <select name="nor_method" id="nor_method">
+                                                    <select name="degene_nor_method" id="nor_method">
                                                           <option value='none' selected="true">None</option>
                                                           <option value='TPM'>TPM</option>
                                                           <option value='DESeq'>DESeq</option>
@@ -279,7 +334,7 @@
                                             <div class="ym-g33 ym-gl">
                                                 <div class="ym-gbox-left">
                                                     <label for="method">Method</label>
-                                                    <select name="method">
+                                                    <select name="degene_method">
                                                         <option value='EdgeR'>EdgeR</option>
                                                         <option value='DESeq'>DESeq</option>
                                                         <option value='DESeq2'>DESeq2</option>
@@ -288,20 +343,20 @@
                                             </div>
                                             <div class="ym-g33 ym-gl">
                                                 <label for="min_pat">Min PAT</label>
-                                                <input type='text' name='min_pat' value='5'/>
+                                                <input type='text' name='degene_min_pat' value='5'/>
                                             </div>
                                         </div>
                                             <div class="ym-grid ym-fbox">
                                                 <div class="ym-g50 ym-gl">
                                                     <label for="multi_test">Multi-test adjustment method</label>
-                                                    <select name="multi_test">
+                                                    <select name="degene_multi_test">
                                                         <option value='Bonferroni' selected="true">Bonferroni</option>
                                                         <option value='Not'>Not adjust</option>
                                                    </select>
                                                 </div>
                                                 <div class="ym-g50 ym-gl">
                                                     <label for="sig">Significance Level</label>
-                                                    <select name="sig">
+                                                    <select name="degene_sig">
                                                         <option value='0.01'>0.01</option>
                                                         <option value='0.05' selected="true">0.05</option>
                                                         <option value='0.1'>0.1</option>
@@ -309,15 +364,15 @@
                                                 </div>
                                             </div>
                                             <div class="ym-grid ym-fbox">
-                                                <button onclick="degene()">submit</button>
+                                                <button id='degene-submit'>submit</button>
                                                 <button type="reset">reset</button>
                                             </div>
-                                    </form>
+                                    </div>
                               </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="content-slide">
-                                    <form id="depac" method="post" class="ym-form" action="./aftertreatment.php?method=depac">
+                                    <div id="depac" method="post" class="ym-form" action="./aftertreatment.php?method=depac">
                                         <div class="ym-grid ym-fbox">
                                             <div class="ym-g33 ym-gl">
                                                 <div class="ym-gbox-left">
@@ -332,28 +387,28 @@
                                             </div>
                                             <div class="ym-g33 ym-gl">
                                                 <div class="ym-gbox-left">
-                                                    <label for="method">Method</label>
-                                                    <select name="method">
+                                                    <label for="depac_method">Method</label>
+                                                    <select name="depac_method">
                                                             <option value='DEXSEQ'>DEXSEQ</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="ym-g33 ym-gl">
-                                                <label for="depacmin_pat">Min PAT</label>
-                                                <input type='text' name='depacmin_pat' value='5'/>
+                                                <label for="depac_min_pat">Min PAT</label>
+                                                <input type='text' name='depac_min_pat' value='5'/>
                                             </div>
                                         </div>
                                         <div class="ym-grid ym-fbox">
                                             <div class="ym-g50 ym-gl">
-                                                <label for="multi_test">Multi-test adjustment method</label>
-                                                <select name="multi_test">
+                                                <label for="depac_multi_test">Multi-test adjustment method</label>
+                                                <select name="depac_multi_test">
                                                     <option value='Bonferroni' selected="true">Bonferroni</option>
                                                     <option value='Not'>Not adjust</option>
                                                 </select>
                                             </div>
                                             <div class="ym-g50 ym-gl">
-                                                <label for="sig">Significance Level</label>
-                                                <select name="sig">
+                                                <label for="depac_sig">Significance Level</label>
+                                                <select name="depac_sig">
                                                     <option value='0.01'>0.01</option>
                                                     <option value='0.05' selected="true">0.05</option>
                                                     <option value='0.1'>0.1</option>
@@ -361,15 +416,15 @@
                                             </div>
                                         </div>
                                         <div class="ym-grid ym-fbox">
-                                            <button onclick="depac()">submit</button>
+                                            <button id='depac-submit'>submit</button>
                                             <button type="reset">reset</button>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                               </div>
                             <div class="swiper-slide">
                                 <div class="content-slide">
-                                        <form id="only3utr-form" class="ym-form" method="post" action="./aftertreatment.php?method=only3utr">
+                                        <div id="only3utr-form" class="ym-form" method="post" action="./aftertreatment.php?method=only3utr">
                                             <div class="ym-grid ym-fbox">
                                                 <label for="sgminpat">Min PAT</label>
                                                 <input type='text' value='5' name="sgminpat"/>
@@ -382,161 +437,23 @@
                                                 </select>
                                             </div>
                                             <div class="ym-grid ym-fbox">
-                                                <label for="sig">Significance Level</label>
-                                                <select name="sig">
+                                                <label for="only3utr_sig">Significance Level</label>
+                                                <select name="only3utr_sig">
                                                     <option value="0.01"/>0.01
                                                     <option checked='true' value="0.05"/>0.05
                                                     <option value="0.1"/>0.1
                                                 </select>
                                             </div>
                                             <div class="ym-grid ym-fbox">
-                                                <button onclick="only3utr()">submit</button>
+                                                <button id='only3utr-submit'>submit</button>
                                                 <button type="reset">reset</button>
                                             </div>
-                                        </form>
-                                        
-                                    <script>
-                                        <?php
-                                            $arr_arab=array();
-                                            $arr_japonica=array();
-                                            $arr_mtr=array();
-                                            $arr_chlamy=array();
-                                            echo "var chr=[";
-                                            //arabidopsis
-                                            $arab_sql=mysql_query("select distinct chr from t_arab_gff;");
-                                            $i=0;
-                                            while($arab_row=  mysql_fetch_row($arab_sql)){
-                                                array_push($arr_arab, $arab_row[0]);
-                                            }
-                                            echo "[\"";
-                                            foreach ($arr_arab as $key => $value) {
-                                                if($key!=  count($arr_arab)-1)
-                                                    echo $value."\",\"";
-                                                else
-                                                    echo $value;
-                                            }
-                                            echo "\"],";
-                                            //japonica
-                                            $arab_sql=mysql_query("select distinct chr from t_japonica_gff;");
-                                            $i=0;
-                                            while($arab_row=  mysql_fetch_row($arab_sql)){
-                                                array_push($arr_japonica, $arab_row[0]);
-                                            }
-                                            echo "[\"";
-                                            foreach ($arr_japonica as $key => $value) {
-                                                if($key!=  count($arr_japonica)-1)
-                                                    echo $value."\",\"";
-                                                else
-                                                    echo $value;
-                                            }
-                                            echo "\"],";
-                                            //mtr
-                                            $arab_sql=mysql_query("select distinct chr from t_mtr_gff;");
-                                            $i=0;
-                                            while($arab_row=  mysql_fetch_row($arab_sql)){
-                                                array_push($arr_mtr, $arab_row[0]);
-                                            }
-                                            echo "[\"";
-                                            foreach ($arr_mtr as $key => $value) {
-                                                if($key!=  count($arr_mtr)-1)
-                                                    echo $value."\",\"";
-                                                else
-                                                    echo $value;
-                                            }
-                                            echo "\"],";
-                                            //chlamy
-                                            $arab_sql=mysql_query("select distinct chr from t_chlamy_gff;");
-                                            $i=0;
-                                            while($arab_row=  mysql_fetch_row($arab_sql)){
-                                                array_push($arr_chlamy, $arab_row[0]);
-                                            }
-                                            echo "[\"";
-                                            foreach ($arr_chlamy as $key => $value) {
-                                                if($key!=  count($arr_chlamy)-1)
-                                                    echo $value."\",\"";
-                                                else
-                                                    echo $value;
-                                            }
-                                            echo "\"]";
-                                            echo "];";
-                                        ?>
-                                        <?php
-                                        if(!isset($_SESSION['file'])){
-                                            echo "function getchr(){
-                                                        var sltSpecies=document.getElementById(\"species\");
-                                                        var sltChr=document.getElementById(\"chr\");
-                                                        var speciesChr=chr[sltSpecies.selectedIndex];
-                                                        sltChr.length=1;
-                                                        for(var i=0;i<speciesChr.length;i++){
-                                                            sltChr[i+1]=new Option(speciesChr[i],speciesChr[i]);
-                                                        }
-                                                    }";   
-                                        }
-                                        ?>
-                                        function userchr(a){
-                                            var sltChr=document.getElementById("chr");
-                                            var speciesChr=chr[a];
-                                            for(var i=0;i<speciesChr.length;i++){
-                                                sltChr[i+1]=new Option(speciesChr[i],speciesChr[i]);
-                                            }
-                                        }
-                                        function degene(){
-                                            $('#search').appendTo('#degene');
-                                            $('#degene').submit();
-                                        }
-                                        function depac(){
-                                            $('#search').appendTo('#depac');
-                                            $('#depac').submit();
-                                        }
-                                        function only3utr(){
-                                            $('#search').appendTo('#only3utr-form');
-                                            $('#only3utr').submit();
-                                        }
-                                        function none3utr(){
-                                            $('#search').appendTo('#none3utr-form');
-                                            $('#none3utr').submit();
-                                        }
-                                        function div_option(t)
-                                        {
-                                            for(var i=1;i<t.length;i++)
-                                            {
-                                                document.getElementById(t.options[i].value).style.display="none";
-                                            }
-                                            if(t.value!="choose")
-                                            {
-                                                document.getElementById(t.value).style.display="block";
-                                             }   
-                                        }
-                                        function div_option2(a){
-                                            var t=a.options[a.selectedIndex].value;
-                                            var t1=t+"1";
-                                            var t2=t+"2";
-                                            var a1=document.getElementById(t1);
-                                            var a2=document.getElementById(t2);
-                                            for(var i=0;i<a.length;i++)
-                                            {
-                                                var x=a.options[i].value;
-                                                var x1=x+"1";
-                                                var x2=x+"2";
-                                                document.getElementById(x1).style.display='none';
-                                                document.getElementById(x2).style.display='none';
-                                            }
-                                            if(a1.value!="choose")
-                                            {
-                                                a1.style.display="block";
-                                                a2.style.display="block";
-                                             }   
-                                        }
-                                        function ClickOption(obj,id){
-                                            var O = document.getElementById(id);
-                                            O.disabled=obj.checked;
-                                            }
-                                    </script>
+                                        </div>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="content-slide">
-                                    <form id="none3utr-form" method="post" class="ym-form" action="./aftertreatment.php?method=none3utr">
+                                    <div id="none3utr-form" method="post" class="ym-form" action="./aftertreatment.php?method=none3utr">
                                         <div class="ym-grid ym-fbox">
                                             <label for="sgnm">Normalization method</label>
                                             <select id="sgnm">
@@ -570,10 +487,10 @@
                                             <input type="text" value="2" name="minpat6"/>
                                         </div>
                                         <div class="ym-grid ym-fbox">
-                                            <button onclick="none3utr()">submit</button>
+                                            <button id='none3utr-submit'>submit</button>
                                             <button type="reset">reset</button>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                           </div>
@@ -581,7 +498,127 @@
                     </div>
                 </div>
             </div>
+           
             <script>
+                <?php
+                    $arr_arab=array();
+                    $arr_japonica=array();
+                    $arr_mtr=array();
+                    $arr_chlamy=array();
+                    echo "var chr=[";
+                    //arabidopsis
+                    $arab_sql=mysql_query("select distinct chr from t_arab_gff;");
+                    $i=0;
+                    while($arab_row=  mysql_fetch_row($arab_sql)){
+                        array_push($arr_arab, $arab_row[0]);
+                    }
+                    echo "[\"";
+                    foreach ($arr_arab as $key => $value) {
+                        if($key!=  count($arr_arab)-1)
+                            echo $value."\",\"";
+                        else
+                            echo $value;
+                    }
+                    echo "\"],";
+                    //japonica
+                    $arab_sql=mysql_query("select distinct chr from t_japonica_gff;");
+                    $i=0;
+                    while($arab_row=  mysql_fetch_row($arab_sql)){
+                        array_push($arr_japonica, $arab_row[0]);
+                    }
+                    echo "[\"";
+                    foreach ($arr_japonica as $key => $value) {
+                        if($key!=  count($arr_japonica)-1)
+                            echo $value."\",\"";
+                        else
+                            echo $value;
+                    }
+                    echo "\"],";
+                    //mtr
+                    $arab_sql=mysql_query("select distinct chr from t_mtr_gff;");
+                    $i=0;
+                    while($arab_row=  mysql_fetch_row($arab_sql)){
+                        array_push($arr_mtr, $arab_row[0]);
+                    }
+                    echo "[\"";
+                    foreach ($arr_mtr as $key => $value) {
+                        if($key!=  count($arr_mtr)-1)
+                            echo $value."\",\"";
+                        else
+                            echo $value;
+                    }
+                    echo "\"],";
+                    //chlamy
+                    $arab_sql=mysql_query("select distinct chr from t_chlamy_gff;");
+                    $i=0;
+                    while($arab_row=  mysql_fetch_row($arab_sql)){
+                        array_push($arr_chlamy, $arab_row[0]);
+                    }
+                    echo "[\"";
+                    foreach ($arr_chlamy as $key => $value) {
+                        if($key!=  count($arr_chlamy)-1)
+                            echo $value."\",\"";
+                        else
+                            echo $value;
+                    }
+                    echo "\"]";
+                    echo "];";
+                ?>
+                <?php
+                if(!isset($_SESSION['file'])){
+                    echo "function getchr(){
+                                var sltSpecies=document.getElementById(\"species\");
+                                var sltChr=document.getElementById(\"chr\");
+                                var speciesChr=chr[sltSpecies.selectedIndex];
+                                sltChr.length=1;
+                                for(var i=0;i<speciesChr.length;i++){
+                                    sltChr[i+1]=new Option(speciesChr[i],speciesChr[i]);
+                                }
+                            }";   
+                }
+                ?>
+                function userchr(a){
+                    var sltChr=document.getElementById("chr");
+                    var speciesChr=chr[a];
+                    for(var i=0;i<speciesChr.length;i++){
+                        sltChr[i+1]=new Option(speciesChr[i],speciesChr[i]);
+                    }
+                }
+                function div_option(t)
+                {
+                    for(var i=1;i<t.length;i++)
+                    {
+                        document.getElementById(t.options[i].value).style.display="none";
+                    }
+                    if(t.value!="choose")
+                    {
+                        document.getElementById(t.value).style.display="block";
+                     }   
+                }
+                function div_option2(a){
+                    var t=a.options[a.selectedIndex].value;
+                    var t1=t+"1";
+                    var t2=t+"2";
+                    var a1=document.getElementById(t1);
+                    var a2=document.getElementById(t2);
+                    for(var i=0;i<a.length;i++)
+                    {
+                        var x=a.options[i].value;
+                        var x1=x+"1";
+                        var x2=x+"2";
+                        document.getElementById(x1).style.display='none';
+                        document.getElementById(x2).style.display='none';
+                    }
+                    if(a1.value!="choose")
+                    {
+                        a1.style.display="block";
+                        a2.style.display="block";
+                     }   
+                }
+                function ClickOption(obj,id){
+                    var O = document.getElementById(id);
+                    O.disabled=obj.checked;
+                    }
                 var tabsSwiper = new Swiper('.swiper-container',{
                   speed:500,
                   onSlideChangeStart: function(){

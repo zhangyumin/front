@@ -278,15 +278,15 @@
     }
     if($_GET['method']=='degene'){
 //            echo "<script>alert('in it')</script>";
-        if($_POST['nor_method']=='none')
+        if($_POST['degene_nor_method']=='none')
             $donorm=NULL;
         else
-            $donorm=$_POST['nor_method'];
+            $donorm=$_POST['degene_nor_method'];
 //        echo $_POST['nor_method'];
-        $minpat=$_POST['min_pat'];
-        $method=$_POST['method'];
-        $sig=$_POST['sig'];
-        if($_POST['multi_test']=='Bonferroni')
+        $minpat=$_POST['degene_min_pat'];
+        $method=$_POST['degene_method'];
+        $sig=$_POST['degene_sig'];
+        if($_POST['degene_multi_test']=='Bonferroni')
             $Adj=1;
         else
             $Adj=0;
@@ -307,10 +307,10 @@
             $donorm=NULL;
         else
             $donorm=$_POST['depac_normethod'];
-        $method=$_POST['method'];
-        $minpat=$_POST['min_pat'];
-        $sig=$_POST['sig'];
-        if($_POST['multi_test']=='Bonferroni')
+        $method=$_POST['depac_method'];
+        $minpat=$_POST['depac_min_pat'];
+        $sig=$_POST['depac_sig'];
+        if($_POST['depac_multi_test']=='Bonferroni')
             $Adj=1;
         else
             $Adj=0;
@@ -325,7 +325,7 @@
                 $avgpat=$_POST['sgminpat'];
             else
                 $avgpat=0;
-            $sig=$_POST['sig'];
+            $sig=$_POST['only3utr_sig'];
             $_SESSION['sample']=  array_merge($_POST['sample1'],$_POST['sample2']);
             $sg_ocmd="Rscript /var/www/front/src/r/R_switch3UTR.r ofile='only3utr.".$_SESSION['file']."' adj=0 sig=$sig avgPAT=$avgpat path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['file']." cols='".implode(':',$_POST['sample1']).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml 2>&1";
             //echo $sg_ocmd;
