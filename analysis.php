@@ -55,7 +55,7 @@
                         type:'post',       //数据传送方式  
                         dataType:'json',   //接受数据格式  
                         data:params,       //要传送的数据  
-                        success:update_page//回传函数(这里是函数名字)  
+                        success:update_page1//回传函数(这里是函数名字)  
                     });  
                  });
                  $('#depac-submit').click(function (){
@@ -67,7 +67,7 @@
                         type:'post',       //数据传送方式  
                         dataType:'json',   //接受数据格式  
                         data:params,       //要传送的数据  
-                        success:update_page//回传函数(这里是函数名字)  
+                        success:update_page2//回传函数(这里是函数名字)  
                     });  
                  });
                  $('#only3utr-submit').click(function (){
@@ -79,10 +79,10 @@
                         type:'post',       //数据传送方式  
                         dataType:'json',   //接受数据格式  
                         data:params,       //要传送的数据  
-                        success:update_page//回传函数(这里是函数名字)  
+                        success:update_page3//回传函数(这里是函数名字)  
                     });  
                  });
-                 $('#degene-submit').click(function (){
+                 $('#none3utr-submit').click(function (){
                     var params = $('input,textarea,select').serialize(); //序列化表单的值
 //                    console.log(params);
 //                    alert(params);
@@ -91,13 +91,26 @@
                         type:'post',       //数据传送方式  
                         dataType:'json',   //接受数据格式  
                         data:params,       //要传送的数据  
-                        success:update_page//回传函数(这里是函数名字)  
+                        success:update_page4//回传函数(这里是函数名字)  
                     });  
                  });
         });
-        function update_page(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
-            window.location.href="aftertreatment_result_test.php?result=degene"
-        } 
+        function update_page1(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
+            window.location.href="aftertreatment_result_test.php?result=degene";
+//            alert("successful");
+        }
+        function update_page2(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
+            window.location.href="aftertreatment_result_test.php?result=depac";
+//            alert("successful");
+        }
+        function update_page3(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
+            window.location.href="aftertreatment_result_test.php?result=switchinggene_o";
+//            alert("successful");
+        }
+        function update_page4(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
+            window.location.href="aftertreatment_result_test.php?result=switchinggene_n";
+//            alert("successful");
+        }
         </script>
     <div class="ym-wrapper">
        <fieldset style="margin: 50px auto 50px auto ;width: 95%;">
