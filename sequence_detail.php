@@ -137,18 +137,20 @@
              $gene_end=$row[4];
          }
          //print_r($gene_name);
-        $b="select substring(seq,$gene_start,$gene_end-$gene_start) from db_server.t_".$species."_fa where title='$chr';";
-        //echo $b;
-        $seq_result=  mysql_query($b);
-        while($rows=mysql_fetch_row($seq_result))
-         {
-             //echo "in it";
-             $seq=$rows[0];
-         }
+//        $b="select substring(seq,$gene_start,$gene_end-$gene_start) from db_server.t_".$species."_fa where title='$chr';";
+//        //echo $b;
+//        $seq_result=  mysql_query($b);
+//        while($rows=mysql_fetch_row($seq_result))
+//         {
+//             //echo "in it";
+//             $seq=$rows[0];
+//         }
+         $seq=  file_get_contents("./seq/".$_GET['species']."/".strtoupper($_GET['seq']).".fa");
          if(strcmp($strand,-1)==0)//反转互补
          {
              $seq= strrev($seq);
              $seq_arr=str_split($seq);
+             array_shift($seq_arr);
              //$seq_arr=['G','A','T','C','G','T','A'];
              foreach ($seq_arr as &$value) {
                  if($value=='A')
@@ -163,6 +165,9 @@
                      $value='N';
              }
              $seq=  implode($seq_arr);
+         }
+         else{
+             $seq=substr($seq,0,strlen($seq)-1); 
          }
          $c="select * from db_server.t_".$species."_gff where gene like '$gene_name' ;";
          //echo $c;
