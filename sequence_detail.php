@@ -146,6 +146,17 @@
 //             $seq=$rows[0];
 //         }
          $seq=  file_get_contents("./seq/".$_GET['species']."/".strtoupper($_GET['seq']).".fa");
+         if($_GET['flag']=='intergenic'){
+             $coord=$_GET['coord'];
+             $coordL=$coord-200;
+             $seq_result=mysql_query("select substring(seq,$coordL,401) from db_server.t_".$species."_fa where title='$chr';");
+             while($rows=mysql_fetch_row($seq_result))
+             {
+                 //echo "in it";
+                 $seq=$rows[0];
+             }
+             echo strlen($seq);
+         }
          if(strcmp($strand,-1)==0)//反转互补
          {
              $seq= strrev($seq);
