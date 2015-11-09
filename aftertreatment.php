@@ -293,6 +293,7 @@
         $_SESSION['sample']=  array_merge($_POST['sample1'],$_POST['sample2']);
         $degene_cmd="Rscript /var/www/front/src/r/R_DEgene.r ofile='degene.".$_SESSION['file']."' method=$method adj=$Adj sig=$sig minpat=$minpat donorm=$donorm path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['file']." cols='".implode(':',$_POST['sample1'] ).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml >/dev/null &";
         //$degene_cmd="Rscript /var/www/html/front/src/r/R_pairDEgene.r minrep=1 minpat=5 donorm=0 path='/home/zym/data/' intbl=PAC_sys_arab10 cols='oxt6_leaf_1:oxt6_leaf_2;wt_leaf_1:wt_leaf_2' groups=sys:user conf=/var/www/html/front/db.xml 2>&1";
+//        echo $degene_cmd;
         if(count($_POST['sample1'])>=1&&count($_POST['sampe2']>=1))
         {
            shell_exec($degene_cmd);
