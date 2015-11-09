@@ -46,7 +46,7 @@ options(stringsAsFactors=F)
 #library(gtools)
 
 XMLDIR='/var/www/front/src/r/';     
-#TMPDIR='F:/script_out_2';  
+TMPDIR='/var/www/front/searched/';  
 RDIR='/var/www/front/src/r/'
 PERLEXE='perl'
 #PERLINFO='E:/sys/code/PAT/PAT_geneInfo.pl'
@@ -55,8 +55,13 @@ PERLEXE='perl'
 #PERLPAGFF='E:/sys/code/PAT/CMP_PA2Gff.pl'
 #RPAGFF="E:/sys/code/R/UTIL_plotPAGff.r"
 PERLSWITCH='/var/www/front/src/perl/CMP_switchGene.pl'
-#RICEJPCOLS="dry_seed1:dry_seed2:dry_seed3;embryo1:embryo2;endosperm1:endosperm2:endosperm3;imbibed_seed1:imbibed_seed2:imbibed_seed3;shoot1:shoot2:shoot3;leaf_20days1:leaf_20days2:leaf_20days3;leaf_60days1:leaf_60days2:leaf_60days3;stem_60days1:stem_60days2:stem_60days3;root_5days1:root_5days2:root_5days3;root_60days1:root_60days2:root_60days3;husk1:husk2:husk3;anther1:anther2:anther3;mature_pollen1:mature_pollen2:mature_pollen3;pistil1:pistil2:pistil3"
-#INDICACOLS="dry_seed1:dry_seed2:dry_seed3;embryo1:embryo2:embryo3;endosperm1:endosperm2:endosperm3;imbibed_seed1:imbibed_seed2:imbibed_seed3;shoot1:shoot2:shoot3;leaf_20days1:leaf_20days2:leaf_20days3;leaf_60days1:leaf_60days2:leaf_60days3;stem_60days1:stem_60days2:stem_60days3;root_5days1:root_5days2:root_5days3;root_60days1:root_60days2:root_60days3;husk1:husk2:husk3;anther1:anther2:anther3;mature_pollen1:mature_pollen2:mature_pollen3;pistil1:pistil2:pistil3"
+#PERLSCOREPROF="E:/sys/code/ATLAS/UTIL_scoreProfile.pl"
+#PERLRANDPAC="E:/sys/code/UTIL/UTIL_rndPAC.pl"
+
+
+RICEJPCOLS="dry_seed1:dry_seed2:dry_seed3;embryo1:embryo2;endosperm1:endosperm2:endosperm3;imbibed_seed1:imbibed_seed2:imbibed_seed3;shoot1:shoot2:shoot3;leaf_20days1:leaf_20days2:leaf_20days3;leaf_60days1:leaf_60days2:leaf_60days3;stem_60days1:stem_60days2:stem_60days3;root_5days1:root_5days2:root_5days3;root_60days1:root_60days2:root_60days3;husk1:husk2:husk3;anther1:anther2:anther3;mature_pollen1:mature_pollen2:mature_pollen3;pistil1:pistil2:pistil3"
+INDICACOLS="dry_seed1:dry_seed2:dry_seed3;embryo1:embryo2:embryo3;endosperm1:endosperm2:endosperm3;imbibed_seed1:imbibed_seed2:imbibed_seed3;shoot1:shoot2:shoot3;leaf_20days1:leaf_20days2:leaf_20days3;leaf_60days1:leaf_60days2:leaf_60days3;stem_60days1:stem_60days2:stem_60days3;root_5days1:root_5days2:root_5days3;root_60days1:root_60days2:root_60days3;husk1:husk2:husk3;anther1:anther2:anther3;mature_pollen1:mature_pollen2:mature_pollen3;pistil1:pistil2:pistil3"
+RICETWOCOLS="i_dry_seed1:i_dry_seed2:i_dry_seed3;i_embryo1:i_embryo2:i_embryo3;i_endosperm1:i_endosperm2:i_endosperm3;i_imbibed_seed1:i_imbibed_seed2:i_imbibed_seed3;i_shoot1:i_shoot2:i_shoot3;i_leaf_20days1:i_leaf_20days2:i_leaf_20days3;i_leaf_60days1:i_leaf_60days2:i_leaf_60days3;i_stem_60days1:i_stem_60days2:i_stem_60days3;i_root_5days1:i_root_5days2:i_root_5days3;i_root_60days1:i_root_60days2:i_root_60days3;i_husk1:i_husk2:i_husk3;i_anther1:i_anther2:i_anther3;i_mature_pollen1:i_mature_pollen2:i_mature_pollen3;i_pistil1:i_pistil2:i_pistil3;j_dry_seed1:j_dry_seed2:j_dry_seed3;j_embryo1:j_embryo2;j_endosperm1:j_endosperm2:j_endosperm3;j_imbibed_seed1:j_imbibed_seed2:j_imbibed_seed3;j_shoot1:j_shoot2:j_shoot3;j_leaf_20days1:j_leaf_20days2:j_leaf_20days3;j_leaf_60days1:j_leaf_60days2:j_leaf_60days3;j_stem_60days1:j_stem_60days2:j_stem_60days3;j_root_5days1:j_root_5days2:j_root_5days3;j_root_60days1:j_root_60days2:j_root_60days3;j_husk1:j_husk2:j_husk3;j_anther1:j_anther2:j_anther3;j_mature_pollen1:j_mature_pollen2:j_mature_pollen3;j_pistil1:j_pistil2:j_pistil3"
 
 #if (!file.exists(PERLINFO)) {
 #  stop(PERLINFO,' PERLINFO not exists!')
@@ -95,6 +100,8 @@ getOptions<-function(args,opts) {
 	    lst[[opt]]=RICEJPCOLS;
       } else if (toupper(lst[[opt]])=='INDICACOLS') {  #简写cols列
 		lst[[opt]]=INDICACOLS
+	  }else if (toupper(lst[[opt]])=='RICETWOCOLS') {  #简写cols列
+		lst[[opt]]=RICETWOCOLS
 	  }
 	}
   }
@@ -120,6 +127,35 @@ addTxt2File<-function(file,txt=NULL) {
 trim<-function(x) {
   return(gsub("(^ +)|( +$)", "", x))
 }
+
+#############################################################################
+#wilcoxTest(x,y,random=100)
+#wilcox检验，满足50个才检验
+#random>0，则自动随机筛选X次少的向量，取pvalue的平均值
+#############################################################################
+wilcoxTest<-function(v1,v2,random=0) {
+  if (length(v1)<=30 | length(v2)<=30) {
+	return(-1);
+  }
+ if (random==0 | length(v1)==length(v2)) {
+    return(wilcox.test(v1,v2)$p.value);
+ }
+ if (length(v1)<length(v2)) {
+   big=v2
+   small=v1
+ } else {
+   big=v1
+   small=v2
+ } 
+ sumpv=0 
+ for (i in 1:random) {
+   x=sample(big,size=length(small),replace=F)
+   sumpv=sumpv+wilcox.test(x,small)$p.value
+ }
+ pv=sumpv/random
+ return(pv)
+}
+
 
 #############################################################################
 #   getTmpPath($bar):str
@@ -155,14 +191,53 @@ setPath<-function(path=NULL) {
 #############################################################################
 #  y=removeOutliers(x)
 #  作用: 去除x中的异常值，x为向量，异常值会置为NA
+#  IQR=1.5 SD=3 如果有提供SD按标准差方式去除，否则有提供IQR，则按照IQR去除；
+#  fill=T 则用上限和下限去填充
 #############################################################################
-removeOutliers <- function(x, na.rm = TRUE, ...) {
-  qnt <- quantile(x, probs=c(.25, .75), na.rm = na.rm, ...)
-  H <- 1.5 * IQR(x, na.rm = na.rm)
-  y <- x
-  y[x < (qnt[1] - H)] <- NA
-  y[x > (qnt[2] + H)] <- NA
-  y
+removeOutliers <- function(x,IQR=1.5,SD=NULL,fill=F) {
+  if (!is.null(SD)) {
+	datsd=sd(x)
+	H=mean(x)+datsd*SD
+	L=mean(x)-datsd*SD
+	y=x
+	if (fill) {
+	  y[x<L]=L
+      y[x>H]=H
+	} else {
+	  y[x<L]=NA
+      y[x>H]=NA
+	}
+
+	return(y)
+  }  
+  if (IQR>0) {
+	  qnt <- quantile(x, probs=c(.25, .75))
+	  H <- IQR * IQR(x)
+	  y <- x
+	if (fill) {
+	  y[x < (qnt[1] - H)] <- qnt[1] - H
+	  y[x > (qnt[2] + H)] <- qnt[2] + H
+	} else {
+	  y[x < (qnt[1] - H)] <- NA
+	  y[x > (qnt[2] + H)] <- NA
+	}
+	  return(y)
+  } 
+}
+
+#############################################################################
+#  给定一个向量，以及一个区间，取得在区间内的累积频率，用于作累积图
+#  y=getCumFreq(sample(1:100000,500),intervals=seq(0,10,1))
+#  返回y：向量，names(y)为intervals，值为累积频率
+#############################################################################
+getCumFreq<-function(array,intervals) {
+  idx=findInterval(array,intervals)
+  cnt=tapply(idx,as.factor(idx),length)
+  x=intervals; y=rep(0,length(x)); 
+  y[as.integer(names(cnt))]=cnt
+  y=cumsum(y)/sum(y)
+  names(y)=x
+  return(y)
 }
 
 
@@ -171,8 +246,9 @@ removeOutliers <- function(x, na.rm = TRUE, ...) {
 #  作用: 连接数据库
 #  若当前文件夹下不存在conf,则去 XMLDIR 下搜
 #  Usage: dbh=connectDB('dbconf_ricepac.xml')
+#  增加items选项，允许输出额外的如chr之类的信息，输出为list，用list[['conn']]=xx 
 #############################################################################
-connectDB<-function(conf) {
+connectDB<-function(conf,items=NULL) {
 	require("XML",quietly =T)
 	require("RJDBC",quietly =T)
 	drv <- JDBC("com.mysql.jdbc.Driver",
@@ -195,18 +271,43 @@ connectDB<-function(conf) {
 	#连接DB  
 	sqldb=paste("jdbc:mysql://",host,"/",db,sep='')
 	conn <- dbConnect(drv, sqldb, user, pwd) 
-	return(conn)
+    if (is.null(items)) {
+	  return(conn)
+    }
+	  olist=list()
+	  olist[['conn']]=conn;
+	  for (i in items) {
+		olist[[i]]=xmlValue(conf[[i]])
+	  }
+	  return(olist)
 }
 
-#输出表到文件
+#输出表到文件 或 dataframe，如果file为空的话，则返回df
+#df=tbl2file(dbh,'atbl','',header=T)
+#tbl2file(dbh,'atbl','xx.txt',header=T)
 tbl2file<-function(conn,tbl,file,header=F) {
+	toDF=F
+	if (file=='' | is.null(file)) {
+      file=addStr(getTmpPath(1),'tbl2df.tmp')
+	  toDF=T
+	}
 	if (file.exists(file)) x=file.remove(file);
 	a=dbSendQuery(conn,paste("select * from ",tbl," into outfile ",'\'',file,'\'',sep=''))
-	if (!header) return();
+	if (!header & !toDF) {
+	  return('');
+	} 
 	#print(header)
-	a=read.table(file,header=F,sep="\t",quote="")
+	a=read.table(file,header=F,sep="\t",quote="",comment.char="")
+	if (!header & toDF) {
+      x=file.remove(file);
+	  return(a);
+	} 
 	colnames(a)=dbListFields(conn,tbl);
-	write.table(a,file=file,sep="\t",col.names=T,row.names=F,quote=F)	
+	if (header & toDF) {
+      x=file.remove(file);
+	  return(a);
+	} 
+    write.table(a,file=file,sep="\t",col.names=T,row.names=F,quote=F)	
 	return('')
 }
 
@@ -221,14 +322,14 @@ sql2file<-function(conn,sql,file,header=F) {
 	a=dbSendQuery(conn,sql)
 	if (!header) return();
 	#取得 select A,B from ... 的A和B作为标题行
-	seltxt=unlist(strsplit(sql,split="from"))[1]
+	seltxt=unlist(strsplit(sql,split=" FROM|from ",perl=T))[1]
     seltxt=gsub("\\s+","",seltxt) #去掉空格 
-	seltxt=gsub("^select","",seltxt)
+	seltxt=gsub("^select","",seltxt,ignore.case =T)
 	if (seltxt=='*') { #如果是* select * from xxtbl
-	  fromtxt=unlist(strsplit(sql,split="from"))[2]
+	  fromtxt=unlist(strsplit(sql,split=" FROM|from ",perl=T))[2]
 	  fromtxt=unlist(strsplit(fromtxt,split="\\s+"))
 	  tbl=fromtxt[!nchar(fromtxt)==0][1]	  
-	  cols=dbListFields(conn,tbl);
+	  cols=dbListFields(conn,tbl); #如果是xx.tbl的形式，则不会输出结果？？
 	} else {
 	  cols=unlist(strsplit(seltxt,split=","))
 	}
@@ -241,6 +342,63 @@ sql2file<-function(conn,sql,file,header=F) {
 	}
 	return('')
 }
+
+#输出SQL到data.frame
+#df=sql2df(conn,sql,header=T) 
+sql2df<-function(conn,sql,header=T) {
+  tmpfile=addStr(getTmpPath(1),'sql2df.tmp')
+  x=sql2file(conn,sql,tmpfile,header=header)
+  df=read.table(tmpfile,header=header,sep="\t",quote="")
+  file.remove(tmpfile)
+  return(df)
+}
+
+#############################################################################
+#  loadFile2Tbl(dbh,tbl,file,$ignoreLine):int;
+#  useage: $rv=loadFile2Tbl($dbh,$tbl,$file,0)
+#  说明:文件导入数据表
+#############################################################################
+loadFile2Tbl<-function(dbh,tbl,file,ignoreLine=0){
+  rn='\r\n'; #win
+  t='\t';
+  if (ignoreLine<=0) { 
+    #sql=sprintf("load data infile \'%s\' into table %s",file,tbl)
+    sql=sprintf("load data infile \'%s\' into table %s fields terminated by \'%s\' enclosed by \'\' Lines Terminated By \'%s\'",file,tbl,t,rn)
+  } else {
+    sql=sprintf("load data infile \'%s\' into table %s fields terminated by \'%s\' enclosed by \'\' Lines Terminated By \'%s\' ignore %d lines",file,tbl,t,rn,ignoreLine)
+    #sql=sprintf("load data infile \'%s\' into table %s ignore %d lines",file,tbl,ignoreLine)
+  }
+ #cat(sql,'\n')
+  x=dbSendUpdate(dbh,sql)   
+  return(x)
+}
+
+#############################################################################
+#  df2Tbl(dbh,tbl,df,$ignoreLine):int;
+#  useage: $rv=df2Tbl($dbh,$tbl,$df,0)
+#  说明:data.frame导入数据表
+#############################################################################
+df2Tbl<-function(dbh,tbl,df,ignoreLine=0){
+  tmpfile=addStr(getTmpPath(1),'df2Tbl.tmp')
+  write.table(df,file=tmpfile,row.names=F,col.names=F,sep="\t",quote=F)
+  x=loadFile2Tbl(dbh,tbl,tmpfile,ignoreLine)
+  file.remove(tmpfile)
+  return(x)
+}
+
+
+#############################################################################
+#  getFldValues($dbh,$sql,$ncol首0):@fldValue
+#  useage: fldValue=getFldValues($dbh,'select distinct(chr) from xx order by chr',0);
+#  说明:取得某列的值,返回向量
+#############################################################################
+getFldValues <-function (dbh,sql,ncol) {
+  res <- dbSendQuery(dbh, sql)
+  df=dbFetch(res)
+  x=dbClearResult(res)
+  return(df[,ncol+1]);
+}
+
 
 #############################################################################
 #  AinB(c('start','end'),c('start','x','y'),all=T)
@@ -583,8 +741,24 @@ shuffleNames<-function(group1,group2,r) {
 ##子函数：从DE文件名中取出两个样本名
 ##要求有minpat字段来定位
 ##如果无法解析，则返回文件名
-DEfileName2SampleName<-function(filename){ 
+##DEfileName2SampleName('t_ae_pacsd24n_flt.APAgene.pac.antherXmature_pollen.minpat1_minrep1_norm0.padj0.1.list',groups)
+DEfileName2SampleName<-function(filename,groups=NULL){ 
   filename=basename(filename)
+  #根据提供的样本名，确定样本
+  if (!is.null(groups)) {
+	combine=expand.grid(groups,groups)
+    combine=apply(combine,2,as.character)
+	pats=paste(combine[,1],'.*',combine[,2],sep='')
+    for (i in 1:length(pats)) {
+	  if (length(grep(pats[i],filename))==1) {
+		smps=c(combine[i,1],combine[i,2])
+	    return(smps)
+	  }
+    }
+	return(filename)
+  }
+
+  #如果不提供，则根据文件名
   #t_tm_pac_fnl_repsN_flt.gene.seed36HXseed48H_minpat0_minrep0_norm0
   if (length(grep('\\.minpat',filename))==0) {
 	  dotpos=max(as.integer(unlist(gregexpr('\\.',filename))))
@@ -661,14 +835,16 @@ DEfileName2SampleName<-function(filename){
 #     sf=getSizeFactor(matrix,'EDGER');
 #  2) 或输出是libSize
 #     libSize=getSizeFactor(matrix,'EDGER',oLibsize=T);
+#  2015/8/24 增加 x%的TPM标准化，method=TPMx，thd=0.95
+#     libSize=getSizeFactor(matrix,'TPMx',oLibsize=T,thd=0.95);
 #############################################################################
-getSizeFactor<-function(dat,method='DESEQ',oLibsize=FALSE){
+getSizeFactor<-function(dat,method='DESEQ',oLibsize=FALSE,thd=0.95){
   method=toupper(method)
   if (is.data.frame(dat)) dat=as.matrix(dat)
-  if (method!='EDGER' && method!='DESEQ' && method!='TPM') {
+  if (method!='EDGER' && method!='DESEQ' && method!='TPM' && method!='TPMX') {
     method='DESEQ'
   }
-  stopifnot (method=='EDGER' || method=='DESEQ' || method=='TPM')
+  stopifnot (method=='EDGER' || method=='DESEQ' || method=='TPM' || method=='TPMX')
   if (method=='EDGER') {
 	suppressPackageStartupMessages( library( "edgeR" ) )
     f <- calcNormFactors(dat)
@@ -678,6 +854,13 @@ getSizeFactor<-function(dat,method='DESEQ',oLibsize=FALSE){
     f=sizeFactors(estimateSizeFactors(newCountDataSet(dat,1:ncol(dat)))) #group参数是随便给的,只要列数相同
   } else if (method=='TPM') {
     f=colSums(dat)/1000000
+  }else if (method=='TPMX') {
+	rowsums=rowSums(dat);
+	uprow=quantile(rowsums,probs=thd)
+	rest=dat[rowsums<uprow,]
+	libs=colSums(rest);
+	minlib=min(libs)
+	f=libs/minlib
   }
   if (oLibsize){
     f=as.integer(colSums(dat)/f) #这个好像是/f而不是*f
@@ -2122,24 +2305,20 @@ for (g in genes) {
   gs=c(gs,g)
 }
 
-	pv=p.adjust(p)
-
 if (toPlot || pdf!='') {
 	if (pdf!='') pdf(file=pdf)
 }
-   for (pthd in unique(FDR,c(0.01,0.05,0.1))) {
-
+  pv=p.adjust(p)
+  for (pthd in unique(FDR,c(0.01,0.05,0.1))) {
 	x=which(pv<pthd & cr>0)
 	y=which(pv<pthd & cr<=0)
-
-        if (toPlot || pdf!='') {
-	main=paste(smp1,'&',smp2,' ',length(gs),' gene(>=',geneFilter,') Blue(S)=',length(y),' Red(L)=',length(x),' FDR=',pthd,sep='')
-	plot(cr,ratio,main=main,ylab=paste('log2(',smp1,'/',smp2,')',sep=''),type='p',col='grey')
-	lines(x=cr[x],y=ratio[x],type='p',col='red',pch=20)  ##ratio=XX/YY; if X-axis>0, from XX to YY, switch to longer. 
-	lines(x=cr[y],y=ratio[y],type='p',col='blue',pch=20) 
-	if(pdf!='') dev.off()
-        }
-
+	if (toPlot || pdf!='') {
+		main=paste(smp1,'&',smp2,' ',length(gs),' gene(>=',geneFilter,') Blue(S)=',length(y),' Red(L)=',length(x),' FDR=',pthd,sep='')
+		plot(cr,ratio,main=main,ylab=paste('log2(',smp1,'/',smp2,')',sep=''),type='p',col='grey')
+		lines(x=cr[x],y=ratio[x],type='p',col='red',pch=20)  ##ratio=XX/YY; if X-axis>0, from XX to YY, switch to longer. 
+		lines(x=cr[y],y=ratio[y],type='p',col='blue',pch=20) 
+		if(pdf!='') dev.off()
+	}
 	if (pthd==FDR) {
 	  XYLong=paste(smp1,'to',smp2,'longer',sep='_');
 	  XYShort=paste(smp1,'to',smp2,'Shorter',sep='_');
@@ -2147,7 +2326,7 @@ if (toPlot || pdf!='') {
 	  change=rep(notChange,length(pv))
 	  change[x]=XYLong; change[y]=XYShort;
 	}
-    }#for
+  }#for
 
 rt=as.data.frame(cbind(gene=gs,cor=cr,padj=pv,logRatio=ratio,change=change))
 rt$cor=as.numeric(rt$cor); rt$logRatio=as.numeric(rt$logRatio);rt$padj=as.numeric(rt$padj);
