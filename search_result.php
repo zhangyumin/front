@@ -23,99 +23,115 @@
                 session_start();
                 $con=  mysql_connect("localhost","root","root");
                 mysql_select_db("db_server",$con);
-                $chr=$_POST['chr'];
-                $start=$_POST['start'];
-                $end=$_POST['end'];
-                $gene_id=$_POST['gene_id'];
-                $go_accession=$_POST['go_accession'];
-                $go_name=$_POST['go_name'];
-                $function=$_POST['function'];
-                $gene_array=array();
-                $go_array=array();
-               //若go搜索无输入
-                if($go_accession==NULL&&$go_name==NULL&&$function==NULL){
-                    $sysQry="select * from db_server.t_".$_POST['species']."_pac where 1=1";
-                    if($_POST['chr']!='all'){
-                        $sysQry.=" and chr='$chr'";
+                if($_GET['method']=='fuzzy'){
+                    $go_array_key=array();
+                    $key=$_POST['key'];
+                    $go_qry=  mysql_query("select gene from t_arab_go where gene like '%$key%' or goid like '%$key%' or goterm like '%$key%' or genefunction like '%$key%'");
+                    while($go_result=  mysql_fetch_row($go_qry)){
+                        array_push($go_array_key, $go_result[0]);
                     }
-                    if($_POST['start']!=NULL){
-                        $sysQry.=" and ftr_start>=".$_POST['start']."";
-                    }
-                    if($_POST['end']!=NULL){
-                        $sysQry.=" and ftr_end<=".$_POST['end']."";
-                    }
-                    if($_POST['gene_id']!=NULL){
-                        $gene_array=  explode(",", $gene_id);
-                        $gene_array=  array_unique($gene_array);
-                        $sysQry.=" and gene in ('";
-                        $sysQry.=implode("','", $gene_array);
-                        $sysQry.="')";
-                    }
-                    $sysQry.=";";
-                    $query_result=mysql_query($sysQry);
+                    $pac_qry= "select * from t_arab_pac where ";
+                    $pac_qry.="gene in ('";
+                    $pac_qry.=implode("','", $go_array_key);
+                    $pac_qry.="') or chr like '%$key%'; ";
+//                    echo $pac_qry;
+                    $query_result=  mysql_query($pac_qry);
                 }
-                else
-                {
-                    $go_sysQry="select gene from db_server.t_".$_POST['species']."_go where 1=1";
-                    if($_POST['go_name']!=NULL)
+                else{
+                    $chr=$_POST['chr'];
+                    $start=$_POST['start'];
+                    $end=$_POST['end'];
+                    $gene_id=$_POST['gene_id'];
+                    $go_accession=$_POST['go_accession'];
+                    $go_name=$_POST['go_name'];
+                    $function=$_POST['function'];
+                    $gene_array=array();
+                    $go_array=array();
+                   //若go搜索无输入
+                    if($go_accession==NULL&&$go_name==NULL&&$function==NULL){
+                        $sysQry="select * from db_server.t_".$_POST['species']."_pac where 1=1";
+                        if($_POST['chr']!='all'){
+                            $sysQry.=" and chr='$chr'";
+                        }
+                        if($_POST['start']!=NULL){
+                            $sysQry.=" and ftr_start>=".$_POST['start']."";
+                        }
+                        if($_POST['end']!=NULL){
+                            $sysQry.=" and ftr_end<=".$_POST['end']."";
+                        }
+                        if($_POST['gene_id']!=NULL){
+                            $gene_array=  explode(",", $gene_id);
+                            $gene_array=  array_unique($gene_array);
+                            $sysQry.=" and gene in ('";
+                            $sysQry.=implode("','", $gene_array);
+                            $sysQry.="')";
+                        }
+                        $sysQry.=";";
+                        $query_result=mysql_query($sysQry);
+                    }
+                    else
                     {
-                        $go_sysQry.=" and goterm like '%$go_name%'";
+                        $go_sysQry="select gene from db_server.t_".$_POST['species']."_go where 1=1";
+                        if($_POST['go_name']!=NULL)
+                        {
+                            $go_sysQry.=" and goterm like '%$go_name%'";
 
-                         }
-                         if($_POST['function']!=NULL)
-                         {
-                             $go_sysQry.=" and genefunction like '%$function%'";
-                         } 
-                         if($_POST['go_accession']!=NULL)
-                         {
-                             $go_id=explode(',',$go_accession);
-                             $go_id=  array_unique($go_id);
-                             $go_sysQry.=" and";
-        //                     foreach ($go_id as $key => $value) {
-        //                         if($key==0)
-        //                         {
-        //                             $go_sql_search.=" goid='$value'";
-        //                         }
-        //                         else
-        //                             $go_sql_search.=" or goid='$value'";
-        //                     }
-        //                     $go_sql_search.=")";
-                                $go_sysQry.=" goid in ('";
-                                $go_sysQry.=implode("','", $go_id);
-                                $go_sysQry.="')";
-                         }
-                                $go_sysQry.=";";
-                                $go_sysQry_result=mysql_query($go_sysQry);
-                                while($go_sysQry_row=  mysql_fetch_row($go_sysQry_result))
-                                {
-                                    array_push($go_array,$go_sysQry_row[0]);
-                                }
-                                $go_array=array_unique($go_array);
-                               $sysQry="select * from db_server.t_".$_POST['species']."_pac where 1=1";
-                               if($_POST['chr']!='all'){
-                                   $sysQry.=" and chr='$chr'";
-                               }
-                               if($_POST['start']!=NULL){
-                                   $sysQry.=" and ftr_start>=".$_POST['start']."";
-                               }
-                               if($_POST['end']!=NULL){
-                                   $sysQry.=" and ftr_end<=".$_POST['end']."";
-                               }
-                               if($_POST['gene_id']!=NULL){
-                                    $gene_array=  explode(",", $gene_id);
-                                    $gene_array=  array_unique($gene_array);
-                                    $sysQry.=" and gene in ('";
-                                    $sysQry.=implode("','", $gene_array);
-                                    $sysQry.="')";
-                               }
-                                if(count($go_array)>0){
-                                   $sysQry.=" and gene in ('";
-                                   $sysQry.=implode("','", $go_array);
-                                   $sysQry.="')";
-                               }
-                                   $sysQry.=";";
-                           $query_result=mysql_query($sysQry);
-                         }
+                             }
+                             if($_POST['function']!=NULL)
+                             {
+                                 $go_sysQry.=" and genefunction like '%$function%'";
+                             } 
+                             if($_POST['go_accession']!=NULL)
+                             {
+                                 $go_id=explode(',',$go_accession);
+                                 $go_id=  array_unique($go_id);
+                                 $go_sysQry.=" and";
+            //                     foreach ($go_id as $key => $value) {
+            //                         if($key==0)
+            //                         {
+            //                             $go_sql_search.=" goid='$value'";
+            //                         }
+            //                         else
+            //                             $go_sql_search.=" or goid='$value'";
+            //                     }
+            //                     $go_sql_search.=")";
+                                    $go_sysQry.=" goid in ('";
+                                    $go_sysQry.=implode("','", $go_id);
+                                    $go_sysQry.="')";
+                             }
+                                    $go_sysQry.=";";
+                                    $go_sysQry_result=mysql_query($go_sysQry);
+                                    while($go_sysQry_row=  mysql_fetch_row($go_sysQry_result))
+                                    {
+                                        array_push($go_array,$go_sysQry_row[0]);
+                                    }
+                                    $go_array=array_unique($go_array);
+                                   $sysQry="select * from db_server.t_".$_POST['species']."_pac where 1=1";
+                                   if($_POST['chr']!='all'){
+                                       $sysQry.=" and chr='$chr'";
+                                   }
+                                   if($_POST['start']!=NULL){
+                                       $sysQry.=" and ftr_start>=".$_POST['start']."";
+                                   }
+                                   if($_POST['end']!=NULL){
+                                       $sysQry.=" and ftr_end<=".$_POST['end']."";
+                                   }
+                                   if($_POST['gene_id']!=NULL){
+                                        $gene_array=  explode(",", $gene_id);
+                                        $gene_array=  array_unique($gene_array);
+                                        $sysQry.=" and gene in ('";
+                                        $sysQry.=implode("','", $gene_array);
+                                        $sysQry.="')";
+                                   }
+                                    if(count($go_array)>0){
+                                       $sysQry.=" and gene in ('";
+                                       $sysQry.=implode("','", $go_array);
+                                       $sysQry.="')";
+                                   }
+                                       $sysQry.=";";
+                               $query_result=mysql_query($sysQry);
+                             }
+                }
         //            echo $_SESSION['file'];
         //            echo $go_sysQry;
         //            echo $go_insert;
