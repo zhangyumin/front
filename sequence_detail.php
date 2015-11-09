@@ -149,6 +149,7 @@
          if($_GET['flag']=='intergenic'){
              $coord=$_GET['coord'];
              $coordL=$coord-200;
+             $coordH=$coord+200;
              $seq_result=mysql_query("select substring(seq,$coordL,401) from db_server.t_".$species."_fa where title='$chr';");
              while($rows=mysql_fetch_row($seq_result))
              {
