@@ -19,9 +19,9 @@
               <li><a href="./task.php">My task</a></li>
               <li><a href="./help.php">Help</a></li>
       </ul>
-      <form class="ym-searchform">
-        <input class="ym-searchfield" type="search" placeholder="Input your resultID here..." />
-        <input class="ym-searchbutton" type="submit" value="Search" />
+      <form class="ym-searchform" method="post" action="search_result.php?method=fuzzy">
+        <input class="ym-searchfield" name="key" type="search" placeholder="Input your keyword here..." />
+        <button class="ym-searchbutton" type="submit" >submit</button>
       </form>
     </div>
   </div>
