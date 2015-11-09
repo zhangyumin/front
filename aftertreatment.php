@@ -331,7 +331,7 @@
             $sig=$_POST['only3utr_sig'];
             $_SESSION['sample']=  array_merge($_POST['sample1'],$_POST['sample2']);
             $sg_ocmd="Rscript /var/www/front/src/r/R_switch3UTR.r ofile='only3utr.".$_SESSION['file']."' adj=0 sig=$sig avgPAT=$avgpat path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['file']." cols='".implode(':',$_POST['sample1']).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml >/dev/null &";
-            //echo $sg_ocmd;
+//            echo $sg_ocmd;
             shell_exec($sg_ocmd);
             print_r(json_encode($_POST));
 //            echo '<script>window.location.href="aftertreatment_result_test.php?result=switchinggene_o";</script>';
