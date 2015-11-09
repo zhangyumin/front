@@ -69,6 +69,10 @@ and open the template in the editor.
             }
             $gene_start=  min($ftr_start);
             $gene_end= max($ftr_end);
+            if($_GET['intergenic']==1){
+                $gene_start=$_GET['coord']-200;
+                $gene_end=$_GET['coord']+200;
+            }
             $genelength=$gene_end-$gene_start;
             $rate=1000/$genelength;
             
@@ -126,8 +130,21 @@ and open the template in the editor.
                         $end=($amb_end[$key]-$gene_start)*$rate;
                         echo "amb($start,$end,$strand,'gene');\n";
                     }
+                    $i=0;
+                    $j=0;
                     foreach ($pac_tagnum as $key => $value){
-                        echo "pac($value,$key,'pac');\n";
+                        if($i<count($samples)){
+                            $key1=$i*count($pac_loc)+$j;
+                            echo "pac($value,$key1,'pac');\n";
+                            $i++;
+                        }
+                        else{
+                            $i=0;
+                            $j++;
+                            $key1=$i*count($pac_loc)+$j;
+                            echo "pac($value,$key1,'pac');\n";
+                            $i++;
+                        }
                     }
                     foreach($samples as $key => $value){
                         $pos=20+20*(($key+1)*count($pac_loc));
