@@ -2002,7 +2002,7 @@
                                         <div style="height:99%">
                                             <?php
                                                 if($_GET['flag']=='intergenic')
-                                                    echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&analysis=1&intergenic=1\" width=100% height=100%></iframe>";
+                                                    echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&analysis=1&intergenic=1&coord=$coord\" width=100% height=100%></iframe>";
                                                 else
                                                     echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&analysis=1\" width=100% height=100%></iframe>";
                                             ?>
@@ -2014,7 +2014,7 @@
                                         <div style="height:99%">
                                             <?php
                                                 if($_GET['flag']=='intergenic')
-                                                    echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1\" width=100% height=100%></iframe>";
+                                                    echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord\" width=100% height=100%></iframe>";
                                                 else
                                                     echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand\" width=100% height=100%></iframe>";
                                             ?>
