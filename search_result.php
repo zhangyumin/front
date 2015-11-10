@@ -21,8 +21,16 @@
         ?>
             <?php
                 session_start();
+                if(!isset($_SESSION['file'])){
+                    $_SESSION['file']=$_POST['species'].date("Y").date("m").date("d").date("h").date("i").date("s");
+                }
+                if(!isset($_SESSION['species'])&&isset($_SESSION['file'])){
+                    $_SESSION['species']=substr($_SESSION['file'], 0,  strpos($_SESSION['file'], "201"));
+                }
                 $con=  mysql_connect("localhost","root","root");
                 mysql_select_db("db_server",$con);
+                mysql_query("drop table db_user.Search_".$_SESSION['file']."");
+                //模糊搜索
                 if($_GET['method']=='fuzzy'){
                     $go_array_key=array();
                     $key=$_POST['key'];
@@ -30,7 +38,7 @@
                     while($go_result=  mysql_fetch_row($go_qry)){
                         array_push($go_array_key, $go_result[0]);
                     }
-                    $pac_qry= "select * from t_arab_pac where ";
+                    $pac_qry= "create table db_user.Search_".$_SESSION['file']." select * from t_arab_pac where ";
                     $pac_qry.="gene in ('";
                     $pac_qry.=implode("','", $go_array_key);
                     $pac_qry.="') or chr like '%$key%'; ";
@@ -49,7 +57,7 @@
                     $go_array=array();
                    //若go搜索无输入
                     if($go_accession==NULL&&$go_name==NULL&&$function==NULL){
-                        $sysQry="select * from db_server.t_".$_POST['species']."_pac where 1=1";
+                        $sysQry="create table db_user.Search_".$_SESSION['file']." select * from db_server.t_".$_POST['species']."_pac where 1=1";
                         if($_POST['chr']!='all'){
                             $sysQry.=" and chr='$chr'";
                         }
@@ -106,7 +114,7 @@
                                         array_push($go_array,$go_sysQry_row[0]);
                                     }
                                     $go_array=array_unique($go_array);
-                                   $sysQry="select * from db_server.t_".$_POST['species']."_pac where 1=1";
+                                   $sysQry="create table db_user.Search_".$_SESSION['file']." select * from db_server.t_".$_POST['species']."_pac where 1=1";
                                    if($_POST['chr']!='all'){
                                        $sysQry.=" and chr='$chr'";
                                    }
@@ -235,7 +243,7 @@
                     </h4>
                 </legend>
                <div class="box info ym-form">
-                   <form method="post" name="search" id="getback" action="#">
+                   <form method="post" name="search" id="getback" action="search_result.php">
                     <div class="ym-grid ym-fbox">
                         <div class="ym-g33 ym-gl">
                            <label for="species" style="margin-right:2%;">Species:</label>
