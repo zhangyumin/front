@@ -164,6 +164,13 @@
                 ?>
             </fieldset>
     </div><br>
+    <div class="filter" id="filter">
+            <form>
+                <input type="text" name="search" id="search" />
+                <button type="submit" id="search_button">search</button>
+                <button type="reset" id="reset_button">reset</button>
+            </form>
+    </div>
     <div id="jtable" style="clear: both;width: 100%;"></div>
     
     <link href="src/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
@@ -237,6 +244,17 @@
             });
 
             $('#jtable').jtable('load');
+            $('#filter').appendTo(".jtable-title").addClass('filter_class');
+            $('#search_button').click(function (e){
+                e.preventDefault();
+                        $('#jtable').jtable('load',{
+                            search: $('#search').val()
+                        });
+                    });
+            $('#reset_button').click(function(e){
+                e.preventDefault();
+                        $('#jtable').jtable('load');
+                    });
         });
     </script>
     <!--Step:1 为ECharts准备一个具备大小（宽高）的Dom-->  
