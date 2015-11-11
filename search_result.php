@@ -3,8 +3,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Search</title>
         <script src="./src/jquery-2.0.0.min.js"></script>
-        <script src="./src/jquery.dataTables.min.js"type="text/javascript" ></script>
-        <link href="./src/jquery.dataTables.css"type="text/css" rel="stylesheet"></link>
         <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
         <!--[if lte IE 7]>
         <link href="./css/iehacks.min.css" rel="stylesheet" type="text/css" />
@@ -307,58 +305,101 @@
                </div>
             </fieldset>
             <br><br>
-            <div id="table"  style="overflow-x: auto;background-color: #fff;margin:auto;">
-                <table id="result" class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
-                <thead>
-                    <tr>
-                        <th>View</th>
-                        <th>Gene</th>
-                        <th>Chr</th>
-                        <th>ftr_start</th>
-                        <th>ftr_end</th>
-                        <th>Strand</th>
-                        <th>Ftr</th>
-                        <th>Gene Type</th>
-                        <!--<th>Pac</th>-->
-                        <th>Detail</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                                while($query_row=  mysql_fetch_row($query_result)){
-                                    echo "<tr>";
-                                        echo "<td><a target=\"_blank\" href=\"../jbrowse/?data=data/arabidopsis&loc=$query_row[0]:$query_row[5]\"><span title=\"View the sequence in Jbrowse\" style=\"background-color:#0066cc;color:#FFFFFF;\">View</span></a></td>";
-                                        echo "<td>$query_row[8]</td>";
-                                        echo "<td>$query_row[0]</td>";
-                                        echo "<td>$query_row[5]</td>";
-                                        echo "<td>$query_row[6]</td>";
-                                        echo "<td>$query_row[1]</td>";
-                                        echo "<td>$query_row[4]</td>";
-                                        echo "<td>$query_row[9]</td>";
-                                        if($query_row[4]=='intergenic.igt'||$query_row[4]=='intergenic.pm'){
-                                            if($query_row[1]=='+')
-                                                echo "<td><a target=\"_blank\" href=\"./sequence_detail.php?species=".$_POST['species']."&seq=$query_row[8]&strand=1&flag=intergenic&coord=$query_row[2]\"><span title=\"Get more information about this sequence\" style=\"background-color:#0066cc;color:#FFFFFF;\">Detail</span></a></td>";
-                                            else
-                                                echo "<td><a target=\"_blank\" href=\"./sequence_detail.php?species=".$_POST['species']."&seq=$query_row[8]&strand=-1&flag=intergenic&coord=$query_row[2]\"><span title=\"Get more information about this sequence\" style=\"background-color:#0066cc;color:#FFFFFF;\">Detail</span></a></td>";
-                                        }
-                                        else
-                                            echo "<td><a target=\"_blank\" href=\"./sequence_detail.php?species=".$_POST['species']."&seq=$query_row[8]\"><span title=\"Get more information about this sequence\" style=\"background-color:#0066cc;color:#FFFFFF;\">Detail</span></a></td>";
-                                    echo "</tr>";
-                                }
-                    ?>
-                </tbody>
-                </table>
+            <div class="filter" id="filter">
+                    <form>
+                        <input type="text" name="search" id="search" />
+                        <button type="submit" id="search_button">search</button>
+                        <button type="reset" id="reset_button">reset</button>
+                    </form>
             </div>
-        </div>
-            <script>
-                $(document).ready(function(){
-                    $('#result').dataTable({
-                        "lengthMenu":[[10,25,50,-1],[10,25,50,"all"]],
-                        "pagingType":"full_numbers"
+            <div id="jtable" style="clear: both;width: 100%;"></div>
+            <link href="src/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
+            <link href="src/jtable.css" rel="stylesheet" type="text/css" />
+            <script src="src/jquery-ui-1.8.16.custom.min.js" type="text/javascript" ></script>
+            <script src="src/jquery.jtable.js" type="text/javascript" ></script>
+             <script type="text/javascript">
+                    $(document).ready(function (){
+                        $('#jtable').jtable({
+                            title:'PAC',
+                            paging:true,
+                            pageSize:5,
+                            sorting:true,
+                            defaultSorting:'gene ASC',
+                            actions:{
+                                listAction:'Search_PAClist.php'
+                            },
+                            fields:{
+                                view:{
+                                    key:true,
+                                    edit:false,
+                                    create:false,
+                                    columnResizable:false,
+                                    title:'View',
+                                    display: function (data) {
+                                        var short_name = data.record.gene;
+                                        if(data.record.gene.length > 30)
+                                        {
+                                                short_name = data.record.gene.substr(0,30) + "...";
+                                        }
+                                        if(data.record.strand=='-')
+                                            return short_name + "<a target='_blank' style='display:inline;' href='./show_sequence.php?chr="+data.record.chr+"&gene="+data.record.coord+"&strand=-1' ><img src = './pic/score.png' hight='10px' width='80px' title='view PASS score' align='right' /></a><a style='display:inline;' href='../jbrowse/?data=data/<?php echo $_SESSION['file']?>&loc="+data.record.chr+":"+data.record.coord+"' target='_blank'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
+                                        else if(data.record.strand=='+')
+                                            return short_name + "<a target='_blank' style='display:inline;' href='./show_sequence.php?chr="+data.record.chr+"&gene="+data.record.coord+"&strand=1' ><img src = './pic/score.png' hight='10px' width='80px' title='view PASS score' align='right' /></a><a style='display:inline;' href='../jbrowse/?data=data/<?php echo $_SESSION['file']?>&loc="+data.record.chr+":"+data.record.coord+"' target='_blank'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
+                                    }
+                                },
+                                gene:{
+                                    title:'gene',
+                                    edit:false,
+                                    width:'10%'
+                                },
+                                chr:{
+                                    title:'chr',
+                                    edit:false,
+                                    width:'10%'
+                                },
+                                ftr_start:{
+                                    title:'ftr_start',
+                                    edit:false,
+                                    width:'10%'
+                                },
+                                ftr_end:{
+                                    title:'ftr_end',
+                                    edit:false,
+                                    width:'20%'
+                                },
+                                strand:{
+                                    title:'strand',
+                                    edit:false,
+                                    width:'20%'
+                                },
+                                ftr:{
+                                    title:'ftr',
+                                    edit:false,
+                                    width:'20%'
+                                },
+                                gene_type:{
+                                    title:'gene_type',
+                                    edit:false,
+                                    width:'20%'
+                                }
+                            }
+                        });
+
+                        $('#jtable').jtable('load');
+                        $('#filter').appendTo(".jtable-title").addClass('filter_class');
+                        $('#search_button').click(function (e){
+                            e.preventDefault();
+                                    $('#jtable').jtable('load',{
+                                        search: $('#search').val()
+                                    });
+                                });
+                        $('#reset_button').click(function(e){
+                            e.preventDefault();
+                                    $('#jtable').jtable('load');
+                                });
                     });
-                });
-            </script>
-        
+                </script>
+        </div>
         <div class="bottom">
         <?php
             include"footer.php";
