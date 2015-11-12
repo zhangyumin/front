@@ -85,7 +85,7 @@
                 }
             }
             $insert.="column1_average int(10),column2_average int(10),switching_type varchar(20));";
-            file_put_contents("./tojbrowse/test.txt", $insert);
+//            file_put_contents("./tojbrowse/test.txt", $insert);
             mysql_query("drop table db_user.Analysis_$file");
             mysql_query($insert);
             mysql_query("load data infile '/var/www/front/searched/none3utr.$file' into table db_user.Analysis_$file IGNORE 1 LINES;");    
