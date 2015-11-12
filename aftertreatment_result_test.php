@@ -43,16 +43,52 @@
             $a=file("./searched/depac.$file");
             $b=file("./searched/depac.$file.stat");
             $c = "depac.$file";
+            $insert="create table db_user.Analysis_$file(gene varchar(30),coord varchar(30),chr varchar(30),strand varchar(30),ftr varchar(30),";
+            $title_tmp=  explode("\t", $a[0]);
+            foreach ($title_tmp as $key => $value) {
+                if($value=='gene'||$value=='coord'||$value=='chr'||$value=='strand'||$value=='ftr'||$key==count($title_tmp)-1)
+                {
+
+                }
+                else{
+                    $insert.="$value int(10), ";
+                }
+            }
+            $insert.="padj double(20,18));";
+            mysql_query("drop table db_user.Analysis_$file");
+            mysql_query($insert);
+            mysql_query("load data infile '/var/www/front/searched/depac.$file' into table db_user.Analysis_$file IGNORE 1 LINES;");
         }
         if($_GET['result']=='switchinggene_o'){
             $a=file("./searched/only3utr.$file");
             $b=file("./searched/only3utr.$file.stat");
             $c = "only3utr.$file";
+            $insert="create table db_user.Analysis_$file(gene varchar(30),average_PAT varchar(50),SUTR_length varchar(50),correlation double(20,16),pval varchar(30),switching varchar(30));";
+            $title_tmp=  explode("\t", $a[0]);
+            mysql_query("drop table db_user.Analysis_$file");
+            mysql_query($insert);
+            mysql_query("load data infile '/var/www/front/searched/only3utr.$file' into table db_user.Analysis_$file IGNORE 1 LINES;");
         }
         if($_GET['result']=='switchinggene_n'){
             $a=file("./searched/none3utr.$file");
             $b=file("./searched/none3utr.$file.stat");
             $c = "none3utr.$file";
+            $insert="create table db_user.Analysis_$file(gene varchar(30),gene_type varchar(30),chr varchar(30),strand varchar(30),coord varchar(30),ftr varchar(30),";
+            $title_tmp=  explode("\t", $a[0]);
+            foreach ($title_tmp as $key => $value) {
+                if($value=='gene'||$value=='gene_type'||$value=='coord'||$value=='chr'||$value=='strand'||$value=='ftr'||$value=='column1_average'||$value=='column2_average'||$key==count($title_tmp)-1)
+                {
+
+                }
+                else{
+                    $insert.="$value int(10), ";
+                }
+            }
+            $insert.="column1_average int(10),column2_average int(10),switching_type varchar(20));";
+            file_put_contents("./tojbrowse/test.txt", $insert);
+            mysql_query("drop table db_user.Analysis_$file");
+            mysql_query($insert);
+            mysql_query("load data infile '/var/www/front/searched/none3utr.$file' into table db_user.Analysis_$file IGNORE 1 LINES;");    
         }
         ?>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -133,7 +169,7 @@
                         <button type="reset" id="reset_button">reset</button>
                     </form>
             </div>
-            <div id="jtable" style="clear: both;width: 100%;"></div>
+            <div id="jtable" style="clear: both;overflow: auto;"></div>
             <link href="src/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
             <link href="src/jtable.css" rel="stylesheet" type="text/css" />
             <script src="src/jquery-ui-1.8.16.custom.min.js" type="text/javascript" ></script>
@@ -183,6 +219,95 @@
                                         }
                                     }
                                 }
+                                else if($_GET['result']=='depac'){
+                                    echo "gene:{
+                                            key:true,
+                                            edit:false,
+                                            create:false,
+                                            columnResizable:false,
+                                            title:'gene',
+                                            edit:false,
+                                            display: function (data) {
+                                               return \"<td><a target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"'><span title='Get more information about this sequence' style='background-color:#0066cc;color:#FFFFFF;'>\"+data.record.gene+\"</span></a></td>\";
+                                            }
+                                            },";
+                                    foreach ($title_tmp as $key => $value) {
+                                        if($value=='gene'||$key==count($title_tmp)-1)
+                                        {}
+                                        else{
+                                            echo "$value:{
+                                                      title:'$value',
+                                                      edit:false
+                                                      }";
+                                            echo ",";
+                                        }
+                                    }
+                                    echo "padj:{"
+                                            . "title:'padj',"
+                                            . "edit:false"
+                                            . "}";
+                                }
+                                else if($_GET['result']=='switchinggene_o'){
+                                    echo "gene:{
+                                            key:true,
+                                            edit:false,
+                                            create:false,
+                                            columnResizable:false,
+                                            title:'gene',
+                                            edit:false,
+                                            display: function (data) {
+                                               return \"<td><a target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"'><span title='Get more information about this sequence' style='background-color:#0066cc;color:#FFFFFF;'>\"+data.record.gene+\"</span></a></td>\";
+                                            }
+                                            },";
+                                    echo "average_PAT:{
+                                              title:'average_PAT',
+                                              edit:false
+                                              },";
+                                    echo "SUTR_length:{
+                                              title:'3UTR_length',
+                                              edit:false
+                                              },";
+                                    echo "correlation:{
+                                              title:'correlation',
+                                              edit:false
+                                              },";
+                                    echo "pval:{
+                                              title:'pval',
+                                              edit:false
+                                              },";
+                                    echo "switching:{
+                                              title:'switching',
+                                              edit:false
+                                              }";
+                                }
+                                else if($_GET['result']=='switchinggene_n'){
+                                    echo "gene:{
+                                            key:true,
+                                            edit:false,
+                                            create:false,
+                                            columnResizable:false,
+                                            title:'gene',
+                                            edit:false,
+                                            display: function (data) {
+                                               return \"<td><a target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"'><span title='Get more information about this sequence' style='background-color:#0066cc;color:#FFFFFF;'>\"+data.record.gene+\"</span></a></td>\";
+                                            }
+                                            },";
+                                    foreach ($title_tmp as $key => $value) {
+                                        if($value=='gene'||$key==count($title_tmp)-1)
+                                        {}
+                                        else{
+                                            echo "$value:{
+                                                      title:'$value',
+                                                      edit:false
+                                                      }";
+                                            echo ",";
+                                        }
+                                    }
+                                         echo "switching_type:{"
+                                            . "title:'switchinge type',"
+                                            . "edit:false"
+                                            . "}";
+                                    }
                                 ?>
                             }
                         });
