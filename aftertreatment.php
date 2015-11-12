@@ -14,9 +14,10 @@
     //如果没有进行分析,则只对系统数据进行搜索过滤
     if(!isset($_SESSION['file'])){
         $_SESSION['file']=$_POST['species'].date("Y").date("m").date("d").date("h").date("i").date("s");
+        $_SESSION['species']=$_POST['species'];
         //若go搜索无输入
         if($go_accession==NULL&&$go_name==NULL&&$function==NULL){
-            $sysQry="create table db_user.SearchedPAC_".$_SESSION['file']." as(select * from db_server.t_".$_SESSION['species'].".pac where 1=1";
+            $sysQry="create table db_user.SearchedPAC_".$_SESSION['file']." as(select * from db_server.t_".$_SESSION['species']."_pac where 1=1";
             if($_POST['chr']!='all'){
                 $sysQry.=" and chr=".$_POST['chr']."";
             }
@@ -34,11 +35,12 @@
                 $sysQry.="')";
             }
             $sysQry.=");";
+            file_put_contents("./tojbrowse/test.txt", $sysQry);
             $query_result=mysql_query($sysQry);
         }
         else
         {
-            $go_sysQry="select gene from db_server.t_".$_SESSION['species'].".go where 1=1";
+            $go_sysQry="select gene from db_server.t_".$_SESSION['species']."_go where 1=1";
             if($_POST['go_name']!=NULL)
             {
                 $go_sysQry.=" and goterm like '%$go_name%'";
@@ -64,7 +66,7 @@
                         array_push($go_array,$go_sysQry_row[0]);
                     }
                     $go_array=array_unique($go_array);
-                   $sysQry="create table db_user.SearchedPAC_".$_SESSION['file']." as(select * from db_server.t_".$_SESSION['species']."._pac where 1=1";
+                   $sysQry="create table db_user.SearchedPAC_".$_SESSION['file']." as(select * from db_server.t_".$_SESSION['species']."_pac where 1=1";
                    if($_POST['chr']!='all'){
                        $sysQry.=" and chr=".$_POST['chr']."";
                    }
