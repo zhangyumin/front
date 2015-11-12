@@ -21,6 +21,7 @@
             $a=file("./searched/degene.$file");
             $b=file("./searched/degene.$file.stat");
             $c = "degene.$file";
+            $insert="create table db_user.Analysis_$file(gene varchar(30),gene_type varchar(50),";
         }
         if($_GET['result']=='depac'){
             $a=file("./searched/depac.$file");
@@ -113,70 +114,22 @@
                         }
                 ?>
             </table>
-        </div><br><br>
-        <div id="table"  style="width: 90%;overflow-x: auto;background-color: #fff;margin:auto;">
-            <table id="example" class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox">
-                <thead>
-                    <tr>
-                        <?php
-                            $title_tmp=  explode("\t", $a[0]);
-                            foreach ($title_tmp as $key => $value) {
-                                echo "<th>$value</th>";
-                            }
-                        ?>
-                    </tr>
-                </thead>
-                <tbody>
-                        <?php
-                            foreach ($a as $key => $value) {
-                                    if($key!=0){
-                                        echo "<tr>";
-                                        $tmp=  explode("\t", $a[$key]);
-                                        foreach ($tmp as $key1 => $value1) {
-                                            if($_GET['result']=='degene'){
-                                                if($key1==0){
-                                                    echo "<td><a href='./sequence_detail.php?seq=$value1'>$value1</a></td>";
-                                                    }
-                                                else
-                                                    echo "<td>$value1</td>";
-                                            }
-                                            else if($_GET['result']=='depac'){
-                                                if($key1==0){
-                                                   echo "<td><a href='./sequence_detail.php?seq=$value1'>$value1</a></td>";
-                                                }
-                                                else
-                                                    echo "<td>$value1</td>";
-                                            }
-                                            else if($_GET['result']=='switchinggene_o'){
-                                                if($key1==0){
-                                                    echo "<td><a href='./sequence_detail.php?seq=$value1'>$value1</a></td>";
-                                                }
-                                                else
-                                                    echo "<td>$value1</td>";
-                                            }
-                                            else if($_GET['result']=='switchinggene_n'){
-                                                if($key1==0){
-                                                    echo "<td><a href='./sequence_detail.php?seq=$value1'>$value1</a></td>";
-                                                }
-                                                else
-                                                    echo "<td>$value1</td>";
-                                            }
-                                        }
-                                        echo "</tr >";
-                                    }
-                            }
-                        ?>
-                </tbody>
-            </table>
-        </div><br><br>
-        <script>
-            $(document).ready(function(){
-                $('#example').dataTable({
-                    "lengthMenu":[[10,25,50,-1],[10,25,50,"all"]],
-                    "pagingType":"full_numbers"
-                });
-            });
-        </script>
+            <?php
+                $title_tmp=  explode("\t", $a[0]);
+                foreach ($title_tmp as $key => $value) {
+                    if($value=='gene'||$value=='gene_type'||$key==count($title_tmp)-1)
+                    {
+                        
+                    }
+                    else{
+                        $insert.="$value int(10), ";
+                    }
+                }
+                $insert.="padj double(19,17));";
+                mysql_query($insert);
+                mysql_query("load data infile '/var/www/front/searched/degene.$file' into table db_user.Analysis_$file IGNORE 1 LINES;");
+//                echo $insert;
+            ?>
         <div id="download"style="border: #ff6600 2px dotted;border-collapse: collapse;text-align: center">
             CLick to download the list data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="javascript:window.location.href='./download_data.php?type=4&name=<?php echo $c; ?>'">download</button>
         </div>
