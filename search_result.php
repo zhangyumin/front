@@ -299,6 +299,9 @@
                                             document.getElementById("end").value="100000";
                                         }
                                     }
+                                    <?php
+                                        echo "var species='".$_SESSION['species']."'";
+                                    ?>
                                 </script>
                             
                         </form>
@@ -330,57 +333,57 @@
                             },
                             fields:{
                                 view:{
+                                    title:'View',
+                                    display: function (data) {
+                                        return "<a target=\"_blank\" href=\"../jbrowse/?data=data/arabidopsis&amp;loc="+data.record.chr+":"+data.record.coord+"\">"+"<span title=\"View the sequence in Jbrowse\" style=\"background-color:#0066cc;color:#FFFFFF;\">View</span></a>";
+                                    }
+                                },
+                                gene:{
                                     key:true,
                                     edit:false,
                                     create:false,
                                     columnResizable:false,
-                                    title:'View',
-                                    display: function (data) {
-                                        var short_name = data.record.gene;
-                                        if(data.record.gene.length > 30)
-                                        {
-                                                short_name = data.record.gene.substr(0,30) + "...";
-                                        }
-                                        if(data.record.strand=='-')
-                                            return short_name + "<a target='_blank' style='display:inline;' href='./show_sequence.php?chr="+data.record.chr+"&gene="+data.record.coord+"&strand=-1' ><img src = './pic/score.png' hight='10px' width='80px' title='view PASS score' align='right' /></a><a style='display:inline;' href='../jbrowse/?data=data/<?php echo $_SESSION['file']?>&loc="+data.record.chr+":"+data.record.coord+"' target='_blank'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
-                                        else if(data.record.strand=='+')
-                                            return short_name + "<a target='_blank' style='display:inline;' href='./show_sequence.php?chr="+data.record.chr+"&gene="+data.record.coord+"&strand=1' ><img src = './pic/score.png' hight='10px' width='80px' title='view PASS score' align='right' /></a><a style='display:inline;' href='../jbrowse/?data=data/<?php echo $_SESSION['file']?>&loc="+data.record.chr+":"+data.record.coord+"' target='_blank'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
-                                    }
-                                },
-                                gene:{
                                     title:'gene',
-                                    edit:false,
-                                    width:'10%'
+                                    edit:false
                                 },
                                 chr:{
                                     title:'chr',
-                                    edit:false,
-                                    width:'10%'
+                                    edit:false
                                 },
                                 ftr_start:{
                                     title:'ftr_start',
-                                    edit:false,
-                                    width:'10%'
+                                    edit:false
                                 },
                                 ftr_end:{
                                     title:'ftr_end',
-                                    edit:false,
-                                    width:'20%'
+                                    edit:false
                                 },
                                 strand:{
                                     title:'strand',
-                                    edit:false,
-                                    width:'20%'
+                                    edit:false
                                 },
                                 ftr:{
                                     title:'ftr',
-                                    edit:false,
-                                    width:'20%'
+                                    edit:false
                                 },
                                 gene_type:{
                                     title:'gene_type',
-                                    edit:false,
-                                    width:'20%'
+                                    edit:false
+                                },
+                                detail:{
+                                    title:'Detail',
+                                    display: function (data) {
+                                        if(data.record.ftr=='intergenic.igt' || data.record.ftr=='intergenic.pm'){
+                                            if(data.record.strand=='-'){
+                                                return "<td><a target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=-1&flag=intergenic&coord="+data.record.coord+"\"><span title=\"Get more information about this sequence\" style=\"background-color:#0066cc;color:#FFFFFF;\">Detail</span></a></td>";
+                                            }
+                                            else
+                                                return "<td><a target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=1&flag=intergenic&coord="+data.record.coord+"\"><span title=\"Get more information about this sequence\" style=\"background-color:#0066cc;color:#FFFFFF;\">Detail</span></a></td>";
+                                        }
+                                        else{
+                                            return "<td><a target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=1\"><span title=\"Get more information about this sequence\" style=\"background-color:#0066cc;color:#FFFFFF;\">Detail</span></a></td>";
+                                        }
+                                    }
                                 }
                             }
                         });
