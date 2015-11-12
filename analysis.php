@@ -96,7 +96,7 @@
                  });
         });
         function update_page1(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
-            window.location.href="aftertreatment_result_test.php?result=degene";
+                window.location.href="aftertreatment_result_test.php?result=degene";
 //            alert("successful");
         }
         function update_page2(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
