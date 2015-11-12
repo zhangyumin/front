@@ -15,6 +15,8 @@
         <script src="./src/jquery.dataTables.min.js"type="text/javascript" ></script>
         <link href="./src/jquery.dataTables.css"type="text/css" rel="stylesheet"></link>
     <?php
+        $con=  mysql_connect("localhost","root","root");
+        mysql_select_db("db_server",$con);
         session_start();
         $file=$_SESSION['file'];
         if($_GET['result']=='degene'){
@@ -22,6 +24,20 @@
             $b=file("./searched/degene.$file.stat");
             $c = "degene.$file";
             $insert="create table db_user.Analysis_$file(gene varchar(30),gene_type varchar(50),";
+            $title_tmp=  explode("\t", $a[0]);
+            foreach ($title_tmp as $key => $value) {
+                if($value=='gene'||$value=='gene_type'||$key==count($title_tmp)-1)
+                {
+
+                }
+                else{
+                    $insert.="$value int(10), ";
+                }
+            }
+            $insert.="padj double(19,17));";
+            mysql_query("drop table db_user.Analysis_$file");
+            mysql_query($insert);
+            mysql_query("load data infile '/var/www/front/searched/degene.$file' into table db_user.Analysis_$file IGNORE 1 LINES;");
         }
         if($_GET['result']=='depac'){
             $a=file("./searched/depac.$file");
@@ -91,11 +107,6 @@
         </style>
 </head>
 <body>
-     <?php
-        $con=  mysql_connect("localhost","root","root");
-        mysql_select_db("db_server",$con);
-        ?>
-    
         <?php
             include './navbar.php'
         ?>
@@ -114,29 +125,88 @@
                         }
                 ?>
             </table>
-            <?php
-                $title_tmp=  explode("\t", $a[0]);
-                foreach ($title_tmp as $key => $value) {
-                    if($value=='gene'||$value=='gene_type'||$key==count($title_tmp)-1)
-                    {
-                        
-                    }
-                    else{
-                        $insert.="$value int(10), ";
-                    }
-                }
-                $insert.="padj double(19,17));";
-                mysql_query($insert);
-                mysql_query("load data infile '/var/www/front/searched/degene.$file' into table db_user.Analysis_$file IGNORE 1 LINES;");
-//                echo $insert;
-            ?>
+        </div>
+        <div class="filter" id="filter">
+                    <form>
+                        <input type="text" name="search" id="search" />
+                        <button type="submit" id="search_button">search</button>
+                        <button type="reset" id="reset_button">reset</button>
+                    </form>
+            </div>
+            <div id="jtable" style="clear: both;width: 100%;"></div>
+            <link href="src/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
+            <link href="src/jtable.css" rel="stylesheet" type="text/css" />
+            <script src="src/jquery-ui-1.8.16.custom.min.js" type="text/javascript" ></script>
+            <script src="src/jquery.jtable.js" type="text/javascript" ></script>
+             <script type="text/javascript">
+                 <?php
+                    echo "var species='".$_SESSION['species']."';";
+                ?>
+                    $(document).ready(function (){
+                        $('#jtable').jtable({
+                            title:'PAC',
+                            paging:true,
+                            pageSize:5,
+                            sorting:true,
+                            defaultSorting:'gene ASC',
+                            actions:{
+                                listAction:'Analysis_PAClist.php'
+                            },
+                            fields:{
+                                <?php
+                                if($_GET['result']=='degene'){
+                                    echo "gene:{
+                                            key:true,
+                                            edit:false,
+                                            create:false,
+                                            columnResizable:false,
+                                            title:'gene',
+                                            edit:false,
+                                            display: function (data) {
+                                               return \"<td><a target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"'><span title='Get more information about this sequence' style='background-color:#0066cc;color:#FFFFFF;'>\"+data.record.gene+\"</span></a></td>\";
+                                            }
+                                            },
+                                            gene_type:{
+                                                title:'gene_type',
+                                                edit:false
+                                            },";
+                                    foreach ($title_tmp as $key => $value) {
+                                        if($value=='gene'||$value=='gene_type'||$key==count($title_tmp)-1)
+                                        {}
+                                        else{
+                                            echo "$value:{
+                                                      title:'$value',
+                                                      edit:false
+                                                      }";
+                                            if($key!=count($title_tmp)-2)
+                                                echo ",";
+                                        }
+                                    }
+                                }
+                                ?>
+                            }
+                        });
+
+                        $('#jtable').jtable('load');
+                        $('#filter').appendTo(".jtable-title").addClass('filter_class');
+                        $('#search_button').click(function (e){
+                            e.preventDefault();
+                                    $('#jtable').jtable('load',{
+                                        search: $('#search').val()
+                                    });
+                                });
+                        $('#reset_button').click(function(e){
+                            e.preventDefault();
+                                    $('#jtable').jtable('load');
+                                });
+                    });
+                </script>
         <div id="download"style="border: #ff6600 2px dotted;border-collapse: collapse;text-align: center">
             CLick to download the list data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="javascript:window.location.href='./download_data.php?type=4&name=<?php echo $c; ?>'">download</button>
         </div>
     <?php
         include './wheelmenu.php';
         ?>
-    </div>
     <?php
         include './footer.php';
     ?>
