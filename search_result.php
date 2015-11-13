@@ -12,6 +12,22 @@
         <script src="./js/html5shiv/html5shiv.js"></script>
         <![endif]-->
     </head>
+    <style type="text/css">
+        .STYLE1 {font-size: 12px}
+        a:link {
+        color: #FFFFFF;
+        text-decoration: none;
+        }
+        a:visited {
+        text-decoration: none;
+        }
+        a:hover {
+        text-decoration: none;
+        }
+        a:active {
+        text-decoration: none;
+        }
+    </style>
     <body onload="set();getchr()">
          
         <?php
@@ -149,6 +165,16 @@
 
             ?>
         <script type="text/javascript">
+            function locking(){   
+              //document.all.ly.style.display="block";   
+               document.all.ly.style.width=document.body.clientWidth;   
+               document.all.ly.style.height=document.body.offsetHeight;   
+               document.all.Layer2.style.display='block';  
+               }   
+            function Lock_CheckForm(theForm){   
+                document.all.ly.style.display='none';document.all.Layer2.style.display='none';
+                return   false;   
+             }   
             function set(){
                 $("#species").val("<?php echo $_POST['species'];?>");
                 $("#chr").val("<?php echo $_POST['chr'];?>");
@@ -233,6 +259,60 @@
                     }
                 }
         </script>
+        <div id="ly" style="position: absolute; top: 0px; filter: alpha(opacity=60); background-color: #777;z-index: 2; left: 0px; display: none;">
+        </div>
+        <!--          浮层框架开始         -->
+        <div id="Layer2" align="center" style="border: 1px solid;position: absolute; z-index: 3; left: 560; top: 50%;background-color: #fff; display: none;" >
+            <table width="540" height="300" border="0" cellpadding="0" cellspacing="0" style="border: 0    solid    #e7e3e7;border-collapse: collapse ;" >
+                <tr>
+                    <td style="background-color: #73A2d6; color: #fff; padding-left: 4px; padding-top: 2px;font-weight: bold; font-size: 12px;" height="10" valign="middle">
+                         <div align="right">
+                             <a href=JavaScript:; class="STYLE1" onclick="Lock_CheckForm(this);">[关闭]
+                             </a> &nbsp;&nbsp;&nbsp;&nbsp;
+                         </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="130" align="center">
+                        <form name="pac_export" method="post" action="test1.php" target="_blank">
+                            method<select id="method">
+                                <option value="pacs">export sequences of PACs</option>
+                                <option value="pacs-region">export sequences of regions of  PACs</option>
+                                <option value="seq">export gene sequences</option>
+                            </select><br>
+                            <div id="pacs">
+                                upstream (nt) <input type="text" value="200" name='upstream'></input><br>
+                                downstream (nt) <input type="text" value="200" name='downstream'></input><br>
+                                PAC in region <select name='pac_region'>
+                                    <option>all</option>
+                                    <option>genomic region</option>
+                                    <option>3'UTR</option>
+                                    <option>5‘UTR</option>
+                                    <option>CDS</option>
+                                    <option>intron</option>
+                                    <option>intergenic</option>
+                                    <option>promoter</option>
+                                </select>
+                            </div>
+                            <div id="pacs-region">
+                                region of PACs <select name='pacs_region'>
+                                    <option>all</option>
+                                    <option>genomic region</option>
+                                    <option>3'UTR</option>
+                                    <option>5‘UTR</option>
+                                    <option>CDS</option>
+                                    <option>intron</option>
+                                    <option>intergenic</option>
+                                    <option>promoter</option>
+                                </select>
+                            </div>
+                            <button type="submit">Submit</button>
+                            <button type="reset">Reset</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <div class="ym-wrapper">
             <fieldset >
                 <legend>
@@ -309,6 +389,7 @@
             </fieldset>
             <br><br>
             <div class="filter" id="filter">
+                    <button onclick="locking()">export sequences</button>
                     <form>
                         <input type="text" name="search" id="search" />
                         <button type="submit" id="search_button">search</button>
