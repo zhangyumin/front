@@ -166,7 +166,7 @@
             ?>
         <script type="text/javascript">
             function locking(){   
-              //document.all.ly.style.display="block";   
+               document.all.ly.style.display="block";   
                document.all.ly.style.width=document.body.clientWidth;   
                document.all.ly.style.height=document.body.offsetHeight;   
                document.all.Layer2.style.display='block';  
@@ -184,6 +184,14 @@
                 document.getElementById("end").value="<?php echo $end;?>";
                 document.getElementById("go_name").value="<?php echo $go_name;?>";
                 document.getElementById("function").value="<?php echo $function;?>";
+            }
+            function ChgMtd(){
+                document.getElementById("pacs").style.display='none';
+                document.getElementById("pacs-region").style.display='none';
+                document.getElementById("seq").style.display='none';
+                if(document.getElementById("method").value!='choose')
+                    document.getElementById(document.getElementById("method").value).style.display='block';
+//                console.log(document.getElementById("method").value);
             }
              <?php
                 $arr_arab=array();
@@ -259,7 +267,7 @@
                     }
                 }
         </script>
-        <div id="ly" style="position: absolute; top: 0px; filter: alpha(opacity=60); background-color: #777;z-index: 2; left: 0px; display: none;">
+        <div id="ly" style="position: absolute; top: 0px; opacity:0.4; background-color: #777;z-index: 2; left: 0px; display: none;">
         </div>
         <!--          浮层框架开始         -->
         <div id="Layer2" align="center" style="border: 1px solid;position: absolute; z-index: 3; left: 560; top: 50%;background-color: #fff; display: none;" >
@@ -267,7 +275,7 @@
                 <tr>
                     <td style="background-color: #73A2d6; color: #fff; padding-left: 4px; padding-top: 2px;font-weight: bold; font-size: 12px;" height="10" valign="middle">
                          <div align="right">
-                             <a href=JavaScript:; class="STYLE1" onclick="Lock_CheckForm(this);">[关闭]
+                             <a href=JavaScript:; class="STYLE1" onclick="Lock_CheckForm(this);">[Close]
                              </a> &nbsp;&nbsp;&nbsp;&nbsp;
                          </div>
                     </td>
@@ -275,12 +283,13 @@
                 <tr>
                     <td height="130" align="center">
                         <form name="pac_export" method="post" action="test1.php" target="_blank">
-                            method<select id="method">
+                            method<select id="method" onchange="ChgMtd()">
+                                <option value="choose">Please choose</option>
                                 <option value="pacs">export sequences of PACs</option>
                                 <option value="pacs-region">export sequences of regions of  PACs</option>
                                 <option value="seq">export gene sequences</option>
                             </select><br>
-                            <div id="pacs">
+                            <div id="pacs" style="display:none">
                                 upstream (nt) <input type="text" value="200" name='upstream'></input><br>
                                 downstream (nt) <input type="text" value="200" name='downstream'></input><br>
                                 PAC in region <select name='pac_region'>
@@ -294,7 +303,7 @@
                                     <option>promoter</option>
                                 </select>
                             </div>
-                            <div id="pacs-region">
+                            <div id="pacs-region" style="display:none">
                                 region of PACs <select name='pacs_region'>
                                     <option>all</option>
                                     <option>genomic region</option>
@@ -304,6 +313,17 @@
                                     <option>intron</option>
                                     <option>intergenic</option>
                                     <option>promoter</option>
+                                </select>
+                            </div>
+                            <div id="seq" style="display:none">
+                                annotation version <select name='anno_version'>
+                                    <option>raw annotation</option>
+                                    <option>3' UTR extended annotation</option>
+                                </select><br>
+                                export <select name='export'>
+                                    <option>whole gene</option>
+                                    <option>joined CDS</option>
+                                    <option>3' UTR only</option>
                                 </select>
                             </div>
                             <button type="submit">Submit</button>
