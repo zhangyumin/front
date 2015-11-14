@@ -189,9 +189,16 @@
                 document.getElementById("pacs").style.display='none';
                 document.getElementById("pacs-region").style.display='none';
                 document.getElementById("seq").style.display='none';
-                if(document.getElementById("method").value!='choose')
+                if(document.getElementById("method").value=='choose'){
+                    document.getElementById("sub").disabled=true;
+                    document.getElementById("can").disabled=true;
+                }
+                else{
+                    document.getElementById("sub").disabled=false;
+                    document.getElementById("can").disabled=false;
                     document.getElementById(document.getElementById("method").value).style.display='block';
 //                console.log(document.getElementById("method").value);
+                }
             }
              <?php
                 $arr_arab=array();
@@ -282,8 +289,8 @@
                 </tr>
                 <tr>
                     <td height="130" align="center">
-                        <form name="pac_export" method="post" action="test1.php" target="_blank">
-                            method<select id="method" onchange="ChgMtd()">
+                        <form name="pac_export" method="post" action="export_seq.php" target="_blank">
+                            method<select id="method" name="method" onchange="ChgMtd()">
                                 <option value="choose">Please choose</option>
                                 <option value="pacs">export sequences of PACs</option>
                                 <option value="pacs-region">export sequences of regions of  PACs</option>
@@ -293,41 +300,41 @@
                                 upstream (nt) <input type="text" value="200" name='upstream'></input><br>
                                 downstream (nt) <input type="text" value="200" name='downstream'></input><br>
                                 PAC in region <select name='pac_region'>
-                                    <option>all</option>
-                                    <option>genomic region</option>
-                                    <option>3'UTR</option>
-                                    <option>5‘UTR</option>
-                                    <option>CDS</option>
-                                    <option>intron</option>
-                                    <option>intergenic</option>
-                                    <option>promoter</option>
+                                    <option value="">all</option>
+                                    <option value="genomic-region">genomic region</option>
+                                    <option value="3TUR">3'UTR</option>
+                                    <option value="5UTR">5‘UTR</option>
+                                    <option value="CDS">CDS</option>
+                                    <option value="intron">intron</option>
+                                    <option value="intergenic.igt">intergenic</option>
+                                    <option value="intergenic.pm">promoter</option>
                                 </select>
                             </div>
                             <div id="pacs-region" style="display:none">
                                 region of PACs <select name='pacs_region'>
-                                    <option>all</option>
-                                    <option>genomic region</option>
-                                    <option>3'UTR</option>
-                                    <option>5‘UTR</option>
-                                    <option>CDS</option>
-                                    <option>intron</option>
-                                    <option>intergenic</option>
-                                    <option>promoter</option>
+                                    <option value="">all</option>
+                                    <option value="genomic-region">genomic region</option>
+                                    <option value="3TUR">3'UTR</option>
+                                    <option value="5UTR">5‘UTR</option>
+                                    <option value="CDS">CDS</option>
+                                    <option value="intron">intron</option>
+                                    <option value="intergenic.igt">intergenic</option>
+                                    <option value="intergenic.pm">promoter</option>
                                 </select>
                             </div>
                             <div id="seq" style="display:none">
                                 annotation version <select name='anno_version'>
-                                    <option>raw annotation</option>
-                                    <option>3' UTR extended annotation</option>
+                                    <option value="raw-annotation">raw annotation</option>
+                                    <option value="3utr-extended-annotation">3' UTR extended annotation</option>
                                 </select><br>
                                 export <select name='export'>
-                                    <option>whole gene</option>
-                                    <option>joined CDS</option>
-                                    <option>3' UTR only</option>
+                                    <option value="whole-gene">whole gene</option>
+                                    <option value="joined-cds">joined CDS</option>
+                                    <option value="3utr-only">3' UTR only</option>
                                 </select>
                             </div>
-                            <button type="submit">Submit</button>
-                            <button type="reset">Reset</button>
+                            <button id="sub" type="submit" disabled="true">Submit</button>
+                            <button id="can" type="reset" disabled="true">Reset</button>
                         </form>
                     </td>
                 </tr>
