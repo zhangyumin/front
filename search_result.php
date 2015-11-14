@@ -289,7 +289,7 @@
                 </tr>
                 <tr>
                     <td height="130" align="center">
-                        <form name="pac_export" method="post" action="export_seq.php" target="_blank">
+                        <form name="pac_export" method="post" action="export_seq.php?source=Search" target="_blank">
                             method<select id="method" name="method" onchange="ChgMtd()">
                                 <option value="choose">Please choose</option>
                                 <option value="pacs">export sequences of PACs</option>
@@ -300,7 +300,7 @@
                                 upstream (nt) <input type="text" value="200" name='upstream'></input><br>
                                 downstream (nt) <input type="text" value="200" name='downstream'></input><br>
                                 PAC in region <select name='pac_region'>
-                                    <option value="">all</option>
+                                    <option value="all">all</option>
                                     <option value="genomic-region">genomic region</option>
                                     <option value="3TUR">3'UTR</option>
                                     <option value="5UTR">5‘UTR</option>
@@ -312,7 +312,7 @@
                             </div>
                             <div id="pacs-region" style="display:none">
                                 region of PACs <select name='pacs_region'>
-                                    <option value="">all</option>
+                                    <option value="all">all</option>
                                     <option value="genomic-region">genomic region</option>
                                     <option value="3TUR">3'UTR</option>
                                     <option value="5UTR">5‘UTR</option>
