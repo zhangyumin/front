@@ -54,7 +54,7 @@ and open the template in the editor.
                         mkdir("./result/".$_SESSION['file']."/");
                         chmod("./result/".$_SESSION['file']."/", 0777);
                         $x=move_uploaded_file($_FILES["file"]["tmp_name"], $filepath.$filename);
-                        echo '<script>window.location.href="get_result_test.php";</script>';
+                        echo '<script>window.location.href="get_result.php";</script>';
                         #echo $x;
                   }
             
