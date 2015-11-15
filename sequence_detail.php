@@ -3,6 +3,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Sequence Detail</title>
         <script src="./src/jquery-2.0.0.min.js"></script>
+        <script src="./src/jquery.dataTables.min.js"type="text/javascript" ></script>
+        <link href="./src/jquery.dataTables.css"type="text/css" rel="stylesheet"></link>
         <style>
             table{
                 font-size: 12px;
@@ -1869,7 +1871,7 @@
             <table width="99%" cellspacing="0" cellpadding="0" border="0" style="margin: 20px auto;">
             <tbody>
                 <tr>
-                    <td width="50%" valign="top">
+                    <td width="40%" valign="top">
                           <hr width="98%" size="1" align="left" style="border-top: 1px dotted #5499c9;">
                         <div id="gene">
                             <table id="genetable">
@@ -1904,8 +1906,8 @@
                             </table>
                         </div>
                         <hr width="98%" size="1" align="left" style="border-top: 1px dotted #5499c9;">
-                        <div id="go">
-                            <table id="gotable" nowrap="true" style="table-layout:fixed;word-wrap: break-word;word-break: break-all;overflow: hidden;">
+                        <div id="go" style="overflow-x: auto;background-color: #fff;margin:auto;">
+                            <table id="gotable"  class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
                                 <thead>
                                     <tr>
                                         <th style="width:15%">Go id</th>
@@ -1931,7 +1933,15 @@
                                                 ?>
                                 </tbody>
                             </table>
-                        </div>                        
+                        </div>
+                        <script>
+                            $(document).ready(function(){
+                                $('#gotable').dataTable({
+                                    "lengthMenu":[[5,10,15,-1],[5,10,15,"all"]],
+                                    "pagingType":"full_numbers"
+                                });
+                            });
+                        </script>
                         <hr width="98%" size="1" align="left" style="border-top: 1px dotted #5499c9;">
                         <div id="polya">
                             <table id="polyatable">
@@ -1980,7 +1990,7 @@
                             </table>
                         </div>
                     </td>
-                    <td width="50%" height="400px" valign="top">
+                    <td width="60%" height="400px" valign="top">
                         <div class="wrap">
                             <div class="tabs">
                                 <a href="#" hidefocus="true" class="active">Jbrowse</a>
