@@ -12,8 +12,6 @@
         <script src="./js/html5shiv/html5shiv.js"></script>
         <![endif]-->
      <script src="./src/jquery-1.10.1.min.js" type="text/javascript"></script>
-        <script src="./src/jquery.dataTables.min.js"type="text/javascript" ></script>
-        <link href="./src/jquery.dataTables.css"type="text/css" rel="stylesheet"></link>
     <?php
         $con=  mysql_connect("localhost","root","root");
         mysql_select_db("db_server",$con);
