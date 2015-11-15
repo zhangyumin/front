@@ -33,7 +33,16 @@
         echo "<script>window.location.href=\"./download_data.php?type=4&name=$name[5]\";</script>";
     }
     else if($_POST['method']=='pacs-region'){
+        if($pacs_region=='all')
+            $cmd2="./src/perl/PAT_outputGeneseq.pl -annotbl $table -cond \"\" -ofile \"/var/www/front/searched/Pacs_Seq_$file\"  -conf \"/var/www/front/config/db_$species.xml\""; 
+        else if($pacs_region=='genomic-region')
+            $cmd2="./src/perl/PAT_outputGeneseq.pl -annotbl $table -cond \"ftr not like '%inter%'\" -ofile \"/var/www/front/searched/Pacs_Seq_$file\"  -conf \"/var/www/front/config/db_$species.xml\""; 
+        else
+            $cmd2="./src/perl/PAT_outputGeneseq.pl -annotbl $table -cond \"ftr='$pacs_region'\" -ofile \"/var/www/front/searched/Pacs_Seq_$file\"  -conf \"/var/www/front/config/db_$species.xml\""; 
+//        echo $cmd2;
+        shell_exec($cmd2);
         
+        echo "<script>window.location.href=\"./download_data.php?type=4&name=Pacs_Seq_$file\";</script>";
     }
     else if($_POST['method']=='seq'){
         
