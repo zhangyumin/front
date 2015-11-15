@@ -41,10 +41,22 @@
             $cmd2="./src/perl/PAT_outputGeneseq.pl -annotbl $table -cond \"ftr='$pacs_region'\" -ofile \"/var/www/front/searched/Pacs_Seq_$file\"  -conf \"/var/www/front/config/db_$species.xml\""; 
 //        echo $cmd2;
         shell_exec($cmd2);
-        
         echo "<script>window.location.href=\"./download_data.php?type=4&name=Pacs_Seq_$file\";</script>";
     }
     else if($_POST['method']=='seq'){
-        
+        if($anno_version=='raw-annotation'&&$export=='whole-gene')
+            $cmd3="./src/perl/PAT_outputGeneseq.pl -gntbl $table -gfftbl db_server.t_arab_gff_org_all -ofile \"/var/www/front/searched/Gene_seq_$file\" -conf \"/var/www/front/config/db_$species.xml\"";
+        else if($anno_version=='3utr-extended-annotation'&&$export=='whole-gene')
+            $cmd3="./src/perl/PAT_outputGeneseq.pl -gntbl $table -gfftbl db_server.t_arab_gff_all -ofile \"/var/www/front/searched/Gene_seq_$file\" -conf \"/var/www/front/config/db_$species.xml\"";
+        else if($anno_version=='raw-annotation'&&$export=='joined-cds')
+            $cmd3="./src/perl/PAT_outputGeneseq.pl -gntbl $table -gfftbl db_server.t_arab_gff_org -ftr CDS -ofile \"/var/www/front/searched/Gene_seq_$file\" -conf \"/var/www/front/config/db_$species.xml\"";
+        else if($anno_version=='3utr-extended-annotation'&&$export=='joined-cds')
+            $cmd3="./src/perl/PAT_outputGeneseq.pl -gntbl $table -gfftbl db_server.t_arab_gff -ftr CDS -ofile \"/var/www/front/searched/Gene_seq_$file\" -conf \"/var/www/front/config/db_$species.xml\"";
+        else if($anno_version=='raw-annotation'&&$export=='3utr-only')
+            $cmd3="./src/perl/PAT_outputGeneseq.pl -gntbl $table -gfftbl db_server.t_arab_gff_org -ftr 3UTR -ofile \"/var/www/front/searched/Gene_seq_$file\" -conf \"/var/www/front/config/db_$species.xml\"";
+        else if($anno_version=='3utr-extended-annotation'&&$export=='3utr-only')
+             $cmd3="./src/perl/PAT_outputGeneseq.pl -gntbl $table -gfftbl db_server.t_arab_gff -ftr 3UTR -ofile \"/var/www/front/searched/Gene_seq_$file\" -conf \"/var/www/front/config/db_$species.xml\"";
+        shell_exec($cmd3);
+        echo "<script>window.location.href=\"./download_data.php?type=4&name=Gene_Seq_$file\";</script>";
     }
 ?>
