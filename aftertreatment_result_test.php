@@ -140,6 +140,20 @@
                 border-width: 2px !important;
                 padding: 5px 10px !important;
             }
+            .STYLE1 {font-size: 12px}
+            a:link {
+            color: #FFFFFF;
+            text-decoration: none;
+            }
+            a:visited {
+            text-decoration: none;
+            }
+            a:hover {
+            text-decoration: none;
+            }
+            a:active {
+            text-decoration: none;
+            }
         </style>
 </head>
 <body>
@@ -162,170 +176,262 @@
                 ?>
             </table>
         </div>
+        <div id="ly" style="position: absolute; top: 0px; opacity:0.4; background-color: #777;z-index: 2; left: 0px; display: none;">
+        </div>
+        <!--          浮层框架开始         -->
+        <div id="Layer2" align="center" style="border: 1px solid;position: absolute; z-index: 3; left: 40%; top: 50%;background-color: #fff; display: none;" >
+            <table width="540" height="300" border="0" cellpadding="0" cellspacing="0" style="border: 0    solid    #e7e3e7;border-collapse: collapse ;" >
+                <tr>
+                    <td style="background-color: #73A2d6; color: #fff; padding-left: 4px; padding-top: 2px;font-weight: bold; font-size: 12px;" height="10" valign="middle">
+                         <div align="right">
+                             <a href=JavaScript:; class="STYLE1" onclick="Lock_CheckForm(this);">[Close]
+                             </a> &nbsp;&nbsp;&nbsp;&nbsp;
+                         </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="130" align="center">
+                        <form name="pac_export" method="post" action="export_seq.php?source=Analysis" target="_blank">
+                            method<select id="method" name="method" onchange="ChgMtd()">
+                                <option value="choose">Please choose</option>
+                                <option value="pacs">export sequences of PACs</option>
+                                <option value="pacs-region">export sequences of regions of  PACs</option>
+                                <option value="seq">export gene sequences</option>
+                            </select><br>
+                            <div id="pacs" style="display:none">
+                                upstream (nt) <input type="text" value="200" name='upstream'></input><br>
+                                downstream (nt) <input type="text" value="200" name='downstream'></input><br>
+                                PAC in region <select name='pac_region'>
+                                    <option value="all">all</option>
+                                    <option value="genomic-region">genomic region</option>
+                                    <option value="3TUR">3'UTR</option>
+                                    <option value="5UTR">5‘UTR</option>
+                                    <option value="CDS">CDS</option>
+                                    <option value="intron">intron</option>
+                                    <option value="intergenic.igt">intergenic</option>
+                                    <option value="intergenic.pm">promoter</option>
+                                </select>
+                            </div>
+                            <div id="pacs-region" style="display:none">
+                                region of PACs <select name='pacs_region'>
+                                    <option value="all">all</option>
+                                    <option value="genomic-region">genomic region</option>
+                                    <option value="3TUR">3'UTR</option>
+                                    <option value="5UTR">5‘UTR</option>
+                                    <option value="CDS">CDS</option>
+                                    <option value="intron">intron</option>
+                                    <option value="intergenic.igt">intergenic</option>
+                                    <option value="intergenic.pm">promoter</option>
+                                </select>
+                            </div>
+                            <div id="seq" style="display:none">
+                                annotation version <select name='anno_version'>
+                                    <option value="raw-annotation">raw annotation</option>
+                                    <option value="3utr-extended-annotation">3' UTR extended annotation</option>
+                                </select><br>
+                                export <select name='export'>
+                                    <option value="whole-gene">whole gene</option>
+                                    <option value="joined-cds">joined CDS</option>
+                                    <option value="3utr-only">3' UTR only</option>
+                                </select>
+                            </div>
+                            <button id="sub" type="submit" disabled="true">Submit</button>
+                            <button id="can" type="reset" disabled="true">Reset</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <div class="filter" id="filter">
-                    <form>
-                        <input type="text" name="search" id="search" />
-                        <button type="submit" id="search_button">search</button>
-                        <button type="reset" id="reset_button">reset</button>
-                    </form>
-            </div>
-            <div id="jtable" style="clear: both;overflow: auto;"></div>
-            <link href="src/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
-            <link href="src/jtable.css" rel="stylesheet" type="text/css" />
-            <script src="src/jquery-ui-1.8.16.custom.min.js" type="text/javascript" ></script>
-            <script src="src/jquery.jtable.js" type="text/javascript" ></script>
-             <script type="text/javascript">
-                 <?php
-                    echo "var species='".$_SESSION['species']."';";
-                ?>
-                    $(document).ready(function (){
-                        $('#jtable').jtable({
-                            title:'PAC',
-                            paging:true,
-                            pageSize:5,
-                            sorting:true,
-                            defaultSorting:'gene ASC',
-                            actions:{
-                                listAction:'Analysis_PAClist.php'
-                            },
-                            fields:{
-                                <?php
-                                if($_GET['result']=='degene'){
-                                    echo "gene:{
-                                            key:true,
-                                            edit:false,
-                                            create:false,
-                                            columnResizable:false,
-                                            title:'gene',
-                                            edit:false,
-                                            display: function (data) {
-                                               return \"<td><a target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"'><span title='Get more information about this sequence' style='background-color:#0066cc;color:#FFFFFF;'>\"+data.record.gene+\"</span></a></td>\";
-                                            }
-                                            },
-                                            gene_type:{
-                                                title:'gene_type',
-                                                edit:false
-                                            },";
-                                    foreach ($title_tmp as $key => $value) {
-                                        if($value=='gene'||$value=='gene_type'||$key==count($title_tmp)-1)
-                                        {}
-                                        else{
-                                            echo "$value:{
-                                                      title:'$value',
-                                                      edit:false
-                                                      }";
-                                            if($key!=count($title_tmp)-2)
-                                                echo ",";
+            <button onclick="locking()">export sequences</button>
+            <form>
+                <input type="text" name="search" id="search" />
+                <button type="submit" id="search_button">search</button>
+                <button type="reset" id="reset_button">reset</button>
+            </form>
+        </div>
+        <div id="jtable" style="clear: both;overflow: auto;"></div>
+        <link href="src/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
+        <link href="src/jtable.css" rel="stylesheet" type="text/css" />
+        <script src="src/jquery-ui-1.8.16.custom.min.js" type="text/javascript" ></script>
+        <script src="src/jquery.jtable.js" type="text/javascript" ></script>
+         <script type="text/javascript">
+            function locking(){   
+               document.all.ly.style.display="block";   
+               document.all.ly.style.width=document.body.clientWidth;   
+               document.all.ly.style.height=document.body.offsetHeight;   
+               document.all.Layer2.style.display='block';  
+               }   
+            function Lock_CheckForm(theForm){   
+                document.all.ly.style.display='none';document.all.Layer2.style.display='none';
+                return   false;   
+             }
+             function ChgMtd(){
+                document.getElementById("pacs").style.display='none';
+                document.getElementById("pacs-region").style.display='none';
+                document.getElementById("seq").style.display='none';
+                if(document.getElementById("method").value=='choose'){
+                    document.getElementById("sub").disabled=true;
+                    document.getElementById("can").disabled=true;
+                }
+                else{
+                    document.getElementById("sub").disabled=false;
+                    document.getElementById("can").disabled=false;
+                    document.getElementById(document.getElementById("method").value).style.display='block';
+//                console.log(document.getElementById("method").value);
+                }
+            }
+             <?php
+                echo "var species='".$_SESSION['species']."';";
+            ?>
+                $(document).ready(function (){
+                    $('#jtable').jtable({
+                        title:'PAC',
+                        paging:true,
+                        pageSize:5,
+                        sorting:true,
+                        defaultSorting:'gene ASC',
+                        actions:{
+                            listAction:'Analysis_PAClist.php'
+                        },
+                        fields:{
+                            <?php
+                            if($_GET['result']=='degene'){
+                                echo "gene:{
+                                        key:true,
+                                        edit:false,
+                                        create:false,
+                                        columnResizable:false,
+                                        title:'gene',
+                                        edit:false,
+                                        display: function (data) {
+                                           return \"<td><a target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"'><span title='Get more information about this sequence' style='background-color:#0066cc;color:#FFFFFF;'>\"+data.record.gene+\"</span></a></td>\";
                                         }
-                                    }
-                                }
-                                else if($_GET['result']=='depac'){
-                                    echo "gene:{
-                                            key:true,
-                                            edit:false,
-                                            create:false,
-                                            columnResizable:false,
-                                            title:'gene',
-                                            edit:false,
-                                            display: function (data) {
-                                               return \"<td><a target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"'><span title='Get more information about this sequence' style='background-color:#0066cc;color:#FFFFFF;'>\"+data.record.gene+\"</span></a></td>\";
-                                            }
-                                            },";
-                                    foreach ($title_tmp as $key => $value) {
-                                        if($value=='gene'||$key==count($title_tmp)-1)
-                                        {}
-                                        else{
-                                            echo "$value:{
-                                                      title:'$value',
-                                                      edit:false
-                                                      }";
+                                        },
+                                        gene_type:{
+                                            title:'gene_type',
+                                            edit:false
+                                        },";
+                                foreach ($title_tmp as $key => $value) {
+                                    if($value=='gene'||$value=='gene_type'||$key==count($title_tmp)-1)
+                                    {}
+                                    else{
+                                        echo "$value:{
+                                                  title:'$value',
+                                                  edit:false
+                                                  }";
+                                        if($key!=count($title_tmp)-2)
                                             echo ",";
-                                        }
                                     }
-                                    echo "padj:{"
-                                            . "title:'padj',"
-                                            . "edit:false"
-                                            . "}";
                                 }
-                                else if($_GET['result']=='switchinggene_o'){
-                                    echo "gene:{
-                                            key:true,
-                                            edit:false,
-                                            create:false,
-                                            columnResizable:false,
-                                            title:'gene',
-                                            edit:false,
-                                            display: function (data) {
-                                               return \"<td><a target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"'><span title='Get more information about this sequence' style='background-color:#0066cc;color:#FFFFFF;'>\"+data.record.gene+\"</span></a></td>\";
-                                            }
-                                            },";
-                                    echo "average_PAT:{
-                                              title:'average_PAT',
-                                              edit:false
-                                              },";
-                                    echo "SUTR_length:{
-                                              title:'3UTR_length',
-                                              edit:false
-                                              },";
-                                    echo "correlation:{
-                                              title:'correlation',
-                                              edit:false
-                                              },";
-                                    echo "pval:{
-                                              title:'pval',
-                                              edit:false
-                                              },";
-                                    echo "switching:{
-                                              title:'switching',
-                                              edit:false
-                                              }";
-                                }
-                                else if($_GET['result']=='switchinggene_n'){
-                                    echo "gene:{
-                                            key:true,
-                                            edit:false,
-                                            create:false,
-                                            columnResizable:false,
-                                            title:'gene',
-                                            edit:false,
-                                            display: function (data) {
-                                               return \"<td><a target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"'><span title='Get more information about this sequence' style='background-color:#0066cc;color:#FFFFFF;'>\"+data.record.gene+\"</span></a></td>\";
-                                            }
-                                            },";
-                                    foreach ($title_tmp as $key => $value) {
-                                        if($value=='gene'||$key==count($title_tmp)-1)
-                                        {}
-                                        else{
-                                            echo "$value:{
-                                                      title:'$value',
-                                                      edit:false
-                                                      }";
-                                            echo ",";
-                                        }
-                                    }
-                                         echo "switching_type:{"
-                                            . "title:'switchinge type',"
-                                            . "edit:false"
-                                            . "}";
-                                    }
-                                ?>
                             }
-                        });
-
-                        $('#jtable').jtable('load');
-                        $('#filter').appendTo(".jtable-title").addClass('filter_class');
-                        $('#search_button').click(function (e){
-                            e.preventDefault();
-                                    $('#jtable').jtable('load',{
-                                        search: $('#search').val()
-                                    });
-                                });
-                        $('#reset_button').click(function(e){
-                            e.preventDefault();
-                                    $('#jtable').jtable('load');
-                                });
+                            else if($_GET['result']=='depac'){
+                                echo "gene:{
+                                        key:true,
+                                        edit:false,
+                                        create:false,
+                                        columnResizable:false,
+                                        title:'gene',
+                                        edit:false,
+                                        display: function (data) {
+                                           return \"<td><a target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"'><span title='Get more information about this sequence' style='background-color:#0066cc;color:#FFFFFF;'>\"+data.record.gene+\"</span></a></td>\";
+                                        }
+                                        },";
+                                foreach ($title_tmp as $key => $value) {
+                                    if($value=='gene'||$key==count($title_tmp)-1)
+                                    {}
+                                    else{
+                                        echo "$value:{
+                                                  title:'$value',
+                                                  edit:false
+                                                  }";
+                                        echo ",";
+                                    }
+                                }
+                                echo "padj:{"
+                                        . "title:'padj',"
+                                        . "edit:false"
+                                        . "}";
+                            }
+                            else if($_GET['result']=='switchinggene_o'){
+                                echo "gene:{
+                                        key:true,
+                                        edit:false,
+                                        create:false,
+                                        columnResizable:false,
+                                        title:'gene',
+                                        edit:false,
+                                        display: function (data) {
+                                           return \"<td><a target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"'><span title='Get more information about this sequence' style='background-color:#0066cc;color:#FFFFFF;'>\"+data.record.gene+\"</span></a></td>\";
+                                        }
+                                        },";
+                                echo "average_PAT:{
+                                          title:'average_PAT',
+                                          edit:false
+                                          },";
+                                echo "SUTR_length:{
+                                          title:'3UTR_length',
+                                          edit:false
+                                          },";
+                                echo "correlation:{
+                                          title:'correlation',
+                                          edit:false
+                                          },";
+                                echo "pval:{
+                                          title:'pval',
+                                          edit:false
+                                          },";
+                                echo "switching:{
+                                          title:'switching',
+                                          edit:false
+                                          }";
+                            }
+                            else if($_GET['result']=='switchinggene_n'){
+                                echo "gene:{
+                                        key:true,
+                                        edit:false,
+                                        create:false,
+                                        columnResizable:false,
+                                        title:'gene',
+                                        edit:false,
+                                        display: function (data) {
+                                           return \"<td><a target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"'><span title='Get more information about this sequence' style='background-color:#0066cc;color:#FFFFFF;'>\"+data.record.gene+\"</span></a></td>\";
+                                        }
+                                        },";
+                                foreach ($title_tmp as $key => $value) {
+                                    if($value=='gene'||$key==count($title_tmp)-1)
+                                    {}
+                                    else{
+                                        echo "$value:{
+                                                  title:'$value',
+                                                  edit:false
+                                                  }";
+                                        echo ",";
+                                    }
+                                }
+                                     echo "switching_type:{"
+                                        . "title:'switchinge type',"
+                                        . "edit:false"
+                                        . "}";
+                                }
+                            ?>
+                        }
                     });
-                </script>
+
+                    $('#jtable').jtable('load');
+                    $('#filter').appendTo(".jtable-title").addClass('filter_class');
+                    $('#search_button').click(function (e){
+                        e.preventDefault();
+                                $('#jtable').jtable('load',{
+                                    search: $('#search').val()
+                                });
+                            });
+                    $('#reset_button').click(function(e){
+                        e.preventDefault();
+                                $('#jtable').jtable('load');
+                            });
+                });
+            </script>
         <div id="download"style="border: #ff6600 2px dotted;border-collapse: collapse;text-align: center">
             CLick to download the list data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="javascript:window.location.href='./download_data.php?type=4&name=<?php echo $c; ?>'">download</button>
         </div>
