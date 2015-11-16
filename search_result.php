@@ -407,7 +407,7 @@
                                         }
                                     }
                                     <?php
-                                        echo "var species='".$_SESSION['species']."'";
+                                        echo "var species='".$_POST['species']."'";
                                     ?>
                                 </script>
                             
