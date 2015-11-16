@@ -26,7 +26,6 @@
             mysql_select_db("db_server",$con);
             include"navbar.php";
         ?>
-        hahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaha
         <script type="text/javascript">
 
         $(document).ready(function(){
