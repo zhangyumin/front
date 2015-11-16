@@ -46,7 +46,7 @@ options(stringsAsFactors=F)
 #library(gtools)
 
 XMLDIR='/var/www/front/src/r/';     
-TMPDIR='/var/www/front/searched/';  
+TMPDIR='/var/www/front/searched';  
 RDIR='/var/www/front/src/r/'
 PERLEXE='perl'
 #PERLINFO='E:/sys/code/PAT/PAT_geneInfo.pl'
@@ -359,7 +359,7 @@ sql2df<-function(conn,sql,header=T) {
 #  说明:文件导入数据表
 #############################################################################
 loadFile2Tbl<-function(dbh,tbl,file,ignoreLine=0){
-  rn='\r\n'; #win
+  rn='\n'; #win
   t='\t';
   if (ignoreLine<=0) { 
     #sql=sprintf("load data infile \'%s\' into table %s",file,tbl)
