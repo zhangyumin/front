@@ -29,8 +29,9 @@
             $cmd1="./src/perl/PAT_trimSeq.pl -tbl $table -from \"-$downstream\" -to $upstream -cond \"ftr='$pac_region'\" -opath \"/var/www/front/searched/\" -suf up$upstream.dn$downstream -conf \"/var/www/front/config/db_$species.xml\"";
 //        echo $cmd1;
         shell_exec($cmd1);
-        $name=explode("/", glob("/var/www/front/searched/db_user.Search_arab20151114095429.SQL.401nt.up200.dn200.3*")[0]);
-        echo "<script>window.location.href=\"./download_data.php?type=4&name=$name[5]\";</script>";
+        $name=explode("/", glob("/var/www/front/searched/*.Search_$file.*")[0]);
+        rename("/var/www/front/searched/$name[5]", "/var/www/front/searched/Pac_Seq_$file");
+        echo "<script>window.location.href=\"./download_data.php?type=4&name=Pac_Seq_$file\";</script>";
     }
     else if($_POST['method']=='pacs-region'){
         if($pacs_region=='all')
