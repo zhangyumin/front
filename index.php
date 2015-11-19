@@ -32,8 +32,6 @@ and open the template in the editor.
        
     </head>
     <body>
-
-        111111111111111111111111111
         <?php include './navbar.php'; ?>
         <div class="ym-wrapper">
           <div class="ym-wbox">
