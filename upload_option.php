@@ -13,7 +13,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title>Upload sequence</title>
         <link href="./src/navbar.css" rel="stylesheet"/>
-        
+        <script src="./src/jquery-1.10.1.min.js"></script>
             <!--fineuploader的依赖包-->
          <script src="./src/fineuploader/jquery-2.0.0.min.js"></script>
 <!--          <link href="./src/fineuploader/bootstrap.min.css" rel="stylesheet" type="text/css"/>

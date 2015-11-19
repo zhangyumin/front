@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <title>show results</title>
     <link href="./src/navbar.css" rel="stylesheet"/>
-    <script src="./src/jquery-2.0.0.min.js"></script>
+    <script src="./src/jquery-1.10.1.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
     <!--[if lte IE 7]>

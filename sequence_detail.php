@@ -2,7 +2,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Sequence Detail</title>
-        <script src="./src/jquery-2.0.0.min.js"></script>
+        <script src="./src/jquery-1.10.1.min.js"></script>
         <script src="./src/jquery.dataTables.min.js"type="text/javascript" ></script>
         <link href="./src/jquery.dataTables.css"type="text/css" rel="stylesheet"></link>
         <!-- Mobile viewport optimisation -->
