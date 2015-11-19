@@ -121,15 +121,7 @@
                 </h4>
             </legend>
             <div class="ym-grid">
-                <script type="text/javascript"> 
-                    $(document).ready(function(){
-                      $(".flip").click(function(){
-                        $("#search,#search div").slideToggle("slow");
-                      });
-                    });
-                </script>
-                <h4 class="flip">Additional Options</h4>
-                <div id="search" >
+d                <div id="search">
                     <div class="box info ym-form">
                         <?php
                             if(!isset($_SESSION['file'])){
