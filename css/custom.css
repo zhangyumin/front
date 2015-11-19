@@ -158,3 +158,22 @@ fieldset{
         width:90%;
         margin-left: 5%;
     }
+    header .ym-wbox h1{text-align: left;}
+    .jtable-title-text{font-size: 150%;padding-bottom: }
+    #filter{
+        margin-bottom: 10px;
+    }
+    #filter button{
+        float: left;
+    }
+    #filter form{
+        float: left;
+        margin-left: 30px;
+    }
+    #filter form input{
+        float: left;
+    }
+    #search,#search div{
+        display: none;
+    }
+    

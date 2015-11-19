@@ -1,3 +1,4 @@
+<meta name="renderer" content="webkit">
 <header>
   <div class="ym-wrapper">
     <div class="ym-wbox">
@@ -9,7 +10,7 @@
   <div class="ym-wrapper">
     <div class="ym-hlist">
       <ul>
-        <li class="active"><a href="./index.php">Home</a></li>
+              <li ><a href="./index.php">Home</a></li>
               <li><a href="./search.php">PAC search</a></li>
               <!--<li><a href="../jbrowse/?data=data/arabidopsis">PAC browse</a></li>-->
               <li><a href="./browse.php">PAC browse</a></li>
@@ -26,3 +27,26 @@
     </div>
   </div>
 </nav>
+<script type="text/javascript">
+function GetUrlRelativePath()
+　{
+　　　　var url = document.location.toString();
+　　　　var arrUrl = url.split("/");
+
+　　　　
+　　　　var relUrl = arrUrl[4];
+
+　　　　if(relUrl.indexOf("?") != -1){
+　　　　　　relUrl = relUrl.split("?")[0];
+　　　　}
+　　　　return relUrl;
+}
+
+$(document).ready(function(){
+Url = GetUrlRelativePath();
+
+var obj=$("[href$="+"'"+Url+"'"+"]");
+obj.unwrap();
+obj.wrap("<li class='active'></li>");
+});
+</script>

@@ -30,9 +30,6 @@ and open the template in the editor.
         <!--[if lt IE 9]>
         <script src="./js/html5shiv/html5shiv.js"></script>
         <![endif]-->
-
-        <!--<link rel="stylesheet" href="./src/font-awesome.min.css">-->
-        <!--<link rel="stylesheet" href="./src/example.css">-->
         
         <script type="text/template" id="qq-template">
             <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Drop files here">
@@ -207,9 +204,10 @@ and open the template in the editor.
                         </div>
                     </fieldset>
                 </form>
-        </div>
+            </div>
+        
         <div class="upload_polya" id='upload_polya' style='display: none'>
-             <form id="upload" action="upload_polya.php" method="post">
+            <form id="upload" action="upload_polya.php" method="post">
                 <fieldset>
                     <legend>
                         <h4>
@@ -239,10 +237,11 @@ and open the template in the editor.
                     </legend>
                     <div class="box info">
                         <button type="submit" name="submit" value="submit" style="margin-left: 10%;">Submit</button>
-                        <button type="reset"    name="reset"    value="reset" style="margin-left: 10%">Reset</button>
+                        <button type="reset"  name="reset"  value="reset" style="margin-left: 10%">Reset</button>
                     </div>
                 </fieldset>
             </form>
+        </div>
         </div>
             <script type="text/javascript">
                 function SltFileType(){
@@ -256,7 +255,7 @@ and open the template in the editor.
                     }
                 }
             </script>
-    </div>
+  
         <?php
             include "./footer.php";
         ?>

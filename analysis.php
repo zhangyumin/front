@@ -114,14 +114,22 @@
         }
         </script>
     <div class="ym-wrapper">
-       <fieldset style="margin: 50px auto 50px auto ;width: 95%;">
+       <fieldset >
             <legend>
                 <h4 >
                     <font color="#224055" ><b>Search</b>:Search and view the system samples</font>
                 </h4>
             </legend>
             <div class="ym-grid">
-                <div id="search">
+                <script type="text/javascript"> 
+                    $(document).ready(function(){
+                      $(".flip").click(function(){
+                        $("#search,#search div").slideToggle("slow");
+                      });
+                    });
+                </script>
+                <h4 class="flip">Additional Options</h4>
+                <div id="search" >
                     <div class="box info ym-form">
                         <?php
                             if(!isset($_SESSION['file'])){

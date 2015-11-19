@@ -5,6 +5,20 @@
         <script src="./src/jquery-2.0.0.min.js"></script>
         <script src="./src/jquery.dataTables.min.js"type="text/javascript" ></script>
         <link href="./src/jquery.dataTables.css"type="text/css" rel="stylesheet"></link>
+        <!-- Mobile viewport optimisation -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
+        <!--[if lte IE 7]>
+        <link href="./css/iehacks.min.css" rel="stylesheet" type="text/css" />
+        <![endif]-->
+
+        <!--[if lt IE 9]>
+        <script src="./js/html5shiv/html5shiv.js"></script>
+        <![endif]-->
+
+        <!--<link rel="stylesheet" href="./src/font-awesome.min.css">-->
+        <!--<link rel="stylesheet" href="./src/example.css">-->
+       
         <style>
             table{
                 font-size: 12px;
