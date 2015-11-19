@@ -58,9 +58,9 @@
 #2013-12-22
 #增加opath选项（默认为getTmpPath)
 
-use lib '/home/zym/soft/cpan/lib/perl5/x86_64-linux-gnu-thread-multi/';
-use lib '/var/www/html/front/src/perl';
-use lib '/home/zym/soft/cpan/lib/perl5/';
+#use lib '/home/zym/soft/cpan/lib/perl5/x86_64-linux-gnu-thread-multi/';
+use lib '/var/www/front/src/perl';
+#use lib '/home/zym/soft/cpan/lib/perl5/';
 
 require ('funclib.pl');
 

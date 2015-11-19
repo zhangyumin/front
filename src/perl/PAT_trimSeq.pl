@@ -1,31 +1,31 @@
 #!/usr/bin/perl -w
-#°´polyA_site_in_genomeºÍstrand½ØÈ¡Î»µãĞòÁĞ
-#ÊäÈë±í: test »ò test chromosome
-#Êä³öÎÄ¼ş: intron_tagsnum2_400nts »ò _C_intron_400nt
-##ĞòÁĞ±êÌâ:×Ö¶ÎÃû[×Ö¶ÎÖµ];
-##1) ÉèÖÃÒªÈ¡µÄuPAµÄÌõ¼ş:
-##   1)by=grp_ftr,Ôò¶ÁÈ¡4ÖÖgrp_ftr, ÔÊĞíÉèÖÃutag,grp_ftr
-##   2)by=class, Ôò¶ÁÈ¡4ÖÖclass,ÔÊĞíÉèÖÃclass,grp_ftr
-##   ¶ÔÓÚÃ¿Ìõchr
-##2) Èôstrand=+ È¡ÉÏÓÎ300,1,ÏÂÓÎ99, 
-##	 Èôstrand=- È¡ÉÏÓÎ99,1,ÏÂÓÎ300,ÔÙ·´×ª»¥²¹
-##3) ÈôÎÄ¼şÒÑ´æÔÚÔò×·¼Ó.
+#\B0\B4polyA_site_in_genome\BA\CDstrand\BD\D8È¡Î»\B5\E3\D0\F2\C1\D0
+#\CA\E4\C8\EB\B1\ED: test \BB\F2 test chromosome
+#\CA\E4\B3\F6\CEÄ¼\FE: intron_tagsnum2_400nts \BB\F2 _C_intron_400nt
+##\D0\F2\C1Ğ±\EA\CC\E2:\D7Ö¶\CE\C3\FB[\D7Ö¶\CEÖµ];
+##1) \C9\E8\D6\C3ÒªÈ¡\B5\C4uPA\B5\C4\CC\F5\BC\FE:
+##   1)by=grp_ftr,\D4\F2\B6\C1È¡4\D6\D6grp_ftr, \D4\CA\D0\ED\C9\E8\D6\C3utag,grp_ftr
+##   2)by=class, \D4\F2\B6\C1È¡4\D6\D6class,\D4\CA\D0\ED\C9\E8\D6\C3class,grp_ftr
+##   \B6\D4\D3\DAÃ¿\CC\F5chr
+##2) \C8\F4strand=+ È¡\C9\CF\D3\CE300,1,\CF\C2\D3\CE99, 
+##	 \C8\F4strand=- È¡\C9\CF\D3\CE99,1,\CF\C2\D3\CE300,\D4Ù·\B4×ª\BB\A5\B2\B9
+##3) \C8\F4\CEÄ¼\FE\D2Ñ´\E6\D4\DA\D4\F2×·\BC\D3.
 
-#(×îºóÎ»µãÔÚµÚ301)
+#(\D7\EE\BA\F3Î»\B5\E3\D4Úµ\DA301)
 
-#  ĞŞ¸ÄÀúÊ·
-#  20091128: ÎÄ¼şÃûÖĞÌí¼Ó_xxs±íÊ¾ĞòÁĞÊı,Èçtest_painfos_20_grp_three_prime_UTR_tagsnum2_400nt_154s
-#  2009/12/28: Ôö¼Óby allµÄÑ¡Ïî,¿ÉÒÔ²»·Ögrp_ftr»òclassÊä³öÈ«²¿ĞòÁĞ
+#  \D0Ş¸\C4\C0\FAÊ·
+#  20091128: \CEÄ¼\FE\C3\FB\D6\D0\CC\ED\BC\D3_xxs\B1\EDÊ¾\D0\F2\C1\D0\CA\FD,\C8\E7test_painfos_20_grp_three_prime_UTR_tagsnum2_400nt_154s
+#  2009/12/28: \D4\F6\BC\D3by all\B5\C4Ñ¡\CF\EE,\BF\C9\D2Ô²\BB\B7\D6grp_ftr\BB\F2class\CA\E4\B3\F6È«\B2\BF\D0\F2\C1\D0
 
 #2010/6/4
-#Ôö¼Ó-from/-toÑ¡Ïî,Ê¹¿ÉÒÔ½ØÈ¡ÈÎÒâ·¶Î§. Èç 1~100½ØÈ¡PAÏÂÓÎ1~100nt,²»º¬PA. -100~-1,½ØÈ¡ÉÏÓÎ. Ä¬ÈÏ-300~99,½ØÈ¡ÉÏÓÎ300,ÏÂÓÎ99,ÔÙ°üº¬PA
+#\D4\F6\BC\D3-from/-toÑ¡\CF\EE,Ê¹\BF\C9\D2Ô½\D8È¡\C8\CE\D2â·¶Î§. \C8\E7 1~100\BD\D8È¡PA\CF\C2\D3\CE1~100nt,\B2\BB\BA\ACPA. -100~-1,\BD\D8È¡\C9\CF\D3\CE. Ä¬\C8\CF-300~99,\BD\D8È¡\C9\CF\D3\CE300,\CF\C2\D3\CE99,\D4Ù°\FC\BA\ACPA
 
 #2011/3/24
-#´óÕû¸Ä£¬ÓÃbyfld,byval,condÈ¡´úÔ­À´µÄÑ¡Ïî
-#ÔÊĞí¶à¸ö×Ö¶Î×éºÏÊä³ö£¬Èç-byfld grp_ftr:class:strand
-#ĞŞ¸ÄÊä³öĞòÁĞµÄÎÄ¼şÃû¼°±êÌâ£¬Ö»ÓÃ>chr,strand,polyA_pos±íÊ¾,Èç >Chr1;-;12453928
+#\B4\F3\D5\FB\B8Ä£\AC\D3\C3byfld,byval,condÈ¡\B4\FAÔ­\C0\B4\B5\C4Ñ¡\CF\EE
+#\D4\CA\D0\ED\B6\E0\B8\F6\D7Ö¶\CE\D7\E9\BA\CF\CA\E4\B3\F6\A3\AC\C8\E7-byfld grp_ftr:class:strand
+#\D0Ş¸\C4\CA\E4\B3\F6\D0\F2\C1Ğµ\C4\CEÄ¼\FE\C3\FB\BC\B0\B1\EA\CCâ£¬Ö»\D3\C3>chr,strand,polyA_pos\B1\EDÊ¾,\C8\E7 >Chr1;-;12453928
 
-## Ô­pl³ÌĞò
+## Ô­pl\B3\CC\D0\F2
 #0) PAT_trimseq_org.pl -tbl test -by grp_ftr  -conf dbconf_arabpaper.xml
 #1) PAT_trimseq_org.pl -tbl test -by grp_ftr -ftr 3UTR -n 2  -conf dbconf_arabpaper.xml
 #2) PAT_trimseq_org.pl -tbl test -by class  -conf dbconf_arabpaper.xml
@@ -36,7 +36,7 @@
 #7) PAT_trimseq_org.pl -tbl test -by  all -conf dbconf_arabpaper.xml
 #8) PAT_trimseq_org.pl -tbl test -by class -class M -from 1 -to 100 -conf dbconf_arabpaper.xml
 
-## ¶ÔÓ¦µÄĞÂpl³ÌĞò
+## \B6\D4Ó¦\B5\C4\D0\C2pl\B3\CC\D0\F2
 #0) PAT_trimseq.pl -tbl test -byfld grp_ftr -conf dbconf_arabpaper.xml
 #1) PAT_trimseq.pl -tbl test -byfld grp_ftr -byval 3UTR -cond "utag_num>=2" -conf dbconf_arabpaper.xml
 #2) PAT_trimseq.pl -tbl test -byfld class -conf dbconf_arabpaper.xml
@@ -48,15 +48,15 @@
 #8) PAT_trimseq.pl -tbl test -byfld class -byval M -from 1 -to 100 -conf dbconf_arabpaper.xml
 
 #2011/5/10
-#Ôö¼Óflds:chr:strand:coordÑ¡Ïî
+#\D4\F6\BC\D3flds:chr:strand:coordÑ¡\CF\EE
 
 #2012-08-28
-#Ôö¼ÓsufÑ¡Ïî£¬ÔÊĞí¼ÓÒ»¸öºó×º±êÊ¶
+#\D4\F6\BC\D3sufÑ¡\CFî£¬\D4\CA\D0\ED\BC\D3Ò»\B8\F6\BA\F3×º\B1\EAÊ¶
 
-#2012-09-11 MtrĞŞ¸Ä -- ĞèÒªlongchr
+#2012-09-11 Mtr\D0Ş¸\C4 -- \D0\E8Òªlongchr
 
 #2013-12-22
-#Ôö¼ÓopathÑ¡Ïî£¨Ä¬ÈÏÎªgetTmpPath)
+#\D4\F6\BC\D3opathÑ¡\CFî£¨Ä¬\C8\CFÎªgetTmpPath)
 
 #use lib '/home/zym/soft/cpan/lib/perl5/x86_64-linux-gnu-thread-multi/';
 use lib '/var/www/front/src/perl';
@@ -150,7 +150,7 @@ my $byval=$opts{'byval'};
 my (@byvals);
 if ($byval) {
   @byvals=split(/:/,$byval);
-  if ($#byvals<$#byflds) { #Èô -byvals 3utr::£¬Ôò×Ô¶¯²¹ÉÏÁ½¸ñ¿ÕµÄ
+  if ($#byvals<$#byflds) { #\C8\F4 -byvals 3utr::\A3\AC\D4\F2\D7Ô¶\AF\B2\B9\C9\CF\C1\BD\B8\F1\BFÕµ\C4
     for my $i(1..($#byflds-$#byvals)) {
 	  push(@byvals,'');
     }    
@@ -186,15 +186,15 @@ print "from $from to $to; total ${nt}nt\ncond: $cond\n";
 #############################################################################
 my($sth,$rv);
 
-#×Ö¶ÎÃû,ÓÃÓÚÊä³ö>title
+#\D7Ö¶\CE\C3\FB,\D3\C3\D3\DA\CA\E4\B3\F6>title
 #$sth = $dbh->prepare("desc $intbl") or die $dbh->errstr;
 #$sth->execute or die "can't execute the query: $sth->errstr\n";
 #my($flds)= $sth->fetchall_arrayref();
 
-#È·¶¨Êä³öÎÄ¼şĞÅºÅ:filesInfo[suffix,seqnum]
+#È·\B6\A8\CA\E4\B3\F6\CEÄ¼\FE\D0Åº\C5:filesInfo[suffix,seqnum]
 my ($suffix);
-my $fldEnum; #¶şÎ¬¾ØÕó£¬Ã¿ĞĞ´æ·ÅÒ»¸öfldµÄÃ¶¾ÙÖµ
-my $nf=1; #Êä³öÎÄ¼ş¼ÆÊı
+my $fldEnum; #\B6\FEÎ¬\BE\D8\D5\F3\A3\ACÃ¿\D0Ğ´\E6\B7\C5Ò»\B8\F6fld\B5\C4Ã¶\BE\D9Öµ
+my $nf=1; #\CA\E4\B3\F6\CEÄ¼\FE\BC\C6\CA\FD
 if ($#byflds>=0) {
   for my $i(0..$#byflds) {
    if ($byvals[$i] eq '') { 
@@ -212,7 +212,7 @@ die "Output file#>50!" if $nf>50;
 #  print "fldEnum:@{$fldEnum->[$i]}\n";
 #}
 
-my $filesInfo; #´æ·ÅÎÄ¼şÃû£¬SQLÌõ¼ş£¬ĞòÁĞÌõÊı
+my $filesInfo; #\B4\E6\B7\C5\CEÄ¼\FE\C3\FB\A3\ACSQL\CC\F5\BC\FE\A3\AC\D0\F2\C1\D0\CC\F5\CA\FD
 if ($#byflds<0) {
     if ($cond ne '') {
       $suffix=".SQL.${nt}nt";
@@ -225,7 +225,7 @@ if ($#byflds<0) {
 	}	
 } else { 
   my $condtxt;
-  my $permute=getPermute($fldEnum); #µÃµ½Èç ([3UTR,C],[3UTR,M]..)
+  my $permute=getPermute($fldEnum); #\B5Ãµ\BD\C8\E7 ([3UTR,C],[3UTR,M]..)
   for my $i(0..$#$permute) {
 	 $condtxt="and (";
      if ($cond ne '') {
@@ -251,8 +251,8 @@ if ($#byflds<0) {
 
 my ($curFileIdx,$chrfas)=(0,'');
 
-#°´Ã¿chr ±éÀúpolyA_site_in_genome,trim400nt
-#´¦Àílongchr
+#\B0\B4Ã¿chr \B1\E9\C0\FApolyA_site_in_genome,trim400nt
+#\B4\A6\C0\EDlongchr
 my (@chrs,$sqlchr);
 if ($longchr) {
   $sqlchr=dotStr2sqlStr($longchr);
@@ -269,7 +269,7 @@ if ($longchr) {
   @chrs=getFldValues($dbh,"SELECT distinct($chrfld) FROM $intbl $wheretmp order by $chrfld",0);
 }
 foreach my $chr(@chrs) {
-    #¶ÁÈ¡È¾É«Ìåseq
+    #\B6\C1È¡È¾É«\CC\E5seq
 	print "$chr: ";
 	my $sql="select seq from $chrtbl where title=\'$chr\'";
 	my ($fastbl,$rv)=execSql($dbh,$sql);
@@ -278,20 +278,20 @@ foreach my $chr(@chrs) {
 	$chrfas=$fastbl->[0][0];
 	$fastbl=[];
 	$curFileIdx=0;
-	#¶ÁÈ¡Âú×ãÌõ¼şµÄuPA
+	#\B6\C1È¡\C2\FA\D7\E3\CC\F5\BC\FE\B5\C4uPA
 	for my $i (0..$#$filesInfo) {
 	  $curFileIdx=$i;
       $sql="select * from $intbl where $chrfld=\'$chr\' $filesInfo->[$i][1]";
 	  #print "\n$sql\n";
 	  my ($tbl,$rv)=execSql($dbh,$sql);
-	  $rv=trimAll($tbl); #±éÀúÕû¸ö±íÀ´½ØÈ¡ĞòÁĞ
+	  $rv=trimAll($tbl); #\B1\E9\C0\FA\D5\FB\B8\F6\B1\ED\C0\B4\BD\D8È¡\D0\F2\C1\D0
 	  $tbl=[];
 	  print "$rv+";
 	}
 	print "\n";
 } #foreach
 
-#Èç¹ûÓĞ¶Ìchr
+#\C8\E7\B9\FB\D3Ğ¶\CCchr
 $curFileIdx=0;
 if ($longchr) { #Mtr
     my $sql="select seq,title from $chrtbl where title not in ($sqlchr) order by title";
@@ -310,23 +310,23 @@ if ($longchr) { #Mtr
       $sql="select * from $intbl where $chrfld not in ($sqlchr) $filesInfo->[$i][1] order by $chrfld,$strandfld,$posfld";
 	  my ($tbl,$rv)=execSql($dbh,$sql);    
 	  next if $rv<=0;
-	  #¶ÔÃ¿¸öchr±éÀú
+	  #\B6\D4Ã¿\B8\F6chr\B1\E9\C0\FA
 	  print "  $filesInfo->[$i][1]: ";
 	  my $idxsChr=getIntervals($tbl,$chrFld,1);
 	  #print "\n".mtx2str($idxsChr)."\n";
 	  for my $j(0..$#$idxsChr) {
 		$chrfas=$hashfas{$idxsChr->[$j][2]};
-        $num+=trimAll($tbl,$idxsChr->[$j][0],$idxsChr->[$j][1]); #±éÀúÕû¸ö±íÀ´½ØÈ¡ĞòÁĞ
+        $num+=trimAll($tbl,$idxsChr->[$j][0],$idxsChr->[$j][1]); #\B1\E9\C0\FA\D5\FB\B8\F6\B1\ED\C0\B4\BD\D8È¡\D0\F2\C1\D0
 	  }
 	  print "$num\n";	
 	}
 } #long
 
-#ĞŞ¸ÄÎÄ¼şÃû,Ôö¼ÓĞĞÊı _xxxs
+#\D0Ş¸\C4\CEÄ¼\FE\C3\FB,\D4\F6\BC\D3\D0\D0\CA\FD _xxxs
 my ($newf);
 print "Output FILES in $opath: \n";
 for my $i (0..$#{$filesInfo}) {
-  $newf="$intbl$filesInfo->[$i][0]".".$filesInfo->[$i][2]".'s';
+  $newf="$intbl$filesInfo->[$i][0]";
   rename("$opath$intbl"."$filesInfo->[$i][0]","$opath$newf");
   print "  $newf\n";
 }
@@ -334,9 +334,9 @@ for my $i (0..$#{$filesInfo}) {
 $dbh->disconnect();
 
 #############################################################################
-#  trimAll(): ±éÀúÕû¸ö±íÀ´½ØÈ¡ĞòÁĞ
+#  trimAll(): \B1\E9\C0\FA\D5\FB\B8\F6\B1\ED\C0\B4\BD\D8È¡\D0\F2\C1\D0
 #  useage: trimAll();    
-#  ËµÃ÷: Ê¹ÓÃºÍĞŞ¸ÄÈ«¾Ö²ÎÊı (chrfas,curFileIdx,num...)
+#  Ëµ\C3\F7: Ê¹\D3Ãº\CD\D0Ş¸\C4È«\BEÖ²\CE\CA\FD (chrfas,curFileIdx,num...)
 #############################################################################
 sub trimAll {
 	my ($tbl,$is,$ie)=@_;
@@ -344,16 +344,16 @@ sub trimAll {
 	$ie=$#$tbl if !defined($ie) or $ie>$#$tbl;
 	my $rv=$ie-$is+1;
 	return(0) if ($rv<=0 or $chrfas eq '');
-	#¼ÇÂ¼ĞòÁĞÊı
+	#\BC\C7Â¼\D0\F2\C1\D0\CA\FD
 	$filesInfo->[$curFileIdx][2]+=$rv;
 
-	#¶ÔÃ¿¸öpolyA_site,½ØÈ¡ĞòÁĞ
+	#\B6\D4Ã¿\B8\F6polyA_site,\BD\D8È¡\D0\F2\C1\D0
 	my @seqs=();
     for my $i ( $is .. $ie ) {
       my $p=$tbl->[$i][$posFld];
       my $s=$tbl->[$i][$strandFld];
       
-	  #ĞòÁĞ±êÌâĞĞ
+	  #\D0\F2\C1Ğ±\EA\CC\E2\D0\D0
 	  my $title='>';
 	  #for $j ( 0 .. $#{$flds} ) {
       #  $title.=$flds->[$j][0].'['.$tbl->[$i][$j].'];';
@@ -371,7 +371,7 @@ sub trimAll {
 	  }
 	} # for $i
     
-	#×·¼ÓÊä³öµ½ÎÄ¼ş 
+	#×·\BC\D3\CA\E4\B3\F6\B5\BD\CEÄ¼\FE 
     my $suffix=$filesInfo->[$curFileIdx][0];
     my $ofile="$opath$intbl"."$suffix";
 	open(FH, ">>$ofile");	
@@ -381,7 +381,7 @@ sub trimAll {
 	} 
 	close(FH);  
 	@seqs=();
-	return($rv); #·µ»ØĞĞÊı
+	return($rv); #\B7\B5\BB\D8\D0\D0\CA\FD
 }
 
 

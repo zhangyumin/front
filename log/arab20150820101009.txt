@@ -1,6 +1,0 @@
-Warning: Could not open read file "./data/arab20150820101009/arab1.qc.fa.noT.fa" for reading; skipping...
-Error: No input read files were valid
-(ERR): bowtie2-align exited with value 1
-Warning: Could not open read file "./data/arab20150820101009/arab2.qc.fa.noT.fa" for reading; skipping...
-Error: No input read files were valid
-(ERR): bowtie2-align exited with value 1
