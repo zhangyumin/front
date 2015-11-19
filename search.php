@@ -1,3 +1,14 @@
+
+<?php
+    $con= mysql_connect("localhost","root","root");
+    mysql_select_db("db_server",$con);        
+?>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -18,121 +29,117 @@
         <!--[if lt IE 9]>
         <script src="./js/html5shiv/html5shiv.js"></script>
         <![endif]-->
-    
-    </head>
-    <body onload="getchr()">
-        <?php
-            $con=  mysql_connect("localhost","root","root");
-            mysql_select_db("db_server",$con);
-            include"navbar.php";
-        ?>
-        <script type="text/javascript">
 
-        $(document).ready(function(){
-            
-            $(".more1").click(function(){
-                $(".more1_content div,.more1_content").slideToggle("slow");
-                if($(".more1").text()=='More')
-                    $(".more1").html("Close");
-                else
-                    $(".more1").html("More");
-            });
-            $(".more2").click(function(){
-                $(".more2_content div,.more2_content").slideToggle("slow");
-                if($(".more2").text()=='More')
-                    $(".more2").html("Close");
-                else
-                    $(".more2").html("More");
-            });
-            $(".more3").click(function(){
-                $(".more3_content div,.more3_content").slideToggle("slow");
-                if($(".more3").text()=='More')
-                    $(".more3").html("Close");
-                else
-                    $(".more3").html("More");
-            });
-            $(".more4").click(function(){
-                $(".more4_content div,.more4_content").slideToggle("slow");
-                if($(".more4").text()=='More')
-                    $(".more4").html("Close");
-                else
-                    $(".more4").html("More");
-            });
-        });
-            <?php
-                $arr_arab=array();
-                $arr_japonica=array();
-                $arr_mtr=array();
-                $arr_chlamy=array();
-                echo "var chr=[";
-                //arabidopsis
-                $arab_sql=mysql_query("select distinct chr from t_arab_gff;");
-                $i=0;
-                while($arab_row=  mysql_fetch_row($arab_sql)){
-                    array_push($arr_arab, $arab_row[0]);
-                }
-                echo "[\"";
-                foreach ($arr_arab as $key => $value) {
-                    if($key!=  count($arr_arab)-1)
-                        echo $value."\",\"";
+    </head>
+    <script type="text/javascript">
+
+            $(document).ready(function(){
+                
+                $(".more1").click(function(){
+                    $(".more1_content div,.more1_content").slideToggle("slow");
+                    if($(".more1").text()=='More')
+                        $(".more1").html("Close");
                     else
-                        echo $value;
-                }
-                echo "\"],";
-                //japonica
-                $arab_sql=mysql_query("select distinct chr from t_japonica_gff;");
-                $i=0;
-                while($arab_row=  mysql_fetch_row($arab_sql)){
-                    array_push($arr_japonica, $arab_row[0]);
-                }
-                echo "[\"";
-                foreach ($arr_japonica as $key => $value) {
-                    if($key!=  count($arr_japonica)-1)
-                        echo $value."\",\"";
+                        $(".more1").html("More");
+                });
+                $(".more2").click(function(){
+                    $(".more2_content div,.more2_content").slideToggle("slow");
+                    if($(".more2").text()=='More')
+                        $(".more2").html("Close");
                     else
-                        echo $value;
-                }
-                echo "\"],";
-                //mtr
-                $arab_sql=mysql_query("select distinct chr from t_mtr_gff;");
-                $i=0;
-                while($arab_row=  mysql_fetch_row($arab_sql)){
-                    array_push($arr_mtr, $arab_row[0]);
-                }
-                echo "[\"";
-                foreach ($arr_mtr as $key => $value) {
-                    if($key!=  count($arr_mtr)-1)
-                        echo $value."\",\"";
+                        $(".more2").html("More");
+                });
+                $(".more3").click(function(){
+                    $(".more3_content div,.more3_content").slideToggle("slow");
+                    if($(".more3").text()=='More')
+                        $(".more3").html("Close");
                     else
-                        echo $value;
-                }
-                echo "\"],";
-                //chlamy
-                $arab_sql=mysql_query("select distinct chr from t_chlamy_gff;");
-                $i=0;
-                while($arab_row=  mysql_fetch_row($arab_sql)){
-                    array_push($arr_chlamy, $arab_row[0]);
-                }
-                echo "[\"";
-                foreach ($arr_chlamy as $key => $value) {
-                    if($key!=  count($arr_chlamy)-1)
-                        echo $value."\",\"";
+                        $(".more3").html("More");
+                });
+                $(".more4").click(function(){
+                    $(".more4_content div,.more4_content").slideToggle("slow");
+                    if($(".more4").text()=='More')
+                        $(".more4").html("Close");
                     else
-                        echo $value;
-                }
-                echo "\"]";
-                echo "];";
-            ?>
-                function getchr(){
-                    var sltSpecies=document.search.species;
-                    var sltChr=document.search.chr;
-                    var speciesChr=chr[sltSpecies.selectedIndex];
-                    sltChr.length=1;
-                    for(var i=0;i<speciesChr.length;i++){
-                        sltChr[i+1]=new Option(speciesChr[i],speciesChr[i]);
+                        $(".more4").html("More");
+                });
+            });
+                <?php
+                    $arr_arab=array();
+                    $arr_japonica=array();
+                    $arr_mtr=array();
+                    $arr_chlamy=array();
+                    echo "var chr=[";
+                    //arabidopsis
+                    $arab_sql=mysql_query("select distinct chr from t_arab_gff;");
+                    $i=0;
+                    while($arab_row=  mysql_fetch_row($arab_sql)){
+                        array_push($arr_arab, $arab_row[0]);
                     }
-                }
-        </script>
+                    echo "[\"";
+                    foreach ($arr_arab as $key => $value) {
+                        if($key!=  count($arr_arab)-1)
+                            echo $value."\",\"";
+                        else
+                            echo $value;
+                    }
+                    echo "\"],";
+                    //japonica
+                    $arab_sql=mysql_query("select distinct chr from t_japonica_gff;");
+                    $i=0;
+                    while($arab_row=  mysql_fetch_row($arab_sql)){
+                        array_push($arr_japonica, $arab_row[0]);
+                    }
+                    echo "[\"";
+                    foreach ($arr_japonica as $key => $value) {
+                        if($key!=  count($arr_japonica)-1)
+                            echo $value."\",\"";
+                        else
+                            echo $value;
+                    }
+                    echo "\"],";
+                    //mtr
+                    $arab_sql=mysql_query("select distinct chr from t_mtr_gff;");
+                    $i=0;
+                    while($arab_row=  mysql_fetch_row($arab_sql)){
+                        array_push($arr_mtr, $arab_row[0]);
+                    }
+                    echo "[\"";
+                    foreach ($arr_mtr as $key => $value) {
+                        if($key!=  count($arr_mtr)-1)
+                            echo $value."\",\"";
+                        else
+                            echo $value;
+                    }
+                    echo "\"],";
+                    //chlamy
+                    $arab_sql=mysql_query("select distinct chr from t_chlamy_gff;");
+                    $i=0;
+                    while($arab_row=  mysql_fetch_row($arab_sql)){
+                        array_push($arr_chlamy, $arab_row[0]);
+                    }
+                    echo "[\"";
+                    foreach ($arr_chlamy as $key => $value) {
+                        if($key!=  count($arr_chlamy)-1)
+                            echo $value."\",\"";
+                        else
+                            echo $value;
+                    }
+                    echo "\"]";
+                    echo "];";
+                ?>
+                    function getchr(){
+                        var sltSpecies=document.search.species;
+                        var sltChr=document.search.chr;
+                        var speciesChr=chr[sltSpecies.selectedIndex];
+                        sltChr.length=1;
+                        for(var i=0;i<speciesChr.length;i++){
+                            sltChr[i+1]=new Option(speciesChr[i],speciesChr[i]);
+                        }
+                    }
+    </script>
+    <body onload="getchr()">        
+        <?php include './navbar.php'; ?>
         <div class="ym-wrapper">
             <fieldset >
                 <legend>
@@ -180,7 +187,7 @@
                         <div class="ym-grid ym-fbox">
                             <label for="function" >Function:</label>
                             <input type='text' name='function' class="ym-gr" style="width:89%;"/>
-                        <div>
+                        </div>
                         <div class="ym-grid ym-fbox">
                                 <button type="submit">submit</button>
                                 <button type="reset">reset</button>
@@ -552,8 +559,8 @@
             </fieldset> 
         </div>
         <div class="bottom">
-        <?php
-            include"footer.php";
+            <?php
+                include "footer.php";
             ?>
         </div>
     </body>
