@@ -173,7 +173,11 @@ fieldset{
     #filter form input{
         float: left;
     }
- /*   #search,#search div{
+    #search div{
         display: none;
     }
-    */
+    
+    div.flip{
+        background-color:#5499c9;
+        padding: 5px;
+    }

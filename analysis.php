@@ -95,6 +95,11 @@
                         success:update_page4//回传函数(这里是函数名字)  
                     });  
                  });
+                 $(".flip").click(function(){
+                    $('#search div').slideToggle("slow");
+
+
+                 });
         });
         function update_page1(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
                 window.location.href="aftertreatment_result_test.php?result=degene";
@@ -121,7 +126,9 @@
                 </h4>
             </legend>
             <div class="ym-grid">
-d                <div id="search">
+         
+                <div class="flip" ><h4>Addtional Options</h4></div>
+                <div id="search">
                     <div class="box info ym-form">
                         <?php
                             if(!isset($_SESSION['file'])){
