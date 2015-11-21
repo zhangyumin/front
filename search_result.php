@@ -28,7 +28,7 @@
         text-decoration: none;
         }
     </style>
-    <body onload="set();getchr()">
+    <body>
          
         <?php
             include"navbar.php";
@@ -175,16 +175,16 @@
                 document.all.ly.style.display='none';document.all.Layer2.style.display='none';
                 return   false;   
              }   
-            function set(){
-                $("#species").val("<?php echo $_POST['species'];?>");
-                $("#chr").val("<?php echo $_POST['chr'];?>");
-                document.getElementById("gene_id").value="<?php echo $gene_id;?>";
-                document.getElementById("go_accession").value="<?php echo $go_accession;?>";
-                document.getElementById("start").value="<?php echo $start;?>";
-                document.getElementById("end").value="<?php echo $end;?>";
-                document.getElementById("go_name").value="<?php echo $go_name;?>";
-                document.getElementById("function").value="<?php echo $function;?>";
-            }
+//            function set(){
+//                $("#species").val("<?php echo $_POST['species'];?>");
+//                $("#chr").val("<?php echo $_POST['chr'];?>");
+//                document.getElementById("gene_id").value="<?php echo $gene_id;?>";
+//                document.getElementById("go_accession").value="<?php echo $go_accession;?>";
+//                document.getElementById("start").value="<?php echo $start;?>";
+//                document.getElementById("end").value="<?php echo $end;?>";
+//                document.getElementById("go_name").value="<?php echo $go_name;?>";
+//                document.getElementById("function").value="<?php echo $function;?>";
+//            }
             function ChgMtd(){
                 document.getElementById("pacs").style.display='none';
                 document.getElementById("pacs-region").style.display='none';
@@ -201,78 +201,78 @@
                 }
             }
              <?php
-                $arr_arab=array();
-                $arr_japonica=array();
-                $arr_mtr=array();
-                $arr_chlamy=array();
-                echo "var chr=[";
-                //arabidopsis
-                $arab_sql=mysql_query("select distinct chr from t_arab_gff;");
-                $i=0;
-                while($arab_row=  mysql_fetch_row($arab_sql)){
-                    array_push($arr_arab, $arab_row[0]);
-                }
-                echo "[\"";
-                foreach ($arr_arab as $key => $value) {
-                    if($key!=  count($arr_arab)-1)
-                        echo $value."\",\"";
-                    else
-                        echo $value;
-                }
-                echo "\"],";
-                //japonica
-                $arab_sql=mysql_query("select distinct chr from t_japonica_gff;");
-                $i=0;
-                while($arab_row=  mysql_fetch_row($arab_sql)){
-                    array_push($arr_japonica, $arab_row[0]);
-                }
-                echo "[\"";
-                foreach ($arr_japonica as $key => $value) {
-                    if($key!=  count($arr_japonica)-1)
-                        echo $value."\",\"";
-                    else
-                        echo $value;
-                }
-                echo "\"],";
-                //mtr
-                $arab_sql=mysql_query("select distinct chr from t_mtr_gff;");
-                $i=0;
-                while($arab_row=  mysql_fetch_row($arab_sql)){
-                    array_push($arr_mtr, $arab_row[0]);
-                }
-                echo "[\"";
-                foreach ($arr_mtr as $key => $value) {
-                    if($key!=  count($arr_mtr)-1)
-                        echo $value."\",\"";
-                    else
-                        echo $value;
-                }
-                echo "\"],";
-                //chlamy
-                $arab_sql=mysql_query("select distinct chr from t_chlamy_gff;");
-                $i=0;
-                while($arab_row=  mysql_fetch_row($arab_sql)){
-                    array_push($arr_chlamy, $arab_row[0]);
-                }
-                echo "[\"";
-                foreach ($arr_chlamy as $key => $value) {
-                    if($key!=  count($arr_chlamy)-1)
-                        echo $value."\",\"";
-                    else
-                        echo $value;
-                }
-                echo "\"]";
-                echo "];";
-            ?> 
-                function getchr(){
-                    var sltSpecies=document.search.species;
-                    var sltChr=document.search.chr;
-                    var speciesChr=chr[sltSpecies.selectedIndex];
-                    sltChr.length=1;
-                    for(var i=0;i<speciesChr.length;i++){
-                        sltChr[i+1]=new Option(speciesChr[i],speciesChr[i]);
-                    }
-                }
+//                $arr_arab=array();
+//                $arr_japonica=array();
+//                $arr_mtr=array();
+//                $arr_chlamy=array();
+//                echo "var chr=[";
+//                //arabidopsis
+//                $arab_sql=mysql_query("select distinct chr from t_arab_gff;");
+//                $i=0;
+//                while($arab_row=  mysql_fetch_row($arab_sql)){
+//                    array_push($arr_arab, $arab_row[0]);
+//                }
+//                echo "[\"";
+//                foreach ($arr_arab as $key => $value) {
+//                    if($key!=  count($arr_arab)-1)
+//                        echo $value."\",\"";
+//                    else
+//                        echo $value;
+//                }
+//                echo "\"],";
+//                //japonica
+//                $arab_sql=mysql_query("select distinct chr from t_japonica_gff;");
+//                $i=0;
+//                while($arab_row=  mysql_fetch_row($arab_sql)){
+//                    array_push($arr_japonica, $arab_row[0]);
+//                }
+//                echo "[\"";
+//                foreach ($arr_japonica as $key => $value) {
+//                    if($key!=  count($arr_japonica)-1)
+//                        echo $value."\",\"";
+//                    else
+//                        echo $value;
+//                }
+//                echo "\"],";
+//                //mtr
+//                $arab_sql=mysql_query("select distinct chr from t_mtr_gff;");
+//                $i=0;
+//                while($arab_row=  mysql_fetch_row($arab_sql)){
+//                    array_push($arr_mtr, $arab_row[0]);
+//                }
+//                echo "[\"";
+//                foreach ($arr_mtr as $key => $value) {
+//                    if($key!=  count($arr_mtr)-1)
+//                        echo $value."\",\"";
+//                    else
+//                        echo $value;
+//                }
+//                echo "\"],";
+//                //chlamy
+//                $arab_sql=mysql_query("select distinct chr from t_chlamy_gff;");
+//                $i=0;
+//                while($arab_row=  mysql_fetch_row($arab_sql)){
+//                    array_push($arr_chlamy, $arab_row[0]);
+//                }
+//                echo "[\"";
+//                foreach ($arr_chlamy as $key => $value) {
+//                    if($key!=  count($arr_chlamy)-1)
+//                        echo $value."\",\"";
+//                    else
+//                        echo $value;
+//                }
+//                echo "\"]";
+//                echo "];";
+          ?>//// 
+//                function getchr(){
+//                    var sltSpecies=document.search.species;
+//                    var sltChr=document.search.chr;
+//                    var speciesChr=chr[sltSpecies.selectedIndex];
+//                    sltChr.length=1;
+//                    for(var i=0;i<speciesChr.length;i++){
+//                        sltChr[i+1]=new Option(speciesChr[i],speciesChr[i]);
+//                    }
+//                }
         </script>
         <div id="ly" style="position: absolute; top: 0px; opacity:0.4; background-color: #777;z-index: 2; left: 0px; display: none;">
         </div>
@@ -341,7 +341,12 @@
             </table>
         </div>
         <div class="ym-wrapper">
-            <fieldset >
+            <script>
+                <?php
+                    echo "var species='".$_POST['species']."'";
+                ?>
+            </script>
+<!--            <fieldset >
                 <legend>
                     <h4>
                         <font color="#224055" ><b>Search</b>:Search and view the system samples</font>
@@ -406,15 +411,12 @@
                                             document.getElementById("end").value="100000";
                                         }
                                     }
-                                    <?php
-                                        echo "var species='".$_POST['species']."'";
-                                    ?>
                                 </script>
                             
                         </form>
                </div>
             </fieldset>
-            <br><br>
+            <br><br>-->
             <div class="filter" id="filter">
                     <button onclick="locking()">export sequences</button>
                     <form>
