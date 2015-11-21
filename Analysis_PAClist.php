@@ -6,19 +6,19 @@ try {
     mysql_select_db("db_user",$con);
     if(empty ($_POST['search']))
     {
-        $result=  mysql_query("SELECT COUNT(*) AS RecordCount FROM Analysis_".$_SESSION['file'].";");
+        $result=  mysql_query("SELECT COUNT(*) AS RecordCount FROM Analysis_".$_SESSION['analysis'].";");
         $row=  mysql_fetch_array($result);
         $recordCount=$row['RecordCount'];
 
-        $result=  mysql_query("SELECT * FROM Analysis_".$_SESSION['file']." ORDER BY ".$_GET['jtSorting']." LIMIT ".$_GET['jtStartIndex'].",".$_GET['jtPageSize'].";");
+        $result=  mysql_query("SELECT * FROM Analysis_".$_SESSION['analysis']." ORDER BY ".$_GET['jtSorting']." LIMIT ".$_GET['jtStartIndex'].",".$_GET['jtPageSize'].";");
     }
     else{
         $search=$_POST['search'];
-        $result=  mysql_query("SELECT COUNT(*) AS RecordCount FROM Analysis_".$_SESSION['file']." WHERE gene LIKE '%".$search."%' or gene_type LIKE '%".$search."%';");
+        $result=  mysql_query("SELECT COUNT(*) AS RecordCount FROM Analysis_".$_SESSION['analysis']." WHERE gene LIKE '%".$search."%' or gene_type LIKE '%".$search."%';");
         $row=  mysql_fetch_array($result);
         $recordCount=$row['RecordCount'];
         
-        $result=  mysql_query("SELECT * FROM Analysis_".$_SESSION['file']." WHERE gene LIKE '%".$search."%' or gene_type LIKE '%".$search."%' ORDER BY ".$_GET['jtSorting']." LIMIT ".$_GET['jtStartIndex'].",".$_GET['jtPageSize'].";");
+        $result=  mysql_query("SELECT * FROM Analysis_".$_SESSION['analysis']." WHERE gene LIKE '%".$search."%' or gene_type LIKE '%".$search."%' ORDER BY ".$_GET['jtSorting']." LIMIT ".$_GET['jtStartIndex'].",".$_GET['jtPageSize'].";");
     }
     $rows=array();
     while($row=  mysql_fetch_array($result))
