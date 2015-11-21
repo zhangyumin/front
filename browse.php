@@ -38,13 +38,13 @@
                     document.getElementById("jbrowse").src="../jbrowse/?data=data/arabidopsis";
                 }
                 else if(value=='rice'){
-                    document.getElementById("jbrowse").src="../jbrowse/?data=data/arabidopsis1";
+                    document.getElementById("jbrowse").src="../jbrowse/?data=data/japonica";
                 }
                 else if(value=='mtr'){
-                    document.getElementById("jbrowse").src="../jbrowse/?data=data/example";
+                    document.getElementById("jbrowse").src="../jbrowse/?data=data/mtr";
                 }
                 else if(value=='chlamy'){
-                    document.getElementById("jbrowse").src="../jbrowse/?data=data/arabidopsis";
+                    document.getElementById("jbrowse").src="../jbrowse/?data=data/chlamy";
                 }    
             }
         </script>
@@ -55,7 +55,7 @@
             <option value="mtr">Medicago truncatula</option>
             <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
         </select>
-        <iframe id="jbrowse" style="border: 1px solid black" src="../jbrowse/?data=data/arabidopsis" width=100% height=100%>
+        <iframe id="jbrowse" style="border: 1px solid black" src="../jbrowse/?data=data/arabidopsis" width=100% height="700px">
         </iframe>
        <div class="bottom">
         <?php
