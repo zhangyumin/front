@@ -255,7 +255,7 @@ and open the template in the editor.
                                 </a>
                             </td>
                             <td>
-                                <a target="_blank" href="./search_result.php?keyword=at1g0070">
+                                <a target="_blank" href="./search_result.php?method=fuzzy&keyword=3UTR">
                                     <span title="Browse search result for 'at1g0070'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                                 </a>
                             </td>
