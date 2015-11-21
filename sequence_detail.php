@@ -1920,43 +1920,6 @@
                             </table>
                         </div>
                         <hr width="98%" size="1" align="left" style="border-top: 1px dotted #5499c9;">
-                        <div id="go" style="overflow-x: auto;background-color: #fff;margin:auto;">
-                            <table id="gotable"  class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
-                                <thead>
-                                    <tr>
-                                        <th style="width:15%">Go id</th>
-                                        <th style="width:50%">Go term</th>
-                                        <th style="width:35%">Go function</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                        <?php
-                                                    $go_sql="select * from t_".$species."_go where gene=\"".$_GET['seq']."\";";
-                                                    $go_result=mysql_query($go_sql);
-//                                                    echo $sql;
-//                                                    $type=mysql_query("select * from db_bio.gff_arab10_all where gene=\"AT2G01008\";");
-//                                                    echo "select gene_type from db_bio.gff_arab10_all where gene=\"".$_GET['seq']."\";";
-//                                                        var_dump($type);
-                                                    while($go_result_row= mysql_fetch_row($go_result)){
-                                                            echo "<tr>";
-                                                            echo "<td>$go_result_row[1]</td>";
-                                                            echo "<td>$go_result_row[2]</td>";
-                                                            echo "<td>$go_result_row[5]</td>";
-                                                            echo "</tr>";
-                                                    }
-                                                ?>
-                                </tbody>
-                            </table>
-                        </div>
-                        <script>
-                            $(document).ready(function(){
-                                $('#gotable').dataTable({
-                                    "lengthMenu":[[5,10,15,-1],[5,10,15,"all"]],
-                                    "pagingType":"full_numbers"
-                                });
-                            });
-                        </script>
-                        <hr width="98%" size="1" align="left" style="border-top: 1px dotted #5499c9;">
                         <div id="polya">
                             <table id="polyatable">
                                 <tbody>
@@ -2003,6 +1966,43 @@
                                 </tbody>
                             </table>
                         </div>
+                            <hr width="98%" size="1" align="left" style="border-top: 1px dotted #5499c9;">
+                        <div id="go" style="overflow-x: auto;background-color: #fff;margin:auto;">
+                            <table id="gotable"  class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
+                                <thead>
+                                    <tr>
+                                        <th style="width:15%">Go id</th>
+                                        <th style="width:50%">Go term</th>
+                                        <th style="width:35%">Go function</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <?php
+                                                    $go_sql="select * from t_".$species."_go where gene=\"".$_GET['seq']."\";";
+                                                    $go_result=mysql_query($go_sql);
+//                                                    echo $sql;
+//                                                    $type=mysql_query("select * from db_bio.gff_arab10_all where gene=\"AT2G01008\";");
+//                                                    echo "select gene_type from db_bio.gff_arab10_all where gene=\"".$_GET['seq']."\";";
+//                                                        var_dump($type);
+                                                    while($go_result_row= mysql_fetch_row($go_result)){
+                                                            echo "<tr>";
+                                                            echo "<td>$go_result_row[1]</td>";
+                                                            echo "<td>$go_result_row[2]</td>";
+                                                            echo "<td>$go_result_row[5]</td>";
+                                                            echo "</tr>";
+                                                    }
+                                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <script>
+                            $(document).ready(function(){
+                                $('#gotable').dataTable({
+                                    "lengthMenu":[[5,10,15,-1],[5,10,15,"all"]],
+                                    "pagingType":"full_numbers"
+                                });
+                            });
+                        </script>
                     </td>
                     <td width="60%" height="400px" valign="top">
                         <div class="wrap">
