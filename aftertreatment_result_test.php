@@ -16,12 +16,19 @@
         $con=  mysql_connect("localhost","root","root");
         mysql_select_db("db_server",$con);
         session_start();
-        $file=$_SESSION['file'];
+        $analysis=$_SESSION['analysis'];
+//        var_dump($analysis);
+//        var_dump($_SESSION['file_real']);
+//        var_dump($_SESSION['sys_real_arab']);
+//        var_dump($_SESSION['sys_real_mtr']);
+//        var_dump($_SESSION['sys_real_chlamy']);
+//        var_dump($_SESSION['sys_real_japonica']);
+//        var_dump($_SESSION['sys_real']);
         if($_GET['result']=='degene'){
-            $a=file("./searched/degene.$file");
-            $b=file("./searched/degene.$file.stat");
-            $c = "degene.$file";
-            $insert="create table db_user.Analysis_$file(gene varchar(30),gene_type varchar(50),";
+            $a=file("./searched/degene.$analysis");
+            $b=file("./searched/degene.$analysis.stat");
+            $c = "degene.$analysis";
+            $insert="create table db_user.Analysis_$analysis(gene varchar(30),gene_type varchar(50),";
             $title_tmp=  explode("\t", $a[0]);
             foreach ($title_tmp as $key => $value) {
                 if($value=='gene'||$value=='gene_type'||$key==count($title_tmp)-1)
@@ -33,15 +40,15 @@
                 }
             }
             $insert.="padj double(19,17));";
-            mysql_query("drop table db_user.Analysis_$file");
+            mysql_query("drop table db_user.Analysis_$analysis");
             mysql_query($insert);
-            mysql_query("load data infile '/var/www/front/searched/degene.$file' into table db_user.Analysis_$file IGNORE 1 LINES;");
+            mysql_query("load data infile '/var/www/front/searched/degene.$analysis' into table db_user.Analysis_$analysis IGNORE 1 LINES;");
         }
         if($_GET['result']=='depac'){
-            $a=file("./searched/depac.$file");
-            $b=file("./searched/depac.$file.stat");
-            $c = "depac.$file";
-            $insert="create table db_user.Analysis_$file(gene varchar(30),coord varchar(30),chr varchar(30),strand varchar(30),ftr varchar(30),";
+            $a=file("./searched/depac.$analysis");
+            $b=file("./searched/depac.$analysis.stat");
+            $c = "depac.$analysis";
+            $insert="create table db_user.Analysis_$analysis(gene varchar(30),coord varchar(30),chr varchar(30),strand varchar(30),ftr varchar(30),";
             $title_tmp=  explode("\t", $a[0]);
             foreach ($title_tmp as $key => $value) {
                 if($value=='gene'||$value=='coord'||$value=='chr'||$value=='strand'||$value=='ftr'||$key==count($title_tmp)-1)
@@ -53,25 +60,25 @@
                 }
             }
             $insert.="padj double(20,18));";
-            mysql_query("drop table db_user.Analysis_$file");
+            mysql_query("drop table db_user.Analysis_$analysis");
             mysql_query($insert);
-            mysql_query("load data infile '/var/www/front/searched/depac.$file' into table db_user.Analysis_$file IGNORE 1 LINES;");
+            mysql_query("load data infile '/var/www/front/searched/depac.$analysis' into table db_user.Analysis_$analysis IGNORE 1 LINES;");
         }
         if($_GET['result']=='switchinggene_o'){
-            $a=file("./searched/only3utr.$file");
-            $b=file("./searched/only3utr.$file.stat");
-            $c = "only3utr.$file";
-            $insert="create table db_user.Analysis_$file(gene varchar(30),average_PAT varchar(50),SUTR_length varchar(50),correlation double(20,16),pval varchar(30),switching varchar(30));";
+            $a=file("./searched/only3utr.$analysis");
+            $b=file("./searched/only3utr.$analysis.stat");
+            $c = "only3utr.$analysis";
+            $insert="create table db_user.Analysis_$analysis(gene varchar(30),average_PAT varchar(50),SUTR_length varchar(50),correlation double(20,16),pval varchar(30),switching varchar(30));";
             $title_tmp=  explode("\t", $a[0]);
-            mysql_query("drop table db_user.Analysis_$file");
+            mysql_query("drop table db_user.Analysis_$analysis");
             mysql_query($insert);
-            mysql_query("load data infile '/var/www/front/searched/only3utr.$file' into table db_user.Analysis_$file IGNORE 1 LINES;");
+            mysql_query("load data infile '/var/www/front/searched/only3utr.$analysis' into table db_user.Analysis_$analysis IGNORE 1 LINES;");
         }
         if($_GET['result']=='switchinggene_n'){
-            $a=file("./searched/none3utr.$file");
-            $b=file("./searched/none3utr.$file.stat");
-            $c = "none3utr.$file";
-            $insert="create table db_user.Analysis_$file(gene varchar(30),gene_type varchar(30),chr varchar(30),strand varchar(30),coord varchar(30),ftr varchar(30),";
+            $a=file("./searched/none3utr.$analysis");
+            $b=file("./searched/none3utr.$analysis.stat");
+            $c = "none3utr.$analysis";
+            $insert="create table db_user.Analysis_$analysis(gene varchar(30),gene_type varchar(30),chr varchar(30),strand varchar(30),coord varchar(30),ftr varchar(30),";
             $title_tmp=  explode("\t", $a[0]);
             foreach ($title_tmp as $key => $value) {
                 if($value=='gene'||$value=='gene_type'||$value=='coord'||$value=='chr'||$value=='strand'||$value=='ftr'||$value=='column1_average'||$value=='column2_average'||$key==count($title_tmp)-1)
@@ -84,9 +91,9 @@
             }
             $insert.="column1_average int(10),column2_average int(10),switching_type varchar(20));";
 //            file_put_contents("./tojbrowse/test.txt", $insert);
-            mysql_query("drop table db_user.Analysis_$file");
+            mysql_query("drop table db_user.Analysis_$analysis");
             mysql_query($insert);
-            mysql_query("load data infile '/var/www/front/searched/none3utr.$file' into table db_user.Analysis_$file IGNORE 1 LINES;");    
+            mysql_query("load data infile '/var/www/front/searched/none3utr.$analysis' into table db_user.Analysis_$analysis IGNORE 1 LINES;");    
         }
         ?>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
