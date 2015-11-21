@@ -49,6 +49,8 @@
                 if($_GET['method']=='fuzzy'){
                     $go_array_key=array();
                     $key=$_POST['key'];
+                    if($_GET['keyword']!=NULL)
+                        $key=$_GET['keyword'];
                     $go_qry=  mysql_query("select gene from t_arab_go where gene like '%$key%' or goid like '%$key%' or goterm like '%$key%' or genefunction like '%$key%'");
                     while($go_result=  mysql_fetch_row($go_qry)){
                         array_push($go_array_key, $go_result[0]);
