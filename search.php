@@ -370,7 +370,7 @@ and open the template in the editor.
                             <td>poly(A) sites extracted from ESTs</td>
                             <td>Shen et al. Nucleic Acids Res, 2008</td>                     
                             <td>
-                                <a target="_blank" href="../jbrowse/?data=data/arabidopsis">
+                                <a target="_blank" href="../jbrowse/?data=data/japonica">
                                     <span title="Browse polyA sites in Jbrowse" style="background-color:#0066cc;color: #FFFFFF">Chr</span>
                                 </a>
                             </td>
@@ -427,7 +427,7 @@ and open the template in the editor.
                             <td>poly(A) sites from leaf tissue by poly(A) tag sequencing</td>
                             <td>Wu et al. BMC Genomics, 2014</td>                     
                             <td>
-                                <a target="_blank" href="../jbrowse/?data=data/arabidopsis">
+                                <a target="_blank" href="../jbrowse/?data=data/mtr">
                                     <span title="Browse polyA sites in Jbrowse" style="background-color:#0066cc;color: #FFFFFF">Chr</span>
                                 </a>
                             </td>
@@ -486,7 +486,7 @@ and open the template in the editor.
                             <td>poly(A) sites extracted from ESTs, 454, and Illumina sequence reads</td>
                             <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>                     
                             <td>
-                                <a target="_blank" href="../jbrowse/?data=data/arabidopsis">
+                                <a target="_blank" href="../jbrowse/?data=data/chlamy">
                                     <span title="Browse polyA sites in Jbrowse" style="background-color:#0066cc;color: #FFFFFF">Chr</span>
                                 </a>
                             </td>
