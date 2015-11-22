@@ -239,13 +239,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#ff0000";//3utr为红色
                 if(endpos==1000&&strand==1){
-                    context.fillRect(startpos,90,endpos-startpos-10,20);
+                    context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
                 else if(startpos==0&&strand==-1){
-                    context.fillRect(startpos+10,90,endpos-startpos,20);
+                    context.fillRect(startpos+10,95,endpos-startpos-10,10);
                 }
                 else{
-                    context.fillRect(startpos,90,endpos-startpos,20);
+                    context.fillRect(startpos,95,endpos-startpos,10);
                 }
             }
             function wutr(startpos,endpos,strand,id){
@@ -253,13 +253,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#BA55D3";//5utr为zise
                 if(endpos==1000&&strand==1){
-                    context.fillRect(startpos,90,endpos-startpos-10,20);
+                    context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
                 else if(startpos==0&&strand==-1){
-                    context.fillRect(startpos+10,90,endpos-startpos,20);
+                    context.fillRect(startpos+10,95,endpos-startpos-10,10);
                 }
                 else{
-                    context.fillRect(startpos,90,endpos-startpos,20);
+                    context.fillRect(startpos,95,endpos-startpos,10);
                 }
             }
             function cds(startpos,endpos,strand,id){
@@ -267,13 +267,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#9AFF9A";//cds为绿色
                 if(endpos==1000&&strand==1){
-                    context.fillRect(startpos,80,endpos-startpos-10,40);
+                    context.fillRect(startpos,90,endpos-startpos-10,20);
                 }
                 else if(startpos==0&&strand==-1){
-                    context.fillRect(startpos+10,80,endpos-startpos,40);
+                    context.fillRect(startpos+10,90,endpos-startpos-10,20);
                 }
                 else{
-                    context.fillRect(startpos,80,endpos-startpos,40);
+                    context.fillRect(startpos,90,endpos-startpos,20);
                 }
             }
             function intron(startpos,endpos,strand,id){
@@ -281,13 +281,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#080808";//intron为黑色
                 if(endpos==1000&&strand==1){
-                    context.fillRect(startpos,90,endpos-startpos-10,20);
+                    context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
                 else if(startpos==0&&strand==-1){
-                    context.fillRect(startpos+10,90,endpos-startpos,20);
+                    context.fillRect(startpos+10,95,endpos-startpos-10,10);
                 }
                 else{
-                    context.fillRect(startpos,90,endpos-startpos,20);
+                    context.fillRect(startpos,95,endpos-startpos,10);
                 }
             }
             function exon(startpos,endpos,strand,id){
@@ -295,13 +295,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#eeee00";//exon为黄色
                 if(endpos==1000&&strand==1){
-                    context.fillRect(startpos,80,endpos-startpos-10,40);
+                    context.fillRect(startpos,90,endpos-startpos-10,20);
                 }
                 else if(startpos==0&&strand==-1){
-                    context.fillRect(startpos+10,80,endpos-startpos,40);
+                    context.fillRect(startpos+10,90,endpos-startpos-10,20);
                 }
                 else{
-                    context.fillRect(startpos,80,endpos-startpos,40);
+                    context.fillRect(startpos,90,endpos-startpos,20);
                 }
             }
             function amb(startpos,endpos,strand,id){
@@ -309,13 +309,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#97ffff";//amb为兰色
                 if(endpos==1000&&strand==1){
-                    context.fillRect(startpos,80,endpos-startpos-10,40);
+                    context.fillRect(startpos,90,endpos-startpos-10,20);
                 }
                 else if(startpos==0&&strand==-1){
-                    context.fillRect(startpos+10,80,endpos-startpos,40);
+                    context.fillRect(startpos+10,90,endpos-startpos-10,20);
                 }
                 else{
-                    context.fillRect(startpos,80,endpos-startpos,40);
+                    context.fillRect(startpos,90,endpos-startpos,20);
                 }
             }
             function intergenic(strand,id){
@@ -333,20 +333,20 @@ and open the template in the editor.
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.beginPath();
-                if(strand==1){
-                    context.moveTo(990,110);
-                    context.lineTo(995,110);
+               if(strand==1){
+                    context.moveTo(990,105);
+                    context.lineTo(995,105);
                     context.lineTo(1000,100);
-                    context.lineTo(995,90);
-                    context.lineTo(990,90);
-                    context.lineTo(990,110);
+                    context.lineTo(995,95);
+                    context.lineTo(990,95);
+                    context.lineTo(990,105);
                 }
                 else if(strand==-1){
                     context.moveTo(0,100);
-                    context.lineTo(5,110);
-                    context.lineTo(10,110);
-                    context.lineTo(10,90);
-                    context.lineTo(5,90);
+                    context.lineTo(5,105);
+                    context.lineTo(10,105);
+                    context.lineTo(10,95);
+                    context.lineTo(5,95);
                     context.lineTo(0,100);
                 }
                 context.closePath();
