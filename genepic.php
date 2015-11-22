@@ -433,13 +433,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#BA55D3";//5utr为zise
                 if(endpos==1000&&strand==1){
-                    context.fillRect(startpos,90,endpos-startpos-10,20);
+                    context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
                 else if(startpos==0&&strand==-1){
-                    context.fillRect(startpos+10,90,endpos-startpos,20);
+                    context.fillRect(startpos+10,95,endpos-startpos,10);
                 }
                 else{
-                    context.fillRect(startpos,90,endpos-startpos,20);
+                    context.fillRect(startpos,95,endpos-startpos,10);
                 }
             }
             function cds(startpos,endpos,strand,id){
