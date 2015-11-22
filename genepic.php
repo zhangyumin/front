@@ -489,13 +489,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#97ffff";//amb为兰色
                 if(endpos==1000&&strand==1){
-                    context.fillRect(startpos,80,endpos-startpos-10,40);
+                    context.fillRect(startpos,90,endpos-startpos-10,20);
                 }
                 else if(startpos==0&&strand==-1){
-                    context.fillRect(startpos+10,80,endpos-startpos,40);
+                    context.fillRect(startpos+10,90,endpos-startpos,20);
                 }
                 else{
-                    context.fillRect(startpos,80,endpos-startpos,40);
+                    context.fillRect(startpos,90,endpos-startpos,20);
                 }
             }
             function intergenic(strand,id){
