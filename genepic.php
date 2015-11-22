@@ -419,13 +419,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#1c86ee";//3utr_extend为蓝色
                 if(endpos==end&&strand==1){
-                    context.fillRect(startpos,90,endpos-startpos-10,20);
+                    context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
                 else if(startpos==start&&strand==-1){
-                    context.fillRect(startpos+10,90,endpos-startpos,20);
+                    context.fillRect(startpos+10,95,endpos-startpos,10);
                 }
                 else{
-                    context.fillRect(startpos,90,endpos-startpos,20);
+                    context.fillRect(startpos,95,endpos-startpos,10);
                 }
             }
             function wutr(startpos,endpos,strand,id){
