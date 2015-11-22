@@ -407,13 +407,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#ff0000";//3utr为红色
                 if(endpos==end&&strand==1){
-                    context.fillRect(startpos,90,endpos-startpos-10,20);
+                    context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
                 else if(startpos==start&&strand==-1){
-                    context.fillRect(startpos+10,90,endpos-startpos,20);
+                    context.fillRect(startpos+10,95,endpos-startpos,10);
                 }
                 else{
-                    context.fillRect(startpos,90,endpos-startpos,20);
+                    context.fillRect(startpos,95,endpos-startpos,10);
                 }
             }
             function sutr_extend(startpos,endpos,start,end,strand,id){
