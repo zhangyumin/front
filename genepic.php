@@ -517,19 +517,19 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.beginPath();
                 if(strand==1){
-                    context.moveTo(990,110);
-                    context.lineTo(995,110);
+                    context.moveTo(990,105);
+                    context.lineTo(995,105);
                     context.lineTo(1000,100);
-                    context.lineTo(995,90);
-                    context.lineTo(990,90);
-                    context.lineTo(990,110);
+                    context.lineTo(995,95);
+                    context.lineTo(990,95);
+                    context.lineTo(990,105);
                 }
                 else if(strand==-1){
                     context.moveTo(0,100);
-                    context.lineTo(5,110);
-                    context.lineTo(10,110);
-                    context.lineTo(10,90);
-                    context.lineTo(5,90);
+                    context.lineTo(5,105);
+                    context.lineTo(10,105);
+                    context.lineTo(10,95);
+                    context.lineTo(5,95);
                     context.lineTo(0,100);
                 }
                 context.closePath();
@@ -541,19 +541,19 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.beginPath();
                 if(strand==1){
-                    context.moveTo(end-10,110);
-                    context.lineTo(end-5,110);
+                    context.moveTo(end-10,105);
+                    context.lineTo(end-5,105);
                     context.lineTo(end,100);
-                    context.lineTo(end-5,90);
-                    context.lineTo(end-10,90);
-                    context.lineTo(end-10,110);
+                    context.lineTo(end-5,95);
+                    context.lineTo(end-10,95);
+                    context.lineTo(end-10,105);
                 }
                 else if(strand==-1){
                     context.moveTo(start,100);
-                    context.lineTo(start+5,110);
-                    context.lineTo(start+10,110);
-                    context.lineTo(start+10,90);
-                    context.lineTo(start+5,90);
+                    context.lineTo(start+5,105);
+                    context.lineTo(start+10,105);
+                    context.lineTo(start+10,95);
+                    context.lineTo(start+5,95);
                     context.lineTo(start,100);
                 }
                 context.closePath();
