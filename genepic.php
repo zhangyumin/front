@@ -258,16 +258,18 @@ and open the template in the editor.
                     }
                     //非extend部分
                 foreach ($sutr_start_org as $key => $value) {
+                        $st_st=($sutr_start[$key]-$gene_start)*$rate;
                         $start=($sutr_start_org[$key]-$gene_start)*$rate;
+                        $st_ed=($sutr_end[$key]-$gene_start )*$rate;
                         $end=($sutr_end_org[$key]-$gene_start)*$rate;
                         $st=($gene_start_org-$gene_start)*$rate;
                         $en=($gene_end_org-$gene_start)*$rate;
                         echo "sutr($start,$end,$st,$en,$strand,'no_extend');\n";
                         if($strand==-1){
-                            echo "sutr_extend(0,$start,0,1000,-1,'gene');\n";
+                            echo "sutr_extend($st_st,$start,0,1000,-1,'gene');\n";
                         }
                         else if($strand==1){
-                            echo "sutr_extend($end,1000,0,1000,1,'gene');\n";
+                            echo "sutr_extend($end,$st_ed,0,1000,1,'gene');\n";
                         }
                     }
                     foreach ($wutr_start_org as $key => $value) {
