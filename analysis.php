@@ -817,6 +817,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                        <div id="only3utr" class="ym-form">
                                             <div class="ym-grid ym-fbox">
                                                 <label for="sgminpat">Min PAT</label>
                                                 <input type='text' value='5' name="sgminpat"/>
@@ -836,6 +837,7 @@
                                                     <option value="0.1"/>0.1
                                                 </select>
                                             </div>
+                                        </div>
                                     <div class="flip" ><h4>Addtional Options</h4></div>
                                     <div id="search">
                                         <div class="box info ym-form">
@@ -878,6 +880,7 @@
                             </div>
                             <div class="swiper-slide">
                                 <div class="content-slide">
+                                    <form id="none3utr-form">
                                     <table id="samples" style="width:100%;">
                                         <tbody>
                                             <tr>
@@ -1047,7 +1050,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <div id="none3utr-form" method="post" class="ym-form" action="./aftertreatment.php?method=none3utr">
+                                    <div id="none3utr" method="post">
                                         <div class="ym-grid ym-fbox">
                                             <label for="sgnm">Normalization method</label>
                                             <select id="sgnm">
@@ -1079,10 +1082,6 @@
                                         <div class="ym-grid ym-fbox">
                                             <label for="minpat6">Min fold change of two PAC in at least one sample</label>
                                             <input type="text" value="2" name="minpat6"/>
-                                        </div>
-                                        <div class="ym-grid ym-fbox">
-                                            <button id='none3utr-submit'>submit</button>
-                                            <button type="reset">reset</button>
                                         </div>
                                     </div>
                                     <div class="flip" ><h4>Addtional Options</h4></div>
@@ -1118,6 +1117,11 @@
                                         </div>
                                         </div>
                                     </div>
+                                    <div class="ym-grid ym-fbox">
+                                        <input type="button" id='none3utr-submit' value="submit">
+                                        <button type="reset">reset</button>
+                                    </div>
+                                    </form>
                                 </div>
                             </div>
                           </div>
