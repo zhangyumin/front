@@ -55,7 +55,7 @@
                     });  
                  });
                  $('#only3utr-submit').click(function (){
-                    var params = $('input,textarea,select').serialize(); //序列化表单的值
+                    var params = $('#species,#only3utr-form').serialize(); //序列化表单的值
 //                    console.log(params);
 //                    alert(params);
                     $.ajax({  
@@ -647,6 +647,7 @@
                               </div>
                             <div class="swiper-slide">
                                 <div class="content-slide">
+                                    <form id="only3utr-form">
                                     <table id="samples" style="width:100%;">
                                         <tbody>
                                             <tr>
@@ -816,7 +817,6 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                        <div id="only3utr-form" class="ym-form" method="post" action="./aftertreatment.php?method=only3utr">
                                             <div class="ym-grid ym-fbox">
                                                 <label for="sgminpat">Min PAT</label>
                                                 <input type='text' value='5' name="sgminpat"/>
@@ -836,11 +836,6 @@
                                                     <option value="0.1"/>0.1
                                                 </select>
                                             </div>
-                                            <div class="ym-grid ym-fbox">
-                                                <button id='only3utr-submit'>submit</button>
-                                                <button type="reset">reset</button>
-                                            </div>
-                                        </div>
                                     <div class="flip" ><h4>Addtional Options</h4></div>
                                     <div id="search">
                                         <div class="box info ym-form">
@@ -874,6 +869,11 @@
                                         </div>
                                         </div>
                                     </div>
+                                    <div class="ym-grid ym-fbox">
+                                        <input type="button" id='only3utr-submit' value="submit">
+                                        <button type="reset">reset</button>
+                                    </div>
+                                    </form>
                                 </div>
                             </div>
                             <div class="swiper-slide">
