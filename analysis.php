@@ -39,7 +39,7 @@
                         type:'post',       //数据传送方式  
                         dataType:'json',   //接受数据格式  
                         data:params,       //要传送的数据  
-                        success:update_page1//回传函数(这里是函数名字)  
+                        success:test//回传函数(这里是函数名字)  
                     });  
                  });
                  $('#depac-submit').click(function (){
@@ -331,23 +331,23 @@
                                                 <input type='text' name='degene_min_pat' value='5'/>
                                             </div>
                                         </div>
-                                            <div class="ym-grid ym-fbox">
-                                                <div class="ym-g50 ym-gl">
-                                                    <label for="multi_test">Multi-test adjustment method</label>
-                                                    <select name="degene_multi_test">
-                                                        <option value='Bonferroni' selected="true">Bonferroni</option>
-                                                        <option value='Not'>Not adjust</option>
-                                                   </select>
-                                                </div>
-                                                <div class="ym-g50 ym-gl">
-                                                    <label for="sig">Significance Level</label>
-                                                    <select name="degene_sig">
-                                                        <option value='0.01'>0.01</option>
-                                                        <option value='0.05' selected="true">0.05</option>
-                                                        <option value='0.1'>0.1</option>
-                                                   </select>
-                                                </div>
+                                        <div class="ym-grid ym-fbox">
+                                            <div class="ym-g50 ym-gl">
+                                                <label for="multi_test">Multi-test adjustment method</label>
+                                                <select name="degene_multi_test">
+                                                    <option value='Bonferroni' selected="true">Bonferroni</option>
+                                                    <option value='Not'>Not adjust</option>
+                                               </select>
                                             </div>
+                                            <div class="ym-g50 ym-gl">
+                                                <label for="sig">Significance Level</label>
+                                                <select name="degene_sig">
+                                                    <option value='0.01'>0.01</option>
+                                                    <option value='0.05' selected="true">0.05</option>
+                                                    <option value='0.1'>0.1</option>
+                                               </select>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="flip" ><h4>Addtional Options</h4></div>
                                     <div id="search">
@@ -383,7 +383,7 @@
                                         </div>
                                     </div>
                                     <div class="ym-grid ym-fbox">
-                                        <button id='degene-submit'>submit</button>
+                                        <input type="button" id='degene-submit' value="submit">
                                         <button type="reset">reset</button>
                                     </div>
                                     </form>
