@@ -1,3 +1,6 @@
+body{
+    background: url("../pic/bg.png") repeat scroll 0 0;
+}
 #introduction{
 	height: 500px;
 }
@@ -179,5 +182,11 @@ fieldset{
     
     div.flip{
         background-color:#5499c9;
-        padding: 5px;
+        border-radius:4px;
+    }
+    .flip h4{
+         font-size: 16px;
+    line-height: 20px;
+    padding: 10px 0 10px 20px;
+    color: white;
     }
