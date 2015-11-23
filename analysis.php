@@ -20,7 +20,7 @@
         <script src="./src/idangerous.swiper.min.js"></script>
         <link rel="stylesheet" href="./src/idangerous.swiper.css">
     </head>
-    <body>
+    <body onload="getchr()">
         <?php
             include"navbar.php";
             session_start();
@@ -39,11 +39,11 @@
                         type:'post',       //数据传送方式  
                         dataType:'json',   //接受数据格式  
                         data:params,       //要传送的数据  
-                        success:test//回传函数(这里是函数名字)  
+                        success:update_page1//回传函数(这里是函数名字)  
                     });  
                  });
                  $('#depac-submit').click(function (){
-                    var params = $('input,textarea,select').serialize(); //序列化表单的值
+                    var params = $('#species,#depac-form').serialize(); //序列化表单的值
 //                    console.log(params);
 //                    alert(params);
                     $.ajax({  
@@ -391,6 +391,7 @@
                             </div>
                             <div class="swiper-slide">
                                 <div class="content-slide">
+                                    <form id="depac-form">
                                     <table id="samples" style="width:100%;">
                                         <tbody>
                                             <tr>
@@ -603,10 +604,6 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="ym-grid ym-fbox">
-                                            <button id='depac-submit'>submit</button>
-                                            <button type="reset">reset</button>
-                                        </div>
                                     </div>
                                     <div class="flip" ><h4>Addtional Options</h4></div>
                                     <div id="search">
@@ -641,6 +638,11 @@
                                         </div>
                                         </div>
                                     </div>
+                                    <div class="ym-grid ym-fbox">
+                                        <input type="button" id='depac-submit' value="submit">
+                                        <button type="reset">reset</button>
+                                    </div>
+                                    </form>
                                 </div>
                               </div>
                             <div class="swiper-slide">
@@ -1189,19 +1191,15 @@
                     echo "\"]";
                     echo "];";
                 ?>
-                <?php
-                if(!isset($_SESSION['file'])){
-                    echo "function getchr(){
-                                var sltSpecies=document.getElementById(\"species\");
-                                var sltChr=document.getElementById(\"chr\");
-                                var speciesChr=chr[sltSpecies.selectedIndex];
-                                sltChr.length=1;
-                                for(var i=0;i<speciesChr.length;i++){
-                                    sltChr[i+1]=new Option(speciesChr[i],speciesChr[i]);
-                                }
-                            }";   
-                }
-                ?>
+                function getchr(){
+                    var sltSpecies=document.getElementById("species");
+                    var sltChr=document.getElementById("chr");
+                    var speciesChr=chr[sltSpecies.selectedIndex];
+                    sltChr.length=1;
+                    for(var i=0;i<speciesChr.length;i++){
+                        sltChr[i+1]=new Option(speciesChr[i],speciesChr[i]);
+                    }
+                };   
                 function userchr(a){
                     var sltChr=document.getElementById("chr");
                     var speciesChr=chr[a];
@@ -1234,11 +1232,11 @@
                         document.getElementById(x1).style.display='none';
                         document.getElementById(x2).style.display='none';
                     }
-                    if(a1.value!="choose")
-                    {
-                        a1.style.display="block";
-                        a2.style.display="block";
-                     }   
+//                    if(a1.value!="choose")
+//                    {
+//                        a1.style.display="block";
+//                        a2.style.display="block";
+//                     }   
                 }
                 function ClickOption(obj,id){
                     var O = document.getElementById(id);
