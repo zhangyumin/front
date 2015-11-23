@@ -354,7 +354,7 @@
                                         <div class="box info ym-form">
                                         <div class="ym-g33 ym-gl">
                                             <label for="chr" style="margin-right:2%">in</label>
-                                              <select id="chr" name="chr" style="width:80%">
+                                              <select id="chr1" name="chr" style="width:80%">
                                                     <option value="all" selected="selected">All</option>
                                              </select>
                                         </div>
@@ -396,14 +396,14 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <div id="sample1" style="width:50%;margin:auto;">
+                                                    <div id="sample3" style="width:50%;margin:auto;">
                                                         <label for="all1">Sample 1</label><br>
                                                             <?php
                                                             $sys_sample=array();
                                                                 //arab
                                                                 $i=1;
                                                                 $mysql_arab=mysql_query("select distinct PA_col from t_sample_desc where species='arab';");
-                                                                echo "<div id='arab1'>";
+                                                                echo "<div id='arab3'>";
                                                                 while($arab_row= mysql_fetch_row($mysql_arab))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=a1$i name=sample1[] value=$arab_row[0] onclick=\"ClickOption(this,'b1$i')\">$arab_row[0]<br>";
@@ -423,7 +423,7 @@
                                                                 //japonica
                                                                 $i=1;
                                                                 $mysql_japonica=mysql_query("select distinct PA_col from t_sample_desc where species='japonica';");
-                                                                echo "<div id='japonica1' style='display:none'>";
+                                                                echo "<div id='japonica3' style='display:none'>";
                                                                 while($japonica_row= mysql_fetch_row($mysql_japonica))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=a2$i name=sample1[] value=$japonica_row[0] onclick=\"ClickOption(this,'b2$i')\">$japonica_row[0]<br>";
@@ -443,7 +443,7 @@
                                                                 //mtr
                                                                 $i=1;
                                                                 $mysql_mtr=mysql_query("select distinct PA_col from t_sample_desc where species='mtr';");
-                                                                echo "<div id='mtr1' style='display:none'>";
+                                                                echo "<div id='mtr3' style='display:none'>";
                                                                 while($mtr_row= mysql_fetch_row($mysql_mtr))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=a3$i name=sample1[] value=$mtr_row[0] onclick=\"ClickOption(this,'b3$i')\">$mtr_row[0]<br>";
@@ -463,7 +463,7 @@
                                                                 //chlamy
                                                                 $i=1;
                                                                 $mysql_chlamy=mysql_query("select distinct PA_col from t_sample_desc where species='chlamy';");
-                                                                echo "<div id='chlamy1' style='display:none'>";
+                                                                echo "<div id='chlamy3' style='display:none'>";
                                                                 while($chlamy_row= mysql_fetch_row($mysql_chlamy))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=a4$i name=sample1[] value=$chlamy_row[0] onclick=\"ClickOption(this,'b4$i')\">$chlamy_row[0]<br>";
@@ -484,13 +484,13 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <div id="sample2" style="width:50%;margin:auto;">
+                                                    <div id="sample4" style="width:50%;margin:auto;">
                                                         <label for="all2">Sample 2</label><br>
                                                             <?php
                                                                 //arab
                                                                 $i=1;
                                                                 $mysql_arab=mysql_query("select distinct PA_col from t_sample_desc where species='arab';");
-                                                                echo "<div id='arab2'>";
+                                                                echo "<div id='arab4'>";
                                                                 while($arab_row= mysql_fetch_row($mysql_arab))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=b1$i name=sample2[] value=$arab_row[0] onclick=\"ClickOption(this,'a1$i')\">$arab_row[0]<br>";
@@ -507,7 +507,7 @@
                                                                 //japonica
                                                                 $i=1;
                                                                 $mysql_japonica=mysql_query("select distinct PA_col from t_sample_desc where species='japonica';");
-                                                                echo "<div id='japonica2' style='display:none'>";
+                                                                echo "<div id='japonica4' style='display:none'>";
                                                                 while($japonica_row= mysql_fetch_row($mysql_japonica))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=b2$i name=sample2[] value=$japonica_row[0] onclick=\"ClickOption(this,'a2$i')\">$japonica_row[0]<br>";
@@ -524,7 +524,7 @@
                                                                 //mtr
                                                                 $i=1;
                                                                 $mysql_mtr=mysql_query("select distinct PA_col from t_sample_desc where species='mtr';");
-                                                                echo "<div id='mtr2' style='display:none'>";
+                                                                echo "<div id='mtr4' style='display:none'>";
                                                                 while($mtr_row= mysql_fetch_row($mysql_mtr))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=b3$i name=sample2[] value=$mtr_row[0] onclick=\"ClickOption(this,'a3$i')\">$mtr_row[0]<br>";
@@ -541,7 +541,7 @@
                                                                 //chlamy
                                                                 $i=1;
                                                                 $mysql_chlamy=mysql_query("select distinct PA_col from t_sample_desc where species='chlamy';");
-                                                                echo "<div id='chlamy2' style='display:none'>";
+                                                                echo "<div id='chlamy4' style='display:none'>";
                                                                 while($chlamy_row= mysql_fetch_row($mysql_chlamy))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=b4$i name=sample2[] value=$chlamy_row[0] onclick=\"ClickOption(this,'a4$i')\">$chlamy_row[0]<br>";
@@ -610,7 +610,7 @@
                                         <div class="box info ym-form">
                                         <div class="ym-g33 ym-gl">
                                             <label for="chr" style="margin-right:2%">in</label>
-                                              <select id="chr" name="chr" style="width:80%">
+                                              <select id="chr2" name="chr" style="width:80%">
                                                     <option value="all" selected="selected">All</option>
                                              </select>
                                         </div>
@@ -651,14 +651,14 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <div id="sample1" style="width:50%;margin:auto;">
+                                                    <div id="sample5" style="width:50%;margin:auto;">
                                                         <label for="all1">Sample 1</label><br>
                                                             <?php
                                                             $sys_sample=array();
                                                                 //arab
                                                                 $i=1;
                                                                 $mysql_arab=mysql_query("select distinct PA_col from t_sample_desc where species='arab';");
-                                                                echo "<div id='arab1'>";
+                                                                echo "<div id='arab5'>";
                                                                 while($arab_row= mysql_fetch_row($mysql_arab))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=a1$i name=sample1[] value=$arab_row[0] onclick=\"ClickOption(this,'b1$i')\">$arab_row[0]<br>";
@@ -678,7 +678,7 @@
                                                                 //japonica
                                                                 $i=1;
                                                                 $mysql_japonica=mysql_query("select distinct PA_col from t_sample_desc where species='japonica';");
-                                                                echo "<div id='japonica1' style='display:none'>";
+                                                                echo "<div id='japonica5' style='display:none'>";
                                                                 while($japonica_row= mysql_fetch_row($mysql_japonica))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=a2$i name=sample1[] value=$japonica_row[0] onclick=\"ClickOption(this,'b2$i')\">$japonica_row[0]<br>";
@@ -698,7 +698,7 @@
                                                                 //mtr
                                                                 $i=1;
                                                                 $mysql_mtr=mysql_query("select distinct PA_col from t_sample_desc where species='mtr';");
-                                                                echo "<div id='mtr1' style='display:none'>";
+                                                                echo "<div id='mtr5' style='display:none'>";
                                                                 while($mtr_row= mysql_fetch_row($mysql_mtr))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=a3$i name=sample1[] value=$mtr_row[0] onclick=\"ClickOption(this,'b3$i')\">$mtr_row[0]<br>";
@@ -718,7 +718,7 @@
                                                                 //chlamy
                                                                 $i=1;
                                                                 $mysql_chlamy=mysql_query("select distinct PA_col from t_sample_desc where species='chlamy';");
-                                                                echo "<div id='chlamy1' style='display:none'>";
+                                                                echo "<div id='chlamy5' style='display:none'>";
                                                                 while($chlamy_row= mysql_fetch_row($mysql_chlamy))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=a4$i name=sample1[] value=$chlamy_row[0] onclick=\"ClickOption(this,'b4$i')\">$chlamy_row[0]<br>";
@@ -739,13 +739,13 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <div id="sample2" style="width:50%;margin:auto;">
+                                                    <div id="sample6" style="width:50%;margin:auto;">
                                                         <label for="all2">Sample 2</label><br>
                                                             <?php
                                                                 //arab
                                                                 $i=1;
                                                                 $mysql_arab=mysql_query("select distinct PA_col from t_sample_desc where species='arab';");
-                                                                echo "<div id='arab2'>";
+                                                                echo "<div id='arab6'>";
                                                                 while($arab_row= mysql_fetch_row($mysql_arab))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=b1$i name=sample2[] value=$arab_row[0] onclick=\"ClickOption(this,'a1$i')\">$arab_row[0]<br>";
@@ -762,7 +762,7 @@
                                                                 //japonica
                                                                 $i=1;
                                                                 $mysql_japonica=mysql_query("select distinct PA_col from t_sample_desc where species='japonica';");
-                                                                echo "<div id='japonica2' style='display:none'>";
+                                                                echo "<div id='japonica6' style='display:none'>";
                                                                 while($japonica_row= mysql_fetch_row($mysql_japonica))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=b2$i name=sample2[] value=$japonica_row[0] onclick=\"ClickOption(this,'a2$i')\">$japonica_row[0]<br>";
@@ -779,7 +779,7 @@
                                                                 //mtr
                                                                 $i=1;
                                                                 $mysql_mtr=mysql_query("select distinct PA_col from t_sample_desc where species='mtr';");
-                                                                echo "<div id='mtr2' style='display:none'>";
+                                                                echo "<div id='mtr6' style='display:none'>";
                                                                 while($mtr_row= mysql_fetch_row($mysql_mtr))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=b3$i name=sample2[] value=$mtr_row[0] onclick=\"ClickOption(this,'a3$i')\">$mtr_row[0]<br>";
@@ -796,7 +796,7 @@
                                                                 //chlamy
                                                                 $i=1;
                                                                 $mysql_chlamy=mysql_query("select distinct PA_col from t_sample_desc where species='chlamy';");
-                                                                echo "<div id='chlamy2' style='display:none'>";
+                                                                echo "<div id='chlamy6' style='display:none'>";
                                                                 while($chlamy_row= mysql_fetch_row($mysql_chlamy))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=b4$i name=sample2[] value=$chlamy_row[0] onclick=\"ClickOption(this,'a4$i')\">$chlamy_row[0]<br>";
@@ -846,7 +846,7 @@
                                         <div class="box info ym-form">
                                         <div class="ym-g33 ym-gl">
                                             <label for="chr" style="margin-right:2%">in</label>
-                                              <select id="chr" name="chr" style="width:80%">
+                                              <select id="chr3" name="chr" style="width:80%">
                                                     <option value="all" selected="selected">All</option>
                                              </select>
                                         </div>
@@ -882,14 +882,14 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <div id="sample1" style="width:50%;margin:auto;">
+                                                    <div id="sample7" style="width:50%;margin:auto;">
                                                         <label for="all1">Sample 1</label><br>
                                                             <?php
                                                             $sys_sample=array();
                                                                 //arab
                                                                 $i=1;
                                                                 $mysql_arab=mysql_query("select distinct PA_col from t_sample_desc where species='arab';");
-                                                                echo "<div id='arab1'>";
+                                                                echo "<div id='arab7'>";
                                                                 while($arab_row= mysql_fetch_row($mysql_arab))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=a1$i name=sample1[] value=$arab_row[0] onclick=\"ClickOption(this,'b1$i')\">$arab_row[0]<br>";
@@ -909,7 +909,7 @@
                                                                 //japonica
                                                                 $i=1;
                                                                 $mysql_japonica=mysql_query("select distinct PA_col from t_sample_desc where species='japonica';");
-                                                                echo "<div id='japonica1' style='display:none'>";
+                                                                echo "<div id='japonica7' style='display:none'>";
                                                                 while($japonica_row= mysql_fetch_row($mysql_japonica))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=a2$i name=sample1[] value=$japonica_row[0] onclick=\"ClickOption(this,'b2$i')\">$japonica_row[0]<br>";
@@ -929,7 +929,7 @@
                                                                 //mtr
                                                                 $i=1;
                                                                 $mysql_mtr=mysql_query("select distinct PA_col from t_sample_desc where species='mtr';");
-                                                                echo "<div id='mtr1' style='display:none'>";
+                                                                echo "<div id='mtr7' style='display:none'>";
                                                                 while($mtr_row= mysql_fetch_row($mysql_mtr))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=a3$i name=sample1[] value=$mtr_row[0] onclick=\"ClickOption(this,'b3$i')\">$mtr_row[0]<br>";
@@ -949,7 +949,7 @@
                                                                 //chlamy
                                                                 $i=1;
                                                                 $mysql_chlamy=mysql_query("select distinct PA_col from t_sample_desc where species='chlamy';");
-                                                                echo "<div id='chlamy1' style='display:none'>";
+                                                                echo "<div id='chlamy7' style='display:none'>";
                                                                 while($chlamy_row= mysql_fetch_row($mysql_chlamy))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=a4$i name=sample1[] value=$chlamy_row[0] onclick=\"ClickOption(this,'b4$i')\">$chlamy_row[0]<br>";
@@ -970,13 +970,13 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <div id="sample2" style="width:50%;margin:auto;">
+                                                    <div id="sample8" style="width:50%;margin:auto;">
                                                         <label for="all2">Sample 2</label><br>
                                                             <?php
                                                                 //arab
                                                                 $i=1;
                                                                 $mysql_arab=mysql_query("select distinct PA_col from t_sample_desc where species='arab';");
-                                                                echo "<div id='arab2'>";
+                                                                echo "<div id='arab8'>";
                                                                 while($arab_row= mysql_fetch_row($mysql_arab))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=b1$i name=sample2[] value=$arab_row[0] onclick=\"ClickOption(this,'a1$i')\">$arab_row[0]<br>";
@@ -993,7 +993,7 @@
                                                                 //japonica
                                                                 $i=1;
                                                                 $mysql_japonica=mysql_query("select distinct PA_col from t_sample_desc where species='japonica';");
-                                                                echo "<div id='japonica2' style='display:none'>";
+                                                                echo "<div id='japonica8' style='display:none'>";
                                                                 while($japonica_row= mysql_fetch_row($mysql_japonica))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=b2$i name=sample2[] value=$japonica_row[0] onclick=\"ClickOption(this,'a2$i')\">$japonica_row[0]<br>";
@@ -1010,7 +1010,7 @@
                                                                 //mtr
                                                                 $i=1;
                                                                 $mysql_mtr=mysql_query("select distinct PA_col from t_sample_desc where species='mtr';");
-                                                                echo "<div id='mtr2' style='display:none'>";
+                                                                echo "<div id='mtr8' style='display:none'>";
                                                                 while($mtr_row= mysql_fetch_row($mysql_mtr))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=b3$i name=sample2[] value=$mtr_row[0] onclick=\"ClickOption(this,'a3$i')\">$mtr_row[0]<br>";
@@ -1027,7 +1027,7 @@
                                                                 //chlamy
                                                                 $i=1;
                                                                 $mysql_chlamy=mysql_query("select distinct PA_col from t_sample_desc where species='chlamy';");
-                                                                echo "<div id='chlamy2' style='display:none'>";
+                                                                echo "<div id='chlamy8' style='display:none'>";
                                                                 while($chlamy_row= mysql_fetch_row($mysql_chlamy))
                                                                 {
                                                                     echo "<input type=\"checkbox\" id=b4$i name=sample2[] value=$chlamy_row[0] onclick=\"ClickOption(this,'a4$i')\">$chlamy_row[0]<br>";
@@ -1090,7 +1090,7 @@
                                         <div class="box info ym-form">
                                         <div class="ym-g33 ym-gl">
                                             <label for="chr" style="margin-right:2%">in</label>
-                                              <select id="chr" name="chr" style="width:80%">
+                                              <select id="chr4" name="chr" style="width:80%">
                                                     <option value="all" selected="selected">All</option>
                                              </select>
                                         </div>
@@ -1193,11 +1193,20 @@
                 ?>
                 function getchr(){
                     var sltSpecies=document.getElementById("species");
-                    var sltChr=document.getElementById("chr");
+                    var sltChr1=document.getElementById("chr1");
+                    var sltChr2=document.getElementById("chr2");
+                    var sltChr3=document.getElementById("chr3");
+                    var sltChr4=document.getElementById("chr4");
                     var speciesChr=chr[sltSpecies.selectedIndex];
-                    sltChr.length=1;
+                    sltChr1.length=1;
+                    sltChr2.length=1;
+                    sltChr3.length=1;
+                    sltChr4.length=1;
                     for(var i=0;i<speciesChr.length;i++){
-                        sltChr[i+1]=new Option(speciesChr[i],speciesChr[i]);
+                        sltChr1[i+1]=new Option(speciesChr[i],speciesChr[i]);
+                        sltChr2[i+1]=new Option(speciesChr[i],speciesChr[i]);
+                        sltChr3[i+1]=new Option(speciesChr[i],speciesChr[i]);
+                        sltChr4[i+1]=new Option(speciesChr[i],speciesChr[i]);
                     }
                 };   
                 function userchr(a){
@@ -1222,21 +1231,51 @@
                     var t=a.options[a.selectedIndex].value;
                     var t1=t+"1";
                     var t2=t+"2";
+                    var t3=t+"3";
+                    var t4=t+"4";
+                    var t5=t+"5";
+                    var t6=t+"6";
+                    var t7=t+"7";
+                    var t8=t+"8";
                     var a1=document.getElementById(t1);
                     var a2=document.getElementById(t2);
+                    var a3=document.getElementById(t3);
+                    var a4=document.getElementById(t4);
+                    var a5=document.getElementById(t5);
+                    var a6=document.getElementById(t6);
+                    var a7=document.getElementById(t7);
+                    var a8=document.getElementById(t8);
                     for(var i=0;i<a.length;i++)
                     {
                         var x=a.options[i].value;
                         var x1=x+"1";
                         var x2=x+"2";
+                        var x3=x+"3";
+                        var x4=x+"4";
+                        var x5=x+"5";
+                        var x6=x+"6";
+                        var x7=x+"7";
+                        var x8=x+"8";
                         document.getElementById(x1).style.display='none';
                         document.getElementById(x2).style.display='none';
+                        document.getElementById(x3).style.display='none';
+                        document.getElementById(x4).style.display='none';
+                        document.getElementById(x5).style.display='none';
+                        document.getElementById(x6).style.display='none';
+                        document.getElementById(x7).style.display='none';
+                        document.getElementById(x8).style.display='none';
                     }
-//                    if(a1.value!="choose")
-//                    {
-//                        a1.style.display="block";
-//                        a2.style.display="block";
-//                     }   
+                    if(a1.value!="choose")
+                    {
+                        a1.style.display="block";
+                        a2.style.display="block";
+                        a3.style.display="block";
+                        a4.style.display="block";
+                        a5.style.display="block";
+                        a6.style.display="block";
+                        a7.style.display="block";
+                        a8.style.display="block";
+                     }   
                 }
                 function ClickOption(obj,id){
                     var O = document.getElementById(id);
