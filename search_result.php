@@ -49,13 +49,16 @@
                 if($_GET['method']=='fuzzy'){
                     $go_array_key=array();
                     $key=$_POST['key'];
+                    $species=$_POST['species'];
+                    if($_GET['species']!=NULL)
+                        $species=$_GET['species'];
                     if($_GET['keyword']!=NULL)
                         $key=$_GET['keyword'];
-                    $go_qry=  mysql_query("select gene from t_arab_go where gene like '%$key%' or goid like '%$key%' or goterm like '%$key%' or genefunction like '%$key%'");
+                    $go_qry=  mysql_query("select gene from t_".$species."_go where gene like '%$key%' or goid like '%$key%' or goterm like '%$key%' or genefunction like '%$key%'");
                     while($go_result=  mysql_fetch_row($go_qry)){
                         array_push($go_array_key, $go_result[0]);
                     }
-                    $pac_qry= "create table db_user.Search_".$_SESSION['search']." select * from t_arab_pac where ";
+                    $pac_qry= "create table db_user.Search_".$_SESSION['search']." select * from t_".$species."_pac where ";
                     $pac_qry.="gene in ('";
                     $pac_qry.=implode("','", $go_array_key);
                     $pac_qry.="') or chr like '%$key%'; ";
