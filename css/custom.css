@@ -123,11 +123,7 @@ fieldset{
         margin-top:1em; 
         margin-left: 1em;
     }
-    #degene{
-        width: 45%;
-        float: right;
-        margin-right: 1em;
-    }
+    
     .upload h3{
         margin: 0;
         color: #224055;
@@ -213,4 +209,12 @@ fieldset{
     .fsubmit input,.fsubmit button{
         padding: 0.5em;
         margin-right: 1em;
+    }
+    #degene,#depac,#only3utr,#none3utr{
+        width: 45%;
+        float: right;
+        margin-right: 1em;
+    }
+    #degene .box,#depac .box,#only3utr .box,#none3utr .box{
+        padding-bottom: 1em;
     }
