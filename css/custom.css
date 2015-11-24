@@ -81,11 +81,17 @@ fieldset{
     }
     
     .swiper-container {
-        background: #5499c9;
+        background: #f4f4f4 ;
         height: 1020px;
         border-radius: 0 0 5px 5px;
         width: 100%;
         border-top: 0;
+        border-color: rgba(0, 0, 0, 0.3);
+    border-radius: 0.3em;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2) inset;
+
     }
     
     .swiper-slide {
@@ -111,15 +117,17 @@ fieldset{
     .swiper-slide {
         color: black;
     }
-/*    .summary{
-                border-color: #5499c9 !important;
-                border-style: solid !important;
-                border-width: 2px !important;
-                padding: 5px 10px !important;
-                width:60%;
-                font-size: 15px;
-                font-family: 'Lato', sans-serif;
-    }*/
+    div.samples{
+        width: 45%;
+        float: left;
+        margin-top:1em; 
+        margin-left: 1em;
+    }
+    #degene{
+        width: 45%;
+        float: right;
+        margin-right: 1em;
+    }
     .upload h3{
         margin: 0;
         color: #224055;
@@ -189,4 +197,20 @@ fieldset{
     line-height: 20px;
     padding: 10px 0 10px 20px;
     color: white;
+    }
+    .additonal{
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+    input[type="button"]{
+        width: 5em;
+        padding: 0 1.5em;
+    }
+    .fsubmit{
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+    .fsubmit input,.fsubmit button{
+        padding: 0.5em;
+        margin-right: 1em;
     }

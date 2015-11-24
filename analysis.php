@@ -111,8 +111,9 @@
                     <font color="#224055" ><b>Search</b>:Search and view the system samples</font>
                 </h4>
             </legend>
-           <div class="ym-g33 ym-gl">
-                <label for="species" style="margin-right:2%">Species:</label>
+           <div class="box info ym-form">
+                <label for="species" style="margin-right:2%">Species:Species:</label>
+            
                 <select id="species" name="species" style="width:80%" onchange="div_option2(this);getchr()">
                      <option value="arab" selected="selected">Arabidopsis thaliana</option>
                     <option value="japonica">Japonica rice</option>
@@ -121,7 +122,7 @@
                  </select>
             </div>
             <div class="ym-grid" >
-                <div class="box info"> 
+                <div > 
                     <div class="wrap">
                         <div class="tabs">
                             <a href="#" hidefocus="true" class="active">DE Gene</a>
@@ -134,179 +135,179 @@
                             <div class="swiper-slide">
                                 <div class="content-slide">
                                     <form id="degene-form">
-                                    <table id="samples" style="width:100%;">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <div id="sample1" style="width:50%;margin:auto;">
-                                                    <label for="all1">Sample 1</label><br>
-                                                        <?php
-                                                        $sys_sample=array();
-                                                            //arab
-                                                            $i=1;
-                                                            $mysql_arab=mysql_query("select distinct PA_col from t_sample_desc where species='arab';");
-                                                            echo "<div id='arab1'>";
-                                                            while($arab_row= mysql_fetch_row($mysql_arab))
-                                                            {
-                                                                echo "<input type=\"checkbox\" id=a1$i name=sample1[] value=$arab_row[0] onclick=\"ClickOption(this,'b1$i')\">$arab_row[0]<br>";
-                                                                $i++;
-                                                                array_push($sys_sample, $arab_row[0]);
-                                                            }
-                                                            $_SESSION['sys_real_arab']=$sys_sample;
-                                                            unset($sys_sample);
-                                                            if($_SESSION['species']=='arab'){
-                                                                $j=1;
-                                                                foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                    echo "<input type=\"checkbox\" name=sample1[] id=asys1$j value=$value onclick=\"ClickOption(this,'asys2$j')\">$value<br>";
-                                                                    $j++;
-                                                                }
-                                                            }
-                                                            echo "</div>";
-                                                            //japonica
-                                                            $i=1;
-                                                            $mysql_japonica=mysql_query("select distinct PA_col from t_sample_desc where species='japonica';");
-                                                            echo "<div id='japonica1' style='display:none'>";
-                                                            while($japonica_row= mysql_fetch_row($mysql_japonica))
-                                                            {
-                                                                echo "<input type=\"checkbox\" id=a2$i name=sample1[] value=$japonica_row[0] onclick=\"ClickOption(this,'b2$i')\">$japonica_row[0]<br>";
-                                                                $i++;
-                                                                array_push($sys_sample, $japonica_row[0]);
-                                                            }
-                                                            $_SESSION['sys_real_japonica']=$sys_sample;
-                                                            unset($sys_sample);
-                                                            if($_SESSION['species']=='japonica'){
-                                                                $j=1;
-                                                                foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                    echo "<input type=\"checkbox\" name=sample1[] id=asys1$j value=$value onclick=\"ClickOption(this,'asys2$j')\">$value<br>";
-                                                                    $j++;
-                                                                }
-                                                            }
-                                                            echo "</div>";
-                                                            //mtr
-                                                            $i=1;
-                                                            $mysql_mtr=mysql_query("select distinct PA_col from t_sample_desc where species='mtr';");
-                                                            echo "<div id='mtr1' style='display:none'>";
-                                                            while($mtr_row= mysql_fetch_row($mysql_mtr))
-                                                            {
-                                                                echo "<input type=\"checkbox\" id=a3$i name=sample1[] value=$mtr_row[0] onclick=\"ClickOption(this,'b3$i')\">$mtr_row[0]<br>";
-                                                                $i++;
-                                                                array_push($sys_sample, $mtr_row[0]);
-                                                            }
-                                                            $_SESSION['sys_real_mtr']=$sys_sample;
-                                                            unset($sys_sample);
-                                                            if($_SESSION['species']=='mtr'){
-                                                                $j=1;
-                                                                foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                    echo "<input type=\"checkbox\" name=sample1[] id=asys1$j value=$value onclick=\"ClickOption(this,'asys2$j')\">$value<br>";
-                                                                    $j++;
-                                                                }
-                                                            }
-                                                            echo "</div>";
-                                                            //chlamy
-                                                            $i=1;
-                                                            $mysql_chlamy=mysql_query("select distinct PA_col from t_sample_desc where species='chlamy';");
-                                                            echo "<div id='chlamy1' style='display:none'>";
-                                                            while($chlamy_row= mysql_fetch_row($mysql_chlamy))
-                                                            {
-                                                                echo "<input type=\"checkbox\" id=a4$i name=sample1[] value=$chlamy_row[0] onclick=\"ClickOption(this,'b4$i')\">$chlamy_row[0]<br>";
-                                                                $i++;
-                                                                array_push($sys_sample, $chlamy_row[0]);
-                                                            }
-                                                            $_SESSION['sys_real_chlamy']=$sys_sample;
-                                                            unset($sys_sample);
-                                                            if($_SESSION['species']=='chlamy'){
-                                                                $j=1;
-                                                                foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                    echo "<input type=\"checkbox\" name=sample1[] id=asys1$j value=$value onclick=\"ClickOption(this,'asys2$j')\">$value<br>";
-                                                                    $j++;
-                                                                }
-                                                            }
-                                                            echo "</div>";
-                                                        ?>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div id="sample2" style="width:50%;margin:auto;">
-                                                    <label for="all2">Sample 2</label><br>
-                                                        <?php
-                                                            //arab
-                                                            $i=1;
-                                                            $mysql_arab=mysql_query("select distinct PA_col from t_sample_desc where species='arab';");
-                                                            echo "<div id='arab2'>";
-                                                            while($arab_row= mysql_fetch_row($mysql_arab))
-                                                            {
-                                                                echo "<input type=\"checkbox\" id=b1$i name=sample2[] value=$arab_row[0] onclick=\"ClickOption(this,'a1$i')\">$arab_row[0]<br>";
-                                                                $i++;
-                                                            }
-                                                            if($_SESSION['species']=='arab'){
-                                                                $j=1;
-                                                                foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                    echo "<input type=\"checkbox\" name=sample2[] id=asys2$j value=$value onclick=\"ClickOption(this,'asys1$j')\">$value<br>";
-                                                                    $j++;
-                                                                }
-                                                            }
-                                                            echo "</div>";
-                                                            //japonica
-                                                            $i=1;
-                                                            $mysql_japonica=mysql_query("select distinct PA_col from t_sample_desc where species='japonica';");
-                                                            echo "<div id='japonica2' style='display:none'>";
-                                                            while($japonica_row= mysql_fetch_row($mysql_japonica))
-                                                            {
-                                                                echo "<input type=\"checkbox\" id=b2$i name=sample2[] value=$japonica_row[0] onclick=\"ClickOption(this,'a2$i')\">$japonica_row[0]<br>";
-                                                                $i++;
-                                                            }
-                                                            if($_SESSION['species']=='japonica'){
-                                                                $j=1;
-                                                                foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                    echo "<input type=\"checkbox\" name=sample2[] id=asys2$j value=$value onclick=\"ClickOption(this,'asys1$j')\">$value<br>";
-                                                                    $j++;
-                                                                }
-                                                            }
-                                                            echo "</div>";
-                                                            //mtr
-                                                            $i=1;
-                                                            $mysql_mtr=mysql_query("select distinct PA_col from t_sample_desc where species='mtr';");
-                                                            echo "<div id='mtr2' style='display:none'>";
-                                                            while($mtr_row= mysql_fetch_row($mysql_mtr))
-                                                            {
-                                                                echo "<input type=\"checkbox\" id=b3$i name=sample2[] value=$mtr_row[0] onclick=\"ClickOption(this,'a3$i')\">$mtr_row[0]<br>";
-                                                                $i++;
-                                                            }
-                                                            if($_SESSION['species']=='mtr'){
-                                                                $j=1;
-                                                                foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                    echo "<input type=\"checkbox\" name=sample2[] id=asys2$j value=$value onclick=\"ClickOption(this,'asys1$j')\">$value<br>";
-                                                                    $j++;
-                                                                }
-                                                            }
-                                                            echo "</div>";
-                                                            //chlamy
-                                                            $i=1;
-                                                            $mysql_chlamy=mysql_query("select distinct PA_col from t_sample_desc where species='chlamy';");
-                                                            echo "<div id='chlamy2' style='display:none'>";
-                                                            while($chlamy_row= mysql_fetch_row($mysql_chlamy))
-                                                            {
-                                                                echo "<input type=\"checkbox\" id=b4$i name=sample2[] value=$chlamy_row[0] onclick=\"ClickOption(this,'a4$i')\">$chlamy_row[0]<br>";
-                                                                $i++;
-                                                            }
-                                                            if($_SESSION['species']=='chlamy'){
-                                                                $j=1;
-                                                                foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                    echo "<input type=\"checkbox\" name=sample2[] id=asys2$j value=$value onclick=\"ClickOption(this,'asys1$j')\">$value<br>";
-                                                                    $j++;
-                                                                }
-                                                            }
-                                                            echo "</div>";
-                                                        ?>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                    <div class="box info samples">
+                                        <table id="samples" >
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div id="sample1" style="width:50%;margin:auto;">
+                                                            <label for="all1">Sample 1</label><br>
+                                                                <?php
+                                                                $sys_sample=array();
+                                                                    //arab
+                                                                    $i=1;
+                                                                    $mysql_arab=mysql_query("select distinct PA_col from t_sample_desc where species='arab';");
+                                                                    echo "<div id='arab1'>";
+                                                                    while($arab_row= mysql_fetch_row($mysql_arab))
+                                                                    {
+                                                                        echo "<input type=\"checkbox\" id=a1$i name=sample1[] value=$arab_row[0] onclick=\"ClickOption(this,'b1$i')\">$arab_row[0]<br>";
+                                                                        $i++;
+                                                                        array_push($sys_sample, $arab_row[0]);
+                                                                    }
+                                                                    $_SESSION['sys_real_arab']=$sys_sample;
+                                                                    unset($sys_sample);
+                                                                    if($_SESSION['species']=='arab'){
+                                                                        $j=1;
+                                                                        foreach ($_SESSION['file_real'] as $key => $value) {
+                                                                            echo "<input type=\"checkbox\" name=sample1[] id=asys1$j value=$value onclick=\"ClickOption(this,'asys2$j')\">$value<br>";
+                                                                            $j++;
+                                                                        }
+                                                                    }
+                                                                    echo "</div>";
+                                                                    //japonica
+                                                                    $i=1;
+                                                                    $mysql_japonica=mysql_query("select distinct PA_col from t_sample_desc where species='japonica';");
+                                                                    echo "<div id='japonica1' style='display:none'>";
+                                                                    while($japonica_row= mysql_fetch_row($mysql_japonica))
+                                                                    {
+                                                                        echo "<input type=\"checkbox\" id=a2$i name=sample1[] value=$japonica_row[0] onclick=\"ClickOption(this,'b2$i')\">$japonica_row[0]<br>";
+                                                                        $i++;
+                                                                        array_push($sys_sample, $japonica_row[0]);
+                                                                    }
+                                                                    $_SESSION['sys_real_japonica']=$sys_sample;
+                                                                    unset($sys_sample);
+                                                                    if($_SESSION['species']=='japonica'){
+                                                                        $j=1;
+                                                                        foreach ($_SESSION['file_real'] as $key => $value) {
+                                                                            echo "<input type=\"checkbox\" name=sample1[] id=asys1$j value=$value onclick=\"ClickOption(this,'asys2$j')\">$value<br>";
+                                                                            $j++;
+                                                                        }
+                                                                    }
+                                                                    echo "</div>";
+                                                                    //mtr
+                                                                    $i=1;
+                                                                    $mysql_mtr=mysql_query("select distinct PA_col from t_sample_desc where species='mtr';");
+                                                                    echo "<div id='mtr1' style='display:none'>";
+                                                                    while($mtr_row= mysql_fetch_row($mysql_mtr))
+                                                                    {
+                                                                        echo "<input type=\"checkbox\" id=a3$i name=sample1[] value=$mtr_row[0] onclick=\"ClickOption(this,'b3$i')\">$mtr_row[0]<br>";
+                                                                        $i++;
+                                                                        array_push($sys_sample, $mtr_row[0]);
+                                                                    }
+                                                                    $_SESSION['sys_real_mtr']=$sys_sample;
+                                                                    unset($sys_sample);
+                                                                    if($_SESSION['species']=='mtr'){
+                                                                        $j=1;
+                                                                        foreach ($_SESSION['file_real'] as $key => $value) {
+                                                                            echo "<input type=\"checkbox\" name=sample1[] id=asys1$j value=$value onclick=\"ClickOption(this,'asys2$j')\">$value<br>";
+                                                                            $j++;
+                                                                        }
+                                                                    }
+                                                                    echo "</div>";
+                                                                    //chlamy
+                                                                    $i=1;
+                                                                    $mysql_chlamy=mysql_query("select distinct PA_col from t_sample_desc where species='chlamy';");
+                                                                    echo "<div id='chlamy1' style='display:none'>";
+                                                                    while($chlamy_row= mysql_fetch_row($mysql_chlamy))
+                                                                    {
+                                                                        echo "<input type=\"checkbox\" id=a4$i name=sample1[] value=$chlamy_row[0] onclick=\"ClickOption(this,'b4$i')\">$chlamy_row[0]<br>";
+                                                                        $i++;
+                                                                        array_push($sys_sample, $chlamy_row[0]);
+                                                                    }
+                                                                    $_SESSION['sys_real_chlamy']=$sys_sample;
+                                                                    unset($sys_sample);
+                                                                    if($_SESSION['species']=='chlamy'){
+                                                                        $j=1;
+                                                                        foreach ($_SESSION['file_real'] as $key => $value) {
+                                                                            echo "<input type=\"checkbox\" name=sample1[] id=asys1$j value=$value onclick=\"ClickOption(this,'asys2$j')\">$value<br>";
+                                                                            $j++;
+                                                                        }
+                                                                    }
+                                                                    echo "</div>";
+                                                                ?>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div id="sample2" style="width:50%;margin:auto;">
+                                                            <label for="all2">Sample 2</label><br>
+                                                                <?php
+                                                                    //arab
+                                                                    $i=1;
+                                                                    $mysql_arab=mysql_query("select distinct PA_col from t_sample_desc where species='arab';");
+                                                                    echo "<div id='arab2'>";
+                                                                    while($arab_row= mysql_fetch_row($mysql_arab))
+                                                                    {
+                                                                        echo "<input type=\"checkbox\" id=b1$i name=sample2[] value=$arab_row[0] onclick=\"ClickOption(this,'a1$i')\">$arab_row[0]<br>";
+                                                                        $i++;
+                                                                    }
+                                                                    if($_SESSION['species']=='arab'){
+                                                                        $j=1;
+                                                                        foreach ($_SESSION['file_real'] as $key => $value) {
+                                                                            echo "<input type=\"checkbox\" name=sample2[] id=asys2$j value=$value onclick=\"ClickOption(this,'asys1$j')\">$value<br>";
+                                                                            $j++;
+                                                                        }
+                                                                    }
+                                                                    echo "</div>";
+                                                                    //japonica
+                                                                    $i=1;
+                                                                    $mysql_japonica=mysql_query("select distinct PA_col from t_sample_desc where species='japonica';");
+                                                                    echo "<div id='japonica2' style='display:none'>";
+                                                                    while($japonica_row= mysql_fetch_row($mysql_japonica))
+                                                                    {
+                                                                        echo "<input type=\"checkbox\" id=b2$i name=sample2[] value=$japonica_row[0] onclick=\"ClickOption(this,'a2$i')\">$japonica_row[0]<br>";
+                                                                        $i++;
+                                                                    }
+                                                                    if($_SESSION['species']=='japonica'){
+                                                                        $j=1;
+                                                                        foreach ($_SESSION['file_real'] as $key => $value) {
+                                                                            echo "<input type=\"checkbox\" name=sample2[] id=asys2$j value=$value onclick=\"ClickOption(this,'asys1$j')\">$value<br>";
+                                                                            $j++;
+                                                                        }
+                                                                    }
+                                                                    echo "</div>";
+                                                                    //mtr
+                                                                    $i=1;
+                                                                    $mysql_mtr=mysql_query("select distinct PA_col from t_sample_desc where species='mtr';");
+                                                                    echo "<div id='mtr2' style='display:none'>";
+                                                                    while($mtr_row= mysql_fetch_row($mysql_mtr))
+                                                                    {
+                                                                        echo "<input type=\"checkbox\" id=b3$i name=sample2[] value=$mtr_row[0] onclick=\"ClickOption(this,'a3$i')\">$mtr_row[0]<br>";
+                                                                        $i++;
+                                                                    }
+                                                                    if($_SESSION['species']=='mtr'){
+                                                                        $j=1;
+                                                                        foreach ($_SESSION['file_real'] as $key => $value) {
+                                                                            echo "<input type=\"checkbox\" name=sample2[] id=asys2$j value=$value onclick=\"ClickOption(this,'asys1$j')\">$value<br>";
+                                                                            $j++;
+                                                                        }
+                                                                    }
+                                                                    echo "</div>";
+                                                                    //chlamy
+                                                                    $i=1;
+                                                                    $mysql_chlamy=mysql_query("select distinct PA_col from t_sample_desc where species='chlamy';");
+                                                                    echo "<div id='chlamy2' style='display:none'>";
+                                                                    while($chlamy_row= mysql_fetch_row($mysql_chlamy))
+                                                                    {
+                                                                        echo "<input type=\"checkbox\" id=b4$i name=sample2[] value=$chlamy_row[0] onclick=\"ClickOption(this,'a4$i')\">$chlamy_row[0]<br>";
+                                                                        $i++;
+                                                                    }
+                                                                    if($_SESSION['species']=='chlamy'){
+                                                                        $j=1;
+                                                                        foreach ($_SESSION['file_real'] as $key => $value) {
+                                                                            echo "<input type=\"checkbox\" name=sample2[] id=asys2$j value=$value onclick=\"ClickOption(this,'asys1$j')\">$value<br>";
+                                                                            $j++;
+                                                                        }
+                                                                    }
+                                                                    echo "</div>";
+                                                                ?>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                     <div id="degene" class="ym-form">
-                                        <div class="ym-grid ym-fbox">
-                                            <div class="ym-g33 ym-gl">
-                                                <div class="ym-gbox-left">
+                                        <div class="ym-fbox box">
                                                     <label for="nor_method">Normalization method</label>
                                                     <select name="degene_nor_method" id="nor_method">
                                                           <option value='none' selected="true">None</option>
@@ -314,75 +315,69 @@
                                                           <option value='DESeq'>DESeq</option>
                                                           <option value='EdgeR'>EdgeR</option>
                                                     </select>
-                                                </div>
-                                            </div>
-                                            <div class="ym-g33 ym-gl">
-                                                <div class="ym-gbox-left">
                                                     <label for="method">Method</label>
                                                     <select name="degene_method">
                                                         <option value='EdgeR'>EdgeR</option>
                                                         <option value='DESeq'>DESeq</option>
                                                         <option value='DESeq2'>DESeq2</option>
                                                     </select>
-                                                </div>
-                                            </div>
-                                            <div class="ym-g33 ym-gl">
-                                                <label for="min_pat">Min PAT</label>
+                                                  <label for="min_pat">Min PAT</label>
                                                 <input type='text' name='degene_min_pat' value='5'/>
-                                            </div>
-                                        </div>
-                                        <div class="ym-grid ym-fbox">
-                                            <div class="ym-g50 ym-gl">
-                                                <label for="multi_test">Multi-test adjustment method</label>
+                                           
+                                        
+                                              <label for="multi_test">Multi-test adjustment method</label>
                                                 <select name="degene_multi_test">
                                                     <option value='Bonferroni' selected="true">Bonferroni</option>
                                                     <option value='Not'>Not adjust</option>
                                                </select>
-                                            </div>
-                                            <div class="ym-g50 ym-gl">
+            
                                                 <label for="sig">Significance Level</label>
                                                 <select name="degene_sig">
                                                     <option value='0.01'>0.01</option>
                                                     <option value='0.05' selected="true">0.05</option>
                                                     <option value='0.1'>0.1</option>
                                                </select>
+                                        </div>    
+                                       
+                                    </div>
+                                    <div class="ym-clearfix"></div>
+                                    <div class="box info additonal">   
+                                        <a class="ym-button ym-add flip">Addtional Options</a>
+                                    
+                                        <div id="search">
+                                            <div class="box info ym-form">
+                                            <div class="ym-g33 ym-gl">
+                                                <label for="chr" style="margin-right:2%">in</label>
+                                                  <select id="chr1" name="chr" style="width:80%">
+                                                        <option value="all" selected="selected">All</option>
+                                                 </select>
+                                            </div>
+                                            <div class="ym-g33 ym-gl">
+                                                <label for="start"style="margin:0 1%;"> from</label>
+                                                <input type="text" id='start' name="start">
+                                                <label for="end" style="margin:0 1%;"> to</label>
+                                                <input type="text" id='end' name="end">
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
+                                                <textarea style="width:100%" name="gene_id" id='gene_id'></textarea>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
+                                                <textarea style="width:100%" name='go_accession' id='go_accession'></textarea>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="go_name" >Go term name:</label>
+                                                <input type='text' name='go_name' class="ym-gr" id='go_name' style="width:89%;"/>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="function">Function:</label>
+                                                <input type='text' name='function' id='function' class="ym-gr" style="width:89%;"/><br>
+                                            </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="flip" ><h4>Addtional Options</h4></div>
-                                    <div id="search">
-                                        <div class="box info ym-form">
-                                        <div class="ym-g33 ym-gl">
-                                            <label for="chr" style="margin-right:2%">in</label>
-                                              <select id="chr1" name="chr" style="width:80%">
-                                                    <option value="all" selected="selected">All</option>
-                                             </select>
-                                        </div>
-                                        <div class="ym-g33 ym-gl">
-                                            <label for="start"style="margin:0 1%;"> from</label>
-                                            <input type="text" id='start' name="start">
-                                            <label for="end" style="margin:0 1%;"> to</label>
-                                            <input type="text" id='end' name="end">
-                                        </div>
-                                        <div class="ym-grid ym-fbox">
-                                            <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
-                                            <textarea style="width:100%" name="gene_id" id='gene_id'></textarea>
-                                        </div>
-                                        <div class="ym-grid ym-fbox">
-                                            <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
-                                            <textarea style="width:100%" name='go_accession' id='go_accession'></textarea>
-                                        </div>
-                                        <div class="ym-grid ym-fbox">
-                                            <label for="go_name" >Go term name:</label>
-                                            <input type='text' name='go_name' class="ym-gr" id='go_name' style="width:89%;"/>
-                                        </div>
-                                        <div class="ym-grid ym-fbox">
-                                            <label for="function">Function:</label>
-                                            <input type='text' name='function' id='function' class="ym-gr" style="width:89%;"/><br>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <div class="ym-grid ym-fbox">
+                                    <div class="box info fsubmit">
                                         <input type="button" id='degene-submit' value="submit">
                                         <button type="reset">reset</button>
                                     </div>
@@ -392,7 +387,7 @@
                             <div class="swiper-slide">
                                 <div class="content-slide">
                                     <form id="depac-form">
-                                    <table id="samples" style="width:100%;">
+                                    <table id="samples" >
                                         <tbody>
                                             <tr>
                                                 <td>
@@ -648,7 +643,7 @@
                             <div class="swiper-slide">
                                 <div class="content-slide">
                                     <form id="only3utr-form">
-                                    <table id="samples" style="width:100%;">
+                                    <table id="samples" >
                                         <tbody>
                                             <tr>
                                                 <td>
@@ -881,7 +876,7 @@
                             <div class="swiper-slide">
                                 <div class="content-slide">
                                     <form id="none3utr-form">
-                                    <table id="samples" style="width:100%;">
+                                    <table id="samples" >
                                         <tbody>
                                             <tr>
                                                 <td>
