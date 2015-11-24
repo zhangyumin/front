@@ -21,8 +21,14 @@
               <li><a href="./help.php">Help</a></li>
       </ul>
       <form class="ym-searchform" method="post" action="search_result.php?method=fuzzy">
-        <input class="ym-searchfield" name="key" type="search" placeholder="Input your keyword here..." />
-        <button class="ym-searchbutton" type="submit" >submit</button>
+        <select name="species">
+            <option value="arab">arab</option>
+            <option value="mtr">mtr</option>
+            <option value="chlamy">chlamy</option>
+            <option value="japonica">japonica</option>
+        </select>
+        <input class="ym-searchfield" name="key" type="search" placeholder="Input keyword here" />
+        <button class="ym-searchbutton" type="submit" >Search</button>
       </form>
     </div>
   </div>
