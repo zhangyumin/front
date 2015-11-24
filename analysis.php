@@ -346,17 +346,19 @@
                                     
                                         <div id="search">
                                             <div class="box info ym-form">
-                                            <div class="ym-g33 ym-gl">
-                                                <label for="chr" style="margin-right:2%">in</label>
-                                                  <select id="chr1" name="chr" style="width:80%">
-                                                        <option value="all" selected="selected">All</option>
-                                                 </select>
-                                            </div>
-                                            <div class="ym-g33 ym-gl">
-                                                <label for="start"style="margin:0 1%;"> from</label>
-                                                <input type="text" id='start' name="start">
-                                                <label for="end" style="margin:0 1%;"> to</label>
-                                                <input type="text" id='end' name="end">
+                                            <div class="ym-grid ym-fbox">
+                                                <div class="ym-g33 ym-gl">
+                                                    <label for="chr" style="margin-right:2%">in</label>
+                                                      <select id="chr1" name="chr" style="width:80%">
+                                                            <option value="all" selected="selected">All</option>
+                                                     </select>
+                                                </div>
+                                                <div class="ym-g50 ym-gl">
+                                                    <label for="start"style="margin:0 1%;"> from</label>
+                                                    <input type="text" id='start' name="start">
+                                                    <label for="end" style="margin:0 1%;"> to</label>
+                                                    <input type="text" id='end' name="end">
+                                                </div>
                                             </div>
                                             <div class="ym-grid ym-fbox">
                                                 <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
@@ -591,18 +593,20 @@
                                         <a class="ym-button ym-add flip">Addtional Options</a>
                                         <div id="search">
                                             <div class="box info ym-form">
-                                            <div class="ym-g33 ym-gl">
-                                                <label for="chr" style="margin-right:2%">in</label>
-                                                  <select id="chr2" name="chr" style="width:80%">
-                                                        <option value="all" selected="selected">All</option>
-                                                 </select>
-                                            </div>
-                                            <div class="ym-g33 ym-gl">
-                                                <label for="start"style="margin:0 1%;"> from</label>
-                                                <input type="text" id='start' name="start">
-                                                <label for="end" style="margin:0 1%;"> to</label>
-                                                <input type="text" id='end' name="end">
-                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <div class="ym-g33 ym-gl">
+                                                    <label for="chr" style="margin-right:2%">in</label>
+                                                      <select id="chr2" name="chr" style="width:80%">
+                                                            <option value="all" selected="selected">All</option>
+                                                     </select>
+                                                </div>
+                                                <div class="ym-g50 ym-gl">
+                                                    <label for="start"style="margin:0 1%;"> from</label>
+                                                    <input type="text" id='start' name="start">
+                                                    <label for="end" style="margin:0 1%;"> to</label>
+                                                    <input type="text" id='end' name="end">
+                                                </div>
+                                            </div>           
                                             <div class="ym-grid ym-fbox">
                                                 <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
                                                 <textarea style="width:100%" name="gene_id" id='gene_id'></textarea>
@@ -803,7 +807,7 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div id="only3utr" class="ym-form ">
+                                        <div id="only3utr" class="ym-form">
                                             <div class="box ym-fbox">
                                                 <div class="ym-grid ym-fbox">
                                                     <label for="sgminpat">Min PAT</label>
@@ -831,17 +835,19 @@
                                         <a class="ym-button ym-add flip">Addtional Options</a>
                                         <div id="search">
                                             <div class="box info ym-form">
-                                            <div class="ym-g33 ym-gl">
-                                                <label for="chr" style="margin-right:2%">in</label>
-                                                  <select id="chr3" name="chr" style="width:80%">
-                                                        <option value="all" selected="selected">All</option>
-                                                 </select>
-                                            </div>
-                                            <div class="ym-g33 ym-gl">
-                                                <label for="start"style="margin:0 1%;"> from</label>
-                                                <input type="text" id='start' name="start">
-                                                <label for="end" style="margin:0 1%;"> to</label>
-                                                <input type="text" id='end' name="end">
+                                            <div class="ym-grid ym-fbox">
+                                                <div class="ym-g33 ym-gl">
+                                                    <label for="chr" style="margin-right:2%">in</label>
+                                                      <select id="chr3" name="chr" style="width:80%">
+                                                            <option value="all" selected="selected">All</option>
+                                                     </select>
+                                                </div>
+                                                <div class="ym-g50 ym-gl">
+                                                    <label for="start"style="margin:0 1%;"> from</label>
+                                                    <input type="text" id='start' name="start">
+                                                    <label for="end" style="margin:0 1%;"> to</label>
+                                                    <input type="text" id='end' name="end">
+                                                </div>
                                             </div>
                                             <div class="ym-grid ym-fbox">
                                                 <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
@@ -1043,8 +1049,8 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div id="none3utr" method="post">
-                                        <div class="box ym-fbox ym-form">
+                                    <div id="none3utr" method="post" class="ym-form">
+                                        <div class="box ym-fbox">
                                             <div class="ym-grid ym-fbox">
                                                 <label for="sgnm">Normalization method</label>
                                                 <select id="sgnm">
@@ -1084,18 +1090,20 @@
                                         <a class="ym-button ym-add flip">Addtional Options</a>
                                         <div id="search">
                                             <div class="box info ym-form">
-                                            <div class="ym-g33 ym-gl">
-                                                <label for="chr" style="margin-right:2%">in</label>
-                                                  <select id="chr4" name="chr" style="width:80%">
-                                                        <option value="all" selected="selected">All</option>
-                                                 </select>
-                                            </div>
-                                            <div class="ym-g33 ym-gl">
-                                                <label for="start"style="margin:0 1%;"> from</label>
-                                                <input type="text" id='start' name="start">
-                                                <label for="end" style="margin:0 1%;"> to</label>
-                                                <input type="text" id='end' name="end">
-                                            </div>
+                                                <div class="ym-grid ym-fbox">
+                                                    <div class="ym-g33 ym-gl">
+                                                        <label for="chr" style="margin-right:2%">in</label>
+                                                          <select id="chr4" name="chr" style="width:80%">
+                                                                <option value="all" selected="selected">All</option>
+                                                         </select>
+                                                    </div>
+                                                    <div class="ym-g50 ym-gl">
+                                                        <label for="start"style="margin:0 1%;"> from</label>
+                                                        <input type="text" id='start' name="start">
+                                                        <label for="end" style="margin:0 1%;"> to</label>
+                                                        <input type="text" id='end' name="end">
+                                                    </div>
+                                                </div>
                                             <div class="ym-grid ym-fbox">
                                                 <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
                                                 <textarea style="width:100%" name="gene_id" id='gene_id'></textarea>
