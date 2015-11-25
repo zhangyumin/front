@@ -38,7 +38,8 @@
                         url:'aftertreatment.php?method=degene', //后台处理程序  
                         type:'post',       //数据传送方式  
                         dataType:'json',   //接受数据格式  
-                        data:params,       //要传送的数据  
+                        data:params,       //要传送的数据
+                        beforeSend:loading,
                         success:update_page1//回传函数(这里是函数名字)  
                     });  
                  });
@@ -51,6 +52,7 @@
                         type:'post',       //数据传送方式  
                         dataType:'json',   //接受数据格式  
                         data:params,       //要传送的数据  
+                        beforeSend:loading,
                         success:update_page2//回传函数(这里是函数名字)  
                     });  
                  });
@@ -62,7 +64,8 @@
                         url:'aftertreatment.php?method=only3utr', //后台处理程序  
                         type:'post',       //数据传送方式  
                         dataType:'json',   //接受数据格式  
-                        data:params,       //要传送的数据  
+                        data:params,       //要传送的数据 
+                        beforeSend:loading, 
                         success:update_page3//回传函数(这里是函数名字)  
                     });  
                  });
@@ -75,6 +78,7 @@
                         type:'post',       //数据传送方式  
                         dataType:'json',   //接受数据格式  
                         data:params,       //要传送的数据  
+                        beforeSend:loading,
                         success:update_page4//回传函数(这里是函数名字)  
                     });  
                  });
@@ -103,8 +107,12 @@
             window.location.href="aftertreatment_result_test.php?result=switchinggene_n";
 //            alert("successful");
         }
+        function loading(){
+            $('#mainpage').hide();
+            $('#loading').show();
+        }
         </script>
-    <div class="ym-wrapper">
+    <div class="ym-wrapper" id='mainpage'>
        <fieldset >
             <legend>
                 <h4 >
@@ -1310,6 +1318,21 @@
             </script>
         </fieldset>
     </div>
+        <div class="ym-wrapper" id='loading' style="display: none">
+            <fieldset >
+                <legend>
+                    <h4 >
+                        <font color="#224055" ><b>Loading</b>:data is being processed</font>
+                    </h4>
+                </legend>
+                <div style="text-align: center;color:rgb(34,34,85)">
+                    Your request is being processed , please wait...
+                    <br><img src="./pic/loding1.gif" style="width: 200px;height: 150px;"/>
+                    <br>This page will be refreshed automatically when the results are available. 
+                    <br>Please <font color='red'>don't</font> close this page.
+                </div>
+            </fieldset>
+        </div>
         <div class="bottom">
         <?php
             include"footer.php";
