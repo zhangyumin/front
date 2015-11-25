@@ -75,6 +75,7 @@
                     $function=$_POST['function'];
                     $gene_array=array();
                     $go_array=array();
+                    $species=$_POST['species'];
                    //若go搜索无输入
                     if($go_accession==NULL&&$go_name==NULL&&$function==NULL){
                         $sysQry="create table db_user.Search_".$_SESSION['search']." select * from db_server.t_".$_POST['species']."_pac where 1=1";
@@ -349,7 +350,7 @@
         <div class="ym-wrapper">
             <script>
                 <?php
-                    echo "var species='".$_POST['species']."'";
+                    echo "var species='$species'";
                 ?>
             </script>
 <!--            <fieldset >
