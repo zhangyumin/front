@@ -255,8 +255,8 @@ and open the template in the editor.
                                 </a>
                             </td>
                             <td>
-                                <a target="_blank" href="./search_result.php?method=fuzzy&keyword=3UTR">
-                                    <span title="Browse search result for 'at1g0070'" style="background-color:#0066cc;color: #FFFFFF">View</span>
+                                <a target="_blank" href="./search_result.php?method=fuzzy&keyword=at1g01020&species=arab">
+                                    <span title="Browse search result for 'AT1G01020'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                                 </a>
                             </td>
                             <td class="style1"  width='50' style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
@@ -375,12 +375,12 @@ and open the template in the editor.
                                 </a>
                             </td>
                             <td>
-                                <a target="_blank" href="./search_result.php?keyword=at1g0070">
-                                    <span title="Browse search result for 'at1g0070'" style="background-color:#0066cc;color: #FFFFFF">View</span>
+                                <a target="_blank" href="./search_result.php?keyword=LOC_Os01g01080&species=japonica&method=fuzzy">
+                                    <span title="Browse search result for 'LOC_Os01g01080'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                                 </a>
                             </td>
                             <td class="style1" width='50' style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
-                                <span class="more2" title="Browse search result for 'at1g0070'" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
+                                <span class="more2" title="Browse search result for 'LOC_Os01g01080'" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
                             </td>
                         </tr>
                         <tr >
@@ -432,12 +432,12 @@ and open the template in the editor.
                                 </a>
                             </td>
                             <td>
-                                <a target="_blank" href="./search_result.php?keyword=at1g0070">
-                                    <span title="Browse search result for 'at1g0070'" style="background-color:#0066cc;color: #FFFFFF">View</span>
+                                <a target="_blank" href="./search_result.php?keyword=Medtr0019s0160&species=mtr&method=fuzzy">
+                                    <span title="Browse search result for 'Medtr0019s0160'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                                 </a>
                             </td>
                             <td class="style1" width='50' style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
-                                <span class="more3" title="Browse search result for 'at1g0070'" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
+                                <span class="more3" title="View more information about Medicago truncatula'" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
                             </td>
                         </tr>
                         <tr class="more3_content">
@@ -491,12 +491,12 @@ and open the template in the editor.
                                 </a>
                             </td>
                             <td>
-                                <a target="_blank" href="./search_result.php?keyword=at1g0070">
-                                    <span title="Browse search result for 'at1g0070'" style="background-color:#0066cc;color: #FFFFFF">View</span>
+                                <a target="_blank" href="./search_result.php?keyword=Cre01.g000650&species=chlamy&method=fuzzy">
+                                    <span title="Browse search result for 'Cre01.g000650'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                                 </a>
                             </td>
                             <td class="style1" width='50' style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
-                                <span class="more4" title="Browse search result for 'at1g0070'" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
+                                <span class="more4" title="View more information about Chlamydomonas reinhardtii'" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
                             </td>
                         </tr>
                         </tr>
