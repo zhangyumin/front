@@ -1327,7 +1327,7 @@
                 </legend>
                 <div style="text-align: center;color:rgb(34,34,85)">
                     Your request is being processed , please wait...
-                    <br><img src="./pic/loding1.gif" style="width: 200px;height: 150px;"/>
+                    <br><img src="./pic/loading1.gif" style="width: 200px;height: 150px;"/>
                     <br>This page will be refreshed automatically when the results are available. 
                     <br>Please <font color='red'>don't</font> close this page.
                 </div>
