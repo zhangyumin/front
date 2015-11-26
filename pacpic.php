@@ -375,7 +375,7 @@ and open the template in the editor.
             }
         </script>
     </head>
-    <body>
+    <body style="zoom: 85%">
         <canvas id="gene" width="1000px;" height="150px;"></canvas>
        
             <!--Step:1 为ECharts准备一个具备大小（宽高）的Dom-->  
@@ -437,7 +437,10 @@ and open the template in the editor.
                         calculable : true,
                         xAxis : [
                             {
-                                type : 'category',
+                                    type : 'category',
+                                    axisLabel:{
+                                            interval:0
+                                    },
 //                                data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
                                    data : ['<?php
                                                 echo implode("','", $samples)
