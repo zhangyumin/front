@@ -591,7 +591,7 @@ and open the template in the editor.
             }
         </script>
     </head>
-    <body>
+    <body style="zoom: 85%">
         <canvas id="gene" width="1000px;" height="150px;"></canvas>
         <canvas id='no_extend' width="1000px" height="150px;"></canvas>
         <?php
