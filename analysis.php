@@ -92,19 +92,19 @@
             alert(json.species);
         }
         function update_page1(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
-                window.location.href="aftertreatment_result_test.php?result=degene";
+                window.location.href='aftertreatment_result_test.php?result=degene&species='+json.species;
 //            alert("successful");
         }
         function update_page2(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
-            window.location.href="aftertreatment_result_test.php?result=depac";
+            window.location.href='aftertreatment_result_test.php?result=depac&species='+json.species;
 //            alert("successful");
         }
         function update_page3(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
-            window.location.href="aftertreatment_result_test.php?result=switchinggene_o";
+            window.location.href='aftertreatment_result_test.php?result=switchinggene_o&species='+json.species;
 //            alert("successful");
         }
         function update_page4(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
-            window.location.href="aftertreatment_result_test.php?result=switchinggene_n";
+            window.location.href='aftertreatment_result_test.php?result=switchinggene_n&species='+json.species;
 //            alert("successful");
         }
         function loading(){
