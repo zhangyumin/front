@@ -159,8 +159,10 @@
                                    }
                                        $sysQry.=";";
                                $query_result=mysql_query($sysQry);
-                             }
+                             }  
                 }
+//                echo "select * from Search_".$_SESSION['search']." into outfile '/var/www/front/searched/Search_".$_SESSION['search'].".txt';";
+                mysql_query("select * from db_user.Search_".$_SESSION['search']." into outfile '/var/www/front/searched/Search_".$_SESSION['search'].".txt';");
         //            echo $_SESSION['file'];
         //            echo $go_sysQry;
         //            echo $go_insert;
@@ -425,6 +427,7 @@
             </fieldset>
             <br><br>-->
             <div class="filter" id="filter">
+                    <button onclick="javascript:window.location.href='./download_data.php?type=4&name=Search_<?php echo $_SESSION['search']; ?>.txt'">download search result</button>
                     <button onclick="locking()">export sequences</button>
                     <form>
                         <input type="text" name="search" id="search" />
