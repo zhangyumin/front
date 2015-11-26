@@ -5,6 +5,7 @@ and open the template in the editor.
 -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <?php
             $con=  mysql_connect("localhost","root","root");
             mysql_select_db("db_server",$con);
@@ -97,8 +98,6 @@ and open the template in the editor.
                 info("#eeee00",500,"EXON","gene");
                 info("#97ffff",600,"AMB","gene");
                 xline("gene",100);
-                yline("pac",1);
-                xline("pac",181);
                 <?php
                     foreach ($sutr_start as $key => $value) {
                         $start=($sutr_start[$key]-$gene_start)*$rate;
@@ -130,26 +129,10 @@ and open the template in the editor.
                         $end=($amb_end[$key]-$gene_start)*$rate;
                         echo "amb($start,$end,$strand,'gene');\n";
                     }
-                    $i=0;
-                    $j=0;
-                    foreach ($pac_tagnum as $key => $value){
-                        if($i<count($samples)){
-                            $key1=$i*count($pac_loc)+$j;
-                            echo "pac($value,$key1,'pac');\n";
-                            $i++;
-                        }
-                        else{
-                            $i=0;
-                            $j++;
-                            $key1=$i*count($pac_loc)+$j;
-                            echo "pac($value,$key1,'pac');\n";
-                            $i++;
-                        }
-                    }
-                    foreach($samples as $key => $value){
-                        $pos=20+20*(($key+1)*count($pac_loc));
-                        echo "sampleinfo(\"pac\",$pos,\"$value\");\n";
-                    }
+//                    foreach($samples as $key => $value){
+//                        $pos=20+20*(($key+1)*count($pac_loc));
+//                        echo "sampleinfo(\"pac\",$pos,\"$value\");\n";
+//                    }
                     foreach ($pac_loc as $key => $value) {
                         $position = ($value-$gene_start) * $rate;
                         echo "pointer($position,$key,\"gene\");";
@@ -353,38 +336,7 @@ and open the template in the editor.
                 context.fillStyle="#878787";
                 context.fill();
             }
-            function pac(tagnum,key,id){
-                var canvas = document.getElementById(id);
-                var context = canvas.getContext("2d");
-                <?php echo "var row =".count($pac_loc).";";?>
-                context.beginPath();
-                if(key%row==0)
-                    context.fillStyle="#ff8247";
-                else if(key%row==1)
-                    context.fillStyle="#9acd32";
-                else if(key%row==2)
-                    context.fillStyle="#b23aee";
-                else if(key%row==3)
-                    context.fillStyle="#4169e1";
-                else if(key%row==4)
-                    context.fillStyle="#00fa9a";
-                else if(key%row==5)
-                    context.fillStyle="#cd96cd";
-                else if(key%row==6)
-                    context.fillStyle="#9acd32";
-                else if(key%row==7)
-                    context.fillStyle="#cdcd00";
-                else if(key%row==8)
-                    context.fillStyle="#cd00cd";
-                else if(key%row==9)
-                    context.fillStyle="#3b3b3b";
-                context.fillRect(20+key*20,180,18,-0.1*(tagnum+10));
-                context.closePath();
-                context.beginPath();
-                context.fillStyle="#000000";
-                context.fillText(tagnum,20+key*20,180-0.1*(tagnum+10));
-                context.closePath();
-            }
+            
             function pointer(pos,key,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
@@ -425,10 +377,146 @@ and open the template in the editor.
     </head>
     <body>
         <canvas id="gene" width="1000px;" height="150px;"></canvas>
-        <?php
-            $width=40+20*$num*  count($pac_loc);
-            echo "<br>";
-            echo "<canvas id=\"pac\" width=\"".$width."px\" height=\"200px\"></canvas>";
-            ?>
+       
+            <!--Step:1 为ECharts准备一个具备大小（宽高）的Dom-->  
+            <div id="pactagnum" style="height:300px;border:1px solid #ccc;padding:10px;"></div>
+
+            <!--Step:2 引入echarts.js-->  
+            <script src="src/dist/echarts.js"></script>  
+
+            <script type="text/javascript">  
+            // Step:3 为模块加载器配置echarts的路径，从当前页面链接到echarts.js，定义所需图表路径  
+            require.config({  
+                paths: {  
+                    echarts: 'src/dist/'  
+                }  
+            });  
+
+            // Step:4 require echarts and use it in the callback.  
+            // Step:4 动态加载echarts然后在回调函数中开始使用，注意保持按需加载结构定义图表路径  
+            require(  
+                [  
+                    //这里的'echarts'相当于'./js'  
+                    'echarts',  
+                    'echarts/chart/bar',  
+                    'echarts/chart/line',  
+                ],  
+                //创建ECharts图表方法  
+                function (ec) {   
+                        //基于准备好的dom,初始化echart图表  
+
+                    //为echarts对象加载数据            
+                    var myChart1 = ec.init(document.getElementById('pactagnum'));  
+
+                    var option1 = {
+                        title : {
+                            text: 'PAC in the sequence',
+//                            subtext: '纯属虚构'
+                        },
+                        tooltip : {
+                            trigger: 'axis'
+                        },
+                        legend: {
+//                            data:['蒸发量','降水量']
+                            data:['<?php
+                                        foreach ($pac_loc as $key => $value) {
+                                            echo "PAC pos:$value','";
+                                        }
+                                    ?>']
+                        },
+                        toolbox: {
+                            show : true,
+                            feature : {
+                                mark : {show: true},
+                                dataView : {show: true, readOnly: false},
+                                magicType : {show: true, type: ['line', 'bar']},
+                                restore : {show: true},
+                                saveAsImage : {show: true}
+                            }
+                        },
+                        calculable : true,
+                        xAxis : [
+                            {
+                                type : 'category',
+//                                data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+                                   data : ['<?php
+                                                echo implode("','", $samples)
+//                                                    echo "1','2','3','4','5','6','7','8";
+                                            ?>']
+                            }
+                        ],
+                        yAxis : [
+                            {
+//                                max: 100,
+//                                min: -10,
+                                scale: 0,
+                                type : 'value'
+                            }
+                        ],
+                        grid: { // 控制图的大小，调整下面这些值就可以，
+                            x: 30,
+                            x2: 10,
+                            y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
+                        },
+                        color:["#ff8247","#9acd32","#b23aee","#4169e1","#00fa9a","#cd96cd","#9acd32","#cdcd00","#cd00cd","#3b3b3b"],
+                        series : [
+                            
+                            <?php
+                                    $i=0;
+                                    foreach ($pac_loc as $key => $value) {
+                                        $tmp_data=array();
+                                        for($j=0;$j<  count($samples);$j++){
+                                            array_push($tmp_data, $pac_tagnum[$i*count($samples)+$j]);
+                                        }
+                                        $i++;
+                                        $data=  implode(",", $tmp_data);
+                                        unset($tmp_data);
+                                        echo "{"
+                                                    . "name:'PAC pos:$value',"
+//                                                    . "barMinHeight: 10,"
+                                                    . "type:'bar',"
+                                                    . "data:[$data]"
+                                                . "},";    
+                                    }
+                            ?>
+//                            {
+//                                name:'蒸发量',
+//                                type:'bar',
+//                                data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
+//                                markPoint : {
+//                                    data : [
+//                                        {type : 'max', name: '最大值'},
+//                                        {type : 'min', name: '最小值'}
+//                                    ]
+//                                },
+//                                markLine : {
+//                                    data : [
+//                                        {type : 'average', name: '平均值'}
+//                                    ]
+//                                }
+//                            },
+//                            {
+//                                name:'降水量',
+//                                type:'bar',
+//                                data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3],
+//                                markPoint : {
+//                                    data : [
+//                                        {name : '年最高', value : 182.2, xAxis: 7, yAxis: 183, symbolSize:18},
+//                                        {name : '年最低', value : 2.3, xAxis: 11, yAxis: 3}
+//                                    ]
+//                                },
+//                                markLine : {
+//                                    data : [
+//                                        {type : 'average', name : '平均值'}
+//                                    ]
+//                                }
+//                            }
+                        ]
+                    };
+
+                    myChart1.setOption(option1);  
+                }  
+            );  
+        </script>  
     </body>
 </html>
