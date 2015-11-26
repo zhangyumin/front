@@ -17,6 +17,12 @@
         mysql_select_db("db_server",$con);
         session_start();
         $analysis=$_SESSION['analysis'];
+        if(isset($_SESSION['species'])){
+            $species=$_SESSION['species'];
+        }
+        else{
+            $species=$_GET['species'];
+        }
 //        var_dump($analysis);
 //        var_dump($_SESSION['file_real']);
 //        var_dump($_SESSION['sys_real_arab']);
@@ -287,7 +293,7 @@
                 }
             }
              <?php
-                echo "var species='".$_SESSION['species']."';";
+                echo "var species='$species';";
             ?>
                 $(document).ready(function (){
                     $('#jtable').jtable({
