@@ -167,7 +167,7 @@
             }
         </style>
 </head>
-<body>
+<body onload="DelOption()">
         <?php
             include './navbar.php'
         ?>
@@ -202,29 +202,16 @@
                 </tr>
                 <tr>
                     <td height="130" align="center">
-                        <form name="pac_export" method="post" action="export_seq.php?source=Analysis" target="_blank">
+                        <form name="pac_export" method="post" action="export_seq.php?source=Analysis&species=<?php echo $species; ?>" target="_blank">
                             method<select id="method" name="method" onchange="ChgMtd()">
                                 <option value="choose">Please choose</option>
                                 <option value="pacs">export sequences of PACs</option>
-                                <option value="pacs-region">export sequences of regions of  PACs</option>
                                 <option value="seq">export gene sequences</option>
                             </select><br>
                             <div id="pacs" style="display:none">
                                 upstream (nt) <input type="text" value="200" name='upstream'></input><br>
                                 downstream (nt) <input type="text" value="200" name='downstream'></input><br>
                                 PAC in region <select name='pac_region'>
-                                    <option value="all">all</option>
-                                    <option value="genomic-region">genomic region</option>
-                                    <option value="3TUR">3'UTR</option>
-                                    <option value="5UTR">5‘UTR</option>
-                                    <option value="CDS">CDS</option>
-                                    <option value="intron">intron</option>
-                                    <option value="intergenic.igt">intergenic</option>
-                                    <option value="intergenic.pm">promoter</option>
-                                </select>
-                            </div>
-                            <div id="pacs-region" style="display:none">
-                                region of PACs <select name='pacs_region'>
                                     <option value="all">all</option>
                                     <option value="genomic-region">genomic region</option>
                                     <option value="3TUR">3'UTR</option>
@@ -267,6 +254,11 @@
         <script src="src/jquery-ui-1.8.16.custom.min.js" type="text/javascript" ></script>
         <script src="src/jquery.jtable.js" type="text/javascript" ></script>
          <script type="text/javascript">
+             var result = <?php echo $_GET['result'];?>
+             function DelOption(){
+                 if(result == 'degene' || result == 'switchinggene_o')
+                     $("#method option[value='pacs']").remove();   //删除第一个method选项
+             }
             function locking(){   
                document.all.ly.style.display="block";   
                document.all.ly.style.width=document.body.clientWidth;   
@@ -279,7 +271,6 @@
              }
              function ChgMtd(){
                 document.getElementById("pacs").style.display='none';
-                document.getElementById("pacs-region").style.display='none';
                 document.getElementById("seq").style.display='none';
                 if(document.getElementById("method").value=='choose'){
                     document.getElementById("sub").disabled=true;
