@@ -254,7 +254,7 @@
         <script src="src/jquery-ui-1.8.16.custom.min.js" type="text/javascript" ></script>
         <script src="src/jquery.jtable.js" type="text/javascript" ></script>
          <script type="text/javascript">
-             var result = <?php echo $_GET['result'];?>
+             var result = '<?php echo $_GET['result'];?>';
              function DelOption(){
                  if(result == 'degene' || result == 'switchinggene_o')
                      $("#method option[value='pacs']").remove();   //删除第一个method选项
