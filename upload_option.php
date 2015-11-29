@@ -109,12 +109,39 @@ and open the template in the editor.
         </script>
     </head>
     <body>
-        
+        <script>  
+            $(document).ready(function(){  
+                     $('#seq-submit').click(function (){
+                        var params = $('#upload_seq').serialize(); //序列化表单的值
+    //                    console.log(params);
+    //                    alert(params);
+                        $.ajax({  
+                            url:'get_result.php', //后台处理程序  
+                            type:'post',       //数据传送方式  
+                            dataType:'json',   //接受数据格式  
+                            data:params,       //要传送的数据
+                            beforeSend:loading,
+                            success:test//回传函数(这里是函数名字)  
+                        });  
+                     });
+            });
+            function test(json){
+                alert(json.species);
+            }
+            function update_page(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
+                    window.location.href='show_result.php';
+//                alert("successful");
+            }
+            function loading(){
+                $('#mainpage').hide();
+                $('#loading').show();
+            }
+            </script>
             <?php
                 include "./navbar.php";
                  $_SESSION['tmp']=date("Y").date("m").date("d").date("h").date("i").date("s");
             ?>
-        <div class="ym-wrapper">
+        <div class="ym-wrapper" id='mainpage'>
             <fieldset >
                 <legend>
                     <h4>
@@ -127,7 +154,7 @@ and open the template in the editor.
                 </div>
             </fieldset>
             <div class="upload" id='upload'>
-                <form id="upload" class="ym-form" action="get_result.php" method="post">
+                <form id="upload_seq" class="ym-form" action="get_result.php" method="post">
                     <fieldset>
                         <legend>
                             <h4>
@@ -199,8 +226,8 @@ and open the template in the editor.
                             </h4>
                         </legend>
                         <div class="box info">
-                            <button type="submit" name="submit" value="submit" >Submit</button>
-                            <button type="reset"    name="reset"    value="reset" style="margin-left: 1%">Reset</button>
+                            <input type="button" id='seq-submit' value="submit">
+                            <button type="reset">reset</button>
                         </div>
                     </fieldset>
                 </form>
@@ -236,13 +263,29 @@ and open the template in the editor.
                         </h4>
                     </legend>
                     <div class="box info">
-                        <button type="submit" name="submit" value="submit" style="margin-left: 10%;">Submit</button>
-                        <button type="reset"  name="reset"  value="reset" style="margin-left: 10%">Reset</button>
+                        <input type="button" id='polya-submit' value="submit">
+                        <button type="reset">reset</button>
                     </div>
                 </fieldset>
             </form>
         </div>
         </div>
+        <div class="ym-wrapper" id='loading' style="display: none">
+            <fieldset >
+                <legend>
+                    <h4 >
+                        <font color="#224055" ><b>Loading</b>:data is being processed</font>
+                    </h4>
+                </legend>
+                <div style="text-align: center;color:rgb(34,34,85)">
+                    Your request is being processed , please wait...
+                    <br><img src="./pic/loading1.gif" style="width: 200px;height: 150px;"/>
+                    <br>This page will be refreshed automatically when the results are available. 
+                    <br>Please <font color='red'>don't</font> close this page.
+                </div>
+            </fieldset>
+        </div>
+            
             <script type="text/javascript">
                 function SltFileType(){
                     var upload_method=document.getElementsByName("upload_method");
