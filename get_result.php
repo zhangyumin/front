@@ -33,7 +33,7 @@ and open the template in the editor.
                 $_SESSION['distance']=$_POST['distance'];
                 if(!file_exists($tmppath)&&$_POST['sys_example']!='on')
                 {
-//                     echo "<script type='text/javascript'>alert('upload sequence file first'); history.back();</script>";
+                     echo "<script type='text/javascript'>alert('upload sequence file first'); history.back();</script>";
                 }
                 else if($_POST['sys_example']=='on'){
                     mkdir("./data/".$_SESSION['file']."/");
