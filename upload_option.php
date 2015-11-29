@@ -127,7 +127,7 @@ and open the template in the editor.
                 </div>
             </fieldset>
             <div class="upload" id='upload'>
-                <form id="upload" class="ym-form" action="upload_data.php" method="post">
+                <form id="upload" class="ym-form" action="get_result.php" method="post">
                     <fieldset>
                         <legend>
                             <h4>
