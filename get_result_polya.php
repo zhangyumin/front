@@ -95,13 +95,13 @@ and open the template in the editor.
                 #echo $cmd8;
                 $out8=  shell_exec($cmd8);
                 echo"<pre>$out8</pre>";
-                $cmd9="./src/perl/PAS_kpssm.pl -seqdir \"./result/".$_SESSION['file']."/\" -pat \"".$_SESSION['file'].".PAT2.*s$\" -from 1 -to 400 -k 1 -sort F -cnt T -freq T -tran T -suffix _atcg  1>/dev/null";
+                $cmd9="./src/perl/PAS_kpssm.pl -seqdir \"./result/".$_SESSION['file']."/\" -pat \"".$_SESSION['file'].".PAT2$\" -from 1 -to 400 -k 1 -sort F -cnt T -freq T -tran T -suffix _atcg  1>/dev/null";
                 #echo $cmd9;
                 $out9=  shell_exec($cmd9);
                 echo"<pre>$out9</pre>";
 
              //echo"step9:计算polyA信号";
-                $cmd10="./src/perl/PAS_kcount.pl -seqdir \"./result/".$_SESSION['file']."/\" -pat \"".$_SESSION['file'].".PAT2.*s$\" -k 6 -from 265 -to 290 -sort T -topn 50 -gap_once \"-1\" " ;
+                $cmd10="./src/perl/PAS_kcount.pl -seqdir \"./result/".$_SESSION['file']."/\" -pat \"".$_SESSION['file'].".PAT2$\" -k 6 -from 265 -to 290 -sort T -topn 50 -gap_once \"-1\" " ;
                 $out10=  shell_exec($cmd10);
                 echo"<pre>$out10</pre>";
                 
