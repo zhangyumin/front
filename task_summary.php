@@ -15,6 +15,7 @@ and open the template in the editor.
         <title>Task summary</title>
         <link href="./src/navbar.css" rel="stylesheet"/>
         <script src="./src/jquery-2.0.0.min.js"></script>
+        <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
         <style>
             #content{
                     font-weight: 400;
