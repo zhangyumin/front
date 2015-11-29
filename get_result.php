@@ -24,13 +24,13 @@ and open the template in the editor.
                 $filepath="./data/".$_SESSION['file']."/";
                 //echo $filepath;
                 #传递上传文件参数设置
-                $_SESSION['qct']=$_POST['qct'];
-                $_SESSION['mp']=$_POST['mp'];
-                $_SESSION['tailremove']=$_POST['tailremove'];
-                $_SESSION['aligner']=$_POST['aligner'];
-                $_SESSION['minlength']=$_POST['minlength'];
-                $_SESSION['rip']=$_POST['rip'];
-                $_SESSION['distance']=$_POST['distance'];
+//                $_SESSION['qct']=$_POST['qct'];
+//                $_SESSION['mp']=$_POST['mp'];
+//                $_SESSION['tailremove']=$_POST['tailremove'];
+//                $_SESSION['aligner']=$_POST['aligner'];
+//                $_SESSION['minlength']=$_POST['minlength'];
+//                $_SESSION['rip']=$_POST['rip'];
+//                $_SESSION['distance']=$_POST['distance'];
                 if(!file_exists($tmppath)&&$_POST['sys_example']!='on')
                 {
                      echo "<script type='text/javascript'>alert('upload sequence file first'); history.back();</script>";
@@ -83,37 +83,37 @@ and open the template in the editor.
                     shell_exec("mv ./data/".$_SESSION['file']."/$file_name[$key] ./data/".$_SESSION['file']."/$value.fastq");
                     //echo "step1:原始序列预处理";与物种无关
                 
-                    $cmd1="fastq_quality_filter -q ".$_SESSION['qct']." -p ".$_SESSION['mp']." -v -Q 33 -i ./data/".$_SESSION['file']."/$value.fastq -o ./data/".$_SESSION['file']."/$value.qc.fa  >>./log/".$_SESSION['file'].".txt";
+                    $cmd1="fastq_quality_filter -q ".$_POST['qct']." -p ".$_POST['mp']." -v -Q 33 -i ./data/".$_SESSION['file']."/$value.fastq -o ./data/".$_SESSION['file']."/$value.qc.fa  >>./log/".$_SESSION['file'].".txt";
                     #echo $cmd1;
                     $out1=shell_exec($cmd1);
                 echo "<pre>$out1</pre>";
 
                 //echo "step2:去除polyT/polyA tail";与物种无关
-                    if($_SESSION['tailremove']=='T')
+                    if($_POST['tailremove']=='T')
                     {
-                        $cmd2="./src/perl/MAP_filterPolySeq.pl -s \"./data/".$_SESSION['file']."/$value.qc.fa\" -if fq -tl 8 -tr 20 -poly T -ml ".$_SESSION['minlength']." -qc T -of fq -st .noT.fa >>./log/".$_SESSION['file'].".txt";
+                        $cmd2="./src/perl/MAP_filterPolySeq.pl -s \"./data/".$_SESSION['file']."/$value.qc.fa\" -if fq -tl 8 -tr 20 -poly T -ml ".$_POST['minlength']." -qc T -of fq -st .noT.fa >>./log/".$_SESSION['file'].".txt";
                         #echo $cmd2;
                     }
-                    else if($_SESSION['tailremove']=='A')
+                    else if($_POST['tailremove']=='A')
                     {
-                        $cmd2="./src/perl/MAP_filterPolySeq.pl -s \"./data/".$_SESSION['file']."/$value.qc.fa\" -if fq -tl 8 -tr 20 -poly A -ml ".$_SESSION['minlength']." -qc T -of fq -st .noT.fa >>./log/".$_SESSION['file'].".txt";
+                        $cmd2="./src/perl/MAP_filterPolySeq.pl -s \"./data/".$_SESSION['file']."/$value.qc.fa\" -if fq -tl 8 -tr 20 -poly A -ml ".$_POST['minlength']." -qc T -of fq -st .noT.fa >>./log/".$_SESSION['file'].".txt";
                     }
-                    else if($_SESSION['tailremove']=='unknown')
+                    else if($_POST['tailremove']=='unknown')
                     {
                         $grep_a=shell_exec("./src/fastq-tool/fastq-grep -c AAAAAAAA \"./data/".$_SESSION['file']."/$value.qc.fa \" ");
                         echo "<pre>AAAAAAAA=$grep_a</pre>";
                         $grep_t=shell_exec("./src/fastq-tool/fastq-grep -c TTTTTTTT \"./data/".$_SESSION['file']."/$value.qc.fa \" ");
                         echo "<pre>TTTTTTTT=$grep_t</pre>";
                         if($grep_a>=$grep_t)
-                            $cmd2="./src/perl/MAP_filterPolySeq.pl -s \"./data/".$_SESSION['file']."/$value.qc.fa \" -if fq -tl 8 -tr 20 -poly A -ml ".$_SESSION['minlength']." -qc T -of fq -st .noT.fa >>./log/".$_SESSION['file'].".txt";
+                            $cmd2="./src/perl/MAP_filterPolySeq.pl -s \"./data/".$_SESSION['file']."/$value.qc.fa \" -if fq -tl 8 -tr 20 -poly A -ml ".$_POST['minlength']." -qc T -of fq -st .noT.fa >>./log/".$_SESSION['file'].".txt";
                         else
-                            $cmd2="./src/perl/MAP_filterPolySeq.pl -s \"./data/".$_SESSION['file']."/$value.qc.fa \" -if fq -tl 8 -tr 20 -poly T -ml ".$_SESSION['minlength']." -qc T -of fq -st .noT.fa >>./log/".$_SESSION['file'].".txt";
+                            $cmd2="./src/perl/MAP_filterPolySeq.pl -s \"./data/".$_SESSION['file']."/$value.qc.fa \" -if fq -tl 8 -tr 20 -poly T -ml ".$_POST['minlength']." -qc T -of fq -st .noT.fa >>./log/".$_SESSION['file'].".txt";
                     }
                     $out2=  shell_exec($cmd2);
                 echo "<pre>$out2</pre>";
                 
                 //echo"step3: 序列比对";
-                    if($_SESSION['aligner']=='bowtie2')
+                    if($_POST['aligner']=='bowtie2')
                     {
                         $cmd3="./src/bowtie2-2.2.4/bowtie2 -L 25 -N 0 -i S,1,1.15 --no-unal -x ./src/bowtie2-2.2.4/indexes/bwt2_".$_SESSION['species']." -q -U ./data/".$_SESSION['file']."/$value.qc.fa.noT.fa -S ./data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam 2>>./log/".$_SESSION['file'].".txt";
                         #echo $cmd3;
@@ -131,7 +131,7 @@ and open the template in the editor.
                     $out4=  shell_exec($cmd4);
                  echo"<pre>$out4</pre>";
                  
-                 if($_SESSION['rip']=='yes')
+                 if($_POST['rip']=='yes')
                  {
                     //echo"step5:去除internal priming";
                     $cmd5="./src/perl/PAT_setIP.pl -itbl /var/www/front/data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA -otbl /var/www/front/data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA -flds 0:1:2 -format file -conf ./config/db_".$_SESSION['species'].".xml >>./log/".$_SESSION['file'].".txt";
