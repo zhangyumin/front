@@ -232,7 +232,7 @@ and open the template in the editor.
                 <fieldset style="margin-top: 20px;margin-bottom: 5px;">
                     <legend>
                         <h4>
-                            <font color="#224055"><b>STEP 4</b>:Submit</font>
+                            <font color="#224055"><b>STEP 3</b>:Submit</font>
                         </h4>
                     </legend>
                     <div class="box info">
