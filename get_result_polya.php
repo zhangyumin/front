@@ -247,10 +247,6 @@ and open the template in the editor.
                  echo '<script>window.location.href="show_result.php";</script>';
 //                 echo '<script>window.location.href="http://127.0.0.1/jbrowse/?data=data/'.$_SESSION['file'].'";</script>';
             ?>
-<!--        <div id="task_summery" align="center">
-            <div id="title">
-                Task Summary
-            </div>
             <?php
 //                $file=  file_get_contents("./log/".$_SESSION['file'].".txt");
 //                $array_file=  explode("\n", $file);
@@ -285,8 +281,5 @@ and open the template in the editor.
 //                echo "<br>PAC : $pac<br>";
 //                echo "<br><br><br><br>";
             ?>
-            <input type="button" onclick="javascirpt:window.open('show_result.php','_blank');" value="continue"/>
-            <input type="button" onclick="javascirpt:window.open('download_data.php','_blank');" value="download" />
-        </div>-->
     </body>
 </html>
