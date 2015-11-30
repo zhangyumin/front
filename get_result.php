@@ -162,7 +162,6 @@
             $cmd10="./src/perl/PAS_kcount.pl -seqdir \"./result/".$_SESSION['file']."/\" -pat \"".$_SESSION['file'].".PAT2$\" -k 6 -from 265 -to 290 -sort T -topn 50 -gap_once \"-1\" " ;
             $out10=  shell_exec($cmd10);
 //                echo"<pre>$out10</pre>";
-            print_r(json_encode($_POST));
             
              #PAT导入jbrowse显示
              //shell_exec("cp ./data/".$_SESSION['file']."/$file_real[0].qc.fa.noT.fa.sam.M30S10.PA ./tojbrowse/pat.txt");//移动文件
@@ -232,7 +231,9 @@
                 rename("/var/www/front/tojbrowse/$value.pac", "/var/www/jbrowse/data/".$_SESSION['file']."/$value.pac");
                 shell_exec("./src/c/txt2bed ../jbrowse/data/".$_SESSION['file']."/$value.pac ../jbrowse/data/".$_SESSION['file']."/$value.bed");
                 shell_exec("../jbrowse/bin/flatfile-to-json.pl --bed ../jbrowse/data/".$_SESSION['file']."/$value.bed --trackLabel PAC_$value --out ../jbrowse/data/".$_SESSION['file']."/");
-                shell_exec("./src/c/jq '(.tracks[-1]) |= . +{\"menuTemplate\" : [{\"url\" : \"../../front/converse.php?species=".$_SESSION['species']."&chr={seq_id}&coord={start}&strand={strand}\",\"iconClass\" : \"digitIconDatabase\",\"action\" : \"newwindow\",\"label\" : \"seqence detail for this position\",\"title\" : \"seqence detail for this position\"}]}' /var/www/jbrowse/data/$des/trackList.json > /var/www/jbrowse/data/$des/trackList1.json");
+                shell_exec("./src/c/jq '(.tracks[-1]) |= . +{\"menuTemplate\" : [{\"url\" : \"../../front/converse.php?species=".$_SESSION['species']."&chr={seq_id}&coord={start}&strand={strand}\",\"iconClass\" : \"digitIconDatabase\",\"action\" : \"newwindow\",\"label\" : \"seqence detail for this position\",\"title\" : \"seqence detail for this position\"}]}' /var/www/jbrowse/data/".$_SESSION['file']."/trackList.json > /var/www/jbrowse/data/".$_SESSION['file']."/trackList1.json");
+                unlink("../jbrowse/data/".$_SESSION['file']."/trackList.json");
+                rename("../jbrowse/data/".$_SESSION['file']."/trackList1.json", "../jbrowse/data/".$_SESSION['file']."/trackList.json");
 //                $txt=file("../jbrowse/data/".$_SESSION['file']."/trackList.json");
 //                $configure_file=fopen("../jbrowse/data/".$_SESSION['file']."/trackList.json", "r+");
 //                rewind($configure_file);
@@ -288,6 +289,7 @@
 //                }
 //                fclose($configure_file);
             }
+            print_r(json_encode($_POST));
              //shell_exec("./tojbrowse/txt2bedgraph");//转换为bedgraph文件
              //shell_exec("sort -k1,1 -k2,2n ./tojbrowse/Uppat.bedGraph > ./tojbrowse/Uppat.sorted.bedGraph ");
              //shell_exec("sort -k1,1 -k2,2n ./tojbrowse/Unpat.bedGraph > ./tojbrowse/Unpat.sorted.bedGraph ");#排序
