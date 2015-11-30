@@ -1920,55 +1920,47 @@
                             </table>
                         </div>
                         <hr width="98%" size="1" align="left" style="border-top: 1px dotted #5499c9;">
-                        <div id="polya">
-                            <table id="polyatable">
-                                <tbody>
+                        <div id="polya" style="overflow-x: auto;background-color: #fff;margin:auto;">
+                            <table id="polyatable"  class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
+                                <thead>
                                     <tr>
-                                        <td style="width:10%">PolyA site:</td>
-                                        <td>
-                                            <table>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>PAC</td>
-                                                        <td>Coordinate</td>
-                                                        <td>PA#</td>
-                                                        <td>PAT#</td>
-                                                        <td>PAC range</td>
-                                                        <!--<td>Ftr</td>-->
-                                                    </tr>
-                                                    <?php
-                                                            $pac_res=mysql_query("select * from t_".$species."_pac where gene='$gene_name';");
-                                                            while($pac_r=  mysql_fetch_row($pac_res)){
-                                                                $i=1;
-                                                                echo "<tr>"
-                                                                        . "<td>PAC$i</td>";
-                                                                if($strand==1&&$pac_r[2]>$ext_end)
-                                                                    echo "<td>$pac_r[2](3UTR Extend)</td>";
-                                                                else if($strand==-1&&$pac_r[2]<$ext_start)
-                                                                    echo "<td>$pac_r[2](3UTR Extend)</td>";
-                                                                else
-                                                                    echo "<td>$pac_r[2](3UTR)</td>";
-                                                                echo "<td>$pac_r[12]</td>"
-                                                                        . "<td>$pac_r[3]</td>"
-                                                                        . "<td>$pac_r[10]~$pac_r[11]</td>";
+                                        <th style="width:10%">PAC</th>
+                                        <th>Coordinate</th>
+                                        <th style="width:10%">PA#</th>
+                                        <th style="width:15%">PAT#</th>
+                                        <td>PAC range</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                            $pac_res=mysql_query("select * from t_".$species."_pac where gene='$gene_name';");
+                                            while($pac_r=  mysql_fetch_row($pac_res)){
+                                                $i=1;
+                                                echo "<tr>"
+                                                        . "<td>PAC$i</td>";
+                                                if($strand==1&&$pac_r[2]>$ext_end)
+                                                    echo "<td>$pac_r[2](3UTR Extend)</td>";
+                                                else if($strand==-1&&$pac_r[2]<$ext_start)
+                                                    echo "<td>$pac_r[2](3UTR Extend)</td>";
+                                                else
+                                                    echo "<td>$pac_r[2](3UTR)</td>";
+                                                echo "<td>$pac_r[12]</td>"
+                                                        . "<td>$pac_r[3]</td>"
+                                                        . "<td>$pac_r[10]~$pac_r[11]</td>";
 //                                                                if($pac_r[2]<$ext_start)
 //                                                                    echo "<td>3UTR extend</td>";
 //                                                                else 
 //                                                                    echo "<td>3UTR</td>"
-                                                                $i++;
-                                                                
-                                                            }
-                                                    ?>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
+                                                $i++;
+
+                                            }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
                             <hr width="98%" size="1" align="left" style="border-top: 1px dotted #5499c9;">
                         <div id="go" style="overflow-x: auto;background-color: #fff;margin:auto;">
-                            <table id="gotable"  class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
+                            <table id="gotable" class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
                                 <thead>
                                     <tr>
                                         <th style="width:15%">Go id</th>
@@ -1998,6 +1990,10 @@
                         <script>
                             $(document).ready(function(){
                                 $('#gotable').dataTable({
+                                    "lengthMenu":[[5,10,15,-1],[5,10,15,"all"]],
+                                    "pagingType":"full_numbers"
+                                });
+                                $('#polyatable').dataTable({
                                     "lengthMenu":[[5,10,15,-1],[5,10,15,"all"]],
                                     "pagingType":"full_numbers"
                                 });
