@@ -121,7 +121,7 @@ and open the template in the editor.
                             dataType:'json',   //接受数据格式  
                             data:params,       //要传送的数据
                             beforeSend:loading,
-                            success:test//回传函数(这里是函数名字)  
+                            success:update_page//回传函数(这里是函数名字)  
                         });  
                      });
             });
