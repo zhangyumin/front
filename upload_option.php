@@ -125,6 +125,21 @@ and open the template in the editor.
                         });  
                      });
             });
+            $(document).ready(function(){  
+                     $('#polya-submit').click(function (){
+                        var params = $('#upload_polya').serialize(); //序列化表单的值
+    //                    console.log(params);
+    //                    alert(params);
+                        $.ajax({  
+                            url:'get_result_polya.php', //后台处理程序  
+                            type:'post',       //数据传送方式  
+                            dataType:'json',   //接受数据格式  
+                            data:params,       //要传送的数据
+                            beforeSend:loading,
+                            success:update_page//回传函数(这里是函数名字)  
+                        });  
+                     });
+            });
             function test(json){
                 alert(json.species);
             }
@@ -150,7 +165,7 @@ and open the template in the editor.
                 </legend>
                 <div class="box info ym-form">
                     <input type='radio' name='upload_method' value='upload' checked="true" onclick="SltFileType()"/>Sequence
-                    <input type='radio' name='upload_method' value='upload_polya' onclick="SltFileType()"/>PolyA Site
+                    <input type='radio' name='upload_method' value='up_polya' onclick="SltFileType()"/>PolyA Site
                 </div>
             </fieldset>
             <div class="upload" id='upload'>
@@ -233,8 +248,8 @@ and open the template in the editor.
                 </form>
             </div>
         
-        <div class="upload_polya" id='upload_polya' style='display: none'>
-            <form id="upload" action="upload_polya.php" method="post">
+        <div class="upload_polya" id='up_polya' style='display: none'>
+            <form id="upload_polya" action="upload_polya.php" method="post">
                 <fieldset>
                     <legend>
                         <h4>
