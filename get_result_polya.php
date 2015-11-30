@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Details of data processing</title>
-    </head>
-    <body>
             <?php
                 $con=  mysql_connect("localhost","root","root");
-                 mysql_select_db("db_server",$con);
-            ?>
-            <?php
+                mysql_select_db("db_server",$con);
                 session_start();
                 #echo  $_SESSION['qct'];
                 #echo $_SESSION['mp'];
@@ -23,6 +9,23 @@ and open the template in the editor.
                 #echo $_SESSION['rip'];
                 #echo $_SESSION['distance'];
                 #echo  $_SESSION['file'] ;
+                $tmppath="./data/".$_SESSION['tmp']."/";
+                $_SESSION['file']=$_POST["species"].$_SESSION['tmp'];
+                $_SESSION['species']=$_POST['species'];
+                $filename=$_SESSION['file'].".pa";
+                $filepath="./data/".$_SESSION['file']."/";
+                if(!file_exists($tmppath))
+                {
+                     echo "<script type='text/javascript'>alert('upload sequence file first'); history.back();</script>";
+                }
+                else 
+                {
+                    chmod($tmppath, 0777);
+                    rename($tmppath, $filepath);
+                    mkdir("./result/".$_SESSION['file']."/");
+                    chmod("./result/".$_SESSION['file']."/", 0777);
+                    $x=move_uploaded_file($_FILES["file"]["tmp_name"], $filepath.$filename);
+                  }
                 $file_name = scandir("./data/".$_SESSION['file']."");
                 $file_name = array_slice($file_name, 2);
 //                $file_num = sizeof($file_name);
@@ -62,7 +65,7 @@ and open the template in the editor.
                         rename("./data/".$_SESSION['file']."/$value.new.pa", "./data/".$_SESSION['file']."/$value.pa");
                     }
                     else if(count($tmp_pa)==4){
-                        echo "ok";
+//                        echo "ok";
                     }
                     else{
                         echo"<script language=javascript>alert('Error file format');history.go(-1);</script>";
@@ -72,7 +75,7 @@ and open the template in the editor.
                     $cmd6="./src/perl/PAT_alterPA.pl -master db_user.PA_".$_SESSION['file']." -aptbl '/var/www/front/data/".$_SESSION['file']."/$value.pa' -apsmp  $value -format file -conf ./config/db_".$_SESSION['species'].".xml 1>/dev/null";
                     #echo $cmd6;
                     $out6=  shell_exec($cmd6);
-                    echo"<pre>$out6</pre>";
+//                    echo"<pre>$out6</pre>";
                 }
                  
                 
@@ -88,22 +91,23 @@ and open the template in the editor.
                $cmd7=$cmd7origin.$cmd7plus." conf=\"/var/www/front/config/db_".$_SESSION['species'].".xml\"  >>./log/".$_SESSION['file'].".txt";
 //               echo $cmd7; 
                $out7=  shell_exec($cmd7);
-                echo"<pre>$out7</pre>";
+//                echo"<pre>$out7</pre>";
 
                 //echo"step8:提取序列并计算单核苷分布 ";
                 $cmd8="./src/perl/PAT_trimSeq.pl -tbl db_user.PAC_".$_SESSION['file']." -cond  \"tot_tagnum>=2\" -suf ".$_SESSION['file'].".PAT2 -conf ./config/db_".$_SESSION['species'].".xml -opath './result/".$_SESSION['file']."/'  1>/dev/null";
                 #echo $cmd8;
                 $out8=  shell_exec($cmd8);
-                echo"<pre>$out8</pre>";
+//                echo"<pre>$out8</pre>";
                 $cmd9="./src/perl/PAS_kpssm.pl -seqdir \"./result/".$_SESSION['file']."/\" -pat \"".$_SESSION['file'].".PAT2$\" -from 1 -to 400 -k 1 -sort F -cnt T -freq T -tran T -suffix _atcg  1>/dev/null";
                 #echo $cmd9;
                 $out9=  shell_exec($cmd9);
-                echo"<pre>$out9</pre>";
+//                echo"<pre>$out9</pre>";
 
              //echo"step9:计算polyA信号";
                 $cmd10="./src/perl/PAS_kcount.pl -seqdir \"./result/".$_SESSION['file']."/\" -pat \"".$_SESSION['file'].".PAT2$\" -k 6 -from 265 -to 290 -sort T -topn 50 -gap_once \"-1\" " ;
                 $out10=  shell_exec($cmd10);
-                echo"<pre>$out10</pre>";
+//                echo"<pre>$out10</pre>";
+            print_r(json_encode($_POST));
                 
  /*               
                  #PAT导入jbrowse显示
@@ -244,7 +248,7 @@ and open the template in the editor.
 //                 $test=shell_exec($cmd12);
                  echo"<pre>$test</pre>";
 */                  
-                 echo '<script>window.location.href="show_result.php";</script>';
+//                 echo '<script>window.location.href="show_result.php";</script>';
 //                 echo '<script>window.location.href="http://127.0.0.1/jbrowse/?data=data/'.$_SESSION['file'].'";</script>';
             ?>
             <?php
@@ -281,5 +285,3 @@ and open the template in the editor.
 //                echo "<br>PAC : $pac<br>";
 //                echo "<br><br><br><br>";
             ?>
-    </body>
-</html>
