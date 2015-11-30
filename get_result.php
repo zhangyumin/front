@@ -163,7 +163,7 @@
             $out10=  shell_exec($cmd10);
 //                echo"<pre>$out10</pre>";
             print_r(json_encode($_POST));
-/*            
+            
              #PAT导入jbrowse显示
              //shell_exec("cp ./data/".$_SESSION['file']."/$file_real[0].qc.fa.noT.fa.sam.M30S10.PA ./tojbrowse/pat.txt");//移动文件
             shell_exec("cp -r ../jbrowse/data/arabidopsis/ ../jbrowse/data/".$_SESSION['file']."/");
@@ -177,109 +177,116 @@
                  shell_exec("uniq -u ../jbrowse/data/".$_SESSION['file']."/$value.negative.sorted.bedGraph > ../jbrowse/data/".$_SESSION['file']."/$value.negative.sorted.uniq.bedGraph");
                  shell_exec("./src/c/bedGraphToBigWig ../jbrowse/data/".$_SESSION['file']."/$value.positive.sorted.uniq.bedGraph ./src/arab.sizes ../jbrowse/data/".$_SESSION['file']."/$value.UsrPosPA.bw");
                  shell_exec("./src/c/bedGraphToBigWig ../jbrowse/data/".$_SESSION['file']."/$value.negative.sorted.uniq.bedGraph ./src/arab.sizes ../jbrowse/data/".$_SESSION['file']."/$value.UsrNegPA.bw");
-                 $configure_file=fopen("../jbrowse/data/".$_SESSION['file']."/trackList.json", "r+");
-                 if($key==0){
-                    fseek($configure_file, -98, SEEK_END);
-                 }
-                 else{
-                     fseek($configure_file, -3, SEEK_END);
-                 }
-                fwrite($configure_file,",\n"
-                        . "\t{\n"
-                        . "\t\t\"storeClass\" : \"JBrowse/Store/SeqFeature/BigWig\",\n"
-                        . "\t\t\"type\" : \"JBrowse/View/Track/Wiggle/XYPlot\",\n"
-                        . "\t\t\"urlTemplate\" : \"./$value.UsrPosPA.bw\",\n"
-                        . "\t\t\"uniqueStoreName\" : {\n"
-                        . "\t\t\t\"type\" : \"JBrowse/View/Track/Wiggle/XYPlot\",\n"
-                        . "\t\t\t\"urlTemplate\" : \"./$value.UsrPosPA.bw\",\n"
-                        . "\t\t},\n"
-                        . "\t\t\"style\" : {\n"
-                        . "\t\t\t\"pos_color\" : \"blue\",\n"
-                        . "\t\t\t\"neg_color\" : \"red\"\n"
-                        . "\t\t},\n"
-                        . "\t\t\"key\" : \"$value positive polyA site\",\n"
-                        . "\t\t\"autoscale\" : \"local\",\n"
-                        . "\t\t\"variance_band\" : false,\n"
-                        . "\t\t\"label\" : \"$value positive polyA site\"\n"
-                        . "\t}\n");
-                fwrite($configure_file,",\n"
-                        . "{\n"
-                        . "\t\t \"storeClass\" : \"JBrowse/Store/SeqFeature/BigWig\",\n"
-                        . "\t\t\"type\" : \"JBrowse/View/Track/Wiggle/XYPlot\",\n"
-                        . "\t\t\"urlTemplate\" : \"./$value.UsrNegPA.bw\",\n"
-                        . "\t\t\"uniqueStoreName\" : {\n"
-                        . "\t\t\t\"type\" : \"JBrowse/View/Track/Wiggle/XYPlot\",\n"
-                        . "\t\t\t\"urlTemplate\" : \"./$value.UsrNegPA.bw\",\n"
-                        . "\t\t},\n"
-                        . "\t\t\"style\" : {\n"
-                        . "\t\t\t\"pos_color\" : \"blue\",\n"
-                        . "\t\t\t\"neg_color\" : \"red\"\n"
-                        . "\t\t},\n"
-                        . "\t\t\"key\" : \"$value negative polyA site\",\n"
-                        . "\t\t\"autoscale\" : \"local\",\n"
-                        . "\t\t\"variance_band\" : false,\n"
-                        . "\t\t\"label\" : \"$value negative polyA site\"\n"
-                        . "\t}]}\n");
-                fclose($configure_file);
+                 shell_exec("./src/c/jq '(.tracks) |= . + [{\"storeClass\" : \"JBrowse/Store/SeqFeature/BigWig\",\"urlTemplate\" : \"'$value'.UsrPosPA.bw\",\"type\" : \"JBrowse/View/Track/Wiggle/XYPlot\",\"label\" : \"'$value' positive tagNum\",\"key\" : \"'$value' positive tagNum\",\"autoscale\" : \"local\",\"style\" : {\"neg_color\" : \"red\",\"pos_color\" : \"blue\"},\"variance_ban\" : false}]' /var/www/jbrowse/data/".$_SESSION['file']."/trackList.json > /var/www/jbrowse/data/".$_SESSION['file']."/trackList1.json 2>./tojbrowse/haha.tct");
+                 shell_exec("./src/c/jq '(.tracks) |= . + [{\"storeClass\" : \"JBrowse/Store/SeqFeature/BigWig\",\"urlTemplate\" : \"'$value'.UsrNegPA.bw\",\"type\" : \"JBrowse/View/Track/Wiggle/XYPlot\",\"label\" : \"'$value' negetive tagNum\",\"key\" : \"'$value' positive tagNum\",\"autoscale\" : \"local\",\"style\" : {\"neg_color\" : \"red\",\"pos_color\" : \"blue\"},\"variance_ban\" : false}]' /var/www/jbrowse/data/".$_SESSION['file']."/trackList1.json > /var/www/jbrowse/data/".$_SESSION['file']."/trackList2.json 2>./tojbrowse/haha.tct");
+                 unlink("../jbrowse/data/".$_SESSION['file']."/trackList.json");
+                 unlink("../jbrowse/data/".$_SESSION['file']."/trackList1.json");
+                 rename("../jbrowse/data/".$_SESSION['file']."/trackList2.json", "../jbrowse/data/".$_SESSION['file']."/trackList.json");
+//                 $configure_file=fopen("../jbrowse/data/".$_SESSION['file']."/trackList.json", "r+");
+//                 if($key==0){
+//                    fseek($configure_file, -98, SEEK_END);
+//                 }
+//                 else{
+//                     fseek($configure_file, -3, SEEK_END);
+//                 }
+//                fwrite($configure_file,",\n"
+//                        . "\t{\n"
+//                        . "\t\t\"storeClass\" : \"JBrowse/Store/SeqFeature/BigWig\",\n"
+//                        . "\t\t\"type\" : \"JBrowse/View/Track/Wiggle/XYPlot\",\n"
+//                        . "\t\t\"urlTemplate\" : \"./$value.UsrPosPA.bw\",\n"
+//                        . "\t\t\"uniqueStoreName\" : {\n"
+//                        . "\t\t\t\"type\" : \"JBrowse/View/Track/Wiggle/XYPlot\",\n"
+//                        . "\t\t\t\"urlTemplate\" : \"./$value.UsrPosPA.bw\",\n"
+//                        . "\t\t},\n"
+//                        . "\t\t\"style\" : {\n"
+//                        . "\t\t\t\"pos_color\" : \"blue\",\n"
+//                        . "\t\t\t\"neg_color\" : \"red\"\n"
+//                        . "\t\t},\n"
+//                        . "\t\t\"key\" : \"$value positive polyA site\",\n"
+//                        . "\t\t\"autoscale\" : \"local\",\n"
+//                        . "\t\t\"variance_band\" : false,\n"
+//                        . "\t\t\"label\" : \"$value positive polyA site\"\n"
+//                        . "\t}\n");
+//                fwrite($configure_file,",\n"
+//                        . "{\n"
+//                        . "\t\t \"storeClass\" : \"JBrowse/Store/SeqFeature/BigWig\",\n"
+//                        . "\t\t\"type\" : \"JBrowse/View/Track/Wiggle/XYPlot\",\n"
+//                        . "\t\t\"urlTemplate\" : \"./$value.UsrNegPA.bw\",\n"
+//                        . "\t\t\"uniqueStoreName\" : {\n"
+//                        . "\t\t\t\"type\" : \"JBrowse/View/Track/Wiggle/XYPlot\",\n"
+//                        . "\t\t\t\"urlTemplate\" : \"./$value.UsrNegPA.bw\",\n"
+//                        . "\t\t},\n"
+//                        . "\t\t\"style\" : {\n"
+//                        . "\t\t\t\"pos_color\" : \"blue\",\n"
+//                        . "\t\t\t\"neg_color\" : \"red\"\n"
+//                        . "\t\t},\n"
+//                        . "\t\t\"key\" : \"$value negative polyA site\",\n"
+//                        . "\t\t\"autoscale\" : \"local\",\n"
+//                        . "\t\t\"variance_band\" : false,\n"
+//                        . "\t\t\"label\" : \"$value negative polyA site\"\n"
+//                        . "\t}]}\n");
+//                fclose($configure_file);
             }
             foreach ($upload_name as $key => $value) {
-                mysql_query("select chr,strand,coord,$value from db_user.PAC_$value into outfile '../jbrowse/data/".$_SESSION['file']."/$value.txt'");
-                shell_exec("./src/c/txt2bed ../jbrowse/data/".$_SESSION['file']."/$value.txt ../jbrowse/data/".$_SESSION['file']."/$value.bed");
-                shell_exec("../jbrowse/bin/flatfile-to-json.pl --bed ../jbrowse/data/".$_SESSION['file']."/$value.bed --trackLabel PAC_$value --out ../jbrowse/data/".$_SESSION['file']."/");                    
-                $txt=file("../jbrowse/data/".$_SESSION['file']."/trackList.json");
-                $configure_file=fopen("../jbrowse/data/".$_SESSION['file']."/trackList.json", "r+");
-                rewind($configure_file);
-                echo $txt[count($txt)-3];
-                if(strlen($txt[count($txt)-3])==6){
-                    echo "short";
-                    fseek($configure_file, -106, SEEK_END);
-                     fwrite($configure_file,",\n"
-                        . "\t\"onClick\" : {\n"
-                        . "\t\t\"url\" : \"../front/sequence.php?chr={seq_id}&gene={start}&strand={strand}\",\n"
-                        . "\t\t\"label\" : \"see polyA site\",\n"
-                        . "\t\t\"action\" : \"newwindow\"\n"
-                        . "\t}}],"
-                             . "   \"names\" : {\n"
-                             . "      \"type\" : \"Hash\",\n"
-                             . "      \"url\" : \"names/\"\n"
-                             . "   }\n"
-                             . "}\n");
-                }
-                elseif(strlen($txt[count($txt)-3])==8){
-                    echo "short";
-                    fseek($configure_file, -15, SEEK_END);
-                     fwrite($configure_file,",\n"
-                        . "\t\"onClick\" : {\n"
-                        . "\t\t\"url\" : \"../front/sequence.php?chr={seq_id}&gene={start}&strand={strand}\",\n"
-                        . "\t\t\"label\" : \"see polyA site\",\n"
-                        . "\t\t\"action\" : \"newwindow\"\n"
-                        . "\t}}],"
-                             . "   \"names\" : {\n"
-                             . "      \"type\" : \"Hash\",\n"
-                             . "      \"url\" : \"names/\"\n"
-                             . "   }\n"
-                             . "}\n");
-                }
-                elseif(strlen($txt[count($txt)-3])==23){
-                    echo "middle";
-                    fseek($configure_file,-82,SEEK_END);
-                     fwrite($configure_file,",\n"
-                        . "\t\"onClick\" : {\n"
-                        . "\t\t\"url\" : \"../front/sequence.php?chr={seq_id}&gene={start}&strand={strand}\",\n"
-                        . "\t\t\"label\" : \"see polyA site\",\n"
-                        . "\t\t\"action\" : \"newwindow\"\n"
-                        . "\t}}],"
-                             . "   \"names\" : {\n"
-                             . "      \"type\" : \"Hash\",\n"
-                             . "      \"url\" : \"names/\"\n"
-                             . "   }\n"
-                             . "}\n");
-                }
-                else{
-                    echo "Oh no\n";
-                    echo strlen($txt[count($txt)-2]);
-                }
-                fclose($configure_file);
+                mysql_query("select chr,strand,UPA_start,UPA_end,$value from db_user.PAC_".$_SESSION['file']." where $value>0 into outfile '/var/www/front/tojbrowse/$value.pac'");
+                rename("/var/www/front/tojbrowse/$value.pac", "/var/www/jbrowse/data/".$_SESSION['file']."/$value.pac");
+                shell_exec("./src/c/txt2bed ../jbrowse/data/".$_SESSION['file']."/$value.pac ../jbrowse/data/".$_SESSION['file']."/$value.bed");
+                shell_exec("../jbrowse/bin/flatfile-to-json.pl --bed ../jbrowse/data/".$_SESSION['file']."/$value.bed --trackLabel PAC_$value --out ../jbrowse/data/".$_SESSION['file']."/");
+                shell_exec("./src/c/jq '(.tracks[-1]) |= . +{\"menuTemplate\" : [{\"url\" : \"../../front/converse.php?species=".$_SESSION['species']."&chr={seq_id}&coord={start}&strand={strand}\",\"iconClass\" : \"digitIconDatabase\",\"action\" : \"newwindow\",\"label\" : \"seqence detail for this position\",\"title\" : \"seqence detail for this position\"}]}' /var/www/jbrowse/data/$des/trackList.json > /var/www/jbrowse/data/$des/trackList1.json");
+//                $txt=file("../jbrowse/data/".$_SESSION['file']."/trackList.json");
+//                $configure_file=fopen("../jbrowse/data/".$_SESSION['file']."/trackList.json", "r+");
+//                rewind($configure_file);
+//                echo $txt[count($txt)-3];
+//                if(strlen($txt[count($txt)-3])==6){
+//                    echo "short";
+//                    fseek($configure_file, -106, SEEK_END);
+//                     fwrite($configure_file,",\n"
+//                        . "\t\"onClick\" : {\n"
+//                        . "\t\t\"url\" : \"../front/sequence.php?chr={seq_id}&gene={start}&strand={strand}\",\n"
+//                        . "\t\t\"label\" : \"see polyA site\",\n"
+//                        . "\t\t\"action\" : \"newwindow\"\n"
+//                        . "\t}}],"
+//                             . "   \"names\" : {\n"
+//                             . "      \"type\" : \"Hash\",\n"
+//                             . "      \"url\" : \"names/\"\n"
+//                             . "   }\n"
+//                             . "}\n");
+//                }
+//                elseif(strlen($txt[count($txt)-3])==8){
+//                    echo "short";
+//                    fseek($configure_file, -15, SEEK_END);
+//                     fwrite($configure_file,",\n"
+//                        . "\t\"onClick\" : {\n"
+//                        . "\t\t\"url\" : \"../front/sequence.php?chr={seq_id}&gene={start}&strand={strand}\",\n"
+//                        . "\t\t\"label\" : \"see polyA site\",\n"
+//                        . "\t\t\"action\" : \"newwindow\"\n"
+//                        . "\t}}],"
+//                             . "   \"names\" : {\n"
+//                             . "      \"type\" : \"Hash\",\n"
+//                             . "      \"url\" : \"names/\"\n"
+//                             . "   }\n"
+//                             . "}\n");
+//                }
+//                elseif(strlen($txt[count($txt)-3])==23){
+//                    echo "middle";
+//                    fseek($configure_file,-82,SEEK_END);
+//                     fwrite($configure_file,",\n"
+//                        . "\t\"onClick\" : {\n"
+//                        . "\t\t\"url\" : \"../front/sequence.php?chr={seq_id}&gene={start}&strand={strand}\",\n"
+//                        . "\t\t\"label\" : \"see polyA site\",\n"
+//                        . "\t\t\"action\" : \"newwindow\"\n"
+//                        . "\t}}],"
+//                             . "   \"names\" : {\n"
+//                             . "      \"type\" : \"Hash\",\n"
+//                             . "      \"url\" : \"names/\"\n"
+//                             . "   }\n"
+//                             . "}\n");
+//                }
+//                else{
+//                    echo "Oh no\n";
+//                    echo strlen($txt[count($txt)-2]);
+//                }
+//                fclose($configure_file);
             }
              //shell_exec("./tojbrowse/txt2bedgraph");//转换为bedgraph文件
              //shell_exec("sort -k1,1 -k2,2n ./tojbrowse/Uppat.bedGraph > ./tojbrowse/Uppat.sorted.bedGraph ");
@@ -300,8 +307,8 @@
 //                 $cmd12="/var/www/html/jbrowse/bin/flatfile-to-json.pl --bed /var/www/html/front/tojbrowse/pac.bed --trackLabel usrPac --out /var/www/html/jbrowse/data/";
 //                 //echo $cmd12;
 //                 $test=shell_exec($cmd12);
-             echo"<pre>$test</pre>";
-*/                  
+//             echo"<pre>$test</pre>";
+                  
 //                 echo '<script>window.location.href="task_summary.php";</script>';
 //                 echo '<script>window.location.href="http://127.0.0.1/jbrowse/?data=data/'.$_SESSION['file'].'";</script>';
         ?>
