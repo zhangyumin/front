@@ -330,7 +330,7 @@ and open the template in the editor.
                             PolyA type: <select id="poly_type" name="poly_type" style="margin-left:6%;margin-right: 10%;height:30px;width:210px;">
                                                 <option value="A">A</option>
                                                 <option value="T">T</option>
-                                                <option value="all">A&T</option>
+                                                <option value="AT">A&T</option>
                                                 </select>
                             <br>
                             Min tail length (nt) : <input type="text" name="min_tail_length" value="8" size="1" style="margin-left:2%;margin-right: 5%;height:30px;"/>
