@@ -298,7 +298,7 @@ and open the template in the editor.
             </form>
         </div>
         <div class="upload_est" id='up_est' style='display: none'>
-            <form id="upload_est" action="upload_est.php" method="post">
+            <form id="upload_est" action="get_result_est.php" method="post">
                 <fieldset>
                     <legend>
                         <h4>
@@ -349,6 +349,7 @@ and open the template in the editor.
                     </legend>
                     <div class="box info">
                         <input type="button" id='est-submit' value="submit">
+                        <!--<button type="submit">submit</button>-->
                         <button type="reset">reset</button>
                     </div>
                 </fieldset>
