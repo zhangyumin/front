@@ -22,6 +22,7 @@ and open the template in the editor.
         <script src="./src/fineuploader/all.fine-uploader.js"></script>
         <script src="./src/fineuploader/devenv.js"></script>
         <script src="./src/fineuploader/devenv-polya.js"></script>
+        <script src="./src/fineuploader/devenv-est.js"></script>
         <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
         <!--[if lte IE 7]>
         <link href="./css/iehacks.min.css" rel="stylesheet" type="text/css" />
@@ -124,14 +125,25 @@ and open the template in the editor.
                             success:update_page//回传函数(这里是函数名字)  
                         });  
                      });
-            });
-            $(document).ready(function(){  
                      $('#polya-submit').click(function (){
                         var params = $('#upload_polya').serialize(); //序列化表单的值
     //                    console.log(params);
     //                    alert(params);
                         $.ajax({  
                             url:'get_result_polya.php', //后台处理程序  
+                            type:'post',       //数据传送方式  
+                            dataType:'json',   //接受数据格式  
+                            data:params,       //要传送的数据
+                            beforeSend:loading,
+                            success:update_page//回传函数(这里是函数名字)  
+                        });  
+                     });
+                     $('#est-submit').click(function (){
+                        var params = $('#upload_est').serialize(); //序列化表单的值
+    //                    console.log(params);
+    //                    alert(params);
+                        $.ajax({  
+                            url:'get_result_est.php', //后台处理程序  
                             type:'post',       //数据传送方式  
                             dataType:'json',   //接受数据格式  
                             data:params,       //要传送的数据
@@ -164,7 +176,8 @@ and open the template in the editor.
                     </h4>
                 </legend>
                 <div class="box info ym-form">
-                    <input type='radio' name='upload_method' value='upload' checked="true" onclick="SltFileType()"/>Sequence
+                    <input type='radio' name='upload_method' value='upload' checked="true" onclick="SltFileType()"/>short read
+                    <input type='radio' name='upload_method' value='up_est' onclick="SltFileType()"/>EST
                     <input type='radio' name='upload_method' value='up_polya' onclick="SltFileType()"/>PolyA Site
                 </div>
             </fieldset>
@@ -279,6 +292,63 @@ and open the template in the editor.
                     </legend>
                     <div class="box info">
                         <input type="button" id='polya-submit' value="submit">
+                        <button type="reset">reset</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="upload_est" id='up_est' style='display: none'>
+            <form id="upload_est" action="upload_est.php" method="post">
+                <fieldset>
+                    <legend>
+                        <h4>
+                            <font color="#224055"><b>STEP 2</b>:Upload file(s)</font>
+                        </h4>
+                    </legend>
+                    <label title="Select species" for="species">Select species here:</label>
+                    <select id="species" name="species">
+                        <option value="arab" selected="selected">Arabidopsis thaliana</option>
+                         <option value="japonica">Japonica rice</option>
+                        <option value="mtr">Medicago truncatula</option>
+                        <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
+                    </select>
+                    <ul id="foobar-est"></ul>
+                    <div id="examples">
+                        <div class="example">
+                            <ul id="manual-example-est" class="unstyled"></ul>
+                            <button type="button" id="triggerUpload-est" class="btn btn-primary">Upload Queued Files</button>
+                        </div>
+                    </div>
+                </fieldset>
+                    <fieldset style="margin-top: 20px;">
+                        <legend>
+                            <h4>
+                                <font color="#224055"><b>STEP 3</b>:Additional options</font>
+                            </h4>
+                        </legend>
+                        <div class="box info">
+                            PolyA type: <select id="poly_type" name="poly_type" style="margin-left:6%;margin-right: 10%;height:30px;width:210px;">
+                                                <option value="A">A</option>
+                                                <option value="T">T</option>
+                                                <option value="all">A&T</option>
+                                                </select>
+                            <br>
+                            Min tail length (nt) : <input type="text" name="min_tail_length" value="8" size="1" style="margin-left:2%;margin-right: 5%;height:30px;"/>
+                            Search tail within (nt) : <input type="text" name="search_tail_within" value="15" size="1" style="margin-left:2%;height:30px;"/>
+                            <br>
+                            Max distance from aligned-end to EST-end (nt) : <input type="text" name="max_distance1" value="20" size="1" style="margin-left:2%;height:30px;"/>
+                            <br>
+                            Max distance from aligned-end to poly tail (nt) : <input type="text" name="max_distance1" value="5" size="1" style="margin-left:2%;height:30px;"/>
+                        </div>
+                    </fieldset>
+                <fieldset >
+                    <legend>
+                        <h4>
+                            <font color="#224055"><b>STEP 4</b>:Submit</font>
+                        </h4>
+                    </legend>
+                    <div class="box info">
+                        <input type="button" id='est-submit' value="submit">
                         <button type="reset">reset</button>
                     </div>
                 </fieldset>
