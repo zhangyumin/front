@@ -165,7 +165,7 @@
             
              #PAT导入jbrowse显示
              //shell_exec("cp ./data/".$_SESSION['file']."/$file_real[0].qc.fa.noT.fa.sam.M30S10.PA ./tojbrowse/pat.txt");//移动文件
-            shell_exec("cp -r ../jbrowse/data/arabidopsis/ ../jbrowse/data/".$_SESSION['file']."/");
+            shell_exec("cp -r ../jbrowse/data/".$_SESSION['species']."/ ../jbrowse/data/".$_SESSION['file']."/");
             shell_exec("chmod -R 777 ../jbrowse/data/".$_SESSION['file']."/");
             foreach ($upload_name as $key => $value) {
                  shell_exec("cp ./data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA ../jbrowse/data/".$_SESSION['file']."/$value.txt");
