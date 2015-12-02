@@ -1885,7 +1885,7 @@
             <table width="99%" cellspacing="0" cellpadding="0" border="0" style="margin: 20px auto;">
             <tbody>
                 <tr>
-                    <td width="40%" valign="top">
+                    <td width="30%" valign="top">
                           <hr width="98%" size="1" align="left" style="border-top: 1px dotted #5499c9;">
                         <div id="gene">
                             <table id="genetable">
@@ -2000,7 +2000,7 @@
                             });
                         </script>
                     </td>
-                    <td width="60%" height="400px" valign="top">
+                    <td width="70%" height="400px" valign="top">
                         <div class="wrap">
                             <div class="tabs">
                                 <a href="#" hidefocus="true" class="active">Jbrowse</a>
@@ -2022,9 +2022,9 @@
                                         <div style="height:99%">
                                             <?php
                                                 if($_GET['flag']=='intergenic')
-                                                    echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&analysis=1&intergenic=1&coord=$coord\" width=100% height=100%></iframe>";
+                                                    echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&analysis=1&intergenic=1&coord=$coord\" width=100%  height=100%></iframe>";
                                                 else
-                                                    echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&analysis=1\" width=100% height=100%></iframe>";
+                                                    echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&analysis=1\" width=100%  height=100%></iframe>";
                                             ?>
                                         </div>
                                     </div>
@@ -2034,9 +2034,9 @@
                                         <div style="height:99%">
                                             <?php
                                                 if($_GET['flag']=='intergenic')
-                                                    echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord\" width=100% height=100%></iframe>";
+                                                    echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord\" width=100%  height=100%></iframe>";
                                                 else
-                                                    echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand\" width=100% height=100%></iframe>";
+                                                    echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand\" width=100%  height=100%></iframe>";
                                             ?>
                                         </div>
                                   </div>
