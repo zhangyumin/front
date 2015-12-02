@@ -94,9 +94,12 @@ and open the template in the editor.
             session_start();
             if($_GET['data']!=NULL){
                 $hexamer=  glob("./result/".$_SESSION['file']."/db_user.PAC_".$_SESSION['file'].".SQL.400nt.".$_SESSION['file'].".PAT*sort_once")[0];
-                $hexamer = substr($hexamer, 28);
+                $hex=explode("/", $hexamer);
+//                var_dump($hex);
+                $hexamer = $hex[3];
                 $snc=  glob("./result/".$_SESSION['file']."/db_user.PAC_".$_SESSION['file'].".SQL.400nt.".$_SESSION['file'].".PAT*.cnt")[0];
-                $snc = substr($snc, 28);
+                $snc_array= explode("/", $snc);
+                $snc=$snc_array[3];
                 echo "<div class=\"download\">"
                     . "<h1 class=\"center\">Results</h1>"
                     . "<table class='bordertable'>"
