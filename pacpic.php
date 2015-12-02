@@ -375,11 +375,11 @@ and open the template in the editor.
             }
         </script>
     </head>
-    <body style="zoom: 85%">
-        <canvas id="gene" width="1000px;" height="150px;"></canvas>
+    <body style="zoom: 95%">
+        <canvas id="gene" width="1000px;" height="150px;"></canvas><br>
        
             <!--Step:1 为ECharts准备一个具备大小（宽高）的Dom-->  
-            <div id="pactagnum" style="height:300px;border:1px solid #ccc;padding:10px;"></div>
+            <div id="pactagnum" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;"></div>
 
             <!--Step:2 引入echarts.js-->  
             <script src="src/dist/echarts.js"></script>  
