@@ -228,3 +228,6 @@ fieldset{
     line-height: 1em;
     padding: 0.5em 0px;
     }
+    .ym-searchform .ym-searchfield{
+    width: 9em;
+    } 
