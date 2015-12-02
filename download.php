@@ -89,8 +89,6 @@ and open the template in the editor.
                 </tr>
             </table><br>
         </div>
-    </div>
-    </div>
         <br>
         <?php
             session_start();
@@ -99,20 +97,18 @@ and open the template in the editor.
                 $hexamer = substr($hexamer, 28);
                 $snc=  glob("./result/".$_SESSION['file']."/db_user.PAC_".$_SESSION['file'].".SQL.400nt.".$_SESSION['file'].".PAT*.cnt")[0];
                 $snc = substr($snc, 28);
-                echo "<div class=\"table-result\" style=\"border-style: dotted;border-color: #366fa5;width:80%;margin: auto;\">"
-                . "<fieldset class=\"download\" style=\"text-align: center;min-width: 100%;\">"
-                    . " <legend>"
-                    . "<span style=\"margin:auto;\">"
-                    . "<font color=\"#224055\" size=\"18px;\"><b>Results</b></font>"
-                    . "</span>"
-                    . "</legend>"
-                    . "<table style=\"margin:auto;border-color: #87cefa;border:2px;\" border rules='rows'>"
+                echo "<div class=\"download\">"
+                    . "<h1 class=\"center\">Results</h1>"
+                    . "<table class='bordertable'>"
+                    . "<thead>"
                     . "<tr>"
-                    . "<td>Name</td>"
-                    . "<td>Description</td>"
-                    . "<td>File Type</td>"
-                    . "<td>Download</td>"
+                    . "<th>Name</th>"
+                    . "<th>Description</th>"
+                    . "<th>File Type</th>"
+                    . "<th>Download</th>"
                     . "</tr>"
+                    . "</thead>"
+                    . "<tbody>"
                     . "<tr>";
                 echo "<td>hexamer</td>"
                     . "<td>hexamer statistics</td>"
@@ -136,11 +132,12 @@ and open the template in the editor.
                     . "<td><a href=\"./download_data.php?type=2&name=$value.qc.fa.noT.fa.sam.M30S10.PA_PAT\"/>Click here</td>"
                     . "</tr>";
                 }
-                    echo " </table><br>"
-                    . "</fieldset>"
+                    echo " </tbody></table><br>"
                     . "</div><br>";
             }
         ?>
+    </div>
+    </div>
         <?php
             include"./footer.php";
           ?>
