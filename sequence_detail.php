@@ -89,7 +89,7 @@
             .tabs {width:100%;}
             .tabs a{display: block;float: left;width:33.3%;color: #5499c9;text-align: center;background: #eee;line-height: 40px;font-size:16px;text-decoration: none;}
             .tabs a.active {color: #fff;background: #5499c9;border-radius: 5px 5px 0px 0px;}
-            .swiper-container {height:425px;border-radius: 0 0 5px 5px;width: 100%;border-top: 0;background-color:#fff}
+            .swiper-container {height:500px;border-radius: 0 0 5px 5px;width: 100%;border-top: 0;background-color:#fff}
             .swiper-slide {height:325px;width:100%;background: none;color: #fff;}
             /*.content-slide {padding: 40px;}*/
             /*.content-slide{overflow-x: scroll;overflow-y: scroll}*/
@@ -1924,10 +1924,10 @@
                             <table id="polyatable"  class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
                                 <thead>
                                     <tr>
-                                        <th style="width:10%">PAC</th>
+                                        <!--<th>PAC</th>-->
                                         <th>Coordinate</th>
-                                        <th style="width:10%">PA#</th>
-                                        <th style="width:15%">PAT#</th>
+                                        <th width="15%">PA#</th>
+                                        <th width="15%">PAT#</th>
                                         <td>PAC range</th>
                                     </tr>
                                 </thead>
@@ -1935,9 +1935,9 @@
                                     <?php
                                             $pac_res=mysql_query("select * from t_".$species."_pac where gene='$gene_name';");
                                             while($pac_r=  mysql_fetch_row($pac_res)){
-                                                $i=1;
-                                                echo "<tr>"
-                                                        . "<td>PAC$i</td>";
+//                                                $i=1;
+                                                echo "<tr>";
+//                                                        . "<td>PAC$i</td>";
                                                 if($strand==1&&$pac_r[2]>$ext_end)
                                                     echo "<td>$pac_r[2](3UTR Extend)</td>";
                                                 else if($strand==-1&&$pac_r[2]<$ext_start)
@@ -1951,7 +1951,7 @@
 //                                                                    echo "<td>3UTR extend</td>";
 //                                                                else 
 //                                                                    echo "<td>3UTR</td>"
-                                                $i++;
+//                                                $i++;
 
                                             }
                                     ?>
@@ -1963,8 +1963,8 @@
                             <table id="gotable" class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
                                 <thead>
                                     <tr>
-                                        <th style="width:15%">Go id</th>
-                                        <th style="width:50%">Go term</th>
+                                        <th style="width:20%">Go id</th>
+                                        <th style="width:45%">Go term</th>
                                         <th style="width:35%">Go function</th>
                                     </tr>
                                 </thead>
