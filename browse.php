@@ -35,7 +35,7 @@
             function change(){
                 var value = document.getElementById("species").value;
                 if(value=='arab'){
-                    document.getElementById("jbrowse").src="../jbrowse/?data=data/arabidopsis";
+                    document.getElementById("jbrowse").src="../jbrowse/?data=data/arab";
                 }
                 else if(value=='rice'){
                     document.getElementById("jbrowse").src="../jbrowse/?data=data/japonica";
@@ -55,7 +55,7 @@
             <option value="mtr">Medicago truncatula</option>
             <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
         </select>
-        <iframe id="jbrowse" style="border: 1px solid black" src="../jbrowse/?data=data/arabidopsis" width=100% height="700px">
+        <iframe id="jbrowse" style="border: 1px solid black" src="../jbrowse/?data=data/arab" width=100% height="700px">
         </iframe>
        <div class="bottom">
         <?php
