@@ -161,7 +161,7 @@
 //             //echo "in it";
 //             $seq=$rows[0];
 //         }
-         $seq=  file_get_contents("./seq/".$_GET['species']."/".strtoupper($_GET['seq']).".fa");
+         $seq=  file_get_contents("./seq/".$_GET['species']."/".$_GET['seq'].".fa");
          if($_GET['flag']=='intergenic'){
              $coord=$_GET['coord'];
              $coordL=$coord-200;
@@ -2012,7 +2012,7 @@
                                 <div class="swiper-slide">
                                     <div class="content-slide">
                                         <div style="height:99%">
-                                            <iframe src="../jbrowse/?data=data/arabidopsis&loc=<?php echo $chr;?>:<?php echo $gene_start;?>..<?php echo $gene_end;?>&tracks=Arabidopsis,sys_polya" width=100% height=100%>
+                                            <iframe src="../jbrowse/?data=data/<?php echo $_GET['species'];?>&loc=<?php echo $chr;?>:<?php echo $gene_start;?>..<?php echo $gene_end;?>&tracks=Arabidopsis,sys_polya" width=100% height=100%>
                                             </iframe>
                                         </div>
                                   </div>
