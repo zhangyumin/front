@@ -22,12 +22,12 @@
       </ul>
       <form class="ym-searchform" method="post" action="search_result.php?method=fuzzy">
         <select name="species">
-            <option value="arab">arab</option>
-            <option value="mtr">mtr</option>
-            <option value="chlamy">chlamy</option>
-            <option value="japonica">japonica</option>
+            <option value="arab">Arabidopsis</option>
+            <option value="mtr">M.trunca</option>
+            <option value="chlamy">Chlamy</option>
+            <option value="japonica">Japonica</option>
         </select>
-        <input class="ym-searchfield" name="key" type="search" placeholder="Input keyword here" />
+        <input class="ym-searchfield" name="key" type="search" placeholder="keyword" />
         <button class="ym-searchbutton" type="submit" >Search</button>
       </form>
     </div>
