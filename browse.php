@@ -55,7 +55,7 @@
             <option value="mtr">Medicago truncatula</option>
             <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
         </select>
-        <iframe id="jbrowse" style="border: 1px solid black" src="../jbrowse/?data=data/arab" width=100% height="700px">
+        <iframe id="jbrowse" style="border: 1px solid black" src="../jbrowse/?data=data/arab" width=99% height="800px">
         </iframe>
        <div class="bottom">
         <?php
