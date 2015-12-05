@@ -167,9 +167,9 @@ and open the template in the editor.
                             </div>
                             <div class="ym-g33 ym-gl">    
                                <label for="start" style="margin:0 1%;"> from</label>
-                                <input type="text" name="start" id="start" style="width:40%">
+                                <input type="text" name="start" id="start" style="width:39%">
                                <label for="end" style="margin:0 1%;"> to</label>
-                               <input type="text" name="end" id="end" style="width:40%">
+                               <input type="text" name="end" id="end" style="width:39%">
                             </div>
                         </div>
                         <div class="ym-grid ym-fbox">    
@@ -346,12 +346,12 @@ and open the template in the editor.
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <div class="ym-grid " >
+                                    <div class="ym-grid "  style="text-align: center">
                                         <div class="ym-g50 ym-gl">
-                                            <img src='./pic/arab_PACs.png'/>
+                                            <img src='./pic/arab_PACs.png' style="width:400px;height: 240px"/>
                                         </div>
                                         <div class="ym-g50 ym-gr" >
-                                            <img src='./pic/arab_PATs.png'/>
+                                            <img src='./pic/arab_PATs.png' style="width:400px;height: 240px"/>
                                         </div>
 
                                     </div>
@@ -407,12 +407,12 @@ and open the template in the editor.
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <div class="ym-grid " >
+                                    <div class="ym-grid "  style="text-align: center">
                                         <div class="ym-g50 ym-gl">
-                                            <img src='./pic/japonica_PACs.png'/>
+                                            <img src='./pic/japonica_PACs.png' style="width:400px;height: 240px"/>
                                         </div>
                                         <div class="ym-g50 ym-gl">
-                                            <img src='./pic/japonica_PATs.png'/>
+                                            <img src='./pic/japonica_PATs.png' style="width:400px;height: 240px"/>
                                         </div>
                                     </div>
                                     <h5 class="center">Distributions of poly(A) site clusters (PACs) and poly(A) tags (PATs)</h5>
@@ -464,12 +464,12 @@ and open the template in the editor.
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <div class="ym-grid " >
+                                    <div class="ym-grid "  style="text-align: center">
                                         <div class="ym-g50 ym-gl">
-                                            <img src='./pic/mtr_PACs.png'/>
+                                            <img src='./pic/mtr_PACs.png' style="width:400px;height: 240px"/>
                                         </div>
                                         <div class="ym-g50 ym-gl">
-                                            <img src='./pic/mtr_PATs.png'/>
+                                            <img src='./pic/mtr_PATs.png' style="width:400px;height: 240px"/>
                                         </div>
                                         
                                     </div> 
@@ -539,12 +539,12 @@ and open the template in the editor.
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <div class="ym-grid">
+                                    <div class="ym-grid" style="text-align: center">
                                         <div class="ym-g50 ym-gl">
-                                            <img src='./pic/chlamy_PACs.png'/>
+                                            <img src='./pic/chlamy_PACs.png' style="width:400px;height: 240px"/>
                                         </div>
                                         <div class="ym-g50 ym-gl">
-                                            <img src='./pic/chlamy_PATs.png'/>
+                                            <img src='./pic/chlamy_PATs.png' style="width:400px;height: 240px"/>
                                         </div>
                                     </div>
                                     <div class="ym-grid">
