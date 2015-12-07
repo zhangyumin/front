@@ -96,6 +96,9 @@
             .content-slide p{text-indent:2em;line-height:1.9;}
             .slidebar-content{color: black;}
             .swiper-slide{color:black;}
+            @media(max-width: 1245px){
+                #tables{overflow: scroll}
+            }
         </style>
         <script src="./src/idangerous.swiper.min.js"></script> 
         <link rel="stylesheet" href="./src/idangerous.swiper.css">
@@ -1882,11 +1885,11 @@
             </script>
             
         <div  id="page">
-            <table width="99%" cellspacing="0" cellpadding="0" border="0" style="margin: 20px auto;">
+            <table  cellspacing="0" cellpadding="0" border="0" style="margin: 20px auto;">
             <tbody>
                 <tr>
-                    <td width="30%" valign="top">
-                          <hr width="98%" size="1" align="left" style="border-top: 1px dotted #5499c9;">
+                    <td valign="top" id='tables'>
+                        <hr size="2" align="left" style="border-top: 2px solid #5499c9;">
                         <div id="gene">
                             <table id="genetable">
                                 <tbody>
@@ -1919,8 +1922,8 @@
                                 </tbody>
                             </table>
                         </div>
-                        <hr width="98%" size="1" align="left" style="border-top: 1px dotted #5499c9;">
-                        <div id="polya" style="overflow-x: auto;background-color: #fff;margin:auto;">
+                        <hr size="2" align="left" style="border-top: 2px solid #5499c9;">
+                        <div id="polya" style="overflow-x: auto;background-color: #fff;">
                             <table id="polyatable"  class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
                                 <thead>
                                     <tr>
@@ -1928,7 +1931,7 @@
                                         <th>Coordinate</th>
                                         <th width="15%">PA#</th>
                                         <th width="15%">PAT#</th>
-                                        <td>PAC range</th>
+                                        <th>PAC range</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1958,7 +1961,7 @@
                                 </tbody>
                             </table>
                         </div>
-                            <hr width="98%" size="1" align="left" style="border-top: 1px dotted #5499c9;">
+                        <hr size="2" align="left" style="border-top: 2px solid #5499c9;">
                         <div id="go" style="overflow-x: auto;background-color: #fff;margin:auto;">
                             <table id="gotable" class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
                                 <thead>
@@ -2000,7 +2003,7 @@
                             });
                         </script>
                     </td>
-                    <td width="70%" height="400px" valign="top">
+                    <td width="1100px" valign="top">
                         <div class="wrap">
                             <div class="tabs">
                                 <a href="#" hidefocus="true" class="active">Jbrowse</a>
