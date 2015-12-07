@@ -201,15 +201,17 @@ and open the template in the editor.
                 echo "var genelength=$genelength;";
             ?>
             window.onload = function(){
-                info("#ff0000",100,"3UTR","gene");
-                info("#BA55D3",200,"5UTR","gene");
-                info("#9AFF9A",300,"CDS","gene");
-                info("#080808",400,"INTRON","gene");
-                info("#eeee00",500,"EXON","gene");
-                info("#97ffff",600,"AMB","gene");
-                info("#1c86ee",700,"3UTR EXTEND","gene");
-                line("gene");
-                line("no_extend");
+                info("#42A881",100,"3UTR","gene");
+                info("#65D97D",200,"5UTR","gene");
+                info("#00ABD8",300,"CDS","gene");
+                info("#D390B9",400,"INTRON","gene");
+                info("#8C5E4D",500,"EXON","gene");
+                info("#F35A4A",600,"AMB","gene");
+                info("#9FE0F6",700,"3UTR EXTEND","gene");
+//                line("gene");
+//                line("no_extend");
+                grid("no_extend","1");
+                grid("gene","title");
                 <?php
                 //extend部分
                     foreach ($sutr_start as $key => $value) {
@@ -314,22 +316,21 @@ and open the template in the editor.
                 ?>
                 title("#000000","<?php echo $seq;?>","gene");
                 xscale("gene");
-                grid("gene","title");
                 title("#000000","3UTR Shorten","no_extend");
 //                xscale("3utr_extend");
-                grid("no_extend","1");
             }
             function title(color,text,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle=color;
-                context.font="20px Arial";
-                context.fillText(text,500,145);
+                context.font="15px Droid Serif";
+                context.fillText(text,510,145);
             }
             function info(color,loc,text,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle=color;
+                context.font="12px Droid Serif";
                 context.fillRect(loc+70,20,20,20);
                 context.fillText(text,loc+95,35);
             }
@@ -338,6 +339,7 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.strokeStyle="#000000";
                 context.fillStyle="#000000";//line为黑色
+                context.beginPath();
                 context.moveTo(0,100);
                 context.lineTo(1000,100);
                 context.stroke();
@@ -345,8 +347,9 @@ and open the template in the editor.
             function xscale(id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-//                context.strokeStyle="#000000";
-//                context.fillStyle="#000000";//x刻度尺为黑色
+                context.beginPath();
+                context.strokeStyle="#000000";
+               context.fillStyle="#000000";//x刻度尺为黑色
                 context.moveTo(0,60);
                 context.lineTo(1000,60);
                 context.moveTo(0,60);
@@ -357,14 +360,14 @@ and open the template in the editor.
                 context.lineTo(990,50);
                 context.moveTo(1000,60);
                 context.lineTo(990,70);
-                context.font="10px Arial";
+                context.font="12px Droid Serif";
                 start=<?php echo $gene_start;?>;
                 end=<?php echo $gene_end;?>;
-                context.fillText(start,10,50);
-                context.fillText(end,970,50);
+                context.fillText("start:"+start,15,75);
+                context.fillText(end+":end",915,75);
                 for(i=1;i<10;i++){
                     x=<?php echo round(($gene_end-$gene_start)/10); ?>;
-                    context.fillText(start+x*i,100*i-10,55);
+                    context.fillText(start+x*i,100*i-20,55);
                 }
                 context.stroke();
             }
@@ -372,8 +375,8 @@ and open the template in the editor.
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.beginPath();
-                context.strokeStyle="#00ff00";
-                context.fillStyle="#00ff00";//x
+                context.strokeStyle="#BEAD92";
+                context.fillStyle="#BEAD92";//x
                 if(type=='title'){
                     for(i=1;i<10;i++){
                         context.moveTo(100*i,60);
@@ -391,6 +394,7 @@ and open the template in the editor.
             function yscale(id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
+                context.beginPath();
                 context.strokeStyle="#000000";
                 context.fillStyle="#000000";//y刻度尺为黑色
                 context.moveTo(0,100);
@@ -406,7 +410,8 @@ and open the template in the editor.
             function sutr(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#ff0000";//3utr为红色
+//                context.fillStyle="#ff0000";//3utr为红色
+                context.fillStyle="#42A881";
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
@@ -420,7 +425,8 @@ and open the template in the editor.
             function sutr_extend(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#1c86ee";//3utr_extend为蓝色
+//                context.fillStyle="#1c86ee";//3utr_extend为蓝色
+                context.fillStyle="#9FE0F6"
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
@@ -434,7 +440,7 @@ and open the template in the editor.
             function wutr(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#BA55D3";//5utr为zise
+                context.fillStyle="#65D97D";//5utr为zise
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
@@ -448,7 +454,7 @@ and open the template in the editor.
             function cds(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#9AFF9A";//cds为绿色
+                context.fillStyle="#00ABD8";//cds为绿色
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,90,endpos-startpos-10,20);
                 }
@@ -462,7 +468,7 @@ and open the template in the editor.
             function intron(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#080808";//intron为黑色
+                context.fillStyle="#D390B9";//intron为黑色
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
@@ -476,7 +482,7 @@ and open the template in the editor.
             function exon(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#eeee00";//exon为黄色
+                context.fillStyle="#8C5E4D";//exon为黄色
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,90,endpos-startpos-10,20);
                 }
@@ -490,7 +496,7 @@ and open the template in the editor.
             function amb(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#97ffff";//amb为兰色
+                context.fillStyle="#F35A4A";//amb为兰色
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,90,endpos-startpos-10,20);
                 }
@@ -504,7 +510,7 @@ and open the template in the editor.
             function intergenic(strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#7a8b8b";//intergenic为灰色
+                context.fillStyle="#7BA3A8";//intergenic为灰色
                 if(strand==1){
                     context.fillRect(0,90,990,20);
                 }
@@ -563,7 +569,8 @@ and open the template in the editor.
             function pa(loc,tagnum,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.strokeStyle="#878787";//pa为黑色
+                context.strokeStyle="#000";//pa为黑色
+                context.beginPath();
                 context.moveTo(loc,100);
                 if(tagnum>50){
                     context.lineTo(loc,0);
@@ -576,6 +583,7 @@ and open the template in the editor.
             function pac(loc,tagnum,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
+                context.beginPath();
                 context.fillStyle="#ff0000";//pac为红色
                 if(tagnum>50){
                     context.fillRect(loc,100,3,-100);
@@ -592,14 +600,14 @@ and open the template in the editor.
         </script>
     </head>
     <body style="zoom: 95%">
-        <canvas id="gene" width="1000px;" height="150px;"></canvas>
-        <canvas id='no_extend' width="1000px" height="150px;"></canvas>
+        <canvas id="gene" width="1000px;" height="150px;"></canvas><br>
+        <canvas id='no_extend' width="1000px" height="150px;"></canvas><br>
         <?php
             for($i=1;$i<=$num;$i++){
                 if($i%2==0)
-                    echo "<canvas id=\"sample$i\" width=\"1000px; \" height=\"150px;\"></canvas>";
+                    echo "<canvas id=\"sample$i\" width=\"1000px; \" height=\"150px;\"></canvas><br>";
                 else
-                    echo "<canvas id=\"sample$i\" width=\"1000px; \" height=\"150px;\" style=\"background-color:#f9f9f9\"></canvas>";
+                    echo "<canvas id=\"sample$i\" width=\"1000px; \" height=\"150px;\" style=\"background-color:#f1f1f1\"></canvas><br>";
             }
         ?>
     </body>
