@@ -185,7 +185,7 @@ and open the template in the editor.
 //                            var_dump($$pa_tagnum);
 //                        }
 //            }
-            $pac_result=  mysql_query("select * from t_".$_GET['species']."_pac where gene='$seq';");
+            $pac_result=  mysql_query("select * from t_".$_GET['species']."_pac where gene='$seq' order by coord;");
             while($pac_row=  mysql_fetch_row($pac_result)){
                 for($i=1;$i<=$num;$i++){
                     $pac_loc="pac_loc".$i;
@@ -323,14 +323,14 @@ and open the template in the editor.
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle=color;
-                context.font="15px Droid Serif";
+                context.font="bold 15px Droid Serif";
                 context.fillText(text,510,145);
             }
             function info(color,loc,text,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle=color;
-                context.font="12px Droid Serif";
+                context.font="bold 12px Droid Serif";
                 context.fillRect(loc+70,20,20,20);
                 context.fillText(text,loc+95,35);
             }
@@ -402,7 +402,7 @@ and open the template in the editor.
                 for(i=4;i>0;i--){
                     context.moveTo(0,20*i);
                     context.lineTo(5,20*i);
-                    context.font="10px Arial";
+                    context.font="12px Droid Serif";
                     context.fillText(50-10*i,5,21*i);
                 }
                 context.stroke();
@@ -580,21 +580,30 @@ and open the template in the editor.
                 }
                 context.stroke();
             }
+            var i = 0;
             function pac(loc,tagnum,id){
+                i++;
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.beginPath();
+                context.font="10px Droid Serif";
                 context.fillStyle="#ff0000";//pac为红色
                 if(tagnum>50){
                     context.fillRect(loc,100,3,-100);
-                    context.fillText("PAT:"+tagnum,loc-20,110);
+                    if(i%2==1)
+                        context.fillText("PAT:"+tagnum,loc-20,110);
+                    else
+                        context.fillText("PAT:"+tagnum,loc-20,125);
                 }
                 else if(tagnum==0){
-                    
+                    i--;
                 }
                 else{
                     context.fillRect(loc,100,3,-2*tagnum);
-                    context.fillText("PAT:"+tagnum,loc-20,110);
+                    if(i%2==1)
+                        context.fillText("PAT:"+tagnum,loc-20,110);
+                    else
+                        context.fillText("PAT:"+tagnum,loc-20,125);
                 }
             }
         </script>
