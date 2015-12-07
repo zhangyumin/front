@@ -202,10 +202,10 @@ and open the template in the editor.
             ?>
             window.onload = function(){
                 info("#42A881",100,"3UTR","gene");
-                info("#65D97D",200,"5UTR","gene");
+                info("#8C5E4D",200,"5UTR","gene");
                 info("#00ABD8",300,"CDS","gene");
                 info("#D390B9",400,"INTRON","gene");
-                info("#8C5E4D",500,"EXON","gene");
+                info("#65D97D",500,"EXON","gene");
                 info("#F35A4A",600,"AMB","gene");
                 info("#9FE0F6",700,"3UTR EXTEND","gene");
 //                line("gene");
@@ -440,7 +440,7 @@ and open the template in the editor.
             function wutr(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#65D97D";//5utr为zise
+                context.fillStyle="#8C5E4D";//5utr为zise
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
@@ -482,7 +482,7 @@ and open the template in the editor.
             function exon(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#8C5E4D";//exon为黄色
+                context.fillStyle="#65D97D";//exon为黄色
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,90,endpos-startpos-10,20);
                 }
