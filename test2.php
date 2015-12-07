@@ -323,13 +323,14 @@ and open the template in the editor.
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle=color;
-                context.font="20px Arial";
-                context.fillText(text,500,145);
+                context.font="15px Droid Serif";
+                context.fillText(text,510,145);
             }
             function info(color,loc,text,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle=color;
+                context.font="12px Droid Serif";
                 context.fillRect(loc+70,20,20,20);
                 context.fillText(text,loc+95,35);
             }
@@ -359,14 +360,14 @@ and open the template in the editor.
                 context.lineTo(990,50);
                 context.moveTo(1000,60);
                 context.lineTo(990,70);
-                context.font="10px Arial";
+                context.font="12px Droid Serif";
                 start=<?php echo $gene_start;?>;
                 end=<?php echo $gene_end;?>;
-                context.fillText(start,10,50);
-                context.fillText(end,970,50);
+                context.fillText("start:"+start,15,75);
+                context.fillText(end+":end",925,75);
                 for(i=1;i<10;i++){
                     x=<?php echo round(($gene_end-$gene_start)/10); ?>;
-                    context.fillText(start+x*i,100*i-10,55);
+                    context.fillText(start+x*i,100*i-20,55);
                 }
                 context.stroke();
             }
@@ -599,14 +600,14 @@ and open the template in the editor.
         </script>
     </head>
     <body style="zoom: 95%">
-        <canvas id="gene" width="1000px;" height="150px;"></canvas>
-        <canvas id='no_extend' width="1000px" height="150px;"></canvas>
+        <canvas id="gene" width="1000px;" height="150px;"></canvas><br>
+        <canvas id='no_extend' width="1000px" height="150px;"></canvas><br>
         <?php
             for($i=1;$i<=$num;$i++){
                 if($i%2==0)
-                    echo "<canvas id=\"sample$i\" width=\"1000px; \" height=\"150px;\"></canvas>";
+                    echo "<canvas id=\"sample$i\" width=\"1000px; \" height=\"150px;\"></canvas><br>";
                 else
-                    echo "<canvas id=\"sample$i\" width=\"1000px; \" height=\"150px;\" style=\"background-color:#f1f1f1\"></canvas>";
+                    echo "<canvas id=\"sample$i\" width=\"1000px; \" height=\"150px;\" style=\"background-color:#f1f1f1\"></canvas><br>";
             }
         ?>
     </body>
