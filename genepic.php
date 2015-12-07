@@ -201,13 +201,13 @@ and open the template in the editor.
                 echo "var genelength=$genelength;";
             ?>
             window.onload = function(){
-                info("#42A881",100,"3UTR","gene");
-                info("#8C5E4D",200,"5UTR","gene");
-                info("#00ABD8",300,"CDS","gene");
-                info("#D390B9",400,"INTRON","gene");
-                info("#65D97D",500,"EXON","gene");
-                info("#F35A4A",600,"AMB","gene");
-                info("#9FE0F6",700,"3UTR EXTEND","gene");
+                info("#42A881",100,"3'utr","gene");
+                info("#8C5E4D",200,"5'utr","gene");
+                info("#00ABD8",300,"cds","gene");
+                info("#D390B9",400,"intron","gene");
+                info("#65D97D",500,"exon","gene");
+                info("#F35A4A",600,"amb","gene");
+                info("#9FE0F6",700,"3'utr extend","gene");
 //                line("gene");
 //                line("no_extend");
                 grid("no_extend","1");
@@ -330,7 +330,7 @@ and open the template in the editor.
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle=color;
-                context.font="bold 12px Droid Serif";
+                context.font="bold 15px Droid Serif";
                 context.fillRect(loc+70,20,20,20);
                 context.fillText(text,loc+95,35);
             }
