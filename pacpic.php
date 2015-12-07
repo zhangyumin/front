@@ -375,7 +375,7 @@ and open the template in the editor.
             }
         </script>
     </head>
-    <body style="zoom: 95%">
+    <body>
         <canvas id="gene" width="1000px;" height="150px;"></canvas><br>
        
             <!--Step:1 为ECharts准备一个具备大小（宽高）的Dom-->  
