@@ -99,6 +99,14 @@
             @media(max-width: 1245px){
                 #tables{overflow: scroll}
             }
+            .h3_italic{
+                font-size: 15px;
+                font-family: "Droid Serif", Georgia, "Times New Roman", Times, serif;
+            }
+            #text{
+                font-size: 15px;
+                font-family: "Droid Serif", Georgia, "Times New Roman", Times, serif;
+            }
         </style>
         <script src="./src/idangerous.swiper.min.js"></script> 
         <link rel="stylesheet" href="./src/idangerous.swiper.css">
@@ -290,8 +298,8 @@
                     $s_end=$f_end[$f_key];
                     $ss_p=$gene_end-$s_end+1;//3utr start point
                     echo "sutr_start.push('$ss_p');";
-                    $ext_sp=$gene_end-$ext_start;
-                    $ext_ep=$gene_end-$gene_start;
+                    $ext_sp=$gene_end-$ext_start+1;
+                    $ext_ep=$gene_end-$gene_start+1;
                     echo "ext_start.push('$ext_sp');";
                     echo "ext_end.push('$ext_ep');";
                  }
@@ -2077,14 +2085,14 @@
         <div  class="straight_matter">
 	<fieldset style="margin-top: 20px;margin-left: 2%;margin-right: 2%;">
                     <legend>
-                        <span class="h3_italic">
-                            <font color="#224055" size="18px;"><b>Gene Viewer</b></font>
+                        <span class="h3_italic" style="font-size:21px">
+                            <font color="#224055"><b>Gene Viewer</b></font>
                         </span>
                     </legend>
 	<div class = "seq_viewer" id="seq_viewer">
                     <div id = "pattern">	
         	<legend><span class="h3_italic">Typical Pattern</span>&nbsp;<span class='pt2' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;(AATAAA&nbsp;<span class='pt3' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;TGTAAA&nbsp;<span class='pt4' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;)</legend>
-        	<table style="width:950px;margin-top:10px;margin-bottom:10px;font-family: Courier New;font-size: 16px;">
+        	<table style="width:950px;margin-top:10px;margin-bottom:10px;font-family: Courier New;font-size: 15px;">
                     <?php
                     echo "<tr>";
                     echo '<td><input type="checkbox" checked = "true" name = "cbox" id = "checkall1" value = "checkall" /><em>&nbsp;Change All</em></td>';
@@ -2118,7 +2126,7 @@
                                     <span style="text-align:center;"><font size="2" color='green'><u>N</u></font></span>
                             </legend>-->
                             <br>
-                                <legend><span class="h3_ltalic">others</span>&nbsp;&nbsp;
+                                <legend id='text'><span class="h3_ltalic">others</span>&nbsp;&nbsp;
                                     (
                                     <input type="checkbox" name="cbox2" value="EXT"/>3'UTR Extend<span class='pt11' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
                                     <input type="checkbox" name="cbox2" value="3UTR"/>3'UTR <span class='pt5' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
