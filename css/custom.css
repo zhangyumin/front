@@ -19,12 +19,12 @@ fieldset{
     font-size: 16px;
     text-align: center;
 }
-.download{
+/*.download{
 	border-style: dotted;
 	border-color: #366fa5;
 	width:100%;
 	margin: auto;
-}
+}*/
 .download table{
 	margin:auto;
 	border-color: #87cefa;
