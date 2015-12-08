@@ -33,7 +33,8 @@
   }*/
   .ym-form label,
   .ym-form .ym-label {
-    color: #666;
+    /*color: #666;*/
+    color: 000;
     line-height: 1.5;
     padding-top: 0.25em;
   }
