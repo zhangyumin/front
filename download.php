@@ -35,6 +35,12 @@ and open the template in the editor.
             include"./navbar.php";
         ?>
     <div class="ym-wrapper">
+        <fieldset id="get_back" >
+                    <legend style="text-align:left;">
+                        <h4>
+                            <font color="#224055"><b>Download</b>:Get data from here</font>
+                        </h4>
+                    </legend>
         <div class="ym-wbox">
         <div class="download">
             <h1 class="center">Tools</h1>
@@ -140,6 +146,7 @@ and open the template in the editor.
             }
         ?>
     </div>
+</fieldset>
     </div>
         <?php
             include"./footer.php";
