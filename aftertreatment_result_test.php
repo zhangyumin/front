@@ -104,68 +104,7 @@
         ?>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
-        <style type="text/css">
-            body{
-                font-family:Courier New;
-                font-size: 14px;
-            }
-             span.pt1{
-                color:black;
-                background-color: #FF83FA;
-            }
-            span.pt2{
-                color:black;
-                background-color: #87CEFA;
-            }
-            span.pt3{
-                color:black;
-                background-color: #B3EE3A;
-            }
-             span.pt4{
-                color:black;
-                background-color: #EEEE00;
-            }
-             span.pt5{
-                color:black;
-                background-color: #6F00D2;
-            }
-             span.pt6{
-                color:black;
-                background-color: #F75000;
-            }
-             span.pt7{
-                color:black;
-                background-color: #FF0000;
-            }
-             span.pt8{
-                color:black;
-                background-color: #5B5B5B;
-            }
-             span.pt9{
-                color:black;
-                background-color: #984B4B;
-            }
-            fieldset{
-                border-color: #5499c9 !important;
-                border-style: solid !important;
-                border-width: 2px !important;
-                padding: 5px 10px !important;
-            }
-            .STYLE1 {font-size: 12px}
-            a:link {
-            color: #FFFFFF;
-            text-decoration: none;
-            }
-            a:visited {
-            text-decoration: none;
-            }
-            a:hover {
-            text-decoration: none;
-            }
-            a:active {
-            text-decoration: none;
-            }
-        </style>
+ 
 </head>
 <body onload="DelOption()">
         <?php
@@ -173,20 +112,22 @@
         ?>
     <div class="ym-wrapper">
        
-        <div id="task_summery" align="center" style="clear: both;color:#224055;font-size: 24px;margin: auto;">summary<br>
-            <table style="border-top-style:dashed;border-right-style: dashed;border-left-style: dashed;border-bottom-style: dashed;font-size: 18px;width: 80%;" borderColor="#4a4a84" align=center>
+        <fieldset>
+                    <legend>
+                        <h4>
+                            <font color="#224055"><b>Summary</b></font>
+                        </h4>
+                    </legend>
+            <table style="font-size: 15px;TABLE-LAYOUT:fixed;WORD-WRAP:break_word;">
                 <?php
                         foreach ($b as $key => $value) {
                             echo "<tr>";
-                            $summery_tmp=  explode("\t", $value);
-                            foreach ($summery_tmp as $key => $value) {
-                                echo "<th>$value</th>";
-                            }
+//                            var_dump(str_split(strpos(":", $value)));
                             echo "</tr>";
                         }
                 ?>
             </table>
-        </div>
+        </fieldset>
         <div id="ly" style="position: absolute; top: 0px; opacity:0.4; background-color: #777;z-index: 2; left: 0px; display: none;">
         </div>
         <!--          浮层框架开始         -->
@@ -247,8 +188,9 @@
                 <button type="submit" id="search_button">search</button>
                 <button type="reset" id="reset_button">reset</button>
             </form>
+            <div style="clear:both;"></div>
         </div>
-        <div id="jtable" style="clear: both;overflow: auto;"></div>
+        <div id="jtable" style="overflow: auto;"></div>
         <link href="src/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
         <link href="src/jtable.css" rel="stylesheet" type="text/css" />
         <script src="src/jquery-ui-1.8.16.custom.min.js" type="text/javascript" ></script>
@@ -437,8 +379,9 @@
         <div id="download"style="border: #ff6600 2px dotted;border-collapse: collapse;text-align: center">
             CLick to download the list data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="javascript:window.location.href='./download_data.php?type=4&name=<?php echo $c; ?>'">download</button>
         </div>
+    </div>
     <?php
-        include './wheelmenu.php';
+//        include './wheelmenu.php';
         ?>
     <?php
         include './footer.php';
