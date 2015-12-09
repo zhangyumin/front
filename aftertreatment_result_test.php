@@ -190,6 +190,7 @@
             </table>
         </div>
         <div class="filter" id="filter">
+            <button onclick="javascript:window.location.href='./download_data.php?type=4&name=<?php echo $c; ?>'">download analysis result</button>
             <button onclick="locking()">export sequences</button>
             <form>
                 <input type="text" name="search" id="search" />
@@ -384,9 +385,6 @@
                             });
                 });
             </script>
-        <div id="download"style="border: #ff6600 2px dotted;border-collapse: collapse;text-align: center">
-            CLick to download the list data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="javascript:window.location.href='./download_data.php?type=4&name=<?php echo $c; ?>'">download</button>
-        </div>
     </div>
     <?php
 //        include './wheelmenu.php';
