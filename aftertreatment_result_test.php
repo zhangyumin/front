@@ -123,7 +123,7 @@
                         foreach ($b as $key => $value) {
                             echo "<tr>";
                             $summary = explode(":", $value,2);
-                            echo "<td style='width:20%;font-weight:bold'>$summary[0]</td>";
+                            echo "<td style='width:20%;font-weight:bold;' bgcolor=\"#e1e1e1\">$summary[0]</td>";
                             if($key == 0){
                                 $sample = explode(";", $summary[1]);
                                 echo "<td>$sample[0]<br>$sample[1]</td>";
