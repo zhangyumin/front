@@ -122,7 +122,15 @@
                 <?php
                         foreach ($b as $key => $value) {
                             echo "<tr>";
-//                            var_dump(str_split(strpos(":", $value)));
+                            $summary = explode(":", $value,2);
+                            echo "<td style='width:20%;font-weight:bold'>$summary[0]</td>";
+                            if($key == 0){
+                                $sample = explode(";", $summary[1]);
+                                echo "<td>$sample[0]<br>$sample[1]</td>";
+                            }
+                            else{
+                                echo "<td>$summary[1]</td>";
+                            }
                             echo "</tr>";
                         }
                 ?>
