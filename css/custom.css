@@ -169,16 +169,16 @@ fieldset{
         margin-left: 5%;
     }
     header .ym-wbox h1{text-align: left;}
-    .jtable-title-text{font-size: 150%;padding-bottom: }
+    .jtable-title-text{font-size: 200%;text-align: center;}
     #filter{
-        margin-bottom: 10px;
+        margin-bottom: 10px;;
     }
     #filter button{
         float: left;
     }
     #filter form{
         float: left;
-        margin-left: 30px;
+        margin-left: 487px;
     }
     #filter form input{
         float: left;
