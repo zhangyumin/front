@@ -165,14 +165,82 @@
             </fieldset>
     </div><br>
     <div class="filter" id="filter">
+            <button onclick="javascript:window.location.href='./download_data.php?type=4&name=<?php echo $c; ?>'">download trap result</button>
+            <button onclick="locking()">export sequences</button>
             <form>
                 <input type="text" name="search" id="search" />
                 <button type="submit" id="search_button">search</button>
                 <button type="reset" id="reset_button">reset</button>
             </form>
+            <div style="clear:both;"></div>
     </div>
-    <div id="jtable" style="clear: both;width: 100%;"></div>
-    
+    <div id="jtable"></div>
+    <div id="ly" style="position: absolute; top: 0px; opacity:0.4; background-color: #777;z-index: 2; left: 0px; display: none;">
+    </div>
+    <!--          浮层框架开始         -->
+    <div id="Layer2" align="center" style="border: 1px solid;position: absolute; z-index: 3; left: 560; top: 50%;background-color: #fff; display: none;" >
+        <table width="540" height="300" border="0" cellpadding="0" cellspacing="0" style="border: 0    solid    #e7e3e7;border-collapse: collapse ;" >
+            <tr>
+                <td style="background-color: #73A2d6; color: #fff; padding-left: 4px; padding-top: 2px;font-weight: bold; font-size: 12px;" height="10" valign="middle">
+                     <div align="right">
+                         <a href=JavaScript:; class="STYLE1" onclick="Lock_CheckForm(this);">[Close]
+                         </a> &nbsp;&nbsp;&nbsp;&nbsp;
+                     </div>
+                </td>
+            </tr>
+            <tr>
+                <td height="130" align="center">
+                    <form name="pac_export" method="post" action="export_seq.php?source=Search&species=<?php echo $species; ?>" target="_blank">
+                        method<select id="method" name="method" onchange="ChgMtd()">
+                            <option value="choose">Please choose</option>
+                            <option value="pacs">export sequences of PACs</option>
+                            <option value="pacs-region">export sequences of regions of  PACs</option>
+                            <option value="seq">export gene sequences</option>
+                        </select><br>
+                        <div id="pacs" style="display:none">
+                            upstream (nt) <input type="text" value="200" name='upstream'></input><br>
+                            downstream (nt) <input type="text" value="200" name='downstream'></input><br>
+                            PAC in region <select name='pac_region'>
+                                <option value="all">all</option>
+                                <option value="genomic-region">genomic region</option>
+                                <option value="3TUR">3'UTR</option>
+                                <option value="5UTR">5‘UTR</option>
+                                <option value="CDS">CDS</option>
+                                <option value="intron">intron</option>
+                                <option value="intergenic.igt">intergenic</option>
+                                <option value="intergenic.pm">promoter</option>
+                            </select>
+                        </div>
+                        <div id="pacs-region" style="display:none">
+                            region of PACs <select name='pacs_region'>
+                                <option value="all">all</option>
+                                <option value="genomic-region">genomic region</option>
+                                <option value="3TUR">3'UTR</option>
+                                <option value="5UTR">5‘UTR</option>
+                                <option value="CDS">CDS</option>
+                                <option value="intron">intron</option>
+                                <option value="intergenic.igt">intergenic</option>
+                                <option value="intergenic.pm">promoter</option>
+                            </select>
+                        </div>
+                        <div id="seq" style="display:none">
+                            annotation version <select name='anno_version'>
+                                <option value="raw-annotation">raw annotation</option>
+                                <option value="3utr-extended-annotation">3' UTR extended annotation</option>
+                            </select><br>
+                            export <select name='export'>
+                                <option value="whole-gene">whole gene</option>
+                                <option value="joined-cds">joined CDS</option>
+                                <option value="3utr-only">3' UTR only</option>
+                            </select>
+                        </div>
+                        <button id="sub" type="submit" disabled="true">Submit</button>
+                        <button id="can" type="reset" disabled="true">Reset</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
     <link href="src/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
     <link href="src/jtable.css" rel="stylesheet" type="text/css" />
     
@@ -180,6 +248,31 @@
     <script src="src/jquery-ui-1.8.16.custom.min.js" type="text/javascript" ></script>
     <script src="src/jquery.jtable.js" type="text/javascript" ></script>
     <script type="text/javascript">
+         function locking(){   
+           document.all.ly.style.display="block";   
+           document.all.ly.style.width=document.body.clientWidth;   
+           document.all.ly.style.height=document.body.offsetHeight;   
+           document.all.Layer2.style.display='block';  
+           }   
+        function Lock_CheckForm(theForm){   
+            document.all.ly.style.display='none';document.all.Layer2.style.display='none';
+            return   false;   
+         }
+         function ChgMtd(){
+                document.getElementById("pacs").style.display='none';
+                document.getElementById("pacs-region").style.display='none';
+                document.getElementById("seq").style.display='none';
+                if(document.getElementById("method").value=='choose'){
+                    document.getElementById("sub").disabled=true;
+                    document.getElementById("can").disabled=true;
+                }
+                else{
+                    document.getElementById("sub").disabled=false;
+                    document.getElementById("can").disabled=false;
+                    document.getElementById(document.getElementById("method").value).style.display='block';
+//                console.log(document.getElementById("method").value);
+                }
+            }
         $(document).ready(function (){
             $('#jtable').jtable({
                 title:'PAC',
@@ -263,8 +356,9 @@
     
     <!--Step:2 引入echarts.js-->  
     <script src="src/dist/echarts.js"></script>  
-      
-    <script type="text/javascript">  
+    
+    <script type="text/javascript">         
+ 
     // Step:3 conifg ECharts's path, link to echarts.js from current page.  
     // Step:3 为模块加载器配置echarts的路径，从当前页面链接到echarts.js，定义所需图表路径  
     require.config({  
@@ -547,7 +641,7 @@
     </script>  
 </div>
     <?php
-        include './wheelmenu.php';
+//        include './wheelmenu.php';
         include './footer.php';
     ?>
 </body>
