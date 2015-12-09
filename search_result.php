@@ -436,6 +436,7 @@
                     </form>
                     <div style="clear:both;"></div>
             </div>
+
             <div id="jtable" style="clear: both;width: 100%;"></div>
             <link href="src/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
             <link href="src/jtable.css" rel="stylesheet" type="text/css" />
