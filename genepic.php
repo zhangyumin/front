@@ -149,10 +149,18 @@ and open the template in the editor.
             $rate=1000/$genelength;
             $i=1;
             $j=0;
+            $samples_name_array=array();
             $pa_table= mysql_query("select distinct PA_table from t_sample_desc where species='".$_GET['species']."';");
             while ($pa_table_row=  mysql_fetch_row($pa_table)){
+                //按表名搜出字段名
+                $pa_colname_result=  mysql_query("select PA_col from t_sample_desc where PA_table = '$pa_table_row[0]';");
+                while($pa_colname_row = mysql_fetch_row($pa_colname_result) ){
+                    array_push($samples_name_array, $pa_colname_row[0]);
+                }
+                $samples_name = implode(",", $samples_name_array);
+                //
                 $j++;
-                $pa_result=  mysql_query("select * from $pa_table_row[0] where chr='$chr' and coord>=$gene_start and coord<=$gene_end;");
+                $pa_result=  mysql_query("select chr,strand,coord,tot_tagnum,$samples_name from $pa_table_row[0] where chr='$chr' and coord>=$gene_start and coord<=$gene_end;");
                 while ($pa_row=  mysql_fetch_row($pa_result)){
                     if($j==1){
                         for($i=1;$i<=count($pa_row)-4;$i++){
@@ -185,7 +193,8 @@ and open the template in the editor.
 //                            var_dump($$pa_tagnum);
 //                        }
 //            }
-            $pac_result=  mysql_query("select * from t_".$_GET['species']."_pac where gene='$seq' order by coord;");
+            $pac_result=  mysql_query("select chr,strand,coord,tot_tagnum,ftr,ftr_start,ftr_end,transcript,gene,gene_type,UPA_start,UPA_end,tot_PAnum,ref_tagnum,$samples from t_".$_GET['species']."_pac where gene='$seq' order by coord;");
+//            var_dump($pac_result);
             while($pac_row=  mysql_fetch_row($pac_result)){
                 for($i=1;$i<=$num;$i++){
                     $pac_loc="pac_loc".$i;
