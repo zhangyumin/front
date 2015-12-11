@@ -48,20 +48,10 @@ and open the template in the editor.
             }
 //            var_dump($sample_selected);
             $sample=  mysql_query("select label from t_sample_desc where species='".$_GET['species']."';");
-            if(isset($_SESSION['sample'])&&$_GET['analysis']==1){
-                while ($sample_num=  mysql_fetch_row($sample)){
-                    if(in_array($sample_num[0], $sample_selected)){
-                        $num++; 
-                        array_push($samples,$sample_num[0]);
-                    }
-                }
-            }
-            else{
                 while ($sample_num=  mysql_fetch_row($sample)){
                     $num++;
                     array_push($samples,$sample_num[0]);
                 }
-            }
             //声明存储各个sample的loc,talbe,col和tagnum数组
             for($i=1;$i<=$num;$i++){
                 $pa_loc="pa_loc".$i;
