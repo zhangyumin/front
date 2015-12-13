@@ -165,7 +165,7 @@
             </fieldset>
     </div><br>
     <div class="filter" id="filter">
-            <button onclick="javascript:window.location.href='./download_data.php?type=4&name=<?php echo $c; ?>'">download trap result</button>
+            <button onclick="javascript:window.location.href='./download_data.php?type=4&name=<?php echo "PAC_".$_SESSION['file'].".txt"; ?>'">download trap result</button>
             <button onclick="locking()">export sequences</button>
             <form>
                 <input type="text" name="search" id="search" />
