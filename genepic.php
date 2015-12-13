@@ -54,13 +54,13 @@ and open the template in the editor.
                 array_push($samples,$sample_num[0]);
             }
             $statistics_sample=  mysql_query("select distinct lbl_group from t_sample_desc where species='".$_GET['species']."';");
-            while ($sample_num=  mysql_fetch_row($statistics_sample)){
-                array_push($statistics_samples,$statistics_sample_num[0]."sum");
-                array_push($statistics_samples,$statistics_sample_num[0]."average");
-                array_push($statistics_samples,$statistics_sample_num[0]."median");
+            while ($statistics_sample_num=  mysql_fetch_row($statistics_sample)){
+                array_push($statistics_samples,$statistics_sample_num[0]."_sum");
+                array_push($statistics_samples,$statistics_sample_num[0]."_average");
+                array_push($statistics_samples,$statistics_sample_num[0]."_median");
             }
             $statistics_num = count($statistics_samples);
-            var_dump($statistics_num);
+            var_dump($statistics_samples);
             //声明存储各个sample的loc,talbe,col和tagnum数组
             for($i=1;$i<=$num;$i++){
                 $pa_loc="pa_loc".$i;
@@ -395,6 +395,13 @@ and open the template in the editor.
                         echo "title(\"#000000\",\"$samples[$r]\",\"sample$i\");";
                         echo "yscale(\"sample$i\");";
                         echo "grid(\"sample$i\",\"sample\");";
+                    }
+                    for($i=1;$i<=$statistics_num;$i++){
+                        $r=$i-1;
+                        echo "line(\"statistics_sample$i\");";
+                        echo "title(\"#000000\",\"$statistics_samples[$r]\",\"statistics_sample$i\");";
+                        echo "yscale(\"statistics_sample$i\");";
+                        echo "grid(\"statistics_sample$i\",\"statistics_sample\");";
                     }
                     if($_GET['intergenic']==1)
                         echo "intergenic($strand,\"gene\");"
