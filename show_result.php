@@ -190,7 +190,7 @@
             </tr>
             <tr>
                 <td height="130" align="center">
-                    <form name="pac_export" method="post" action="export_seq.php?source=Search&species=<?php echo $species; ?>" target="_blank">
+                    <form name="pac_export" method="post" action="export_seq.php?source=PAC&species=<?php echo $_SESSION['species']; ?>" target="_blank">
                         method<select id="method" name="method" onchange="ChgMtd()">
                             <option value="choose">Please choose</option>
                             <option value="pacs">export sequences of PACs</option>
