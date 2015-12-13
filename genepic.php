@@ -715,28 +715,48 @@ and open the template in the editor.
         <div id="button" style="width:1000px">
             <input type="radio" name="display" value="origin" checked="checked" onchange="display()"/>origin
             <input type="radio" name="display" value="statistics" onchange="display()"/>statistics
-            <select id="method" disabled="true">
-                <option>Sum</option>
-                <option>Average</option>
-                <option>Median</option>
+            <select id="method" disabled="true" onchange="show()">
+                <option value="choose" selected="selected">Please choose</option>
+                <option value="sum">Sum</option>
+                <option value="avg">Average</option>
+                <option value="med">Median</option>
             </select>
         </div>
         <script>
             function display(){
                 var Slt = $('#button input[name="display"]:checked').val();
+                $('#method').val("choose");
                 if(Slt=='statistics'){
+                    $('#method').attr('disabled',false);
                     $('.origin').hide();
                     $('.sum').show();
                     $('.avg').show();
                     $('.med').show();
                 }
                 else{
+                    $('#method').attr('disabled',true);
                     $('.origin').show();
                     $('.sum').hide();
                     $('.avg').hide();
                     $('.med').hide();
                 }
-                
+            }
+            function show(){
+                var sta = $("#method  option:selected").val();
+                if(sta != 'choose'){
+                    $('.origin').hide();
+                    $('.sum').hide();
+                    $('.avg').hide();
+                    $('.med').hide();
+                    $('.'+sta).show();
+                }
+                else{
+                    $('.origin').hide();
+                    $('.sum').show();
+                    $('.avg').show();
+                    $('.med').show();
+                }
+                console.log(sta);
             }
         </script>
         <canvas id="gene" width="1000px;" height="150px;"></canvas><br>
