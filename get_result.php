@@ -162,6 +162,8 @@
             $cmd10="./src/perl/PAS_kcount.pl -seqdir \"./result/".$_SESSION['file']."/\" -pat \"".$_SESSION['file'].".PAT2$\" -k 6 -from 265 -to 290 -sort T -topn 50 -gap_once \"-1\" " ;
             $out10=  shell_exec($cmd10);
 //                echo"<pre>$out10</pre>";
+            //导出PAC列表
+            mysql_query("select * from db_user.PAC_".$_SESSION['file']." into outfile '/var/www/front/searched/PAC_".$_SESSION['file'].".txt'");
             
              #PAT导入jbrowse显示
              //shell_exec("cp ./data/".$_SESSION['file']."/$file_real[0].qc.fa.noT.fa.sam.M30S10.PA ./tojbrowse/pat.txt");//移动文件
