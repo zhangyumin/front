@@ -5,6 +5,7 @@ and open the template in the editor.
 -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
+        <script src="./src/jquery-1.10.1.min.js"></script>
         <?php
             $con=  mysql_connect("localhost","root","root");
             mysql_select_db("db_server",$con);
@@ -60,7 +61,7 @@ and open the template in the editor.
                 array_push($statistics_samples,$statistics_sample_num[0]."_median");
             }
             $statistics_num = count($statistics_samples);
-            var_dump($statistics_samples);
+//            var_dump($statistics_samples);
             //声明存储各个sample的loc,talbe,col和tagnum数组
             for($i=1;$i<=$num;$i++){
                 $pa_loc="pa_loc".$i;
@@ -710,18 +711,56 @@ and open the template in the editor.
             }
         </script>
     </head>
-    <body>
+    <body style="width:1000px">
+        <div id="button" style="width:1000px">
+            <input type="radio" name="display" value="origin" checked="checked" onchange="display()"/>origin
+            <input type="radio" name="display" value="statistics" onchange="display()"/>statistics
+            <select id="method" disabled="true">
+                <option>Sum</option>
+                <option>Average</option>
+                <option>Median</option>
+            </select>
+        </div>
+        <script>
+            function display(){
+                var Slt = $('#button input[name="display"]:checked').val();
+                if(Slt=='statistics'){
+                    $('.origin').hide();
+                    $('.sum').show();
+                    $('.avg').show();
+                    $('.med').show();
+                }
+                else{
+                    $('.origin').show();
+                    $('.sum').hide();
+                    $('.avg').hide();
+                    $('.med').hide();
+                }
+                
+            }
+        </script>
         <canvas id="gene" width="1000px;" height="150px;"></canvas><br>
         <canvas id='no_extend' width="1000px" height="150px;"></canvas><br>
         <?php
             for($i=1;$i<=$num;$i++){
                 if($i%2==0)
-                    echo "<canvas id=\"sample$i\" width=\"1000px; \" height=\"150px;\"></canvas><br>";
+                    echo "<canvas id=\"sample$i\" class=\"origin\" width=\"1000px; \" height=\"150px;\"></canvas>";
                 else
-                    echo "<canvas id=\"sample$i\" width=\"1000px; \" height=\"150px;\" style=\"background-color:#f1f1f1\"></canvas><br>";
+                    echo "<canvas id=\"sample$i\" class=\"origin\" width=\"1000px; \" height=\"150px;\" style=\"background-color:#f1f1f1\"></canvas>";
             }
-            for($i=1;$i<=$statistics_num;$i++){
-                 echo "<canvas id=\"statistics_sample$i\" width=\"1000px; \" height=\"150px;\"></canvas><br>";
+            for($i=1;$i<=$statistics_num;$i+=3){
+                $j = $i + 1;
+                $k = $i + 2;
+                if($i%2==0){
+                    echo "<canvas id=\"statistics_sample$i\" class=\"sum\" width=\"1000px; \" height=\"150px;\" style=\"display:none;\"></canvas>";
+                    echo "<canvas id=\"statistics_sample$j\" class=\"avg\" width=\"1000px; \" height=\"150px;\" style=\"display:none;\"></canvas>";
+                    echo "<canvas id=\"statistics_sample$k\" class=\"med\" width=\"1000px; \" height=\"150px;\" style=\"display:none;\"></canvas>";
+                }
+                else{
+                    echo "<canvas id=\"statistics_sample$i\" class=\"sum\" width=\"1000px; \" height=\"150px;\" style=\"background-color:#f1f1f1;display:none;\"></canvas>";
+                    echo "<canvas id=\"statistics_sample$j\" class=\"avg\" width=\"1000px; \" height=\"150px;\" style=\"background-color:#f1f1f1;display:none;\"></canvas>";
+                    echo "<canvas id=\"statistics_sample$k\" class=\"med\" width=\"1000px; \" height=\"150px;\" style=\"background-color:#f1f1f1;display:none;\"></canvas>";
+                }
             }
         ?>
     </body>
