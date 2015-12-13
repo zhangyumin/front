@@ -266,6 +266,16 @@ and open the template in the editor.
                     array_push($$pac_loc, $pac_row[2]);
                 }
             }
+            $statistics_samples_name = implode(",", $statistics_sum_samples_array);
+            $statistics_pac_result=  mysql_query("select coord,$statistics_samples_name from t_".$_GET['species']."_pac where gene='$seq' order by coord;");
+            while($statistics_pac_row=  mysql_fetch_row($statistics_pac_result)){
+                for($i=1;$i<=$statistics_num;$i++){
+                    $statistics_pac_loc="statistics_pac_loc".$i;
+                    $statistics_pac_tagnum="statistics_pac_tagnum".$i;
+                    array_push($$statistics_pac_tagnum, $statistics_pac_row[$i]);
+                    array_push($$statistics_pac_loc, $statistics_pac_row[0]);
+                }
+            }
         ?>
         <script type="text/javascript">
             <?php 
@@ -332,8 +342,8 @@ and open the template in the editor.
                     for($i=1;$i<=$statistics_num;$i++){
                         $statistics_pa_loc="statistics_pa_loc".$i;
                         $statistics_pa_tagnum="statistics_pa_tagnum".$i;
-//                        $pac_loc="statistics_pac_loc".$i;
-//                        $pac_tagnum="statistics_pac_tagnum".$i;
+                        $statistics_pac_loc="statistics_pac_loc".$i;
+                        $statistics_pac_tagnum="statistics_pac_tagnum".$i;
                         foreach ($$statistics_pa_tagnum as $key => $value) {
                             $loc=(${$statistics_pa_loc}[$key]-$gene_start)*$rate;
                             echo "pa($loc,$value,'statistics_sample$i');\n";
