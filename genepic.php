@@ -38,6 +38,7 @@ and open the template in the editor.
             $cds_start_org=array();
             $cds_end_org=array();
             $samples=array();
+            $statistics_samples=array();
             $sample_selected=array();
             $num=0;
             //读取sample个数和名称
@@ -52,6 +53,14 @@ and open the template in the editor.
                 $num++;
                 array_push($samples,$sample_num[0]);
             }
+            $statistics_sample=  mysql_query("select distinct lbl_group from t_sample_desc where species='".$_GET['species']."';");
+            while ($sample_num=  mysql_fetch_row($statistics_sample)){
+                array_push($statistics_samples,$statistics_sample_num[0]."sum");
+                array_push($statistics_samples,$statistics_sample_num[0]."average");
+                array_push($statistics_samples,$statistics_sample_num[0]."median");
+            }
+            $statistics_num = count($statistics_samples);
+            var_dump($statistics_num);
             //声明存储各个sample的loc,talbe,col和tagnum数组
             for($i=1;$i<=$num;$i++){
                 $pa_loc="pa_loc".$i;
@@ -62,6 +71,17 @@ and open the template in the editor.
                 $$pac_loc=array();
                 $pac_tagnum="pac_tagnum".$i;
                 $$pac_tagnum=array();
+            }
+            //声明存储各个sample的loc,talbe,col和tagnum数组(statistics)
+            for($i=1;$i<=$statistics_num;$i++){
+                $statistics_pa_loc="statistics_pa_loc".$i;
+                $$statistics_pa_loc=array();
+                $statistics_pa_tagnum="statistics_pa_tagnum".$i;
+                $$statistics_pa_tagnum=array();
+                $statistics_pac_loc="statistics_pac_loc".$i;
+                $$statistics_pac_loc=array();
+                $statistics_pac_tagnum="statistics_pac_tagnum".$i;
+                $$statistics_pac_tagnum=array();
             }
             $seq=$_GET['seq'];
             $chr=$_GET['chr'];
@@ -140,7 +160,7 @@ and open the template in the editor.
             $i=1;
             $j=0;
             $sum_samples_name_array=array();
-            $statistics_sum_samples_name_array=array();
+            $statistics_sum_samples_array=array();
             $pa_table= mysql_query("select distinct PA_table from t_sample_desc where species='".$_GET['species']."';");
             while ($pa_table_row=  mysql_fetch_row($pa_table)){
                 $samples_name_array=array();
@@ -155,19 +175,17 @@ and open the template in the editor.
                     array_push($samples_name_array, $pa_colname_row[0]);
                     array_push($sum_samples_name_array, $pa_colname_row[0]);
                     array_push($statistics_samples_name_array, $pa_colname_row[1]);
-                    array_push($statistics_sum_samples_name_array, $pa_colname_row[1]);
                 }
                 //普通PA位点数据
                 $samples_name = implode(",", $samples_name_array);
-                $pa_result=  mysql_query("select chr,strand,coord,tot_tagnum,$samples_name from $pa_table_row[0] where chr='$chr' and coord>=$gene_start and coord<=$gene_end;");
+                $pa_result=  mysql_query("select coord,$samples_name from $pa_table_row[0] where chr='$chr' and coord>=$gene_start and coord<=$gene_end;");
                 while ($pa_row=  mysql_fetch_row($pa_result)){
                     if($j==1){
-                        for($i=1;$i<=count($pa_row)-4;$i++){
+                        for($i=1;$i<=count($pa_row)-1;$i++){
                             $pa_loc="pa_loc".$i;
                             $pa_tagnum="pa_tagnum".$i;
-                            $r=$i+3;
-                            array_push($$pa_loc, $pa_row[2]);
-                            array_push($$pa_tagnum, $pa_row[$r]);
+                            array_push($$pa_loc, $pa_row[0]);
+                            array_push($$pa_tagnum, $pa_row[$i]);
 //                            var_dump($i);
                         }
                         $key=$i;
@@ -176,28 +194,66 @@ and open the template in the editor.
                         for($i=$key;$i<=$num;$i++){
                             $pa_loc="pa_loc".$i;
                             $pa_tagnum="pa_tagnum".$i;
-                            $r=$i-5;
-                            array_push($$pa_loc, $pa_row[2]);
+                            $r=$i-8;
+                            array_push($$pa_loc, $pa_row[0]);
                             array_push($$pa_tagnum, $pa_row[$r]);
 //                            var_dump($i);
                         }
                     }
                 }
                 //统计后PA位点数据
-                $statistics_samples_name_array=array_unique($statistics_samples_name_array);
-//                var_dump($statistics_samples_name_array);
+                $statistics_samples_array=array();
+                $statistics_samples_name_array = array_unique($statistics_samples_name_array);
+                foreach ($statistics_samples_name_array as $key1 => $value1) {
+                    array_push($statistics_samples_array, $value1."_sum");
+                    array_push($statistics_samples_array, $value1."_avg");
+                    array_push($statistics_samples_array, $value1."_med");
+                    array_push($statistics_sum_samples_array, $value1."_sum");
+                    array_push($statistics_sum_samples_array, $value1."_avg");
+                    array_push($statistics_sum_samples_array, $value1."_med");
+                }
+//                var_dump($statistics_sum_samples_array);
+                $statistics_samples_name = implode(",", $statistics_samples_array);
+                $statistics_pa_result=  mysql_query("select coord,$statistics_samples_name from $pa_table_row[0] where chr='$chr' and coord>=$gene_start and coord<=$gene_end;");
+                while ($statistics_pa_row=  mysql_fetch_row($statistics_pa_result)){
+                    if($j==1){
+                        for($i=1;$i<=count($statistics_pa_row)-1;$i++){
+                            $statistics_pa_loc="statistics_pa_loc".$i;
+                            $statistics_pa_tagnum="statistics_pa_tagnum".$i;
+                            array_push($$statistics_pa_loc, $statistics_pa_row[0]);
+                            array_push($$statistics_pa_tagnum, $statistics_pa_row[$i]);
+//                            var_dump($i);
+                        }
+                    }
+                    else if($j==2){
+                        for($i=$key;$i<=$statistics_num;$i++){
+                            $statistics_pa_loc="statistics_pa_loc".$i;
+                            $statistics_pa_tagnum="statistics_pa_tagnum".$i;
+                            array_push($$statistics_pa_loc, $statistics_pa_row[0]);
+                            array_push($$statistics_pa_tagnum, $statistics_pa_row[$i-9]);
+//                            var_dump($i);
+                        }
+                    }
+                }
             }
-            $statistics_sum_samples_name_array=array_unique($statistics_sum_samples_name_array);
 //            var_dump($statistics_sum_samples_name_array);
             
 //            for($i=1;$i<=$num;$i++){
 //                        $pa_loc="pa_loc".$i;
 //                        $pa_tagnum="pa_tagnum".$i;
-//                        if($i==1){
+//                        if($i==5){
 //                            var_dump($$pa_loc);
-//                            var_dump($$pa_tagnum);
+//                            var_dump($$pa_tagnum);  
 //                        }
 //            }
+//                for($i=1;$i<=count($statistics_sum_samples_array);$i++){
+//                  $pa_loc="statistics_pa_loc".$i;
+//                  $pa_tagnum="statistics_pa_tagnum".$i;
+//                  if($i==15){
+//                      var_dump($$statistics_pa_loc);
+//                      var_dump($$statistics_pa_tagnum);  
+//                  }
+//                }
             $sum_samples_name = implode(",", $sum_samples_name_array);
             $pac_result=  mysql_query("select chr,strand,coord,tot_tagnum,ftr,ftr_start,ftr_end,transcript,gene,gene_type,UPA_start,UPA_end,tot_PAnum,ref_tagnum,$sum_samples_name from t_".$_GET['species']."_pac where gene='$seq' order by coord;");
 //            var_dump($pac_result);
@@ -271,6 +327,20 @@ and open the template in the editor.
                         foreach ($$pac_tagnum as $key => $value) {
                             $loc=(${$pac_loc}[$key]-$gene_start)*$rate;
                             echo "pac($loc,$value,'sample$i');\n";
+                        }
+                    }
+                    for($i=1;$i<=$statistics_num;$i++){
+                        $statistics_pa_loc="statistics_pa_loc".$i;
+                        $statistics_pa_tagnum="statistics_pa_tagnum".$i;
+//                        $pac_loc="statistics_pac_loc".$i;
+//                        $pac_tagnum="statistics_pac_tagnum".$i;
+                        foreach ($$statistics_pa_tagnum as $key => $value) {
+                            $loc=(${$statistics_pa_loc}[$key]-$gene_start)*$rate;
+                            echo "pa($loc,$value,'statistics_sample$i');\n";
+                        }
+                        foreach ($$statistics_pac_tagnum as $key => $value) {
+                            $loc=(${$statistics_pac_loc}[$key]-$gene_start)*$rate;
+                            echo "pac($loc,$value,'statistics_sample$i');\n";
                         }
                     }
                     //非extend部分
@@ -632,6 +702,9 @@ and open the template in the editor.
                     echo "<canvas id=\"sample$i\" width=\"1000px; \" height=\"150px;\"></canvas><br>";
                 else
                     echo "<canvas id=\"sample$i\" width=\"1000px; \" height=\"150px;\" style=\"background-color:#f1f1f1\"></canvas><br>";
+            }
+            for($i=1;$i<=$statistics_num;$i++){
+                 echo "<canvas id=\"statistics_sample$i\" width=\"1000px; \" height=\"150px;\"></canvas><br>";
             }
         ?>
     </body>
