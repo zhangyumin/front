@@ -712,7 +712,7 @@ and open the template in the editor.
         </script>
     </head>
     <body style="width:1000px">
-        <div id="button" style="width:1000px">
+        <div id="button" style="width:1000px;">
             <input type="radio" name="display" value="origin" checked="checked" onchange="display()"/>origin
             <input type="radio" name="display" value="statistics" onchange="display()"/>statistics
             <select id="method" disabled="true" onchange="show()">
