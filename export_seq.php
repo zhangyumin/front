@@ -16,6 +16,8 @@
         $file=$_SESSION['search'];
     else if($source=='Analysis')
         $file=$_SESSION['analysis'];
+    else if($source=='PAC')
+        $file=$_SESSION['file'];
 //    $file=$_SESSION['file'];
     $table="db_user.".$source."_".$file;
     $upstream=$_POST['upstream'];
