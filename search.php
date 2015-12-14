@@ -250,7 +250,7 @@ and open the template in the editor.
                             <td>poly(A) sites from leaf, seed, and root tissues of WT and Oxt6 mutant by poly(A) tag sequencing</td>
                             <td>Wu et al. PNAS, 2011; Thomas et al. Plant Cell, 2012; Liu et al. PloS One, 2014</td>                     
                             <td>
-                                <a target="_blank" href="../jbrowse/?data=data/arabidopsis">
+                                <a target="_blank" href="../jbrowse/?data=data/arab">
                                     <span title="Browse polyA sites in Jbrowse" style="background-color:#0066cc;color: #FFFFFF">Chr</span>
                                 </a>
                             </td>
