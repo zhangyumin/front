@@ -350,7 +350,7 @@
                                     </div>
                                     <div class="ym-clearfix"></div>
                                     <div class="box info additonal">   
-                                        <a class="ym-button ym-add flip">Addtional Options</a>
+                                        <a class="ym-button ym-add flip">Additional Options</a>
                                     
                                         <div id="search">
                                             <div class="box info ym-form">
@@ -598,7 +598,7 @@
                                     </div>
                                     <div class="ym-clearfix"></div>
                                     <div class="box info additonal">   
-                                        <a class="ym-button ym-add flip">Addtional Options</a>
+                                        <a class="ym-button ym-add flip">Additional Options</a>
                                         <div id="search">
                                             <div class="box info ym-form">
                                             <div class="ym-grid ym-fbox">
@@ -840,7 +840,7 @@
                                         </div>
                                     <div class="ym-clearfix"></div>
                                     <div class="box info additonal">   
-                                        <a class="ym-button ym-add flip">Addtional Options</a>
+                                        <a class="ym-button ym-add flip">Additional Options</a>
                                         <div id="search">
                                             <div class="box info ym-form">
                                             <div class="ym-grid ym-fbox">
@@ -1095,7 +1095,7 @@
                                     </div>
                                     <div class="ym-clearfix"></div>
                                     <div class="box info additonal">   
-                                        <a class="ym-button ym-add flip">Addtional Options</a>
+                                        <a class="ym-button ym-add flip">Additional Options</a>
                                         <div id="search">
                                             <div class="box info ym-form">
                                                 <div class="ym-grid ym-fbox">
