@@ -165,7 +165,7 @@
                     $go_sysQry.=" goid in ('";
                     $go_sysQry.=implode("','", $go_id);
                     $go_sysQry.="')";
-             }
+                }
                     $go_sysQry.=";";
                     $go_sysQry_result=mysql_query($go_sysQry);
                     while($go_sysQry_row=  mysql_fetch_row($go_sysQry_result))
