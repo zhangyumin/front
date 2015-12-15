@@ -151,7 +151,10 @@
                                                         <div id="sample1" style="width:50%;margin:auto;">
                                                             <label for="all1">Sample 1</label><br>
                                                                 <?php
-                                                                $sys_sample=array();
+                                                                    $sys_sample_arab=array();
+                                                                    $sys_sample_japonica=array();
+                                                                    $sys_sample_mtr=array();
+                                                                    $sys_sample_chlamy=array();
                                                                     //arab
                                                                     $i=1;
                                                                     $mysql_arab=mysql_query("select distinct PA_col from t_sample_desc where species='arab';");
@@ -160,10 +163,9 @@
                                                                     {
                                                                         echo "<input type=\"checkbox\" id=a1$i name=sample1[] value=$arab_row[0] onclick=\"ClickOption(this,'b1$i')\">$arab_row[0]<br>";
                                                                         $i++;
-                                                                        array_push($sys_sample, $arab_row[0]);
+                                                                        array_push($sys_sample_arab, $arab_row[0]);
                                                                     }
-                                                                    $_SESSION['sys_real_arab']=$sys_sample;
-                                                                    unset($sys_sample);
+                                                                    $_SESSION['sys_real_arab']=$sys_sample_arab;
                                                                     if($_SESSION['species']=='arab'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
@@ -180,10 +182,9 @@
                                                                     {
                                                                         echo "<input type=\"checkbox\" id=a2$i name=sample1[] value=$japonica_row[0] onclick=\"ClickOption(this,'b2$i')\">$japonica_row[0]<br>";
                                                                         $i++;
-                                                                        array_push($sys_sample, $japonica_row[0]);
+                                                                        array_push($sys_sample_japonica, $japonica_row[0]);
                                                                     }
-                                                                    $_SESSION['sys_real_japonica']=$sys_sample;
-                                                                    unset($sys_sample);
+                                                                    $_SESSION['sys_real_japonica']=$sys_sample_japonica;
                                                                     if($_SESSION['species']=='japonica'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
@@ -200,10 +201,9 @@
                                                                     {
                                                                         echo "<input type=\"checkbox\" id=a3$i name=sample1[] value=$mtr_row[0] onclick=\"ClickOption(this,'b3$i')\">$mtr_row[0]<br>";
                                                                         $i++;
-                                                                        array_push($sys_sample, $mtr_row[0]);
+                                                                        array_push($sys_sample_mtr, $mtr_row[0]);
                                                                     }
-                                                                    $_SESSION['sys_real_mtr']=$sys_sample;
-                                                                    unset($sys_sample);
+                                                                    $_SESSION['sys_real_mtr']=$sys_sample_mtr;
                                                                     if($_SESSION['species']=='mtr'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
@@ -220,10 +220,9 @@
                                                                     {
                                                                         echo "<input type=\"checkbox\" id=a4$i name=sample1[] value=$chlamy_row[0] onclick=\"ClickOption(this,'b4$i')\">$chlamy_row[0]<br>";
                                                                         $i++;
-                                                                        array_push($sys_sample, $chlamy_row[0]);
+                                                                        array_push($sys_sample_chlamy, $chlamy_row[0]);
                                                                     }
-                                                                    $_SESSION['sys_real_chlamy']=$sys_sample;
-                                                                    unset($sys_sample);
+                                                                    $_SESSION['sys_real_chlamy']=$sys_sample_chlamy;
                                                                     if($_SESSION['species']=='chlamy'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
@@ -405,7 +404,6 @@
                                                         <div id="sample3" style="width:50%;margin:auto;">
                                                             <label for="all1">Sample 1</label><br>
                                                                 <?php
-                                                                $sys_sample=array();
                                                                     //arab
                                                                     $i=1;
                                                                     $mysql_arab=mysql_query("select distinct PA_col from t_sample_desc where species='arab';");
@@ -414,9 +412,7 @@
                                                                     {
                                                                         echo "<input type=\"checkbox\" id=c1$i name=sample1[] value=$arab_row[0] onclick=\"ClickOption(this,'d1$i')\">$arab_row[0]<br>";
                                                                         $i++;
-                                                                        array_push($sys_sample, $arab_row[0]);
                                                                     }
-                                                                    $_SESSION['sys_real_arab']=$sys_sample;
                                                                     unset($sys_sample);
                                                                     if($_SESSION['species']=='arab'){
                                                                         $j=1;
@@ -434,10 +430,7 @@
                                                                     {
                                                                         echo "<input type=\"checkbox\" id=c2$i name=sample1[] value=$japonica_row[0] onclick=\"ClickOption(this,'d2$i')\">$japonica_row[0]<br>";
                                                                         $i++;
-                                                                        array_push($sys_sample, $japonica_row[0]);
                                                                     }
-                                                                    $_SESSION['sys_real_japonica']=$sys_sample;
-                                                                    unset($sys_sample);
                                                                     if($_SESSION['species']=='japonica'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
@@ -454,10 +447,7 @@
                                                                     {
                                                                         echo "<input type=\"checkbox\" id=c3$i name=sample1[] value=$mtr_row[0] onclick=\"ClickOption(this,'d3$i')\">$mtr_row[0]<br>";
                                                                         $i++;
-                                                                        array_push($sys_sample, $mtr_row[0]);
                                                                     }
-                                                                    $_SESSION['sys_real_mtr']=$sys_sample;
-                                                                    unset($sys_sample);
                                                                     if($_SESSION['species']=='mtr'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
@@ -474,10 +464,7 @@
                                                                     {
                                                                         echo "<input type=\"checkbox\" id=c4$i name=sample1[] value=$chlamy_row[0] onclick=\"ClickOption(this,'d4$i')\">$chlamy_row[0]<br>";
                                                                         $i++;
-                                                                        array_push($sys_sample, $chlamy_row[0]);
                                                                     }
-                                                                    $_SESSION['sys_real_chlamy']=$sys_sample;
-                                                                    unset($sys_sample);
                                                                     if($_SESSION['species']=='chlamy'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
@@ -661,10 +648,7 @@
                                                                         {
                                                                             echo "<input type=\"checkbox\" id=e1$i name=sample1[] value=$arab_row[0] onclick=\"ClickOption(this,'f1$i')\">$arab_row[0]<br>";
                                                                             $i++;
-                                                                            array_push($sys_sample, $arab_row[0]);
                                                                         }
-                                                                        $_SESSION['sys_real_arab']=$sys_sample;
-                                                                        unset($sys_sample);
                                                                         if($_SESSION['species']=='arab'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
@@ -681,10 +665,7 @@
                                                                         {
                                                                             echo "<input type=\"checkbox\" id=e2$i name=sample1[] value=$japonica_row[0] onclick=\"ClickOption(this,'f2$i')\">$japonica_row[0]<br>";
                                                                             $i++;
-                                                                            array_push($sys_sample, $japonica_row[0]);
                                                                         }
-                                                                        $_SESSION['sys_real_japonica']=$sys_sample;
-                                                                        unset($sys_sample);
                                                                         if($_SESSION['species']=='japonica'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
@@ -701,10 +682,7 @@
                                                                         {
                                                                             echo "<input type=\"checkbox\" id=e3$i name=sample1[] value=$mtr_row[0] onclick=\"ClickOption(this,'f3$i')\">$mtr_row[0]<br>";
                                                                             $i++;
-                                                                            array_push($sys_sample, $mtr_row[0]);
                                                                         }
-                                                                        $_SESSION['sys_real_mtr']=$sys_sample;
-                                                                        unset($sys_sample);
                                                                         if($_SESSION['species']=='mtr'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
@@ -721,10 +699,7 @@
                                                                         {
                                                                             echo "<input type=\"checkbox\" id=e4$i name=sample1[] value=$chlamy_row[0] onclick=\"ClickOption(this,'f4$i')\">$chlamy_row[0]<br>";
                                                                             $i++;
-                                                                            array_push($sys_sample, $chlamy_row[0]);
                                                                         }
-                                                                        $_SESSION['sys_real_chlamy']=$sys_sample;
-                                                                        unset($sys_sample);
                                                                         if($_SESSION['species']=='chlamy'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
@@ -903,10 +878,7 @@
                                                                     {
                                                                         echo "<input type=\"checkbox\" id=g1$i name=sample1[] value=$arab_row[0] onclick=\"ClickOption(this,'h1$i')\">$arab_row[0]<br>";
                                                                         $i++;
-                                                                        array_push($sys_sample, $arab_row[0]);
                                                                     }
-                                                                    $_SESSION['sys_real_arab']=$sys_sample;
-                                                                    unset($sys_sample);
                                                                     if($_SESSION['species']=='arab'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
@@ -923,10 +895,7 @@
                                                                     {
                                                                         echo "<input type=\"checkbox\" id=g2$i name=sample1[] value=$japonica_row[0] onclick=\"ClickOption(this,'h2$i')\">$japonica_row[0]<br>";
                                                                         $i++;
-                                                                        array_push($sys_sample, $japonica_row[0]);
                                                                     }
-                                                                    $_SESSION['sys_real_japonica']=$sys_sample;
-                                                                    unset($sys_sample);
                                                                     if($_SESSION['species']=='japonica'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
@@ -943,10 +912,7 @@
                                                                     {
                                                                         echo "<input type=\"checkbox\" id=g3$i name=sample1[] value=$mtr_row[0] onclick=\"ClickOption(this,'h3$i')\">$mtr_row[0]<br>";
                                                                         $i++;
-                                                                        array_push($sys_sample, $mtr_row[0]);
                                                                     }
-                                                                    $_SESSION['sys_real_mtr']=$sys_sample;
-                                                                    unset($sys_sample);
                                                                     if($_SESSION['species']=='mtr'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
@@ -963,10 +929,7 @@
                                                                     {
                                                                         echo "<input type=\"checkbox\" id=g4$i name=sample1[] value=$chlamy_row[0] onclick=\"ClickOption(this,'h4$i')\">$chlamy_row[0]<br>";
                                                                         $i++;
-                                                                        array_push($sys_sample, $chlamy_row[0]);
                                                                     }
-                                                                    $_SESSION['sys_real_chlamy']=$sys_sample;
-                                                                    unset($sys_sample);
                                                                     if($_SESSION['species']=='chlamy'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
