@@ -202,6 +202,7 @@ and open the template in the editor.
                         }
                     }
                 }
+//                var_dump($samples_name);
                 //统计后PA位点数据
                 $statistics_samples_array=array();
                 $statistics_samples_name_array = array_unique($statistics_samples_name_array);
@@ -756,7 +757,7 @@ and open the template in the editor.
                     $('.avg').show();
                     $('.med').show();
                 }
-                console.log(sta);
+//                console.log(sta);
             }
         </script>
         <canvas id="gene" width="1000px;" height="150px;"></canvas><br>
