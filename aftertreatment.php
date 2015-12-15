@@ -108,7 +108,7 @@
                        $sysQry.=");";
                $query_result=mysql_query($sysQry);
              }
-             file_put_contents("/var/www/front/searched/test.txt",$sysQry);
+//             file_put_contents("/var/www/front/searched/test.txt",$sysQry);
     }
     //如果有$_session['file'],则上传处理过数据.
     else{
@@ -213,7 +213,7 @@
              }
              $merge="./src/perl/PAT_mergePAC.pl -smptbls 'usrQryPAC_".$_SESSION['analysis'].";sysQryPAC_".$_SESSION['analysis']."' -reftbl usrQryPAC_".$_SESSION['analysis']." -smpcols '".implode(':',$_SESSION['file_real'] ).";".implode(':', $_SESSION['sys_real'])."' -smplbls '".implode(':',$_SESSION['file_real'] ).";".implode(':', $_SESSION['sys_real'])."' -otbl SearchedPAC_".$_SESSION['analysis']." -udist 24 -conf ./src/r/db_2.xml";
 //             file_put_contents("/var/www/front/searched/test.txt","1".$_SESSION['sys_real_arab']."2".$_SESSION['sys_real_chlamy']."3".$_SESSION['sys_real_japonica']."4".$_SESSION['sys_real_mtr']);
-            file_put_contents("/var/www/front/searched/test.txt",$sysQry."\n".$usrQry);
+//            file_put_contents("/var/www/front/searched/test.txt",$sysQry."\n".$usrQry);
              shell_exec($merge);
         }
     if($_GET['method']=='degene'){
