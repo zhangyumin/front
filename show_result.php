@@ -328,9 +328,7 @@
                             echo $value.":{
                                 title:'$value',
                                 edit:false
-                                }";
-                            if($key!=count($_SESSION['file_real'])-1)
-                                    echo ",";
+                                },";
                      }
                      ?>
                 }
