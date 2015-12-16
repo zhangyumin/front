@@ -174,7 +174,7 @@ and open the template in the editor.
                         </div>
                         <div class="ym-grid ym-fbox">    
                             <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
-                            <textarea style="width:100%" name="gene_id"></textarea><br>
+                            <textarea style="width:100%" name="gene_id"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
                             <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
