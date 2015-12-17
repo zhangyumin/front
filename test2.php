@@ -1,7 +1,8 @@
 <?php
-    $a = array();
-    for($i = 0; $i < 15; $i+=2){
-        $a[$i] = $i;
+    $con=  mysql_connect("localhost","root","root");
+    mysql_select_db("db_server",$con);
+    $sql = mysql_query("select * from t_arab_pa1 where coord = 352");
+    while($array = mysql_fetch_array($sql)){
+        var_dump($array);
     }
-    var_dump($a);
 ?>
