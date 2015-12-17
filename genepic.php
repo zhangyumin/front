@@ -41,29 +41,6 @@ and open the template in the editor.
             $amb_end_org=array();
             $cds_start_org=array();
             $cds_end_org=array();
-            //读取数据库 存储物种的pa_table,pa_col和group数据
-            $group = array();
-            $patable = array();
-            $pacol = array();
-            $table = mysql_query("select lbl_group,PA_col,PA_table from t_sample_desc where species = '".$_GET['species']."'");
-            while($table_row = mysql_fetch_row($table)){
-                array_push($group, $table_row[0]);
-                array_push($pacol, $table_row[1]);
-                array_push($patable, $table_row[2]);
-            }
-            $patable = array_unique($patable);
-            $num = count($pacol);#sample的个数
-            //声明存储各个sample的数组，包括PA和PAC
-            for($i=1;$i<=$num;$i++){
-                $pa="pa".$i;
-                $$pa=array();
-                $pac="pac".$i;
-                $$pac=array();
-            }
-            foreach ($patable as $key => $value) {
-                
-            }
-            
             
             //各部分坐标推入数组
             //非延长
@@ -136,6 +113,53 @@ and open the template in the editor.
             }
             $genelength=$gene_end-$gene_start;
             $rate=1000/$genelength;
+            
+            
+            //读取数据库 存储物种的pa_table,pa_col和group数据
+            $group = array();
+            $patable = array();
+            $pacol = array();
+            $table = mysql_query("select lbl_group,PA_col,PA_table from t_sample_desc where species = '".$_GET['species']."'");
+            while($table_row = mysql_fetch_array($table)){
+                array_push($group, $table_row['lbl_group']);
+                array_push($pacol, $table_row['PA_col']);
+                array_push($patable, $table_row['PA_table']);
+            }
+            $patable = array_unique($patable);
+//            var_dump($patable);
+            $num = count($pacol);#sample的个数
+            //声明存储各个sample的数组，包括PA和PAC
+            for($i=1;$i<=$num;$i++){
+                $pa="pa".$i;
+                $$pa=array();
+                $pac="pac".$i;
+                $$pac=array();
+            }
+            //循环读取$patable 查询数据库并存储pa数据
+            foreach ($patable as $key => $value) {
+                $tmp_pa = mysql_query("select * from $value where chr='$chr' and coord>=$gene_start and coord<=$gene_end;");
+                while($tmp_pa_row = mysql_fetch_row($tmp_pa)){
+                    if($key==0){
+                        for($i=1;$i<=count($tmp_pa_row)-3;$i++){
+                            $pa="pa".$i;
+                            $$pa[$tmp_pa_row[2]] = $tmp_pa_row[$i+4];
+                        }
+                        $continue = $i;
+                    }
+                    else if($key==1){
+                        for($i=$continue;$i<=$num;$i++){
+                            $pa="pa".$i;
+                            $$pa[$tmp_pa_row[2]] = $tmp_pa_row[$i+4];
+                        }
+                    }
+                }
+            }
+            for($i=1;$i<=$num;$i++){
+                $pa="pa".$i;
+                if($i==1){
+                    var_dump($$pa);
+                }
+            }
         ?>
         <script type="text/javascript">
             <?php 
