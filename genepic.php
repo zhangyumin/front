@@ -39,11 +39,15 @@ and open the template in the editor.
             $cds_start_org=array();
             $cds_end_org=array();
             $num=0;
-            //读取sample个数和名称
-            foreach ($_SESSION['sample'] as $key => $value){
-                $array_sample=  explode("_", $value);
-                $sam=  implode(" ", $array_sample);
-                array_push($sample_selected,$sam);
+            //读取数据库 存储物种的pa_table,pa_col和group数据
+            $group = array();
+            $patable = array();
+            $pacol = array();
+            $table = mysql_query("select lbl_group,PA_col,PA_table from t_sample_desc where species = '".$_GET['species']."'");
+            while($table_row = mysql_fetch_row($table)){
+                array_push($group, $table_row[0]);
+                array_push($pacol, $table_row[1]);
+                array_push($patable, $table_row[2]);
             }
             //声明存储各个sample的loc,talbe,col和tagnum数组
             for($i=1;$i<=$num;$i++){
