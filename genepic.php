@@ -10,6 +10,9 @@ and open the template in the editor.
             $con=  mysql_connect("localhost","root","root");
             mysql_select_db("db_server",$con);
             session_start();
+            $seq=$_GET['seq'];
+            $chr=$_GET['chr'];
+            $strand=$_GET['strand'];
             $ftr_start=array();
             $ftr_end=array();
             $sutr_start=array();
@@ -38,7 +41,6 @@ and open the template in the editor.
             $amb_end_org=array();
             $cds_start_org=array();
             $cds_end_org=array();
-            $num=0;
             //读取数据库 存储物种的pa_table,pa_col和group数据
             $group = array();
             $patable = array();
@@ -49,20 +51,20 @@ and open the template in the editor.
                 array_push($pacol, $table_row[1]);
                 array_push($patable, $table_row[2]);
             }
-            //声明存储各个sample的loc,talbe,col和tagnum数组
+            $patable = array_unique($patable);
+            $num = count($pacol);#sample的个数
+            //声明存储各个sample的数组，包括PA和PAC
             for($i=1;$i<=$num;$i++){
-                $pa_loc="pa_loc".$i;
-                $$pa_loc=array();
-                $pa_tagnum="pa_tagnum".$i;
-                $$pa_tagnum=array();
-                $pac_loc="pac_loc".$i;
-                $$pac_loc=array();
-                $pac_tagnum="pac_tagnum".$i;
-                $$pac_tagnum=array();
+                $pa="pa".$i;
+                $$pa=array();
+                $pac="pac".$i;
+                $$pac=array();
             }
-            $seq=$_GET['seq'];
-            $chr=$_GET['chr'];
-            $strand=$_GET['strand'];
+            foreach ($patable as $key => $value) {
+                
+            }
+            
+            
             //各部分坐标推入数组
             //非延长
             $result_org= mysql_query("select * from t_".$_GET['species']."_gff_org where gene='$seq' order by ftr_end;");
