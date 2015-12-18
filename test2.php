@@ -1,8 +1,5 @@
 <?php
-    $con=  mysql_connect("localhost","root","root");
-    mysql_select_db("db_server",$con);
-    $sql = mysql_query("select * from t_arab_pa1 where coord = 352");
-    while($array = mysql_fetch_array($sql)){
-        var_dump($array);
-    }
+    $a = array('0'=>'2','1'=>'4','3'=>'8','a'=>'100');
+    $b = array('0'=>'5','2'=>'4','b'=>'33','a'=>'22');
+    var_dump($a+$b);
 ?>
