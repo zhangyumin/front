@@ -13,6 +13,7 @@ and open the template in the editor.
             $seq=$_GET['seq'];
             $chr=$_GET['chr'];
             $strand=$_GET['strand'];
+            $species = $_GET['species'];
             $ftr_start=array();
             $ftr_end=array();
             $sutr_start=array();
@@ -119,13 +120,15 @@ and open the template in the editor.
             $group = array();
             $patable = array();
             $pacol = array();
-            $table = mysql_query("select lbl_group,PA_col,PA_table from t_sample_desc where species = '".$_GET['species']."'");
+            $table = mysql_query("select lbl_group,PA_col,PA_table from t_sample_desc where species = '$species'");
             while($table_row = mysql_fetch_array($table)){
                 array_push($group, $table_row['lbl_group']);
                 array_push($pacol, $table_row['PA_col']);
                 array_push($patable, $table_row['PA_table']);
             }
+            //去除重复并重新排列
             $patable = array_unique($patable);
+            $patable = array_merge($patable);
 //            var_dump($patable);
             $num = count($pacol);#sample的个数
             //声明存储各个sample的数组，包括PA和PAC
@@ -140,26 +143,42 @@ and open the template in the editor.
                 $tmp_pa = mysql_query("select * from $value where chr='$chr' and coord>=$gene_start and coord<=$gene_end;");
                 while($tmp_pa_row = mysql_fetch_row($tmp_pa)){
                     if($key==0){
-                        for($i=1;$i<=count($tmp_pa_row)-3;$i++){
+                        for($i=1;$i<=count($tmp_pa_row)-4;$i++){
                             $pa="pa".$i;
-                            $$pa[$tmp_pa_row[2]] = $tmp_pa_row[$i+4];
+                            ${$pa}[$tmp_pa_row[2]] = $tmp_pa_row[$i+3];
                         }
                         $continue = $i;
                     }
                     else if($key==1){
                         for($i=$continue;$i<=$num;$i++){
                             $pa="pa".$i;
-                            $$pa[$tmp_pa_row[2]] = $tmp_pa_row[$i+4];
+                            ${$pa}[$tmp_pa_row[2]] = $tmp_pa_row[$i-5];
                         }
                     }
                 }
             }
-            for($i=1;$i<=$num;$i++){
-                $pa="pa".$i;
-                if($i==1){
-                    var_dump($$pa);
-                }
+//            PA数据测试
+//            for($i=1;$i<=$num;$i++){
+//                $pa="pa".$i;
+//                if($i==13){
+//                    var_dump($$pa);
+//                }
+//            }
+            //读取pac数据并存入数组
+            $tmp_pac = mysql_query("select * from t_".$species."_pac where gene = '$seq'");
+            while($tmp_pac_row = mysql_fetch_row($tmp_pac)){
+                for($i=1;$i<=$num;$i++){
+                            $pac="pac".$i;
+                            ${$pac}[$tmp_pac_row[2]] = $tmp_pac_row[$i+13];
+                        }
             }
+//            PAC数据测试
+//            for($i=1;$i<=$num;$i++){
+//                $pac="pac".$i;
+//                if($i==14){
+//                    var_dump($$pac);
+//                }
+//            }
         ?>
         <script type="text/javascript">
             <?php 
