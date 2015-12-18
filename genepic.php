@@ -191,10 +191,6 @@ and open the template in the editor.
                 for($i = 1;$i <= $num; $i++){
                     if($group[$i-1] == $value){#group是从0开始
                         $j++;
-//                        foreach (${"pa".$i} as $key1 => $value1){
-////                            array_push($tmp[$value][$key1], $value1);
-//                            
-//                        }
                         $tmp[$value][$j] = ${"pa".($i-1)};
                     }
                 }
