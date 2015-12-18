@@ -270,6 +270,18 @@ and open the template in the editor.
                         $end=($amb_end_org[$key]-$gene_start)*$rate;
                         echo "amb($start,$end,$st,$en,$strand,'no_extend');\n";
                     }
+                    for($i=1;$i<=$num;$i++){
+                        $pa="pa".$i;
+                        $pac="pac".$i;
+                        foreach ($$pa as $key1 => $value1) {
+                            $loc=($key1-$gene_start)*$rate;
+                            echo "pa($loc,$value1,'sample$i');\n";
+                        }
+                        foreach ($$pac as $key2 => $value2) {
+                            $loc=($key2-$gene_start)*$rate;
+                            echo "pac($loc,$value2,'sample$i');\n";
+                        }
+                    }
                 ?>
                 arrow("gene",<?php echo $_GET['strand'];?>);
                 shorten_arrow("no_extend",<?php echo ($gene_start_org-$gene_start)*$rate;?>,<?php echo ($gene_end_org-$gene_start)*$rate;?>,<?php echo $_GET['strand'];?>);
