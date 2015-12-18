@@ -126,7 +126,7 @@ and open the template in the editor.
                 array_push($pacol, $table_row['PA_col']);
                 array_push($patable, $table_row['PA_table']);
             }
-            //去除重复并重新排列
+            //patable去除重复并重新排列
             $patable = array_unique($patable);
             $patable = array_merge($patable);
 //            var_dump($patable);
@@ -179,6 +179,28 @@ and open the template in the editor.
 //                    var_dump($$pac);
 //                }
 //            }
+            
+            //group处理
+            $tmp = array();#临时用于存储的三维数组
+            //声明每个group的总和，均值，中位数数组
+            foreach (array_unique($group) as $key => $value) {
+                ${$value."_sum"} = array();
+                ${$value."_avg"} = array();
+                ${$value."_med"} = array();
+                $j = 0;
+                for($i = 1;$i <= $num; $i++){
+                    if($group[$i-1] == $value){#group是从0开始
+                        $j++;
+//                        foreach (${"pa".$i} as $key1 => $value1){
+////                            array_push($tmp[$value][$key1], $value1);
+//                            
+//                        }
+                        $tmp[$value][$j] = ${"pa".($i-1)};
+                    }
+                }
+            }
+//            var_dump($group);
+//            var_dump($tmp);
         ?>
         <script type="text/javascript">
             <?php 
