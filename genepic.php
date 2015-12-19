@@ -186,18 +186,51 @@ and open the template in the editor.
                 ${$value."_sum"} = array();
                 ${$value."_avg"} = array();
                 ${$value."_med"} = array();
-                $tmp = array();#临时用于存储的数组
-                $group_key=array();#用于存储本组所有的下标key值
+                $group_key=array();#用于存储本组所有的下标key值,也就是coord坐标
                 $group_member = array();#用于存储同组成员的编号$i
                 for($i = 1;$i <= $num; $i++){
                     if($group[$i-1] == $value){#group是从0开始
                         array_push($group_member, $i);
                     }
                 }
+                //遍历同group所有成员来获得本组的所有coord值
                 foreach ($group_member as $key1 => $value1) {
                         $group_key = $group_key + ${"pa".$value1};
                 }
+                //遍历coord值
+                foreach ($group_key as $key2 => $value2) {
+                    $sum_tmp = 0;
+                    $avg_tmp = 0;
+                    $med_tmp = 0;
+                    $tmp = array();#临时用于存储的数组
+                    foreach ($group_member as $key3 => $value3) {
+                        if(array_key_exists($key2, ${"pa".$value3})){
+                            array_push($tmp, ${"pa".$value3}[$key2]);
+                        }
+                        else{
+                            array_push($tmp,0);
+                        }
+                    }
+                    sort($tmp);//从小到大排列$tmp
+                    $num_tmp = count($tmp);#统计同group下sample的个数
+                    foreach ($tmp as $key4 => $value4) {
+                        $sum_tmp = $sum_tmp + $value4;
+                    }
+                    $avg_tmp = $sum_tmp / $num_tmp;
+                    $avg_tmp = number_format($avg_tmp,1,".","");
+                    if($num_tmp % 2 == 1){
+                        $med_tmp = $tmp[round($num_tmp/2)-1];
+                    }
+                    else{
+                        $med_tmp = ($tmp[$num_tmp/2]+$tmp[$num_tmp/2-1])/2;
+                    }
+                    $med_tmp = number_format($med_tmp,1,".","");
+                    ${$value."_sum"}[$key2] = $sum_tmp;
+                    ${$value."_avg"}[$key2] = $avg_tmp;
+                    ${$value."_med"}[$key2] = $med_tmp;
+                }
             }
+//            var_dump($wt_leaf_med);
         ?>
         <script type="text/javascript">
             <?php 
