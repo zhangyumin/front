@@ -191,12 +191,10 @@ and open the template in the editor.
                 for($i = 1;$i <= $num; $i++){
                     if($group[$i-1] == $value){#group是从0开始
                         $j++;
-                        $tmp[$value][$j] = ${"pa".($i-1)};
+                        $tmp[$value][$j] = ${"pa".$i};
                     }
                 }
             }
-//            var_dump($group);
-//            var_dump($tmp);
         ?>
         <script type="text/javascript">
             <?php 
