@@ -181,8 +181,12 @@ and open the template in the editor.
 //            }
             
             //group处理
+            $statistics_samples = array();#存储statistics的title
             //声明每个group的总和，均值，中位数数组
             foreach (array_unique($group) as $key => $value) {
+                array_push($statistics_samples, $value."_sum");
+                array_push($statistics_samples, $value."_avg");
+                array_push($statistics_samples, $value."_med");
                 ${$value."_sum"} = array();
                 ${$value."_avg"} = array();
                 ${$value."_med"} = array();
@@ -334,6 +338,24 @@ and open the template in the editor.
                             echo "pac($loc,$value2,'sample$i');\n";
                         }
                     }
+                    $i = 1;
+                    foreach (array_unique($group) as $key => $value) {
+                        foreach (${$value."_sum"} as $key1 => $value1) {
+                            $loc=($key1-$gene_start)*$rate;
+                            echo "pa($loc,$value1,'statistics_sample$i');\n";
+                        }
+                        $i++;
+                        foreach (${$value."_avg"} as $key2 => $value2) {
+                            $loc=($key2-$gene_start)*$rate;
+                            echo "pa($loc,$value2,'statistics_sample$i');\n";
+                        }
+                        $i++;
+                        foreach (${$value."_med"} as $key3 => $value3) {
+                            $loc=($key3-$gene_start)*$rate;
+                            echo "pa($loc,$value3,'statistics_sample$i');\n";
+                        }
+                        $i++;
+                    }
                 ?>
                 arrow("gene",<?php echo $_GET['strand'];?>);
                 shorten_arrow("no_extend",<?php echo ($gene_start_org-$gene_start)*$rate;?>,<?php echo ($gene_end_org-$gene_start)*$rate;?>,<?php echo $_GET['strand'];?>);
@@ -345,7 +367,7 @@ and open the template in the editor.
                         echo "yscale(\"sample$i\");";
                         echo "grid(\"sample$i\",\"sample\");";
                     }
-                    for($i=1;$i<=$statistics_num;$i++){
+                    for($i=1;$i<=count(array_unique($group))*3;$i++){
                         $r=$i-1;
                         echo "line(\"statistics_sample$i\");";
                         echo "title(\"#000000\",\"$statistics_samples[$r]\",\"statistics_sample$i\");";
@@ -706,7 +728,7 @@ and open the template in the editor.
                 else
                     echo "<canvas id=\"sample$i\" class=\"origin\" width=\"1000px; \" height=\"150px;\" style=\"background-color:#f1f1f1\"></canvas>";
             }
-            for($i=1;$i<=$statistics_num;$i+=3){
+            for($i=1;$i<=count(array_unique($group))*3;$i+=3){
                 $j = $i + 1;
                 $k = $i + 2;
                 if($i%2==0){
