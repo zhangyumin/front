@@ -187,10 +187,14 @@ and open the template in the editor.
                 array_push($statistics_samples, $value."_sum");
                 array_push($statistics_samples, $value."_avg");
                 array_push($statistics_samples, $value."_med");
-                ${$value."_sum"} = array();
-                ${$value."_avg"} = array();
-                ${$value."_med"} = array();
-                $group_key=array();#用于存储本组所有的下标key值,也就是coord坐标
+                ${"pa_".$value."_sum"} = array();
+                ${"pa_".$value."_avg"} = array();
+                ${"pa_".$value."_med"} = array();
+                ${"pac_".$value."_sum"} = array();
+                ${"pac_".$value."_avg"} = array();
+                ${"pac_".$value."_med"} = array();
+                $pa_group_key=array();#用于存储本组pa所有的下标key值,也就是coord坐标
+                $pac_group_key=array();#用于存储本组pac所有的下标key值,也就是coord坐标
                 $group_member = array();#用于存储同组成员的编号$i
                 for($i = 1;$i <= $num; $i++){
                     if($group[$i-1] == $value){#group是从0开始
@@ -199,39 +203,71 @@ and open the template in the editor.
                 }
                 //遍历同group所有成员来获得本组的所有coord值
                 foreach ($group_member as $key1 => $value1) {
-                        $group_key = $group_key + ${"pa".$value1};
+                        $pa_group_key = $pa_group_key + ${"pa".$value1};
+                        $pac_group_key = $pac_group_key + ${"pac".$value1};
                 }
                 //遍历coord值
-                foreach ($group_key as $key2 => $value2) {
-                    $sum_tmp = 0;
-                    $avg_tmp = 0;
-                    $med_tmp = 0;
-                    $tmp = array();#临时用于存储的数组
+                foreach ($pa_group_key as $key2 => $value2) {
+                    $sum_patmp = 0;
+                    $avg_patmp = 0;
+                    $med_patmp = 0;
+                    $patmp = array();#临时用于存储的数组
                     foreach ($group_member as $key3 => $value3) {
                         if(array_key_exists($key2, ${"pa".$value3})){
-                            array_push($tmp, ${"pa".$value3}[$key2]);
+                            array_push($patmp, ${"pa".$value3}[$key2]);
                         }
                         else{
-                            array_push($tmp,0);
+                            array_push($patmp,0);
                         }
                     }
-                    sort($tmp);//从小到大排列$tmp
-                    $num_tmp = count($tmp);#统计同group下sample的个数
-                    foreach ($tmp as $key4 => $value4) {
-                        $sum_tmp = $sum_tmp + $value4;
+                    sort($patmp);//从小到大排列$tmp
+                    $num_patmp = count($patmp);#统计同group下sample的个数
+                    foreach ($patmp as $key4 => $value4) {
+                        $sum_patmp = $sum_patmp + $value4;
                     }
-                    $avg_tmp = $sum_tmp / $num_tmp;
-                    $avg_tmp = number_format($avg_tmp,1,".","");
-                    if($num_tmp % 2 == 1){
-                        $med_tmp = $tmp[round($num_tmp/2)-1];
+                    $avg_patmp = $sum_patmp / $num_patmp;
+                    $avg_patmp = number_format($avg_patmp,1,".","");
+                    if($num_patmp % 2 == 1){
+                        $med_patmp = $patmp[round($num_patmp/2)-1];
                     }
                     else{
-                        $med_tmp = ($tmp[$num_tmp/2]+$tmp[$num_tmp/2-1])/2;
+                        $med_patmp = ($patmp[$num_patmp/2]+$patmp[$num_patmp/2-1])/2;
                     }
-                    $med_tmp = number_format($med_tmp,1,".","");
-                    ${$value."_sum"}[$key2] = $sum_tmp;
-                    ${$value."_avg"}[$key2] = $avg_tmp;
-                    ${$value."_med"}[$key2] = $med_tmp;
+                    $med_patmp = number_format($med_patmp,1,".","");
+                    ${"pa_".$value."_sum"}[$key2] = $sum_patmp;
+                    ${"pa_".$value."_avg"}[$key2] = $avg_patmp;
+                    ${"pa_".$value."_med"}[$key2] = $med_patmp;
+                }
+                foreach ($pac_group_key as $key2 => $value2) {
+                    $sum_pactmp = 0;
+                    $avg_pactmp = 0;
+                    $med_pactmp = 0;
+                    $pactmp = array();#临时用于存储的数组
+                    foreach ($group_member as $key3 => $value3) {
+                        if(array_key_exists($key2, ${"pac".$value3})){
+                            array_push($pactmp, ${"pac".$value3}[$key2]);
+                        }
+                        else{
+                            array_push($pactmp,0);
+                        }
+                    }
+                    sort($pactmp);//从小到大排列$pactmp
+                    $num_pactmp = count($pactmp);#统计同group下sample的个数
+                    foreach ($pactmp as $key4 => $value4) {
+                        $sum_pactmp = $sum_pactmp + $value4;
+                    }
+                    $avg_pactmp = $sum_pactmp / $num_pactmp;
+                    $avg_pactmp = number_format($avg_pactmp,1,".","");
+                    if($num_pactmp % 2 == 1){
+                        $med_pactmp = $pactmp[round($num_pactmp/2)-1];
+                    }
+                    else{
+                        $med_pactmp = ($pactmp[$num_pactmp/2]+$pactmp[$num_pactmp/2-1])/2;
+                    }
+                    $med_pactmp = number_format($med_pactmp,1,".","");
+                    ${"pac_".$value."_sum"}[$key2] = $sum_pactmp;
+                    ${"pac_".$value."_avg"}[$key2] = $avg_pactmp;
+                    ${"pac_".$value."_med"}[$key2] = $med_pactmp;
                 }
             }
 //            var_dump($wt_leaf_med);
@@ -340,19 +376,31 @@ and open the template in the editor.
                     }
                     $i = 1;
                     foreach (array_unique($group) as $key => $value) {
-                        foreach (${$value."_sum"} as $key1 => $value1) {
+                        foreach (${"pa_".$value."_sum"} as $key1 => $value1) {
                             $loc=($key1-$gene_start)*$rate;
                             echo "pa($loc,$value1,'statistics_sample$i');\n";
                         }
+                        foreach (${"pac_".$value."_sum"} as $key1 => $value1) {
+                            $loc=($key1-$gene_start)*$rate;
+                            echo "pac($loc,$value1,'statistics_sample$i');\n";
+                        }
                         $i++;
-                        foreach (${$value."_avg"} as $key2 => $value2) {
+                        foreach (${"pa_".$value."_avg"} as $key2 => $value2) {
                             $loc=($key2-$gene_start)*$rate;
                             echo "pa($loc,$value2,'statistics_sample$i');\n";
                         }
+                        foreach (${"pac_".$value."_avg"} as $key2 => $value2) {
+                            $loc=($key2-$gene_start)*$rate;
+                            echo "pac($loc,$value2,'statistics_sample$i');\n";
+                        }
                         $i++;
-                        foreach (${$value."_med"} as $key3 => $value3) {
+                        foreach (${"pa_".$value."_med"} as $key3 => $value3) {
                             $loc=($key3-$gene_start)*$rate;
                             echo "pa($loc,$value3,'statistics_sample$i');\n";
+                        }
+                        foreach (${"pac_".$value."_med"} as $key3 => $value3) {
+                            $loc=($key3-$gene_start)*$rate;
+                            echo "pac($loc,$value3,'statistics_sample$i');\n";
                         }
                         $i++;
                     }
