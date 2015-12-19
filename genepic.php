@@ -181,18 +181,21 @@ and open the template in the editor.
 //            }
             
             //group处理
-            $tmp = array();#临时用于存储的三维数组
             //声明每个group的总和，均值，中位数数组
             foreach (array_unique($group) as $key => $value) {
                 ${$value."_sum"} = array();
                 ${$value."_avg"} = array();
                 ${$value."_med"} = array();
-                $j = 0;
+                $tmp = array();#临时用于存储的数组
+                $group_key=array();#用于存储本组所有的下标key值
+                $group_member = array();#用于存储同组成员的编号$i
                 for($i = 1;$i <= $num; $i++){
                     if($group[$i-1] == $value){#group是从0开始
-                        $j++;
-                        $tmp[$value][$j] = ${"pa".$i};
+                        array_push($group_member, $i);
                     }
+                }
+                foreach ($group_member as $key1 => $value1) {
+                        $group_key = $group_key + ${"pa".$value1};
                 }
             }
         ?>
