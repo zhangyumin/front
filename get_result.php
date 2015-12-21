@@ -63,6 +63,12 @@
             $upload_name = array_unique($upload_name);
             //$_SESSION['file_real']=array();
             $_SESSION['file_real']=$upload_name;
+            //读取group信息
+            $usr_group = array();
+            foreach ($_SESSION['file_real'] as $key => $value) {
+                array_push($usr_group, $_POST['group-'.$value]);
+            }
+            $_SESSION['usr_group'] = $usr_group;
             foreach($upload_name as $key => $value)
             {
                 //step0:统一文件后缀名
