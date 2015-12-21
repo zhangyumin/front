@@ -117,7 +117,7 @@ and open the template in the editor.
     //                    console.log(params);
     //                    alert(params);
                         $.ajax({  
-                            url:'get_result.php', //后台处理程序  
+                            url:'test3.php', //后台处理程序  
                             type:'post',       //数据传送方式  
                             dataType:'json',   //接受数据格式  
                             data:params,       //要传送的数据
@@ -189,7 +189,7 @@ and open the template in the editor.
                                 <font color="#224055"><b>STEP 2</b>:Upload file(s)</font>
                             </h4>
                         </legend>
-                        <div class="box info">
+                        <div id="hoho" class="box info">
                             <label title="Select species" for="species">Select species here:</label>
                             <select id="species" name="species">
                                 <option value="arab" selected="selected">Arabidopsis thaliana</option>
