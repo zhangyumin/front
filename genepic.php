@@ -115,7 +115,6 @@ and open the template in the editor.
             $genelength=$gene_end-$gene_start;
             $rate=1000/$genelength;
             
-            
             //读取数据库 存储物种的pa_table,pa_col和group数据
             $group = array();
             $patable = array();
@@ -126,11 +125,12 @@ and open the template in the editor.
                 array_push($pacol, $table_row['PA_col']);
                 array_push($patable, $table_row['PA_table']);
             }
+            $samples = $pacol;
             //patable去除重复并重新排列
             $patable = array_unique($patable);
             $patable = array_merge($patable);
 //            var_dump($patable);
-            $num = count($pacol);#sample的个数
+            $num = count($pacol)+count($_SESSION['file_real']);#sample的个数
             //声明存储各个sample的数组，包括PA和PAC
             for($i=1;$i<=$num;$i++){
                 $pa="pa".$i;
@@ -150,28 +150,54 @@ and open the template in the editor.
                         $continue = $i;
                     }
                     else if($key==1){
-                        for($i=$continue;$i<=$num;$i++){
+                        for($i=$continue;$i<=$num-count($_SESSION['file_real']);$i++){
                             $pa="pa".$i;
                             ${$pa}[$tmp_pa_row[2]] = $tmp_pa_row[$i-5];
                         }
                     }
                 }
             }
-//            PA数据测试
-//            for($i=1;$i<=$num;$i++){
-//                $pa="pa".$i;
-//                if($i==13){
-//                    var_dump($$pa);
-//                }
-//            }
             //读取pac数据并存入数组
             $tmp_pac = mysql_query("select * from t_".$species."_pac where gene = '$seq'");
             while($tmp_pac_row = mysql_fetch_row($tmp_pac)){
-                for($i=1;$i<=$num;$i++){
+                for($i=1;$i<=$num-count($_SESSION['file']);$i++){
                             $pac="pac".$i;
                             ${$pac}[$tmp_pac_row[2]] = $tmp_pac_row[$i+13];
                         }
             }
+            
+            //user trap数据
+            if(isset($_SESSION['file'])){
+                $sql_sample = implode($_SESSION['file_real'], ",");
+                $user_pa = mysql_query("select coord,$sql_sample from db_user.PA_".$_SESSION['file']." where chr='$chr' and coord>=$gene_start and coord<=$gene_end;");
+                $user_pac = mysql_query("select coord,$sql_sample from db_user.PAC_".$_SESSION['file']." where gene = '$seq';");
+                while($usr_row_pa = mysql_fetch_row($user_pa)){
+                    for($i=$num-count($_SESSION['file_real'])+1;$i<=$num;$i++){
+                        $pa="pa".$i;
+                        ${$pa}[$usr_row_pa[0]] = $usr_row_pa[$i-$num+count($_SESSION['file_real'])];
+                    }
+                }
+                while($usr_row_pac = mysql_fetch_row($user_pac)){
+                    for($i=$num-count($_SESSION['file_real'])+1;$i<=$num;$i++){
+                        $pac="pac".$i;
+                        ${$pac}[$usr_row_pac[0]] = $usr_row_pac[$i-$num+count($_SESSION['file_real'])];
+                    }
+                }
+                foreach ($_SESSION['usr_group'] as $key => $value) {
+                    array_push($group, $value);
+                }
+                foreach ($_SESSION['file_real'] as $key => $value) {
+                    array_push($samples, $value);
+                }
+            }
+            
+//            PA数据测试
+//            for($i=1;$i<=$num;$i++){
+//                $pa="pa".$i;
+//                if($i==15){
+//                    var_dump($$pa);
+//                }
+//            }
 //            PAC数据测试
 //            for($i=1;$i<=$num;$i++){
 //                $pac="pac".$i;
@@ -179,7 +205,6 @@ and open the template in the editor.
 //                    var_dump($$pac);
 //                }
 //            }
-            
             //group处理
             $statistics_samples = array();#存储statistics的title
             //声明每个group的总和，均值，中位数数组
