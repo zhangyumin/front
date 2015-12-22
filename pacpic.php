@@ -156,6 +156,7 @@ and open the template in the editor.
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle=color;
+                context.font="bold 15px Droid Serif";
                 context.fillRect(loc+70,20,20,20);
                 context.fillText(text,loc+95,35);
             }
