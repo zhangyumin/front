@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Search</title>
+        <title>Task</title>
         <script src="./src/jquery-2.0.0.min.js"></script>
         <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
         <!--[if lte IE 7]>
