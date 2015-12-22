@@ -144,6 +144,15 @@
                     </div>";
                 }
              ?>
+            <fieldset id="get_back" >
+                    <legend style="text-align:left;">
+                        <h4>
+                            <font color="#224055"><b>Your Task History</b></font>
+                        </h4>
+                    </legend>
+                    <div class="box info ym-form">
+                    </div>
+            </fieldset>
         </div>
        <div class="bottom">
         <?php
