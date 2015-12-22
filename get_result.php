@@ -29,7 +29,7 @@
             }
             $uip = getIP();
             $mysqltime=date('Y-m-d H:i:s',time());
-            mysql_query("INSERT INTO `User_Task`(`id`, `ip`, `time`) VALUES ('".$_SESSION['file']."','$uip','$mysqltime')");
+            mysql_query("INSERT INTO `User_Task`(`id`, `species`, `ip`, `time`) VALUES ('".$_SESSION['file']."','".$_SESSION['species']."','$uip','$mysqltime')");
             //echo $filepath;
             #传递上传文件参数设置
 //                $_SESSION['qct']=$_POST['qct'];
