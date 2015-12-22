@@ -149,8 +149,8 @@ and open the template in the editor.
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle=color;
-                context.font="20px Arial";
-                context.fillText(text,500,145);
+                context.font="bold 15px Droid Serif";
+                context.fillText(text,510,145);
             }
             function info(color,loc,text,id){
                 var canvas = document.getElementById(id);
