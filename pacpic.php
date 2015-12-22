@@ -27,17 +27,11 @@ and open the template in the editor.
             $pac_loc=array();
             $pac_tagnum=array();
             $num=0;
-            //读取sample个数和名称
-            $sample=  mysql_query("select label from t_sample_desc where species='".$_GET['species']."';");
-            while ($sample_num=  mysql_fetch_row($sample)){
-                $num++;
-                array_push($samples,$sample_num[0]);
-            }
-            //声明存储各个sample的loc,talbe,col和tagnum数组
           
             $seq=$_GET['seq'];
             $chr=$_GET['chr'];
             $strand=$_GET['strand'];
+            $species=$_GET['species'];
             //各部分坐标推入数组
             $result= mysql_query("select * from t_".$_GET['species']."_gff where gene='$seq' order by ftr_end;");
             while($row=  mysql_fetch_row($result)){
@@ -77,14 +71,90 @@ and open the template in the editor.
             $genelength=$gene_end-$gene_start;
             $rate=1000/$genelength;
             
-            $pac_result=  mysql_query("select * from t_".$_GET['species']."_pac where gene='$seq';");
-            while($pac_row=  mysql_fetch_row($pac_result)){
-                for($i=1;$i<=$num;$i++){
-                    $r=$i+13;
-                    array_push($pac_tagnum, $pac_row[$r]);
-                }
-                array_push($pac_loc, $pac_row[2]);
+            //读取数据库 存储物种的pa_table,pa_col和group数据
+            $group = array();
+            $patable = array();
+            $pacol = array();
+            $table = mysql_query("select lbl_group,PA_col,PA_table from t_sample_desc where species = '$species'");
+            while($table_row = mysql_fetch_array($table)){
+                array_push($group, $table_row['lbl_group']);
+                array_push($pacol, $table_row['PA_col']);
+                array_push($patable, $table_row['PA_table']);
             }
+            $samples = $pacol;
+            //patable去除重复并重新排列
+            $patable = array_unique($patable);
+            $patable = array_merge($patable);
+//            var_dump($patable);
+            $num = count($pacol)+count($_SESSION['file_real']);#sample的个数
+            //声明存储各个sample的数组，包括PA和PAC
+            for($i=1;$i<=$num;$i++){
+                $pac="pac".$i;
+                $$pac=array();
+            }
+            //读取pac数据并存入数组
+            $tmp_pac = mysql_query("select * from t_".$species."_pac where gene = '$seq'");
+            while($tmp_pac_row = mysql_fetch_row($tmp_pac)){
+                for($i=1;$i<=$num-count($_SESSION['file_real']);$i++){
+                            $pac="pac".$i;
+                            ${$pac}[$tmp_pac_row[2]] = $tmp_pac_row[$i+13];
+//                            echo $i;
+                        }
+            }
+            //group处理
+            $statistics_samples = array();#存储statistics的title
+            //声明每个group的总和，均值，中位数数组
+            foreach (array_unique($group) as $key => $value) {
+                array_push($statistics_samples, $value."_sum");
+                array_push($statistics_samples, $value."_avg");
+                array_push($statistics_samples, $value."_med");
+                ${"pac_".$value."_sum"} = array();
+                ${"pac_".$value."_avg"} = array();
+                ${"pac_".$value."_med"} = array();
+                $pac_group_key=array();#用于存储本组pac所有的下标key值,也就是coord坐标
+                $group_member = array();#用于存储同组成员的编号$i
+                for($i = 1;$i <= $num; $i++){
+                    if($group[$i-1] == $value){#group是从0开始
+                        array_push($group_member, $i);
+                    }
+                }
+                //遍历同group所有成员来获得本组的所有coord值
+                foreach ($group_member as $key1 => $value1) {
+                        $pac_group_key = $pac_group_key + ${"pac".$value1};
+                }
+                foreach ($pac_group_key as $key2 => $value2) {
+                    $sum_pactmp = 0;
+                    $avg_pactmp = 0;
+                    $med_pactmp = 0;
+                    $pactmp = array();#临时用于存储的数组
+                    foreach ($group_member as $key3 => $value3) {
+                        if(array_key_exists($key2, ${"pac".$value3})){
+                            array_push($pactmp, ${"pac".$value3}[$key2]);
+                        }
+                        else{
+                            array_push($pactmp,0);
+                        }
+                    }
+                    sort($pactmp);//从小到大排列$pactmp
+                    $num_pactmp = count($pactmp);#统计同group下sample的个数
+                    foreach ($pactmp as $key4 => $value4) {
+                        $sum_pactmp = $sum_pactmp + $value4;
+                    }
+                    $avg_pactmp = $sum_pactmp / $num_pactmp;
+                    $avg_pactmp = number_format($avg_pactmp,1,".","");
+                    if($num_pactmp % 2 == 1){
+                        $med_pactmp = $pactmp[round($num_pactmp/2)-1];
+                    }
+                    else{
+                        $med_pactmp = ($pactmp[$num_pactmp/2]+$pactmp[$num_pactmp/2-1])/2;
+                    }
+                    $med_pactmp = number_format($med_pactmp,1,".","");
+                    ${"pac_".$value."_sum"}[$key2] = $sum_pactmp;
+                    ${"pac_".$value."_avg"}[$key2] = $avg_pactmp;
+                    ${"pac_".$value."_med"}[$key2] = $med_pactmp;
+                }
+            }
+//            var_dump($group);
         ?>
         <script type="text/javascript">
             <?php 
@@ -133,9 +203,11 @@ and open the template in the editor.
 //                        $pos=20+20*(($key+1)*count($pac_loc));
 //                        echo "sampleinfo(\"pac\",$pos,\"$value\");\n";
 //                    }
-                    foreach ($pac_loc as $key => $value) {
-                        $position = ($value-$gene_start) * $rate;
-                        echo "pointer($position,$key,\"gene\");";
+                    $i = -1;
+                    foreach ($pac_group_key as $key => $value) {
+                        $i++;
+                        $position = ($key-$gene_start) * $rate;
+                        echo "pointer($position,$i,\"gene\");";
                     }
                     if($_GET['intergenic']==1)
                         echo "intergenic($strand,\"gene\");"
@@ -342,7 +414,7 @@ and open the template in the editor.
             function pointer(pos,key,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                <?php echo "var row =".count($pac_loc).";";?>
+                <?php echo "var row =".count($pac_group_key).";";?>
                 context.beginPath();
                 context.moveTo(pos,120);
                 context.lineTo(pos-5,125);
@@ -421,8 +493,8 @@ and open the template in the editor.
                         legend: {
 //                            data:['蒸发量','降水量']
                             data:['<?php
-                                        foreach ($pac_loc as $key => $value) {
-                                            echo "PAC pos:$value','";
+                                        foreach ($pac_group_key as $key => $value) {
+                                            echo "PAC pos:$key','";
                                         }
                                     ?>']
                         },
@@ -467,17 +539,16 @@ and open the template in the editor.
                         series : [
                             
                             <?php
-                                    $i=0;
-                                    foreach ($pac_loc as $key => $value) {
-                                        $tmp_data=array();
-                                        for($j=0;$j<  count($samples);$j++){
-                                            array_push($tmp_data, $pac_tagnum[$i*count($samples)+$j]);
+                                    foreach ($pac_group_key as $key => $value) {
+                                        $tmp_array = array();
+                                        for($i=1;$i<=$num;$i++){
+                                            $pac="pac".$i;
+                                            array_push($tmp_array,${$pac}[$key]);
                                         }
-                                        $i++;
-                                        $data=  implode(",", $tmp_data);
-                                        unset($tmp_data);
+                                        $data = implode(",", $tmp_array);
+                                        unset($tmp_array);
                                         echo "{"
-                                                    . "name:'PAC pos:$value',"
+                                                    . "name:'PAC pos:$key',"
 //                                                    . "barMinHeight: 10,"
                                                     . "type:'bar',"
                                                     . "data:[$data]"
