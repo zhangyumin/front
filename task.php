@@ -19,6 +19,8 @@
     <body>
         <?php
             include"navbar.php";
+            $con=  mysql_connect("localhost","root","root");
+             mysql_select_db("db_server",$con);
         ?>
         <div class="ym-wrapper">
         <fieldset id="get_back" >
@@ -58,6 +60,27 @@
                 //$_SESSION['file_real']=array();
                 $_SESSION['file_real']=$upload_name;
             }
+            ?>
+            <?php
+                #获得用户当前ip
+                function getIP() { 
+                    if (@$_SERVER["HTTP_X_FORWARDED_FOR"]) 
+                        $ip = $_SERVER["HTTP_X_FORWARDED_FOR"]; 
+                    else if (@$_SERVER["HTTP_CLIENT_IP"]) 
+                        $ip = $_SERVER["HTTP_CLIENT_IP"]; 
+                    else if (@$_SERVER["REMOTE_ADDR"]) 
+                        $ip = $_SERVER["REMOTE_ADDR"]; 
+                    else if (@getenv("HTTP_X_FORWARDED_FOR"))
+                        $ip = getenv("HTTP_X_FORWARDED_FOR"); 
+                    else if (@getenv("HTTP_CLIENT_IP")) 
+                        $ip = getenv("HTTP_CLIENT_IP"); 
+                    else if (@getenv("REMOTE_ADDR")) 
+                        $ip = getenv("REMOTE_ADDR"); 
+                    else 
+                        $ip = "Unknown"; 
+                    return $ip; 
+                }
+                $uip = getIP();
             ?>
             <?php
                 if(isset($_SESSION['file']))
@@ -144,14 +167,35 @@
                     </div>";
                 }
              ?>
-            <fieldset id="get_back" >
+            <fieldset id="task-history" class="table-tools" style="max-height: 400px;">
                     <legend style="text-align:left;">
                         <h4>
                             <font color="#224055"><b>Your Task History</b></font>
                         </h4>
                     </legend>
-                    <div class="box info ym-form">
-                    </div>
+                    <table cellspacing="1" cellpadding="0" border="0" style="border:1px solid #5499c9;">
+                    <thead>
+                        <tr class="theme">
+                            <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Task ID</td>
+                            <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Speices</td>
+                            <td class="theme" bgcolor="#e1e1e1" align="center" height="24">IP</td>
+                            <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Time</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <?php
+                                $list = mysql_query("select * from User_Task where ip = '$uip';");
+                                while ($list_row = mysql_fetch_row($list)){
+                                    echo "<tr>";
+                                    echo"<td style='text-align:center'>$list_row[0]</td>";
+                                    echo"<td style='text-align:center'>$list_row[1]</td>";
+                                    echo"<td style='text-align:center'>$list_row[2]</td>";
+                                    echo"<td style='text-align:center'>$list_row[3]</td>";
+                                    echo "</tr>";
+                                }
+                            ?>
+                    </tbody>
+                    </table>
             </fieldset>
         </div>
        <div class="bottom">
