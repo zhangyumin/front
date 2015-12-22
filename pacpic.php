@@ -39,7 +39,7 @@ and open the template in the editor.
             $chr=$_GET['chr'];
             $strand=$_GET['strand'];
             //各部分坐标推入数组
-            $result= mysql_query("select * from t_".$_GET['species']."_gff_org where gene='$seq' order by ftr_end;");
+            $result= mysql_query("select * from t_".$_GET['species']."_gff where gene='$seq' order by ftr_end;");
             while($row=  mysql_fetch_row($result)){
                 array_push($ftr_start, $row[3]);
                 array_push($ftr_end,$row[4]);
@@ -194,8 +194,9 @@ and open the template in the editor.
             function xscale(id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-//                context.strokeStyle="#000000";
-//                context.fillStyle="#000000";//x刻度尺为黑色
+                context.beginPath();
+                context.strokeStyle="#000000";
+               context.fillStyle="#000000";//x刻度尺为黑色
                 context.moveTo(0,60);
                 context.lineTo(1000,60);
                 context.moveTo(0,60);
@@ -206,14 +207,14 @@ and open the template in the editor.
                 context.lineTo(990,50);
                 context.moveTo(1000,60);
                 context.lineTo(990,70);
-                context.font="10px Arial";
+                context.font="12px Droid Serif";
                 start=<?php echo $gene_start;?>;
                 end=<?php echo $gene_end;?>;
-                context.fillText(start,10,50);
-                context.fillText(end,970,50);
+                context.fillText("start:"+start,15,75);
+                context.fillText(end+":end",915,75);
                 for(i=1;i<10;i++){
                     x=<?php echo round(($gene_end-$gene_start)/10); ?>;
-                    context.fillText(start+x*i,100*i-10,55);
+                    context.fillText(start+x*i,100*i-20,55);
                 }
                 context.stroke();
             }
