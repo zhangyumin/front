@@ -91,12 +91,12 @@ and open the template in the editor.
                 echo "var genelength=$genelength;";
             ?>
             window.onload = function(){
-                info("#ff0000",100,"3UTR","gene");
-                info("#BA55D3",200,"5UTR","gene");
-                info("#9AFF9A",300,"CDS","gene");
-                info("#080808",400,"INTRON","gene");
-                info("#eeee00",500,"EXON","gene");
-                info("#97ffff",600,"AMB","gene");
+                info("#42A881",100,"3'utr","gene");
+                info("#8C5E4D",200,"5'utr","gene");
+                info("#00ABD8",300,"cds","gene");
+                info("#D390B9",400,"intron","gene");
+                info("#65D97D",500,"exon","gene");
+                info("#F35A4A",600,"amb","gene");
                 xline("gene",100);
                 <?php
                     foreach ($sutr_start as $key => $value) {
@@ -222,7 +222,7 @@ and open the template in the editor.
             function sutr(startpos,endpos,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#ff0000";//3utr为红色
+                context.fillStyle="#42A881";//3utr为红色
                 if(endpos==1000&&strand==1){
                     context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
@@ -236,7 +236,7 @@ and open the template in the editor.
             function wutr(startpos,endpos,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#BA55D3";//5utr为zise
+                context.fillStyle="#8C5E4D";//5utr为zise
                 if(endpos==1000&&strand==1){
                     context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
@@ -250,7 +250,7 @@ and open the template in the editor.
             function cds(startpos,endpos,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#9AFF9A";//cds为绿色
+                context.fillStyle="#00ABD8";//cds为绿色
                 if(endpos==1000&&strand==1){
                     context.fillRect(startpos,90,endpos-startpos-10,20);
                 }
@@ -264,7 +264,7 @@ and open the template in the editor.
             function intron(startpos,endpos,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#080808";//intron为黑色
+                context.fillStyle="#D390B9";//intron为黑色
                 if(endpos==1000&&strand==1){
                     context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
@@ -278,7 +278,7 @@ and open the template in the editor.
             function exon(startpos,endpos,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#eeee00";//exon为黄色
+                context.fillStyle="#65D97D";//exon为黄色
                 if(endpos==1000&&strand==1){
                     context.fillRect(startpos,90,endpos-startpos-10,20);
                 }
@@ -292,7 +292,7 @@ and open the template in the editor.
             function amb(startpos,endpos,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#97ffff";//amb为兰色
+                context.fillStyle="#F35A4A";//amb为兰色
                 if(endpos==1000&&strand==1){
                     context.fillRect(startpos,90,endpos-startpos-10,20);
                 }
@@ -306,7 +306,7 @@ and open the template in the editor.
             function intergenic(strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#7a8b8b";//intergenic为灰色
+                context.fillStyle="#7BA3A8";//intergenic为灰色
                 if(strand==1){
                     context.fillRect(0,90,990,20);
                 }
