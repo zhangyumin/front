@@ -39,8 +39,11 @@
         </fieldset>
         <?php
             session_start();
-            if($_POST['getback']!=NULL){
-                $_SESSION['file']=$_POST['getback'];
+            if($_POST['getback']!=NULL||$_GET['getback']!=NULL){
+                if(isset($_GET['getback']))
+                    $_SESSION['file']=$_GET['getback'];
+                if(isset($_POST['getback']))
+                    $_SESSION['file']=$_POST['getback'];
                 $_SESSION['species']=substr($_SESSION['file'], 0,  strpos($_SESSION['file'], "201"));
                 $file_name = scandir("./data/".$_SESSION['file']."");
                 $file_name = array_slice($file_name, 2);
@@ -187,7 +190,7 @@
                                 $list = mysql_query("select * from User_Task where ip = '$uip';");
                                 while ($list_row = mysql_fetch_row($list)){
                                     echo "<tr>";
-                                    echo"<td style='text-align:center'>$list_row[0]</td>";
+                                    echo"<td style='text-align:center'><a href='./task.php?getback=$list_row[0]'>$list_row[0]</a></td>";
                                     echo"<td style='text-align:center'>$list_row[1]</td>";
                                     echo"<td style='text-align:center'>$list_row[2]</td>";
                                     echo"<td style='text-align:center'>$list_row[3]</td>";
