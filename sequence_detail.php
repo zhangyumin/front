@@ -1969,6 +1969,8 @@
                                 </tbody>
                             </table>
                         </div>
+                    </td>
+                    <td>
                         <hr size="2" align="left" style="border-top: 2px solid #5499c9;">
                         <div id="go" style="overflow-x: auto;background-color: #fff;margin:auto;">
                             <table id="gotable" class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
@@ -2011,6 +2013,8 @@
                             });
                         </script>
                     </td>
+                </tr>
+                <tr>
                     <td width="1100px" valign="top">
                         <div class="wrap">
                             <div class="tabs">
