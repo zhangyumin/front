@@ -6,6 +6,7 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <script src="./src/jquery-1.10.1.min.js"></script>
         <?php
             $con=  mysql_connect("localhost","root","root");
             mysql_select_db("db_server",$con);
@@ -450,13 +451,60 @@ and open the template in the editor.
         </script>
     </head>
     <body>
+        <div id="button" style="width:1000px;">
+            <input type="radio" name="display" value="origin" checked="checked" onchange="display()"/>origin
+            <input type="radio" name="display" value="statistics" onchange="display()"/>statistics
+            <select id="method" disabled="true" onchange="show()">
+                <option value="choose" selected="selected">Please choose</option>
+                <option value="sum">Sum</option>
+                <option value="avg">Average</option>
+                <option value="med">Median</option>
+            </select>
+        </div>
+        <script>
+            function display(){
+                var Slt = $('#button input[name="display"]:checked').val();
+                $('#method').val("choose");
+                if(Slt=='statistics'){
+                    $('#method').attr('disabled',false);
+                    $('#pactagnum').hide();
+                    $('#pactagnum_sum').show();
+                    $('#pactagnum_avg').show();
+                    $('#pactagnum_med').show();
+                }
+                else{
+                    $('#method').attr('disabled',true);
+                    $('#pactagnum').show();
+                    $('#pactagnum_sum').hide();
+                    $('#pactagnum_avg').hide();
+                    $('#pactagnum_med').hide();
+                }
+            }
+            function show(){
+                var sta = $("#method  option:selected").val();
+                if(sta != 'choose'){
+                    $('#pactagnum').hide();
+                    $('#pactagnum_sum').hide();
+                    $('#pactagnum_avg').hide();
+                    $('#pactagnum_med').hide();
+                    $('#pactagnum_'+sta).show();
+                }
+                else{
+                    $('#pactagnum').hide();
+                    $('#pactagnum_sum').show();
+                    $('#pactagnum_avg').show();
+                    $('#pactagnum_med').show();
+                }
+//                console.log(sta);
+            }
+        </script>
         <canvas id="gene" width="1000px;" height="150px;"></canvas><br>
        
             <!--Step:1 为ECharts准备一个具备大小（宽高）的Dom-->  
             <div id="pactagnum" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;"></div>
-            <div id="pactagnum_sum" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;"></div>
-            <div id="pactagnum_avg" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;"></div>
-            <div id="pactagnum_med" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;"></div>
+            <div id="pactagnum_sum" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;display: none"></div>
+            <div id="pactagnum_avg" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;display: none"></div>
+            <div id="pactagnum_med" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;display: none"></div>
 
             <!--Step:2 引入echarts.js-->  
             <script src="src/dist/echarts.js"></script>  
