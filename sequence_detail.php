@@ -1970,7 +1970,7 @@
                             </table>
                         </div>
                     </td>
-                    <td>
+                    <td >
                         <hr size="2" align="left" style="border-top: 2px solid #5499c9;">
                         <div id="go" style="overflow-x: auto;background-color: #fff;margin:auto;">
                             <table id="gotable" class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
@@ -2015,7 +2015,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td width="1100px" valign="top">
+                    <td width="1100px" valign="top" colspan="2">
                         <div class="wrap">
                             <div class="tabs">
                                 <a href="#" hidefocus="true" class="active">Jbrowse</a>
