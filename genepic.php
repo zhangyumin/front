@@ -391,6 +391,8 @@ and open the template in the editor.
                     for($i=1;$i<=$num;$i++){
                         $pa="pa".$i;
                         $pac="pac".$i;
+                        if(empty($$pa)||empty($$pac))
+                            continue;
                         foreach ($$pa as $key1 => $value1) {
                             $loc=($key1-$gene_start)*$rate;
                             echo "pa($loc,$value1,'sample$i');\n";
