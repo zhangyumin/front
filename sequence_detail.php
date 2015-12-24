@@ -1892,7 +1892,7 @@
             });
             </script>
             
-        <div  id="page">
+        <div  id="page" style="width:1200px;margin:auto">
             <table  cellspacing="0" cellpadding="0" border="0" style="margin: 20px auto;">
             <tbody>
                 <tr>
@@ -1937,8 +1937,8 @@
                                     <tr>
                                         <!--<th>PAC</th>-->
                                         <th>Coordinate</th>
-                                        <th width="15%">PA#</th>
-                                        <th width="15%">PAT#</th>
+                                        <th>PA#</th>
+                                        <th>PAT#</th>
                                         <th>PAC range</th>
                                     </tr>
                                 </thead>
@@ -1976,9 +1976,9 @@
                             <table id="gotable" class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
                                 <thead>
                                     <tr>
-                                        <th style="width:20%">Go id</th>
-                                        <th style="width:45%">Go term</th>
-                                        <th style="width:35%">Go function</th>
+                                        <th>Go id</th>
+                                        <th>Go term</th>
+                                        <th>Go function</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -2037,9 +2037,9 @@
                                         <div style="height:99%">
                                             <?php
                                                 if($_GET['flag']=='intergenic')
-                                                    echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&analysis=1&intergenic=1&coord=$coord\" width=100%  height=100%></iframe>";
+                                                    echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord\" width=100%  height=100%></iframe>";
                                                 else
-                                                    echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&analysis=1\" width=100%  height=100%></iframe>";
+                                                    echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand\" width=100%  height=100%></iframe>";
                                             ?>
                                         </div>
                                     </div>
@@ -2085,8 +2085,7 @@
                 </tr>
             </tbody>
             </table>
-        </div>
-        <div  class="straight_matter">
+            <div  class="straight_matter">
 	<fieldset style="margin-top: 20px;margin-left: 2%;margin-right: 2%;">
                     <legend>
                         <span class="h3_italic" style="font-size:21px">
@@ -2153,6 +2152,7 @@
 	</div>
 	</fieldset>
             </div>
+        </div>
         <?php
             include"footer.php";
             ?>
