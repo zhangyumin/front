@@ -8,6 +8,7 @@ and open the template in the editor.
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <script src="./src/jquery-1.10.1.min.js"></script>
         <?php
+            session_start();
             $con=  mysql_connect("localhost","root","root");
             mysql_select_db("db_server",$con);
             $ftr_start=array();
@@ -155,6 +156,7 @@ and open the template in the editor.
                 $num = count($_SESSION['sample']);
 //                $samples = $_SESSION['sample'];
             }
+//            var_dump($num);
             
             //group处理
             $statistics_samples = array();#存储statistics的title
