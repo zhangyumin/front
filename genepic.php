@@ -191,18 +191,55 @@ and open the template in the editor.
                     array_push($samples, $value);
                 }
             }
-            
+            //如果是analysis的数据
+            if($_GET['analysis']==1){
+                unset($group);
+                $group = array();
+                for($i=1;$i<=$num;$i++){
+                    //从samples中去除未选中的samples
+                    if(!in_array($samples[$i-1], $_SESSION['sample'])){
+                        unset($samples[$i-1]);
+                        unset(${"pa".$i});
+                        unset(${"pac".$i});
+                    }
+                }
+                //重排samples序号
+               $samples = array_merge($samples);
+                //重新排列pa和pac的序号
+                $j = 1;
+                for($i=1;$i<=$num;$i++){
+                    if(!empty(${"pa".$i})){
+                        ${"pa".$j} = ${"pa".$i};
+                        ${"pac".$j} = ${"pac".$i};
+                        $j++;
+                    }
+                }
+                //去除多余
+                for($i=count($_SESSION['sample'])+1;$i<=$num;$i++){
+                    unset(${"pa".$i});
+                    unset(${"pac".$i});
+                }
+                //根据勾选重新分组
+                foreach ($samples as $key => $value) {
+                    if(in_array($value, $_SESSION['sample1']))
+                        array_push ($group,'sample1');
+                    else if(in_array($value, $_SESSION['sample2']))
+                        array_push ($group, 'sample2');
+                }
+                $num = count($_SESSION['sample']);
+//                $samples = $_SESSION['sample'];
+            }
 //            PA数据测试
 //            for($i=1;$i<=$num;$i++){
-//                $pa="pa".$i;
-//                if($i==15){
-//                    var_dump($$pa);
+////                $pa="pa".$i;
+//                if($i==5){
+//                    var_dump(${"pa".$i});
 //                }
 //            }
 //            PAC数据测试
 //            for($i=1;$i<=$num;$i++){
 //                $pac="pac".$i;
-//                if($i==17){
+//                if($i==2){
 //                    var_dump($$pac);
 //                }
 //            }
@@ -227,10 +264,13 @@ and open the template in the editor.
                         array_push($group_member, $i);
                     }
                 }
+//                var_dump($group_member);
                 //遍历同group所有成员来获得本组的所有coord值
                 foreach ($group_member as $key1 => $value1) {
+//                    echo $value1;
                         $pa_group_key = $pa_group_key + ${"pa".$value1};
                         $pac_group_key = $pac_group_key + ${"pac".$value1};
+//                        var_dump($pac1);
                 }
                 //遍历coord值
                 foreach ($pa_group_key as $key2 => $value2) {
@@ -296,7 +336,6 @@ and open the template in the editor.
                     ${"pac_".$value."_med"}[$key2] = $med_pactmp;
                 }
             }
-//            var_dump($wt_leaf_med);
         ?>
         <script type="text/javascript">
             <?php 
