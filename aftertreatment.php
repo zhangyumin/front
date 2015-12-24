@@ -231,6 +231,8 @@
         else
             $Adj=0;
         $_SESSION['sample']=  array_merge($_POST['sample1'],$_POST['sample2']);
+        $_SESSION['sample1'] = $_POST['sample1'];
+        $_SESSION['sample2'] = $_POST['sample2'];
         $degene_cmd="Rscript /var/www/front/src/r/R_DEgene.r ofile='degene.".$_SESSION['analysis']."' method=$method adj=$Adj sig=$sig minpat=$minpat donorm=$donorm path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['analysis']." cols='".implode(':',$_POST['sample1'] ).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml";
         //$degene_cmd="Rscript /var/www/html/front/src/r/R_pairDEgene.r minrep=1 minpat=5 donorm=0 path='/home/zym/data/' intbl=PAC_sys_arab10 cols='oxt6_leaf_1:oxt6_leaf_2;wt_leaf_1:wt_leaf_2' groups=sys:user conf=/var/www/html/front/db.xml 2>&1";
 //        file_put_contents("/var/www/front/searched/test.txt", $degene_cmd);
@@ -258,6 +260,8 @@
         else
             $Adj=0;
         $_SESSION['sample']=  array_merge($_POST['sample1'],$_POST['sample2']);
+        $_SESSION['sample1'] = $_POST['sample1'];
+        $_SESSION['sample2'] = $_POST['sample2'];
         $depac_cmd="Rscript /var/www/front/src/r/R_DEPAC.r ofile='depac.".$_SESSION['analysis']."' method=$method adj=$Adj sig=$sig minpat=$minpat donorm=$donorm path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['analysis']." cols='".implode(':',$_POST['sample1']).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml";
 //        echo "<br><br>$depac_cmd<br><br>";
         shell_exec($depac_cmd);
@@ -271,6 +275,8 @@
                 $avgpat=0;
             $sig=$_POST['only3utr_sig'];
             $_SESSION['sample']=  array_merge($_POST['sample1'],$_POST['sample2']);
+            $_SESSION['sample1'] = $_POST['sample1'];
+            $_SESSION['sample2'] = $_POST['sample2'];
             $sg_ocmd="Rscript /var/www/front/src/r/R_switch3UTR.r ofile='only3utr.".$_SESSION['analysis']."' adj=0 sig=$sig avgPAT=$avgpat path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['analysis']." cols='".implode(':',$_POST['sample1']).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml";
 //            echo $sg_ocmd;
             shell_exec($sg_ocmd);
@@ -288,6 +294,8 @@
         $minpat5=$_POST['minpat5'];
         $minpat6=$_POST['minpat6'];
         $_SESSION['sample']=  array_merge($_POST['sample1'],$_POST['sample2']);
+        $_SESSION['sample1'] = $_POST['sample1'];
+        $_SESSION['sample2'] = $_POST['sample2'];
         $sg_ncmd="Rscript /var/www/front/src/r/R_switchNon3UTR.r ofile='none3utr.".$_SESSION['analysis']."' path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['analysis']." switch=$minpat1:$minpat2:$minpat3:$minpat4:$minpat5:$minpat6 cond='' cols='".implode(':',$_POST['sample1']).";".implode(':', $_POST['sample2'])."' groups=column1:column2 conf=/var/www/front/src/r/db_2.xml";
         //echo $sg_ncmd;
         shell_exec($sg_ncmd);
