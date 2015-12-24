@@ -102,6 +102,60 @@ and open the template in the editor.
 //                            echo $i;
                         }
             }
+            
+             //user trap数据
+            if(isset($_SESSION['file'])){
+                $sql_sample = implode($_SESSION['file_real'], ",");
+                $user_pac = mysql_query("select coord,$sql_sample from db_user.PAC_".$_SESSION['file']." where gene = '$seq';");
+                while($usr_row_pac = mysql_fetch_row($user_pac)){
+                    for($i=$num-count($_SESSION['file_real'])+1;$i<=$num;$i++){
+                        $pac="pac".$i;
+                        ${$pac}[$usr_row_pac[0]] = $usr_row_pac[$i-$num+count($_SESSION['file_real'])];
+                    }
+                }
+                foreach ($_SESSION['usr_group'] as $key => $value) {
+                    array_push($group, $value);
+                }
+                foreach ($_SESSION['file_real'] as $key => $value) {
+                    array_push($samples, $value);
+                }
+            }
+            //如果是analysis的数据
+            if($_GET['analysis']==1){
+                unset($group);
+                $group = array();
+                for($i=1;$i<=$num;$i++){
+                    //从samples中去除未选中的samples
+                    if(!in_array($samples[$i-1], $_SESSION['sample'])){
+                        unset($samples[$i-1]);
+                        unset(${"pac".$i});
+                    }
+                }
+                //重排samples序号
+               $samples = array_merge($samples);
+                //重新排列pa和pac的序号
+                $j = 1;
+                for($i=1;$i<=$num;$i++){
+                    if(!empty(${"pac".$i})){
+                        ${"pac".$j} = ${"pac".$i};
+                        $j++;
+                    }
+                }
+                //去除多余
+                for($i=count($_SESSION['sample'])+1;$i<=$num;$i++){
+                    unset(${"pac".$i});
+                }
+                //根据勾选重新分组
+                foreach ($samples as $key => $value) {
+                    if(in_array($value, $_SESSION['sample1']))
+                        array_push ($group,'sample1');
+                    else if(in_array($value, $_SESSION['sample2']))
+                        array_push ($group, 'sample2');
+                }
+                $num = count($_SESSION['sample']);
+//                $samples = $_SESSION['sample'];
+            }
+            
             //group处理
             $statistics_samples = array();#存储statistics的title
             //声明每个group的总和，均值，中位数数组
