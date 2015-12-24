@@ -156,10 +156,11 @@ and open the template in the editor.
                 $num = count($_SESSION['sample']);
 //                $samples = $_SESSION['sample'];
             }
-//            var_dump($num);
+//            var_dump(array_unique($group));
             
             //group处理
             $statistics_samples = array();#存储statistics的title
+            $pac_num = array();
             //声明每个group的总和，均值，中位数数组
             foreach (array_unique($group) as $key => $value) {
                 array_push($statistics_samples, $value."_sum");
@@ -180,6 +181,9 @@ and open the template in the editor.
                         $pac_group_key = $pac_group_key + ${"pac".$value1};
                 }
                 foreach ($pac_group_key as $key2 => $value2) {
+                    if(!in_array($key2, $pac_num)){
+                        array_push($pac_num, $key2);
+                    }
                     $sum_pactmp = 0;
                     $avg_pactmp = 0;
                     $med_pactmp = 0;
@@ -211,7 +215,7 @@ and open the template in the editor.
                     ${"pac_".$value."_med"}[$key2] = $med_pactmp;
                 }
             }
-//            var_dump($group);
+//            var_dump($group_member);
         ?>
         <script type="text/javascript">
             <?php 
@@ -261,9 +265,9 @@ and open the template in the editor.
 //                        echo "sampleinfo(\"pac\",$pos,\"$value\");\n";
 //                    }
                     $i = -1;
-                    foreach ($pac_group_key as $key => $value) {
+                    foreach ($pac_num as $key => $value) {
                         $i++;
-                        $position = ($key-$gene_start) * $rate;
+                        $position = ($value-$gene_start) * $rate;
                         echo "pointer($position,$i,\"gene\");";
                     }
                     if($_GET['intergenic']==1)
@@ -424,6 +428,7 @@ and open the template in the editor.
                 context.fillStyle="#F35A4A";//amb为兰色
                 if(endpos==1000&&strand==1){
                     context.fillRect(startpos,90,endpos-startpos-10,20);
+//                    var_dump($pactmp);
                 }
                 else if(startpos==0&&strand==-1){
                     context.fillRect(startpos+10,90,endpos-startpos-10,20);
@@ -471,7 +476,7 @@ and open the template in the editor.
             function pointer(pos,key,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                <?php echo "var row =".count($pac_group_key).";";?>
+                <?php echo "var row =".count($pac_num).";";?>
                 context.beginPath();
                 context.moveTo(pos,120);
                 context.lineTo(pos-5,125);
@@ -603,8 +608,8 @@ and open the template in the editor.
                         legend: {
 //                            data:['蒸发量','降水量']
                             data:['<?php
-                                        foreach ($pac_group_key as $key => $value) {
-                                            echo "PAC pos:$key','";
+                                        foreach ($pac_num as $key => $value) {
+                                            echo "PAC pos:$value','";
                                         }
                                     ?>']
                         },
@@ -649,16 +654,19 @@ and open the template in the editor.
                         series : [
                             
                             <?php
-                                    foreach ($pac_group_key as $key => $value) {
+                                    foreach ($pac_num as $key => $value) {
                                         $tmp_array = array();
                                         for($i=1;$i<=$num;$i++){
                                             $pac="pac".$i;
-                                            array_push($tmp_array,${$pac}[$key]);
+                                            if(${$pac}[$value]!=NULL)
+                                                array_push($tmp_array,${$pac}[$value]);
+                                            else
+                                                array_push($tmp_array,0);
                                         }
                                         $data = implode(",", $tmp_array);
                                         unset($tmp_array);
                                         echo "{"
-                                                    . "name:'PAC pos:$key',"
+                                                    . "name:'PAC pos:$value',"
 //                                                    . "barMinHeight: 10,"
                                                     . "type:'bar',"
                                                     . "data:[$data]"
@@ -710,8 +718,8 @@ and open the template in the editor.
                         legend: {
 //                            data:['蒸发量','降水量']
                             data:['<?php
-                                        foreach ($pac_group_key as $key => $value) {
-                                            echo "PAC pos:$key','";
+                                        foreach ($pac_num as $key => $value) {
+                                            echo "PAC pos:$value','";
                                         }
                                     ?>']
                         },
@@ -756,17 +764,21 @@ and open the template in the editor.
                         series : [
                             
                             <?php
+                                    $statistics_key = array();
                                     foreach (array_unique($group) as $key => $value) {
-                                        $statistics_key = array();
 //                                        $data = implode(",", ${"pac_".$value."_sum"});
                                         foreach (${"pac_".$value."_sum"} as $key1 => $value1) {
-                                            array_push($statistics_key, $key1);
+                                            if(!in_array($key1, $statistics_key))
+                                                array_push($statistics_key, $key1);
                                         }
                                     }
                                     foreach ($statistics_key as $key => $value) {
                                         $tmp_sum = array();
                                         foreach (array_unique($group) as $key3 => $value3) {
-                                               array_push($tmp_sum, ${"pac_".$value3."_sum"}[$value]);
+                                            if(${"pac_".$value3."_sum"}[$value]!=NULL)
+                                                array_push($tmp_sum, ${"pac_".$value3."_sum"}[$value]);
+                                            else
+                                                array_push($tmp_sum, 0);
                                         }
                                         $data = implode(",", $tmp_sum);
                                         unset($tmp_sum);
@@ -823,8 +835,8 @@ and open the template in the editor.
                         legend: {
 //                            data:['蒸发量','降水量']
                             data:['<?php
-                                        foreach ($pac_group_key as $key => $value) {
-                                            echo "PAC pos:$key','";
+                                        foreach ($pac_num as $key => $value) {
+                                            echo "PAC pos:$value','";
                                         }
                                     ?>']
                         },
@@ -869,17 +881,21 @@ and open the template in the editor.
                         series : [
                             
                             <?php
+                                    $statistics_key = array();
                                     foreach (array_unique($group) as $key => $value) {
-                                        $statistics_key = array();
 //                                        $data = implode(",", ${"pac_".$value."_sum"});
                                         foreach (${"pac_".$value."_avg"} as $key1 => $value1) {
-                                            array_push($statistics_key, $key1);
+                                            if(!in_array($key1, $statistics_key))
+                                                array_push($statistics_key, $key1);
                                         }
                                     }
                                     foreach ($statistics_key as $key => $value) {
                                         $tmp_sum = array();
                                         foreach (array_unique($group) as $key3 => $value3) {
-                                               array_push($tmp_sum, ${"pac_".$value3."_avg"}[$value]);
+                                            if(${"pac_".$value3."_sum"}[$value]!=NULL)
+                                                array_push($tmp_sum, ${"pac_".$value3."_avg"}[$value]);
+                                            else
+                                                array_push($tmp_sum, 0);
                                         }
                                         $data = implode(",", $tmp_sum);
                                         unset($tmp_sum);
@@ -936,8 +952,8 @@ and open the template in the editor.
                         legend: {
 //                            data:['蒸发量','降水量']
                             data:['<?php
-                                        foreach ($pac_group_key as $key => $value) {
-                                            echo "PAC pos:$key','";
+                                        foreach ($pac_num as $key => $value) {
+                                            echo "PAC pos:$value','";
                                         }
                                     ?>']
                         },
@@ -982,17 +998,21 @@ and open the template in the editor.
                         series : [
                             
                             <?php
+                                    $statistics_key = array();
                                     foreach (array_unique($group) as $key => $value) {
-                                        $statistics_key = array();
 //                                        $data = implode(",", ${"pac_".$value."_sum"});
                                         foreach (${"pac_".$value."_med"} as $key1 => $value1) {
-                                            array_push($statistics_key, $key1);
+                                            if(!in_array($key1, $statistics_key))
+                                                array_push($statistics_key, $key1);
                                         }
                                     }
                                     foreach ($statistics_key as $key => $value) {
                                         $tmp_sum = array();
                                         foreach (array_unique($group) as $key3 => $value3) {
-                                               array_push($tmp_sum, ${"pac_".$value3."_med"}[$value]);
+                                             if(${"pac_".$value3."_sum"}[$value]!=NULL)
+                                                array_push($tmp_sum, ${"pac_".$value3."_med"}[$value]);
+                                            else
+                                                array_push($tmp_sum, 0);
                                         }
                                         $data = implode(",", $tmp_sum);
                                         unset($tmp_sum);
