@@ -40,11 +40,14 @@
         <?php
             session_start();
             if($_POST['getback']!=NULL||$_GET['getback']!=NULL){
+                session_unset();
                 if(isset($_GET['getback']))
                     $_SESSION['file']=$_GET['getback'];
                 if(isset($_POST['getback']))
                     $_SESSION['file']=$_POST['getback'];
                 $_SESSION['species']=substr($_SESSION['file'], 0,  strpos($_SESSION['file'], "201"));
+                $_SESSION['usr_group'] = explode(";",file_get_contents("./result/".$_SESSION['file']."/group.txt"));
+                var_dump($_SESSION['usr_group']);
                 $file_name = scandir("./data/".$_SESSION['file']."");
                 $file_name = array_slice($file_name, 2);
 //                $file_num = sizeof($file_name);
