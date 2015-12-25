@@ -91,6 +91,7 @@
                 array_push($usr_group, $_POST['group-'.$value]);
             }
             $_SESSION['usr_group'] = $usr_group;
+            file_put_contents("./result/".$_SESSION['file']."/group.txt", implode(";", $_SESSION['usr_group']));
             foreach($upload_name as $key => $value)
             {
                 //step0:统一文件后缀名
