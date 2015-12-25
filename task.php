@@ -190,7 +190,7 @@
                     </thead>
                     <tbody>
                             <?php
-                                $list = mysql_query("select * from User_Task where ip = '$uip';");
+                                $list = mysql_query("select * from User_Task where ip = '$uip' order by time desc;");
                                 while ($list_row = mysql_fetch_row($list)){
                                     echo "<tr>";
                                     echo"<td style='text-align:center'><a href='./task.php?getback=$list_row[0]'>$list_row[0]</a></td>";
