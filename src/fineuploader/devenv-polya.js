@@ -25,9 +25,6 @@ qq(window).attach("load", function() {
                 foo: "bar"
             }
         },
-	validation: {
-	    itemLimit: 1
-	},
         chunking: {
             enabled: false,
 	    partSize: 100000000,
