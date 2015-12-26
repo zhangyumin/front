@@ -79,7 +79,6 @@
             $result=mysql_query($a);
             while($row=mysql_fetch_row($result))
             {
-                $gene_name=$row[6];
                 $gene_start=$row[3];
                 $gene_end=$row[4];
             }
