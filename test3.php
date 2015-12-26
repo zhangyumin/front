@@ -32,30 +32,58 @@
             }
         ?>
         <?php
-            $seq = file_get_contents("./seq/$species/$seq.fa");
+            $sequence = file_get_contents("./seq/$species/$seq.fa");
+            //如果是intergenic
+            if($_GET['flag']=='intergenic'){
+                $coord=$_GET['coord'];
+                $coordL=$coord-200;
+                $coordH=$coord+200;
+                $seq_result=mysql_query("select substring(seq,$coordL,401) from db_server.t_".$species."_fa where title='$chr';");
+                while($rows=mysql_fetch_row($seq_result))
+                {
+                    $sequence=$rows[0];
+                }
+            }
             //反转互补
             if(strcmp($strand,-1)==0)
-             {
-                 $seq= strrev($seq);
-                 $seq_arr=str_split($seq);
-                 array_shift($seq_arr);
-                 foreach ($seq_arr as &$value) {
-                     if($value=='A')
-                         $value='T';
-                     else if($value=='T'||$value=='U')
-                         $value='A';
-                     else if($value=='C')
-                         $value='G';
-                     else if($value=='G')
-                         $value='C';
-                     else
-                         $value='N';
-                 }
-                 $seq=  implode($seq_arr);
-             }
-             else{
-                 $seq=substr($seq,0,strlen($seq)-1); 
-             }
+            {
+                $sequence = strrev($sequence);
+                $seq_arr=str_split($sequence);
+                array_shift($seq_arr);
+                foreach ($seq_arr as &$value) {
+                    if($value=='A')
+                        $value='T';
+                    else if($value=='T'||$value=='U')
+                        $value='A';
+                    else if($value=='C')
+                        $value='G';
+                    else if($value=='G')
+                        $value='C';
+                    else
+                        $value='N';
+                }
+                $sequence=  implode($seq_arr);
+            }
+            else{
+                $sequence=substr($sequence,0,strlen($sequence)-1); 
+            }
+            $singnals = array("AATAAA","TATAAA","CATAAA","GATAAA","ATTAAA","ACTAAA","AGTAAA","AAAAAA","AACAAA","AAGAAA","AATTAA","AATCAA","AATGAA","AATATA","AATACA","AATAGA","AATAAT","AATAAC","AATAAG");        
+            //取sequence的起始和终点坐标
+            if($_GET['flag']=='intergenic'){
+                $a="SELECT * from db_server.t_".$species."_gff_all where gene='$seq' and ftr='intergenic';";
+            }
+            else{
+                $a="SELECT * from db_server.t_".$species."_gff_all where gene='$seq' and ftr='gene';";
+            }
+//            echo $sequence;
+            $result=mysql_query($a);
+            while($row=mysql_fetch_row($result))
+            {
+                $gene_name=$row[6];
+                $gene_start=$row[3];
+                $gene_end=$row[4];
+            }
+//            echo $gene_end;
         ?>
         <div id="seq_viewer">
         </div>
