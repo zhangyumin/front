@@ -91,6 +91,7 @@
                 $f_start[]=$row_f[3];
                 $f_end[]=$row_f[4];
             }
+//            var_dump($ftr);
             //3utr extend 位置信息
             $ext_start = array();
             $ext_end = array();
