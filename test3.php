@@ -136,13 +136,25 @@
             else{
                 $a="SELECT * from db_server.t_".$species."_gff_all where gene='$seq' and ftr='gene';";
             }
-//            echo $sequence;
-            //sequence处理，包括加空格、span坐标
             $result=mysql_query($a);
             while($row=mysql_fetch_row($result))
             {
                 $gene_start=$row[3];
                 $gene_end=$row[4];
+            }
+            //sequence处理，包括加空格、span坐标
+            $sequence_pos = str_split($sequence);
+            if($strand == 1){
+                foreach ($sequence_pos as $key => $value) {
+                    $coordinate = $gene_start+$key;
+                    $seq_with_pos .="<span class='pos$coordinate'>$value</span>";
+                }
+            }
+            else if($strand == -1){
+                foreach ($sequence_pos as $key => $value) {
+                    $coordinate = $gene_end-$key;
+                    $seq_with_pos .="<span class='pos$coordinate'>$value</span>";
+                }
             }
             //读取全序列信息
             $c="select * from db_server.t_".$species."_gff where gene like '$seq' ;";
