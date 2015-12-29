@@ -264,8 +264,28 @@
                 }
             }
          echo "</script>";
-
          ?>
+        <script>
+            $(document).ready(function (){
+                $('#checkall').click(function(){
+                    var value = $('#checkall').val();
+                    if(value == "checkall")
+                    {
+                        $('#checkall').val('uncheck');
+                        $("input[name=cbox1]:checked").each(function(){ 
+                            this.checked = false;
+                        }); 
+                    }
+                    else if(value == "uncheck")
+                    {
+                        $('#checkall').val('checkall');
+                        $("input[name=cbox1]").each(function(){ 
+                            this.checked = true;
+                        }); 
+                    }
+                });
+            });
+        </script>
         <div  class="straight_matter">
             <fieldset style="margin-top: 20px;margin-left: 2%;margin-right: 2%;">
                 <legend>
@@ -279,7 +299,7 @@
                             <table style="width:950px;margin-top:10px;margin-bottom:10px;font-family: Courier New;font-size: 15px;">
                                 <?php
                                 echo "<tr>";
-                                echo '<td><input type="checkbox" checked = "true" name = "cbox" id = "checkall1" value = "checkall" /><em>&nbsp;Change All</em></td>';
+                                echo '<td><input type="checkbox" checked = "true" name = "cbox" id = "checkall" value = "checkall" /><em>&nbsp;Change All</em></td>';
                                 $i = 0;
                                 foreach ($singnals as $key => $value) {
                                         if($i == 6||$i == 13)
