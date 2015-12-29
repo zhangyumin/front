@@ -67,6 +67,39 @@
                 color:#324a17;
                 font-weight: bold;
             }
+            .sutr{
+                color:black;
+                background-color: #6F00D2;
+            }
+            .wutr{
+                color:black;
+                background-color: #F75000;
+            }
+            .cds{
+                 color:black;
+                background-color: #FF0000;
+            }
+            .intron{
+                 color:black;
+                background-color: #5B5B5B;
+            }
+            .exon{
+                color:black;
+                background-color: #984B4B;
+            }
+            .amb{
+                color:black;
+                background-color: #ffd700;
+            }
+            .extend{
+                color:black;
+                background-color: #9aff9a;
+            }
+            .pa{
+                color:red;
+                text-decoration: underline;
+                font-weight: bold;
+            }
         </style>
     </head>
     <body>
@@ -290,9 +323,9 @@
             });
             function load_pattern()
             {
-                var patts1 = [];
-                var patts2 = [];
-                var ftr = [];
+                var patts1 = [];//存储user输入的pattern
+                var patts2 = [];//存储勾选的pattern
+                var ftr = [];//存储勾选的others
                 var user_patt = $("#user_pattern").val();
                 patts1 = user_patt.split(",");
                 $("input[name=cbox]:checked").each(function(){ 
@@ -304,6 +337,89 @@
                 $("input[name=cbox2]:checked").each(function(){ 
                     ftr.push($(this).val());
                 });
+                find_pattern(patts1,patts2,ftr);
+            }
+            function find_pattern(patts1,patts2,ftr){
+                //ftr部分
+                if(ftr.indexOf("3UTR")!=-1){
+                    if(sutr_start.length&&sutr_end.length!=0)
+                    {
+                        for(var sutrkey in sutr_start){
+                            for(var i = sutr_start[sutrkey]; i<= sutr_end[sutrkey]; i++){
+                                $('#pos'+i).addClass("sutr");
+                            }
+                        }
+                    }
+                }
+                if(ftr.indexOf("EXT")!=-1){
+                    if(ext_start.length&&ext_end.length!=0)
+                    {
+                        for(var extkey in ext_start){
+                            for(var i = ext_start[extkey]; i<= ext_end[extkey]; i++){
+                                $('#pos'+i).addClass("extend");
+                            }
+                        }
+                    }
+                }
+                if(ftr.indexOf("5UTR")!=-1){
+                    if(wutr_start.length&&wutr_end.length!=0)
+                    {
+                        for(var wutrkey in wutr_start){
+                            for(var i = wutr_start[wutrkey]; i<= wutr_end[wutrkey]; i++){
+                                $('#pos'+i).addClass("wutr");
+                            }
+                        }
+                    }
+                }
+                if(ftr.indexOf("CDS")!=-1){
+                    if(cds_start.length&&cds_end.length!=0)
+                    {
+                        for(var cdskey in cds_start){
+                            for(var i = cds_start[cdskey]; i<= cds_end[cdskey]; i++){
+                                $('#pos'+i).addClass("cds");
+                            }
+                        }
+                    }
+                }
+                if(ftr.indexOf("INTRON")!=-1){
+                    if(intron_start.length&&intron_end.length!=0)
+                    {
+                        for(var intronkey in intron_start){
+                            for(var i = intron_start[intronkey]; i<= intron_end[intronkey]; i++){
+                                $('#pos'+i).addClass("intron");
+                            }
+                        }
+                    }
+                }
+                if(ftr.indexOf("EXON")!=-1){
+                    if(exon_start.length&&exon_end.length!=0)
+                    {
+                        for(var exonkey in exon_start){
+                            for(var i = exon_start[exonkey]; i<= exon_end[exonkey]; i++){
+                                $('#pos'+i).addClass("exon");
+                            }
+                        }
+                    }
+                }
+                if(ftr.indexOf("AMB")!=-1){
+                    if(amb_start.length&&amb_end.length!=0)
+                    {
+                        for(var ambkey in amb_start){
+                            for(var i = amb_start[ambkey]; i<= amb_end[ambkey]; i++){
+                                $('#pos'+i).addClass("amb");
+                            }
+                        }
+                    }
+                }
+                if(ftr.indexOf("PA")!=-1){
+                    if(pa_start.length!=0)
+                    {
+                        for(var pakey in pa_start){
+//                            console.log(pa_start[pakey]);
+                            $('#pos'+pa_start[pakey]).addClass("pa");
+                        }
+                    }
+                }
             }
         </script>
         <div  class="straight_matter">
