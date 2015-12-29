@@ -147,13 +147,13 @@
             if($strand == 1){
                 foreach ($sequence_pos as $key => $value) {
                     $coordinate = $gene_start+$key;
-                    $seq_with_pos .="<span class='pos$coordinate'>$value</span>";
+                    $seq_with_pos .="<span id='pos$coordinate'>$value</span>";
                 }
             }
             else if($strand == -1){
                 foreach ($sequence_pos as $key => $value) {
                     $coordinate = $gene_end-$key;
-                    $seq_with_pos .="<span class='pos$coordinate'>$value</span>";
+                    $seq_with_pos .="<span id='pos$coordinate'>$value</span>";
                 }
             }
             //读取全序列信息
