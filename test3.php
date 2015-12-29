@@ -241,6 +241,9 @@
                 array_push($pa_tagnum, $pa_row[3]);
             }
             echo "<script type=\"text/javascript\">";
+            echo "var orgin_seq = '$sequence';";
+            echo "var gene_start = $gene_start;";
+            echo "var gene_end = $gene_end;";
             echo "var sutr_start=[];";
             echo "var sutr_end=[];";
             echo "var ext_start=[];";
@@ -441,7 +444,7 @@
                 //pattern部分
             }
             function clear(){
-                for(var i = <?php echo $gene_start;?> ; i<= <?php echo $gene_end?>;i++){
+                for(var i = gene_start ; i<= gene_end ;i++){
                     $('#pos'+i).attr("class","");
                 }
             }
