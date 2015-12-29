@@ -4,59 +4,6 @@
         <title>sequence viewer</title>
         <script src="./src/jquery-1.10.1.min.js"></script>
         <style>
-             .pt1{
-                color:black;
-                background-color: #FF83FA;
-            }
-            .pt2{
-                color:black;
-                background-color: #87CEFA;
-            }
-            .pt3{
-                color:black;
-                background-color: #B3EE3A;
-            }
-             .pt4{
-                color:black;
-                background-color: #EEEE00;
-            }
-             .pt5{
-                 display: inline;
-                color:black;
-                background-color: #6F00D2;
-            }
-             .pt6{
-                 display: inline;
-                color:black;
-                background-color: #F75000;
-            }
-             .pt7{
-                 display: inline;
-                color:black;
-                background-color: #FF0000;
-            }
-             .pt8{
-                 display: inline;
-                color:black;
-                background-color: #5B5B5B;
-            }
-             .pt9{
-                 display: inline;
-                color:black;
-                background-color: #984B4B;
-            }
-            .pt10{
-                 display: inline;
-                color:black;
-                background-color: #ffd700;
-                /*cursor: pointer;*/
-            }
-            .pt11{
-                 display: inline;
-                color:black;
-                background-color: #9aff9a;
-                /*cursor: pointer;*/
-            }
             fieldset{
                 border-color: #5499c9 !important;
                 border-style: solid !important;
@@ -564,7 +511,7 @@
                 </legend>
                 <div class = "seq_viewer" id="seq_viewer">
                     <div id = "pattern">	
-                        <legend><span class="h3_italic">Typical Pattern</span>&nbsp;<span class='pt2' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;(AATAAA&nbsp;<span class='pt3' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;TGTAAA&nbsp;<span class='pt4' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;)</legend>
+                        <legend><span class="h3_italic">Typical Pattern</span>&nbsp;<span class='patt2' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;(AATAAA&nbsp;<span class='aat' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;TGTAAA&nbsp;<span class='tgt' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;)</legend>
                             <table style="width:950px;margin-top:10px;margin-bottom:10px;font-family: Courier New;font-size: 15px;">
                                 <?php
                                 echo "<tr>";
@@ -581,19 +528,19 @@
                                 echo "</tr>";
                                 ?>
                             </table>
-                            <legend><span class="h3_italic">User’s Pattern </span>&nbsp;&nbsp;<span class='pt1' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;(Ex. AATAAA, TGTAAA)</legend>
+                            <legend><span class="h3_italic">User’s Pattern </span>&nbsp;&nbsp;<span class='patt1' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;(Ex. AATAAA, TGTAAA)</legend>
                             <input type = "text" id = "user_pattern" style="margin-top:10px;margin-bottom:10px;"/>
                             <br>
                             <legend id='text'><span class="h3_ltalic">others</span>&nbsp;&nbsp;
                                 (
-                                <input type="checkbox" name="cbox2" value="EXT"/>3'UTR Extend<span class='pt11' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
-                                <input type="checkbox" name="cbox2" value="3UTR"/>3'UTR <span class='pt5' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
-                                <input type="checkbox" name="cbox2" value="5UTR"/>5'UTR&nbsp;<span class='pt6' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
-                                <input type="checkbox" name="cbox2" value="CDS"/>CDS&nbsp;<span class='pt7' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
-                                <input type="checkbox" name="cbox2" value="INTRON"/>Intron&nbsp;<span class='pt8' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
-                                <input type="checkbox" name="cbox2" value="EXON"/>exon&nbsp;<span class='pt9' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
-                                <input type="checkbox" name="cbox2" value="AMB"/>amb&nbsp;<span class='pt10' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
-                                <input type="checkbox" name="cbox2" value="PA"/><span style="text-align:center;color:red;"><strong><u>Poly(A) site</u></strong></span>
+                                <input type="checkbox" name="cbox2" value="EXT"/>3'UTR Extend<span class='extend' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+                                <input type="checkbox" name="cbox2" value="3UTR"/>3'UTR <span class='sutr' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+                                <input type="checkbox" name="cbox2" value="5UTR"/>5'UTR&nbsp;<span class='wutr' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
+                                <input type="checkbox" name="cbox2" value="CDS"/>CDS&nbsp;<span class='cds' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
+                                <input type="checkbox" name="cbox2" value="INTRON"/>Intron&nbsp;<span class='intron' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
+                                <input type="checkbox" name="cbox2" value="EXON"/>exon&nbsp;<span class='exon' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
+                                <input type="checkbox" name="cbox2" value="AMB"/>amb&nbsp;<span class='amb' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+                                <input type="checkbox" name="cbox2" value="PA"/><span class="pa">Poly(A) site</span>
                                 )
                             </legend>
                             <br>
