@@ -63,6 +63,10 @@
                 border-width: 2px !important;
                 padding: 5px 10px !important;
             }
+            .scale{
+                color:#324a17;
+                font-weight: bold;
+            }
         </style>
     </head>
     <body>
@@ -144,14 +148,21 @@
             }
             //sequence处理，包括加空格、span坐标
             $sequence_pos = str_split($sequence);
+            $seq_with_pos = "<span class='scale'>01&nbsp</span>";
+            $row_number = 1;
             if($strand == 1){
                 foreach ($sequence_pos as $key => $value) {
                     $coordinate = $gene_start+$key;
                     $seq_with_pos .="<span id='pos$coordinate'>$value</span>";
                     if($key%10==9)
                         $seq_with_pos.="&nbsp";
-                    if($key%100 == 99)
-                        $seq_with_pos.="<br>";
+                    if($key%100 == 99){
+                        $row_number++;
+                        if($row_number<=9)
+                            $seq_with_pos.="<br><span class='scale'>0$row_number&nbsp</span>";
+                        else
+                            $seq_with_pos.="<br><span class='scale'>$row_number&nbsp</span>";
+                    }
                 }
             }
             else if($strand == -1){
@@ -160,8 +171,13 @@
                     $seq_with_pos .="<span id='pos$coordinate'>$value</span>";
                     if($key%10==9)
                         $seq_with_pos.="&nbsp";
-                    if($key%100 == 99)
-                        $seq_with_pos.="<br>";
+                    if($key%100 == 99){
+                        $row_number++;
+                        if($row_number<=9)
+                            $seq_with_pos.="<br><span class='scale'>0$row_number&nbsp</span>";
+                        else
+                            $seq_with_pos.="<br><span class='scale'>$row_number&nbsp</span>";
+                    }
                 }
             }
             //读取全序列信息
@@ -296,8 +312,8 @@
                             <button id = "reset" style = "width:100px;"  class = "button blue medium">Clear</button>
                     </div>
                     <div id = "seq_content" style="max-height:400px;overflow:auto;margin-top:20px;font-family: Courier New;font-size: 15px;">
-                        <p style="margin:0px">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10
+                        <p class="scale" style="margin:0px;">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40
