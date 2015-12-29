@@ -267,24 +267,44 @@
          ?>
         <script>
             $(document).ready(function (){
+                $('#find_patt').click(function(){
+                    load_pattern();
+                });
                 $('#checkall').click(function(){
                     var value = $('#checkall').val();
                     if(value == "checkall")
                     {
                         $('#checkall').val('uncheck');
-                        $("input[name=cbox1]:checked").each(function(){ 
+                        $("input[name=cbox]:checked").each(function(){ 
                             this.checked = false;
                         }); 
                     }
                     else if(value == "uncheck")
                     {
                         $('#checkall').val('checkall');
-                        $("input[name=cbox1]").each(function(){ 
+                        $("input[name=cbox]").each(function(){ 
                             this.checked = true;
                         }); 
                     }
                 });
             });
+            function load_pattern()
+            {
+                var patts1 = [];
+                var patts2 = [];
+                var ftr = [];
+                var user_patt = $("#user_pattern").val();
+                patts1 = user_patt.split(",");
+                $("input[name=cbox]:checked").each(function(){ 
+                    if($(this).val() != "checkall")
+                    {
+                        patts2.push($(this).val());
+                    }
+                });
+                $("input[name=cbox2]:checked").each(function(){ 
+                    ftr.push($(this).val());
+                });
+            }
         </script>
         <div  class="straight_matter">
             <fieldset style="margin-top: 20px;margin-left: 2%;margin-right: 2%;">
@@ -306,7 +326,7 @@
                                         {
                                                 echo "</tr><tr>";
                                         }
-                                        echo '<td><input type="checkbox" name = "cbox1" checked = "true" value = "'.$value.'"/>&nbsp;'.$value.'</td>';
+                                        echo '<td><input type="checkbox" name = "cbox" checked = "true" value = "'.$value.'"/>&nbsp;'.$value.'</td>';
                                         $i++;
                                 }
                                 echo "</tr>";
