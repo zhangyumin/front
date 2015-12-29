@@ -101,6 +101,10 @@
                 font-weight: bold;
                 cursor: pointer;
             }
+            .patt1{
+                color:black;
+                background-color: #FF83FA;
+            }
         </style>
     </head>
     <body>
@@ -241,9 +245,10 @@
                 array_push($pa_tagnum, $pa_row[3]);
             }
             echo "<script type=\"text/javascript\">";
-            echo "var orgin_seq = '$sequence';";
+            echo "var original_seq = '$sequence';";
             echo "var gene_start = $gene_start;";
             echo "var gene_end = $gene_end;";
+            echo "var strand = $strand;";
             echo "var sutr_start=[];";
             echo "var sutr_end=[];";
             echo "var ext_start=[];";
@@ -341,6 +346,11 @@
                     }
                 });
             });
+            function clear(){
+                for(var i = gene_start ; i<= gene_end ;i++){
+                    $('#pos'+i).attr("class","");
+                }
+            }
             function load_pattern()
             {
                 var patts1 = [];//存储user输入的pattern
@@ -442,11 +452,42 @@
                     }
                 }
                 //pattern部分
-            }
-            function clear(){
-                for(var i = gene_start ; i<= gene_end ;i++){
-                    $('#pos'+i).attr("class","");
+                //user pattern
+                var pos1_start = [];
+                var pos1_end = [];
+                for(var key1 in patts1)
+                {
+                    var patt = patts1[key1];
+                    if(patt != "")
+                    {
+                        patt = patt.replace(/[ ]/g,""); 
+                        if(patt.length == 1)
+                        {
+                            alert('The minimum length of pattern is 2!');
+                            return;
+                        }
+                        var reg=new RegExp(patt,"gi");
+                        var result;
+                        var j = -1;
+                        while((result = reg.exec(original_seq)) != null)
+                        {
+                            if(strand == -1){
+                                j++
+                                pos1_end.push(gene_end - result.index);
+                                pos1_start.push(gene_end  - patt.length - result.index+1);
+                            }
+                            else if(strand == 1){
+                                j++
+                                pos1_end.push(gene_start + result.index + patt.length - 1);
+                                pos1_start.push(gene_start + result.index);
+                            }
+                            for(var i = pos1_start[j]; i<= pos1_end[j];i++){
+                                $('#pos'+i).addClass("patt1");
+                            }
+                        }
+                    }
                 }
+                    console.log(pos1_end);
             }
         </script>
         <div  class="straight_matter">
