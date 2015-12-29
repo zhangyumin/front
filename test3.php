@@ -148,12 +148,20 @@
                 foreach ($sequence_pos as $key => $value) {
                     $coordinate = $gene_start+$key;
                     $seq_with_pos .="<span id='pos$coordinate'>$value</span>";
+                    if($key%10==9)
+                        $seq_with_pos.="&nbsp";
+                    if($key%100 == 99)
+                        $seq_with_pos.="<br>";
                 }
             }
             else if($strand == -1){
                 foreach ($sequence_pos as $key => $value) {
                     $coordinate = $gene_end-$key;
                     $seq_with_pos .="<span id='pos$coordinate'>$value</span>";
+                    if($key%10==9)
+                        $seq_with_pos.="&nbsp";
+                    if($key%100 == 99)
+                        $seq_with_pos.="<br>";
                 }
             }
             //读取全序列信息
@@ -290,17 +298,17 @@
                     <div id = "seq_content" style="max-height:400px;overflow:auto;margin-top:20px;font-family: Courier New;font-size: 15px;">
                         <p style="margin:0px">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100
                         </p>
-                        <p class = "sequence" id = "sequence" style="word-break:break-all;margin:0px"><?php echo $sequence;  ?></p>	            	
+                        <p class = "sequence" id = "sequence" style="word-break:break-all;margin:0px"><?php echo $seq_with_pos;  ?></p>	            	
                     </div>
                 </div>
             </fieldset>
