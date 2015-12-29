@@ -99,6 +99,7 @@
                 color:red;
                 text-decoration: underline;
                 font-weight: bold;
+                cursor: pointer;
             }
         </style>
     </head>
@@ -232,10 +233,12 @@
             }
             //polyA 位点信息
             $pa_start=array();
+            $pa_tagnum=array();
             $pa_result=mysql_query("select * from db_server.t_".$_GET['species']."_pa1 where chr='$chr' and coord>=$gene_start and coord<=$gene_end and tot_tagnum>0;");
             while ($pa_row=  mysql_fetch_row($pa_result))
             {
                 array_push($pa_start, $pa_row[2]);
+                array_push($pa_tagnum, $pa_row[3]);
             }
             echo "<script type=\"text/javascript\">";
             echo "var sutr_start=[];";
@@ -253,9 +256,11 @@
             echo "var amb_start=[];";
             echo "var amb_end=[];";
             echo "var pa_start=[];";
+            echo "var pa_tagnum=[];";
             foreach ($pa_start as $key => $value)
             {
                 echo "pa_start.push('$value');";
+                echo "pa_tagnum.push('$pa_tagnum[$key]');";
             }
             $i = -1;
             while(list($f_key,$val)=each($ftr))
@@ -417,6 +422,7 @@
                         for(var pakey in pa_start){
 //                            console.log(pa_start[pakey]);
                             $('#pos'+pa_start[pakey]).addClass("pa");
+                            $('#pos'+pa_start[pakey]).attr("title","tot_tagnum:"+pa_tagnum[pakey]);
                         }
                     }
                 }
