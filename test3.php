@@ -105,6 +105,18 @@
                 color:black;
                 background-color: #FF83FA;
             }
+            .patt2{
+                color:black;
+                background-color: #87CEFA;
+            }
+            .aat{
+                color:black;
+                background-color: #B3EE3A;
+            }
+            .tgt{
+                color:black;
+                background-color: #EEEE00;
+            }
         </style>
     </head>
     <body>
@@ -170,7 +182,7 @@
             else{
                 $sequence=substr($sequence,0,strlen($sequence)-1); 
             }
-            $singnals = array("AATAAA","TATAAA","CATAAA","GATAAA","ATTAAA","ACTAAA","AGTAAA","AAAAAA","AACAAA","AAGAAA","AATTAA","AATCAA","AATGAA","AATATA","AATACA","AATAGA","AATAAT","AATAAC","AATAAG");        
+            $singnals = array("AATAAA","TGTAAA","CATAAA","GATAAA","ATTAAA","ACTAAA","AGTAAA","AAAAAA","AACAAA","AAGAAA","AATTAA","AATCAA","AATGAA","AATATA","AATACA","AATAGA","AATAAT","AATAAC","AATAAG");        
             //取sequence的起始和终点坐标
             if($_GET['flag']=='intergenic'){
                 $a="SELECT * from db_server.t_".$species."_gff_all where gene='$seq' and ftr='intergenic';";
@@ -487,7 +499,73 @@
                         }
                     }
                 }
-                    console.log(pos1_end);
+                //select pattern
+                var pos2_start = [];
+                var pos2_end = [];
+                var aat_start = [];
+                var aat_end = [];
+                var tgt_start = [];
+                var tgt_end = [];
+                for(var key2 in patts2)
+                {  
+                    var patt = patts2[key2];
+                    if(patt != "")
+                    {
+                            var reg=new RegExp(patt,"gi");
+                            var result;
+                            var j = -1;
+                            while((result = reg.exec(original_seq)) != null)
+                            {
+                                if(strand == -1){
+                                    j++;
+                                    if(patt.toUpperCase() == "AATAAA")
+                                    {
+                                        aat_start.push(gene_end - result.index - patt.length + 1);
+                                        aat_end.push(gene_end - result.index);
+                                    }
+                                    else if(patt.toUpperCase() == "TGTAAA")
+                                    {
+                                        tgt_start.push(gene_end - result.index - patt.length + 1);
+                                        tgt_end.push(gene_end - result.index);
+                                    }
+                                    else
+                                    {
+                                        pos2_end.push(gene_end - result.index);
+                                        pos2_start.push(gene_end - result.index - patt.length + 1);
+                                    }
+                                }
+                                else if(strand == 1){
+                                    j++;
+                                    if(patt.toUpperCase() == "AATAAA")
+                                    {
+                                        aat_start.push(gene_start + result.index);
+                                        aat_end.push(gene_start + result.index + patt.length - 1);
+                                    }
+                                    else if(patt.toUpperCase() == "TGTAAA")
+                                    {
+                                        tgt_start.push(gene_start + result.index);
+                                        tgt_end.push(gene_start + result.index + patt.length - 1);
+                                    }
+                                    else
+                                    {
+                                        pos2_end.push(gene_start + result.index + patt.length - 1);
+                                        pos2_start.push(gene_start + result.index);
+                                    }
+                                }
+                                for(var i = pos2_start[j]; i<= pos2_end[j];i++){
+                                    $('#pos'+i).addClass("patt2");
+                                }
+                                for(var i = aat_start[j]; i<= aat_end[j];i++){
+                                    $('#pos'+i).addClass("aat");
+                                }
+                                for(var i = tgt_start[j]; i<= tgt_end[j];i++){
+                                    $('#pos'+i).addClass("tgt");
+                                }
+                            }
+                    }
+                }
+                console.log(tgt_start);
+                console.log(tgt_end);
             }
         </script>
         <div  class="straight_matter">
