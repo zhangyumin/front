@@ -306,6 +306,7 @@
         <script>
             $(document).ready(function (){
                 $('#find_patt').click(function(){
+                    clear();
                     load_pattern();
                 });
                  $('#reset').click(function(){
