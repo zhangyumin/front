@@ -268,12 +268,20 @@
                 if(strcmp($val, '3UTR')==0)
                 {
                     $i++;
-                    echo "sutr_start.push('$f_start[$f_key]');";
-                    echo "sutr_end.push('$ext_start[$i]');";
-                    $ext_start_pos = $ext_start[$i]+1;
-                    echo "ext_start.push('$ext_start_pos');";
-                    echo "ext_end.push('$f_end[$f_key]');";
-                    
+                    if($strand == 1){
+                        echo "sutr_start.push('$ext_start[$i]');";
+                        echo "sutr_end.push('$ext_end[$i]');";
+                        $ext_start_pos = $ext_end[$i]+1;
+                        echo "ext_start.push('$ext_start_pos');";
+                        echo "ext_end.push('$f_end[$f_key]');";
+                    }
+                    else if ($strand == -1){
+                        $ext_start_pos = $ext_start[$i]+1;
+                        echo "sutr_start.push('$ext_start_pos');";
+                        echo "sutr_end.push('$f_end[$f_key]');";
+                        echo "ext_start.push('$f_start[$f_key]');";
+                        echo "ext_end.push('$ext_start[$i]');";
+                    }
                 }
                 if(strcmp($val, '5UTR')==0)
                 {
