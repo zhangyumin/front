@@ -137,6 +137,7 @@
                 $a="SELECT * from db_server.t_".$species."_gff_all where gene='$seq' and ftr='gene';";
             }
 //            echo $sequence;
+            //sequence处理，包括加空格、span坐标
             $result=mysql_query($a);
             while($row=mysql_fetch_row($result))
             {
@@ -275,7 +276,19 @@
                             <button id = "reset" style = "width:100px;"  class = "button blue medium">Clear</button>
                     </div>
                     <div id = "seq_content" style="max-height:400px;overflow:auto;margin-top:20px;font-family: Courier New;font-size: 15px;">
-                            <p class = "sequence" id = "sequence" style="word-break:break-all;"><?php echo $sequence;  ?></p>	            	
+                        <p style="margin:0px">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;50
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100
+                        </p>
+                        <p class = "sequence" id = "sequence" style="word-break:break-all;margin:0px"><?php echo $sequence;  ?></p>	            	
                     </div>
                 </div>
             </fieldset>
