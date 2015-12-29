@@ -68,31 +68,24 @@
                 font-weight: bold;
             }
             .sutr{
-                color:black;
                 background-color: #6F00D2;
             }
             .wutr{
-                color:black;
                 background-color: #F75000;
             }
             .cds{
-                 color:black;
                 background-color: #FF0000;
             }
             .intron{
-                 color:black;
                 background-color: #5B5B5B;
             }
             .exon{
-                color:black;
                 background-color: #984B4B;
             }
             .amb{
-                color:black;
                 background-color: #ffd700;
             }
             .extend{
-                color:black;
                 background-color: #9aff9a;
             }
             .pa{
@@ -102,19 +95,15 @@
                 cursor: pointer;
             }
             .patt1{
-                color:black;
                 background-color: #FF83FA;
             }
             .patt2{
-                color:black;
                 background-color: #87CEFA;
             }
             .aat{
-                color:black;
                 background-color: #B3EE3A;
             }
             .tgt{
-                color:black;
                 background-color: #EEEE00;
             }
         </style>
@@ -564,8 +553,6 @@
                             }
                     }
                 }
-                console.log(tgt_start);
-                console.log(tgt_end);
             }
         </script>
         <div  class="straight_matter">
