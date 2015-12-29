@@ -168,9 +168,6 @@
                 array_push($pa_start, $pa_row[2]);
             }
             echo "<script type=\"text/javascript\">";
-            echo "var sequences=[];";
-            echo "var current_seq = '$seq';";
-            echo "sequences.push('$seq');";
             echo "var sutr_start=[];";
             echo "var sutr_end=[];";
             echo "var ext_start=[];";
