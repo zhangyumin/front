@@ -106,18 +106,75 @@
             {
                 array_push($pa_start, $pa_row[2]);
             }
-            foreach($pa_start as $key => $value)
+            echo "<script type=\"text/javascript\">";
+            echo "var sequences=[];";
+            echo "var current_seq = '$seq';";
+            echo "sequences.push('$seq');";
+            echo "var sutr_start=[];";
+            echo "var sutr_end=[];";
+            echo "var ext_start=[];";
+            echo "var ext_end=[];";
+            echo "var wutr_start=[];";
+            echo "var wutr_end=[];";
+            echo "var cds_start=[];";
+            echo "var cds_end=[];";
+            echo "var intron_start=[];";
+            echo "var intron_end=[];";
+            echo "var exon_start=[];";
+            echo "var exon_end=[];";
+            echo "var amb_start=[];";
+            echo "var amb_end=[];";
+            echo "var pa_start=[];";
+            foreach ($pa_start as $key => $value)
             {
-                if(strcmp($strand,-1)==0)
+                echo "pa_start.push('$value');";
+            }
+            $i = -1;
+            while(list($f_key,$val)=each($ftr))
+            {
+                if(strcmp($val, '3UTR')==0)
                 {
-                    $pa_start[$key]=$gene_end-$pa_start[$key]+1;
+                    $i++;
+//                    echo "sutr_start.push('$f_start[$f_key]');";
+//                    echo "sutr_end.push('$ext_start[$i]');";
+//                    $ext_start_pos = $ext_start[$i]+1;
+//                    echo "ext_start.push('$ext_start_pos');";
+//                    echo "ext_end.push('$f_end[$f_key]');";
+                    echo "sutr_start.push('$f_start[$f_key]');";
+                    echo "sutr_end.push('$f_end[$f_key]');";
+                    echo "ext_start.push('$ext_start[$i]');";
+                    echo "ext_end.push('$ext_end[$i]');";
+                    
                 }
-                else if(strcmp($strand,1)==0)
-               {
-                   $pa_start[$key]=$pa_start[$key]-$gene_start+1;
+                if(strcmp($val, '5UTR')==0)
+                {
+                    echo "wutr_start.push('$f_start[$f_key]');";
+                    echo "wutr_end.push('$f_end[$f_key]');";
+                }
+                if(strcmp($val, 'CDS')==0)
+                {
+                    echo "cds_start.push('$f_start[$f_key]');";
+                    echo "cds_end.push('$f_end[$f_key]');";
+                }
+                if(strcmp($val, 'intron')==0)
+                {
+                    echo "intron_start.push('$f_start[$f_key]');";
+                    echo "intron_end.push('$f_end[$f_key]');";
+                }
+               if(strcmp($val, 'exon')==0)
+                {
+                    echo "exon_start.push('$f_start[$f_key]');";
+                    echo "exon_end.push('$f_end[$f_key]');";
+                }
+                if(strcmp($val, 'AMB')==0)
+                {
+                       echo "amb_start.push('$f_start[$f_key]');";
+                       echo "amb_end.push('$f_end[$f_key]');";
                 }
             }
-        ?>
+         echo "</script>";
+
+         ?>
         <div id="seq_viewer">
         </div>
     </body>
