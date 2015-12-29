@@ -308,6 +308,9 @@
                 $('#find_patt').click(function(){
                     load_pattern();
                 });
+                 $('#reset').click(function(){
+                    clear();
+                });
                 $('#checkall').click(function(){
                     var value = $('#checkall').val();
                     if(value == "checkall")
@@ -425,6 +428,12 @@
                             $('#pos'+pa_start[pakey]).attr("title","tot_tagnum:"+pa_tagnum[pakey]);
                         }
                     }
+                }
+                //pattern部分
+            }
+            function clear(){
+                for(var i = <?php echo $gene_start;?> ; i<= <?php echo $gene_end?>;i++){
+                    $('#pos'+i).attr("class","");
                 }
             }
         </script>
