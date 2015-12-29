@@ -49,32 +49,39 @@
                 color:black;
                 background-color: #EEEE00;
             }
-             span.pt5{
+             .pt5{
+                 display: inline;
                 color:black;
                 background-color: #6F00D2;
             }
-             span.pt6{
+             .pt6{
+                 display: inline;
                 color:black;
                 background-color: #F75000;
             }
-             span.pt7{
+             .pt7{
+                 display: inline;
                 color:black;
                 background-color: #FF0000;
             }
-             span.pt8{
+             .pt8{
+                 display: inline;
                 color:black;
                 background-color: #5B5B5B;
             }
-             span.pt9{
+             .pt9{
+                 display: inline;
                 color:black;
                 background-color: #984B4B;
             }
-            span.pt10{
+            .pt10{
+                 display: inline;
                 color:black;
                 background-color: #ffd700;
                 /*cursor: pointer;*/
             }
-            span.pt11{
+            .pt11{
+                 display: inline;
                 color:black;
                 background-color: #9aff9a;
                 /*cursor: pointer;*/
@@ -240,11 +247,14 @@
              }
          }
          //3utr extend 位置信息
-         $extend=  mysql_query("select * from t_".$species."_gff_org where gene='$gene_name';");
+         $ext_start = array();
+         $ext_end = array();
+         $extend=  mysql_query("select * from t_".$species."_gff_org where gene='$gene_name' and ftr='3UTR';");
         while($ext_r=  mysql_fetch_row($extend)){
-            if($ext_r[2]=='3UTR')
-                $ext_start=$ext_r[3];
-                $ext_end=$ext_r[4];
+//                $ext_start=$ext_r[3];
+//                $ext_end=$ext_r[4];
+            array_push($ext_start, $ext_r[3]);
+            array_push($ext_end, $ext_r[4]);
         }
 
          echo "<script type=\"text/javascript\">";
@@ -273,33 +283,35 @@
          {
              echo "pa_start.push('$value');";
          }
+         $i = -1;
          while(list($f_key,$val)=each($ftr))
          {
              if(strcmp($val, '3UTR')==0)
              {
+                 $i++;
                  if(strcmp($strand,1)==0)
                  {
                     $s_start=$f_start[$f_key];
-                    $ss_p=$s_start-$gene_start;//3utr start point
+                    $ss_p=$s_start-$gene_start+1;//3utr start point
                     echo "sutr_start.push('$ss_p');";
                     $s_end=$f_end[$f_key];
-                    $se_p=$s_end-$gene_start;//3utr end point
+                    $se_p=$ext_end[$i]-$gene_start+1;//3utr end point
+                    $ext_sp = $se_p + 1;
+                    $ext_ep = $s_end - $gene_start + 1;
                     echo "sutr_end.push('$se_p');";
-                    $ext_sp=$ext_end-$gene_start;
-                    $ext_ep=$gene_end-$gene_start;
                     echo "ext_start.push('$ext_sp');";
                     echo "ext_end.push('$ext_ep');";
                  }
                  else if(strcmp($strand,-1)==0)
                 {
                     $s_start=$f_start[$f_key];
-                    $se_p=$gene_end-$s_start+1;//3utr end point
-                    echo "sutr_end.push('$se_p');";
+                    $ext_ep=$gene_end-$s_start+1;
                     $s_end=$f_end[$f_key];
                     $ss_p=$gene_end-$s_end+1;//3utr start point
+                    $se_p=$gene_end-$ext_start[$i]+1;//3utr end point
+                    $ext_sp=$se_p+1;
                     echo "sutr_start.push('$ss_p');";
-                    $ext_sp=$gene_end-$ext_start+1;
-                    $ext_ep=$gene_end-$gene_start+1;
+                    echo "sutr_end.push('$se_p');";
                     echo "ext_start.push('$ext_sp');";
                     echo "ext_end.push('$ext_ep');";
                  }
@@ -393,10 +405,10 @@
                  if(strcmp($strand,1)==0)
                  {
                     $a_start=$f_start[$f_key];
-                    $as_p=$a_start-$gene_start;//AMB start point
+                    $as_p=$a_start-$gene_start+1;//AMB start point
                     echo "amb_start.push('$as_p');";
                     $a_end=$f_end[$f_key];
-                    $ae_p=$a_end-$gene_start;//amb end point
+                    $ae_p=$a_end-$gene_start+1;//amb end point
                     echo "amb_end.push('$ae_p');";
                  }
                  else if(strcmp($strand,-1)==0)
@@ -621,30 +633,6 @@
                     {
                         var pos=sutr_start[sutrkey];
                         pos2=pos+1;
-                        for(var a in pos1_start)
-                        {
-                            var i=pos1_start[a];
-                            if(pos>i&&pos<=pos1_end[i])
-                                pos=pos1_end[i]+2;
-                        }
-                        for(var b in pos2_start)
-                        {
-                            var i=pos2_start[b];
-                            if(pos>i&&pos<=pos2_end[i])
-                                pos=pos2_end[i]+2;
-                        }
-                        for(var c in aat_start)
-                        {
-                            var i=aat_start[c];
-                            if(pos>i&&pos<=aat_end[i])
-                                pos=aat_end[i]+2;
-                        }
-                        for(var d in tgt_start)
-                        {
-                            var i=tgt_start[d];
-                            if(pos>i&&pos<=tgt_end[i])
-                            pos=tgt_end[i]+2;
-                        }
                         pos1=pos-1;
                         var sub1=seq.substring(0,pos1);
                         var sub2=seq.substring(pos);
@@ -669,30 +657,6 @@
                     for(var sutrkey1 in sutr_end)
                     {
                         var pos=sutr_end[sutrkey1];
-                        for(var e in pos1_start)
-                        {
-                            var i=pos1_start[e]
-                            if(pos>i&&pos<pos1_end[i]+1)
-                                pos=i;
-                        }
-                        for(var f in pos2_start)
-                        {
-                            var i=pos2_start[f]
-                            if(pos>i&&pos<pos2_end[i]+1)
-                                pos=i;
-                        }
-                        for(var g in aat_start)
-                        {
-                            var i=aat_start[g]
-                            if(pos>i&&pos<aat_end[i]+1)
-                                pos=i;
-                        }
-                        for(var h in tgt_start)
-                        {
-                            var i=tgt_start[h]
-                            if(pos>i&&pos<tgt_end[i]+1)
-                            pos=i;
-                        }
                         pos1=pos-1;
                         var sub1=seq.substring(0,pos1);
                         var sub2=seq.substring(pos);
@@ -1706,62 +1670,62 @@
                     newSeq += tmp_str + "<br>";
             }
             newSeq = newSeq.replace(/,/g,"&nbsp;");
-            newSeq = newSeq.replace(/啊/g,"<span class='pt5'>A");
-            newSeq = newSeq.replace(/他/g,"<span class='pt5'>T");
-            newSeq = newSeq.replace(/擦/g,"<span class='pt5'>C");
-            newSeq = newSeq.replace(/个/g,"<span class='pt5'>G");
-            newSeq = newSeq.replace(/阿/g,"A</span class='pt5'>");
-             newSeq = newSeq.replace(/它/g,"T</span class='pt5'>");
-            newSeq = newSeq.replace(/嚓/g,"C</span class='pt5'>");
-            newSeq = newSeq.replace(/噶/g,"G</span class='pt5'>");
-            newSeq = newSeq.replace(/吖/g,"<span class='pt6'>A");
-            newSeq = newSeq.replace(/她/g,"<span class='pt6'>T");
-            newSeq = newSeq.replace(/拆/g,"<span class='pt6'>C");
-            newSeq = newSeq.replace(/哥/g,"<span class='pt6'>G");
-            newSeq = newSeq.replace(/嗄/g,"A</span class='pt6'>");
-             newSeq = newSeq.replace(/塔/g,"T</span class='pt6'>");
-            newSeq = newSeq.replace(/攃/g,"C</span class='pt6'>");
-            newSeq = newSeq.replace(/改/g,"G</span class='pt6'>");
-            newSeq = newSeq.replace(/挨/g,"<span class='pt7'>A");
-            newSeq = newSeq.replace(/沓/g,"<span class='pt7'>T");
-            newSeq = newSeq.replace(/踩/g,"<span class='pt7'>C");
-            newSeq = newSeq.replace(/搞/g,"<span class='pt7'>G");
-            newSeq = newSeq.replace(/艾/g,"A</span class='pt7'>");
-             newSeq = newSeq.replace(/牠/g,"T</span class='pt7'>");
-            newSeq = newSeq.replace(/彩/g,"C</span class='pt7'>");
-            newSeq = newSeq.replace(/工/g,"G</span class='pt7'>");
-            newSeq = newSeq.replace(/哎/g,"<span class='pt8'>A");
-            newSeq = newSeq.replace(/踏/g,"<span class='pt8'>T");
-            newSeq = newSeq.replace(/礤/g,"<span class='pt8'>C");
-            newSeq = newSeq.replace(/跟/g,"<span class='pt8'>G");
-            newSeq = newSeq.replace(/爱/g,"A</span class='pt8'>");
-             newSeq = newSeq.replace(/塌/g,"T</span class='pt8'>");
-            newSeq = newSeq.replace(/才/g,"C</span class='pt8'>");
-            newSeq = newSeq.replace(/挂/g,"G</span class='pt8'>");
-            newSeq = newSeq.replace(/唉/g,"<span class='pt9'>A");
-            newSeq = newSeq.replace(/榻/g,"<span class='pt9'>T");
-            newSeq = newSeq.replace(/菜/g,"<span class='pt9'>C");
-            newSeq = newSeq.replace(/过/g,"<span class='pt9'>G");
-            newSeq = newSeq.replace(/矮/g,"A</span class='pt9'>");
-             newSeq = newSeq.replace(/祂/g,"T</span class='pt9'>");
-            newSeq = newSeq.replace(/猜/g,"C</span class='pt9'>");
-            newSeq = newSeq.replace(/高/g,"G</span class='pt9'>");
-            newSeq = newSeq.replace(/哀/g,"<span class='pt10'>A");
-            newSeq = newSeq.replace(/挞/g,"<span class='pt10'>T");
-            newSeq = newSeq.replace(/财/g,"<span class='pt10'>C");
-            newSeq = newSeq.replace(/阁/g,"<span class='pt10'>G");
-            newSeq = newSeq.replace(/碍/g,"A</span class='pt10'>");
-             newSeq = newSeq.replace(/獭/g,"T</span class='pt10'>");
-            newSeq = newSeq.replace(/蔡/g,"C</span class='pt10'>");
-            newSeq = newSeq.replace(/革/g,"G</span class='pt10'>");
-            newSeq = newSeq.replace(/癌/g,"<span class='pt11'>A");
-            newSeq = newSeq.replace(/蹋/g,"<span class='pt11'>T");
-            newSeq = newSeq.replace(/材/g,"<span class='pt11'>C");
-            newSeq = newSeq.replace(/割/g,"<span class='pt11'>G");
-            newSeq = newSeq.replace(/埃/g,"A</span class='pt11'>");
-             newSeq = newSeq.replace(/铊/g,"T</span class='pt11'>");
-            newSeq = newSeq.replace(/裁/g,"C</span class='pt11'>");
-            newSeq = newSeq.replace(/嗝/g,"G</span class='pt11'>");
+            newSeq = newSeq.replace(/啊/g,"<div class='pt5'>A");
+            newSeq = newSeq.replace(/他/g,"<div class='pt5'>T");
+            newSeq = newSeq.replace(/擦/g,"<div class='pt5'>C");
+            newSeq = newSeq.replace(/个/g,"<div class='pt5'>G");
+            newSeq = newSeq.replace(/阿/g,"A</div class='pt5'>");
+             newSeq = newSeq.replace(/它/g,"T</div class='pt5'>");
+            newSeq = newSeq.replace(/嚓/g,"C</div class='pt5'>");
+            newSeq = newSeq.replace(/噶/g,"G</div class='pt5'>");
+            newSeq = newSeq.replace(/吖/g,"<div class='pt6'>A");
+            newSeq = newSeq.replace(/她/g,"<div class='pt6'>T");
+            newSeq = newSeq.replace(/拆/g,"<div class='pt6'>C");
+            newSeq = newSeq.replace(/哥/g,"<div class='pt6'>G");
+            newSeq = newSeq.replace(/嗄/g,"A</div class='pt6'>");
+             newSeq = newSeq.replace(/塔/g,"T</div class='pt6'>");
+            newSeq = newSeq.replace(/攃/g,"C</div class='pt6'>");
+            newSeq = newSeq.replace(/改/g,"G</div class='pt6'>");
+            newSeq = newSeq.replace(/挨/g,"<div class='pt7'>A");
+            newSeq = newSeq.replace(/沓/g,"<div class='pt7'>T");
+            newSeq = newSeq.replace(/踩/g,"<div class='pt7'>C");
+            newSeq = newSeq.replace(/搞/g,"<div class='pt7'>G");
+            newSeq = newSeq.replace(/艾/g,"A</div class='pt7'>");
+             newSeq = newSeq.replace(/牠/g,"T</div class='pt7'>");
+            newSeq = newSeq.replace(/彩/g,"C</div class='pt7'>");
+            newSeq = newSeq.replace(/工/g,"G</div class='pt7'>");
+            newSeq = newSeq.replace(/哎/g,"<div class='pt8'>A");
+            newSeq = newSeq.replace(/踏/g,"<div class='pt8'>T");
+            newSeq = newSeq.replace(/礤/g,"<div class='pt8'>C");
+            newSeq = newSeq.replace(/跟/g,"<div class='pt8'>G");
+            newSeq = newSeq.replace(/爱/g,"A</div class='pt8'>");
+             newSeq = newSeq.replace(/塌/g,"T</div class='pt8'>");
+            newSeq = newSeq.replace(/才/g,"C</div class='pt8'>");
+            newSeq = newSeq.replace(/挂/g,"G</div class='pt8'>");
+            newSeq = newSeq.replace(/唉/g,"<div class='pt9'>A");
+            newSeq = newSeq.replace(/榻/g,"<div class='pt9'>T");
+            newSeq = newSeq.replace(/菜/g,"<div class='pt9'>C");
+            newSeq = newSeq.replace(/过/g,"<div class='pt9'>G");
+            newSeq = newSeq.replace(/矮/g,"A</div class='pt9'>");
+             newSeq = newSeq.replace(/祂/g,"T</div class='pt9'>");
+            newSeq = newSeq.replace(/猜/g,"C</div class='pt9'>");
+            newSeq = newSeq.replace(/高/g,"G</div class='pt9'>");
+            newSeq = newSeq.replace(/哀/g,"<div class='pt10'>A");
+            newSeq = newSeq.replace(/挞/g,"<div class='pt10'>T");
+            newSeq = newSeq.replace(/财/g,"<div class='pt10'>C");
+            newSeq = newSeq.replace(/阁/g,"<div class='pt10'>G");
+            newSeq = newSeq.replace(/碍/g,"A</div class='pt10'>");
+             newSeq = newSeq.replace(/獭/g,"T</div class='pt10'>");
+            newSeq = newSeq.replace(/蔡/g,"C</div class='pt10'>");
+            newSeq = newSeq.replace(/革/g,"G</div class='pt10'>");
+            newSeq = newSeq.replace(/癌/g,"<div class='pt11'>A");
+            newSeq = newSeq.replace(/蹋/g,"<div class='pt11'>T");
+            newSeq = newSeq.replace(/材/g,"<div class='pt11'>C");
+            newSeq = newSeq.replace(/割/g,"<div class='pt11'>G");
+            newSeq = newSeq.replace(/埃/g,"A</div class='pt11'>");
+             newSeq = newSeq.replace(/铊/g,"T</div class='pt11'>");
+            newSeq = newSeq.replace(/裁/g,"C</div class='pt11'>");
+            newSeq = newSeq.replace(/嗝/g,"G</div class='pt11'>");
             newSeq = newSeq.replace(/W/g,"<font color='red'><strong><u>A</u></strong></font>");
             newSeq = newSeq.replace(/X/g,"<font color='red'><strong><u>T</u></strong></font>");
             newSeq = newSeq.replace(/Y/g,"<font color='red'><strong><u>C</u></strong></font>");
