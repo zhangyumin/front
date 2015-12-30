@@ -5,6 +5,8 @@
         <script src="./src/jquery-1.10.1.min.js"></script>
         <script src="./src/jquery.dataTables.min.js"type="text/javascript" ></script>
         <link href="./src/jquery.dataTables.css"type="text/css" rel="stylesheet"></link>
+        <link type="text/css" rel="stylesheet" href="./src/pws-tabs/jquery.pwstabs-1.2.1.css"></link>
+        <script src="./src/pws-tabs/jquery.pwstabs-1.2.1.js"></script>
         <!-- Mobile viewport optimisation -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
@@ -688,88 +690,54 @@
                     </td>
                 </tr>
                 <tr>
-                    <td width="1100px" valign="top" colspan="2">
-                        <div class="wrap">
-                            <div class="tabs">
-                                <a href="#" hidefocus="true" class="active">Jbrowse</a>
-                                <a href="#" hidefocus="true">Gene Pic</a>
-                                <a href="#" hidefocus="true">Pac Pic</a>
-                            </div><br>    
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="content-slide">
-                                        <div style="height:99%">
-                                            <iframe src="../jbrowse/?data=data/<?php echo $_GET['species'];?>&loc=<?php echo $chr;?>:<?php echo $gene_start;?>..<?php echo $gene_end;?>&tracks=Arabidopsis,sys_polya" width=100% height=100%>
-                                            </iframe>
-                                        </div>
-                                  </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="content-slide">
-                                        <div style="height:99%">
-                                            <?php
-                                                if($_GET['flag']=='intergenic'){
-                                                    if($_GET['analysis']==1)
-                                                        echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord&analysis=1\" width=100%  height=100%></iframe>";
-                                                    else
-                                                        echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord\" width=100%  height=100%></iframe>";
-                                                }
-                                                else{
-                                                    if($_GET['analysis']==1)
-                                                        echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord&analysis=1\" width=100%  height=100%></iframe>";
-                                                    else
-                                                        echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord\" width=100%  height=100%></iframe>";
-                                                }
-                                                ?>
-                                        </div>
-                                    </div>
-                                  </div>
-                                    <div class="swiper-slide">
-                                    <div class="content-slide">
-                                        <div style="height:99%">
-                                            <?php
-                                                if($_GET['flag']=='intergenic'){
-                                                    if($_GET['analysis']==1)
-                                                        echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord&analysis=1\" width=100%  height=100%></iframe>";
-                                                    else
-                                                        echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord\" width=100%  height=100%></iframe>";
-                                                }
-                                                else{
-                                                    if($_GET['analysis']==1)
-                                                        echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord&analysis=1\" width=100%  height=100%></iframe>";
-                                                    else
-                                                        echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord\" width=100%  height=100%></iframe>";
-                                                }
-                                            ?>
-                                        </div>
-                                  </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="content-slide">
-                                        <script>
-                                            var tabsSwiper = new Swiper('.swiper-container',{
-                                              speed:500,
-                                              onSlideChangeStart: function(){
-                                                $(".tabs .active").removeClass('active');
-                                                $(".tabs a").eq(tabsSwiper.activeIndex).addClass('active');
-                                              }
-                                            });
-                                            $(".tabs a").on('touchstart mousedown',function(e){
-                                              e.preventDefault()
-                                              $(".tabs .active").removeClass('active');
-                                              $(this).addClass('active');
-                                              tabsSwiper.swipeTo($(this).index());
-                                            })
-                                            $(".tabs a").click(function(e){
-                                              e.preventDefault()
-                                            })
-                                        </script>
-                                    </div>
-                                  </div>
-                              </div>
-                           </div>
-                        </div>
+                    <td>
+                        <div class="tabs" style="padding:0px;border:solid #5499c9">
+                            <div data-pws-tab="jbrowse" data-pws-tab-name="Jbrowse">
+                                <iframe src="../jbrowse/?data=data/<?php echo $_GET['species'];?>&loc=<?php echo $chr;?>:<?php echo $gene_start;?>..<?php echo $gene_end;?>&tracks=Arabidopsis,sys_polya" width=1200px height=500px>
+                                </iframe>
+                            </div>
+                            <div data-pws-tab="genepic" data-pws-tab-name="Gene pic">
+                                <?php
+                                    if($_GET['flag']=='intergenic'){
+                                        if($_GET['analysis']==1)
+                                            echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord&analysis=1\" width=1200px  height=500px></iframe>";
+                                        else
+                                            echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord\" width=1200px  height=500px></iframe>";
+                                    }
+                                    else{
+                                        if($_GET['analysis']==1)
+                                            echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord&analysis=1\" width=1200px  height=500px></iframe>";
+                                        else
+                                            echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord\" width=1200px  height=500px></iframe>";
+                                    }
+                                    ?>
+                            </div>
+                            <div data-pws-tab="pacpic" data-pws-tab-name="PAC pic">
+                                <?php
+                                    if($_GET['flag']=='intergenic'){
+                                        if($_GET['analysis']==1)
+                                            echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord&analysis=1\" width=1200px  height=500px></iframe>";
+                                        else
+                                            echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord\" width=1200px  height=500px></iframe>";
+                                    }
+                                    else{
+                                        if($_GET['analysis']==1)
+                                            echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord&analysis=1\" width=1200px  height=500px></iframe>";
+                                        else
+                                            echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord\" width=1200px  height=500px></iframe>";
+                                    }
+                                ?>
+                            </div>
+                         </div>
+                        <script>
+                            jQuery(document).ready(function($){
+                                $('.tabs').pwstabs({
+                                effect: 'slideleft',
+                                defaultTab: 1,
+                                containerWidth: '1190px'
+                             });
+                             });   
+                        </script>
                     </td>
                 </tr>
             </tbody>
