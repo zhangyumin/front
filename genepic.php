@@ -524,8 +524,8 @@ and open the template in the editor.
                 context.strokeStyle="#000000";
                 context.fillStyle="#000000";//line为黑色
                 context.beginPath();
-                context.moveTo(0,100);
-                context.lineTo(1000,100);
+                context.moveTo(0,140);
+                context.lineTo(1000,140);
                 context.stroke();
             }
             function xscale(id){
@@ -581,13 +581,13 @@ and open the template in the editor.
                 context.beginPath();
                 context.strokeStyle="#000000";
                 context.fillStyle="#000000";//y刻度尺为黑色
-                context.moveTo(0,100);
+                context.moveTo(0,140);
                 context.lineTo(0,0);
-                for(i=4;i>=0;i--){
+                for(i=6;i>=0;i--){
                     context.moveTo(0,20*i);
                     context.lineTo(5,20*i);
                     context.font="12px Droid Serif";
-                    context.fillText(50-10*i,5,21*i);
+                    context.fillText(70-10*i,5,21*i);
                 }
                 context.stroke();
             }
@@ -840,12 +840,12 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.strokeStyle="#000";//pa为黑色
                 context.beginPath();
-                context.moveTo(loc,100);
+                context.moveTo(loc,140);
                 if(tagnum>50){
                     context.lineTo(loc,0);
                 }
                 else{
-                    context.lineTo(loc,100-2*tagnum);
+                    context.lineTo(loc,140-2*tagnum);
                 }
                 context.stroke();
             }
@@ -858,7 +858,7 @@ and open the template in the editor.
                 context.font="10px Droid Serif";
                 context.fillStyle="#ff0000";//pac为红色
                 if(tagnum>50){
-                    context.fillRect(loc,100,3,-100);
+                    context.fillRect(loc,140,3,-140);
                     if(i%2==1)
                         context.fillText("PAT:"+tagnum,loc-20,110);
                     else
@@ -868,7 +868,7 @@ and open the template in the editor.
                     i--;
                 }
                 else{
-                    context.fillRect(loc,100,3,-2*tagnum);
+                    context.fillRect(loc,140,3,-2*tagnum);
                     if(i%2==1)
                         context.fillText("PAT:"+tagnum,loc-20,110);
                     else
