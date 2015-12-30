@@ -492,17 +492,23 @@ and open the template in the editor.
                     if($_GET['intergenic']==1)
                         echo "intergenic($strand,\"gene\");"
                 ?>
-                title("#000000","<?php echo $seq;?>","gene");
+                seq_title("#000000","<?php echo $seq;?>","gene");
                 xscale("gene");
-                title("#000000","3UTR Shorten","no_extend");
 //                xscale("3utr_extend");
+            }
+            function seq_title(color,text,id){
+                var canvas = document.getElementById(id);
+                var context = canvas.getContext("2d");
+                context.fillStyle=color;
+                context.font="bold 15px Droid Serif";
+                context.fillText(text,1015,125);
             }
             function title(color,text,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle=color;
                 context.font="bold 15px Droid Serif";
-                context.fillText(text,510,145);
+                context.fillText(text,1015,85);
             }
             function info(color,loc,text,id){
                 var canvas = document.getElementById(id);
