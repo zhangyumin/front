@@ -394,7 +394,7 @@ and open the template in the editor.
                         $start=($sutr_start_org[$key]-$gene_start)*$rate;
                         $st_ed=($sutr_end[$key]-$gene_start )*$rate;
                         $end=($sutr_end_org[$key]-$gene_start)*$rate;
-                        echo "sutr($start,$end,$st,$en,$strand,'no_extend');\n";
+                        echo "sutr_shorten($start,$end,$st,$en,$strand,'no_extend');\n";
                         if($strand==-1){
                             echo "sutr_extend($st_st,$start,0,1000,-1,'gene');\n";
                         }
@@ -405,27 +405,27 @@ and open the template in the editor.
                     foreach ($wutr_start_org as $key => $value) {
                         $start=($wutr_start_org[$key]-$gene_start)*$rate;
                         $end=($wutr_end_org[$key]-$gene_start)*$rate;
-                        echo "wutr($start,$end,$st,$en,$strand,'no_extend');\n";
+                        echo "wutr_shorten($start,$end,$st,$en,$strand,'no_extend');\n";
                     }
                     foreach ($intron_start_org as $key => $value) {
                         $start=($intron_start_org[$key]-$gene_start)*$rate;
                         $end=($intron_end_org[$key]-$gene_start)*$rate;
-                        echo "intron($start,$end,$st,$en,$strand,'no_extend');\n";
+                        echo "intron_shorten($start,$end,$st,$en,$strand,'no_extend');\n";
                     }
                     foreach ($exon_org as $key => $value) {
                         $start=($exon_start_org[$key]-$gene_start)*$rate;
                         $end=($exon_end_org[$key]-$gene_start)*$rate;
-                        echo "exon($start,$end,$st,$en,$strand,'no_extend');\n";
+                        echo "exon_shorten($start,$end,$st,$en,$strand,'no_extend');\n";
                     }
                     foreach ($cds_start_org as $key => $value) {
                         $start=($cds_start_org[$key]-$gene_start)*$rate;
                         $end=($cds_end_org[$key]-$gene_start)*$rate;
-                        echo "cds($start,$end,$st,$en,$strand,'no_extend');\n";
+                        echo "cds_shorten($start,$end,$st,$en,$strand,'no_extend');\n";
                     }
                     foreach ($amb_start_org as $key => $value) {
                         $start=($amb_start_org[$key]-$gene_start)*$rate;
                         $end=($amb_end_org[$key]-$gene_start)*$rate;
-                        echo "amb($start,$end,$st,$en,$strand,'no_extend');\n";
+                        echo "amb_shorten($start,$end,$st,$en,$strand,'no_extend');\n";
                     }
                     for($i=1;$i<=$num;$i++){
                         $pa="pa".$i;
@@ -600,6 +600,21 @@ and open the template in the editor.
                     context.fillRect(startpos,95,endpos-startpos,10);
                 }
             }
+            function sutr_shorten(startpos,endpos,start,end,strand,id){
+                var canvas = document.getElementById(id);
+                var context = canvas.getContext("2d");
+//                context.fillStyle="#ff0000";//3utr为红色
+                context.fillStyle="#42A881";
+                if(endpos==end&&strand==1){
+                    context.fillRect(startpos,15,endpos-startpos-10,10);
+                }
+                else if(startpos==start&&strand==-1){
+                    context.fillRect(startpos+10,15,endpos-startpos,10);
+                }
+                else{
+                    context.fillRect(startpos,15,endpos-startpos,10);
+                }
+            }
             function sutr_extend(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
@@ -629,6 +644,20 @@ and open the template in the editor.
                     context.fillRect(startpos,95,endpos-startpos,10);
                 }
             }
+            function wutr_shorten(startpos,endpos,start,end,strand,id){
+                var canvas = document.getElementById(id);
+                var context = canvas.getContext("2d");
+                context.fillStyle="#8C5E4D";//5utr为zise
+                if(endpos==end&&strand==1){
+                    context.fillRect(startpos,15,endpos-startpos-10,10);
+                }
+                else if(startpos==start&&strand==-1){
+                    context.fillRect(startpos+10,15,endpos-startpos-10,10);
+                }
+                else{
+                    context.fillRect(startpos,15,endpos-startpos,10);
+                }
+            }
             function cds(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
@@ -641,6 +670,20 @@ and open the template in the editor.
                 }
                 else{
                     context.fillRect(startpos,90,endpos-startpos,20);
+                }
+            }
+            function cds_shorten(startpos,endpos,start,end,strand,id){
+                var canvas = document.getElementById(id);
+                var context = canvas.getContext("2d");
+                context.fillStyle="#00ABD8";//cds为绿色
+                if(endpos==end&&strand==1){
+                    context.fillRect(startpos,10,endpos-startpos-10,20);
+                }
+                else if(startpos==start&&strand==-1){
+                    context.fillRect(startpos+10,10,endpos-startpos-10,20);
+                }
+                else{
+                    context.fillRect(startpos,10,endpos-startpos,20);
                 }
             }
             function intron(startpos,endpos,start,end,strand,id){
@@ -657,6 +700,20 @@ and open the template in the editor.
                     context.fillRect(startpos,95,endpos-startpos,10);
                 }
             }
+            function intron_shorten(startpos,endpos,start,end,strand,id){
+                var canvas = document.getElementById(id);
+                var context = canvas.getContext("2d");
+                context.fillStyle="#D390B9";//intron为黑色
+                if(endpos==end&&strand==1){
+                    context.fillRect(startpos,15,endpos-startpos-10,10);
+                }
+                else if(startpos==start&&strand==-1){
+                    context.fillRect(startpos+10,15,endpos-startpos-10,10);
+                }
+                else{
+                    context.fillRect(startpos,15,endpos-startpos,10);
+                }
+            }
             function exon(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
@@ -671,6 +728,20 @@ and open the template in the editor.
                     context.fillRect(startpos,90,endpos-startpos,20);
                 }
             }
+            function exon_shorten(startpos,endpos,start,end,strand,id){
+                var canvas = document.getElementById(id);
+                var context = canvas.getContext("2d");
+                context.fillStyle="#65D97D";//exon为黄色
+                if(endpos==end&&strand==1){
+                    context.fillRect(startpos,10,endpos-startpos-10,20);
+                }
+                else if(startpos==start&&strand==-1){
+                    context.fillRect(startpos+10,10,endpos-startpos-10,20);
+                }
+                else{
+                    context.fillRect(startpos,10,endpos-startpos,20);
+                }
+            }
             function amb(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
@@ -683,6 +754,20 @@ and open the template in the editor.
                 }
                 else{
                     context.fillRect(startpos,90,endpos-startpos,20);
+                }
+            }
+            function amb_shorten(startpos,endpos,start,end,strand,id){
+                var canvas = document.getElementById(id);
+                var context = canvas.getContext("2d");
+                context.fillStyle="#F35A4A";//amb为兰色
+                if(endpos==end&&strand==1){
+                    context.fillRect(startpos,10,endpos-startpos-10,20);
+                }
+                else if(startpos==start&&strand==-1){
+                    context.fillRect(startpos+10,10,endpos-startpos-10,20);
+                }
+                else{
+                    context.fillRect(startpos,10,endpos-startpos,20);
                 }
             }
             function intergenic(strand,id){
@@ -725,20 +810,20 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.beginPath();
                 if(strand==1){
-                    context.moveTo(end-10,105);
-                    context.lineTo(end-5,105);
-                    context.lineTo(end,100);
-                    context.lineTo(end-5,95);
-                    context.lineTo(end-10,95);
-                    context.lineTo(end-10,105);
+                    context.moveTo(end-10,25);
+                    context.lineTo(end-5,25);
+                    context.lineTo(end,20);
+                    context.lineTo(end-5,15);
+                    context.lineTo(end-10,15);
+                    context.lineTo(end-10,25);
                 }
                 else if(strand==-1){
-                    context.moveTo(start,100);
-                    context.lineTo(start+5,105);
-                    context.lineTo(start+10,105);
-                    context.lineTo(start+10,95);
-                    context.lineTo(start+5,95);
-                    context.lineTo(start,100);
+                    context.moveTo(start,20);
+                    context.lineTo(start+5,25);
+                    context.lineTo(start+10,25);
+                    context.lineTo(start+10,15);
+                    context.lineTo(start+5,15);
+                    context.lineTo(start,20);
                 }
                 context.closePath();
                 context.fillStyle="#878787";
@@ -835,7 +920,7 @@ and open the template in the editor.
             }
         </script>
         <canvas id="gene" width="1000px;" height="150px;"></canvas><br>
-        <canvas id='no_extend' width="1000px" height="150px;"></canvas><br>
+        <canvas id='no_extend' width="1000px" height="40px;"></canvas><br>
         <?php
             for($i=1;$i<=$num;$i++){
                 if($i%2==0)
