@@ -619,7 +619,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                            $pac_res=mysql_query("select * from t_".$species."_pac where gene='$gene_name';");
+                                            $pac_res=mysql_query("select * from t_".$species."_pac where gene='$seq';");
                                             while($pac_r=  mysql_fetch_row($pac_res)){
 //                                                $i=1;
                                                 echo "<tr>";
