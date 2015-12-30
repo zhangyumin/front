@@ -841,7 +841,7 @@ and open the template in the editor.
                 context.strokeStyle="#000";//pa为黑色
                 context.beginPath();
                 context.moveTo(loc,140);
-                if(tagnum>50){
+                if(tagnum>70){
                     context.lineTo(loc,0);
                 }
                 else{
@@ -857,7 +857,7 @@ and open the template in the editor.
                 context.beginPath();
                 context.font="10px Droid Serif";
                 context.fillStyle="#ff0000";//pac为红色
-                if(tagnum>50){
+                if(tagnum>70){
                     context.fillRect(loc,140,3,-140);
                     if(i%2==1)
                         context.fillText("PAT:"+tagnum,loc-20,110);
