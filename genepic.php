@@ -575,13 +575,13 @@ and open the template in the editor.
                 context.beginPath();
                 context.strokeStyle="#000000";
                 context.fillStyle="#000000";//y刻度尺为黑色
-                context.moveTo(500,100);
-                context.lineTo(500,0);
+                context.moveTo(0,100);
+                context.lineTo(0,0);
                 for(i=4;i>=0;i--){
-                    context.moveTo(500,20*i);
-                    context.lineTo(505,20*i);
+                    context.moveTo(0,20*i);
+                    context.lineTo(5,20*i);
                     context.font="12px Droid Serif";
-                    context.fillText(50-10*i,505,21*i);
+                    context.fillText(50-10*i,5,21*i);
                 }
                 context.stroke();
             }
@@ -919,27 +919,27 @@ and open the template in the editor.
 //                console.log(sta);
             }
         </script>
-        <canvas id="gene" width="1000px;" height="150px;"></canvas><br>
-        <canvas id='no_extend' width="1000px" height="40px;"></canvas><br>
+        <canvas id="gene" width="1150px;" height="150px;"></canvas><br>
+        <canvas id='no_extend' width="1150px" height="40px;"></canvas><br>
         <?php
             for($i=1;$i<=$num;$i++){
                 if($i%2==0)
-                    echo "<canvas id=\"sample$i\" class=\"origin\" width=\"1000px; \" height=\"150px;\"></canvas>";
+                    echo "<canvas id=\"sample$i\" class=\"origin\" width=\"1150px; \" height=\"150px;\"></canvas>";
                 else
-                    echo "<canvas id=\"sample$i\" class=\"origin\" width=\"1000px; \" height=\"150px;\" style=\"background-color:#f1f1f1\"></canvas>";
+                    echo "<canvas id=\"sample$i\" class=\"origin\" width=\"1150px; \" height=\"150px;\" style=\"background-color:#f1f1f1\"></canvas>";
             }
             for($i=1;$i<=count(array_unique($group))*3;$i+=3){
                 $j = $i + 1;
                 $k = $i + 2;
                 if($i%2==0){
-                    echo "<canvas id=\"statistics_sample$i\" class=\"sum\" width=\"1000px; \" height=\"150px;\" style=\"display:none;\"></canvas>";
-                    echo "<canvas id=\"statistics_sample$j\" class=\"avg\" width=\"1000px; \" height=\"150px;\" style=\"display:none;\"></canvas>";
-                    echo "<canvas id=\"statistics_sample$k\" class=\"med\" width=\"1000px; \" height=\"150px;\" style=\"display:none;\"></canvas>";
+                    echo "<canvas id=\"statistics_sample$i\" class=\"sum\" width=\"1150px; \" height=\"150px;\" style=\"display:none;\"></canvas>";
+                    echo "<canvas id=\"statistics_sample$j\" class=\"avg\" width=\"1150px; \" height=\"150px;\" style=\"display:none;\"></canvas>";
+                    echo "<canvas id=\"statistics_sample$k\" class=\"med\" width=\"1150px; \" height=\"150px;\" style=\"display:none;\"></canvas>";
                 }
                 else{
-                    echo "<canvas id=\"statistics_sample$i\" class=\"sum\" width=\"1000px; \" height=\"150px;\" style=\"background-color:#f1f1f1;display:none;\"></canvas>";
-                    echo "<canvas id=\"statistics_sample$j\" class=\"avg\" width=\"1000px; \" height=\"150px;\" style=\"background-color:#f1f1f1;display:none;\"></canvas>";
-                    echo "<canvas id=\"statistics_sample$k\" class=\"med\" width=\"1000px; \" height=\"150px;\" style=\"background-color:#f1f1f1;display:none;\"></canvas>";
+                    echo "<canvas id=\"statistics_sample$i\" class=\"sum\" width=\"1150px; \" height=\"150px;\" style=\"background-color:#f1f1f1;display:none;\"></canvas>";
+                    echo "<canvas id=\"statistics_sample$j\" class=\"avg\" width=\"1150px; \" height=\"150px;\" style=\"background-color:#f1f1f1;display:none;\"></canvas>";
+                    echo "<canvas id=\"statistics_sample$k\" class=\"med\" width=\"1150px; \" height=\"150px;\" style=\"background-color:#f1f1f1;display:none;\"></canvas>";
                 }
             }
         ?>
