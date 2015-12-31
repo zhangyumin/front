@@ -949,5 +949,13 @@ and open the template in the editor.
                 }
             }
         ?>
+            <script>
+                <?php
+                    for($i=1;$i<=$num;$i++){
+                        $j = $i-1;
+                        echo "$('#sample$i').addClass('$samples[$j]');";
+                    }
+                ?>
+            </script>
     </body>
 </html>
