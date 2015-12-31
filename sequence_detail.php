@@ -690,7 +690,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan=2 style="padding-left:0px;padding-right:0px;">
                         <div class="tabs" style="padding:0px;border:solid #5499c9">
                             <div data-pws-tab="jbrowse" data-pws-tab-name="Jbrowse">
                                 <iframe src="../jbrowse/?data=data/<?php echo $_GET['species'];?>&loc=<?php echo $chr;?>:<?php echo $gene_start;?>..<?php echo $gene_end;?>&tracks=Arabidopsis,sys_polya" width=1200px height=500px>
@@ -734,7 +734,7 @@
                                 $('.tabs').pwstabs({
                                 effect: 'slideleft',
                                 defaultTab: 1,
-                                containerWidth: '1190px'
+                                containerWidth: '1200px'
                              });
                              });   
                         </script>
@@ -743,7 +743,7 @@
             </tbody>
             </table>
             <div  class="straight_matter">
-            <fieldset style="margin-top: 20px;margin-left: 2%;margin-right: 2%;">
+            <fieldset style="margin-top: 20px;">
                 <legend>
                     <span class="h3_italic" style="font-size:21px">
                         <font color="#224055"><b>Gene Viewer</b></font>
