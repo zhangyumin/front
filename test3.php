@@ -2,8 +2,8 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="./src/optselect/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="./src/optselect/default.css">
+<!--    <link rel="stylesheet" type="text/css" href="./src/optselect/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="./src/optselect/default.css">-->
     <script src="./src/jquery-1.10.1.min.js"></script>
     <script src="./src/optselect/jquery.sumoselect.js"></script>
     <link href="./src/optselect/sumoselect.css" rel="stylesheet" />
