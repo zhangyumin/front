@@ -6,6 +6,8 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <script src="./src/jquery-1.10.1.min.js"></script>
+        <script src="./src/optselect/jquery.sumoselect.js"></script>
+        <link href="./src/optselect/sumoselect.css" rel="stylesheet" />
         <?php
             $con=  mysql_connect("localhost","root","root");
             mysql_select_db("db_server",$con);
@@ -879,16 +881,48 @@ and open the template in the editor.
     </head>
     <body style="width:1000px">
         <div id="button" style="width:1000px;">
-            <input type="radio" name="display" value="origin" checked="checked" onchange="display()"/>origin
-            <input type="radio" name="display" value="statistics" onchange="display()"/>statistics
-            <select id="method" disabled="true" onchange="show()">
-                <option value="choose" selected="selected">Please choose</option>
-                <option value="sum">Sum</option>
-                <option value="avg">Average</option>
-                <option value="med">Median</option>
-            </select>
+            <input type="radio" name="display" value="origin" checked="checked" onchange="reset($(this).val())"/>origin
+            <div class="origind" style="display: inline;">
+                 <select id="origin"   multiple="multiple" placeholder="Select to display" onchange="getname($(this).children(':selected'))" class="okbutton">
+                     <?php
+                            foreach ($samples as $key => $value) {
+                                echo "<option selected value=$value>$value</option>";
+                            }
+                     ?>
+                   </select>
+            </div>
+            <input type="radio" name="display" value="statistics" onchange="reset($(this).val())"/>statistics
+            <div class="statisticsd" style="display: inline;">
+                <select id="statistics"   multiple="multiple" placeholder="Select to display" onchange="getname($(this).children(':selected'))" class="okbutton">
+                     <option selected value="sum">sum</option>
+                     <option selected value="avg">avg</option>
+                     <option selected value="med">med</option>
+                </select>
+            </div>
         </div>
         <script>
+            $(document).ready(function () {
+                $('.origin').SumoSelect({ csvDispCount: 0 });
+                $('.statistics').SumoSelect({ csvDispCount: 0 });
+                $('.okbutton').SumoSelect({okCancelInMulti:true });
+            });
+            function reset(a){
+                $(".origin").hide();
+                $('.sum').hide();
+                $('.avg').hide();
+                $('.med').hide();
+                $("#origin").attr("disabled",true);
+                $("#statistics").attr("disabled",true);
+                $("#"+a).attr("disabled",false);
+            }
+            function getname(a){
+                var select=[];
+                for(var key in a){
+                    select.push(a[key].value);
+                }
+                select = select.slice(0,a.length);
+                display(select);
+            }
             function display(){
                 var Slt = $('#button input[name="display"]:checked').val();
                 $('#method').val("choose");
@@ -938,14 +972,14 @@ and open the template in the editor.
                 $j = $i + 1;
                 $k = $i + 2;
                 if($i%2==0){
-                    echo "<canvas id=\"statistics_sample$i\" class=\"sum\" width=\"1150px; \" height=\"150px;\" style=\"display:none;\"></canvas>";
-                    echo "<canvas id=\"statistics_sample$j\" class=\"avg\" width=\"1150px; \" height=\"150px;\" style=\"display:none;\"></canvas>";
-                    echo "<canvas id=\"statistics_sample$k\" class=\"med\" width=\"1150px; \" height=\"150px;\" style=\"display:none;\"></canvas>";
+                    echo "<canvas id=\"statistics_sample$i\" class=\"sum statistics\" width=\"1150px; \" height=\"150px;\" style=\"display:none;\"></canvas>";
+                    echo "<canvas id=\"statistics_sample$j\" class=\"avg statistics\" width=\"1150px; \" height=\"150px;\" style=\"display:none;\"></canvas>";
+                    echo "<canvas id=\"statistics_sample$k\" class=\"med statistics\" width=\"1150px; \" height=\"150px;\" style=\"display:none;\"></canvas>";
                 }
                 else{
-                    echo "<canvas id=\"statistics_sample$i\" class=\"sum\" width=\"1150px; \" height=\"150px;\" style=\"background-color:#f1f1f1;display:none;\"></canvas>";
-                    echo "<canvas id=\"statistics_sample$j\" class=\"avg\" width=\"1150px; \" height=\"150px;\" style=\"background-color:#f1f1f1;display:none;\"></canvas>";
-                    echo "<canvas id=\"statistics_sample$k\" class=\"med\" width=\"1150px; \" height=\"150px;\" style=\"background-color:#f1f1f1;display:none;\"></canvas>";
+                    echo "<canvas id=\"statistics_sample$i\" class=\"sum statistics\" width=\"1150px; \" height=\"150px;\" style=\"background-color:#f1f1f1;display:none;\"></canvas>";
+                    echo "<canvas id=\"statistics_sample$j\" class=\"avg statistics\" width=\"1150px; \" height=\"150px;\" style=\"background-color:#f1f1f1;display:none;\"></canvas>";
+                    echo "<canvas id=\"statistics_sample$k\" class=\"med statistics\" width=\"1150px; \" height=\"150px;\" style=\"background-color:#f1f1f1;display:none;\"></canvas>";
                 }
             }
         ?>
