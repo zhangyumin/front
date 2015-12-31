@@ -907,56 +907,28 @@ and open the template in the editor.
                 $('.okbutton').SumoSelect({okCancelInMulti:true });
             });
             function reset(a){
+                $("#origin").attr("disabled",true);
+                $("#statistics").attr("disabled",true);
+                $("#"+a).attr("disabled",false);
+                getname($("#"+a).children(':selected'));
+            }
+            function getname(a){
                 $(".origin").hide();
                 $('.sum').hide();
                 $('.avg').hide();
                 $('.med').hide();
-                $("#origin").attr("disabled",true);
-                $("#statistics").attr("disabled",true);
-                $("#"+a).attr("disabled",false);
-            }
-            function getname(a){
                 var select=[];
                 for(var key in a){
                     select.push(a[key].value);
                 }
                 select = select.slice(0,a.length);
+//                console.log(select);
                 display(select);
             }
-            function display(){
-                var Slt = $('#button input[name="display"]:checked').val();
-                $('#method').val("choose");
-                if(Slt=='statistics'){
-                    $('#method').attr('disabled',false);
-                    $('.origin').hide();
-                    $('.sum').show();
-                    $('.avg').show();
-                    $('.med').show();
+            function display(a){
+                for(var i in a){
+                    $("."+a[i]).show();
                 }
-                else{
-                    $('#method').attr('disabled',true);
-                    $('.origin').show();
-                    $('.sum').hide();
-                    $('.avg').hide();
-                    $('.med').hide();
-                }
-            }
-            function show(){
-                var sta = $("#method  option:selected").val();
-                if(sta != 'choose'){
-                    $('.origin').hide();
-                    $('.sum').hide();
-                    $('.avg').hide();
-                    $('.med').hide();
-                    $('.'+sta).show();
-                }
-                else{
-                    $('.origin').hide();
-                    $('.sum').show();
-                    $('.avg').show();
-                    $('.med').show();
-                }
-//                console.log(sta);
             }
         </script>
         <canvas id="gene" width="1150px;" height="150px;"></canvas><br>
