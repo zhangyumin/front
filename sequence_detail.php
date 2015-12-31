@@ -734,7 +734,7 @@
                                 $('.tabs').pwstabs({
                                 effect: 'slideleft',
                                 defaultTab: 1,
-                                containerWidth: '1190px'
+                                containerWidth: '1196px'
                              });
                              });   
                         </script>
