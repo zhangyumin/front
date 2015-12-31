@@ -26,7 +26,7 @@ qq(window).attach("load", function() {
             }
         },
         chunking: {
-            enabled: true,
+            enabled: false,
 	    partSize: 100000000,
             concurrent: {
                 enabled: true
@@ -63,6 +63,9 @@ qq(window).attach("load", function() {
                 qq.log("id: " + id + " " + newS);
             },
             onComplete: function (id, name, response) {
+		var real = name.substring(0,name.indexOf("."));
+		var file = "li.qq-file-id-"+ id +".qq-upload-success";
+		$(file).append('<input name="group-' + real + '" placeholder="Input group here" style="width:120px;height:25px"/>');
                 qq.log(response);
             }
         }
