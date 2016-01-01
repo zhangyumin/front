@@ -19,7 +19,7 @@ h1 span {
 }
 
 .page_container, .other {
-  max-width: 800px;
+  max-width: 80em;
   margin: 50px auto;
 }
 .page_container h2, .page_container h1, .other h2, .other h1  {
