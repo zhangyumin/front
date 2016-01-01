@@ -5,12 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
         <script src="./src/jquery-1.10.1.min.js"></script>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" type="text/css" href="./src/slidebar-help/css/default.css" />
         <script type="text/javascript" src="./src/slidebar-help/js/jquery.jumpto.js"></script>
         <link rel="stylesheet" type="text/css" href="./src/slidebar-help/css/jumpto.css" />
         <link rel="stylesheet" type="text/css" href="./src/slidebar-help/css/style.css" />
-        <link rel="stylesheet" type="text/css" href="./src/slidebar-help/css/elusive-webfont.css" />
         <script src="js/modernizr.js"></script>
     </head>
     <body>
