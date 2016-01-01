@@ -568,11 +568,11 @@
         </script>
             
         <div  id="page" style="width:1200px;margin:auto">
-            <table  cellspacing="0" cellpadding="0" border="0" style="margin: 20px auto;">
+            <table  cellspacing="0" cellpadding="0" border="0" style="margin: 20px auto;border-collapse:collapse;" >
             <tbody>
-                <tr>
+                <tr style="border: medium solid #5499c9;">
                     <td valign="top" id='tables'>
-                        <hr size="2" align="left" style="border-top: 2px solid #5499c9;">
+                    
                         <div id="gene">
                             <table id="genetable">
                                 <tbody>
@@ -646,7 +646,7 @@
                         </div>
                     </td>
                     <td >
-                        <hr size="2" align="left" style="border-top: 2px solid #5499c9;">
+                     
                         <div id="go" style="overflow-x: auto;background-color: #fff;margin:auto;">
                             <table id="gotable" class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
                                 <thead>
@@ -734,7 +734,7 @@
                                 $('.tabs').pwstabs({
                                 effect: 'slideleft',
                                 defaultTab: 1,
-                                containerWidth: '1200px'
+                                containerWidth: '1196px'
                              });
                              });   
                         </script>
