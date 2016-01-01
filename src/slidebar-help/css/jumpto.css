@@ -56,7 +56,7 @@
 }
 
 .jumpto-title, .jumpto-close a{
-  background: #7D0A2C;
+  background: #257;
   color: #FFF;
   text-align: center;
   text-transform: uppercase;
@@ -64,4 +64,8 @@
   font-weight: 500;
   padding: 5px 10px;
   display: block;
+}
+
+.jumpto-first{
+    text-align: center;
 }
