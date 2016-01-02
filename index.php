@@ -22,15 +22,17 @@ and open the template in the editor.
               <div id="text">
                   <h5>●&nbsp;  Motivation</h5>
                   <p class="elegant"></p>
-                  <p class="elegant" style="color: #000;text-transform: none;">PAlternative polyadenylation (APA) is an important layer of gene regulation that produces mRNAs with different 3’ end and/or encoding variable protein isoforms. Up to 70% of annotated genes in Arabidopsis Thaliana and rice undergo APA. The increasing amounts of poly(A) sites in various plant species is placing new demands on the methods and tools applied for data access and mining.</p>
+                  <p class="elegant" style="color: #000;text-transform: none;">Alternative polyadenylation (APA) is an important layer of gene regulation that produces mRNAs with different 3’ end and/or encoding variable protein isoforms. Up to 70% of annotated genes in Arabidopsis Thaliana and rice undergo APA. The increasing amounts of poly(A) sites in various plant species is placing new demands on the methods and tools applied for data access and mining.</p>
                   <br>
                   <h5>●&nbsp;  What is PlantAPA?</h5>
                   <p class="elegant"></p>
                   <p class="elegant" style="color: #000;text-transform: none;">PlantAPA is a web server for query, visualization, and analysis of poly(A) sites in plants, which can profile heterogeneous cleavage sites and quantify expression pattern of poly(A) sites across different conditions. To date, PlantAPA provides the largest database of APA in plants, including rice, Arabidopsis, Medicago truncatula, and Chlamydomonas reinhardtii (see data sets).</p>
                   <br>
                   <h5>●&nbsp;  Getting started</h5>
+                  <h6>(1) Extracting poly(A) sites from uploaded sequences</h6>
                   <p class="elegant"></p>
-                  <p class="elegant" style="color: #000;text-transform: none;">PlantAPA is a web server for query, visualization, and analysis of poly(A) sites in plants, which can profile heterogeneous cleavage sites and quantify expression pattern of poly(A) sites across different conditions. To date, PlantAPA provides the largest database of APA in plants, including rice, Arabidopsis, Medicago truncatula, and Chlamydomonas reinhardtii (see data sets).</p>
+                  <p class="elegant" style="color: #000;text-transform: none;">You can upload short reads, ESTs, or poly(A) site coordinates for poly(A) site extraction. Upon the complete of the pipeline, the extracted poly(A) sites can be visualized in PlantAPA, or pooled with PlantAPA stored poly(A) sites for APA analysis.
+To start a task for poly(A) site extraction, click here. A task ID will be assigned for each task. You can retrieve the result of your task at our Data Retrieval Page. You can also view all tasks you started at the Data Retrieval Page. Click here for a step by step guide. You can browse a demo task here.</p>
                   <br>
               </div>
             </div>
