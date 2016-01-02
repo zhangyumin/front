@@ -32,7 +32,12 @@ and open the template in the editor.
                   <h6>(1) Extracting poly(A) sites from uploaded sequences</h6>
                   <p class="elegant"></p>
                   <p class="elegant" style="color: #000;text-transform: none;">You can upload short reads, ESTs, or poly(A) site coordinates for poly(A) site extraction. Upon the complete of the pipeline, the extracted poly(A) sites can be visualized in PlantAPA, or pooled with PlantAPA stored poly(A) sites for APA analysis.
-To start a task for poly(A) site extraction, click here. A task ID will be assigned for each task. You can retrieve the result of your task at our Data Retrieval Page. You can also view all tasks you started at the Data Retrieval Page. Click here for a step by step guide. You can browse a demo task here.</p>
+                  <br>To start a task for poly(A) site extraction, click here. A task ID will be assigned for each task. You can retrieve the result of your task at our Data Retrieval Page. You can also view all tasks you started at the Data Retrieval Page. Click here for a step by step guide. You can browse a demo task here.</p>
+                  <br>
+                  <h6>(2) Searching PlantAPA and exporting sequences</h6>
+                  <p class="elegant"></p>
+                  <p class="elegant" style="color: #000;text-transform: none;">Search by a variety of keywords, such as gene ID, chromosome fragment, gene functions, GO term, and GO ID. Examples: XXX (gene ID, Arabidopsis), also XXX (GO ID), XXX (Medicago), Chr1~100..10000 (Chlamy).
+                  <br>After searching, the result page provides a list of poly(A) sites and a tool bar for exporting various kinds of sequences onto local computers for other analysis purpose. Particularly, poly(A) sites in previously overlooked genomic regions such as extended 3’ UTR regions, ambiguous regions, and intergenic regions are also listed.</p>
                   <br>
               </div>
             </div>
