@@ -2,7 +2,7 @@ body{
     background: url("../pic/bg.png") repeat scroll 0 0;
 }
 #introduction{
-	height: 500px;
+	/*height: 500px;*/
 }
 fieldset{
     border-color: #5499c9 !important;
