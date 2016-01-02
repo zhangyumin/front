@@ -26,7 +26,7 @@ and open the template in the editor.
                   <br>
                   <h5>●&nbsp;  What is PlantAPA?</h5>
                   <p class="elegant"></p>
-                  <p class="elegant" style="color: #000;text-transform: none;">PlantAPA is a web server for query, visualization, and analysis of poly(A) sites in plants, which can profile heterogeneous cleavage sites and quantify expression pattern of poly(A) sites across different conditions. To date, PlantAPA provides the largest database of APA in plants, including rice, Arabidopsis, Medicago truncatula, and Chlamydomonas reinhardtii (see data sets).</p>
+                  <p class="elegant" style="color: #000;text-transform: none;">PlantAPA is a web server for query, visualization, and analysis of poly(A) sites in plants, which can profile heterogeneous cleavage sites and quantify expression pattern of poly(A) sites across different conditions. To date, PlantAPA provides the largest database of APA in plants, including <i>rice</i>, <i>Arabidopsis</i>, <i>Medicago truncatula</i>, and <i>Chlamydomonas reinhardtii</i> (see data sets).</p>
                   <br>
                   <h5>●&nbsp;  Getting started</h5>
                   <h6>(1) Extracting poly(A) sites from uploaded sequences</h6>
