@@ -59,7 +59,7 @@ and open the template in the editor.
             </div>
 
             <div class="box info" id="introduction">
-              <h2>Introduction</h2>
+              <h2>PlantAPA: a portal for visualization and analysis of alternative polyadenylation in plants</h2>
             </div>
           </div>
         </div>
