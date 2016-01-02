@@ -2,7 +2,7 @@
 <header>
   <div class="ym-wrapper">
     <div class="ym-wbox">
-      <h1>PolyA Browser</h1>
+      <h1>PlantAPA</h1>
     </div>
   </div>
 </header>
