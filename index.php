@@ -43,6 +43,14 @@ and open the template in the editor.
                   <p class="elegant"></p>
                   <p class="elegant" style="color: #000;text-transform: none;">You can have a quick access to the PAC browser by clicking the “PAC browse” tab in the main menu or the “View” link in a PAC list. One or more data sets from each plant species can be quickly loaded and graphically browsed online, by selecting the checkboxes of data sets in the ‘Tracks’ panel. Examples: XXX (Arabidopsis), also XXX (Medicago).</p>
                   <br>
+                  <h6>(4) Quantification and visualization of PACs across different conditions</h6>
+                  <p class="elegant"></p>
+                  <p class="elegant" style="color: #000;text-transform: none;">By following the web link on a particular PAC or gene, a user can inspect various graphics and detailed information of the PACs in a gene or in a intergenic region, such as gene/PAC sequence, poly(A) signals, and PAT distributions across diverse conditions in the PAC viewer module.</p>
+                  <br>
+                  <h6>(5) Analysis of APA switching between two conditions</h6>
+                  <p class="elegant"></p>
+                  <p class="elegant" style="color: #000;text-transform: none;">Following the “PAC analysis” tab in the main menu, users can choose to generate lists of differentially expressed genes, PACs with differential usage, genes with 3’ UTR lengthening or shortening, and APA-site switching genes, using PlantAPA stored PACs together with the user uploaded PACs (if any). Click here to see a result page of APA-site switching genes.</p>
+                  <br>
               </div>
             </div>
           </div>
