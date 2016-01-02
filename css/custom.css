@@ -231,3 +231,8 @@ fieldset{
     .ym-searchform .ym-searchfield{
     width: 4em;
     } 
+    h2{
+        text-align: center;
+        font-family: "Droid Serif", Georgia, "Times New Roman", Times, serif;
+        font-size: 24px;
+    }
