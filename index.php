@@ -39,6 +39,10 @@ and open the template in the editor.
                   <p class="elegant" style="color: #000;text-transform: none;">Search by a variety of keywords, such as gene ID, chromosome fragment, gene functions, GO term, and GO ID. Examples: XXX (gene ID, Arabidopsis), also XXX (GO ID), XXX (Medicago), Chr1~100..10000 (Chlamy).
                   <br>After searching, the result page provides a list of poly(A) sites and a tool bar for exporting various kinds of sequences onto local computers for other analysis purpose. Particularly, poly(A) sites in previously overlooked genomic regions such as extended 3’ UTR regions, ambiguous regions, and intergenic regions are also listed.</p>
                   <br>
+                  <h6>(3) Browsing PACs in the PAC browser</h6>
+                  <p class="elegant"></p>
+                  <p class="elegant" style="color: #000;text-transform: none;">You can have a quick access to the PAC browser by clicking the “PAC browse” tab in the main menu or the “View” link in a PAC list. One or more data sets from each plant species can be quickly loaded and graphically browsed online, by selecting the checkboxes of data sets in the ‘Tracks’ panel. Examples: XXX (Arabidopsis), also XXX (Medicago).</p>
+                  <br>
               </div>
             </div>
           </div>
