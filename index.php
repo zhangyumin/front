@@ -31,13 +31,13 @@ and open the template in the editor.
                   <h5>●&nbsp;  Getting started</h5>
                   <h6>(1) Extracting poly(A) sites from uploaded sequences</h6>
                   <p class="elegant"></p>
-                  <p class="elegant" style="color: #000;text-transform: none;">You can upload short reads, ESTs, or poly(A) site coordinates for poly(A) site extraction. Upon the complete of the pipeline, the extracted poly(A) sites can be visualized in PlantAPA, or pooled with PlantAPA stored poly(A) sites for APA analysis.
-                  <br>To start a task for poly(A) site extraction, click here. A task ID will be assigned for each task. You can retrieve the result of your task at our Data Retrieval Page. You can also view all tasks you started at the Data Retrieval Page. Click here for a step by step guide. You can browse a demo task here.</p>
+                  <p class="elegant" style="color: #000;text-transform: none;">You can upload short reads, ESTs, or poly(A) site coordinates for poly(A) site extraction. Upon the complete of the pipeline, the extracted poly(A) sites can be visualized in PlantAPA, or pooled with PlantAPA stored poly(A) sites for APA analysis.</p>
+                  <p class="elegant" style="color: #000;text-transform: none;">To start a task for poly(A) site extraction, click here. A task ID will be assigned for each task. You can retrieve the result of your task at our Data Retrieval Page. You can also view all tasks you started at the Data Retrieval Page. Click here for a step by step guide. You can browse a demo task here.</p>
                   <br>
                   <h6>(2) Searching PlantAPA and exporting sequences</h6>
                   <p class="elegant"></p>
-                  <p class="elegant" style="color: #000;text-transform: none;">Search by a variety of keywords, such as gene ID, chromosome fragment, gene functions, GO term, and GO ID. Examples: XXX (gene ID, Arabidopsis), also XXX (GO ID), XXX (Medicago), Chr1~100..10000 (Chlamy).
-                  <br>After searching, the result page provides a list of poly(A) sites and a tool bar for exporting various kinds of sequences onto local computers for other analysis purpose. Particularly, poly(A) sites in previously overlooked genomic regions such as extended 3’ UTR regions, ambiguous regions, and intergenic regions are also listed.</p>
+                  <p class="elegant" style="color: #000;text-transform: none;">Search by a variety of keywords, such as gene ID, chromosome fragment, gene functions, GO term, and GO ID. Examples: XXX (gene ID, Arabidopsis), also XXX (GO ID), XXX (Medicago), Chr1~100..10000 (Chlamy).</p>
+                  <p class="elegant" style="color: #000;text-transform: none;">After searching, the result page provides a list of poly(A) sites and a tool bar for exporting various kinds of sequences onto local computers for other analysis purpose. Particularly, poly(A) sites in previously overlooked genomic regions such as extended 3’ UTR regions, ambiguous regions, and intergenic regions are also listed.</p>
                   <br>
                   <h6>(3) Browsing PACs in the PAC browser</h6>
                   <p class="elegant"></p>
@@ -51,6 +51,10 @@ and open the template in the editor.
                   <p class="elegant"></p>
                   <p class="elegant" style="color: #000;text-transform: none;">Following the “PAC analysis” tab in the main menu, users can choose to generate lists of differentially expressed genes, PACs with differential usage, genes with 3’ UTR lengthening or shortening, and APA-site switching genes, using PlantAPA stored PACs together with the user uploaded PACs (if any). Click here to see a result page of APA-site switching genes.</p>
                   <br>
+                  <h5>●&nbsp;  Finding out more</h5>
+                  <p class="elegant"></p>
+                  <p class="elegant" style="color: #000;text-transform: none;">The Help section provides more information, and the links at the top of the page will let you launch different modules. The Download page lets you get links to data set(s) of interest.
+                  <br><br><br>PASPA was developed by the bioinformatics group at Xiamen University. If you have any questions or comments, please email to xhuister@xmu.edu.cn (Dr. Xiaohui Wu).</p>
               </div>
             </div>
           </div>
