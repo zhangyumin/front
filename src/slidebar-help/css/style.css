@@ -33,17 +33,22 @@ h1 span {
   color: black;
 }
 .page_container p, .other p {
+  font-family: "Droid Serif",Georgia,"Times New Roman",Times,serif;
   color: black;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 180%;
   text-align: justify;
+  letter-spacing: 1px;
+  word-spacing: 2px;
 }
 
 .other h1 {
+  font-family: "Droid Serif",Georgia,"Times New Roman",Times,serif;
   font-size: 46px;
   margin-bottom: 20px;
 }
 
 .page_container h2 {
-  font-size: 35px;
+  font-family: "Droid Serif",Georgia,"Times New Roman",Times,serif;
+  font-size: 25px;
 }
