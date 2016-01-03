@@ -69,8 +69,11 @@
                         <p>Sequences of genes with PACs based on original version or the extended version of genome annotation are also exportable.</p>
                       </div>
                       <div class="jumpto-block">
-                        <h2>Header 5</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <h2>5. PAC browse: browsing PACs in the PAC browser</h2>
+                        <p>Users can have a quick access to the PAC browser by clicking the “PAC browse” tab in the main menu or the “View” link in a PAC list. 
+                        <br>One or more data sets from each plant species can be quickly loaded and graphically browsed online, by selecting the checkboxes of data sets in the ‘Tracks’ panel. Users can conduct a search with a gene or chromosome fragment to zoom in on particular PAC regions. Data tracks of PACs from different cells, tissues or conditions can be displayed in sync with tracks of PATs, offering a more intuitive way to explore and compare the usage of PACs among different samples.
+                        <br>Users can download the data of one or more tracks onto their local computers, or choose to view detailed information of a gene or PAC by right clicking a PAC or gene model in the browser.
+                        </p>
                       </div>
                       <div class="jumpto-block">
                         <h2>Header 6</h2>
