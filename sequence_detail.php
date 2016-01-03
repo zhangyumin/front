@@ -40,10 +40,10 @@
                 font-weight: bold;
             }
             .sutr{
-                background-color: #6F00D2;
+                /*background-color: #6F00D2;*/
             }
             .wutr{
-                background-color: #F75000;
+                /*background-color: #F75000;*/
             }
             .cds{
                 background-color: #D1EEEE;
@@ -806,10 +806,10 @@
                                 <input type="checkbox" name="cbox2" value="3UTR"/>3'UTR <span class='sutr' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
                                 <input type="checkbox" name="cbox2" value="5UTR"/>5'UTR&nbsp;<span class='wutr' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
                                 <input type="checkbox" name="cbox2" value="CDS"/>CDS&nbsp;<span class='cds' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
-                                <input type="checkbox" name="cbox2" value="INTRON"/>Intron&nbsp;<span class='intron' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
+                                <input type="checkbox" name="cbox2" value="INTRON"/><span class='intron' style="text-align:center;">Intron&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
                                 <input type="checkbox" name="cbox2" value="EXON"/>exon&nbsp;<span class='exon' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
                                 <input type="checkbox" name="cbox2" value="AMB"/>amb&nbsp;<span class='amb' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
-                                <input type="checkbox" name="cbox2" value="PA"/><span class="pa">Poly(A) site</span>
+                                <input type="checkbox" name="cbox2" value="PA"/><span class="pa">Cleavage site</span>
                                 <input type="checkbox" name="cbox2" value="PAC"/><span class="pac">PAC</span>
                                 )
                             </legend>
