@@ -63,8 +63,10 @@
                         <p>To facilitate further inspection poly(A) site or genes, we designed a toolbar above the resulted PAC list which allows users to input a keyword to locate entries within the list and export sequences of interest. Users can export various kinds of sequences onto their local computers for other analysis purpose. </p>
                         <h3>4.1. Export sequences of PACs</h3>
                         <p>Sequences regarding PACs are exportable, including upstream and downstream sequences around PACs, sequences of PACs in a defined region (3’ UTR, 5’ UTR, CDS, intron, intergenic region, etc.).</p>
-                        <h3>SubHeader 2</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <h3>4.2. Export sequences of regions of PACs</h3>
+                        <p>Users can also export sequences of genomic regions where PACs are located.</p>
+                        <h3>4.3. Export gene sequences</h3>
+                        <p>Sequences of genes with PACs based on original version or the extended version of genome annotation are also exportable.</p>
                       </div>
                       <div class="jumpto-block">
                         <h2>Header 5</h2>
