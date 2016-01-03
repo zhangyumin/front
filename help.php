@@ -8,7 +8,7 @@
         <script type="text/javascript" src="./src/slidebar-help/js/jquery.jumpto.js"></script>
         <link rel="stylesheet" type="text/css" href="./src/slidebar-help/css/jumpto.css" />
         <link rel="stylesheet" type="text/css" href="./src/slidebar-help/css/style.css" />
-        <script src="js/modernizr.js"></script>
+        <script src="./src/slidebar-help/js/modernizr.js"></script>
     </head>
     <body>
         <?php include './navbar.php'; ?>
@@ -89,7 +89,6 @@
                         <p>PlantAPA provides the gene sequence annotated with exon-intron structure and 3’ UTR, poly(A) signals and positions. By default the most dominant poly(A) signal, AAUAAA, and its 1 nt variants are scanned to obtain poly(A) signals. Users can also specify other patterns to locate possible poly(A) signals. Further, users can choose highlight genomic regions (intron, exon, 3’ UTR etc.), cleavage sites, and poly(A) signals in different styles or colors in the corresponding gene sequence, facilitating manual inspection of poly(A) sites in different genomic locations. Particularly, the heterogeneous cleavage sites of each PAC are underlined, and the most dominant cleavage site in each PAC is highlighted in dark red and underlined in bold.
                         </p>
                     </div>
-                    </div>
                     <div class="jumpto-block">
                         <h2>7. PAC analysis: analysis of APA switching between two conditions</h2>
                         <p>Following the “PAC analysis” tab in the main menu, users can choose to generate lists of differentially expressed genes, PACs with differential usage, genes with 3’ UTR lengthening or shortening, and APA-site switching genes, using the user uploaded PACs together with PlantAPA stored PACs.
@@ -109,13 +108,15 @@
                         <h3>7.4. Detection of nonconnonical APA-site switching genes</h3>
                         <p>After choosing two groups of samples, users can specific parameters for the detection of nonconnonical APA-site switching genes. These genes involve at least one PAC located in CDS or introns.
                         <br>The main output is a table that lists all resulted genes and PACs.</p>
-	</div>
+                    </div>
+                    </div>
 	<script type="text/javascript">
 	  $(document).ready( function() {
 	    $(".page_container").jumpto({
 	      firstLevel: "> h2",
 	      secondLevel: "> h3",
-	      animate: 500
+	      animate: false,
+                      offset: 150
 	    });
 	  });
     
