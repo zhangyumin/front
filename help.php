@@ -47,8 +47,12 @@
                         <br>By following the web link on a particular PAC, users can continue to use other seamlessly integrated modules for PAC visualization and mining. Particularly, if there are multiple input files, users can further compare poly(A) site usage between their input libraries or with PlantAPA-provided libraries through the PAC analysis module.</p>
                       </div>
                       <div class="jumpto-block">
-                        <h2>Header 3</h2>
-                        <p>unt mollit anim id est laborum.</p>
+                        <h2>3. PAC search: searching PlantAPA</h2>
+                        <h3>3.1. Multi-keywords search</h3>
+                        <p>The PAC search module allows users to query genes or PACs in the data sets of interest by a variety of keywords, such as gene ID, chromosome fragment, gene functions, GO term, and GO ID.</p>
+                        <h2>3. PAC search: searching PlantAPA</h2>
+                        <h3>3.1. Multi-keywords search</h3>
+                        <p>The PAC search module allows users to query</p>
                       </div>
                       <div class="jumpto-block">
                         <h2>Header 4</h2>
