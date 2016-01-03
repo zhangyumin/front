@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -8,14 +9,14 @@
         <script type="text/javascript" src="./src/slidebar-help/js/jquery.jumpto.js"></script>
         <link rel="stylesheet" type="text/css" href="./src/slidebar-help/css/jumpto.css" />
         <link rel="stylesheet" type="text/css" href="./src/slidebar-help/css/style.css" />
-        <script src="./src/slidebar-help/js/modernizr.js"></script>
+        <script type="text/javascript" src="./src/slidebar-help/js/modernizr.js"></script>
     </head>
     <body>
         <?php include './navbar.php'; ?>
 	<div class="main">
                     <div class="page_container">
                       <div class="jumpto-block">
-                          <h1 style="text-align: center;">How to use PlantAPA</h1>
+                        <h1 style="text-align: center;">How to use PlantAPA</h1>
                         <span style="font: 25px bold;">Suggested Browsers</span>
                         <p>Advanced browsers, such as Chrome, Firefox, Safari, and Internet Explorer (10.0 or later) can be used for browsing PlantAPA. 
                        <br>Firefox and Chrome are recommended:
@@ -116,7 +117,8 @@
 	      firstLevel: "> h2",
 	      secondLevel: "> h3",
 	      animate: false,
-                      offset: 150
+                      offset: 150,
+                      innerWrapper: ".jumpto-block",
 	    });
 	  });
     
