@@ -54,10 +54,9 @@
                         <p>Batch search is supported, where lists of Gene IDs, GO terms, or GO IDs can be provided as query input. </p>
                         <h3>3.3. Fuzzy search</h3>
                         <p>Fuzzy search, is also permitted, which allows user to search various database entries by a single keyword. </p>
-                        <h3>3.2. Batch search</h3>
-                        <p>Batch search is supported, where lists of Gene IDs, GO terms, or GO IDs can be provided as query input. </p>
-                        <h3>3.2. Batch search</h3>
-                        <p>Batch search is supported, where lists of Gene IDs, GO terms, or GO IDs can be provided as query input. </p>
+                        <h3>3.4. Search result</h3>
+                        <p>Users can retrieve the search result of an example gene by clicking the button labeled ‘Example’, and view the subsets and detail descriptions of a data set by clicking the corresponding ‘More’- labeled icon. 
+                        <br>The query output is a media page that lists all the matched PACs in a dynamic table, where users can choose to view detailed information (poly(A) signals, sequences, expression patterns, etc.) and graphics of PACs and the corresponding gene by clicking the link on a PAC of interest. The PAC list tabulating all PACs in genomic regions as well as intergenic regions would facilitate the inspection of polyadenylation events associated with novel transcripts, lincRNAs, or antisense transcription.</p>
                       </div>
                       <div class="jumpto-block">
                         <h2>Header 4</h2>
