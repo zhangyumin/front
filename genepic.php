@@ -584,8 +584,8 @@ and open the template in the editor.
                 context.strokeStyle="#000000";
                 context.fillStyle="#000000";//y刻度尺为黑色
                 context.moveTo(0,140);
-                context.lineTo(0,0);
-                for(i=6;i>=0;i--){
+                context.lineTo(0,30);
+                for(i=6;i>1;i--){
                     context.moveTo(0,20*i);
                     context.lineTo(5,20*i);
                     context.font="12px Droid Serif";
@@ -843,8 +843,10 @@ and open the template in the editor.
                 context.strokeStyle="#000";//pa为黑色
                 context.beginPath();
                 context.moveTo(loc,140);
-                if(tagnum>70){
-                    context.lineTo(loc,0);
+                if(tagnum>50){
+                    context.lineTo(loc,30);
+                    context.moveTo(loc-3,30);
+                    context.lineTo(loc+3,30)
                 }
                 else{
                     context.lineTo(loc,140-2*tagnum);
@@ -859,12 +861,15 @@ and open the template in the editor.
                 context.beginPath();
                 context.font="10px Droid Serif";
                 context.fillStyle="#ff0000";//pac为红色
-                if(tagnum>70){
-                    context.fillRect(loc,140,3,-140);
+                context.strokeStyle="#ff0000";//pa为黑色
+                if(tagnum>50){
+                    context.moveTo(loc-5,30);
+                    context.lineTo(loc+7,30);
+                    context.fillRect(loc,140,3,-110);
                     if(i%2==1)
-                        context.fillText("PAT:"+tagnum,loc-20,110);
+                        context.fillText("PAT:"+tagnum,loc-20,10);
                     else
-                        context.fillText("PAT:"+tagnum,loc-20,125);
+                        context.fillText("PAT:"+tagnum,loc-20,25);
                 }
                 else if(tagnum==0){
                     i--;
@@ -872,10 +877,12 @@ and open the template in the editor.
                 else{
                     context.fillRect(loc,140,3,-2*tagnum);
                     if(i%2==1)
-                        context.fillText("PAT:"+tagnum,loc-20,110);
+                        context.fillText("PAT:"+tagnum,loc-20,10);
                     else
-                        context.fillText("PAT:"+tagnum,loc-20,125);
+                        context.fillText("PAT:"+tagnum,loc-20,25);
                 }
+                context.stroke();
+                context.closePath();
             }
         </script>
     </head>
