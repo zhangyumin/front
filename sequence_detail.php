@@ -746,7 +746,7 @@
             <fieldset style="margin-top: 20px;">
                 <legend>
                     <span class="h3_italic" style="font-size:21px">
-                        <font color="#224055"><b>Gene Viewer</b></font>
+                        <font color="#224055"><b>Sequence Viewer</b></font>
                     </span>
                 </legend>
                 <div class = "seq_viewer" id="seq_viewer">
