@@ -105,12 +105,10 @@
                         <br>The main output is a table that lists all resulted PACs.</p>
                         <h3>7.3. Detection of genes with 3’ UTR lengthening or shortening</h3>
                         <p>After choosing two groups of samples, users can specific parameters for detecting genes with tandem 3’ UTR switching.
-
-
-The main output is a table that lists all genes with 3’ UTR lengthening or shortening and the associated PACs.</p>
-                        <h3>7.1. Detection of differentially expressed genes</h3>
-                        <p>After choosing two groups of samples, users can specific parameters for DE gene detection.
-                        <br>The main output is a table that lists all resulted DE genes.</p>
+                        <br>The main output is a table that lists all genes with 3’ UTR lengthening or shortening and the associated PACs.</p>
+                        <h3>7.4. Detection of nonconnonical APA-site switching genes</h3>
+                        <p>After choosing two groups of samples, users can specific parameters for the detection of nonconnonical APA-site switching genes. These genes involve at least one PAC located in CDS or introns.
+                        <br>The main output is a table that lists all resulted genes and PACs.</p>
 	</div>
 	<script type="text/javascript">
 	  $(document).ready( function() {
