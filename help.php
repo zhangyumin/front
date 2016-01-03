@@ -52,6 +52,12 @@
                         <p>The PAC search module allows users to query genes or PACs in the data sets of interest by a variety of keywords, such as gene ID, chromosome fragment, gene functions, GO term, and GO ID.</p>
                         <h3>3.2. Batch search</h3>
                         <p>Batch search is supported, where lists of Gene IDs, GO terms, or GO IDs can be provided as query input. </p>
+                        <h3>3.3. Fuzzy search</h3>
+                        <p>Fuzzy search, is also permitted, which allows user to search various database entries by a single keyword. </p>
+                        <h3>3.2. Batch search</h3>
+                        <p>Batch search is supported, where lists of Gene IDs, GO terms, or GO IDs can be provided as query input. </p>
+                        <h3>3.2. Batch search</h3>
+                        <p>Batch search is supported, where lists of Gene IDs, GO terms, or GO IDs can be provided as query input. </p>
                       </div>
                       <div class="jumpto-block">
                         <h2>Header 4</h2>
