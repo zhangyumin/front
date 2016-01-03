@@ -46,37 +46,40 @@
                 background-color: #F75000;
             }
             .cds{
-                background-color: #FF0000;
+                background-color: #D1EEEE;
             }
             .intron{
-                background-color: #5B5B5B;
+                /*background-color: #5B5B5B;*/
+                color: gray;
             }
             .exon{
-                background-color: #984B4B;
+                background-color: #D1EEEE;
             }
             .amb{
-                background-color: #ffd700;
+                background-color: #FFF68F;
             }
             .extend{
-                background-color: #9aff9a;
+                /*background-color: #9aff9a;*/
+                text-decoration: underline;
             }
             .pa{
+                background-color: #FFAEB9
+            }
+            .pac{
+                background-color: #EEC900;
                 color:red;
-                text-decoration: underline;
-                font-weight: bold;
-                cursor: pointer;
             }
             .patt1{
-                background-color: #FF83FA;
+                background-color: #4EEE94;
             }
             .patt2{
-                background-color: #87CEFA;
+                background-color: #00EE00;
             }
             .aat{
-                background-color: #B3EE3A;
+                background-color: #008B00;
             }
             .tgt{
-                background-color: #EEEE00;
+                background-color: #008B00;
             }
             fieldset{
                 border-color: #5499c9 !important;
@@ -256,6 +259,15 @@
                 array_push($pa_start, $pa_row[2]);
                 array_push($pa_tagnum, $pa_row[3]);
             }
+            //pac 信息
+            $pac_start=array();
+            $pac_tagnum=array();
+            $pac_result=mysql_query("select * from db_server.t_".$_GET['species']."_pac where gene='$seq'");
+            while ($pac_row=  mysql_fetch_row($pac_result))
+            {
+                array_push($pac_start, $pac_row[2]);
+                array_push($pac_tagnum, $pac_row[3]);
+            }
             echo "<script type=\"text/javascript\">";
             echo "var original_seq = '$sequence';";
             echo "var gene_start = $gene_start;";
@@ -277,10 +289,17 @@
             echo "var amb_end=[];";
             echo "var pa_start=[];";
             echo "var pa_tagnum=[];";
+            echo "var pac_start=[];";
+            echo "var pac_tagnum=[];";
             foreach ($pa_start as $key => $value)
             {
                 echo "pa_start.push('$value');";
                 echo "pa_tagnum.push('$pa_tagnum[$key]');";
+            }
+            foreach ($pac_start as $key => $value)
+            {
+                echo "pac_start.push('$value');";
+                echo "pac_tagnum.push('$pac_tagnum[$key]');";
             }
             $i = -1;
             while(list($f_key,$val)=each($ftr))
@@ -460,6 +479,16 @@
 //                            console.log(pa_start[pakey]);
                             $('#pos'+pa_start[pakey]).addClass("pa");
                             $('#pos'+pa_start[pakey]).attr("title","tot_tagnum:"+pa_tagnum[pakey]);
+                        }
+                    }
+                }
+                if(ftr.indexOf("PAC")!=-1){
+                    if(pac_start.length!=0)
+                    {
+                        for(var packey in pac_start){
+//                            console.log(pa_start[pakey]);
+                            $('#pos'+pac_start[packey]).addClass("pac");
+                            $('#pos'+pac_start[packey]).attr("title","tot_tagnum:"+pac_tagnum[packey]);
                         }
                     }
                 }
@@ -781,6 +810,7 @@
                                 <input type="checkbox" name="cbox2" value="EXON"/>exon&nbsp;<span class='exon' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
                                 <input type="checkbox" name="cbox2" value="AMB"/>amb&nbsp;<span class='amb' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
                                 <input type="checkbox" name="cbox2" value="PA"/><span class="pa">Poly(A) site</span>
+                                <input type="checkbox" name="cbox2" value="PAC"/><span class="pac">PAC</span>
                                 )
                             </legend>
                             <br>
