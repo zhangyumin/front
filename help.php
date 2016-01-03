@@ -15,8 +15,8 @@
 	<div class="main">
                     <div class="page_container">
                       <div class="jumpto-block">
-                        <h1>How to use PlantAPA</h1>
-                        <span>Suggested Browsers</span>
+                          <h1 style="text-align: center;">How to use PlantAPA</h1>
+                        <span style="font: 25px bold;">Suggested Browsers</span>
                         <p>Advanced browsers, such as Chrome, Firefox, Safari, and Internet Explorer (10.0 or later) can be used for browsing PlantAPA. 
                        <br>Firefox and Chrome are recommended:
                        <br>Mozilla Firefox 3.5 or greater (http://www.mozilla.org/)
