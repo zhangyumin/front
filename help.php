@@ -90,14 +90,27 @@
                         </p>
                     </div>
                     </div>
-                    <div class="other">
-                      <h1>Stop following me!</h1>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
+                    <div class="jumpto-block">
+                        <h2>7. PAC analysis: analysis of APA switching between two conditions</h2>
+                        <p>Following the “PAC analysis” tab in the main menu, users can choose to generate lists of differentially expressed genes, PACs with differential usage, genes with 3’ UTR lengthening or shortening, and APA-site switching genes, using the user uploaded PACs together with PlantAPA stored PACs.
+                        <br>Two groups of samples each with one or more than one condition need to be selected in order to obtain the output gene/PAC lists. 
+                        <br>Raw count or normalized count based on TPM normalization and methods in EdgeR or DESeq can be chosen as input. Additional parameters can be set for each assay, such as minimum number of PATs for pre-filtering of PACs, significance level, p-value adjusted method.
+                        <br>To make the result statistically significant, a p-value or adjusted p-value will be calculated and assigned to each PAC/gene. Users can download the output lists to their local computer, or continue to inspect the result PAC/gene by clicking the link on a particular item in the list.
+                        </p>
+                        <h3>7.1. Detection of differentially expressed genes</h3>
+                        <p>After choosing two groups of samples, users can specific parameters for DE gene detection.
+                        <br>The main output is a table that lists all resulted DE genes.</p>
+                        <h3>7.2. Detection of PACs with differential usage</h3>
+                        <p>Users can specific parameters for detecting PACs with differential usage.
+                        <br>The main output is a table that lists all resulted PACs.</p>
+                        <h3>7.3. Detection of genes with 3’ UTR lengthening or shortening</h3>
+                        <p>After choosing two groups of samples, users can specific parameters for detecting genes with tandem 3’ UTR switching.
+
+
+The main output is a table that lists all genes with 3’ UTR lengthening or shortening and the associated PACs.</p>
+                        <h3>7.1. Detection of differentially expressed genes</h3>
+                        <p>After choosing two groups of samples, users can specific parameters for DE gene detection.
+                        <br>The main output is a table that lists all resulted DE genes.</p>
 	</div>
 	<script type="text/javascript">
 	  $(document).ready( function() {
