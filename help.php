@@ -27,9 +27,17 @@
                         <p>PlantAPA is a web server for query, visualization, and analysis of poly(A) sites in plants, which can profile heterogeneous cleavage sites and quantify expression pattern of poly(A) sites across different conditions. To date, PlantAPA provides the largest database of APA in plants, including rice, Arabidopsis, Medicago truncatula, and Chlamydomonas reinhardtii (see data sets).</p>
                       </div>
                       <div class="jumpto-block">
-                        <h2>Header 2</h2>
-                        <h3>SubHeader 1</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <h2>2. PAC trap: extracting poly(A) sites from uploaded sequences</h2>
+                        <h3>2.1. Start a new task for poly(A) site extraction</h3>
+                        <p>1) Choose species
+                        <br>The supported species are listed in the drop-down box.
+                        </p>
+                        <p>2) Input
+                        <br>You can upload two kinds of sequences, short reads and ESTs. You can also click “Try an example” button to load the demo data. In addition, you can upload a file to specific coordinates of poly(A) sites. If this file is provided, PASPA will skip the extraction pipeline and load the input sites to a user database directly.
+                        </p>
+                        <p>1) Choose species
+                        The supported species are listed in the drop-down box.
+                        </p>
                         <h3>SubHeader 2</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         <h3>SubHeader 3</h3>
