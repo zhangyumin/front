@@ -108,7 +108,7 @@ and open the template in the editor.
                     array_push($cds_end, $row[4]);
                 }
             }
-            $gene_start=  min($ftr_start);
+            $gene_start=  min($ftr_start;
             $gene_end= max($ftr_end);
             if($_GET['intergenic']==1){
                 $gene_start=$_GET['coord']-200;
