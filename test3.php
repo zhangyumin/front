@@ -2,52 +2,41 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-<!--    <link rel="stylesheet" type="text/css" href="./src/optselect/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="./src/optselect/default.css">-->
     <script src="./src/jquery-1.10.1.min.js"></script>
-    <script src="./src/optselect/jquery.sumoselect.js"></script>
-    <link href="./src/optselect/sumoselect.css" rel="stylesheet" />
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            window.asd = $('.sumoselect').SumoSelect({ csvDispCount: 0 });
-            window.test = $('.okbutton').SumoSelect({okCancelInMulti:true });
-        });
-    </script>
+    <script src="./src/slider/js/jquery-plus-ui.min.js"></script>
+    <script src="./src/slider/js/jquery-ui-slider-pips.js"></script>
+    <link rel="stylesheet" href="./src/slider/css/jqueryui.min.css" />
+    <link rel="stylesheet" href="./src/slider/css/jquery-ui-slider-pips.min.css" />
+    <link rel="stylesheet" href="./src/slider/css/app.min.css" />
+    <style>
+        #steps-fivepercent-slider .ui-slider-tip {
+            visibility: visible;
+            opacity: 1;
+            top: -30px;
+        }
+        .slider{
+            margin: 40px;
+        }
+    </style>
 </head>
 <body>
-    <div class="sumoselect ">
-        <h3>Multiple</h3>
-         <select   multiple="multiple" placeholder="Hello  im from placeholder" onchange="getname($(this).children(':selected'))" class="okbutton">
-               <option selected value="volvo">Volvo</option>
-               <option value="saab">Saab</option>
-               <option disabled="disabled" value="mercedes">Mercedes</option>
-               <option value="audi">Audi</option>
-               <option value="bmw">BMW</option>
-               <option value="porsche">Porche</option>
-               <option value="ferrari">Ferrari</option>
-                <option value="audi">Audi</option>
-               <option value="bmw">BMW</option>
-               <option value="porsche">Porche</option>
-               <option value="ferrari">Ferrari</option>
-                <option value="audi">Audi</option>
-               <option value="bmw">BMW</option>
-               <option value="porsche">Porche</option>
-               <option value="ferrari">Ferrari</option>
-               <option value="hyundai">Hyundai</option>
-               <option value="mitsubishi">Mitsubishi</option>
-           </select>
-    </div>
-    <script>
-        function getname(a){
-            var select=[];
-            for(var key in a){
-                select.push(a[key].value);
-            }
-            select = select.slice(0,a.length);
-            console.log(select);
-        }
-    </script>
-    <div style="height: 900px"></div>
+    <div class="slider"></div>
+     <script>
+                
+                             $(".slider")
+                        
+                                        .slider({ 
+                                            min: 0, 
+                                            max: 1000, 
+                                            range: true, 
+                                            values: [200, 800] 
+                                        })
+                        
+                                        .slider("pips", {
+                                            rest: "label"
+                                        })
+                        
+                                        .slider("float");
+            </script>
 </body>
 </html>
