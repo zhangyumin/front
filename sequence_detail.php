@@ -3,12 +3,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Sequence Detail</title>
         <script src="./src/jquery-1.10.1.min.js"></script>
-        <script src="./src/jquery.dataTables.min.js"type="text/javascript" ></script>
-        <link href="./src/jquery.dataTables.css"type="text/css" rel="stylesheet"></link>
-        <link type="text/css" rel="stylesheet" href="./src/pws-tabs/jquery.pwstabs-1.2.1.css"></link>
-        <script src="./src/pws-tabs/jquery.pwstabs-1.2.1.js"></script>
         <!-- Mobile viewport optimisation -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
         <!--[if lte IE 7]>
         <link href="./css/iehacks.min.css" rel="stylesheet" type="text/css" />
@@ -20,7 +15,18 @@
 
         <!--<link rel="stylesheet" href="./src/font-awesome.min.css">-->
         <!--<link rel="stylesheet" href="./src/example.css">-->
-       
+        <!-- sliders -->
+        <script src="./src/slider/js/jquery-plus-ui.min.js"></script>
+        <script src="./src/slider/js/jquery-ui-slider-pips.js"></script>
+        <link rel="stylesheet" href="./src/slider/css/jqueryui.min.css" />
+        <link rel="stylesheet" href="./src/slider/css/jquery-ui-slider-pips.min.css" />
+        <link rel="stylesheet" href="./src/slider/css/app.min.css" />
+        <!-- dataTables -->
+        <script src="./src/jquery.dataTables.min.js"type="text/javascript" ></script>
+        <link href="./src/jquery.dataTables.css"type="text/css" rel="stylesheet"></link>
+        <!-- pwstabs -->
+        <link type="text/css" rel="stylesheet" href="./src/pws-tabs/jquery.pwstabs-1.2.1.css"></link>
+        <script src="./src/pws-tabs/jquery.pwstabs-1.2.1.js"></script>
         <style>
             table{
                 font-size: 12px;
@@ -796,7 +802,7 @@
                                 defaultTab: 1,
                                 containerWidth: '1196px'
                              });
-                             });   
+                             });
                         </script>
                     </td>
                 </tr>
@@ -831,6 +837,7 @@
                             <legend><span class="h3_italic">User’s Pattern </span>&nbsp;&nbsp;<span class='patt1' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;(Ex. AATAAA, TGTAAA)</legend>
                             <input type = "text" id = "user_pattern" style="margin-top:10px;margin-bottom:10px;"/>
                             <br>
+                            <div class="slider"></div>
                             <legend id='text'><span class="h3_ltalic">others</span>&nbsp;&nbsp;
                                 (
                                 <input type="checkbox" name="cbox2" value="EXT"/><span class='extend' style="text-align:center;">Extended 3'UTR</span>&nbsp;
@@ -866,6 +873,23 @@
                 </div>
             </fieldset>
         </div>
+            <script>
+                
+                             $(".slider")
+                        
+                                        .slider({ 
+                                            min: 0, 
+                                            max: 1000, 
+                                            range: true, 
+                                            values: [200, 800] 
+                                        })
+                        
+                                        .slider("pips", {
+                                            rest: "label"
+                                        })
+                        
+                                        .slider("float");
+            </script>
         </div>
         <?php
             include"footer.php";
