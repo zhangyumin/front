@@ -904,6 +904,7 @@ and open the template in the editor.
                 $('.origin').SumoSelect({ csvDispCount: 0 });
                 $('.statistics').SumoSelect({ csvDispCount: 0 });
                 $('.okbutton').SumoSelect({okCancelInMulti:true });
+                $("#statistics").attr("disabled",true);
             });
             function reset(a){
                 $("#origin").attr("disabled",true);
