@@ -450,6 +450,7 @@
                         for(var cdskey in cds_start){
                             for(var i = cds_start[cdskey]; i<= cds_end[cdskey]; i++){
                                 $('#pos'+i).addClass("cds");
+                                $('#pos'+i).attr("title","CDS/exon:"+i);
                             }
                         }
                     }
@@ -825,10 +826,10 @@
                                 <input type="checkbox" name="cbox2" value="EXT"/><span class='extend' style="text-align:center;">Extended 3'UTR</span>&nbsp;
                                 <input type="checkbox" name="cbox2" value="UTR"/><span class='sutr' style="text-align:center;">UTR</span>&nbsp;
                                 <!--<input type="checkbox" name="cbox2" value="5UTR"/>5'UTR&nbsp;<span class='wutr' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;-->
-                                <input type="checkbox" name="cbox2" value="CDSEXON"/>CDS&EXON&nbsp<span class='cds' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
-                                <input type="checkbox" name="cbox2" value="INTRON"/><span class='intron' style="text-align:center;">Intron</span>&nbsp;&nbsp;
+                                <input type="checkbox" name="cbox2" value="CDSEXON"/>CDS/exon&nbsp<span class='cds' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
+                                <input type="checkbox" name="cbox2" value="INTRON"/><span class='intron' style="text-align:center;">intron</span>&nbsp;&nbsp;
                                 <!--<input type="checkbox" name="cbox2" value="EXON"/>exon&nbsp;<span class='exon' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;-->
-                                <input type="checkbox" name="cbox2" value="AMB"/>amb&nbsp;<span class='amb' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+                                <input type="checkbox" name="cbox2" value="AMB"/>AMB&nbsp;<span class='amb' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
                                 <input type="checkbox" name="cbox2" value="PA"/><span class="pa">Cleavage site</span>&nbsp;
                                 <input type="checkbox" name="cbox2" value="PAC"/><span class="pac">PAC</span>
                                 )
