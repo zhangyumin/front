@@ -330,17 +330,17 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.beginPath();
                 context.strokeStyle="#000000";
-               context.fillStyle="#000000";//x刻度尺为黑色
+                context.fillStyle="#000000";//x刻度尺为黑色
                 context.moveTo(0,60);
                 context.lineTo(1000,60);
                 context.moveTo(0,60);
-                context.lineTo(10,50);
+                context.lineTo(5,55);
                 context.moveTo(0,60);
-                context.lineTo(10,70);
+                context.lineTo(5,65);
                 context.moveTo(1000,60);
-                context.lineTo(990,50);
+                context.lineTo(995,55);
                 context.moveTo(1000,60);
-                context.lineTo(990,70);
+                context.lineTo(995,65);
                 context.font="12px Droid Serif";
                 start=<?php echo $gene_start;?>;
                 end=<?php echo $gene_end;?>;
