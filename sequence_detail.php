@@ -34,6 +34,18 @@
             #text{
                 padding-top: 20px;
             }
+            .ui-widget-content .ui-slider-handle.ui-state-default{
+                background: #434d5a;
+                border-color: #434d5a;
+            }
+            .ui-widget-content .ui-slider-handle.ui-state-hover {
+                background: #00c7d7;
+                border-color: #00c7d7;
+            }
+            .ui-slider-pips .ui-slider-pip-selected-first{
+                font-weight: 700;
+                color: #FF7A00;
+            }
             table{
                 font-size: 12px;
                 table-layout: fixed;
