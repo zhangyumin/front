@@ -108,8 +108,9 @@ and open the template in the editor.
                     array_push($cds_end, $row[4]);
                 }
             }
-            $gene_start=  min($ftr_start);
-            $gene_end= max($ftr_end);
+            //增加起始终止坐标余量
+            $gene_start=  min($ftr_start)-100;
+            $gene_end= max($ftr_end)+100;
             if($_GET['intergenic']==1){
                 $gene_start=$_GET['coord']-200;
                 $gene_end=$_GET['coord']+200;
@@ -474,7 +475,7 @@ and open the template in the editor.
                         $i++;
                     }
                 ?>
-                arrow("gene",<?php echo $_GET['strand'];?>);
+                arrow("gene",<?php echo 100*$rate?>,<?php echo $_GET['strand'];?>);
                 shorten_arrow("no_extend",<?php echo ($gene_start_org-$gene_start)*$rate;?>,<?php echo ($gene_end_org-$gene_start)*$rate;?>,<?php echo $_GET['strand'];?>);
                 <?php
                     for($i=1;$i<=$num;$i++){
@@ -789,25 +790,25 @@ and open the template in the editor.
                     context.fillRect(10,90,1000,20);
                 }
             }
-            function arrow(id,strand){
+            function arrow(id,distance,strand){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.beginPath();
                 if(strand==1){
-                    context.moveTo(990,105);
-                    context.lineTo(995,105);
-                    context.lineTo(1000,100);
-                    context.lineTo(995,95);
-                    context.lineTo(990,95);
-                    context.lineTo(990,105);
+                    context.moveTo(1000-distance,105);
+                    context.lineTo(1005-distance,105);
+                    context.lineTo(1010-distance,100);
+                    context.lineTo(1005-distance,95);
+                    context.lineTo(1000-distance,95);
+                    context.lineTo(1000-distance,105);
                 }
                 else if(strand==-1){
-                    context.moveTo(0,100);
-                    context.lineTo(5,105);
-                    context.lineTo(10,105);
-                    context.lineTo(10,95);
-                    context.lineTo(5,95);
-                    context.lineTo(0,100);
+                    context.moveTo(distance-10,100);
+                    context.lineTo(distance-5,105);
+                    context.lineTo(distance,105);
+                    context.lineTo(distance,95);
+                    context.lineTo(distance-5,95);
+                    context.lineTo(distance-10,100);
                 }
                 context.closePath();
                 context.fillStyle="#878787";
