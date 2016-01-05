@@ -480,7 +480,7 @@ and open the template in the editor.
                         $i++;
                         foreach ($pac_num as $key => $value) {
                             $position = ($value-$gene_start)* $rate;
-                            echo "pointer($position,\"gene\");";
+                            echo "pointer($position,$key,\"gene\");";
                         }
                     }
                 ?>
@@ -885,9 +885,10 @@ and open the template in the editor.
                 context.stroke();
                 context.closePath();
             }
-            function pointer(pos,id){
+            function pointer(pos,key,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
+                 <?php echo "var row =".count($pac_num).";";?>
                 context.beginPath();
                 context.moveTo(pos,120);
                 context.lineTo(pos-5,125);
@@ -898,7 +899,26 @@ and open the template in the editor.
                 context.lineTo(pos+5,125);
                 context.lineTo(pos,120);
                 context.closePath();
-                context.fillStyle="#ff8247";
+                if(key%row==0)
+                    context.fillStyle="#ff8247";
+                else if(key%row==1)
+                    context.fillStyle="#9acd32";
+                else if(key%row==2)
+                    context.fillStyle="#b23aee";
+                else if(key%row==3)
+                    context.fillStyle="#4169e1";
+                else if(key%row==4)
+                    context.fillStyle="#00fa9a";
+                else if(key%row==5)
+                    context.fillStyle="#cd96cd";
+                else if(key%row==6)
+                    context.fillStyle="#9acd32";
+                else if(key%row==7)
+                    context.fillStyle="#cdcd00";
+                else if(key%row==8)
+                    context.fillStyle="#cd00cd";
+                else if(key%row==9)
+                    context.fillStyle="#3b3b3b";
                 context.fill();
             }
         </script>
