@@ -20,7 +20,7 @@
         <script src="./src/slider/js/jquery-ui-slider-pips.js"></script>
         <link rel="stylesheet" href="./src/slider/css/jqueryui.min.css" />
         <link rel="stylesheet" href="./src/slider/css/jquery-ui-slider-pips.min.css" />
-        <link rel="stylesheet" href="./src/slider/css/app.min.css" />
+        <!--<link rel="stylesheet" href="./src/slider/css/app.min.css" />-->
         <!-- dataTables -->
         <script src="./src/jquery.dataTables.min.js"type="text/javascript" ></script>
         <link href="./src/jquery.dataTables.css"type="text/css" rel="stylesheet"></link>
@@ -28,6 +28,12 @@
         <link type="text/css" rel="stylesheet" href="./src/pws-tabs/jquery.pwstabs-1.2.1.css"></link>
         <script src="./src/pws-tabs/jquery.pwstabs-1.2.1.js"></script>
         <style>
+            .slider{
+                width: 1000px;
+            }
+            #text{
+                padding-top: 20px;
+            }
             table{
                 font-size: 12px;
                 table-layout: fixed;
@@ -881,7 +887,7 @@
                                             min: 0, 
                                             max: 1000, 
                                             range: true, 
-                                            values: [200, 800] 
+//                                            values: [200, 800] 
                                         })
                         
                                         .slider("pips", {
