@@ -41,9 +41,13 @@
             }
             .sutr{
                 /*background-color: #6F00D2;*/
+                font-weight: bold;
+                color: gray;
             }
             .wutr{
                 /*background-color: #F75000;*/
+                font-weight: bold;
+                color: gray;
             }
             .cds{
                 background-color: #D1EEEE;
@@ -402,12 +406,20 @@
             }
             function find_pattern(patts1,patts2,ftr){
                 //ftr部分
-                if(ftr.indexOf("3UTR")!=-1){
+                if(ftr.indexOf("UTR")!=-1){
                     if(sutr_start.length&&sutr_end.length!=0)
                     {
                         for(var sutrkey in sutr_start){
                             for(var i = sutr_start[sutrkey]; i<= sutr_end[sutrkey]; i++){
                                 $('#pos'+i).addClass("sutr");
+                            }
+                        }
+                    }
+                    if(wutr_start.length&&wutr_end.length!=0)
+                    {
+                        for(var wutrkey in wutr_start){
+                            for(var i = wutr_start[wutrkey]; i<= wutr_end[wutrkey]; i++){
+                                $('#pos'+i).addClass("wutr");
                             }
                         }
                     }
@@ -422,22 +434,30 @@
                         }
                     }
                 }
-                if(ftr.indexOf("5UTR")!=-1){
-                    if(wutr_start.length&&wutr_end.length!=0)
-                    {
-                        for(var wutrkey in wutr_start){
-                            for(var i = wutr_start[wutrkey]; i<= wutr_end[wutrkey]; i++){
-                                $('#pos'+i).addClass("wutr");
-                            }
-                        }
-                    }
-                }
-                if(ftr.indexOf("CDS")!=-1){
+//                if(ftr.indexOf("5UTR")!=-1){
+//                    if(wutr_start.length&&wutr_end.length!=0)
+//                    {
+//                        for(var wutrkey in wutr_start){
+//                            for(var i = wutr_start[wutrkey]; i<= wutr_end[wutrkey]; i++){
+//                                $('#pos'+i).addClass("wutr");
+//                            }
+//                        }
+//                    }
+//                }
+                if(ftr.indexOf("CDSEXON")!=-1){
                     if(cds_start.length&&cds_end.length!=0)
                     {
                         for(var cdskey in cds_start){
                             for(var i = cds_start[cdskey]; i<= cds_end[cdskey]; i++){
                                 $('#pos'+i).addClass("cds");
+                            }
+                        }
+                    }
+                    if(exon_start.length&&exon_end.length!=0)
+                    {
+                        for(var exonkey in exon_start){
+                            for(var i = exon_start[exonkey]; i<= exon_end[exonkey]; i++){
+                                $('#pos'+i).addClass("exon");
                             }
                         }
                     }
@@ -452,16 +472,16 @@
                         }
                     }
                 }
-                if(ftr.indexOf("EXON")!=-1){
-                    if(exon_start.length&&exon_end.length!=0)
-                    {
-                        for(var exonkey in exon_start){
-                            for(var i = exon_start[exonkey]; i<= exon_end[exonkey]; i++){
-                                $('#pos'+i).addClass("exon");
-                            }
-                        }
-                    }
-                }
+//                if(ftr.indexOf("EXON")!=-1){
+//                    if(exon_start.length&&exon_end.length!=0)
+//                    {
+//                        for(var exonkey in exon_start){
+//                            for(var i = exon_start[exonkey]; i<= exon_end[exonkey]; i++){
+//                                $('#pos'+i).addClass("exon");
+//                            }
+//                        }
+//                    }
+//                }
                 if(ftr.indexOf("AMB")!=-1){
                     if(amb_start.length&&amb_end.length!=0)
                     {
@@ -802,12 +822,12 @@
                             <br>
                             <legend id='text'><span class="h3_ltalic">others</span>&nbsp;&nbsp;
                                 (
-                                <input type="checkbox" name="cbox2" value="EXT"/>3'UTR Extend<span class='extend' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
-                                <input type="checkbox" name="cbox2" value="3UTR"/>3'UTR <span class='sutr' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
-                                <input type="checkbox" name="cbox2" value="5UTR"/>5'UTR&nbsp;<span class='wutr' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
-                                <input type="checkbox" name="cbox2" value="CDS"/>CDS&nbsp;<span class='cds' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
-                                <input type="checkbox" name="cbox2" value="INTRON"/><span class='intron' style="text-align:center;">Intron&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
-                                <input type="checkbox" name="cbox2" value="EXON"/>exon&nbsp;<span class='exon' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
+                                <input type="checkbox" name="cbox2" value="EXT"/><span class='extend' style="text-align:center;">Extended 3'UTR</span>&nbsp;
+                                <input type="checkbox" name="cbox2" value="UTR"/><span class='sutr' style="text-align:center;">UTR</span>&nbsp;
+                                <!--<input type="checkbox" name="cbox2" value="5UTR"/>5'UTR&nbsp;<span class='wutr' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;-->
+                                <input type="checkbox" name="cbox2" value="CDSEXON"/>CDS&EXON&nbsp<span class='cds' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
+                                <input type="checkbox" name="cbox2" value="INTRON"/><span class='intron' style="text-align:center;">Intron</span>&nbsp;&nbsp;
+                                <!--<input type="checkbox" name="cbox2" value="EXON"/>exon&nbsp;<span class='exon' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;-->
                                 <input type="checkbox" name="cbox2" value="AMB"/>amb&nbsp;<span class='amb' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
                                 <input type="checkbox" name="cbox2" value="PA"/><span class="pa">Cleavage site</span>
                                 <input type="checkbox" name="cbox2" value="PAC"/><span class="pac">PAC</span>
