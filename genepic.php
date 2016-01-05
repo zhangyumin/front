@@ -436,6 +436,7 @@ and open the template in the editor.
                         echo "amb_shorten($start,$end,$st,$en,$strand,'no_extend');\n";
                     }
                     for($i=1;$i<=$num;$i++){
+                        $j = 0;
                         $pa="pa".$i;
                         $pac="pac".$i;
                         if(empty($$pa)||empty($$pac))
@@ -446,19 +447,23 @@ and open the template in the editor.
                         }
                         foreach ($$pac as $key2 => $value2) {
                             $loc=($key2-$gene_start)*$rate;
-                            echo "pac($loc,$value2,'sample$i');\n";
+                            echo "pac($loc,$value2,$j,'sample$i');\n";
+                            $j++;
                         }
                     }
                     $i = 1;
                     foreach (array_unique($group) as $key => $value) {
+                        $j = 0;
                         foreach (${"pa_".$value."_sum"} as $key1 => $value1) {
                             $loc=($key1-$gene_start)*$rate;
                             echo "pa($loc,$value1,'statistics_sample$i');\n";
                         }
                         foreach (${"pac_".$value."_sum"} as $key1 => $value1) {
                             $loc=($key1-$gene_start)*$rate;
-                            echo "pac($loc,$value1,'statistics_sample$i');\n";
+                            echo "pac($loc,$value1,$j,'statistics_sample$i');\n";
+                            $j ++;
                         }
+                        $j = 0;
                         $i++;
                         foreach (${"pa_".$value."_avg"} as $key2 => $value2) {
                             $loc=($key2-$gene_start)*$rate;
@@ -466,8 +471,10 @@ and open the template in the editor.
                         }
                         foreach (${"pac_".$value."_avg"} as $key2 => $value2) {
                             $loc=($key2-$gene_start)*$rate;
-                            echo "pac($loc,$value2,'statistics_sample$i');\n";
+                            echo "pac($loc,$value2,$j,'statistics_sample$i');\n";
+                            $j ++;
                         }
+                        $j = 0;
                         $i++;
                         foreach (${"pa_".$value."_med"} as $key3 => $value3) {
                             $loc=($key3-$gene_start)*$rate;
@@ -475,13 +482,15 @@ and open the template in the editor.
                         }
                         foreach (${"pac_".$value."_med"} as $key3 => $value3) {
                             $loc=($key3-$gene_start)*$rate;
-                            echo "pac($loc,$value3,'statistics_sample$i');\n";
+                            echo "pac($loc,$value3,$j,'statistics_sample$i');\n";
+                            $j ++;
                         }
+                        $j = 0;
                         $i++;
-                        foreach ($pac_num as $key => $value) {
-                            $position = ($value-$gene_start)* $rate;
-                            echo "pointer($position,$key,\"gene\");";
-                        }
+                    }
+                    foreach ($pac_num as $key => $value) {
+                        $position = ($value-$gene_start)* $rate;
+                        echo "pointer($position,$key,\"gene\");";
                     }
                 ?>
                 arrow("gene",<?php echo 100*$rate?>,<?php echo $_GET['strand'];?>);
@@ -863,12 +872,32 @@ and open the template in the editor.
                 }
                 context.stroke();
             }
-            function pac(loc,tagnum,id){
+            function pac(loc,tagnum,key,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
+                <?php echo "var row =".count($pac_num).";";?>
                 context.beginPath();
                 context.font="10px Droid Serif";
-                context.fillStyle="#ff0000";//pac为红色
+                if(key%row==0)
+                    context.fillStyle="#ff8247";
+                else if(key%row==1)
+                    context.fillStyle="#9acd32";
+                else if(key%row==2)
+                    context.fillStyle="#b23aee";
+                else if(key%row==3)
+                    context.fillStyle="#4169e1";
+                else if(key%row==4)
+                    context.fillStyle="#00fa9a";
+                else if(key%row==5)
+                    context.fillStyle="#cd96cd";
+                else if(key%row==6)
+                    context.fillStyle="#9acd32";
+                else if(key%row==7)
+                    context.fillStyle="#cdcd00";
+                else if(key%row==8)
+                    context.fillStyle="#cd00cd";
+                else if(key%row==9)
+                    context.fillStyle="#3b3b3b";
                 context.strokeStyle="#ff0000";//pa为黑色
                 if(tagnum>50){
                     context.moveTo(loc-5,10);
@@ -888,7 +917,7 @@ and open the template in the editor.
             function pointer(pos,key,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                 <?php echo "var row =".count($pac_num).";";?>
+                <?php echo "var row =".count($pac_num).";";?>
                 context.beginPath();
                 context.moveTo(pos,120);
                 context.lineTo(pos-5,125);
