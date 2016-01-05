@@ -527,8 +527,8 @@ and open the template in the editor.
                 context.strokeStyle="#000000";
                 context.fillStyle="#000000";//line为黑色
                 context.beginPath();
-                context.moveTo(0,140);
-                context.lineTo(1000,140);
+                context.moveTo(0,120);
+                context.lineTo(1000,120);
                 context.stroke();
             }
             function xscale(id){
@@ -584,13 +584,13 @@ and open the template in the editor.
                 context.beginPath();
                 context.strokeStyle="#000000";
                 context.fillStyle="#000000";//y刻度尺为黑色
-                context.moveTo(0,140);
-                context.lineTo(0,30);
-                for(i=6;i>1;i--){
+                context.moveTo(0,120);
+                context.lineTo(0,10);
+                for(i=5;i>0;i--){
                     context.moveTo(0,20*i);
                     context.lineTo(5,20*i);
                     context.font="12px Droid Serif";
-                    context.fillText(70-10*i,5,21*i);
+                    context.fillText(60-10*i,5,21*i);
                 }
                 context.stroke();
             }
@@ -843,20 +843,18 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.strokeStyle="#000";//pa为黑色
                 context.beginPath();
-                context.moveTo(loc,140);
+                context.moveTo(loc,120);
                 if(tagnum>50){
-                    context.lineTo(loc,30);
-                    context.moveTo(loc-3,30);
-                    context.lineTo(loc+3,30)
+                    context.lineTo(loc,10);
+                    context.moveTo(loc-3,10);
+                    context.lineTo(loc+3,10)
                 }
                 else{
-                    context.lineTo(loc,140-2*tagnum);
+                    context.lineTo(loc,120-2*tagnum);
                 }
                 context.stroke();
             }
-            var i = 0;
             function pac(loc,tagnum,id){
-                i++;
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.beginPath();
@@ -864,23 +862,16 @@ and open the template in the editor.
                 context.fillStyle="#ff0000";//pac为红色
                 context.strokeStyle="#ff0000";//pa为黑色
                 if(tagnum>50){
-                    context.moveTo(loc-5,30);
-                    context.lineTo(loc+7,30);
-                    context.fillRect(loc,140,3,-110);
-                    if(i%2==1)
-                        context.fillText("PAT:"+tagnum,loc-20,10);
-                    else
-                        context.fillText("PAT:"+tagnum,loc-20,25);
+                    context.moveTo(loc-5,10);
+                    context.lineTo(loc+7,10);
+                    context.fillRect(loc,120,3,-110);
+                    context.fillText(tagnum,loc-10,135);
                 }
                 else if(tagnum==0){
-                    i--;
                 }
                 else{
-                    context.fillRect(loc,140,3,-2*tagnum);
-                    if(i%2==1)
-                        context.fillText("PAT:"+tagnum,loc-20,10);
-                    else
-                        context.fillText("PAT:"+tagnum,loc-20,25);
+                    context.fillRect(loc,120,3,-2*tagnum);
+                    context.fillText(tagnum,loc-6,135);
                 }
                 context.stroke();
                 context.closePath();
