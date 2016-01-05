@@ -609,17 +609,17 @@ and open the template in the editor.
 //                            data:['蒸发量','降水量']
                             data:['<?php
                                         foreach ($pac_num as $key => $value) {
-                                            echo "PAC pos:$value','";
+                                            echo "PAC@$value','";
                                         }
                                     ?>']
                         },
                         toolbox: {
                             show : true,
                             feature : {
-                                mark : {show: true},
-                                dataView : {show: true, readOnly: false},
-                                magicType : {show: true, type: ['line', 'bar']},
-                                restore : {show: true},
+                                mark : {show: false},
+                                dataView : {show: false, readOnly: false},
+                                magicType : {show: false, type: ['line', 'bar']},
+                                restore : {show: false},
                                 saveAsImage : {show: true}
                             }
                         },
@@ -666,7 +666,7 @@ and open the template in the editor.
                                         $data = implode(",", $tmp_array);
                                         unset($tmp_array);
                                         echo "{"
-                                                    . "name:'PAC pos:$value',"
+                                                    . "name:'PAC@$value',"
 //                                                    . "barMinHeight: 10,"
                                                     . "type:'bar',"
                                                     . "data:[$data]"
@@ -726,10 +726,10 @@ and open the template in the editor.
                         toolbox: {
                             show : true,
                             feature : {
-                                mark : {show: true},
-                                dataView : {show: true, readOnly: false},
-                                magicType : {show: true, type: ['line', 'bar']},
-                                restore : {show: true},
+                                mark : {show: false},
+                                dataView : {show: false, readOnly: false},
+                                magicType : {show: false, type: ['line', 'bar']},
+                                restore : {show: false},
                                 saveAsImage : {show: true}
                             }
                         },
@@ -843,10 +843,10 @@ and open the template in the editor.
                         toolbox: {
                             show : true,
                             feature : {
-                                mark : {show: true},
-                                dataView : {show: true, readOnly: false},
-                                magicType : {show: true, type: ['line', 'bar']},
-                                restore : {show: true},
+                                mark : {show: false},
+                                dataView : {show: false, readOnly: false},
+                                magicType : {show: false, type: ['line', 'bar']},
+                                restore : {show: false},
                                 saveAsImage : {show: true}
                             }
                         },
@@ -960,10 +960,10 @@ and open the template in the editor.
                         toolbox: {
                             show : true,
                             feature : {
-                                mark : {show: true},
-                                dataView : {show: true, readOnly: false},
-                                magicType : {show: true, type: ['line', 'bar']},
-                                restore : {show: true},
+                                mark : {show: false},
+                                dataView : {show: false, readOnly: false},
+                                magicType : {show: false, type: ['line', 'bar']},
+                                restore : {show: false},
                                 saveAsImage : {show: true}
                             }
                         },
