@@ -274,7 +274,7 @@ and open the template in the editor.
                         echo "intergenic($strand,\"gene\");"
                 ?>
                 arrow("gene",<?php echo $_GET['strand'];?>);
-                title("#000000","<?php echo $seq;?>","gene");
+//                title("#000000","<?php echo $seq;?>","gene");
                 xscale("gene");
 //                pointer(700,1,"gene");
             }
