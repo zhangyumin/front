@@ -871,7 +871,7 @@ and open the template in the editor.
                 }
                 else{
                     context.fillRect(loc,120,3,-2*tagnum);
-                    context.fillText(tagnum,loc-6,135);
+                    context.fillText(tagnum,loc-4,135);
                 }
                 context.stroke();
                 context.closePath();
