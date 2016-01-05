@@ -16,6 +16,7 @@ and open the template in the editor.
             $chr=$_GET['chr'];
             $strand=$_GET['strand'];
             $species = $_GET['species'];
+            $pac_num = array();
             $ftr_start=array();
             $ftr_end=array();
             $sutr_start=array();
@@ -312,6 +313,10 @@ and open the template in the editor.
                     $avg_pactmp = 0;
                     $med_pactmp = 0;
                     $pactmp = array();#临时用于存储的数组
+                    //统计所有的pac的coord
+                    if(!in_array($key2, $pac_num)){
+                        array_push($pac_num, $key2);
+                    }
                     foreach ($group_member as $key3 => $value3) {
                         if(array_key_exists($key2, ${"pac".$value3})){
                             array_push($pactmp, ${"pac".$value3}[$key2]);
@@ -473,6 +478,10 @@ and open the template in the editor.
                             echo "pac($loc,$value3,'statistics_sample$i');\n";
                         }
                         $i++;
+                        foreach ($pac_num as $key => $value) {
+                            $position = ($value-$gene_start)* $rate;
+                            echo "pointer($position,\"gene\");";
+                        }
                     }
                 ?>
                 arrow("gene",<?php echo 100*$rate?>,<?php echo $_GET['strand'];?>);
@@ -875,6 +884,22 @@ and open the template in the editor.
                 }
                 context.stroke();
                 context.closePath();
+            }
+            function pointer(pos,id){
+                var canvas = document.getElementById(id);
+                var context = canvas.getContext("2d");
+                context.beginPath();
+                context.moveTo(pos,120);
+                context.lineTo(pos-5,125);
+                context.lineTo(pos-1,125);
+                context.lineTo(pos-1,150);
+                context.lineTo(pos+1,150);
+                context.lineTo(pos+1,125);
+                context.lineTo(pos+5,125);
+                context.lineTo(pos,120);
+                context.closePath();
+                context.fillStyle="#ff8247";
+                context.fill();
             }
         </script>
     </head>
