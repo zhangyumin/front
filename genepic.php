@@ -878,27 +878,46 @@ and open the template in the editor.
                 <?php echo "var row =".count($pac_num).";";?>
                 context.beginPath();
                 context.font="10px Droid Serif";
-                if(key%row==0)
+                if(key%row==0){
+                    context.strokeStyle="#ff8247";
                     context.fillStyle="#ff8247";
-                else if(key%row==1)
+                }
+                else if(key%row==1){
+                    context.strokeStyle="#9acd32";
                     context.fillStyle="#9acd32";
-                else if(key%row==2)
+                }
+                else if(key%row==2){
+                    context.strokeStyle="#b23aee";
                     context.fillStyle="#b23aee";
-                else if(key%row==3)
+                }
+                else if(key%row==3){
+                    context.strokeStyle="#4169e1";
                     context.fillStyle="#4169e1";
-                else if(key%row==4)
+                }
+                else if(key%row==4){
+                    context.strokeStyle="#00fa9a";
                     context.fillStyle="#00fa9a";
-                else if(key%row==5)
+                }
+                else if(key%row==5){
+                    context.strokeStyle="#cd96cd";
                     context.fillStyle="#cd96cd";
-                else if(key%row==6)
+                }
+                else if(key%row==6){
+                    context.strokeStyle="#9acd32";
                     context.fillStyle="#9acd32";
-                else if(key%row==7)
+                }
+                else if(key%row==7){
+                    context.strokeStyle="#cdcd00";
                     context.fillStyle="#cdcd00";
-                else if(key%row==8)
+                }
+                else if(key%row==8){
+                    context.strokeStyle="#cd00cd";
                     context.fillStyle="#cd00cd";
-                else if(key%row==9)
+                }
+                else if(key%row==9){
+                    context.strokeStyle="#3b3b3b";
                     context.fillStyle="#3b3b3b";
-                context.strokeStyle="#ff0000";//pa为黑色
+                }
                 if(tagnum>50){
                     context.moveTo(loc-5,10);
                     context.lineTo(loc+7,10);
