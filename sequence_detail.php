@@ -829,7 +829,7 @@
                                 <input type="checkbox" name="cbox2" value="INTRON"/><span class='intron' style="text-align:center;">Intron</span>&nbsp;&nbsp;
                                 <!--<input type="checkbox" name="cbox2" value="EXON"/>exon&nbsp;<span class='exon' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;-->
                                 <input type="checkbox" name="cbox2" value="AMB"/>amb&nbsp;<span class='amb' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
-                                <input type="checkbox" name="cbox2" value="PA"/><span class="pa">Cleavage site</span>
+                                <input type="checkbox" name="cbox2" value="PA"/><span class="pa">Cleavage site</span>&nbsp;
                                 <input type="checkbox" name="cbox2" value="PAC"/><span class="pac">PAC</span>
                                 )
                             </legend>
