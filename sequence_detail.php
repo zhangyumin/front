@@ -896,8 +896,8 @@
                              $(".slider")
                         
                                         .slider({ 
-                                            min: 0, 
-                                            max: 1000, 
+                                            min: -300, 
+                                            max: 200, 
                                             range: true, 
 //                                            values: [200, 800] 
                                         })
