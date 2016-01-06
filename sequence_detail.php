@@ -899,7 +899,7 @@
                                             min: -300, 
                                             max: 200, 
                                             range: true, 
-//                                            values: [200, 800] 
+                                            values: [-300, 200] 
                                         })
                         
                                         .slider("pips", {
