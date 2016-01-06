@@ -864,8 +864,6 @@ and open the template in the editor.
                 context.moveTo(loc,120);
                 if(tagnum>50){
                     context.lineTo(loc,10);
-                    context.moveTo(loc-3,10);
-                    context.lineTo(loc+3,10)
                 }
                 else{
                     context.lineTo(loc,120-2*tagnum);
