@@ -379,6 +379,8 @@
             echo "</script>";
          ?>
         <script type="text/javascript">
+                var pa_min = Math.min.apply(null,pa_start);
+                var pa_max = Math.max.apply(null,pa_start);
         $(document).ready(function (){
                 $('#find_patt').click(function(){
                     clear();
@@ -429,6 +431,14 @@
                 find_pattern(patts1,patts2,ftr);
             }
             function find_pattern(patts1,patts2,ftr){
+                //坐标过滤器
+                var slider_min = $(".ui-slider-tip").html();
+                var slider_all = $(".ui-slider-tip").text();
+                var slider_max = slider_all.substr(slider_min.length);
+//                alert("range:"+slider_min+":"+slider_max);
+                var min = Number(pa_min) + Number(slider_min);
+                var max = Number(pa_max) + Number(slider_max);
+                alert("range:"+min+":"+max);
                 //ftr部分
                 if(ftr.indexOf("UTR")!=-1){
                     if(sutr_start.length&&sutr_end.length!=0)
@@ -564,18 +574,20 @@
                         while((result = reg.exec(original_seq)) != null)
                         {
                             if(strand == -1){
-                                j++
+                                j++;
                                 pos1_end.push(gene_end - result.index);
                                 pos1_start.push(gene_end  - patt.length - result.index+1);
                             }
                             else if(strand == 1){
-                                j++
+                                j++;
                                 pos1_end.push(gene_start + result.index + patt.length - 1);
                                 pos1_start.push(gene_start + result.index);
                             }
                             for(var i = pos1_start[j]; i<= pos1_end[j];i++){
-                                $('#pos'+i).addClass("patt1");
-                                $('#pos'+i).attr("title","Poly(A) signal:"+i);
+                                if(min <= i && i <= max){
+                                    $('#pos'+i).addClass("patt1");
+                                    $('#pos'+i).attr("title","Poly(A) signal:"+i);
+                                }
                             }
                         }
                     }
@@ -634,16 +646,22 @@
                                     }
                                 }
                                 for(var i = pos2_start[j]; i<= pos2_end[j];i++){
-                                    $('#pos'+i).addClass("patt2");
-                                    $('#pos'+i).attr("title","Poly(A) signal:"+i);
+                                    if(min <= i && i <= max){
+                                        $('#pos'+i).addClass("patt2");
+                                        $('#pos'+i).attr("title","Poly(A) signal:"+i);
+                                    }
                                 }
                                 for(var i = aat_start[j]; i<= aat_end[j];i++){
-                                    $('#pos'+i).addClass("aat");
-                                    $('#pos'+i).attr("title","Poly(A) signal:"+i);
+                                    if(min <= i && i <= max){
+                                        $('#pos'+i).addClass("aat");
+                                        $('#pos'+i).attr("title","Poly(A) signal:"+i);
+                                    }
                                 }
                                 for(var i = tgt_start[j]; i<= tgt_end[j];i++){
-                                    $('#pos'+i).addClass("tgt");
-                                    $('#pos'+i).attr("title","Poly(A) signal:"+i);
+                                    if(min <= i && i <= max){
+                                        $('#pos'+i).addClass("tgt");
+                                        $('#pos'+i).attr("title","Poly(A) signal:"+i);
+                                    }
                                 }
                             }
                     }
