@@ -566,7 +566,7 @@ and open the template in the editor.
             <div id="pactagnum_sum" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;display: none"></div>
             <div id="pactagnum_avg" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;display: none"></div>
             <div id="pactagnum_med" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;display: none"></div>
-            <div id="pactagnum_ratio" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;display: none"></div>
+            <div id="pactagnum_ratio" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;"></div>
 
             <!--Step:2 引入echarts.js-->  
             <script src="src/dist/echarts.js"></script>  
