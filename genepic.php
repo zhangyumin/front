@@ -110,8 +110,8 @@ and open the template in the editor.
                 }
             }
             //增加起始终止坐标余量
-            $gene_start=  min($ftr_start)-100;
-            $gene_end= max($ftr_end)+100;
+            $gene_start=  min($ftr_start);
+            $gene_end= max($ftr_end);
             if($_GET['intergenic']==1){
                 $gene_start=$_GET['coord']-200;
                 $gene_end=$_GET['coord']+200;
@@ -144,7 +144,7 @@ and open the template in the editor.
             }
             //循环读取$patable 查询数据库并存储pa数据
             foreach ($patable as $key => $value) {
-                $tmp_pa = mysql_query("select * from $value where chr='$chr' and coord>=$gene_start+100 and coord<=$gene_end-100;");
+                $tmp_pa = mysql_query("select * from $value where chr='$chr' and coord>=$gene_start and coord<=$gene_end;");
                 while($tmp_pa_row = mysql_fetch_row($tmp_pa)){
                     if($key==0){
                         for($i=1;$i<=count($tmp_pa_row)-4;$i++){
@@ -174,7 +174,7 @@ and open the template in the editor.
             //user trap数据
             if(isset($_SESSION['file'])){
                 $sql_sample = implode($_SESSION['file_real'], ",");
-                $user_pa = mysql_query("select coord,$sql_sample from db_user.PA_".$_SESSION['file']." where chr='$chr' and coord>=$gene_start+100 and coord<=$gene_end-100;");
+                $user_pa = mysql_query("select coord,$sql_sample from db_user.PA_".$_SESSION['file']." where chr='$chr' and coord>=$gene_start and coord<=$gene_end;");
                 $user_pac = mysql_query("select coord,$sql_sample from db_user.PAC_".$_SESSION['file']." where gene = '$seq';");
                 while($usr_row_pa = mysql_fetch_row($user_pa)){
                     for($i=$num-count($_SESSION['file_real'])+1;$i<=$num;$i++){
@@ -566,12 +566,12 @@ and open the template in the editor.
                 context.moveTo(1000,60);
                 context.lineTo(995,65);
                 context.font="12px Droid Serif";
-                start=<?php echo $gene_start+100;?>;
-                end=<?php echo $gene_end-100;?>;
+                start=<?php echo $gene_start;?>;
+                end=<?php echo $gene_end;?>;
                 context.fillText("start:"+start,15,75);
                 context.fillText(end+":end",915,75);
                 for(i=1;i<10;i++){
-                    x=<?php echo round(($gene_end-$gene_start+200)/10); ?>;
+                    x=<?php echo round(($gene_end-$gene_start)/10); ?>;
                     context.fillText(start+x*i,100*i-20,55);
                 }
                 context.stroke();
