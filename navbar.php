@@ -34,6 +34,13 @@
   </div>
 </nav>
 <script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?269157b058029d76de196bc8844d0ee9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
 function GetUrlRelativePath()
 　{
 　　　　var url = document.location.toString();
