@@ -493,7 +493,7 @@ and open the template in the editor.
                         echo "pointer($position,$key,\"gene\");";
                     }
                 ?>
-                arrow("gene",<?php echo 100*$rate?>,<?php echo $_GET['strand'];?>);
+                arrow("gene",10,<?php echo $_GET['strand'];?>);
                 shorten_arrow("no_extend",<?php echo ($gene_start_org-$gene_start)*$rate;?>,<?php echo ($gene_end_org-$gene_start)*$rate;?>,<?php echo $_GET['strand'];?>);
                 <?php
                     for($i=1;$i<=$num;$i++){
