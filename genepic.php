@@ -1061,9 +1061,12 @@ and open the template in the editor.
                     select.push(a[key].value);
                 }
                 select = select.slice(0,a.length);
-                url = (window.location.href);
+                url = parent.document.getElementById("genepic").contentWindow.location.href;
                 loc = url.lastIndexOf("pac");
-                window.location.href=url.substring(0,loc)+"pac="+select.toString();
+                if(loc==-1)
+                    window.location.href=url+"&pac="+select.toString();
+                else
+                    window.location.href=url.substring(0,loc)+"pac="+select.toString();
             }
         </script>
         <canvas id="gene" width="1150px;" height="150px;"></canvas><br>
