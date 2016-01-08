@@ -16,7 +16,7 @@ and open the template in the editor.
             $chr=$_GET['chr'];
             $strand=$_GET['strand'];
             $species = $_GET['species'];
-            $pac_selected = explode(":", $_GET['pac']);
+            $pac_selected = explode(",", $_GET['pac']);
             $pac_num = array();
             $ftr_start=array();
             $ftr_end=array();
@@ -1017,7 +1017,7 @@ and open the template in the editor.
                 <select id="pac"   multiple="multiple" placeholder="Select to display" onchange="showpa($(this).children(':selected'))" class="okbutton">
                     <?php
                         foreach ($pac_num as $key => $value) {
-                            echo "<option selected value='$value'>PAC@$value</option>";
+                            echo "<option value='$value'>PAC@$value</option>";
                         }
                     ?>
                 </select>
@@ -1061,7 +1061,9 @@ and open the template in the editor.
                     select.push(a[key].value);
                 }
                 select = select.slice(0,a.length);
-                console.log(select.toString());
+                url = (window.location.href);
+                loc = url.lastIndexOf("pac");
+                window.location.href=url.substring(0,loc)+"pac="+select.toString();
             }
         </script>
         <canvas id="gene" width="1150px;" height="150px;"></canvas><br>
