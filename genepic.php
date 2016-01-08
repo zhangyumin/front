@@ -16,6 +16,7 @@ and open the template in the editor.
             $chr=$_GET['chr'];
             $strand=$_GET['strand'];
             $species = $_GET['species'];
+            $pac_selected = explode(":", $_GET['pac']);
             $pac_num = array();
             $ftr_start=array();
             $ftr_end=array();
