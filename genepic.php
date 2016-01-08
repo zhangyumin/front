@@ -448,7 +448,10 @@ and open the template in the editor.
                         }
                         foreach ($$pac as $key2 => $value2) {
                             $loc=($key2-$gene_start)*$rate;
-                            echo "pac($loc,$value2,$j,'sample$i');\n";
+                            if(in_array($key2, $pac_selected))
+                                echo "pac($loc,$value2,$j,'sample$i');\n";
+                            else
+                                echo "pac($loc,$value2,'none','sample$i');\n";
                             $j++;
                         }
                     }
@@ -461,7 +464,10 @@ and open the template in the editor.
                         }
                         foreach (${"pac_".$value."_sum"} as $key1 => $value1) {
                             $loc=($key1-$gene_start)*$rate;
-                            echo "pac($loc,$value1,$j,'statistics_sample$i');\n";
+                            if(in_array($key1, $pac_selected))
+                                echo "pac($loc,$value1,$j,'statistics_sample$i');\n";
+                            else
+                                echo "pac($loc,$value1,'none','statistics_sample$i');\n";
                             $j ++;
                         }
                         $j = 0;
@@ -472,7 +478,10 @@ and open the template in the editor.
                         }
                         foreach (${"pac_".$value."_avg"} as $key2 => $value2) {
                             $loc=($key2-$gene_start)*$rate;
-                            echo "pac($loc,$value2,$j,'statistics_sample$i');\n";
+                            if(in_array($key2, $pac_selected))
+                                echo "pac($loc,$value2,$j,'statistics_sample$i');\n";
+                            else
+                                echo "pac($loc,$value2,'none','statistics_sample$i');\n";
                             $j ++;
                         }
                         $j = 0;
@@ -483,7 +492,10 @@ and open the template in the editor.
                         }
                         foreach (${"pac_".$value."_med"} as $key3 => $value3) {
                             $loc=($key3-$gene_start)*$rate;
-                            echo "pac($loc,$value3,$j,'statistics_sample$i');\n";
+                            if(in_array($key3, $pac_selected))
+                                echo "pac($loc,$value3,$j,'statistics_sample$i');\n";
+                            else
+                                echo "pac($loc,$value3,'none','statistics_sample$i');\n";
                             $j ++;
                         }
                         $j = 0;
@@ -491,7 +503,10 @@ and open the template in the editor.
                     }
                     foreach ($pac_num as $key => $value) {
                         $position = ($value-$gene_start)* $rate;
-                        echo "pointer($position,$key,\"gene\");";
+                        if(in_array($value, $pac_selected))
+                            echo "pointer($position,$key,\"gene\");";
+                        else
+                            echo "pointer($position,'none',\"gene\");";
                     }
                 ?>
                 arrow("gene",10,<?php echo $_GET['strand'];?>);
@@ -877,7 +892,11 @@ and open the template in the editor.
                 <?php echo "var row =".count($pac_num).";";?>
                 context.beginPath();
                 context.font="10px Droid Serif";
-                if(key%row==0){
+                if(key == 'none'){
+                    context.strokeStyle="#808a87";
+                    context.fillStyle="#808a87";
+                }
+                else if(key%row==0){
                     context.strokeStyle="#ff8247";
                     context.fillStyle="#ff8247";
                 }
@@ -946,7 +965,11 @@ and open the template in the editor.
                 context.lineTo(pos+5,125);
                 context.lineTo(pos,120);
                 context.closePath();
-                if(key%row==0)
+                if(key == 'none'){
+                    context.strokeStyle="#808a87";
+                    context.fillStyle="#808a87";
+                }
+                else if(key%row==0)
                     context.fillStyle="#ff8247";
                 else if(key%row==1)
                     context.fillStyle="#9acd32";
