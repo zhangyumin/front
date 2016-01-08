@@ -989,11 +989,18 @@ and open the template in the editor.
                      <option selected value="med">med</option>
                 </select>
             </div>
+            <div class="pacd" style="display: inline;">
+                <select id="pac"   multiple="multiple" placeholder="Select to display" onchange="" class="okbutton">
+                     <option selected value="sum">pac1</option>
+                     <option selected value="avg">pac2</option>
+                     <option selected value="med">pac3</option>
+                </select>
+            </div>
         </div>
         <script>
             $(document).ready(function () {
-                $('.origin').SumoSelect({ csvDispCount: 0 });
-                $('.statistics').SumoSelect({ csvDispCount: 0 });
+                $('#origin').SumoSelect({ csvDispCount: 2 });
+                $('#statistics').SumoSelect({ csvDispCount: 0 });
                 $('.okbutton').SumoSelect({okCancelInMulti:true });
                 $("#statistics").attr("disabled",true);
             });
