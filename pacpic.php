@@ -544,7 +544,7 @@ and open the template in the editor.
                     getname($("#statistics").children(':selected'))
                 }
                 else if(Slt=='origin'){
-                    $('#statistics').attr('disabld',true);
+                    $('#statistics').attr('disabled',true);
                     $('#pactagnum').show();
                     $('#pactagnum_ratio').hide();
                     $('#pactagnum_sum').hide();
