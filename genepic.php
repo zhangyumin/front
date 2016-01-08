@@ -1061,7 +1061,7 @@ and open the template in the editor.
                     select.push(a[key].value);
                 }
                 select = select.slice(0,a.length);
-                console.log(select);
+                console.log(select.toString());
             }
         </script>
         <canvas id="gene" width="1150px;" height="150px;"></canvas><br>
