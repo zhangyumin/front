@@ -802,15 +802,15 @@
                                 <?php
                                     if($_GET['flag']=='intergenic'){
                                         if($_GET['analysis']==1)
-                                            echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord&analysis=1\" width=1200px  height=500px></iframe>";
+                                            echo "<iframe id='genepic' src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord&analysis=1\" width=1200px  height=500px></iframe>";
                                         else
-                                            echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord\" width=1200px  height=500px></iframe>";
+                                            echo "<iframe id='genepic' src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord\" width=1200px  height=500px></iframe>";
                                     }
                                     else{
                                         if($_GET['analysis']==1)
-                                            echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord&analysis=1\" width=1200px  height=500px></iframe>";
+                                            echo "<iframe id='genepic' src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&analysis=1\" width=1200px  height=500px></iframe>";
                                         else
-                                            echo "<iframe src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord\" width=1200px  height=500px></iframe>";
+                                            echo "<iframe id='genepic' src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand\" width=1200px  height=500px></iframe>";
                                     }
                                     ?>
                             </div>
