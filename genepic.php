@@ -1016,8 +1016,12 @@ and open the template in the editor.
             <div class="pacd" style="display: inline;float: right">
                 <select id="pac"   multiple="multiple" placeholder="Select to display" onchange="showpa($(this).children(':selected'))" class="okbutton">
                     <?php
+                        sort($pac_num);
                         foreach ($pac_num as $key => $value) {
-                            echo "<option value='$value'>PAC@$value</option>";
+                            if(in_array($value, $pac_selected))
+                                echo "<option selected value='$value'>PAC@$value</option>";
+                            else
+                                echo "<option value='$value'>PAC@$value</option>";
                         }
                     ?>
                 </select>
