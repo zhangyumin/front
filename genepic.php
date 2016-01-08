@@ -989,18 +989,21 @@ and open the template in the editor.
                      <option selected value="med">med</option>
                 </select>
             </div>
-            <div class="pacd" style="display: inline;">
-                <select id="pac"   multiple="multiple" placeholder="Select to display" onchange="" class="okbutton">
-                     <option selected value="sum">pac1</option>
-                     <option selected value="avg">pac2</option>
-                     <option selected value="med">pac3</option>
+            <div class="pacd" style="display: inline;float: right">
+                <select id="pac"   multiple="multiple" placeholder="Select to display" onchange="showpa($(this).children(':selected'))" class="okbutton">
+                    <?php
+                        foreach ($pac_num as $key => $value) {
+                            echo "<option selected value='$value'>PAC@$value</option>";
+                        }
+                    ?>
                 </select>
             </div>
         </div>
         <script>
             $(document).ready(function () {
-                $('#origin').SumoSelect({ csvDispCount: 2 });
-                $('#statistics').SumoSelect({ csvDispCount: 0 });
+                $('#pacd').SumoSelect({ csvDispCount: 2,okCancelInMulti:true });
+                $('#origin').SumoSelect({ csvDispCount: 2,okCancelInMulti:true });
+                $('#statistics').SumoSelect({ csvDispCount: 0,okCancelInMulti:true });
                 $('.okbutton').SumoSelect({okCancelInMulti:true });
                 $("#statistics").attr("disabled",true);
             });
@@ -1027,6 +1030,14 @@ and open the template in the editor.
                 for(var i in a){
                     $("."+a[i]).show();
                 }
+            }
+            function showpa(a){
+                var select=[];
+                for(var key in a){
+                    select.push(a[key].value);
+                }
+                select = select.slice(0,a.length);
+                console.log(select);
             }
         </script>
         <canvas id="gene" width="1150px;" height="150px;"></canvas><br>
