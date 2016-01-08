@@ -7,6 +7,8 @@ and open the template in the editor.
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <script src="./src/jquery-1.10.1.min.js"></script>
+        <script src="./src/optselect/jquery.sumoselect.js"></script>
+        <link href="./src/optselect/sumoselect.css" rel="stylesheet" />
         <?php
             session_start();
             $con=  mysql_connect("localhost","root","root");
@@ -516,27 +518,33 @@ and open the template in the editor.
             <input type="radio" name="display" value="origin" checked="checked" onchange="display()"/>origin
             <input type="radio" name="display" value="ratio" onchange="display()"/>ratio
             <input type="radio" name="display" value="statistics" onchange="display()"/>statistics
-            <select id="method" disabled="true" onchange="show()">
-                <option value="choose" selected="selected">Please choose</option>
-                <option value="sum">Sum</option>
-                <option value="avg">Average</option>
-                <option value="med">Median</option>
-            </select>
+            <div class="statisticsd" style="display: inline;">
+                <select id="statistics"   multiple="multiple" placeholder="Select to display" onchange="getname($(this).children(':selected'))" class="okbutton">
+                     <option selected value="sum">sum</option>
+                     <option selected value="avg">avg</option>
+                     <option selected value="med">med</option>
+                </select>
+            </div>
         </div>
         <script>
+            $(document).ready(function () {
+                $('.statistics').SumoSelect({ csvDispCount: 0 });
+                $('.okbutton').SumoSelect({okCancelInMulti:true });
+                $("#statistics").attr("disabled",true);
+            });
             function display(){
                 var Slt = $('#button input[name="display"]:checked').val();
-                $('#method').val("choose");
                 if(Slt=='statistics'){
-                    $('#method').attr('disabled',false);
+                    $('#statistics').attr('disabled',false);
                     $('#pactagnum').hide();
                     $('#pactagnum_ratio').hide();
                     $('#pactagnum_sum').show();
                     $('#pactagnum_avg').show();
                     $('#pactagnum_med').show();
+                    getname($("#statistics").children(':selected'))
                 }
                 else if(Slt=='origin'){
-                    $('#method').attr('disabled',true);
+                    $('#statistics').attr('disabled',true);
                     $('#pactagnum').show();
                     $('#pactagnum_ratio').hide();
                     $('#pactagnum_sum').hide();
@@ -544,7 +552,7 @@ and open the template in the editor.
                     $('#pactagnum_med').hide();
                 }
                 else if(Slt == 'ratio'){
-                    $('#method').attr('disabled',true);
+                    $('#statistics').attr('disabled',true);
                     $('#pactagnum').hide();
                     $('#pactagnum_sum').hide();
                     $('#pactagnum_avg').hide();
@@ -552,23 +560,26 @@ and open the template in the editor.
                     $('#pactagnum_ratio').show();
                 }
             }
-            function show(){
-                var sta = $("#method  option:selected").val();
-                if(sta != 'choose'){
-                    $('#pactagnum').hide();
-                    $('#pactagnum_sum').hide();
-                    $('#pactagnum_avg').hide();
-                    $('#pactagnum_med').hide();
-                    $('#pactagnum_'+sta).show();
+            function getname(a){
+                $('#pactagnum').hide();
+                $('#pactagnum_sum').hide();
+                $('#pactagnum_avg').hide();
+                $('#pactagnum_med').hide();
+                $('#pactagnum_ratio').hide();
+                var select=[];
+                for(var key in a){
+                    select.push(a[key].value);
                 }
-                else{
-                    $('#pactagnum').hide();
-                    $('#pactagnum_sum').show();
-                    $('#pactagnum_avg').show();
-                    $('#pactagnum_med').show();
-                }
-//                console.log(sta);
+                select = select.slice(0,a.length);
+//                console.log(select);
+                displaya(select);
             }
+            function displaya(a){
+                for(var i in a){
+                    $("#pactagnum_"+a[i]).show();
+                }
+            }
+//                console.log(sta);
         </script>
         <canvas id="gene" width="1000px;" height="150px;"></canvas><br>
        
