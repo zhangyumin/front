@@ -1102,8 +1102,8 @@ and open the template in the editor.
                         ],
                         yAxis : [
                             {
-//                                max: 100,
-//                                min: -10,
+                                max: 1,
+                                min: 0,
                                 scale: 0,
                                 type : 'value'
                             }
@@ -1143,7 +1143,7 @@ and open the template in the editor.
                                         for($i=1;$i<=$num;$i++){
                                             $pac="pac".$i;
                                             if(${$pac}[$value]!=NULL)
-                                                array_push($tmp_array,number_format(${$pac}[$value]/$group_total[$i],2,".",""));
+                                                array_push($tmp_array,number_format(${$pac}[$value]/$group_total[$i],5,".",""));
                                             else
                                                 array_push($tmp_array,0);
                                         }
