@@ -514,6 +514,7 @@ and open the template in the editor.
     <body>
         <div id="button" style="width:1000px;">
             <input type="radio" name="display" value="origin" checked="checked" onchange="display()"/>origin
+            <input type="radio" name="display" value="ratio" onchange="display()"/>ratio
             <input type="radio" name="display" value="statistics" onchange="display()"/>statistics
             <select id="method" disabled="true" onchange="show()">
                 <option value="choose" selected="selected">Please choose</option>
@@ -529,16 +530,26 @@ and open the template in the editor.
                 if(Slt=='statistics'){
                     $('#method').attr('disabled',false);
                     $('#pactagnum').hide();
+                    $('#pactagnum_ratio').hide();
                     $('#pactagnum_sum').show();
                     $('#pactagnum_avg').show();
                     $('#pactagnum_med').show();
                 }
-                else{
+                else if(Slt=='statistics'){
                     $('#method').attr('disabled',true);
                     $('#pactagnum').show();
+                    $('#pactagnum_ratio').hide();
                     $('#pactagnum_sum').hide();
                     $('#pactagnum_avg').hide();
                     $('#pactagnum_med').hide();
+                }
+                else if(Slt == 'ratio'){
+                    $('#method').attr('disabled',false);
+                    $('#pactagnum').hide();
+                    $('#pactagnum_sum').hide();
+                    $('#pactagnum_avg').hide();
+                    $('#pactagnum_med').hide();
+                    $('#pactagnum_ratio').show();
                 }
             }
             function show(){
@@ -566,7 +577,7 @@ and open the template in the editor.
             <div id="pactagnum_sum" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;display: none"></div>
             <div id="pactagnum_avg" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;display: none"></div>
             <div id="pactagnum_med" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;display: none"></div>
-            <div id="pactagnum_ratio" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;"></div>
+            <div id="pactagnum_ratio" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;display: none"></div>
 
             <!--Step:2 引入echarts.js-->  
             <script src="src/dist/echarts.js"></script>  
