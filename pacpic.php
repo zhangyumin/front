@@ -1117,12 +1117,33 @@ and open the template in the editor.
                         series : [
                             
                             <?php
+                                    $group_total = array();
+                                    foreach (array_unique($group) as $key => $value) {
+                                        $num_array = array();
+                                        foreach ($group as $key1 => $value1) {
+                                            if($value1 == $value){
+                                                array_push($num_array, $key1+1);//修正group的value与$i之间的偏移
+                                            }
+                                        }
+                                        $total = 0;
+                                        foreach ($pac_num as $key2 => $value2) {
+                                            foreach ($num_array as $key3 => $value3) {
+                                                $pac = "pac".$value3;
+                                                if(${$pac}[$value2]!=NULL)
+                                                    $total = $total + ${$pac}[$value2];
+                                            }
+                                        }
+                                        foreach ($num_array as $key4 => $value4) {
+                                            $group_total[$value4] = $total;
+                                        }
+                                    }
+//                                    var_dump($group_total);
                                     foreach ($pac_num as $key => $value) {
                                         $tmp_array = array();
                                         for($i=1;$i<=$num;$i++){
                                             $pac="pac".$i;
                                             if(${$pac}[$value]!=NULL)
-                                                array_push($tmp_array,${$pac}[$value]);
+                                                array_push($tmp_array,number_format(${$pac}[$value]/$group_total[$i],2,".",""));
                                             else
                                                 array_push($tmp_array,0);
                                         }
