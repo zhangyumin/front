@@ -535,7 +535,7 @@ and open the template in the editor.
                     $('#pactagnum_avg').show();
                     $('#pactagnum_med').show();
                 }
-                else if(Slt=='statistics'){
+                else if(Slt=='origin'){
                     $('#method').attr('disabled',true);
                     $('#pactagnum').show();
                     $('#pactagnum_ratio').hide();
@@ -544,7 +544,7 @@ and open the template in the editor.
                     $('#pactagnum_med').hide();
                 }
                 else if(Slt == 'ratio'){
-                    $('#method').attr('disabled',false);
+                    $('#method').attr('disabled',true);
                     $('#pactagnum').hide();
                     $('#pactagnum_sum').hide();
                     $('#pactagnum_avg').hide();
