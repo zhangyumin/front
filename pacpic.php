@@ -524,7 +524,7 @@ and open the template in the editor.
                      <option selected value="med">med</option>
                 </select>
             </div>
-            <input type="checkbox" name="ratio" value="ratio" onchange="display()" onclick="display()"/>ratio
+            <input type="checkbox" name="ratio" value="ratio" onclick="GetRatio(this)"/>ratio
         </div>
         <script>
             $(document).ready(function () {
@@ -551,14 +551,6 @@ and open the template in the editor.
                     $('#pactagnum_avg').hide();
                     $('#pactagnum_med').hide();
                 }
-                else if(Slt == 'ratio'){
-                    $('#statistics').attr('disabled',true);
-                    $('#pactagnum').hide();
-                    $('#pactagnum_sum').hide();
-                    $('#pactagnum_avg').hide();
-                    $('#pactagnum_med').hide();
-                    $('#pactagnum_ratio').show();
-                }
             }
             function getname(a){
                 $('#pactagnum').hide();
@@ -579,7 +571,18 @@ and open the template in the editor.
                     $("#pactagnum_"+a[i]).show();
                 }
             }
-//                console.log(sta);
+            function GetRatio(a){
+                var Slt = $('#button input[name="display"]:checked').val();
+                if(Slt=='statistics'){
+                    
+                }
+                else if(Slt=='origin'){
+                    if(a.checked)
+                        $('#pactagnum_ratio').show();
+                    else
+                        $('#pactagnum_ratio').hide();
+                }
+            }
         </script>
         <canvas id="gene" width="1000px;" height="150px;"></canvas><br>
        
