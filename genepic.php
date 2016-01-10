@@ -1019,7 +1019,7 @@ and open the template in the editor.
             <div class="pacd" style="display: inline;float: right">Highlight PAC
                 <select id="pac"   multiple="multiple" placeholder="Select to display" onchange="showpa($(this).children(':selected'))" class="okbutton">
                     <?php
-                        sort($pac_num);
+//                        sort($pac_num);
                         foreach ($pac_num as $key => $value) {
                             if(in_array($value, $pac_selected)||$pac_selected=='all')
                                 echo "<option selected value='$value'>PAC@$value</option>";
@@ -1037,6 +1037,31 @@ and open the template in the editor.
                 $('#statistics').SumoSelect({ csvDispCount: 0,okCancelInMulti:true });
                 $('.okbutton').SumoSelect({okCancelInMulti:true });
                 $("#statistics").attr("disabled",true);
+                var Options = $(".pacd .options li");
+                for(var a = 0 ; a < Options.length ; a++){
+                    if(a==0)
+                        var bgcolor="#ff8247";
+                    else if(a==1)
+                        var bgcolor="#9acd32";
+                    else if(a==2)
+                        var bgcolor="#b23aee";
+                    else if(a==3)
+                        var bgcolor="#4169e1";
+                    else if(a==4)
+                        var bgcolor="#00fa9a";
+                    else if(a==5)
+                        var bgcolor="#cd96cd";
+                    else if(a==6)
+                        var bgcolor="#9acd32";
+                    else if(a==7)
+                        var bgcolor="#cdcd00";
+                    else if(a==8)
+                        var bgcolor="#cd00cd";
+                    else if(a==9)
+                        var bgcolor="#3b3b3b";
+                    Options.css("background-color",bgcolor);
+                    console.log(a);
+                }
             });
             function reset(a){
                 $("#origin").attr("disabled",true);
