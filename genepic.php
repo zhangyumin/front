@@ -998,7 +998,7 @@ and open the template in the editor.
     </head>
     <body style="width:1000px">
         <div id="button" style="width:1000px;">
-            <input type="radio" name="display" value="origin" checked="checked" onchange="reset($(this).val())"/>origin
+            <input type="radio" name="display" value="origin" checked="checked" onchange="reset($(this).val())"/>individual
             <div class="origind" style="display: inline;">
                  <select id="origin"   multiple="multiple" placeholder="Select to display" onchange="getname($(this).children(':selected'))" class="okbutton">
                      <?php
@@ -1008,7 +1008,7 @@ and open the template in the editor.
                      ?>
                    </select>
             </div>
-            <input type="radio" name="display" value="statistics" onchange="reset($(this).val())"/>statistics
+            <input type="radio" name="display" value="statistics" onchange="reset($(this).val())"/>grouping
             <div class="statisticsd" style="display: inline;">
                 <select id="statistics"   multiple="multiple" placeholder="Select to display" onchange="getname($(this).children(':selected'))" class="okbutton">
                      <option selected value="sum">sum</option>
