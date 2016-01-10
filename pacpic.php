@@ -752,7 +752,7 @@ and open the template in the editor.
 //                            data:['蒸发量','降水量']
                             data:['<?php
                                         foreach ($pac_num as $key => $value) {
-                                            echo "PAC pos:$value','";
+                                            echo "PAC@$value','";
                                         }
                                     ?>']
                         },
@@ -816,7 +816,7 @@ and open the template in the editor.
                                         $data = implode(",", $tmp_sum);
                                         unset($tmp_sum);
                                          echo "{"
-                                                    . "name:'PAC pos:$value',"
+                                                    . "name:'PAC@$value',"
 //                                                    . "barMinHeight: 10,"
                                                     . "type:'bar',"
                                                     . "data:[$data]"
@@ -869,7 +869,7 @@ and open the template in the editor.
 //                            data:['蒸发量','降水量']
                             data:['<?php
                                         foreach ($pac_num as $key => $value) {
-                                            echo "PAC pos:$value','";
+                                            echo "PAC@$value','";
                                         }
                                     ?>']
                         },
@@ -933,7 +933,7 @@ and open the template in the editor.
                                         $data = implode(",", $tmp_sum);
                                         unset($tmp_sum);
                                          echo "{"
-                                                    . "name:'PAC pos:$value',"
+                                                    . "name:'PAC@$value',"
 //                                                    . "barMinHeight: 10,"
                                                     . "type:'bar',"
                                                     . "data:[$data]"
@@ -986,7 +986,7 @@ and open the template in the editor.
 //                            data:['蒸发量','降水量']
                             data:['<?php
                                         foreach ($pac_num as $key => $value) {
-                                            echo "PAC pos:$value','";
+                                            echo "PAC@$value','";
                                         }
                                     ?>']
                         },
@@ -1050,7 +1050,7 @@ and open the template in the editor.
                                         $data = implode(",", $tmp_sum);
                                         unset($tmp_sum);
                                          echo "{"
-                                                    . "name:'PAC pos:$value',"
+                                                    . "name:'PAC@$value',"
 //                                                    . "barMinHeight: 10,"
                                                     . "type:'bar',"
                                                     . "data:[$data]"
@@ -1344,8 +1344,129 @@ and open the template in the editor.
 //                            }
                         ]
                     };
+                    var option7 = {
+                        title : {
+                            text: 'PAC Average in the sequence',
+//                            subtext: '纯属虚构'
+                        },
+                        tooltip : {
+                            trigger: 'axis'
+                        },
+                        legend: {
+//                            data:['蒸发量','降水量']
+                            data:['<?php
+                                        foreach ($pac_num as $key => $value) {
+                                            echo "PAC@$value','";
+                                        }
+                                    ?>']
+                        },
+                        toolbox: {
+                            show : true,
+                            feature : {
+                                mark : {show: false},
+                                dataView : {show: false, readOnly: false},
+                                magicType : {show: false, type: ['line', 'bar']},
+                                restore : {show: false},
+                                saveAsImage : {show: true}
+                            }
+                        },
+                        calculable : true,
+                        xAxis : [
+                            {
+                                    type : 'category',
+                                    axisLabel:{
+                                            interval:0
+                                    },
+//                                data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+                                   data : ['<?php
+                                                echo implode("','", array_unique($group));
+//                                                    echo "1','2','3','4','5','6','7','8";
+                                            ?>']
+                            }
+                        ],
+                        yAxis : [
+                            {
+//                                max: 100,
+//                                min: -10,
+                                scale: 0,
+                                type : 'value'
+                            }
+                        ],
+                        grid: { // 控制图的大小，调整下面这些值就可以，
+                            x: 30,
+                            x2: 10,
+                            y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
+                        },
+                        color:["#ff8247","#9acd32","#b23aee","#4169e1","#00fa9a","#cd96cd","#9acd32","#cdcd00","#cd00cd","#3b3b3b"],
+                        series : [
+                            
+                            <?php
+                                    $statistics_key = array();
+                                    $avg_total = array();
+                                    foreach (array_unique($group) as $key => $value) {
+//                                        $data = implode(",", ${"pac_".$value."_sum"});
+                                        foreach (${"pac_".$value."_avg"} as $key1 => $value1) {
+                                            if(!in_array($key1, $statistics_key))
+                                                array_push($statistics_key, $key1);
+                                        }
+                                        array_push($avg_total, ${"pac_".$value."_avg"});
+                                    }
+                                    foreach ($statistics_key as $key => $value) {
+                                        $i=0;
+                                        $tmp_sum = array();
+                                        foreach (array_unique($group) as $key3 => $value3) {
+                                            if(${"pac_".$value3."_sum"}[$value]!=NULL)
+                                                array_push($tmp_sum, number_format(${"pac_".$value3."_avg"}[$value]/$sum_total[$i],5,".",""));
+                                            else
+                                                array_push($tmp_sum, 0);
+                                            $i++;
+                                        }
+                                        $data = implode(",", $tmp_sum);
+                                        unset($tmp_sum);
+                                         echo "{"
+                                                    . "name:'PAC@$value',"
+//                                                    . "barMinHeight: 10,"
+                                                    . "type:'bar',"
+                                                    . "data:[$data]"
+                                                . "},";
+                                    }
+                            ?>
+//                            {
+//                                name:'蒸发量',
+//                                type:'bar',
+//                                data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
+//                                markPoint : {
+//                                    data : [
+//                                        {type : 'max', name: '最大值'},
+//                                        {type : 'min', name: '最小值'}
+//                                    ]
+//                                },
+//                                markLine : {
+//                                    data : [
+//                                        {type : 'average', name: '平均值'}
+//                                    ]
+//                                }
+//                            },
+//                            {
+//                                name:'降水量',
+//                                type:'bar',
+//                                data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3],
+//                                markPoint : {
+//                                    data : [
+//                                        {name : '年最高', value : 182.2, xAxis: 7, yAxis: 183, symbolSize:18},
+//                                        {name : '年最低', value : 2.3, xAxis: 11, yAxis: 3}
+//                                    ]
+//                                },
+//                                markLine : {
+//                                    data : [
+//                                        {type : 'average', name : '平均值'}
+//                                    ]
+//                                }
+//                            }
+                        ]
+                    };
 //                    myChart8.setOption(option8);
-//                    myChart7.setOption(option7);
+                    myChart7.setOption(option7);
                     myChart6.setOption(option6);
                     myChart5.setOption(option5);  
                     myChart4.setOption(option4);
