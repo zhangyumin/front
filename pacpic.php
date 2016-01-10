@@ -515,9 +515,8 @@ and open the template in the editor.
     </head>
     <body>
         <div id="button" style="width:1000px;">
-            <input type="radio" name="display" value="origin" checked="checked" onchange="display()"/>origin
-            <input type="radio" name="display" value="ratio" onchange="display()"/>ratio
-            <input type="radio" name="display" value="statistics" onchange="display()"/>statistics
+            <input type="radio" name="display" value="origin" checked="checked" onchange="display()"/>individual
+            <input type="radio" name="display" value="statistics" onchange="display()"/>grouping
             <div class="statisticsd" style="display: inline;">
                 <select id="statistics"   multiple="multiple" placeholder="Select to display" onchange="getname($(this).children(':selected'))" class="okbutton">
                      <option selected value="sum">sum</option>
@@ -525,6 +524,7 @@ and open the template in the editor.
                      <option selected value="med">med</option>
                 </select>
             </div>
+            <input type="checkbox" name="ratio" value="ratio" onchange="display()" onclick="display()"/>ratio
         </div>
         <script>
             $(document).ready(function () {
