@@ -1013,7 +1013,7 @@ and open the template in the editor.
                      <option selected value="med">med</option>
                 </select>
             </div>
-            <div class="pacd" style="display: inline;float: right">
+            <div class="pacd" style="display: inline;float: right">Highlight PAC
                 <select id="pac"   multiple="multiple" placeholder="Select to display" onchange="showpa($(this).children(':selected'))" class="okbutton">
                     <?php
                         sort($pac_num);
