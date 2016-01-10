@@ -664,7 +664,7 @@ and open the template in the editor.
 
                     var option1 = {
                         title : {
-                            text: 'PAC in the sequence',
+                            text: 'PAC Tagnum',
 //                            subtext: '纯属虚构'
                         },
                         tooltip : {
@@ -774,7 +774,7 @@ and open the template in the editor.
                     };
                     var option2 = {
                         title : {
-                            text: 'PAC Sum in the sequence',
+                            text: 'PAC Grouped Sum',
 //                            subtext: '纯属虚构'
                         },
                         tooltip : {
@@ -891,7 +891,7 @@ and open the template in the editor.
                     };
                     var option3 = {
                         title : {
-                            text: 'PAC Average in the sequence',
+                            text: 'PAC Grouped Average',
 //                            subtext: '纯属虚构'
                         },
                         tooltip : {
@@ -1008,7 +1008,7 @@ and open the template in the editor.
                     };
                     var option4 = {
                         title : {
-                            text: 'PAC Median in the sequence',
+                            text: 'PAC Grouped Median',
 //                            subtext: '纯属虚构'
                         },
                         tooltip : {
@@ -1125,7 +1125,7 @@ and open the template in the editor.
                     };
                     var option5 = {
                         title : {
-                            text: 'PAC in the sequence',
+                            text: 'PAC Tagnum(ratio)',
 //                            subtext: '纯属虚构'
                         },
                         tooltip : {
@@ -1256,7 +1256,7 @@ and open the template in the editor.
                     };
                     var option6 = {
                         title : {
-                            text: 'PAC Sum in the sequence',
+                            text: 'PAC Grouped Sum(ratio)',
 //                            subtext: '纯属虚构'
                         },
                         tooltip : {
@@ -1378,7 +1378,7 @@ and open the template in the editor.
                     };
                     var option7 = {
                         title : {
-                            text: 'PAC Average in the sequence',
+                            text: 'PAC Grouped Average(ratio)',
 //                            subtext: '纯属虚构'
                         },
                         tooltip : {
@@ -1499,7 +1499,7 @@ and open the template in the editor.
                     };
                     var option8 = {
                         title : {
-                            text: 'PAC Median in the sequence',
+                            text: 'PAC Grouped Median(ratio)',
 //                            subtext: '纯属虚构'
                         },
                         tooltip : {
