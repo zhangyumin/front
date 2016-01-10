@@ -524,7 +524,7 @@ and open the template in the editor.
                      <option selected value="med">med</option>
                 </select>
             </div>
-            <input type="checkbox" name="ratio" value="ratio" onclick="GetRatio(this)"/>ratio
+            <input id="ratiobutton" type="checkbox" name="ratio" value="ratio" onclick="GetRatio(this)"/>ratio
         </div>
         <script>
             $(document).ready(function () {
@@ -533,6 +533,10 @@ and open the template in the editor.
                 $("#statistics").attr("disabled",true);
             });
             function display(){
+                $('#pactagnum_ratio').hide();
+                $('#pactagnum_sum_ratio').hide();
+                $('#pactagnum_avg_ratio').hide();
+                $('#pactagnum_med_ratio').hide();
                 var Slt = $('#button input[name="display"]:checked').val();
                 if(Slt=='statistics'){
                     $('#statistics').attr('disabled',false);
@@ -541,7 +545,7 @@ and open the template in the editor.
                     $('#pactagnum_sum').show();
                     $('#pactagnum_avg').show();
                     $('#pactagnum_med').show();
-                    getname($("#statistics").children(':selected'))
+                    getname($("#statistics").children(':selected'));
                 }
                 else if(Slt=='origin'){
                     $('#statistics').attr('disabled',true);
@@ -550,6 +554,9 @@ and open the template in the editor.
                     $('#pactagnum_sum').hide();
                     $('#pactagnum_avg').hide();
                     $('#pactagnum_med').hide();
+                    if($("#ratiobutton").is(':checked')){
+                        $("#pactagnum_ratio").show();
+                    }
                 }
             }
             function getname(a){
@@ -558,6 +565,9 @@ and open the template in the editor.
                 $('#pactagnum_avg').hide();
                 $('#pactagnum_med').hide();
                 $('#pactagnum_ratio').hide();
+                $('#pactagnum_sum_ratio').hide();
+                $('#pactagnum_avg_ratio').hide();
+                $('#pactagnum_med_ratio').hide();
                 var select=[];
                 for(var key in a){
                     select.push(a[key].value);
@@ -569,12 +579,34 @@ and open the template in the editor.
             function displaya(a){
                 for(var i in a){
                     $("#pactagnum_"+a[i]).show();
+                    if($("#ratiobutton").is(':checked')){
+                        $("#pactagnum_"+a[i]+"_ratio").show();
+                    }
                 }
             }
             function GetRatio(a){
+                $('#pactagnum_ratio').hide();
+                $('#pactagnum_sum_ratio').hide();
+                $('#pactagnum_avg_ratio').hide();
+                $('#pactagnum_med_ratio').hide();
                 var Slt = $('#button input[name="display"]:checked').val();
                 if(Slt=='statistics'){
-                    
+                    if(a.checked){
+                        var b = $("#statistics").children((':selected'));
+                        var select=[];
+                        for(var i in b){
+                            select.push(b[i].value);
+                        }
+                        select = select.slice(0,b.length);
+                        for(var i in select){
+                            $("#pactagnum_"+select[i]+"_ratio").show();
+                        }
+                    }
+                    else{
+                        $('#pactagnum_sum_ratio').hide();
+                        $('#pactagnum_avg_ratio').hide();
+                        $('#pactagnum_med_ratio').hide();
+                    }
                 }
                 else if(Slt=='origin'){
                     if(a.checked)
@@ -592,9 +624,9 @@ and open the template in the editor.
             <div id="pactagnum_avg" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;display: none"></div>
             <div id="pactagnum_med" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;display: none"></div>
             <div id="pactagnum_ratio" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;display: none"></div>
-            <div id="pactagnum_sum_ratio" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;"></div>
-            <div id="pactagnum_avg_ratio" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;"></div>
-            <div id="pactagnum_med_ratio" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;"></div>
+            <div id="pactagnum_sum_ratio" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;display: none"></div>
+            <div id="pactagnum_avg_ratio" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;display: none"></div>
+            <div id="pactagnum_med_ratio" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;display: none"></div>
 
             <!--Step:2 引入echarts.js-->  
             <script src="src/dist/echarts.js"></script>  
