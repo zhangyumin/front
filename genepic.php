@@ -621,13 +621,13 @@ and open the template in the editor.
                 context.beginPath();
                 context.strokeStyle="#000000";
                 context.fillStyle="#000000";//y刻度尺为黑色
-                context.moveTo(0,120);
-                context.lineTo(0,10);
+                context.moveTo(500,120);
+                context.lineTo(500,10);
                 for(i=5;i>0;i--){
-                    context.moveTo(0,20*i);
-                    context.lineTo(5,20*i);
+                    context.moveTo(500,20*i);
+                    context.lineTo(505,20*i);
                     context.font="12px Droid Serif";
-                    context.fillText(60-10*i,5,21*i);
+                    context.fillText(60-10*i,505,21*i);
                 }
                 context.stroke();
             }
