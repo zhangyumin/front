@@ -1033,7 +1033,7 @@ and open the template in the editor.
         <script>
             $(document).ready(function () {
                 $('#pacd').SumoSelect({ csvDispCount: 2,okCancelInMulti:true });
-                $('#origin').SumoSelect({ csvDispCount: 2,okCancelInMulti:true });
+                $('#origin').SumoSelect({ csvDispCount: 2,okCancelInMulti:true,selectAll:true });
                 $('#statistics').SumoSelect({ csvDispCount: 0,okCancelInMulti:true });
                 $('.okbutton').SumoSelect({okCancelInMulti:true });
                 $("#statistics").attr("disabled",true);
