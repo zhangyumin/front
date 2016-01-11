@@ -106,7 +106,7 @@
                 //## Adds it to UL at a given index (Last by default)
                 createLi: function (opt,i) {
                     var O = this;
-                    li = $('<li data-val="' + opt.val() + '"><label>' + opt.text() + '</label></li>');
+                    li = $('<li data-val="' + opt.val() + '" id="li'+opt.val()+'"><label>' + opt.text() + '</label></li>');
                     if (O.is_multi) li.prepend('<span><i></i></span>');
 
                     if (opt.attr('disabled'))
