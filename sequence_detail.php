@@ -726,9 +726,9 @@
 //                                                $i=1;
                                                 echo "<tr>";
 //                                                        . "<td>PAC$i</td>";
-                                                if($strand==1&&$pac_r[2]>$ext_end)
+                                                if($strand==1&&$pac_r[2]>$ext_end[0])
                                                     echo "<td>$pac_r[2](3UTR Extend)</td>";
-                                                else if($strand==-1&&$pac_r[2]<$ext_start)
+                                                else if($strand==-1&&$pac_r[2]<$ext_start[0])
                                                     echo "<td>$pac_r[2](3UTR Extend)</td>";
                                                 else
                                                     echo "<td>$pac_r[2](3UTR)</td>";
