@@ -354,7 +354,12 @@ and open the template in the editor.
                 $tmp_selected = explode(",", $_GET['pac']);
                 $pac_selected = array_intersect($pac_num, $tmp_selected);
             }
-            
+//            foreach ($pac_num as $key => $value) {
+//                if(!in_array($value, $pac_selected)){
+//                    $upa_start[array_keys($pac_num,$value)[0]]=0;
+//                    $upa_end[array_keys($pac_num,$value)[0]]=0;
+//                }
+//            }
         ?>
         <script type="text/javascript">
             <?php 
@@ -452,8 +457,15 @@ and open the template in the editor.
                         if(empty($$pa)||empty($$pac))
                             continue;
                         foreach ($$pa as $key1 => $value1) {
+                            $j = 10;
+                            foreach ($upa_start as $key3 => $value3) {
+                                if($key1 > $value3 && $key1 < $upa_end[$key3])
+                                    $j = $key3;
+                            }
                             $loc=($key1-$gene_start)*$rate;
-                            echo "pa($loc,$value1,'sample$i');\n";
+                            if($j!=10){
+                                echo "pa($loc,$value1,$j,'sample$i');\n";
+                            }
                         }
                         foreach ($$pac as $key2 => $value2) {
                             $loc=($key2-$gene_start)*$rate;
@@ -468,8 +480,15 @@ and open the template in the editor.
                     $i = 1;
                     foreach (array_unique($group) as $key => $value) {
                         foreach (${"pa_".$value."_sum"} as $key1 => $value1) {
+                            $j = 10;
+                            foreach ($upa_start as $key3 => $value3) {
+                                if($key1 > $value3 && $key1 < $upa_end[$key3])
+                                    $j = $key3;
+                            }
                             $loc=($key1-$gene_start)*$rate;
-                            echo "pa($loc,$value1,'statistics_sample$i');\n";
+                            if($j!=10){
+                                echo "pa($loc,$value1,$j,'statistics_sample$i');\n";
+                            }
                         }
                         foreach (${"pac_".$value."_sum"} as $key1 => $value1) {
                             $loc=($key1-$gene_start)*$rate;
@@ -482,8 +501,15 @@ and open the template in the editor.
                         }
                         $i++;
                         foreach (${"pa_".$value."_avg"} as $key2 => $value2) {
+                            $j = 10;
+                            foreach ($upa_start as $key3 => $value3) {
+                                if($key2 > $value3 && $key2 < $upa_end[$key3])
+                                    $j = $key3;
+                            }
                             $loc=($key2-$gene_start)*$rate;
-                            echo "pa($loc,$value2,'statistics_sample$i');\n";
+                            if($j!=10){
+                                echo "pa($loc,$value2,$j,'statistics_sample$i');\n";
+                            }
                         }
                         foreach (${"pac_".$value."_avg"} as $key2 => $value2) {
                             $loc=($key2-$gene_start)*$rate;
@@ -496,8 +522,15 @@ and open the template in the editor.
                         }
                         $i++;
                         foreach (${"pa_".$value."_med"} as $key3 => $value3) {
+                            $j = 10;
+                            foreach ($upa_start as $key4 => $value4) {
+                                if($key3 > $value4 && $key3 < $upa_end[$key4])
+                                    $j = $key4;
+                            }
                             $loc=($key3-$gene_start)*$rate;
-                            echo "pa($loc,$value3,'statistics_sample$i');\n";
+                            if($j!=10){
+                                echo "pa($loc,$value3,$j,'statistics_sample$i');\n";
+                            }
                         }
                         foreach (${"pac_".$value."_med"} as $key3 => $value3) {
                             $loc=($key3-$gene_start)*$rate;
@@ -884,10 +917,53 @@ and open the template in the editor.
                 context.fillStyle="#878787";
                 context.fill();
             } 
-            function pa(loc,tagnum,id){
+            function pa(loc,tagnum,key,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.strokeStyle="#000";//pa为黑色
+                if(key == 'none'){
+                    context.strokeStyle="#808a87";
+                    context.fillStyle="#808a87";
+                }
+                else if(key==0){
+                    context.strokeStyle="#ff8247";
+                    context.fillStyle="#ff8247";
+                }
+                else if(key==1){
+                    context.strokeStyle="#9acd32";
+                    context.fillStyle="#9acd32";
+                }
+                else if(key==2){
+                    context.strokeStyle="#b23aee";
+                    context.fillStyle="#b23aee";
+                }
+                else if(key==3){
+                    context.strokeStyle="#4169e1";
+                    context.fillStyle="#4169e1";
+                }
+                else if(key==4){
+                    context.strokeStyle="#00fa9a";
+                    context.fillStyle="#00fa9a";
+                }
+                else if(key==5){
+                    context.strokeStyle="#cd96cd";
+                    context.fillStyle="#cd96cd";
+                }
+                else if(key==6){
+                    context.strokeStyle="#9acd32";
+                    context.fillStyle="#9acd32";
+                }
+                else if(key==7){
+                    context.strokeStyle="#cdcd00";
+                    context.fillStyle="#cdcd00";
+                }
+                else if(key==8){
+                    context.strokeStyle="#cd00cd";
+                    context.fillStyle="#cd00cd";
+                }
+                else if(key==9){
+                    context.strokeStyle="#3b3b3b";
+                    context.fillStyle="#3b3b3b";
+                }
                 context.beginPath();
                 context.moveTo(loc,120);
                 if(tagnum>50){
@@ -901,50 +977,49 @@ and open the template in the editor.
             function pac(loc,tagnum,key,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                <?php echo "var row =".count($pac_num).";";?>
                 context.beginPath();
                 context.font="10px Droid Serif";
                 if(key == 'none'){
                     context.strokeStyle="#808a87";
                     context.fillStyle="#808a87";
                 }
-                else if(key%row==0){
+                else if(key==0){
                     context.strokeStyle="#ff8247";
                     context.fillStyle="#ff8247";
                 }
-                else if(key%row==1){
+                else if(key==1){
                     context.strokeStyle="#9acd32";
                     context.fillStyle="#9acd32";
                 }
-                else if(key%row==2){
+                else if(key==2){
                     context.strokeStyle="#b23aee";
                     context.fillStyle="#b23aee";
                 }
-                else if(key%row==3){
+                else if(key==3){
                     context.strokeStyle="#4169e1";
                     context.fillStyle="#4169e1";
                 }
-                else if(key%row==4){
+                else if(key==4){
                     context.strokeStyle="#00fa9a";
                     context.fillStyle="#00fa9a";
                 }
-                else if(key%row==5){
+                else if(key==5){
                     context.strokeStyle="#cd96cd";
                     context.fillStyle="#cd96cd";
                 }
-                else if(key%row==6){
+                else if(key==6){
                     context.strokeStyle="#9acd32";
                     context.fillStyle="#9acd32";
                 }
-                else if(key%row==7){
+                else if(key==7){
                     context.strokeStyle="#cdcd00";
                     context.fillStyle="#cdcd00";
                 }
-                else if(key%row==8){
+                else if(key==8){
                     context.strokeStyle="#cd00cd";
                     context.fillStyle="#cd00cd";
                 }
-                else if(key%row==9){
+                else if(key==9){
                     context.strokeStyle="#3b3b3b";
                     context.fillStyle="#3b3b3b";
                 }
@@ -966,7 +1041,6 @@ and open the template in the editor.
             function pointer(pos,key,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                <?php echo "var row =".count($pac_num).";";?>
                 context.beginPath();
                 context.moveTo(pos,120);
                 context.lineTo(pos-5,125);
@@ -981,25 +1055,25 @@ and open the template in the editor.
                     context.strokeStyle="#808a87";
                     context.fillStyle="#808a87";
                 }
-                else if(key%row==0)
+                else if(key==0)
                     context.fillStyle="#ff8247";
-                else if(key%row==1)
+                else if(key==1)
                     context.fillStyle="#9acd32";
-                else if(key%row==2)
+                else if(key==2)
                     context.fillStyle="#b23aee";
-                else if(key%row==3)
+                else if(key==3)
                     context.fillStyle="#4169e1";
-                else if(key%row==4)
+                else if(key==4)
                     context.fillStyle="#00fa9a";
-                else if(key%row==5)
+                else if(key==5)
                     context.fillStyle="#cd96cd";
-                else if(key%row==6)
+                else if(key==6)
                     context.fillStyle="#9acd32";
-                else if(key%row==7)
+                else if(key==7)
                     context.fillStyle="#cdcd00";
-                else if(key%row==8)
+                else if(key==8)
                     context.fillStyle="#cd00cd";
-                else if(key%row==9)
+                else if(key==9)
                     context.fillStyle="#3b3b3b";
                 context.fill();
             }
