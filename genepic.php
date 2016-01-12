@@ -16,10 +16,9 @@ and open the template in the editor.
             $chr=$_GET['chr'];
             $strand=$_GET['strand'];
             $species = $_GET['species'];
-            if(isset($_GET['pac']))
+            if(isset($_GET['pac'])){
                 $pac_selected = explode(",", $_GET['pac']);
-            else
-                $pac_selected = 'all';
+            }
             $pac_num = array();
             $ftr_start=array();
             $ftr_end=array();
@@ -348,6 +347,9 @@ and open the template in the editor.
                     ${"pac_".$value."_med"}[$key2] = $med_pactmp;
                 }
             }
+            if(!isset($_GET['pac'])){
+                $pac_selected = $pac_num;
+            }
         ?>
         <script type="text/javascript">
             <?php 
@@ -440,7 +442,6 @@ and open the template in the editor.
                         echo "amb_shorten($start,$end,$st,$en,$strand,'no_extend');\n";
                     }
                     for($i=1;$i<=$num;$i++){
-                        $j = 0;
                         $pa="pa".$i;
                         $pac="pac".$i;
                         if(empty($$pa)||empty($$pac))
@@ -451,11 +452,12 @@ and open the template in the editor.
                         }
                         foreach ($$pac as $key2 => $value2) {
                             $loc=($key2-$gene_start)*$rate;
-                            if(in_array($key2, $pac_selected)||$pac_selected=='all')
+                            if(in_array($key2, $pac_selected)||$pac_selected=='all'){
+                                $j = array_keys($pac_selected, $key2)[0];
                                 echo "pac($loc,$value2,$j,'sample$i');\n";
+                            }
                             else
                                 echo "pac($loc,$value2,'none','sample$i');\n";
-                            $j++;
                         }
                     }
                     $i = 1;
