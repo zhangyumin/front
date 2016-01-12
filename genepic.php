@@ -165,13 +165,16 @@ and open the template in the editor.
                 }
             }
             //读取pac数据并存入数组
+            $upa_start = array();
+            $upa_end = array();
             $tmp_pac = mysql_query("select * from t_".$species."_pac where gene = '$seq'");
             while($tmp_pac_row = mysql_fetch_row($tmp_pac)){
                 for($i=1;$i<=$num-count($_SESSION['file_real']);$i++){
-                            $pac="pac".$i;
-                            ${$pac}[$tmp_pac_row[2]] = $tmp_pac_row[$i+13];
-//                            echo $i;
-                        }
+                    $pac="pac".$i;
+                    ${$pac}[$tmp_pac_row[2]] = $tmp_pac_row[$i+13];
+                }
+                array_push($upa_start, $tmp_pac_row[10]);
+                array_push($upa_end, $tmp_pac_row[11]);
             }
             
             //user trap数据
@@ -452,7 +455,7 @@ and open the template in the editor.
                         }
                         foreach ($$pac as $key2 => $value2) {
                             $loc=($key2-$gene_start)*$rate;
-                            if(in_array($key2, $pac_selected)||$pac_selected=='all'){
+                            if(in_array($key2, $pac_selected)){
                                 $j = array_keys($pac_selected, $key2)[0];
                                 echo "pac($loc,$value2,$j,'sample$i');\n";
                             }
@@ -469,7 +472,7 @@ and open the template in the editor.
                         }
                         foreach (${"pac_".$value."_sum"} as $key1 => $value1) {
                             $loc=($key1-$gene_start)*$rate;
-                            if(in_array($key1, $pac_selected)||$pac_selected=='all')
+                            if(in_array($key1, $pac_selected))
                                 echo "pac($loc,$value1,$j,'statistics_sample$i');\n";
                             else
                                 echo "pac($loc,$value1,'none','statistics_sample$i');\n";
@@ -483,7 +486,7 @@ and open the template in the editor.
                         }
                         foreach (${"pac_".$value."_avg"} as $key2 => $value2) {
                             $loc=($key2-$gene_start)*$rate;
-                            if(in_array($key2, $pac_selected)||$pac_selected=='all')
+                            if(in_array($key2, $pac_selected))
                                 echo "pac($loc,$value2,$j,'statistics_sample$i');\n";
                             else
                                 echo "pac($loc,$value2,'none','statistics_sample$i');\n";
@@ -497,7 +500,7 @@ and open the template in the editor.
                         }
                         foreach (${"pac_".$value."_med"} as $key3 => $value3) {
                             $loc=($key3-$gene_start)*$rate;
-                            if(in_array($key3, $pac_selected)||$pac_selected=='all')
+                            if(in_array($key3, $pac_selected))
                                 echo "pac($loc,$value3,$j,'statistics_sample$i');\n";
                             else
                                 echo "pac($loc,$value3,'none','statistics_sample$i');\n";
@@ -507,11 +510,14 @@ and open the template in the editor.
                         $i++;
                     }
                     foreach ($pac_num as $key => $value) {
+                        //画pac的pointer
                         $position = ($value-$gene_start)* $rate;
-                        if(in_array($value, $pac_selected)||$pac_selected=='all')
+                        if(in_array($value, $pac_selected)){
                             echo "pointer($position,$key,\"gene\");";
-                        else
+                        }
+                        else{
                             echo "pointer($position,'none',\"gene\");";
+                        }
                     }
                 ?>
                 arrow("gene",10,<?php echo $_GET['strand'];?>);
@@ -1023,7 +1029,7 @@ and open the template in the editor.
                     <?php
 //                        sort($pac_num);
                         foreach ($pac_num as $key => $value) {
-                            if(in_array($value, $pac_selected)||$pac_selected=='all')
+                            if(in_array($value, $pac_selected))
                                 echo "<option selected value='$value'>PAC@$value</option>";
                             else
                                 echo "<option value='$value'>PAC@$value</option>";
