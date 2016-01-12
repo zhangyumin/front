@@ -925,44 +925,44 @@ and open the template in the editor.
                     context.fillStyle="#808a87";
                 }
                 else if(key==0){
-                    context.strokeStyle="#ff8247";
-                    context.fillStyle="#ff8247";
+                    context.strokeStyle="#ffd39b";
+                    context.fillStyle="#ffd39b";
                 }
                 else if(key==1){
-                    context.strokeStyle="#9acd32";
-                    context.fillStyle="#9acd32";
+                    context.strokeStyle="#b4eeb4";
+                    context.fillStyle="#b4eeb4";
                 }
                 else if(key==2){
                     context.strokeStyle="#b23aee";
                     context.fillStyle="#b23aee";
                 }
                 else if(key==3){
-                    context.strokeStyle="#4169e1";
-                    context.fillStyle="#4169e1";
+                    context.strokeStyle="#9F79EE";
+                    context.fillStyle="#9F79EE";
                 }
                 else if(key==4){
-                    context.strokeStyle="#00fa9a";
-                    context.fillStyle="#00fa9a";
+                    context.strokeStyle="#40E0D0";
+                    context.fillStyle="#40E0D0";
                 }
                 else if(key==5){
-                    context.strokeStyle="#cd96cd";
-                    context.fillStyle="#cd96cd";
+                    context.strokeStyle="#CDB5CD";
+                    context.fillStyle="#CDB5CD";
                 }
                 else if(key==6){
-                    context.strokeStyle="#9acd32";
-                    context.fillStyle="#9acd32";
+                    context.strokeStyle="#9BCD9B";
+                    context.fillStyle="#9BCD9B";
                 }
                 else if(key==7){
-                    context.strokeStyle="#cdcd00";
-                    context.fillStyle="#cdcd00";
+                    context.strokeStyle="#EEE9BF";
+                    context.fillStyle="#EEE9BF";
                 }
                 else if(key==8){
-                    context.strokeStyle="#cd00cd";
-                    context.fillStyle="#cd00cd";
+                    context.strokeStyle="#CD69C9";
+                    context.fillStyle="#CD69C9";
                 }
                 else if(key==9){
-                    context.strokeStyle="#3b3b3b";
-                    context.fillStyle="#3b3b3b";
+                    context.strokeStyle="#666666";
+                    context.fillStyle="#666666";
                 }
                 context.beginPath();
                 context.moveTo(loc,120);
