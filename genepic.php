@@ -464,7 +464,10 @@ and open the template in the editor.
                             }
                             $loc=($key1-$gene_start)*$rate;
                             if($j!=10){
-                                echo "pa($loc,$value1,$j,'sample$i');\n";
+                                if(in_array($pac_num[$j], $pac_selected))
+                                    echo "pa($loc,$value1,$j,'sample$i');\n";
+                                else
+                                    echo "pa($loc,$value1,'none','sample$i');\n";
                             }
                         }
                         foreach ($$pac as $key2 => $value2) {
@@ -487,7 +490,10 @@ and open the template in the editor.
                             }
                             $loc=($key1-$gene_start)*$rate;
                             if($j!=10){
-                                echo "pa($loc,$value1,$j,'statistics_sample$i');\n";
+                                if(in_array($pac_num[$j], $pac_selected))
+                                    echo "pa($loc,$value1,$j,'statistics_sample$i');\n";
+                                else
+                                    echo "pa($loc,$value1,'none','statistics_sample$i');\n";
                             }
                         }
                         foreach (${"pac_".$value."_sum"} as $key1 => $value1) {
@@ -508,7 +514,10 @@ and open the template in the editor.
                             }
                             $loc=($key2-$gene_start)*$rate;
                             if($j!=10){
-                                echo "pa($loc,$value2,$j,'statistics_sample$i');\n";
+                                if(in_array($pac_num[$j], $pac_selected))
+                                    echo "pa($loc,$value2,$j,'statistics_sample$i');\n";
+                                else
+                                    echo "pa($loc,$value2,'none','statistics_sample$i');\n";
                             }
                         }
                         foreach (${"pac_".$value."_avg"} as $key2 => $value2) {
@@ -529,7 +538,10 @@ and open the template in the editor.
                             }
                             $loc=($key3-$gene_start)*$rate;
                             if($j!=10){
-                                echo "pa($loc,$value3,$j,'statistics_sample$i');\n";
+                                if(in_array($pac_num[$j], $pac_selected))
+                                    echo "pa($loc,$value3,$j,'statistics_sample$i');\n";
+                                else
+                                    echo "pa($loc,$value3,'none','statistics_sample$i');\n";
                             }
                         }
                         foreach (${"pac_".$value."_med"} as $key3 => $value3) {
