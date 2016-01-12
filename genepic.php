@@ -16,9 +16,6 @@ and open the template in the editor.
             $chr=$_GET['chr'];
             $strand=$_GET['strand'];
             $species = $_GET['species'];
-            if(isset($_GET['pac'])){
-                $pac_selected = explode(",", $_GET['pac']);
-            }
             $pac_num = array();
             $ftr_start=array();
             $ftr_end=array();
@@ -353,6 +350,11 @@ and open the template in the editor.
             if(!isset($_GET['pac'])){
                 $pac_selected = $pac_num;
             }
+            else{
+                $tmp_selected = explode(",", $_GET['pac']);
+                $pac_selected = array_intersect($pac_num, $tmp_selected);
+            }
+            
         ?>
         <script type="text/javascript">
             <?php 
@@ -465,20 +467,19 @@ and open the template in the editor.
                     }
                     $i = 1;
                     foreach (array_unique($group) as $key => $value) {
-                        $j = 0;
                         foreach (${"pa_".$value."_sum"} as $key1 => $value1) {
                             $loc=($key1-$gene_start)*$rate;
                             echo "pa($loc,$value1,'statistics_sample$i');\n";
                         }
                         foreach (${"pac_".$value."_sum"} as $key1 => $value1) {
                             $loc=($key1-$gene_start)*$rate;
-                            if(in_array($key1, $pac_selected))
+                            if(in_array($key1, $pac_selected)){
+                                $j = array_keys($pac_selected, $key1)[0];
                                 echo "pac($loc,$value1,$j,'statistics_sample$i');\n";
+                            }
                             else
                                 echo "pac($loc,$value1,'none','statistics_sample$i');\n";
-                            $j ++;
                         }
-                        $j = 0;
                         $i++;
                         foreach (${"pa_".$value."_avg"} as $key2 => $value2) {
                             $loc=($key2-$gene_start)*$rate;
@@ -486,13 +487,13 @@ and open the template in the editor.
                         }
                         foreach (${"pac_".$value."_avg"} as $key2 => $value2) {
                             $loc=($key2-$gene_start)*$rate;
-                            if(in_array($key2, $pac_selected))
+                            if(in_array($key2, $pac_selected)){
+                                $j = array_keys($pac_selected, $key2)[0];
                                 echo "pac($loc,$value2,$j,'statistics_sample$i');\n";
+                            }
                             else
                                 echo "pac($loc,$value2,'none','statistics_sample$i');\n";
-                            $j ++;
                         }
-                        $j = 0;
                         $i++;
                         foreach (${"pa_".$value."_med"} as $key3 => $value3) {
                             $loc=($key3-$gene_start)*$rate;
@@ -500,13 +501,13 @@ and open the template in the editor.
                         }
                         foreach (${"pac_".$value."_med"} as $key3 => $value3) {
                             $loc=($key3-$gene_start)*$rate;
-                            if(in_array($key3, $pac_selected))
+                            if(in_array($key3, $pac_selected)){
+                                $j = array_keys($pac_selected, $key3)[0];
                                 echo "pac($loc,$value3,$j,'statistics_sample$i');\n";
+                            }
                             else
                                 echo "pac($loc,$value3,'none','statistics_sample$i');\n";
-                            $j ++;
                         }
-                        $j = 0;
                         $i++;
                     }
                     foreach ($pac_num as $key => $value) {
