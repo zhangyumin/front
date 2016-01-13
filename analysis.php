@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Search</title>
+        <title>Analysis</title>
         <link href="./src/index.css" rel="stylesheet" type="text/css" />
         <script src="./src/jquery-1.10.1.min.js"></script>
         <script src="./src/jquery.slides.min.js"></script>
@@ -116,7 +116,7 @@
        <fieldset >
             <legend>
                 <h4 >
-                    <font color="#224055" ><b>Search</b>:Search and view the system samples</font>
+                    <font color="#224055" ><b>Analysis: </b>analysis of APA switching between two conditions</font>
                 </h4>
             </legend>
            <div class="box info ym-form">
