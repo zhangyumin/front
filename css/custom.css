@@ -222,11 +222,11 @@ fieldset{
         padding-bottom: 1em;
     }
     .ym-searchform select{
-         border: 1px solid #ddd;
+         /*border: 1px solid #ddd;*/
     box-shadow: 0 0 4px #eeeeee inset;
     font-family: Arial,Helvetica,sans-serif;
     line-height: 1em;
-    padding: 0.5em 0px;
+    /*padding: 0.5em 0px;*/
     }
     .ym-searchform .ym-searchfield{
     width: 4em;
