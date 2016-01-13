@@ -191,7 +191,7 @@ and open the template in the editor.
                         <div class="ym-grid ym-fbox">
                                 <button type="submit">submit</button>
                                 <button type="reset">reset</button>
-                                <input type="button" onclick="search_example()" value="Example">
+                                <button type="button" onclick="search_example()">example</button>
                                 <script type="text/javascript">
                                     function search_example(){
                                         if(document.getElementById("species").value=='arab'){
