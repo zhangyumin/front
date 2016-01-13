@@ -144,7 +144,7 @@ and open the template in the editor.
             <fieldset >
                 <legend>
                     <h4>
-                        <font color="#224055" ><b>Search</b>:Search and view the system samples</font>
+                        <font color="#224055" ><b>Search:</b> search and view the system samples</font>
                     </h4>
                 </legend>
                <div class="box info ym-form">
@@ -224,7 +224,7 @@ and open the template in the editor.
             <fieldset class="table-tools" >
                 <legend>
                     <h4>
-                        <font color="#224055"><b>Datasets list:</b>all species documented in browser</font>
+                        <font color="#224055"><b>Datasets list: </b>all species documented in browser</font>
                     </h4>
                 </legend>
                 <table cellspacing="1" cellpadding="0" border="0" style="border:1px solid #5499c9;">
