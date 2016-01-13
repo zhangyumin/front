@@ -38,7 +38,7 @@ and open the template in the editor.
         <fieldset id="get_back" >
                     <legend style="text-align:left;">
                         <h4>
-                            <font color="#224055"><b>Download</b>:Get data from here</font>
+                            <font color="#224055"><b>Download:</b> Get data from here</font>
                         </h4>
                     </legend>
         <div class="ym-wbox">
