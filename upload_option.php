@@ -172,7 +172,7 @@ and open the template in the editor.
             <fieldset >
                 <legend>
                     <h4>
-                        <font color="#224055"><b>STEP 1</b>:Select file(s) type</font>
+                        <font color="#224055"><b>STEP 1:</b> Select file(s) type</font>
                     </h4>
                 </legend>
                 <div class="box info ym-form">
@@ -186,7 +186,7 @@ and open the template in the editor.
                     <fieldset>
                         <legend>
                             <h4>
-                                <font color="#224055"><b>STEP 2</b>:Upload file(s)</font>
+                                <font color="#224055"><b>STEP 2:</b> Upload file(s)</font>
                             </h4>
                         </legend>
                         <div class="box info">
@@ -211,7 +211,7 @@ and open the template in the editor.
                     <fieldset style="margin-top: 20px;">
                         <legend>
                             <h4>
-                                <font color="#224055"><b>STEP 3</b>:Additional options</font>
+                                <font color="#224055"><b>STEP 3:</b> Additional options</font>
                             </h4>
                         </legend>
                         <div class="box info">
@@ -250,7 +250,7 @@ and open the template in the editor.
                     <fieldset >
                         <legend>
                             <h4>
-                                <font color="#224055"><b>STEP 4</b>:Submit</font>
+                                <font color="#224055"><b>STEP 4:</b> Submit</font>
                             </h4>
                         </legend>
                         <div class="box info">
@@ -266,7 +266,7 @@ and open the template in the editor.
                 <fieldset>
                     <legend>
                         <h4>
-                            <font color="#224055"><b>STEP 2</b>:Upload file(s)</font>
+                            <font color="#224055"><b>STEP 2:</b> Upload file(s)</font>
                         </h4>
                     </legend>
                     <label title="Select species" for="species">Select species here:</label>
@@ -287,7 +287,7 @@ and open the template in the editor.
                 <fieldset style="margin-top: 20px;margin-bottom: 5px;">
                     <legend>
                         <h4>
-                            <font color="#224055"><b>STEP 3</b>:Submit</font>
+                            <font color="#224055"><b>STEP 3:</b> Submit</font>
                         </h4>
                     </legend>
                     <div class="box info">
@@ -302,7 +302,7 @@ and open the template in the editor.
                 <fieldset>
                     <legend>
                         <h4>
-                            <font color="#224055"><b>STEP 2</b>:Upload file(s)</font>
+                            <font color="#224055"><b>STEP 2:</b> Upload file(s)</font>
                         </h4>
                     </legend>
                     <label title="Select species" for="species">Select species here:</label>
@@ -323,7 +323,7 @@ and open the template in the editor.
                     <fieldset style="margin-top: 20px;">
                         <legend>
                             <h4>
-                                <font color="#224055"><b>STEP 3</b>:Additional options</font>
+                                <font color="#224055"><b>STEP 3:</b> Additional options</font>
                             </h4>
                         </legend>
                         <div class="box info">
@@ -344,7 +344,7 @@ and open the template in the editor.
                 <fieldset >
                     <legend>
                         <h4>
-                            <font color="#224055"><b>STEP 4</b>:Submit</font>
+                            <font color="#224055"><b>STEP 4:</b> Submit</font>
                         </h4>
                     </legend>
                     <div class="box info">
