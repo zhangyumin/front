@@ -20,15 +20,15 @@
               <li><a href="./task.php">My task</a></li>
               <li><a href="./help.php">Help</a></li>
       </ul>
-      <form class="ym-searchform" method="post" action="search_result.php?method=fuzzy">
-        <select name="species">
+        <form class="ym-searchform" method="post" action="search_result.php?method=fuzzy" style="height: 30px;padding: 6px 7.5px">
+          <select name="species" style="height: 29px;border-radius: 0.2em">
             <option value="arab">Arabidopsis</option>
             <option value="mtr">M.trunca</option>
             <option value="chlamy">Chlamy</option>
             <option value="japonica">Japonica</option>
         </select>
-        <input class="ym-searchfield" name="key" type="search" placeholder="keyword" />
-        <button class="ym-searchbutton" type="submit" >Search</button>
+          <input class="ym-searchfield" name="key" type="search" placeholder="keyword" style="border-radius: 0.2em"/>
+          <button class="ym-searchbutton" type="submit" style="height: 30px">Search</button>
       </form>
     </div>
   </div>
