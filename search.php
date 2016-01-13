@@ -499,7 +499,6 @@ and open the template in the editor.
                                 <span class="more4" title="View more information about Chlamydomonas reinhardtii'" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
                             </td>
                         </tr>
-                        </tr>
                         <tr class="more4_content" >
                             <td colspan="9">
                                 <div class="box info">
@@ -553,7 +552,6 @@ and open the template in the editor.
                                 </div>
                             </td>
                         </tr>
-                        <tr>
                     </tbody>
                 </table><br>
             </fieldset> 
