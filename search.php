@@ -169,7 +169,7 @@ and open the template in the editor.
                                <label for="start" style="margin:0 1%;"> from</label>
                                 <input type="text" name="start" id="start" style="width:39%">
                                <label for="end" style="margin:0 1%;"> to</label>
-                               <input type="text" name="end" id="end" style="width:39%">
+                               <input type="text" name="end" id="end" style="width:40.7%">
                             </div>
                         </div>
                         <div class="ym-grid ym-fbox">    
