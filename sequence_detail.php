@@ -429,6 +429,11 @@
                         patts2.push($(this).val());
                     }
                 });
+                var a = $("#other_patt").children(":selected");
+                for(var i in a){
+                    if(a[i].value!=null)
+                        patts2.push(a[i].value);
+                }
                 $("input[name=cbox2]:checked").each(function(){ 
                     ftr.push($(this).val());
                 });
@@ -442,7 +447,7 @@
 //                alert("range:"+slider_min+":"+slider_max);
                 var min = Number(pa_min) + Number(slider_min);
                 var max = Number(pa_max) + Number(slider_max);
-                alert("range:"+min+":"+max);
+//                alert("range:"+min+":"+max);
                 //ftr部分
                 if(ftr.indexOf("UTR")!=-1){
                     if(sutr_start.length&&sutr_end.length!=0)
@@ -876,7 +881,7 @@
                             </table>-->
                                 <input type="checkbox" name="cbox" value="AATAAA"/>AATAAA&nbsp;<span class='aat' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <input type="checkbox" name="cbox" value="TGTAA"/>TGTAA&nbsp;<span class='tgt' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                Others&nbsp;&nbsp;&nbsp;&nbsp;<select id="other_patt"   multiple="multiple" placeholder="Select to display" class="okbutton" onchange="ha()">
+                                Others&nbsp;&nbsp;&nbsp;&nbsp;<select id="other_patt"   multiple="multiple" placeholder="Select to display" class="okbutton" >
                                     <option selected value='CATAAA'>CATAAA</option>
                                     <option selected value='GATAAA'>GATAAA</option>
                                     <option selected value='ATTAAA'>ATTAAA</option>
