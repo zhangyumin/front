@@ -27,6 +27,9 @@
         <!-- pwstabs -->
         <link type="text/css" rel="stylesheet" href="./src/pws-tabs/jquery.pwstabs-1.2.1.css"></link>
         <script src="./src/pws-tabs/jquery.pwstabs-1.2.1.js"></script>
+        <!-- sumoselect -->
+         <script src="./src/optselect/jquery.sumoselect.js"></script>
+        <link href="./src/optselect/sumoselect.css" rel="stylesheet" />
         <style>
             .slider{
                 width: 1000px;
