@@ -673,7 +673,7 @@
             <table  cellspacing="0" cellpadding="0" border="0" style="margin: 20px auto;border-collapse:collapse;" >
             <tbody>
                 <tr style="border: medium solid #5499c9;">
-                    <td valign="top" id='tables'>
+                    <td valign="top" id='tables' style="border-right: solid #5499c9;">
                     
                         <div id="gene">
                             <table id="genetable">
