@@ -625,7 +625,7 @@
                                         aat_start.push(gene_end - result.index - patt.length + 1);
                                         aat_end.push(gene_end - result.index);
                                     }
-                                    else if(patt.toUpperCase() == "TGTAAA")
+                                    else if(patt.toUpperCase() == "TGTAA")
                                     {
                                         tgt_start.push(gene_end - result.index - patt.length + 1);
                                         tgt_end.push(gene_end - result.index);
@@ -643,7 +643,7 @@
                                         aat_start.push(gene_start + result.index);
                                         aat_end.push(gene_start + result.index + patt.length - 1);
                                     }
-                                    else if(patt.toUpperCase() == "TGTAAA")
+                                    else if(patt.toUpperCase() == "TGTAA")
                                     {
                                         tgt_start.push(gene_start + result.index);
                                         tgt_end.push(gene_start + result.index + patt.length - 1);
