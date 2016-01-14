@@ -382,9 +382,10 @@
             echo "</script>";
          ?>
         <script type="text/javascript">
-                var pa_min = Math.min.apply(null,pa_start);
-                var pa_max = Math.max.apply(null,pa_start);
-        $(document).ready(function (){
+            var pa_min = Math.min.apply(null,pa_start);
+            var pa_max = Math.max.apply(null,pa_start);
+            $(document).ready(function (){
+                $('#other_patt').SumoSelect({ csvDispCount: 2,okCancelInMulti:true,selectAll:true });
                 $('#find_patt').click(function(){
                     clear();
                     load_pattern();
@@ -856,23 +857,43 @@
                 </legend>
                 <div class = "seq_viewer" id="seq_viewer">
                     <div id = "pattern">	
-                        <legend><span class="h3_italic">Typical Pattern</span>&nbsp;<span class='patt2' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;(AATAAA&nbsp;<span class='aat' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;TGTAAA&nbsp;<span class='tgt' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;)</legend>
-                            <table style="width:950px;margin-top:10px;margin-bottom:10px;font-family: Courier New;font-size: 15px;">
+                            <legend><span class="h3_italic">Typical Pattern</span>&nbsp;<span class='patt2' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</legend>
+<!--                            <table style="width:950px;margin-top:10px;margin-bottom:10px;font-family: Courier New;font-size: 15px;">
                                 <?php
-                                echo "<tr>";
-                                echo '<td><input type="checkbox" checked = "true" name = "cbox" id = "checkall" value = "checkall" /><em>&nbsp;Change All</em></td>';
-                                $i = 0;
-                                foreach ($singnals as $key => $value) {
-                                        if($i == 6||$i == 13)
-                                        {
-                                                echo "</tr><tr>";
-                                        }
-                                        echo '<td><input type="checkbox" name = "cbox" checked = "true" value = "'.$value.'"/>&nbsp;'.$value.'</td>';
-                                        $i++;
-                                }
-                                echo "</tr>";
+//                                echo "<tr>";
+//                                echo '<td><input type="checkbox" checked = "true" name = "cbox" id = "checkall" value = "checkall" /><em>&nbsp;Change All</em></td>';
+//                                $i = 0;
+//                                foreach ($singnals as $key => $value) {
+//                                        if($i == 6||$i == 13)
+//                                        {
+//                                                echo "</tr><tr>";
+//                                        }
+//                                        echo '<td><input type="checkbox" name = "cbox" checked = "true" value = "'.$value.'"/>&nbsp;'.$value.'</td>';
+//                                        $i++;
+//                                }
+//                                echo "</tr>";
                                 ?>
-                            </table>
+                            </table>-->
+                                <input type="checkbox" name="cbox" value="AATAAA"/>AATAAA&nbsp;<span class='aat' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="cbox" value="TGTAA"/>TGTAA&nbsp;<span class='tgt' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Others&nbsp;&nbsp;&nbsp;&nbsp;<select id="other_patt"   multiple="multiple" placeholder="Select to display" class="okbutton" onchange="ha()">
+                                    <option selected value='CATAAA'>CATAAA</option>
+                                    <option selected value='GATAAA'>GATAAA</option>
+                                    <option selected value='ATTAAA'>ATTAAA</option>
+                                    <option selected value='ACTAAA'>ACTAAA</option>
+                                    <option selected value='AGTAAA'>AGTAAA</option>
+                                    <option selected value='AAAAAA'>AAAAAA</option>
+                                    <option selected value='AACAAA'>AACAAA</option>
+                                    <option selected value='AAGAAA'>AAGAAA</option>
+                                    <option selected value='AATTAA'>AATTAA</option>
+                                    <option selected value='AATCAA'>AATCAA</option>
+                                    <option selected value='AATGAA'>AATGAA</option>
+                                    <option selected value='AATATA'>AATATA</option>
+                                    <option selected value='AATACA'>AATACA</option>
+                                    <option selected value='AATAGA'>AATAGA</option>
+                                    <option selected value='AATAAC'>AATAAC</option>
+                                    <option selected value='AATAAG'>AATAAG</option>
+                                </select>
                             <legend><span class="h3_italic">User’s Pattern </span>&nbsp;&nbsp;<span class='patt1' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;(Ex. AATAAA, TGTAAA)</legend>
                             <input type = "text" id = "user_pattern" style="margin-top:10px;margin-bottom:10px;"/>
                             <br>
