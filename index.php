@@ -11,7 +11,7 @@ and open the template in the editor.
         <title>polyA browser</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.6/animate.min.css">
+        <link rel="stylesheet" type="text/css" href="./src/index-slide/animate.min.css">
         <script src="./src/jquery-1.10.1.min.js"></script>
         <script src="./src/index-slide/jquery.aniview.js"></script>
         <script>
