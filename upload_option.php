@@ -262,25 +262,27 @@ and open the template in the editor.
             </div>
         
         <div class="upload_polya" id='up_polya' style='display: none'>
-            <form id="upload_polya" action="upload_polya.php" method="post">
+            <form id="upload_polya" class="ym-form" action="upload_polya.php" method="post">
                 <fieldset>
                     <legend>
                         <h4>
                             <font color="#224055"><b>STEP 2:</b> Upload file(s)</font>
                         </h4>
                     </legend>
-                    <label title="Select species" for="species">Select species here:</label>
-                    <select id="species" name="species">
-                        <option value="arab" selected="selected">Arabidopsis thaliana</option>
-                         <option value="japonica">Japonica rice</option>
-                        <option value="mtr">Medicago truncatula</option>
-                        <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
-                    </select>
-                    <ul id="foobar-polya"></ul>
-                    <div id="examples">
-                        <div class="example">
-                            <ul id="manual-example-polya" class="unstyled"></ul>
-                            <button type="button" id="triggerUpload-polya" class="btn btn-primary">Upload Queued Files</button>
+                    <div class="box info">
+                        <label title="Select species" for="species">Select species here:</label>
+                        <select id="species" name="species">
+                            <option value="arab" selected="selected">Arabidopsis thaliana</option>
+                             <option value="japonica">Japonica rice</option>
+                            <option value="mtr">Medicago truncatula</option>
+                            <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
+                        </select>
+                        <ul id="foobar-polya"></ul>
+                        <div id="examples">
+                            <div class="example">
+                                <ul id="manual-example-polya" class="unstyled"></ul>
+                                <button type="button" id="triggerUpload-polya" class="btn btn-primary">Upload Queued Files</button>
+                            </div>
                         </div>
                     </div>
                 </fieldset>
@@ -298,25 +300,27 @@ and open the template in the editor.
             </form>
         </div>
         <div class="upload_est" id='up_est' style='display: none'>
-            <form id="upload_est" action="get_result_est.php" method="post">
+            <form id="upload_est" class="ym-form" action="get_result_est.php" method="post">
                 <fieldset>
                     <legend>
                         <h4>
                             <font color="#224055"><b>STEP 2:</b> Upload file(s)</font>
                         </h4>
                     </legend>
-                    <label title="Select species" for="species">Select species here:</label>
-                    <select id="species" name="species">
-                        <option value="arab" selected="selected">Arabidopsis thaliana</option>
-                         <option value="japonica">Japonica rice</option>
-                        <option value="mtr">Medicago truncatula</option>
-                        <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
-                    </select>
-                    <ul id="foobar-est"></ul>
-                    <div id="examples">
-                        <div class="example">
-                            <ul id="manual-example-est" class="unstyled"></ul>
-                            <button type="button" id="triggerUpload-est" class="btn btn-primary">Upload Queued Files</button>
+                    <div class="box info">
+                        <label title="Select species" for="species">Select species here:</label>
+                        <select id="species" name="species">
+                            <option value="arab" selected="selected">Arabidopsis thaliana</option>
+                             <option value="japonica">Japonica rice</option>
+                            <option value="mtr">Medicago truncatula</option>
+                            <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
+                        </select>
+                        <ul id="foobar-est"></ul>
+                        <div id="examples">
+                            <div class="example">
+                                <ul id="manual-example-est" class="unstyled"></ul>
+                                <button type="button" id="triggerUpload-est" class="btn btn-primary">Upload Queued Files</button>
+                            </div>
                         </div>
                     </div>
                 </fieldset>
