@@ -31,6 +31,13 @@
          <script src="./src/optselect/jquery.sumoselect.js"></script>
         <link href="./src/optselect/sumoselect.css" rel="stylesheet" />
         <style>
+            .patt_text{
+                font-size: 15px;
+            }
+            .CaptionCont SlectBox{
+                height: 14px;
+                padding: 0px 8px;
+            }
             .slider{
                 width: 1000px;
             }
@@ -135,6 +142,7 @@
             .h3_italic{
                 font-size: 15px;
                 font-family: "Droid Serif", Georgia, "Times New Roman", Times, serif;
+                font-weight: bold;
             }
             #text{
                 font-size: 15px;
@@ -862,7 +870,7 @@
                 </legend>
                 <div class = "seq_viewer" id="seq_viewer">
                     <div id = "pattern">	
-                            <legend><span class="h3_italic">Typical Pattern</span>&nbsp;<span class='patt2' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</legend>
+                        <span class="h3_italic">Typical Pattern</span>&nbsp;<span class='patt2' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 <!--                            <table style="width:950px;margin-top:10px;margin-bottom:10px;font-family: Courier New;font-size: 15px;">
                                 <?php
 //                                echo "<tr>";
@@ -879,9 +887,9 @@
 //                                echo "</tr>";
                                 ?>
                             </table>-->
-                                <input type="checkbox" name="cbox" value="AATAAA"/>AATAAA&nbsp;<span class='aat' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" name="cbox" value="TGTAA"/>TGTAA&nbsp;<span class='tgt' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                Others&nbsp;&nbsp;&nbsp;&nbsp;<select id="other_patt"   multiple="multiple" placeholder="Select to display" class="okbutton" >
+                            <input type="checkbox" name="cbox" value="AATAAA"/><font class="patt_text">AATAAA</font>&nbsp;<span class='aat' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="cbox" value="TGTAA"/><font class="patt_text">TGTAA</font>&nbsp;<span class='tgt' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <font class="patt_text">Others</font>&nbsp;&nbsp;&nbsp;&nbsp;<select id="other_patt"   multiple="multiple" placeholder="Select to display" class="okbutton" >
                                     <option selected value='CATAAA'>CATAAA</option>
                                     <option selected value='GATAAA'>GATAAA</option>
                                     <option selected value='ATTAAA'>ATTAAA</option>
@@ -899,22 +907,23 @@
                                     <option selected value='AATAAC'>AATAAC</option>
                                     <option selected value='AATAAG'>AATAAG</option>
                                 </select>
-                            <legend><span class="h3_italic">User’s Pattern </span>&nbsp;&nbsp;<span class='patt1' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;(Ex. AATAAA, TGTAAA)</legend>
-                            <input type = "text" id = "user_pattern" style="margin-top:10px;margin-bottom:10px;"/>
+                            <br><br>
+                            <span class="h3_italic">User’s Pattern</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class='patt1' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;(Ex. AATAAA, TGTAAA)
+                            &nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" id = "user_pattern" style="margin-top:10px;margin-bottom:10px;width:217px;height: 25px"/>
                             <br>
                             <div class="slider"></div>
-                            <legend id='text'><span class="h3_ltalic">others</span>&nbsp;&nbsp;
-                                (
-                                <input type="checkbox" name="cbox2" value="EXT"/><span class='extend' style="text-align:center;">Extended 3'UTR</span>&nbsp;
-                                <input type="checkbox" name="cbox2" value="UTR"/><span class='sutr' style="text-align:center;">UTR</span>&nbsp;
-                                <!--<input type="checkbox" name="cbox2" value="5UTR"/>5'UTR&nbsp;<span class='wutr' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;-->
-                                <input type="checkbox" name="cbox2" value="CDSEXON"/><span class='cds' style="text-align:center;">CDS/exon</span>&nbsp;&nbsp;
-                                <input type="checkbox" name="cbox2" value="INTRON"/><span class='intron' style="text-align:center;">intron</span>&nbsp;&nbsp;
-                                <!--<input type="checkbox" name="cbox2" value="EXON"/>exon&nbsp;<span class='exon' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;-->
-                                <input type="checkbox" name="cbox2" value="AMB"/><span class='amb' style="text-align:center;">AMB</span>&nbsp;
-                                <input type="checkbox" name="cbox2" value="PA"/><span class="pa">Cleavage site</span>&nbsp;
-                                <input type="checkbox" name="cbox2" value="PAC"/><span class="pac">PAC</span>
-                                )
+                            <legend id='text'><span class="h3_italic">Annotation</span><br>
+                                <div style="padding:10px 0px;">
+                                    <input type="checkbox" name="cbox2" value="EXT"/><span class='extend' style="text-align:center;">Extended 3'UTR</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="checkbox" name="cbox2" value="UTR"/><span class='sutr' style="text-align:center;">UTR</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <!--<input type="checkbox" name="cbox2" value="5UTR"/>5'UTR&nbsp;<span class='wutr' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;-->
+                                    <input type="checkbox" name="cbox2" value="CDSEXON"/><span class='cds' style="text-align:center;">CDS/exon</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="checkbox" name="cbox2" value="INTRON"/><span class='intron' style="text-align:center;">intron</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <!--<input type="checkbox" name="cbox2" value="EXON"/>exon&nbsp;<span class='exon' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;-->
+                                    <input type="checkbox" name="cbox2" value="AMB"/><span class='amb' style="text-align:center;">AMB</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="checkbox" name="cbox2" value="PA"/><span class="pa">Cleavage site</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="checkbox" name="cbox2" value="PAC"/><span class="pac">PAC</span>
+                                </div>
                             </legend>
                             <br>
                             <button id = "find_patt" style="width:100px;"  class = "button blue medium">Show</button>
