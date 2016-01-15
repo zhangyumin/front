@@ -3,7 +3,7 @@
   <div class="ym-wrapper">
     <div class="ym-wbox">
         <img src="./pic/plantapa.png"/>
-        <span style="float:right">a portal for visualization and analysis of alternative polyadenylation in plants</span>
+        <span style="float:right;font-size: 15px">a portal for visualization and analysis of alternative polyadenylation in plants</span>
     </div>
   </div>
 </header>
