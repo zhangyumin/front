@@ -2,7 +2,8 @@
 <header>
   <div class="ym-wrapper">
     <div class="ym-wbox">
-      <h1>PlantAPA</h1>
+        <img src="./pic/plantapa.png"/>
+        <span style="float:right">a portal for visualization and analysis of alternative polyadenylation in plants</span>
     </div>
   </div>
 </header>
