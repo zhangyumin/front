@@ -43,7 +43,7 @@
 
   /* font-size: 14px; */
   body {
-    font-family: "Droid Serif", Georgia, "Times New Roman", Times, serif;
+    font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;
     font-size: 12px;
     /*color: #444444;*/
     color: 000;
@@ -56,7 +56,7 @@
   h4,
   h5,
   h6 {
-    font-family: "Droid Sans", Arial, Helvetica, sans-serif;
+    font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;
     font-weight: 400;
     color: #161e21;
     margin: 0;
@@ -160,7 +160,7 @@
   blockquote,
   cite,
   q {
-    font-family: "Droid Serif", Georgia, "Times New Roman", Times, serif;
+    font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;
     font-style: italic;
   }
 
