@@ -71,7 +71,7 @@ and open the template in the editor.
                     $arr_chlamy=array();
                     echo "var chr=[";
                     //arabidopsis
-                    $arab_sql=mysql_query("select distinct chr from t_arab_gff;");
+                    $arab_sql=mysql_query("select distinct chr from t_japonica_gff;");
                     $i=0;
                     while($arab_row=  mysql_fetch_row($arab_sql)){
                         array_push($arr_arab, $arab_row[0]);
@@ -85,7 +85,7 @@ and open the template in the editor.
                     }
                     echo "\"],";
                     //japonica
-                    $arab_sql=mysql_query("select distinct chr from t_japonica_gff;");
+                    $arab_sql=mysql_query("select distinct chr from t_arab_gff;");
                     $i=0;
                     while($arab_row=  mysql_fetch_row($arab_sql)){
                         array_push($arr_japonica, $arab_row[0]);
@@ -153,8 +153,8 @@ and open the template in the editor.
                             <div class="ym-g33 ym-gl">
                                 <label for="species" style="margin-right:2%;">Species:</label>
                                 <select id="species" name="species" style="width:80%" onclick="getchr()">
-                                    <option value="arab" selected="selected">Arabidopsis thaliana</option>
-                                     <option value="japonica">Japonica rice</option>
+                                     <option value="japonica" selected="selected">Japonica rice</option>
+                                    <option value="arab">Arabidopsis thaliana</option>
                                     <option value="mtr">Medicago truncatula</option>
                                     <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
                                 </select>
