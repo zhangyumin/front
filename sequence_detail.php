@@ -347,9 +347,11 @@
                 {
                     $i++;
                     if($strand == 1){
-                        echo "sutr_start.push('$ext_start[$i]');";
-                        echo "sutr_end.push('$ext_end[$i]');";
-                        $ext_start_pos = $ext_end[$i]+1;
+                        if($ext_end[$i]!=null){
+                            echo "sutr_start.push('$ext_start[$i]');";
+                            echo "sutr_end.push('$ext_end[$i]');";
+                            $ext_start_pos = $ext_end[$i]+1;
+                        }
                         echo "ext_start.push('$ext_start_pos');";
                         echo "ext_end.push('$f_end[$f_key]');";
                     }
