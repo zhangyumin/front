@@ -61,8 +61,7 @@
                     $pac_qry= "create table db_user.Search_".$_SESSION['search']." select * from t_".$species."_pac where ";
                     $pac_qry.="gene in ('";
                     $pac_qry.=implode("','", $go_array_key);
-                    $pac_qry.="') or chr like '%$key%'; ";
-//                    echo $pac_qry;
+                    $pac_qry.="') or chr like '%$key%' or gene like '%$key%'; ";
                     $query_result=  mysql_query($pac_qry);
                 }
                 else{
