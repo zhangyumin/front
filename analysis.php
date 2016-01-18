@@ -122,8 +122,8 @@
            <div class="box info ym-form">
                <label for="species" style="float:left;width:10%">Species:&nbsp;</label>
                 <select id="species" name="species" style="width:90%" onchange="div_option2(this);getchr()">
-                     <option value="arab" selected="selected">Arabidopsis thaliana</option>
                     <option value="japonica">Japonica rice</option>
+                    <option value="arab" selected="selected">Arabidopsis thaliana</option>
                     <option value="mtr">Medicago truncatula</option>
                     <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
                  </select>
