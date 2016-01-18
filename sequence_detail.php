@@ -356,9 +356,11 @@
                         echo "ext_end.push('$f_end[$f_key]');";
                     }
                     else if ($strand == -1){
-                        $ext_start_pos = $ext_start[$i]+1;
-                        echo "sutr_start.push('$ext_start_pos');";
-                        echo "sutr_end.push('$f_end[$f_key]');";
+                        if($ext_start[$i]!=null){
+                            $ext_start_pos = $ext_start[$i]+1;
+                            echo "sutr_start.push('$ext_start_pos');";
+                            echo "sutr_end.push('$f_end[$f_key]');";
+                        }
                         echo "ext_start.push('$f_start[$f_key]');";
                         echo "ext_end.push('$ext_start[$i]');";
                     }
