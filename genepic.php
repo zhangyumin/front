@@ -413,17 +413,23 @@ and open the template in the editor.
                     //shorten部分头与尾
                     $st=($gene_start_org-$gene_start)*$rate;
                     $en=($gene_end_org-$gene_start)*$rate;
-                    foreach ($sutr_start_org as $key => $value) {
+                    foreach ($sutr_start as $key => $value) {
                         $st_st=($sutr_start[$key]-$gene_start)*$rate;
                         $start=($sutr_start_org[$key]-$gene_start)*$rate;
                         $st_ed=($sutr_end[$key]-$gene_start )*$rate;
                         $end=($sutr_end_org[$key]-$gene_start)*$rate;
-                        echo "sutr_shorten($start,$end,$st,$en,$strand,'no_extend');\n";
+                        if($start>=0 && $start<=1000 && $end>=0 && $end<=1000)
+                            echo "sutr_shorten($start,$end,$st,$en,$strand,'no_extend');\n";
                         if($strand==-1){
                             echo "sutr_extend($st_st,$start,0,1000,-1,'gene');\n";
                         }
                         else if($strand==1){
-                            echo "sutr_extend($end,$st_ed,0,1000,1,'gene');\n";
+                            if($sutr_end_org[$key]!=null&&$sutr_start_org[$key]!=null)
+                                echo "sutr_extend($end,$st_ed,0,1000,1,'gene');\n";
+                            else{
+                                $end = ($sutr_end_org[$key-1]-$gene_start)*$rate;
+                                echo "sutr_extend($end,$st_ed,0,1000,1,'gene');\n";
+                            }
                         }
                     }
                     foreach ($wutr_start_org as $key => $value) {
