@@ -23,10 +23,10 @@
       </ul>
         <form class="ym-searchform" method="post" action="search_result.php?method=fuzzy" style="height: 30px;padding: 6px 7.5px">
           <select name="species" style="height: 29px;border-radius: 0.2em">
+            <option value="japonica">Rice</option>
             <option value="arab">Arabidopsis</option>
             <option value="mtr">Medicago</option>
             <option value="chlamy">Chlamy</option>
-            <option value="japonica">Japonica</option>
         </select>
           <input class="ym-searchfield" name="key" type="search" placeholder="keyword" style="border-radius: 0.2em"/>
           <button class="ym-searchbutton" type="submit" style="height: 30px">Search</button>
