@@ -69,7 +69,7 @@ and open the template in the editor.
                                 <h3 class="panel-title">●&nbsp;  What is PlantAPA?</h3>
                             </div>
                             <div class="panel-body">
-                                <p>PlantAPA is a web server for query, visualization, and analysis of poly(A) sites in plants, which can profile heterogeneous cleavage sites and quantify expression pattern of poly(A) sites across different conditions. To date, PlantAPA provides the largest database of APA in plants, including rice, Arabidopsis, <i>Medicago truncatula</i>, and <i>Chlamydomonas reinhardtii</i> (see <a href="./download.php">data sets</a>).</p>
+                                <p>PlantAPA is a web server for query, visualization, and analysis of poly(A) sites in plants, which can profile heterogeneous cleavage sites and quantify expression pattern of poly(A) sites across different conditions. To date, PlantAPA provides the largest database of APA in plants, including rice, Arabidopsis, <i>Medicago truncatula</i>, and <i>Chlamydomonas reinhardtii</i> (see <a href="./search.php">data sets</a>).</p>
                             </div>
                         </div>
                     </div>
