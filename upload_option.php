@@ -192,8 +192,8 @@ and open the template in the editor.
                         <div class="box info">
                             <label title="Select species" for="species">Select species here:</label>
                             <select id="species" name="species">
-                                <option value="arab" selected="selected">Arabidopsis thaliana</option>
-                                 <option value="japonica">Japonica rice</option>
+                                <option value="japonica" selected="selected">Japonica rice</option>
+                                <option value="arab">Arabidopsis thaliana</option>
                                 <option value="mtr">Medicago truncatula</option>
                                 <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
                             </select>
@@ -272,8 +272,8 @@ and open the template in the editor.
                     <div class="box info">
                         <label title="Select species" for="species">Select species here:</label>
                         <select id="species" name="species">
-                            <option value="arab" selected="selected">Arabidopsis thaliana</option>
-                             <option value="japonica">Japonica rice</option>
+                            <option value="japonica" selected="selected">Japonica rice</option>
+                            <option value="arab">Arabidopsis thaliana</option>
                             <option value="mtr">Medicago truncatula</option>
                             <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
                         </select>
@@ -310,8 +310,8 @@ and open the template in the editor.
                     <div class="box info">
                         <label title="Select species" for="species">Select species here:</label>
                         <select id="species" name="species">
-                            <option value="arab" selected="selected">Arabidopsis thaliana</option>
-                             <option value="japonica">Japonica rice</option>
+                            <option value="japonica" selected="selected">Japonica rice</option>
+                            <option value="arab">Arabidopsis thaliana</option>
                             <option value="mtr">Medicago truncatula</option>
                             <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
                         </select>
