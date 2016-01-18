@@ -421,7 +421,12 @@ and open the template in the editor.
                         if($start>=0 && $start<=1000 && $end>=0 && $end<=1000)
                             echo "sutr_shorten($start,$end,$st,$en,$strand,'no_extend');\n";
                         if($strand==-1){
-                            echo "sutr_extend($st_st,$start,0,1000,-1,'gene');\n";
+                            if($sutr_end_org[$key]!=null&&$sutr_start_org[$key]!=null)
+                                echo "sutr_extend($st_st,$start,0,1000,-1,'gene');\n";
+                            else{
+                                $start = ($sutr_start_org[$key-1]-$gene_start)*$rate;
+                                echo "sutr_extend($st_st,$start,0,1000,-1,'gene');\n";
+                            }
                         }
                         else if($strand==1){
                             if($sutr_end_org[$key]!=null&&$sutr_start_org[$key]!=null)
