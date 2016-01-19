@@ -29,7 +29,6 @@ and open the template in the editor.
         <!--[if lt IE 9]>
         <script src="./js/html5shiv/html5shiv.js"></script>
         <![endif]-->
-
     </head>
     <script type="text/javascript">
 
@@ -141,12 +140,12 @@ and open the template in the editor.
     <body onload="getchr()">        
         <?php include './navbar.php'; ?>
         <div class="ym-wrapper">
-            <fieldset >
-                <legend>
+                <legend style="padding-top:10px">
                     <h4>
                         <font color="#224055" ><b>Search:</b> search and view the system samples</font>
                     </h4>
                 </legend>
+                <hr style="border-bottom: 2px #5499c9 solid">
                <div class="box info ym-form">
                    <form name="search" method="post" id="getback" action="search_result.php">
                        <div class="ym-grid ym-fbox">
@@ -219,14 +218,12 @@ and open the template in the editor.
                         </div>
                         </form>
                </div>
-            </fieldset>
-            <br>
-            <fieldset class="table-tools" >
                 <legend>
                     <h4>
                         <font color="#224055"><b>Datasets list: </b>all species documented in browser</font>
                     </h4>
                 </legend>
+                <hr style="border-bottom: 2px #5499c9 solid">
                 <table cellspacing="1" cellpadding="0" border="0" style="border:1px solid #5499c9;">
                     <thead>
                         <tr class="theme">
@@ -552,8 +549,7 @@ and open the template in the editor.
                             </td>
                         </tr>
                     </tbody>
-                </table><br>
-            </fieldset> 
+                </table>
         </div>
         <div class="bottom">
             <?php
