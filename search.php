@@ -166,10 +166,10 @@ and open the template in the editor.
                                     </select>
                             </div>
                             <div class="ym-g33 ym-gl">    
-                               <label for="start" style="margin:0 1%;"> from</label>
-                                <input type="text" name="start" id="start" style="width:39%">
-                               <label for="end" style="margin:0 1%;"> to</label>
-                               <input type="text" name="end" id="end" style="width:40.7%">
+                               <label for="start" style="margin:0 2% 0 -9%;"> from</label>
+                                <input type="text" name="start" id="start" style="width:44.1%">
+                               <label for="end" style="margin:0 2%;"> to</label>
+                               <input type="text" name="end" id="end" style="width:44.2%">
                             </div>
                         </div>
                         <div class="ym-grid ym-fbox">    
@@ -177,7 +177,7 @@ and open the template in the editor.
                             <textarea style="width:100%" name="gene_id"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
-                            <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
+                            <label for="go_accession">Go term accession:(use ',' to split different go id)</label>
                             <textarea style="width:100%" name='go_accession' id="go_accession"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
