@@ -822,7 +822,7 @@
                                 <iframe src="../jbrowse/?data=data/<?php echo $_GET['species'];?>&loc=<?php echo $chr;?>:<?php echo $gene_start;?>..<?php echo $gene_end;?>&tracks=Arabidopsis,sys_polya" width=1200px height=500px>
                                 </iframe>
                             </div>
-                            <div data-pws-tab="genepic" data-pws-tab-name="Gene pic">
+                            <div data-pws-tab="genepic" data-pws-tab-name="PAT distribution">
                                 <?php
                                     if($_GET['flag']=='intergenic'){
                                         if($_GET['analysis']==1)
@@ -838,7 +838,7 @@
                                     }
                                     ?>
                             </div>
-                            <div data-pws-tab="pacpic" data-pws-tab-name="PAC pic">
+                            <div data-pws-tab="pacpic" data-pws-tab-name="PAC usage">
                                 <?php
                                     if($_GET['flag']=='intergenic'){
                                         if($_GET['analysis']==1)
