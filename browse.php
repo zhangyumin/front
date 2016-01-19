@@ -50,12 +50,12 @@
         </script>
         <label for="species">Select species here:</label>
         <select id="species" name="species" onchange="change()">
-            <option value="rice" selected="selected">Oryza sativa (Rice)</option>
-            <option value="arab">Arabidopsis thaliana</option>
+            <option value="rice">Oryza sativa (Rice)</option>
+            <option value="arab" selected="selected">Arabidopsis thaliana</option>
             <option value="mtr">Medicago truncatula</option>
             <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
         </select>
-        <iframe id="jbrowse" style="border: 1px solid black" src="../jbrowse/?data=data/japonica" width=99% height="800px">
+        <iframe id="jbrowse" style="border: 1px solid black" src="../jbrowse/?data=data/arab" width=99% height="800px">
         </iframe>
        <div class="bottom">
         <?php
