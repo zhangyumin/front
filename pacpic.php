@@ -520,8 +520,8 @@ and open the template in the editor.
             <div class="statisticsd" style="display: inline;">
                 <select id="statistics"   multiple="multiple" placeholder="Select to display" onchange="getname($(this).children(':selected'))" class="okbutton">
                      <option selected value="sum">sum</option>
-                     <option selected value="avg">avg</option>
-                     <option selected value="med">med</option>
+                     <option selected value="avg">average</option>
+                     <option selected value="med">median</option>
                 </select>
             </div>
             <input id="ratiobutton" type="checkbox" name="ratio" value="ratio" onclick="GetRatio(this)"/>ratio
