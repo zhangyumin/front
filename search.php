@@ -153,8 +153,8 @@ and open the template in the editor.
                             <div class="ym-g33 ym-gl">
                                 <label for="species" style="margin-right:2%;">Species:</label>
                                 <select id="species" name="species" style="width:80%" onclick="getchr()">
-                                     <option value="japonica" selected="selected">Japonica rice</option>
-                                    <option value="arab">Arabidopsis thaliana</option>
+                                     <option value="japonica">Japonica rice</option>
+                                    <option value="arab" selected="selected">Arabidopsis thaliana</option>
                                     <option value="mtr">Medicago truncatula</option>
                                     <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
                                 </select>
