@@ -123,7 +123,7 @@
                <label for="species" style="float:left;width:10%">Species:&nbsp;</label>
                 <select id="species" name="species" style="width:90%" onchange="div_option2(this);getchr()">
                     <option value="japonica">Japonica rice</option>
-                    <option value="arab" selected="selected">Arabidopsis thaliana</option>
+                     <option value="arab" selected="selected">Arabidopsis thaliana</option>
                     <option value="mtr">Medicago truncatula</option>
                     <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
                  </select>
@@ -1114,7 +1114,7 @@
                     $arr_chlamy=array();
                     echo "var chr=[";
                     //arabidopsis
-                    $arab_sql=mysql_query("select distinct chr from t_arab_gff;");
+                    $arab_sql=mysql_query("select distinct chr from t_japonica_gff;");
                     $i=0;
                     while($arab_row=  mysql_fetch_row($arab_sql)){
                         array_push($arr_arab, $arab_row[0]);
@@ -1128,7 +1128,7 @@
                     }
                     echo "\"],";
                     //japonica
-                    $arab_sql=mysql_query("select distinct chr from t_japonica_gff;");
+                    $arab_sql=mysql_query("select distinct chr from t_arab_gff;");
                     $i=0;
                     while($arab_row=  mysql_fetch_row($arab_sql)){
                         array_push($arr_japonica, $arab_row[0]);
