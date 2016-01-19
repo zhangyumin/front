@@ -805,11 +805,49 @@
                             $(document).ready(function(){
                                 $('#gotable').dataTable({
                                     "lengthMenu":[[5,10,15,-1],[5,10,15,"all"]],
-                                    "pagingType":"full_numbers"
+                                    "pagingType":"full_numbers",
+                                    lengthChange:false,
+                                    info:false,
+                                    language: {
+                                        paginate: {
+                                            first:    '«',
+                                            previous: '‹',
+                                            next:     '›',
+                                            last:     '»'
+                                        },
+                                        aria: {
+                                            paginate: {
+                                                first:    'First',
+                                                previous: 'Previous',
+                                                next:     'Next',
+                                                last:     'Last'
+                                            }
+                                        }
+                                    },
+                                    searching:false
                                 });
                                 $('#polyatable').dataTable({
                                     "lengthMenu":[[5,10,15,-1],[5,10,15,"all"]],
-                                    "pagingType":"full_numbers"
+                                    "pagingType":"full_numbers",
+                                    lengthChange:false,
+                                    info:false,
+                                    language: {
+                                        paginate: {
+                                            first:    '«',
+                                            previous: '‹',
+                                            next:     '›',
+                                            last:     '»'
+                                        },
+                                        aria: {
+                                            paginate: {
+                                                first:    'First',
+                                                previous: 'Previous',
+                                                next:     'Next',
+                                                last:     'Last'
+                                            }
+                                        }
+                                    },
+                                    searching:false
                                 });
                             });
                         </script>
