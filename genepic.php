@@ -1118,8 +1118,8 @@ and open the template in the editor.
             <div class="statisticsd" style="display: inline;">
                 <select id="statistics"   multiple="multiple" placeholder="Select to display" onchange="getname($(this).children(':selected'))" class="okbutton">
                      <option selected value="sum">sum</option>
-                     <option selected value="avg">average</option>
-                     <option selected value="med">median</option>
+                     <option value="avg">average</option>
+                     <option value="med">median</option>
                 </select>
             </div>
             <div class="pacd" style="display: inline;float: right">Highlight PAC
