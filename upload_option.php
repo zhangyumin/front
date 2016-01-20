@@ -176,9 +176,9 @@ and open the template in the editor.
                     </h4>
                 </legend>
                 <div class="box info ym-form">
-                    <input type='radio' name='upload_method' value='upload' checked="true" onclick="SltFileType()"/>short read
-                    <input type='radio' name='upload_method' value='up_est' onclick="SltFileType()"/>EST
-                    <input type='radio' name='upload_method' value='up_polya' onclick="SltFileType()"/>PolyA Site
+                    <input type='radio' name='upload_method' value='upload' checked="true" onclick="SltFileType()"/>Short read&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type='radio' name='upload_method' value='up_est' onclick="SltFileType()"/>EST&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type='radio' name='upload_method' value='up_polya' onclick="SltFileType()"/>Poly(A) Site&nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
             </fieldset>
             <div class="upload" id='upload'>
