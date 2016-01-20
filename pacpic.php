@@ -528,7 +528,7 @@ and open the template in the editor.
         </div>
         <script>
             $(document).ready(function () {
-                $('.statistics').SumoSelect({ csvDispCount: 0 });
+                $('#statistics').SumoSelect({ csvDispCount: 0 });
                 $('.okbutton').SumoSelect({okCancelInMulti:true });
                 $("#statistics").attr("disabled",true);
             });
