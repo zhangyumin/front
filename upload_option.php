@@ -113,7 +113,7 @@ and open the template in the editor.
         <script>  
             $(document).ready(function(){  
                      $('#seq-submit').click(function (){
-                        var params = $('#upload_seq').serialize(); //序列化表单的值
+                        var params = $('#species,#upload_seq').serialize(); //序列化表单的值
     //                    console.log(params);
     //                    alert(params);
                         $.ajax({  
@@ -126,7 +126,7 @@ and open the template in the editor.
                         });  
                      });
                      $('#polya-submit').click(function (){
-                        var params = $('#upload_polya').serialize(); //序列化表单的值
+                        var params = $('#species,#upload_polya').serialize(); //序列化表单的值
     //                    console.log(params);
     //                    alert(params);
                         $.ajax({  
@@ -139,7 +139,7 @@ and open the template in the editor.
                         });  
                      });
                      $('#est-submit').click(function (){
-                        var params = $('#upload_est').serialize(); //序列化表单的值
+                        var params = $('#species,#upload_est').serialize(); //序列化表单的值
     //                    console.log(params);
     //                    alert(params);
                         $.ajax({  
