@@ -284,14 +284,14 @@ and open the template in the editor.
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle=color;
-                context.font="bold 15px Droid Serif";
+                context.font="bold 15px sans-serif";
                 context.fillText(text,510,145);
             }
             function info(color,loc,text,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle=color;
-                context.font="bold 15px Droid Serif";
+                context.font="bold 15px sans-serif";
                 context.fillRect(loc+70,20,20,20);
                 context.fillText(text,loc+95,35);
             }
@@ -323,7 +323,7 @@ and open the template in the editor.
                 context.stroke();
                 context.closePath();
                 context.beginPath();
-                context.font="8px Arial";
+                context.font="8px sans-serif";
                 context.fillText(name,pos-58,195);
                 context.closePath();
             }
@@ -343,7 +343,7 @@ and open the template in the editor.
                 context.lineTo(995,55);
                 context.moveTo(1000,60);
                 context.lineTo(995,65);
-                context.font="12px Droid Serif";
+                context.font="12px sans-serif";
                 start=<?php echo $gene_start;?>;
                 end=<?php echo $gene_end;?>;
                 context.fillText("start:"+start,15,75);
@@ -514,7 +514,7 @@ and open the template in the editor.
         </script>
     </head>
     <body>
-        <div id="button" style="width:1000px;">
+        <div id="button" style="width:1000px;font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;">
             <input type="radio" name="display" value="origin" checked="checked" onchange="display()"/>individual
             <input type="radio" name="display" value="statistics" onchange="display()"/>grouping
             <div class="statisticsd" style="display: inline;">
