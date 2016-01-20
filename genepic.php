@@ -605,21 +605,21 @@ and open the template in the editor.
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle=color;
-                context.font="bold 15px Droid Serif";
+                context.font="bold 15px sans-serif";
                 context.fillText(text,1015,125);
             }
             function title(color,text,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle=color;
-                context.font="bold 15px Droid Serif";
+                context.font="bold 15px sans-serif";
                 context.fillText(text,1015,85);
             }
             function info(color,loc,text,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle=color;
-                context.font="bold 15px Droid Serif";
+                context.font="bold 15px sans-serif";
                 context.fillRect(loc+70,20,20,20);
                 context.fillText(text,loc+95,35);
             }
@@ -649,7 +649,7 @@ and open the template in the editor.
                 context.lineTo(995,55);
                 context.moveTo(1000,60);
                 context.lineTo(995,65);
-                context.font="12px Droid Serif";
+                context.font="12px sans-serif";
                 start=<?php echo $gene_start;?>;
                 end=<?php echo $gene_end;?>;
                 context.fillText("start:"+start,15,75);
@@ -691,7 +691,7 @@ and open the template in the editor.
                 for(i=5;i>0;i--){
                     context.moveTo(500,20*i);
                     context.lineTo(505,20*i);
-                    context.font="12px Droid Serif";
+                    context.font="12px sans-serif";
                     context.fillText(60-10*i,505,21*i);
                 }
                 context.stroke();
@@ -1001,7 +1001,7 @@ and open the template in the editor.
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.beginPath();
-                context.font="10px Droid Serif";
+                context.font="10px sans-serif";
                 if(key == 'none'){
                     context.strokeStyle="#808a87";
                     context.fillStyle="#808a87";
