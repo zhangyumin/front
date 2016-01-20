@@ -178,7 +178,14 @@ and open the template in the editor.
                 <div class="box info ym-form">
                     <input type='radio' name='upload_method' value='upload' checked="true" onclick="SltFileType()"/>Short read&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type='radio' name='upload_method' value='up_est' onclick="SltFileType()"/>EST&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type='radio' name='upload_method' value='up_polya' onclick="SltFileType()"/>Poly(A) Site&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type='radio' name='upload_method' value='up_polya' onclick="SltFileType()"/>Poly(A) Site&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+                    <label title="Select species" for="species" style="display: inline">Select species here:</label>
+                     <select id="species" name="species" style="display: inline;margin-left: 2%;width: 85.5%">
+                        <option value="japonica">Japonica rice</option>
+                        <option value="arab" selected="selected">Arabidopsis thaliana</option>
+                        <option value="mtr">Medicago truncatula</option>
+                        <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
+                    </select>
                 </div>
             </fieldset>
             <div class="upload" id='upload'>
@@ -190,14 +197,7 @@ and open the template in the editor.
                             </h4>
                         </legend>
                         <div class="box info">
-                            <label title="Select species" for="species">Select species here:</label>
-                            <select id="species" name="species">
-                                <option value="japonica">Japonica rice</option>
-                                <option value="arab" selected="selected">Arabidopsis thaliana</option>
-                                <option value="mtr">Medicago truncatula</option>
-                                <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
-                            </select>
-                            <input type="checkbox" id="sys_example" name="sys_example" style="margin-left:20px;">Use system example
+                            <input type="checkbox" id="sys_example" name="sys_example">Use system example
                             <ul id="foobar"></ul>
                             <div id="examples">
                                 <div class="example">
@@ -270,13 +270,6 @@ and open the template in the editor.
                         </h4>
                     </legend>
                     <div class="box info">
-                        <label title="Select species" for="species">Select species here:</label>
-                        <select id="species" name="species">
-                            <option value="japonica">Japonica rice</option>
-                            <option value="arab" selected="selected">Arabidopsis thaliana</option>
-                            <option value="mtr">Medicago truncatula</option>
-                            <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
-                        </select>
                         <ul id="foobar-polya"></ul>
                         <div id="examples">
                             <div class="example">
@@ -308,13 +301,6 @@ and open the template in the editor.
                         </h4>
                     </legend>
                     <div class="box info">
-                        <label title="Select species" for="species">Select species here:</label>
-                        <select id="species" name="species">
-                            <option value="japonica">Japonica rice</option>
-                            <option value="arab" selected="selected">Arabidopsis thaliana</option>
-                            <option value="mtr">Medicago truncatula</option>
-                            <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
-                        </select>
                         <ul id="foobar-est"></ul>
                         <div id="examples">
                             <div class="example">
