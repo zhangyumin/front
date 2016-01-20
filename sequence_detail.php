@@ -958,7 +958,7 @@
                             <br>
                             <div class="slider"></div>
                             <legend id='text'><span class="h3_italic">Annotation</span><br>
-                                <div style="padding:10px 0px;">
+                                <div style="padding:10px 0px;font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif">
                                     <input type="checkbox" name="cbox2" value="EXT"/><span class='extend' style="text-align:center;">Extended 3'UTR</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <input type="checkbox" name="cbox2" value="UTR"/><span class='sutr' style="text-align:center;">UTR</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <!--<input type="checkbox" name="cbox2" value="5UTR"/>5'UTR&nbsp;<span class='wutr' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;-->
