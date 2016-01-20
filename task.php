@@ -95,7 +95,7 @@
                                     <fieldset >
                                         <legend>
                                             <h4>
-                                                <font color=\"#224055\"><b>Task Summary</b></font>
+                                                <font color=\"#224055\"><b>Task summary</b></font>
                                             </h4>
                                         </legend>";
                     $file=  file_get_contents("./log/".$_SESSION['file'].".txt");
@@ -176,7 +176,7 @@
             <fieldset id="task-history" class="table-tools" style="max-height: 400px;">
                     <legend style="text-align:left;">
                         <h4>
-                            <font color="#224055"><b>Your Task History</b></font>
+                            <font color="#224055"><b>Your task history</b></font>
                         </h4>
                     </legend>
                     <table cellspacing="1" cellpadding="0" border="0" style="border:1px solid #5499c9;">
