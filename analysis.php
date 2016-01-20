@@ -348,7 +348,7 @@
                                     </div>
                                     <div class="ym-clearfix"></div>
                                     <div class="box info additonal">   
-                                        <a class="ym-button ym-add flip">Additional Options</a>
+                                        <a class="ym-button ym-add flip">Filter gene or PAC by additional options</a>
                                     
                                         <div id="search">
                                             <div class="box info ym-form">
