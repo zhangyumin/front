@@ -1102,7 +1102,7 @@ and open the template in the editor.
             }
         </script>
     </head>
-    <body style="width:1000px">
+    <body style="width:1000px;font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;">
         <div id="button" style="width:1000px;">
             <input type="radio" name="display" value="origin" checked="checked" onchange="reset($(this).val())"/>individual
             <div class="origind" style="display: inline;">
