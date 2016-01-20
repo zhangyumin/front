@@ -144,6 +144,7 @@
                                     <form id="degene-form">
                                     <div class="box info samples">
                                         <table id="samples" >
+                                            <thead><center>Select two groups of samples</center></thead>
                                             <tbody>
                                                 <tr>
                                                     <td>
@@ -397,6 +398,7 @@
                                     <form id="depac-form">
                                     <div class="box info samples">
                                         <table id="samples" >
+                                            <thead><center>Select two groups of samples</center></thead>
                                             <tbody>
                                                 <tr>
                                                     <td>
@@ -632,6 +634,7 @@
                                     <form id="only3utr-form">
                                         <div class="box info samples">
                                             <table id="samples" >
+                                                <thead><center>Select two groups of samples</center></thead>
                                                 <tbody>
                                                     <tr>
                                                         <td>
@@ -862,6 +865,7 @@
                                     <form id="none3utr-form">
                                     <div class="box info samples">
                                         <table id="samples" >
+                                            <thead><center>Select two groups of samples</center></thead>
                                             <tbody>
                                                 <tr>
                                                     <td>
