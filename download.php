@@ -42,7 +42,7 @@ and open the template in the editor.
                         </h4>
                     </legend>
         <div class="ym-wbox">
-        <div class="download">
+<!--        <div class="download">
             <h1 class="center">Tools</h1>
             <table  class="bordertable">
                 <thead>
@@ -73,7 +73,7 @@ and open the template in the editor.
             </table><br>
         
         </div>
-        <br>
+        <br>-->
         <div class="download">
             <h1 class="center">Datasets</h1>
             <table  class="bordertable">
