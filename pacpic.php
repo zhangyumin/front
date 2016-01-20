@@ -483,8 +483,8 @@ and open the template in the editor.
                 context.moveTo(pos,120);
                 context.lineTo(pos-5,125);
                 context.lineTo(pos-1,125);
-                context.lineTo(pos-1,150);
-                context.lineTo(pos+1,150);
+                context.lineTo(pos-1,145);
+                context.lineTo(pos+1,145);
                 context.lineTo(pos+1,125);
                 context.lineTo(pos+5,125);
                 context.lineTo(pos,120);
