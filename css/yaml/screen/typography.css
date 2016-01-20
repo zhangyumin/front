@@ -410,8 +410,8 @@
     border-collapse: collapse;
     /*color: #444444;*/
     color: 000;
-    border-top: 1px #ccc solid;
-    border-bottom: 1px #ccc solid;
+    /*border-top: 1px #ccc solid;*/
+    /*border-bottom: 1px #ccc solid;*/
     margin: 0 0 1.35714em 0;
   }
   table.narrow {
