@@ -197,7 +197,6 @@ and open the template in the editor.
                             </h4>
                         </legend>
                         <div class="box info">
-                            <input type="checkbox" id="sys_example" name="sys_example">Use system example
                             <ul id="foobar"></ul>
                             <div id="examples">
                                 <div class="example">
