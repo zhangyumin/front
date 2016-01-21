@@ -891,10 +891,10 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#7BA3A8";//intergenic为灰色
                 if(strand==1){
-                    context.fillRect(0,90,990,20);
+                    context.fillRect(0,50,990,20);
                 }
                 else{
-                    context.fillRect(10,90,1000,20);
+                    context.fillRect(10,50,1000,20);
                 }
             }
             function arrow(id,distance,strand){
