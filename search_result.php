@@ -511,7 +511,7 @@
                                 view:{
                                     title:'jbrowse',
                                     display: function (data) {
-                                        return "<a title='click to view detail in jbrowse' target=\"_blank\" href=\"../jbrowse/?data=data/arabidopsis&amp;loc="+data.record.chr+":"+data.record.coord+"\">"+"<img src='./pic/detail.png'/></a>";
+                                        return "<a title='click to view detail in jbrowse' target=\"_blank\" href=\"../jbrowse/?data=data/"+species+"&amp;loc="+data.record.chr+":"+data.record.coord+"\">"+"<img src='./pic/detail.png'/></a>";
                                     }
                                 }
                             }
