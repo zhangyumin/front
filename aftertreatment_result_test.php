@@ -104,7 +104,25 @@
         ?>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
- 
+        <style>
+            a:link {
+        color: #5499c9;
+        text-decoration: none;
+        }
+        a:visited {
+        text-decoration: none;
+        }
+        a:hover {
+        color: #FFFFFF;
+        text-decoration: none;
+        }
+        a:active {
+        text-decoration: none;
+        }
+        .jtable{
+            margin: 0px auto;
+        }
+        </style>
 </head>
 <body onload="DelOption()">
         <?php
@@ -199,7 +217,7 @@
             </form>
             <div style="clear:both;"></div>
         </div>
-        <div id="jtable" style="overflow: auto;"></div>
+        <div id="jtable" style="overflow-x: scroll;"></div>
         <link href="src/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
         <link href="src/jtable.css" rel="stylesheet" type="text/css" />
         <script src="src/jquery-ui-1.8.16.custom.min.js" type="text/javascript" ></script>
@@ -258,7 +276,7 @@
                                         title:'gene',
                                         edit:false,
                                         display: function (data) {
-                                           return \"<a target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"&analysis=1'><span title='Get more information about this sequence' style='background-color:#0066cc;color:#FFFFFF;'>\"+data.record.gene+\"</span></a>\";
+                                           return \"<a title='click to view detail' target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"&analysis=1'>\"+data.record.gene+\"</a>\";
                                         }
                                         },
                                         gene_type:{
@@ -272,9 +290,7 @@
                                         echo "$value:{
                                                   title:'$value',
                                                   edit:false
-                                                  }";
-                                        if($key!=count($title_tmp)-2)
-                                            echo ",";
+                                                  },";
                                     }
                                 }
                             }
@@ -287,7 +303,7 @@
                                         title:'gene',
                                         edit:false,
                                         display: function (data) {
-                                           return \"<td><a target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"&analysis=1'><span title='Get more information about this sequence' style='background-color:#0066cc;color:#FFFFFF;'>\"+data.record.gene+\"</span></a></td>\";
+                                           return \"<a title='click to view detail' target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"&analysis=1'>\"+data.record.gene+\"</a>\";
                                         }
                                         },";
                                 foreach ($title_tmp as $key => $value) {
@@ -304,7 +320,7 @@
                                 echo "padj:{"
                                         . "title:'padj',"
                                         . "edit:false"
-                                        . "}";
+                                        . "},";
                             }
                             else if($_GET['result']=='switchinggene_o'){
                                 echo "gene:{
@@ -315,7 +331,7 @@
                                         title:'gene',
                                         edit:false,
                                         display: function (data) {
-                                           return \"<td><a target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"'><span title='Get more information about this sequence' style='background-color:#0066cc;color:#FFFFFF;'>\"+data.record.gene+\"</span></a></td>\";
+                                           return \"<a title='click to view detail' target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"'>\"+data.record.gene+\"</a>\";
                                         }
                                         },";
                                 echo "average_PAT:{
@@ -337,7 +353,7 @@
                                 echo "switching:{
                                           title:'switching',
                                           edit:false
-                                          }";
+                                          },";
                             }
                             else if($_GET['result']=='switchinggene_n'){
                                 echo "gene:{
@@ -348,7 +364,7 @@
                                         title:'gene',
                                         edit:false,
                                         display: function (data) {
-                                           return \"<td><a target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"&analysis=1'><span title='Get more information about this sequence' style='background-color:#0066cc;color:#FFFFFF;'>\"+data.record.gene+\"</span></a></td>\";
+                                           return \"<a title='click to view detail' target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"&analysis=1'>\"+data.record.gene+\"</a>\";
                                         }
                                         },";
                                 foreach ($title_tmp as $key => $value) {
@@ -365,9 +381,30 @@
                                      echo "switching_type:{"
                                         . "title:'switchinge type',"
                                         . "edit:false"
-                                        . "}";
+                                        . "},";
                                 }
                             ?>
+                            detail:{
+                                title:'view',
+                                display: function (data) {
+                                    if(data.record.ftr=='intergenic.igt' || data.record.ftr=='intergenic.pm'){
+                                        if(data.record.strand=='-'){
+                                            return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=-1&flag=intergenic&coord="+data.record.coord+"\"><img align='center' src='./pic/browser.png'/></a>";
+                                        }
+                                        else
+                                            return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=1&flag=intergenic&coord="+data.record.coord+"\"><img align='center' src='./pic/browser.png'/></a>";
+                                    }
+                                    else{
+                                        return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"\"><img align='center' src='./pic/browser.png'/></a>";
+                                    }
+                                }
+                            },
+                            view:{
+                                title:'jbrowse',
+                                display: function (data) {
+                                    return "<a title='click to view detail in jbrowse' target=\"_blank\" href=\"../jbrowse/?data=data/"+species+"&amp;loc="+data.record.chr+":"+data.record.coord+"\">"+"<img src='./pic/detail.png'/></a>";
+                                }
+                            }
                         }
                     });
                     $('#jtable').jtable('load');
@@ -382,8 +419,8 @@
                         e.preventDefault();
                                 $('#jtable').jtable('load');
                             });
-                    if($(".jtable").width()>960)
-                        $(".jtable-title").width($(".jtable").width()+40);
+//                    if($(".jtable tbody").width()>960)
+//                        $(".jtable-title").width($(".jtable tbody").width());
                 });
             </script>
     </div>
