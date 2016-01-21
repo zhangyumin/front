@@ -15,17 +15,21 @@
     <style type="text/css">
         .STYLE1 {font-size: 12px}
         a:link {
-        color: #FFFFFF;
+        color: #5499c9;
         text-decoration: none;
         }
         a:visited {
         text-decoration: none;
         }
         a:hover {
+        color: #FFFFFF;
         text-decoration: none;
         }
         a:active {
         text-decoration: none;
+        }
+        .jtable{
+            margin: 0px auto;
         }
     </style>
     <body>
@@ -453,30 +457,28 @@
                                 listAction:'Search_PAClist.php'
                             },
                             fields:{
-                                view:{
-                                    title:'View',
-                                    display: function (data) {
-                                        return "<a target=\"_blank\" href=\"../jbrowse/?data=data/arabidopsis&amp;loc="+data.record.chr+":"+data.record.coord+"\">"+"<span title=\"View the sequence in Jbrowse\" style=\"background-color:#0066cc;color:#FFFFFF;\">View</span></a>";
-                                    }
-                                },
                                 gene:{
                                     key:true,
                                     edit:false,
                                     create:false,
                                     columnResizable:false,
                                     title:'gene',
-                                    edit:false
+                                    edit:false,
+                                    display: function (data) {
+                                        if(data.record.ftr=='intergenic.igt' || data.record.ftr=='intergenic.pm'){
+                                            if(data.record.strand=='-'){
+                                                return "<a target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=-1&flag=intergenic&coord="+data.record.coord+"\">"+data.record.gene+"</a>";
+                                            }
+                                            else
+                                                return "<a target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=1&flag=intergenic&coord="+data.record.coord+"\">"+data.record.gene+"</a>";
+                                        }
+                                        else{
+                                            return "<a target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"\">"+data.record.gene+"</a>";
+                                        }
+                                    }
                                 },
                                 chr:{
-                                    title:'chr',
-                                    edit:false
-                                },
-                                ftr_start:{
-                                    title:'ftr_start',
-                                    edit:false
-                                },
-                                ftr_end:{
-                                    title:'ftr_end',
+                                    title:'chromosome',
                                     edit:false
                                 },
                                 strand:{
@@ -484,26 +486,32 @@
                                     edit:false
                                 },
                                 ftr:{
-                                    title:'ftr',
+                                    title:'genomic region',
                                     edit:false
                                 },
                                 gene_type:{
-                                    title:'gene_type',
+                                    title:'gene type',
                                     edit:false
                                 },
                                 detail:{
-                                    title:'Detail',
+                                    title:'view',
                                     display: function (data) {
                                         if(data.record.ftr=='intergenic.igt' || data.record.ftr=='intergenic.pm'){
                                             if(data.record.strand=='-'){
-                                                return "<a target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=-1&flag=intergenic&coord="+data.record.coord+"\"><span title=\"Get more information about this sequence\" style=\"background-color:#0066cc;color:#FFFFFF;\">Detail</span></a>";
+                                                return "<a target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=-1&flag=intergenic&coord="+data.record.coord+"\"><img align='center' src='./pic/browser.png'/></a>";
                                             }
                                             else
-                                                return "<a target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=1&flag=intergenic&coord="+data.record.coord+"\"><span title=\"Get more information about this sequence\" style=\"background-color:#0066cc;color:#FFFFFF;\">Detail</span></a>";
+                                                return "<a target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=1&flag=intergenic&coord="+data.record.coord+"\"><img align='center' src='./pic/browser.png'/></a>";
                                         }
                                         else{
-                                            return "<a target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"\"><span title=\"Get more information about this sequence\" style=\"background-color:#0066cc;color:#FFFFFF;\">Detail</span></a>";
+                                            return "<a target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"\"><img align='center' src='./pic/browser.png'/></a>";
                                         }
+                                    }
+                                },
+                                view:{
+                                    title:'jbrowse',
+                                    display: function (data) {
+                                        return "<a target=\"_blank\" href=\"../jbrowse/?data=data/arabidopsis&amp;loc="+data.record.chr+":"+data.record.coord+"\">"+"<img src='./pic/detail.png'/></a>";
                                     }
                                 }
                             }
