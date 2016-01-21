@@ -374,9 +374,9 @@ and open the template in the editor.
 //                info("#F35A4A",600,"amb","gene");
 //                info("#9FE0F6",700,"3'utr extend","gene");
 //                    info("#42A881",50,"utr","gene");//utr为绿色
-                    info("#878787",250,"Extended 3'UTR","gene");//3utr extend为灰色
+//                    info("#878787",250,"Extended 3'UTR","gene");//3utr extend为灰色
 //                    info("#00ABD8",350,"cds&exon","gene");//cds和exon为蓝色
-                    info("#9FE0F6",500,"AMB","gene");//amb为浅蓝色
+//                    info("#9FE0F6",500,"AMB","gene");//amb为浅蓝色
 //                    info("#42A881",650,"3'utr","gene");
 //                line("gene");
 //                line("no_extend");
@@ -644,24 +644,24 @@ and open the template in the editor.
                 context.beginPath();
                 context.strokeStyle="#000000";
                context.fillStyle="#000000";//x刻度尺为黑色
-                context.moveTo(0,60);
-                context.lineTo(1000,60);
-                context.moveTo(0,60);
-                context.lineTo(5,55);
-                context.moveTo(0,60);
-                context.lineTo(5,65);
-                context.moveTo(1000,60);
-                context.lineTo(995,55);
-                context.moveTo(1000,60);
-                context.lineTo(995,65);
+                context.moveTo(0,20);
+                context.lineTo(1000,20);
+                context.moveTo(0,20);
+                context.lineTo(5,15);
+                context.moveTo(0,20);
+                context.lineTo(5,25);
+                context.moveTo(1000,20);
+                context.lineTo(995,15);
+                context.moveTo(1000,20);
+                context.lineTo(995,25);
                 context.font="12px sans-serif";
                 start=<?php echo $gene_start;?>;
                 end=<?php echo $gene_end;?>;
-                context.fillText("start:"+start,15,75);
-                context.fillText(end+":end",915,75);
+                context.fillText("start:"+start,15,35);
+                context.fillText(end+":end",915,35);
                 for(i=1;i<10;i++){
                     x=<?php echo round(($gene_end-$gene_start)/10); ?>;
-                    context.fillText(start+x*i,100*i-20,55);
+                    context.fillText(start+x*i,100*i-20,15);
                 }
                 context.stroke();
             }
@@ -673,7 +673,7 @@ and open the template in the editor.
                 context.fillStyle="#BEAD92";//x
                 if(type=='title'){
                     for(i=1;i<10;i++){
-                        context.moveTo(100*i,60);
+                        context.moveTo(100*i,20);
                         context.lineTo(100*i,150);
                     }
                 }
@@ -707,13 +707,13 @@ and open the template in the editor.
 //                context.fillStyle="#ff0000";//3utr为绿色
                 context.fillStyle="#00ABD8";
                 if(endpos==end&&strand==1){
-                    context.fillRect(startpos,95,endpos-startpos-10,10);
+                    context.fillRect(startpos,55,endpos-startpos-10,10);
                 }
                 else if(startpos==start&&strand==-1){
-                    context.fillRect(startpos+10,95,endpos-startpos,10);
+                    context.fillRect(startpos+10,55,endpos-startpos,10);
                 }
                 else{
-                    context.fillRect(startpos,95,endpos-startpos,10);
+                    context.fillRect(startpos,55,endpos-startpos,10);
                 }
             }
             function sutr_shorten(startpos,endpos,start,end,strand,id){
@@ -737,13 +737,13 @@ and open the template in the editor.
 //                context.fillStyle="#1c86ee";//3utr_extend为蓝色
                 context.fillStyle="#878787"
                 if(endpos==end&&strand==1){
-                    context.fillRect(startpos,95,endpos-startpos-10,10);
+                    context.fillRect(startpos,55,endpos-startpos-10,10);
                 }
                 else if(startpos==start&&strand==-1){
-                    context.fillRect(startpos+10,95,endpos-startpos-10,10);
+                    context.fillRect(startpos+10,55,endpos-startpos-10,10);
                 }
                 else{
-                    context.fillRect(startpos,95,endpos-startpos,10);
+                    context.fillRect(startpos,55,endpos-startpos,10);
                 }
             }
             function wutr(startpos,endpos,start,end,strand,id){
@@ -751,13 +751,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#00ABD8";//5utr为绿色
                 if(endpos==end&&strand==1){
-                    context.fillRect(startpos,95,endpos-startpos-10,10);
+                    context.fillRect(startpos,55,endpos-startpos-10,10);
                 }
                 else if(startpos==start&&strand==-1){
-                    context.fillRect(startpos+10,95,endpos-startpos-10,10);
+                    context.fillRect(startpos+10,55,endpos-startpos-10,10);
                 }
                 else{
-                    context.fillRect(startpos,95,endpos-startpos,10);
+                    context.fillRect(startpos,55,endpos-startpos,10);
                 }
             }
             function wutr_shorten(startpos,endpos,start,end,strand,id){
@@ -779,13 +779,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#00ABD8";//cds为蓝色
                 if(endpos==end&&strand==1){
-                    context.fillRect(startpos,90,endpos-startpos-10,20);
+                    context.fillRect(startpos,50,endpos-startpos-10,20);
                 }
                 else if(startpos==start&&strand==-1){
-                    context.fillRect(startpos+10,90,endpos-startpos-10,20);
+                    context.fillRect(startpos+10,50,endpos-startpos-10,20);
                 }
                 else{
-                    context.fillRect(startpos,90,endpos-startpos,20);
+                    context.fillRect(startpos,50,endpos-startpos,20);
                 }
             }
             function cds_shorten(startpos,endpos,start,end,strand,id){
@@ -807,13 +807,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#878787";//intron为黑色
                 if(endpos==end&&strand==1){
-                    context.fillRect(startpos,98,endpos-startpos-10,4);
+                    context.fillRect(startpos,58,endpos-startpos-10,4);
                 }
                 else if(startpos==start&&strand==-1){
-                    context.fillRect(startpos+10,98,endpos-startpos-10,4);
+                    context.fillRect(startpos+10,58,endpos-startpos-10,4);
                 }
                 else{
-                    context.fillRect(startpos,98,endpos-startpos,4);
+                    context.fillRect(startpos,58,endpos-startpos,4);
                 }
             }
             function intron_shorten(startpos,endpos,start,end,strand,id){
@@ -835,13 +835,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#00ABD8";//exon与cds同为蓝色
                 if(endpos==end&&strand==1){
-                    context.fillRect(startpos,90,endpos-startpos-10,20);
+                    context.fillRect(startpos,50,endpos-startpos-10,20);
                 }
                 else if(startpos==start&&strand==-1){
-                    context.fillRect(startpos+10,90,endpos-startpos-10,20);
+                    context.fillRect(startpos+10,50,endpos-startpos-10,20);
                 }
                 else{
-                    context.fillRect(startpos,90,endpos-startpos,20);
+                    context.fillRect(startpos,50,endpos-startpos,20);
                 }
             }
             function exon_shorten(startpos,endpos,start,end,strand,id){
@@ -863,13 +863,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#9FE0F6";//amb为浅蓝色
                 if(endpos==end&&strand==1){
-                    context.fillRect(startpos,90,endpos-startpos-10,20);
+                    context.fillRect(startpos,50,endpos-startpos-10,20);
                 }
                 else if(startpos==start&&strand==-1){
-                    context.fillRect(startpos+10,90,endpos-startpos-10,20);
+                    context.fillRect(startpos+10,50,endpos-startpos-10,20);
                 }
                 else{
-                    context.fillRect(startpos,90,endpos-startpos,20);
+                    context.fillRect(startpos,50,endpos-startpos,20);
                 }
             }
             function amb_shorten(startpos,endpos,start,end,strand,id){
@@ -902,20 +902,20 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.beginPath();
                 if(strand==1){
-                    context.moveTo(1000-distance,105);
-                    context.lineTo(1005-distance,105);
-                    context.lineTo(1010-distance,100);
-                    context.lineTo(1005-distance,95);
-                    context.lineTo(1000-distance,95);
-                    context.lineTo(1000-distance,105);
+                    context.moveTo(1000-distance,65);
+                    context.lineTo(1005-distance,65);
+                    context.lineTo(1010-distance,60);
+                    context.lineTo(1005-distance,55);
+                    context.lineTo(1000-distance,55);
+                    context.lineTo(1000-distance,65);
                 }
                 else if(strand==-1){
-                    context.moveTo(distance-10,100);
-                    context.lineTo(distance-5,105);
-                    context.lineTo(distance,105);
-                    context.lineTo(distance,95);
-                    context.lineTo(distance-5,95);
-                    context.lineTo(distance-10,100);
+                    context.moveTo(distance-10,60);
+                    context.lineTo(distance-5,65);
+                    context.lineTo(distance,65);
+                    context.lineTo(distance,55);
+                    context.lineTo(distance-5,55);
+                    context.lineTo(distance-10,60);
                 }
                 context.closePath();
                 context.fillStyle="#878787";//arrow同utr为绿色
@@ -1070,14 +1070,14 @@ and open the template in the editor.
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.beginPath();
-                context.moveTo(pos,120);
-                context.lineTo(pos-5,125);
-                context.lineTo(pos-1,125);
-                context.lineTo(pos-1,150);
-                context.lineTo(pos+1,150);
-                context.lineTo(pos+1,125);
-                context.lineTo(pos+5,125);
-                context.lineTo(pos,120);
+                context.moveTo(pos,80);
+                context.lineTo(pos-5,85);
+                context.lineTo(pos-1,85);
+                context.lineTo(pos-1,110);
+                context.lineTo(pos+1,110);
+                context.lineTo(pos+1,85);
+                context.lineTo(pos+5,85);
+                context.lineTo(pos,80);
                 context.closePath();
                 if(key == 'none'){
                     context.strokeStyle="#808a87";
@@ -1108,7 +1108,7 @@ and open the template in the editor.
         </script>
     </head>
     <body style="width:1000px;font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;">
-        <div id="button" style="width:1000px;">
+        <div id="button" style="width:1200px;">
             <input type="radio" name="display" value="origin" checked="checked" onchange="reset($(this).val())"/>individual
             <div class="origind" style="display: inline;">
                  <select id="origin"   multiple="multiple" placeholder="Select to display" onchange="getname($(this).children(':selected'))" class="okbutton">
@@ -1140,6 +1140,8 @@ and open the template in the editor.
                     ?>
                 </select>
             </div>
+            &nbsp;&nbsp;<span style="text-align:center;background-color: #878787">&nbsp;&nbsp;&nbsp;&nbsp;</span>Extended 3'UTR
+            &nbsp;<span style="text-align:center;background-color:#9FE0F6">&nbsp;&nbsp;&nbsp;&nbsp;</span>AMB
         </div>
         <script>
             $(document).ready(function () {
@@ -1212,7 +1214,7 @@ and open the template in the editor.
                     window.location.href=url.substring(0,loc)+"pac="+select.toString();
             }
         </script>
-        <canvas id="gene" width="1150px;" height="150px;"></canvas><br>
+        <canvas id="gene" width="1150px;" height="100px;"></canvas><br>
         <canvas id='no_extend' width="1150px" height="40px;"></canvas><br>
         <?php
             for($i=1;$i<=$num;$i++){
