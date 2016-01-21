@@ -224,12 +224,12 @@ and open the template in the editor.
                 echo "var genelength=$genelength;";
             ?>
             window.onload = function(){
-                info("#42A881",100,"3'utr","gene");
-                info("#8C5E4D",200,"5'utr","gene");
-                info("#00ABD8",300,"cds","gene");
-                info("#D390B9",400,"intron","gene");
-                info("#65D97D",500,"exon","gene");
-                info("#F35A4A",600,"amb","gene");
+//                info("#42A881",100,"3'utr","gene");
+//                info("#8C5E4D",200,"5'utr","gene");
+//                info("#00ABD8",300,"cds","gene");
+//                info("#D390B9",400,"intron","gene");
+//                info("#65D97D",500,"exon","gene");
+//                info("#F35A4A",600,"amb","gene");
                 xline("gene",100);
                 <?php
                     foreach ($sutr_start as $key => $value) {
@@ -357,7 +357,7 @@ and open the template in the editor.
             function sutr(startpos,endpos,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#42A881";//3utr为红色
+                context.fillStyle="#00ABD8";//3utr为红色
                 if(endpos==1000&&strand==1){
                     context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
@@ -371,7 +371,7 @@ and open the template in the editor.
             function wutr(startpos,endpos,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#8C5E4D";//5utr为zise
+                context.fillStyle="#00ABD8";//5utr为zise
                 if(endpos==1000&&strand==1){
                     context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
@@ -399,21 +399,21 @@ and open the template in the editor.
             function intron(startpos,endpos,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#D390B9";//intron为黑色
+                context.fillStyle="#878787";//intron为黑色
                 if(endpos==1000&&strand==1){
-                    context.fillRect(startpos,95,endpos-startpos-10,10);
+                    context.fillRect(startpos,95,endpos-startpos-10,4);
                 }
                 else if(startpos==0&&strand==-1){
-                    context.fillRect(startpos+10,95,endpos-startpos-10,10);
+                    context.fillRect(startpos+10,98,endpos-startpos-10,4);
                 }
                 else{
-                    context.fillRect(startpos,95,endpos-startpos,10);
+                    context.fillRect(startpos,98,endpos-startpos,4);
                 }
             }
             function exon(startpos,endpos,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#65D97D";//exon为黄色
+                context.fillStyle="#00ABD8";//exon为黄色
                 if(endpos==1000&&strand==1){
                     context.fillRect(startpos,90,endpos-startpos-10,20);
                 }
@@ -471,7 +471,7 @@ and open the template in the editor.
                     context.lineTo(0,100);
                 }
                 context.closePath();
-                context.fillStyle="#878787";
+                context.fillStyle="#00ABD8";
                 context.fill();
             }
             
@@ -525,6 +525,8 @@ and open the template in the editor.
                 </select>
             </div>
             <input id="ratiobutton" type="checkbox" name="ratio" value="ratio" onclick="GetRatio(this)"/>ratio
+            &nbsp;&nbsp;<span style="text-align:center;background-color: #878787">&nbsp;&nbsp;&nbsp;&nbsp;</span>Extended 3'UTR
+            &nbsp;<span style="text-align:center;background-color:#9FE0F6">&nbsp;&nbsp;&nbsp;&nbsp;</span>AMB
         </div>
         <script>
             $(document).ready(function () {
