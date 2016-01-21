@@ -366,13 +366,18 @@ and open the template in the editor.
                 echo "var genelength=$genelength;";
             ?>
             window.onload = function(){
-                info("#42A881",100,"3'utr","gene");
-                info("#8C5E4D",200,"5'utr","gene");
-                info("#00ABD8",300,"cds","gene");
-                info("#D390B9",400,"intron","gene");
-                info("#65D97D",500,"exon","gene");
-                info("#F35A4A",600,"amb","gene");
-                info("#9FE0F6",700,"3'utr extend","gene");
+//                info("#42A881",100,"3'utr","gene");
+//                info("#8C5E4D",200,"5'utr","gene");
+//                info("#00ABD8",300,"cds","gene");
+//                info("#D390B9",400,"intron","gene");
+//                info("#00ABD8",500,"exon","gene");
+//                info("#F35A4A",600,"amb","gene");
+//                info("#9FE0F6",700,"3'utr extend","gene");
+//                    info("#42A881",50,"utr","gene");//utr为绿色
+                    info("#878787",250,"Extended 3'UTR","gene");//3utr extend为灰色
+//                    info("#00ABD8",350,"cds&exon","gene");//cds和exon为蓝色
+                    info("#9FE0F6",500,"AMB","gene");//amb为浅蓝色
+//                    info("#42A881",650,"3'utr","gene");
 //                line("gene");
 //                line("no_extend");
                 grid("no_extend","1");
@@ -699,8 +704,8 @@ and open the template in the editor.
             function sutr(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-//                context.fillStyle="#ff0000";//3utr为红色
-                context.fillStyle="#42A881";
+//                context.fillStyle="#ff0000";//3utr为绿色
+                context.fillStyle="#00ABD8";
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
@@ -715,7 +720,7 @@ and open the template in the editor.
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
 //                context.fillStyle="#ff0000";//3utr为红色
-                context.fillStyle="#42A881";
+                context.fillStyle="#00ABD8";
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,15,endpos-startpos-10,10);
                 }
@@ -730,7 +735,7 @@ and open the template in the editor.
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
 //                context.fillStyle="#1c86ee";//3utr_extend为蓝色
-                context.fillStyle="#9FE0F6"
+                context.fillStyle="#878787"
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
@@ -744,7 +749,7 @@ and open the template in the editor.
             function wutr(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#8C5E4D";//5utr为zise
+                context.fillStyle="#00ABD8";//5utr为绿色
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,95,endpos-startpos-10,10);
                 }
@@ -758,7 +763,7 @@ and open the template in the editor.
             function wutr_shorten(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#8C5E4D";//5utr为zise
+                context.fillStyle="#00ABD8";//5utr为zise
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,15,endpos-startpos-10,10);
                 }
@@ -772,7 +777,7 @@ and open the template in the editor.
             function cds(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#00ABD8";//cds为绿色
+                context.fillStyle="#00ABD8";//cds为蓝色
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,90,endpos-startpos-10,20);
                 }
@@ -800,35 +805,35 @@ and open the template in the editor.
             function intron(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#D390B9";//intron为黑色
+                context.fillStyle="#878787";//intron为黑色
                 if(endpos==end&&strand==1){
-                    context.fillRect(startpos,95,endpos-startpos-10,10);
+                    context.fillRect(startpos,98,endpos-startpos-10,4);
                 }
                 else if(startpos==start&&strand==-1){
-                    context.fillRect(startpos+10,95,endpos-startpos-10,10);
+                    context.fillRect(startpos+10,98,endpos-startpos-10,4);
                 }
                 else{
-                    context.fillRect(startpos,95,endpos-startpos,10);
+                    context.fillRect(startpos,98,endpos-startpos,4);
                 }
             }
             function intron_shorten(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#D390B9";//intron为黑色
+                context.fillStyle="#878787";//intron为黑色
                 if(endpos==end&&strand==1){
-                    context.fillRect(startpos,15,endpos-startpos-10,10);
+                    context.fillRect(startpos,18,endpos-startpos-10,4);
                 }
                 else if(startpos==start&&strand==-1){
-                    context.fillRect(startpos+10,15,endpos-startpos-10,10);
+                    context.fillRect(startpos+10,18,endpos-startpos-10,4);
                 }
                 else{
-                    context.fillRect(startpos,15,endpos-startpos,10);
+                    context.fillRect(startpos,18,endpos-startpos,4);
                 }
             }
             function exon(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#65D97D";//exon为黄色
+                context.fillStyle="#00ABD8";//exon与cds同为蓝色
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,90,endpos-startpos-10,20);
                 }
@@ -842,7 +847,7 @@ and open the template in the editor.
             function exon_shorten(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#65D97D";//exon为黄色
+                context.fillStyle="#00ABD8";//exon与cds同为蓝色
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,10,endpos-startpos-10,20);
                 }
@@ -856,7 +861,7 @@ and open the template in the editor.
             function amb(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#F35A4A";//amb为兰色
+                context.fillStyle="#9FE0F6";//amb为浅蓝色
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,90,endpos-startpos-10,20);
                 }
@@ -870,7 +875,7 @@ and open the template in the editor.
             function amb_shorten(startpos,endpos,start,end,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#F35A4A";//amb为兰色
+                context.fillStyle="#9FE0F6";//amb为浅蓝色
                 if(endpos==end&&strand==1){
                     context.fillRect(startpos,10,endpos-startpos-10,20);
                 }
@@ -913,7 +918,7 @@ and open the template in the editor.
                     context.lineTo(distance-10,100);
                 }
                 context.closePath();
-                context.fillStyle="#878787";
+                context.fillStyle="#878787";//arrow同utr为绿色
                 context.fill();
             }
             function shorten_arrow(id,start,end,strand){
@@ -937,7 +942,7 @@ and open the template in the editor.
                     context.lineTo(start,20);
                 }
                 context.closePath();
-                context.fillStyle="#878787";
+                context.fillStyle="#00ABD8";
                 context.fill();
             } 
             function pa(loc,tagnum,key,id){
@@ -1121,8 +1126,8 @@ and open the template in the editor.
                      <option value="avg">average</option>
                      <option value="med">median</option>
                 </select>
-            </div>
-            <div class="pacd" style="display: inline;float: right">Highlight PAC
+            </div>&nbsp;
+            <div class="pacd" style="display: inline;">Highlight PAC
                 <select id="pac"   multiple="multiple" placeholder="Select to display" onchange="showpa($(this).children(':selected'))" class="okbutton">
                     <?php
 //                        sort($pac_num);
