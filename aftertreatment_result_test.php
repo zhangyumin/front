@@ -258,7 +258,7 @@
                                         title:'gene',
                                         edit:false,
                                         display: function (data) {
-                                           return \"<td><a target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"&analysis=1'><span title='Get more information about this sequence' style='background-color:#0066cc;color:#FFFFFF;'>\"+data.record.gene+\"</span></a></td>\";
+                                           return \"<a target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"&analysis=1'><span title='Get more information about this sequence' style='background-color:#0066cc;color:#FFFFFF;'>\"+data.record.gene+\"</span></a>\";
                                         }
                                         },
                                         gene_type:{
@@ -370,7 +370,6 @@
                             ?>
                         }
                     });
-
                     $('#jtable').jtable('load');
                     $('#filter').appendTo(".jtable-title").addClass('filter_class');
                     $('#search_button').click(function (e){
@@ -383,6 +382,8 @@
                         e.preventDefault();
                                 $('#jtable').jtable('load');
                             });
+                    if($(".jtable").width()>960)
+                        $(".jtable-title").width($(".jtable").width()+40);
                 });
             </script>
     </div>
