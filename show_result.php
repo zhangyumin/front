@@ -331,7 +331,7 @@
                     strand:{
                         title:'strand',
                         edit:false,
-                        width:'10%'
+                        width:'5%'
                     },
                     coord:{
                         title:'coordinate',
