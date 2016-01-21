@@ -391,7 +391,7 @@
     </script>
     <!--Step:1 为ECharts准备一个具备大小（宽高）的Dom-->  
     <div id="ATCG" style="height:500px;border:1px solid #ccc;padding:10px;"></div>
-    <div id="k6" style="height:600px;border:1px solid #ccc;padding:10px;"></div>
+    <div id="k6" style="height:800px;border:1px solid #ccc;padding:10px;"></div>
     
     <!--Step:2 引入echarts.js-->  
     <script src="src/dist/echarts.js"></script>  
@@ -425,8 +425,8 @@
                 title: {  
                     //主标题文本，'\n'指定换行  
                     text: 'Single Nucleotide Compositions', 
-                    subtext: 'exon',
-                    x: 'left',  
+//                    subtext: 'exon',
+                    x: 'center',  
                     //垂直安放位置，默认为全图顶端，可选为：'top' | 'bottom' | 'center' | {number}（y坐标，单位px）  
                     y: 'top'  
                 },  
@@ -440,7 +440,7 @@
                     //显示策略，可选为：true（显示） | false（隐藏），默认值为true  
                     show: true,  
                     //水平安放位置，默认为全图居中，可选为：'center' | 'left' | 'right' | {number}（x坐标，单位px）  
-                    x: 'center',  
+                    x: 'right',  
                     //垂直安放位置，默认为全图顶端，可选为：'top' | 'bottom' | 'center' | {number}（y坐标，单位px）  
                     y: 'top',  
                     //legend的data: 用于设置图例，data内的字符串数组需要与sereis数组内每一个series的name值对应  
@@ -602,9 +602,9 @@
             var option1 = {  
                 title: {  
                     text: 'Hexamers', 
-                    subtext: 'exon',
-                    x: 'left',  
-                    y: 'top'  
+//                    subtext: 'exon',
+                    x: 'center',  
+                    y: '100'  
                 },  
                 tooltip: {  
                     trigger: 'item'  
