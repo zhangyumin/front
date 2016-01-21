@@ -39,7 +39,7 @@
                 padding: 0px 8px;
             }
             .slider{
-                width: 1000px;
+                width: 700px;
             }
             #text{
                 padding-top: 20px;
@@ -404,6 +404,22 @@
                 });
                  $('#reset').click(function(){
                     clear();
+                });
+                $("#annotation-select").click(function(){
+                    var clk = $("#annotation-select").val();
+                    if(clk =="checkall"){
+                        $('#annotation-select').val('uncheck');
+                        $("input[name=cbox2]:checked").each(function(){ 
+                            this.checked = false;
+                        }); 
+                    } 
+                    else if(clk == "uncheck")
+                    {
+                        $('#annotation-select').val('checkall');
+                        $("input[name=cbox2]").each(function(){ 
+                            this.checked = true;
+                        }); 
+                    }
                 });
                 $('#checkall').click(function(){
                     var value = $('#checkall').val();
@@ -915,7 +931,7 @@
                 </legend>
                 <div class = "seq_viewer" id="seq_viewer">
                     <div id = "pattern">	
-                        <span class="h3_italic">Typical Pattern</span>&nbsp;<span class='patt2' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        <span class="h3_italic">Typical Pattern</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <!--                            <table style="width:950px;margin-top:10px;margin-bottom:10px;font-family: Courier New;font-size: 15px;">
                                 <?php
 //                                echo "<tr>";
@@ -934,7 +950,7 @@
                             </table>-->
                             <input type="checkbox" name="cbox" value="AATAAA"/><font class="patt_text">AATAAA</font>&nbsp;<span class='aat' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <input type="checkbox" name="cbox" value="TGTAA"/><font class="patt_text">TGTAA</font>&nbsp;<span class='tgt' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <font class="patt_text">Others</font>&nbsp;&nbsp;&nbsp;&nbsp;<select id="other_patt"   multiple="multiple" placeholder="Select to display" class="okbutton" >
+                            <font class="patt_text">Others</font>&nbsp;<span class='patt2' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;<select id="other_patt"   multiple="multiple" placeholder="Select to display" class="okbutton" >
                                     <option selected value='CATAAA'>CATAAA</option>
                                     <option selected value='GATAAA'>GATAAA</option>
                                     <option selected value='ATTAAA'>ATTAAA</option>
@@ -953,11 +969,11 @@
                                     <option selected value='AATAAG'>AATAAG</option>
                                 </select>
                             <br><br>
-                            <span class="h3_italic">User’s Pattern</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class='patt1' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;(Ex. AATAAA, TGTAAA)
-                            &nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" id = "user_pattern" style="margin-top:10px;margin-bottom:10px;width:217px;height: 25px"/>
+                                    <span class="h3_italic">User’s Pattern</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='patt1' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <input type = "text" id = "user_pattern" style="margin-top:10px;margin-bottom:10px;width:217px;height: 25px"/>(Ex. AATAAA, TGTAAA)
                             <br>
-                            <div class="slider"></div>
-                            <legend id='text'><span class="h3_italic">Annotation</span><br>
+                            <div style="float: left;margin-right: 20px;">Search</div><div class="slider" style="float:left"></div><div style="float: left;margin-left: 20px;">around PAC</div>
+                            <legend id='text' style="clear:both"><span class="h3_italic">Annotation</span>&nbsp;&nbsp;&nbsp;<input type="checkbox" id='annotation-select' value="uncheck"/>all<br>
                                 <div style="padding:10px 0px;font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif">
                                     <input type="checkbox" name="cbox2" value="EXT"/><span class='extend' style="text-align:center;">Extended 3'UTR</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <input type="checkbox" name="cbox2" value="UTR"/><span class='sutr' style="text-align:center;">UTR</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
