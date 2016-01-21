@@ -19,7 +19,25 @@
                  mysql_select_db("db_server",$con);
                  session_start();
     ?>
-
+    <style>
+        a:link {
+        color: #5499c9;
+        text-decoration: none;
+        }
+        a:visited {
+        text-decoration: none;
+        }
+        a:hover {
+        color: #FFFFFF;
+        text-decoration: none;
+        }
+        a:active {
+        text-decoration: none;
+        }
+        .jtable{
+            margin: 0px auto;
+        }
+    </style>
 </head>
 <body>
     <?php
@@ -248,6 +266,7 @@
     <script src="src/jquery-ui-1.8.16.custom.min.js" type="text/javascript" ></script>
     <script src="src/jquery.jtable.js" type="text/javascript" ></script>
     <script type="text/javascript">
+        var species = '<?php echo $_SESSION['species']; ?>';
          function locking(){   
            document.all.ly.style.display="block";   
            document.all.ly.style.width=document.body.clientWidth;   
@@ -287,20 +306,21 @@
                     gene:{
                         key:true,
                         edit:false,
-                        width:'30%',
+                        width:'10%',
                         create:false,
                         columnResizable:false,
-                        title:'Gene ID',
+                        title:'gene',
                         display: function (data) {
-                            var short_name = data.record.gene;
-                            if(data.record.gene.length > 30)
-                            {
-                                    short_name = data.record.gene.substr(0,30) + "...";
+                            if(data.record.ftr=='intergenic.igt' || data.record.ftr=='intergenic.pm'){
+                                if(data.record.strand=='-'){
+                                    return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=-1&flag=intergenic&coord="+data.record.coord+"\">"+data.record.gene+"</a>";
+                                }
+                                else
+                                    return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=1&flag=intergenic&coord="+data.record.coord+"\">"+data.record.gene+"</a>";
                             }
-                            if(data.record.strand=='-')
-                                return short_name + "<a target='_blank' style='display:inline;' href='./sequence_detail.php?seq="+data.record.gene+"&species=<?php echo $_SESSION['species'];  ?>' ><img src = './pic/score.png' hight='10px' width='80px' title='view PASS score' align='right' /></a><a style='display:inline;' href='../jbrowse/?data=data/<?php echo $_SESSION['file']?>&loc="+data.record.chr+":"+data.record.coord+"' target='_blank'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
-                            else if(data.record.strand=='+')
-                                return short_name + "<a target='_blank' style='display:inline;' href='./sequence_detail.php?seq="+data.record.gene+"&species=<?php echo $_SESSION['species'];  ?>' ><img src = './pic/score.png' hight='10px' width='80px' title='view PASS score' align='right' /></a><a style='display:inline;' href='../jbrowse/?data=data/<?php echo $_SESSION['file']?>&loc="+data.record.chr+":"+data.record.coord+"' target='_blank'><img src = './pic/gmap.png' hight='10' width='100' title='go to PolyA browser' align='right'/></a>";
+                            else{
+                                return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"\">"+data.record.gene+"</a>";
+                            }
                         }
                     },
                     chr:{
@@ -316,12 +336,12 @@
                     coord:{
                         title:'coordinate',
                         edit:false,
-                        width:'20%'
+                        width:'10%'
                     },
                     ftr:{
                         title:'ftr',
                         edit:false,
-                        width:'20%'
+                        width:'10%'
                     },
                      <?php
                      foreach ($_SESSION['file_real'] as $key => $value) {
@@ -331,6 +351,27 @@
                                 },";
                      }
                      ?>
+                    detail:{
+                        title:'view',
+                        display: function (data) {
+                            if(data.record.ftr=='intergenic.igt' || data.record.ftr=='intergenic.pm'){
+                                if(data.record.strand=='-'){
+                                    return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=-1&flag=intergenic&coord="+data.record.coord+"\"><img align='center' src='./pic/browser.png'/></a>";
+                                }
+                                else
+                                    return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=1&flag=intergenic&coord="+data.record.coord+"\"><img align='center' src='./pic/browser.png'/></a>";
+                            }
+                            else{
+                                return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"\"><img align='center' src='./pic/browser.png'/></a>";
+                            }
+                        }
+                    },
+                    view:{
+                        title:'jbrowse',
+                        display: function (data) {
+                            return "<a title='click to view detail in jbrowse' target=\"_blank\" href=\"../jbrowse/?data=data/"+species+"&amp;loc="+data.record.chr+":"+data.record.coord+"\">"+"<img src='./pic/detail.png'/></a>";
+                        }
+                    }
                 }
             });
 
