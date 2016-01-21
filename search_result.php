@@ -467,13 +467,13 @@
                                     display: function (data) {
                                         if(data.record.ftr=='intergenic.igt' || data.record.ftr=='intergenic.pm'){
                                             if(data.record.strand=='-'){
-                                                return "<a target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=-1&flag=intergenic&coord="+data.record.coord+"\">"+data.record.gene+"</a>";
+                                                return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=-1&flag=intergenic&coord="+data.record.coord+"\">"+data.record.gene+"</a>";
                                             }
                                             else
-                                                return "<a target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=1&flag=intergenic&coord="+data.record.coord+"\">"+data.record.gene+"</a>";
+                                                return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=1&flag=intergenic&coord="+data.record.coord+"\">"+data.record.gene+"</a>";
                                         }
                                         else{
-                                            return "<a target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"\">"+data.record.gene+"</a>";
+                                            return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"\">"+data.record.gene+"</a>";
                                         }
                                     }
                                 },
@@ -498,20 +498,20 @@
                                     display: function (data) {
                                         if(data.record.ftr=='intergenic.igt' || data.record.ftr=='intergenic.pm'){
                                             if(data.record.strand=='-'){
-                                                return "<a target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=-1&flag=intergenic&coord="+data.record.coord+"\"><img align='center' src='./pic/browser.png'/></a>";
+                                                return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=-1&flag=intergenic&coord="+data.record.coord+"\"><img align='center' src='./pic/browser.png'/></a>";
                                             }
                                             else
-                                                return "<a target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=1&flag=intergenic&coord="+data.record.coord+"\"><img align='center' src='./pic/browser.png'/></a>";
+                                                return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=1&flag=intergenic&coord="+data.record.coord+"\"><img align='center' src='./pic/browser.png'/></a>";
                                         }
                                         else{
-                                            return "<a target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"\"><img align='center' src='./pic/browser.png'/></a>";
+                                            return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"\"><img align='center' src='./pic/browser.png'/></a>";
                                         }
                                     }
                                 },
                                 view:{
                                     title:'jbrowse',
                                     display: function (data) {
-                                        return "<a target=\"_blank\" href=\"../jbrowse/?data=data/arabidopsis&amp;loc="+data.record.chr+":"+data.record.coord+"\">"+"<img src='./pic/detail.png'/></a>";
+                                        return "<a title='click to view detail in jbrowse' target=\"_blank\" href=\"../jbrowse/?data=data/arabidopsis&amp;loc="+data.record.chr+":"+data.record.coord+"\">"+"<img src='./pic/detail.png'/></a>";
                                     }
                                 }
                             }
