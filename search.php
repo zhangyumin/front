@@ -252,8 +252,8 @@ and open the template in the editor.
                                 </a>
                             </td>
                             <td>
-                                <a target="_blank" href="./search_result.php?method=fuzzy&keyword=at1g01020&species=arab">
-                                    <span title="Browse search result for 'AT1G01020'" style="background-color:#0066cc;color: #FFFFFF">View</span>
+                                <a target="_blank" href="./sequence_detail.php?species=arab&seq=AT1G01020">
+                                    <span title="Browse gene detail for 'AT1G01020'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                                 </a>
                             </td>
                             <td class="style1"  width='50' style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
@@ -371,8 +371,8 @@ and open the template in the editor.
                                 </a>
                             </td>
                             <td>
-                                <a target="_blank" href="./search_result.php?keyword=LOC_Os01g01080&species=japonica&method=fuzzy">
-                                    <span title="Browse search result for 'LOC_Os01g01080'" style="background-color:#0066cc;color: #FFFFFF">View</span>
+                                <a target="_blank" href="./sequence_detail.php?seq=LOC_Os01g01080&species=japonica">
+                                    <span title="Browse gene detail for 'LOC_Os01g01080'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                                 </a>
                             </td>
                             <td class="style1" width='50' style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
@@ -428,8 +428,8 @@ and open the template in the editor.
                                 </a>
                             </td>
                             <td>
-                                <a target="_blank" href="./search_result.php?keyword=Medtr0019s0160&species=mtr&method=fuzzy">
-                                    <span title="Browse search result for 'Medtr0019s0160'" style="background-color:#0066cc;color: #FFFFFF">View</span>
+                                <a target="_blank" href="./sequence_detail.php?seq=Medtr0019s0160&species=mtr">
+                                    <span title="Browse gene detail for 'Medtr0019s0160'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                                 </a>
                             </td>
                             <td class="style1" width='50' style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
@@ -487,8 +487,8 @@ and open the template in the editor.
                                 </a>
                             </td>
                             <td>
-                                <a target="_blank" href="./search_result.php?keyword=Cre01.g000650&species=chlamy&method=fuzzy">
-                                    <span title="Browse search result for 'Cre01.g000650'" style="background-color:#0066cc;color: #FFFFFF">View</span>
+                                <a target="_blank" href="./sequence_detail.php?seq=Cre01.g000650&species=chlamy">
+                                    <span title="Browse gene detail for 'Cre01.g000650'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                                 </a>
                             </td>
                             <td class="style1" width='50' style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
