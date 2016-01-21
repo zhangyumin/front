@@ -989,7 +989,7 @@
                             <br>
                             <button id = "find_patt" style="width:100px;"  class = "button blue medium">Show</button>
                             <button id = "reset" style = "width:100px;"  class = "button blue medium">Clear</button>
-                            <hr style="border-color:#5499c9"></hr>
+                            <hr></hr>
                     </div>
                     <div id = "seq_content" style="max-height:400px;overflow:auto;margin-top:20px;font-family: Courier New;font-size: 15px;">
                         <p class="scale" style="margin:0px;">
