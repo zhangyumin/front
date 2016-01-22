@@ -430,13 +430,12 @@
             </fieldset>
             <br><br>-->
             <div class="filter" id="filter">
-                    <button onclick="javascript:window.location.href='./download_data.php?type=4&name=Search_<?php echo $_SESSION['search']; ?>.txt'">download search result</button>
-                    <button onclick="locking()">export sequences</button>
                     <form>
-                        <input type="text" name="search" id="search" />
-                        <button type="submit" id="search_button">search</button>
-                        <button type="reset" id="reset_button">reset</button>
+                        <input type="text" name="search" id="search" style="height:26px"/>
+                        <button title="search" type="submit" id="search_button"><img src="./pic/search.png"/></button>
                     </form>
+                    <button onclick="javascript:window.location.href='./download_data.php?type=4&name=Search_<?php echo $_SESSION['search']; ?>.txt'"><img src="./pic/download.png"/></button>
+                    <button onclick="locking()"><img style="height:23px" src="./pic/export.png"/></button>
                     <div style="clear:both;"></div>
             </div>
 
