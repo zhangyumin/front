@@ -104,13 +104,15 @@
             include './navbar.php'
         ?>
     
-    <div id="task_summery" align="center" style="clear: both;">
+    <div id="task_summery" style="clear: both;">
         <fieldset class="summary">
-            <h4>
-                <span class="h3_italic">
-                    <font color="#224055"><b>Task Summary</b></font>
-                </span>
-            </h4>
+            <legend>
+                <h4>
+                    <span class="h3_italic">
+                        <font color="#224055"><b>Task Summary</b></font>
+                    </span>
+                </h4>
+            </legend>
                 <?php
                     $file=  file_get_contents("./log/".$_SESSION['file'].".txt");
                     $array_file=  explode("\n", $file);
@@ -140,23 +142,19 @@
                             break;
                     }
                     foreach ($array_file as $key => $value) {
-                        $array_pat=  strstr($value,  "rows to db_user.PA_".$_SESSION['file']."",true);
+                        $array_pat=  strstr($value,  "Total",true);
                         if( $array_pat!=false)
                             break;
                     }
-                    foreach ($array_file as $key => $value) {
-                        $array_pac=  strstr($value, ' PAC',true);
-                        if( $array_pac!=false)
-                            break;
-                    }
+                    $array_pat = mysql_fetch_row(mysql_query("select count(chr) from db_user.PA_".$_SESSION['file'].""));
+                    $array_pac = mysql_fetch_row(mysql_query("select count(chr) from db_user.PAC_".$_SESSION['file'].""));
+                    
                     //var_dump($array_input);
                     $array_input=explode(" ",$array_input);
                     $array_discard=explode(" ",$array_discard);
                     $array_tail=explode(" ",$array_tail);
                     $array_read=explode(" ",$array_read);
                     $array_internal=explode(" ",$array_internal);
-                    $array_pat=explode(" ",$array_pat);
-                    $array_pac=explode(" ",$array_pac);
 
                     $input_reads=$array_input[1];
                     $low_quality_reads=$array_discard[1];
@@ -168,18 +166,79 @@
                     $internal_priming_reads=$array_internal[1];
                     $pat=$array_pat[0];
                     $pac=$array_pac[0];
-                    
-                    echo "<span style=\"color:red\">Task id :".$_SESSION['file']."</span><br>";
-                    echo "Input reads : $input_reads";
-                    echo "<br>Low quality reads : $low_quality_reads";
-                    echo "<br>Reads with tail : $reads_with_tail";
-                    echo "<br>Aligned reads : $aligned_reads";
-                    echo "<br>Alignment rate : $alignment_rate";
-                    echo "<br>Internal priming reads : $internal_priming_reads";
-                    echo "<br>PAT : $pat";
-                    echo "<br>PAC : $pac";
-                    echo "<a style='display:block;text-align:right;color:red;' href='./download.php?data=".$_SESSION['file']."'>Click to download results</a>";
                 ?>
+<!--            <table style="font-size: 15px;TABLE-LAYOUT:fixed;WORD-WRAP:break_word;">
+                <tbody>
+                    <tr>
+                        <td style="width:20%;font-weight:bold;" bgcolor="#e1e1e1">Task id</td>
+                        <td><?php // echo $_SESSION['file']?></td>
+                    </tr>
+                    <tr>
+                        <td style="width:20%;font-weight:bold;" bgcolor="#e1e1e1">Input reads</td>
+                        <td><?php // echo $input_reads ?></td>
+                    </tr>
+                    <tr>
+                        <td style="width:20%;font-weight:bold;" bgcolor="#e1e1e1">Low quality reads</td>
+                        <td><?php // echo $low_quality_reads ?></td>
+                    </tr>
+                    <tr>
+                        <td style="width:20%;font-weight:bold;" bgcolor="#e1e1e1">Reads with tail</td>
+                        <td><?php // echo $reads_with_tail?></td>
+                    </tr>
+                    <tr>
+                        <td style="width:20%;font-weight:bold;" bgcolor="#e1e1e1">Aligned reads</td>
+                        <td><?php // echo $aligned_reads?></td>
+                    </tr>
+                    <tr>
+                        <td style="width:20%;font-weight:bold;" bgcolor="#e1e1e1">Alignment rate</td>
+                        <td><?php // echo $alignment_rate?></td>
+                    </tr>
+                    <tr>
+                        <td style="width:20%;font-weight:bold;" bgcolor="#e1e1e1">Internal priming reads</td>
+                        <td><?php // echo $internal_priming_reads?></td>
+                    </tr>
+                    <tr>
+                        <td style="width:20%;font-weight:bold;" bgcolor="#e1e1e1">PAT</td>
+                        <td><?php // echo $pat?></td>
+                    </tr>
+                    <tr>
+                        <td style="width:20%;font-weight:bold;" bgcolor="#e1e1e1">PAC</td>
+                        <td><?php // echo $pac?></td>
+                    </tr>
+                    <tr>
+                        <td style="width:20%;font-weight:bold;" bgcolor="#e1e1e1">Download</td>
+                        <td><?php // echo "<a style='display:block;text-align:right;color:red;' href='./download.php?data=".$_SESSION['file']."'>Click to download results</a>"?></td>
+                    </tr>
+                </tbody>
+            </table>-->
+            <table style="font-size: 15px;TABLE-LAYOUT:fixed;WORD-WRAP:break-word;border-color: #e1e1e1" border="1">
+                <tbody>
+                    <tr>
+                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Task id</td>
+                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Input reads</td>
+                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Low quality reads</td>
+                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Reads with tail</td>
+                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Aligned reads</td>
+                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Alignment rate</td>
+                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Internal priming reads</td>
+                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">PAT</td>
+                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">PAC</td>
+                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Download</td>                        
+                    </tr>
+                    <tr>
+                        <td><?php echo $_SESSION['file']?></td>
+                        <td><?php echo $input_reads ?></td>
+                        <td><?php echo $low_quality_reads ?></td>
+                        <td><?php echo $reads_with_tail?></td>
+                        <td><?php echo $aligned_reads?></td>
+                        <td><?php echo $alignment_rate?></td>
+                        <td><?php echo $internal_priming_reads?></td>
+                        <td><?php echo $pat?></td>
+                        <td><?php echo $pac?></td>
+                        <td><?php echo "<a style='display:block;text-align:right;;' href='./download.php?data=".$_SESSION['file']."'>Click to download results</a>"?></td>
+                    </tr>
+                </tbody>
+            </table>
             </fieldset>
     </div><br>
     <div class="filter" id="filter">
