@@ -90,7 +90,7 @@
             $insert="create table db_user.Analysis_$analysis(gene varchar(30),gene_type varchar(30),chr varchar(30),strand varchar(30),coord varchar(30),ftr varchar(30),";
             $title_tmp=  explode("\t", $a[0]);
             foreach ($title_tmp as $key => $value) {
-                if($value=='gene'||$value=='gene_type'||$value=='coord'||$value=='chr'||$value=='strand'||$value=='ftr'||$value=='column1_average'||$value=='column2_average'||$key==count($title_tmp)-1)
+                if($value=='gene'||$value=='gene_type'||$value=='coord'||$value=='chr'||$value=='strand'||$value=='ftr'||$value=='sample1_average'||$value=='sample2_average'||$key==count($title_tmp)-1)
                 {
 
                 }
@@ -98,7 +98,7 @@
                     $insert.="$value int(10), ";
                 }
             }
-            $insert.="column1_average int(10),column2_average int(10),switching_type varchar(20));";
+            $insert.="sample1_average int(10),sample2_average int(10),switching_type varchar(20));";
 //            file_put_contents("./tojbrowse/test.txt", $insert);
             mysql_query("drop table db_user.Analysis_$analysis");
             mysql_query($insert);
@@ -386,7 +386,7 @@
                                     }
                                 }
                                      echo "switching_type:{"
-                                        . "title:'switchinge type',"
+                                        . "title:'switchinge_type',"
                                         . "edit:false"
                                         . "},";
                                 }
