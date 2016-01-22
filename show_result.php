@@ -214,15 +214,15 @@
             <table style="font-size: 15px;TABLE-LAYOUT:fixed;WORD-WRAP:break-word;border-color: #e1e1e1" border="1">
                 <tbody>
                     <tr>
-                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Task id</td>
+                        <td style="width:15%;font-weight:bold;" bgcolor="#e1e1e1">Task id</td>
                         <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Input reads</td>
                         <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Low quality reads</td>
                         <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Reads with tail</td>
                         <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Aligned reads</td>
                         <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Alignment rate</td>
                         <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Internal priming reads</td>
-                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">PAT</td>
-                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">PAC</td>
+                        <td style="width:8%;font-weight:bold;" bgcolor="#e1e1e1">PAT</td>
+                        <td style="width:7%;font-weight:bold;" bgcolor="#e1e1e1">PAC</td>
                         <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Download</td>                        
                     </tr>
                     <tr>
