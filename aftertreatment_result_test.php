@@ -212,13 +212,12 @@
             </table>
         </div>
         <div class="filter" id="filter">
-            <button onclick="javascript:window.location.href='./download_data.php?type=4&name=<?php echo $c; ?>'">download analysis result</button>
-            <button onclick="locking()">export sequences</button>
             <form>
                 <input type="text" name="search" id="search" />
                 <button type="submit" id="search_button">search</button>
-                <button type="reset" id="reset_button">reset</button>
             </form>
+            <a style="float:left" href="./download_data.php?type=4&name=<?php echo $c; ?>"><img src="./pic/download.png"/></a>
+            <button onclick="locking()">export sequences</button>
             <div style="clear:both;"></div>
         </div>
         <div id="jtable" style="overflow-x: scroll;"></div>
