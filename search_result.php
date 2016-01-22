@@ -434,8 +434,8 @@
                         <input type="text" name="search" id="search" style="height:26px"/>
                         <button title="search" type="submit" id="search_button"><img src="./pic/search.png"/></button>
                     </form>
-                    <button onclick="javascript:window.location.href='./download_data.php?type=4&name=Search_<?php echo $_SESSION['search']; ?>.txt'"><img src="./pic/download.png"/></button>
-                    <button onclick="locking()"><img style="height:23px" src="./pic/export.png"/></button>
+                    <button title="download search result" onclick="javascript:window.location.href='./download_data.php?type=4&name=Search_<?php echo $_SESSION['search']; ?>.txt'"><img src="./pic/download.png"/></button>
+                    <button title="export sequences" onclick="locking()"><img style="height:23px" src="./pic/export.png"/></button>
                     <div style="clear:both;"></div>
             </div>
 
