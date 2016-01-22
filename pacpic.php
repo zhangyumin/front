@@ -713,7 +713,7 @@ and open the template in the editor.
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 40,
+                            x: 30,
                             x2: 10,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
@@ -823,8 +823,8 @@ and open the template in the editor.
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 30,
-                            x2: 10,
+                            x: 40,
+                            x2: 15,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
                         color:["#ff8247","#9acd32","#b23aee","#4169e1","#00fa9a","#cd96cd","#9acd32","#cdcd00","#cd00cd","#3b3b3b"],
@@ -940,8 +940,8 @@ and open the template in the editor.
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 30,
-                            x2: 10,
+                            x: 40,
+                            x2: 15,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
                         color:["#ff8247","#9acd32","#b23aee","#4169e1","#00fa9a","#cd96cd","#9acd32","#cdcd00","#cd00cd","#3b3b3b"],
@@ -1057,8 +1057,8 @@ and open the template in the editor.
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 30,
-                            x2: 10,
+                            x: 40,
+                            x2: 15,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
                         color:["#ff8247","#9acd32","#b23aee","#4169e1","#00fa9a","#cd96cd","#9acd32","#cdcd00","#cd00cd","#3b3b3b"],
@@ -1175,7 +1175,7 @@ and open the template in the editor.
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
                             x: 40,
-                            x2: 10,
+                            x2: 15,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
                         color:["#ff8247","#9acd32","#b23aee","#4169e1","#00fa9a","#cd96cd","#9acd32","#cdcd00","#cd00cd","#3b3b3b"],
@@ -1305,8 +1305,8 @@ and open the template in the editor.
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 30,
-                            x2: 10,
+                            x: 40,
+                            x2: 15,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
                         color:["#ff8247","#9acd32","#b23aee","#4169e1","#00fa9a","#cd96cd","#9acd32","#cdcd00","#cd00cd","#3b3b3b"],
@@ -1427,8 +1427,8 @@ and open the template in the editor.
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 30,
-                            x2: 10,
+                            x: 40,
+                            x2: 15,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
                         color:["#ff8247","#9acd32","#b23aee","#4169e1","#00fa9a","#cd96cd","#9acd32","#cdcd00","#cd00cd","#3b3b3b"],
@@ -1548,8 +1548,8 @@ and open the template in the editor.
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 30,
-                            x2: 10,
+                            x: 40,
+                            x2: 15,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
                         color:["#ff8247","#9acd32","#b23aee","#4169e1","#00fa9a","#cd96cd","#9acd32","#cdcd00","#cd00cd","#3b3b3b"],
