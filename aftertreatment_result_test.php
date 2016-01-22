@@ -31,6 +31,7 @@
 //        var_dump($_SESSION['sys_real_japonica']);
 //        var_dump($_SESSION['sys_real']);
         if($_GET['result']=='degene'){
+            $title = "Differentially expressed genes";
             $a=file("./searched/degene.$analysis");
             $b=file("./searched/degene.$analysis.stat");
             $c = "degene.$analysis";
@@ -51,6 +52,7 @@
             mysql_query("load data infile '/var/www/front/searched/degene.$analysis' into table db_user.Analysis_$analysis IGNORE 1 LINES;");
         }
         if($_GET['result']=='depac'){
+            $title = "PAC with differential usage";
             $a=file("./searched/depac.$analysis");
             $b=file("./searched/depac.$analysis.stat");
             $c = "depac.$analysis";
@@ -71,6 +73,7 @@
             mysql_query("load data infile '/var/www/front/searched/depac.$analysis' into table db_user.Analysis_$analysis IGNORE 1 LINES;");
         }
         if($_GET['result']=='switchinggene_o'){
+            $title = "Genes with 3’ UTR lengthening or shortening";
             $a=file("./searched/only3utr.$analysis");
             $b=file("./searched/only3utr.$analysis.stat");
             $c = "only3utr.$analysis";
@@ -81,6 +84,7 @@
             mysql_query("load data infile '/var/www/front/searched/only3utr.$analysis' into table db_user.Analysis_$analysis IGNORE 1 LINES;");
         }
         if($_GET['result']=='switchinggene_n'){
+            $title = "Nonconnonical APA-site switching genes";
             $a=file("./searched/none3utr.$analysis");
             $b=file("./searched/none3utr.$analysis.stat");
             $c = "none3utr.$analysis";
@@ -257,7 +261,7 @@
             ?>
                 $(document).ready(function (){
                     $('#jtable').jtable({
-                        title:'PAC',
+                        title:'<?php echo $title;?>',
                         paging:true,
                         pageSize:5,
                         sorting:true,
