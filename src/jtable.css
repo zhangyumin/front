@@ -228,7 +228,7 @@ div.jtable-main-container div.jtable-title {
   border-radius: 3px 3px 0 0;
   line-height: 34px;
   box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
-  padding-left: 10px;
+  /*padding-left: 10px;*/
   border: 1px solid;
 }
 div.jtable-main-container div.jtable-title div.jtable-title-text {
