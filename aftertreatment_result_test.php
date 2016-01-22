@@ -213,11 +213,11 @@
         </div>
         <div class="filter" id="filter">
             <form>
-                <input type="text" name="search" id="search" />
-                <button type="submit" id="search_button">search</button>
+                <input type="text" name="search" id="search" style="height:26px"/>
+                <button title="search" type="submit" id="search_button"><img src="./pic/search.png"/></button>
             </form>
-            <a style="float:left" href="./download_data.php?type=4&name=<?php echo $c; ?>"><img src="./pic/download.png"/></a>
-            <button onclick="locking()">export sequences</button>
+            <button title="download result" onclick="window.location.href='./download_data.php?type=4&name=<?php echo $c; ?>'"><img src="./pic/download.png"/></button>
+            <button title="export sequence" onclick="locking()"><img style="height:23px" src="./pic/export.png"/></button>
             <div style="clear:both;"></div>
         </div>
         <div id="jtable" style="overflow-x: scroll;"></div>
