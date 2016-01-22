@@ -217,7 +217,7 @@
                 <button title="search" type="submit" id="search_button"><img src="./pic/search.png"/></button>
             </form>
             <button title="download result" onclick="window.location.href='./download_data.php?type=4&name=<?php echo $c; ?>'"><img src="./pic/download.png"/></button>
-            <button title="export sequence" onclick="locking()"><img style="height:23px" src="./pic/export.png"/></button>
+            <button title="export sequences" onclick="locking()"><img style="height:23px" src="./pic/export.png"/></button>
             <div style="clear:both;"></div>
         </div>
         <div id="jtable" style="overflow-x: scroll;"></div>
