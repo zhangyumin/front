@@ -125,24 +125,15 @@
                         if( $array_read!=false)
                             break;
                     }
-                    foreach ($array_file as $key => $value) {
-                        $array_pat=  strstr($value,  "rows to db_user.PA_".$_SESSION['file']."",true);
-                        if( $array_pat!=false)
-                            break;
-                    }
-                    foreach ($array_file as $key => $value) {
-                        $array_pac=  strstr($value, ' PAC',true);
-                        if( $array_pac!=false)
-                            break;
-                    }
+                    $array_pat = mysql_fetch_row(mysql_query("select count(chr) from db_user.PA_".$_SESSION['file'].""));
+                    $array_pac = mysql_fetch_row(mysql_query("select count(chr) from db_user.PAC_".$_SESSION['file'].""));
+                    
                     //var_dump($array_input);
                     $array_input=explode(" ",$array_input);
                     $array_discard=explode(" ",$array_discard);
                     $array_tail=explode(" ",$array_tail);
                     $array_read=explode(" ",$array_read);
                     $array_internal=explode(" ",$array_internal);
-                    $array_pat=explode(" ",$array_pat);
-                    $array_pac=explode(" ",$array_pac);
 
                     $input_reads=$array_input[1];
                     $low_quality_reads=$array_discard[1];
@@ -155,16 +146,34 @@
                     $pat=$array_pat[0];
                     $pac=$array_pac[0];
                     
-                    echo "<span style='color:red'>Task id : ".$_SESSION['file']."</span><br>";
-                    echo "Input reads : $input_reads<br>";
-                    echo "Low quality reads : $low_quality_reads<br>";
-                    echo "Reads with tail : $reads_with_tail<br>";
-                    echo "Aligned reads : $aligned_reads<br>";
-                    echo "Alignment rate : $alignment_rate<br>";
-                    echo "Internal priming reads : $internal_priming_reads<br>";
-                    echo "<br>PAT : $pat";
-                    echo "&nbsp&nbspPAC : $pac<br>";
-                    
+                   ?>
+                   <table style="font-size: 15px;TABLE-LAYOUT:fixed;WORD-WRAP:break-word;border-color: #e1e1e1" border="1">
+                <tbody>
+                    <tr>
+                        <td style="width:18%;font-weight:bold;" bgcolor="#e1e1e1">Task id</td>
+                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Input reads</td>
+                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Low quality reads</td>
+                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Reads with tail</td>
+                        <td style="width:7%;font-weight:bold;" bgcolor="#e1e1e1">Aligned reads</td>
+                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Alignment rate</td>
+                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Internal priming reads</td>
+                        <td style="width:8%;font-weight:bold;" bgcolor="#e1e1e1">PAT</td>
+                        <td style="width:7%;font-weight:bold;" bgcolor="#e1e1e1">PAC</td>                      
+                    </tr>
+                    <tr>
+                        <td><?php echo $_SESSION['file']?></td>
+                        <td><?php echo $input_reads ?></td>
+                        <td><?php echo $low_quality_reads ?></td>
+                        <td><?php echo $reads_with_tail?></td>
+                        <td><?php echo $aligned_reads?></td>
+                        <td><?php echo $alignment_rate?></td>
+                        <td><?php echo $internal_priming_reads?></td>
+                        <td><?php echo $pat?></td>
+                        <td><?php echo $pac?></td>
+                    </tr>
+                </tbody>
+            </table>
+              <?php      
              echo "<div style=\"position:relative;margin-left: 40%;\">
                         <a href=\"show_result.php\" target=\"_blank\" class=\"ym-button ym-next\">
                         Continue
