@@ -229,6 +229,11 @@
          <script type="text/javascript">
              var result = '<?php echo $_GET['result'];?>';
              function DelOption(){
+                 //设置jtable适应屏幕
+                if($(".jtable tbody").width()>960){
+                    $(".jtable-title").width($(".jtable tbody").width()-1);
+                    $(".jtable-bottom-panel").width($(".jtable tbody").width()-3);
+                }
                  if(result == 'degene' || result == 'switchinggene_o')
                      $("#method option[value='pacs']").remove();   //删除第一个method选项
              }
@@ -423,8 +428,6 @@
                         e.preventDefault();
                                 $('#jtable').jtable('load');
                             });
-//                    if($(".jtable tbody").width()>960)
-//                        $(".jtable-title").width($(".jtable tbody").width());
                 });
             </script>
     </div>
