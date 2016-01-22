@@ -14,11 +14,11 @@ try {
     }
     else{
         $search=$_POST['search'];
-        $result=  mysql_query("SELECT COUNT(*) AS RecordCount FROM Analysis_".$_SESSION['analysis']." WHERE gene LIKE '%".$search."%' or gene_type LIKE '%".$search."%';");
+        $result=  mysql_query("SELECT COUNT(*) AS RecordCount FROM Analysis_".$_SESSION['analysis']." WHERE gene LIKE '%".$search."%';");
         $row=  mysql_fetch_array($result);
         $recordCount=$row['RecordCount'];
         
-        $result=  mysql_query("SELECT * FROM Analysis_".$_SESSION['analysis']." WHERE gene LIKE '%".$search."%' or gene_type LIKE '%".$search."%' ORDER BY ".$_GET['jtSorting']." LIMIT ".$_GET['jtStartIndex'].",".$_GET['jtPageSize'].";");
+        $result=  mysql_query("SELECT * FROM Analysis_".$_SESSION['analysis']." WHERE gene LIKE '%".$search."%' ORDER BY ".$_GET['jtSorting']." LIMIT ".$_GET['jtStartIndex'].",".$_GET['jtPageSize'].";");
     }
     $rows=array();
     while($row=  mysql_fetch_array($result))
