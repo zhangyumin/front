@@ -165,7 +165,7 @@
                 <tr>
                     <td style="background-color: #73A2d6; color: #fff; padding-left: 4px; padding-top: 2px;font-weight: bold; font-size: 12px;" height="10" valign="middle">
                          <div align="right">
-                             <a href=JavaScript:; class="STYLE1" onclick="Lock_CheckForm(this);">[Close]
+                             <a style="color:#fff" href=JavaScript:; class="STYLE1" onclick="Lock_CheckForm(this);">[Close]
                              </a> &nbsp;&nbsp;&nbsp;&nbsp;
                          </div>
                     </td>
@@ -173,15 +173,15 @@
                 <tr>
                     <td align="center">
                         <form name="pac_export" method="post" action="export_seq.php?source=Analysis&species=<?php echo $species; ?>" target="_blank">
-                            method<select id="method" name="method" onchange="ChgMtd()" style="margin-left:70;margin-bottom: 5">
+                            method<select id="method" name="method" onchange="ChgMtd()" style="margin-left:70;margin-bottom: 5;width: 226px">
                                 <option value="choose">Please choose</option>
                                 <option value="pacs">export sequences of PACs</option>
                                 <option value="seq">export gene sequences</option>
                             </select><br>
                             <div id="pacs" style="display:none">
-                                upstream (nt) <input type="text" value="200" name='upstream' style="margin-left:35;margin-bottom: 5"></input><br>
-                                downstream (nt) <input type="text" value="200" name='downstream' style="margin-left:20;margin-bottom: 5"></input><br>
-                                PAC in region <select name='pac_region' style="margin-left:33;margin-bottom: 5">
+                                upstream (nt) <input type="text" value="200" name='upstream' style="margin-left:35;margin-bottom: 5;width: 226px"></input><br>
+                                downstream (nt) <input type="text" value="200" name='downstream' style="margin-left:20;margin-bottom: 5;width: 226px"></input><br>
+                                PAC in region <select name='pac_region' style="margin-left:33;margin-bottom: 5;width: 226px">
                                     <option value="all">all</option>
                                     <option value="genomic-region">genomic region</option>
                                     <option value="3TUR">3'UTR</option>
@@ -193,11 +193,11 @@
                                 </select>
                             </div>
                             <div id="seq" style="display:none">
-                                annotation version <select name='anno_version' style="margin-left:9;margin-bottom: 5">
+                                annotation version <select name='anno_version' style="margin-left:9;margin-bottom: 5;width: 226px">
                                     <option value="raw-annotation">raw annotation</option>
                                     <option value="3utr-extended-annotation">3' UTR extended annotation</option>
                                 </select><br>
-                                export <select name='export' style="margin-left:73;margin-bottom: 5">
+                                export <select name='export' style="margin-left:73;margin-bottom: 5;width: 226px">
                                     <option value="whole-gene">whole gene</option>
                                     <option value="joined-cds">joined CDS</option>
                                     <option value="3utr-only">3' UTR only</option>
