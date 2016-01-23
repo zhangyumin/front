@@ -180,7 +180,7 @@ and open the template in the editor.
                     <input type='radio' name='upload_method' value='up_est' onclick="SltFileType()"/>EST&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type='radio' name='upload_method' value='up_polya' onclick="SltFileType()"/>Poly(A) Site&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
                     <label title="Select species" for="species" style="display: inline">Select species here:</label>
-                     <select id="species" name="species" style="display: inline;margin-left: 2%;width: 85.5%">
+                     <select id="species" name="species" style="display: inline;margin-left: 2%;width: 30%">
                         <option value="japonica">Japonica rice</option>
                         <option value="arab" selected="selected">Arabidopsis thaliana</option>
                         <option value="mtr">Medicago truncatula</option>
@@ -216,7 +216,7 @@ and open the template in the editor.
                         <div class="box info">
                             <font color="#224055" style="font-weight:100;"><b>1. quality filter
                             <br>
-                            Quality cut-off: <input type="text" name="qct" value="20" size="1" style="margin-left: 2%;margin-right:10%;height:30px;"/>
+                            Quality cut-off: <input type="text" name="qct" value="20" size="1" style="margin-left: 2%;margin-right:31%;height:30px;"/>
                             Minimum percentage: <input type="text" name="mp" value="50" size="1" style="margin-left:2%;height:30px;"/>
                             <br><br>
                                 2. remove poly(A/T) tail
@@ -226,7 +226,7 @@ and open the template in the editor.
                                                 <option value="T">T</option>
                                                 <option value="unknown">unknown</option>
                                                 </select>
-                                Min length: <input type="text" name="minlength" value="25" size="1" style="margin-left: 8.5%;height:30px;width:210px;"/>
+                                Min length: <input type="text" name="minlength" value="25" size="1" style="margin-left: 8.5%;height:30px;"/>
                             <br><br>
                                  3. read mapping
                             <br>
@@ -254,7 +254,7 @@ and open the template in the editor.
                         </legend>
                         <div class="box info">
                             <input type="button" id='seq-submit' value="submit">
-                            <button type="reset">reset</button>
+                            <input type="reset" value="reset"/>
                         </div>
                     </fieldset>
                 </form>
@@ -285,8 +285,8 @@ and open the template in the editor.
                         </h4>
                     </legend>
                     <div class="box info">
-                        <input type="button" id='polya-submit' value="submit">
-                        <button type="reset">reset</button>
+                        <input type="button" id='polya-submit' value="submit" style="width: auto"/>
+                        <input type="reset" value="reset" style="width: auto"/>
                     </div>
                 </fieldset>
             </form>
@@ -316,18 +316,19 @@ and open the template in the editor.
                             </h4>
                         </legend>
                         <div class="box info">
-                            PolyA type: <select id="poly_type" name="poly_type" style="margin-left:6%;margin-right: 10%;height:30px;width:210px;">
+                            PolyA type: <select id="poly_type" name="poly_type" style="margin-left:200px;margin-bottom:5px;height:30px;width:210px;display: inline">
                                                 <option value="A">A</option>
                                                 <option value="T">T</option>
                                                 <option value="AT">A&T</option>
                                                 </select>
                             <br>
-                            Min tail length (nt) : <input type="text" name="min_tail_length" value="8" size="1" style="margin-left:2%;margin-right: 5%;height:30px;"/>
-                            Search tail within (nt) : <input type="text" name="search_tail_within" value="15" size="1" style="margin-left:2%;height:30px;"/>
+                            Min tail length (nt) : <input type="text" name="min_tail_length" value="8" size="1" style="margin-left:158px;margin-bottom:5px;height:30px;width:210px;display: inline"/>
                             <br>
-                            Max distance from aligned-end to EST-end (nt) : <input type="text" name="max_distance1" value="20" size="1" style="margin-left:2%;height:30px;"/>
+                            Search tail within (nt) : <input type="text" name="search_tail_within" value="15" size="1" style="margin-left:142px;margin-bottom: 5px;width: 210px;display: inline;height:30px;"/>
                             <br>
-                            Max distance from aligned-end to poly tail (nt) : <input type="text" name="max_distance1" value="5" size="1" style="margin-left:2%;height:30px;"/>
+                            Max distance from aligned-end to EST-end (nt) : <input type="text" name="max_distance1" value="20" size="1" style="margin-left:4px;margin-bottom: 5px;width: 210px;display: inline;height:30px;"/>
+                            <br>
+                            Max distance from aligned-end to poly tail (nt) : <input type="text" name="max_distance1" value="5" size="1" style="margin-left:11px;display: inline;width: 210px;height:30px;"/>
                         </div>
                     </fieldset>
                 <fieldset >
@@ -337,9 +338,8 @@ and open the template in the editor.
                         </h4>
                     </legend>
                     <div class="box info">
-                        <input type="button" id='est-submit' value="submit">
-                        <!--<button type="submit">submit</button>-->
-                        <button type="reset">reset</button>
+                        <input type="button" id='est-submit' value="submit" style="width: auto"/>
+                        <input type="reset" value="reset" style="width: auto"/>
                     </div>
                 </fieldset>
             </form>
