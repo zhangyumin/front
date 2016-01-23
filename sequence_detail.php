@@ -795,7 +795,7 @@
                                     <tr>
                                         <th>Go id</th>
                                         <th>Go term</th>
-                                        <th>Go function</th>
+                                        <th>Function</th>
                                     </tr>
                                 </thead>
                                 <tbody>
