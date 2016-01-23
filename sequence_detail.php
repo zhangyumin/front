@@ -789,7 +789,7 @@
                     </td>
                     <td >
                      
-                        <div id="go" style="overflow-x: auto;background-color: #fff;margin:auto;">
+                        <div id="go" style="background-color: #fff;margin:auto;">
                             <table id="gotable" class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
                                 <thead>
                                     <tr>
