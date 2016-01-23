@@ -164,19 +164,29 @@ and open the template in the editor.
                 $('#loading').show();
                 showspecies();
             }
+            function div_hidden(a,b){
+                if($('#'+b).is(":visible")){
+                    $('#'+a).attr("src","./pic/down.png");
+                }
+                else{
+                    $('#'+a).attr("src","./pic/up.png");
+                }
+                $('#'+b).slideToggle('slow');
+            }
             </script>
             <?php
                 include "./navbar.php";
                  $_SESSION['tmp']=date("Y").date("m").date("d").date("h").date("i").date("s");
             ?>
         <div class="ym-wrapper" id='mainpage'>
-            <fieldset >
-                <legend>
+                <legend style="padding-top:10px">
                     <h4>
-                        <font color="#224055"><b>STEP 1:</b> Select file(s) type</font>
+                        <img id="filetype" src="pic/up.png" onclick="div_hidden('filetype','filetypediv')">
+                        <font color="#224055" > Select file(s) type</font>
                     </h4>
                 </legend>
-                <div class="box info ym-form">
+                <hr style="border-bottom: 2px #5499c9 solid">
+                <div class="box info ym-form" id="filetypediv">
                     <input type='radio' name='upload_method' value='upload' checked="true" onclick="SltFileType()"/>Short read&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type='radio' name='upload_method' value='up_est' onclick="SltFileType()"/>EST&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type='radio' name='upload_method' value='up_polya' onclick="SltFileType()"/>Poly(A) Site&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
@@ -188,16 +198,16 @@ and open the template in the editor.
                         <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
                     </select>
                 </div>
-            </fieldset>
             <div class="upload" id='upload'>
                 <form id="upload_seq" class="ym-form" action="get_result.php" method="post">
-                    <fieldset>
-                        <legend>
-                            <h4>
-                                <font color="#224055"><b>STEP 2:</b> Upload file(s)</font>
-                            </h4>
-                        </legend>
-                        <div class="box info">
+                    <legend style="padding-top:10px">
+                    <h4>
+                        <img id="uploadfile" src="pic/up.png" onclick="div_hidden('uploadfile','uploadfilediv')">
+                        <font color="#224055" >Upload file(s)</font>
+                    </h4>
+                    </legend>
+                    <hr style="border-bottom: 2px #5499c9 solid">
+                        <div class="box info" id="uploadfilediv">
                             <ul id="foobar"></ul>
                             <div id="examples">
                                 <div class="example">
@@ -206,15 +216,15 @@ and open the template in the editor.
                                 </div>
                             </div>
                         </div>
-                    </fieldset>
 
-                    <fieldset style="margin-top: 20px;">
-                        <legend>
-                            <h4>
-                                <font color="#224055"><b>STEP 3:</b> Additional options</font>
-                            </h4>
-                        </legend>
-                        <div class="box info">
+                    <legend style="padding-top:10px">
+                        <h4>
+                            <img id="additionaloption" src="pic/up.png" onclick="div_hidden('additionaloption','additionaloptiondiv')">
+                            <font color="#224055" >Additional options</font>
+                        </h4>
+                    </legend>
+                    <hr style="border-bottom: 2px #5499c9 solid">
+                        <div class="box info" id="additionaloptiondiv">
                             <font color="#224055" style="font-weight:100;"><b>1. quality filter
                             <br>
                             Quality cut-off: <input type="text" name="qct" value="20" size="1" style="margin-left: 21px;margin-right: 23px;height:30px;width: 210px"/>
@@ -246,18 +256,17 @@ and open the template in the editor.
                                 distance: <input type="text" name="distance" value="24" size="1" style="margin-left: 55px;height:30px;width:210px;"/>
                                 </b></font>
                         </div>
-                    </fieldset>
-                    <fieldset >
-                        <legend>
-                            <h4>
-                                <font color="#224055"><b>STEP 4:</b> Submit</font>
-                            </h4>
-                        </legend>
-                        <div class="box info">
+                   <legend style="padding-top:10px">
+                        <h4>
+                            <img id="buttons" src="pic/up.png" onclick="div_hidden('buttons','buttonsdiv')">
+                            <font color="#224055" >Submit</font>
+                        </h4>
+                    </legend>
+                    <hr style="border-bottom: 2px #5499c9 solid">
+                        <div class="box info" id="buttonsdiv">
                             <input type="button" id='seq-submit' value="submit">
                             <input type="reset" value="reset"/>
                         </div>
-                    </fieldset>
                 </form>
             </div>
         
