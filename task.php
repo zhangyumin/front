@@ -182,7 +182,7 @@
                     </div>";
                 }
              ?>
-            <fieldset id="task-history" class="table-tools" style="max-height: 400px;">
+            <fieldset id="task-history" class="table-tools">
                     <legend style="text-align:left;">
                         <h4>
                             <font color="#224055"><b>Your task history</b></font>
