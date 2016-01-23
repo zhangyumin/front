@@ -162,6 +162,7 @@ and open the template in the editor.
             function loading(){
                 $('#mainpage').hide();
                 $('#loading').show();
+                showspecies();
             }
             </script>
             <?php
@@ -356,12 +357,18 @@ and open the template in the editor.
                     Your request is being processed , please wait...
                     <br><img src="./pic/loading1.gif" style="width: 200px;height: 150px;"/>
                     <br>This page will be refreshed automatically when the results are available. 
-                    <br>Please <font color='red'>don't</font> close this page.
+                    <br>Task id: <div id="showspecies" style="display: inline;color: red"></div>.You can retrieve the result of your task at <a href="./task.php">data retrieval page</a> by your task id.
                 </div>
             </fieldset>
         </div>
             
             <script type="text/javascript">
+                function showspecies(){
+                    var tmp = '<?php echo $_SESSION['tmp'];?>';
+                    var sp = document.getElementById("species").value;
+                    var id = sp+tmp;
+                    document.getElementById('showspecies').innerHTML=id;
+                }
                 function SltFileType(){
                     var upload_method=document.getElementsByName("upload_method");
                     for(var i=0; i<upload_method.length; i++){
