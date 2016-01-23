@@ -180,7 +180,7 @@ and open the template in the editor.
                     <input type='radio' name='upload_method' value='up_est' onclick="SltFileType()"/>EST&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type='radio' name='upload_method' value='up_polya' onclick="SltFileType()"/>Poly(A) Site&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
                     <label title="Select species" for="species" style="display: inline">Select species here:</label>
-                     <select id="species" name="species" style="display: inline;margin-left: 2%;width: 30%">
+                     <select id="species" name="species" style="display: inline;margin-left: 2%;width: 85%">
                         <option value="japonica">Japonica rice</option>
                         <option value="arab" selected="selected">Arabidopsis thaliana</option>
                         <option value="mtr">Medicago truncatula</option>
@@ -216,21 +216,21 @@ and open the template in the editor.
                         <div class="box info">
                             <font color="#224055" style="font-weight:100;"><b>1. quality filter
                             <br>
-                            Quality cut-off: <input type="text" name="qct" value="20" size="1" style="margin-left: 2%;margin-right:31%;height:30px;"/>
-                            Minimum percentage: <input type="text" name="mp" value="50" size="1" style="margin-left:2%;height:30px;"/>
+                            Quality cut-off: <input type="text" name="qct" value="20" size="1" style="margin-left: 21px;margin-right: 23px;height:30px;width: 210px"/>
+                            Minimum percentage: <input type="text" name="mp" value="50" size="1" style="height:30px;width: 210px"/>
                             <br><br>
                                 2. remove poly(A/T) tail
                             <br>
-                            Poly type:<select id="tailremove" name="tailremove" style="margin-left:6%;margin-right: 10%;height:30px;width:210px;">
+                            Poly type:<select id="tailremove" name="tailremove" style="margin-left:53px;margin-right: 23px;height:30px;width:210px;">
                                                 <option value="A">A</option>
                                                 <option value="T">T</option>
                                                 <option value="unknown">unknown</option>
                                                 </select>
-                                Min length: <input type="text" name="minlength" value="25" size="1" style="margin-left: 8.5%;height:30px;"/>
+                                Min length: <input type="text" name="minlength" value="25" size="1" style="margin-left: 58px;height:30px;width: 210px"/>
                             <br><br>
                                  3. read mapping
                             <br>
-                                Aligner: <select id="aligner" name="aligner" style="margin-left: 7%;height:30px;width:210px;">
+                                Aligner: <select id="aligner" name="aligner" style="margin-left: 61px;height:30px;width:210px;">
                                                 <option value="bowtie2">bowtie2</option>
                                                 <option value="bowtie">bowtie</option>
                                                 </select>
@@ -238,11 +238,11 @@ and open the template in the editor.
                                 4. remove internal priming
                             <br>
                                 <input type="radio" name="rip" value="yes" checked="checked"/>YES
-                                <input type="radio" name="rip" value="no" style="margin-left:9%;margin-top: 5px;"/>NO
+                                <input type="radio" name="rip" value="no" style="margin-left:65px;margin-top: 5px;"/>NO
                             <br><br>
                                 5. cluster PAT
                             <br>
-                                distance: <input type="text" name="distance" value="24" size="1" style="margin-left: 6.5%;height:30px;width:210px;"/>
+                                distance: <input type="text" name="distance" value="24" size="1" style="margin-left: 55px;height:30px;width:210px;"/>
                                 </b></font>
                         </div>
                     </fieldset>
