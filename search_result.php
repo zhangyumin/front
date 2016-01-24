@@ -113,10 +113,6 @@
                             $go_sysQry.=" and goterm like '%$go_name%'";
 
                              }
-                             if($_POST['function']!=NULL)
-                             {
-                                 $go_sysQry.=" and genefunction like '%$function%'";
-                             } 
                              if($_POST['go_accession']!=NULL)
                              {
                                  $go_id=explode(',',$go_accession);
@@ -142,6 +138,12 @@
                                         array_push($go_array,$go_sysQry_row[0]);
                                     }
                                     $go_array=array_unique($go_array);
+                                    if($_POST['function']!=NULL){
+                                        $detail_query = mysql_query("select gene from t_".$_POST['species']."_genedesc where description like '%$function%' or description_full like '%$function%'");
+                                        while($detail_result = mysql_fetch_row($detail_query)){
+                                            array_push($go_array, $detail_result[0]);
+                                        }
+                                    }
                                    $sysQry="create table db_user.Search_".$_SESSION['search']." select * from db_server.t_".$_POST['species']."_pac where 1=1";
                                    if($_POST['chr']!='all'){
                                        $sysQry.=" and chr='$chr'";
