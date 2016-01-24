@@ -164,6 +164,18 @@ and open the template in the editor.
                 $('#loading').show();
                 showspecies();
             }
+            function div_hidden(a,b,c){
+                if($('#'+b).is(":visible")){
+                    $('#'+a).attr("src","./pic/up.png");
+                    $('#note').html('Click here to upload files');
+                }
+                else{
+                    $('#'+a).attr("src","./pic/down.png");
+                    $('#note').html('Or click here to enter a sequence');
+                }
+                $('#'+b).slideToggle('slow');
+                $('#'+c).slideToggle('slow');
+            }
             </script>
             <?php
                 include "./navbar.php";
@@ -204,6 +216,14 @@ and open the template in the editor.
                                     <ul id="manual-example" class="unstyled"></ul>
                                     <button type="button" id="triggerUpload" class="btn btn-primary">Upload Queued Files</button>
                                 </div>
+                            </div>
+                            <hr style="border-bottom: 2px #5499c9 solid">
+                            <img id="uploadtext" src="pic/down.png" onclick="div_hidden('uploadtext','examples','uploadtextdiv')"><div style="display: inline" id='note'>Or click here to enter a sequence</div>
+                            <br><br>
+                            <div id='uploadtextdiv' style="display: none">
+                                name:&nbsp;<input name='text_name'>&nbsp;&nbsp;&nbsp;&nbsp;group:&nbsp;<input name='text_group'><br>
+                                sequence in FASTA format: <br>
+                                <textarea name='sequence_text' style="margin: 0px;width: 900px;height: 230px"></textarea>
                             </div>
                         </div>
                     </fieldset>
