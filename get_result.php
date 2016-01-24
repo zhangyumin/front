@@ -39,17 +39,17 @@
 //                $_SESSION['minlength']=$_POST['minlength'];
 //                $_SESSION['rip']=$_POST['rip'];
 //                $_SESSION['distance']=$_POST['distance'];
-            if(!file_exists($tmppath)&&$_POST['sys_example']!='on')
-            {
-                 echo "<script type='text/javascript'>alert('upload sequence file first'); history.back();</script>";
-            }
-            else if($_POST['sys_example']=='on'){
-                mkdir("./data/".$_SESSION['file']."/");
-                chmod("./data/".$_SESSION['file']."/", 0777);
+            if($_POST['sequence_text']!=null){
                 mkdir("./result/".$_SESSION['file']."/");
                 chmod("./result/".$_SESSION['file']."/", 0777);
-                copy("./data/sys_example/arab.fastq", "./data/".$_SESSION['file']."/arab.fastq");
-//                    echo '<script>window.location.href="get_result.php";</script>';
+                mkdir("./data/".$_SESSION['file']."/");
+                chmod("./data/".$_SESSION['file']."/", 0777);
+                $textfile=$_POST['text_name'].".fa";
+                file_put_contents($filepath.$textfile, $_POST['sequence_text']);
+                $usr_group = array();
+                array_push($usr_group, $_POST['text_group']);
+                $_SESSION['usr_group'] = $usr_group;
+                file_put_contents("./result/".$_SESSION['file']."/group.txt", implode(";", $_SESSION['usr_group']));
             }
             else 
             {
@@ -86,12 +86,14 @@
             //$_SESSION['file_real']=array();
             $_SESSION['file_real']=$upload_name;
             //读取group信息
-            $usr_group = array();
-            foreach ($_SESSION['file_real'] as $key => $value) {
-                array_push($usr_group, $_POST['group-'.$value]);
+            if($_POST['text-area']!=null){
+                $usr_group = array();
+                foreach ($_SESSION['file_real'] as $key => $value) {
+                    array_push($usr_group, $_POST['group-'.$value]);
+                }
+                $_SESSION['usr_group'] = $usr_group;
+                file_put_contents("./result/".$_SESSION['file']."/group.txt", implode(";", $_SESSION['usr_group']));
             }
-            $_SESSION['usr_group'] = $usr_group;
-            file_put_contents("./result/".$_SESSION['file']."/group.txt", implode(";", $_SESSION['usr_group']));
             foreach($upload_name as $key => $value)
             {
                 //step0:统一文件后缀名
