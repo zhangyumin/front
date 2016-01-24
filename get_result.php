@@ -39,7 +39,7 @@
 //                $_SESSION['minlength']=$_POST['minlength'];
 //                $_SESSION['rip']=$_POST['rip'];
 //                $_SESSION['distance']=$_POST['distance'];
-            if($_POST['sequence_text']!=null){
+            if($_POST['sequence_text']!=''){
                 mkdir("./result/".$_SESSION['file']."/");
                 chmod("./result/".$_SESSION['file']."/", 0777);
                 mkdir("./data/".$_SESSION['file']."/");
