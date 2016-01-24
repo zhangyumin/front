@@ -385,7 +385,7 @@ and open the template in the editor.
                     Your request is being processed , please wait...
                     <br><img src="./pic/loading1.gif" style="width: 200px;height: 150px;"/>
                     <br>This page will be refreshed automatically when the results are available. 
-                    <br>Task id: <div id="showspecies" style="display: inline;color: red"></div>.You can retrieve the result of your task at <a href="./task.php">data retrieval page</a> by your task id.
+                    <br>Task id: <div id="showspecies" style="display: inline;color: red"></div>.You can retrieve the result of your task at <a href="./task.php" target="_blank">data retrieval page</a> by your task id.
                 </div>
             </fieldset>
         </div>
