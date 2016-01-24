@@ -716,12 +716,8 @@
                             <table id="genetable">
                                 <tbody>
                                     <tr>
-                                        <td>Gene name:</td>
+                                        <td width='25%'>Gene name:</td>
                                         <td><?php echo $_GET['seq']?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Chromosome:</td>
-                                        <td><?php echo $chr;?></td>
                                     </tr>
                                     <tr>
                                         <td>Gene locus:</td>
@@ -741,6 +737,21 @@
                                                     }
                                                 ?>
                                     </tr>
+                                        <?php
+                                            $detail = mysql_query("select * from t_".$species."_genedesc where gene='".$_GET['seq']."'");
+                                            while($detail_row = mysql_fetch_row($detail)){
+                                                if($detail_row[1]!='')
+                                                    echo "<tr><td>Gene alias:</td><td>$detail_row[1]</td></tr>";
+                                                else
+                                                    echo "<tr><td>Gene alias:</td><td>-</td></tr>";
+                                                if($detail_row[2]!='')
+                                                    echo "<tr><td>Gene description:</td><td>$detail_row[2]</td></tr>";
+                                                else
+                                                    echo "<tr><td>Gene description:</td><td>-</td></tr>";
+                                                if($detail_row[3]!='')
+                                                    echo "<tr><td>Gene description full:</td><td>$detail_row[3]</td></tr>";
+                                            }
+                                        ?>
                                 </tbody>
                             </table>
                         </div>
@@ -820,7 +831,7 @@
                         <script>
                             $(document).ready(function(){
                                 $('#gotable').dataTable({
-                                    "lengthMenu":[[5,10,15,-1],[5,10,15,"all"]],
+                                    "lengthMenu":[[15,-1],[15,"all"]],
                                     "pagingType":"full_numbers",
                                     lengthChange:false,
                                     info:false,
