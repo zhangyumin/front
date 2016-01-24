@@ -165,6 +165,18 @@
                     $internal_priming_reads=$array_internal[1];
                     $pat=$array_pat[0];
                     $pac=$array_pac[0];
+                    if($input_reads==NULL)
+                        $input_reads='-';
+                    if($low_quality_reads==NULL)
+                        $low_quality_reads='-';
+                    if($reads_with_tail==NULL)
+                        $reads_with_tail='-';
+                    if($aligned_reads==null)
+                        $aligned_reads='-';
+                    if($alignment_rate==null)
+                        $alignment_rate='-';
+                    if($internal_priming_reads==null)
+                        $internal_priming_reads='-';
                 ?>
 <!--            <table style="font-size: 15px;TABLE-LAYOUT:fixed;WORD-WRAP:break_word;">
                 <tbody>
