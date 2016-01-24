@@ -164,14 +164,14 @@ and open the template in the editor.
                 $('#loading').show();
                 showspecies();
             }
-            function div_hidden(a,b,c){
+            function div_hidden(a,b,c,d){
                 if($('#'+b).is(":visible")){
                     $('#'+a).attr("src","./pic/up.png");
-                    $('#note').html('Click here to upload files');
+                    $('#'+d).html('Click here to upload files');
                 }
                 else{
                     $('#'+a).attr("src","./pic/down.png");
-                    $('#note').html('Or click here to enter a sequence');
+                    $('#'+d).html('Or click here to enter a sequence');
                 }
                 $('#'+b).slideToggle('slow');
                 $('#'+c).slideToggle('slow');
@@ -211,14 +211,14 @@ and open the template in the editor.
                         </legend>
                         <div class="box info">
                             <ul id="foobar"></ul>
-                            <div id="examples">
+                            <div id="seq-examples">
                                 <div class="example">
                                     <ul id="manual-example" class="unstyled"></ul>
                                     <button type="button" id="triggerUpload" class="btn btn-primary">Upload Queued Files</button>
                                 </div>
                             </div>
                             <hr style="border-bottom: 2px #5499c9 solid">
-                            <img id="uploadtext" src="pic/down.png" onclick="div_hidden('uploadtext','examples','uploadtextdiv')"><div style="display: inline" id='note'>Or click here to enter a sequence</div>
+                            <img id="uploadtext" src="pic/down.png" onclick="div_hidden('uploadtext','seq-examples','uploadtextdiv','seq-note')"><div style="display: inline" id='seq-note'>Or click here to enter a sequence</div>
                             <br><br>
                             <div id='uploadtextdiv' style="display: none">
                                 name:&nbsp;<input name='text_name'>&nbsp;&nbsp;&nbsp;&nbsp;group:&nbsp;<input name='text_group'><br>
@@ -291,7 +291,7 @@ and open the template in the editor.
                     </legend>
                     <div class="box info">
                         <ul id="foobar-polya"></ul>
-                        <div id="examples">
+                        <div id="polya-examples">
                             <div class="example">
                                 <ul id="manual-example-polya" class="unstyled"></ul>
                                 <button type="button" id="triggerUpload-polya" class="btn btn-primary">Upload Queued Files</button>
@@ -322,12 +322,20 @@ and open the template in the editor.
                     </legend>
                     <div class="box info">
                         <ul id="foobar-est"></ul>
-                        <div id="examples">
+                        <div id="est-examples">
                             <div class="example">
                                 <ul id="manual-example-est" class="unstyled"></ul>
                                 <button type="button" id="triggerUpload-est" class="btn btn-primary">Upload Queued Files</button>
                             </div>
                         </div>
+                        <hr style="border-bottom: 2px #5499c9 solid">
+                            <img id="est-uploadtext" src="pic/down.png" onclick="div_hidden('est-uploadtext','est-examples','est-uploadtextdiv','est-note')"><div style="display: inline" id='est-note'>Or click here to enter a sequence</div>
+                            <br><br>
+                            <div id='est-uploadtextdiv' style="display: none">
+                                name:&nbsp;<input name='est_text_name' style="width: auto;display: inline">&nbsp;&nbsp;&nbsp;&nbsp;group:&nbsp;<input name='est_text_group' style="width: auto;display: inline"><br>
+                                sequence in EST format: <br>
+                                <textarea name='est_sequence_text' style="margin: 0px;width: 900px;height: 230px"></textarea>
+                            </div>
                     </div>
                 </fieldset>
                     <fieldset style="margin-top: 20px;">
