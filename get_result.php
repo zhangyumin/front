@@ -86,10 +86,13 @@
             //$_SESSION['file_real']=array();
             $_SESSION['file_real']=$upload_name;
             //读取group信息
-            if($_POST['text-area']!=null){
+            if($_POST['sequence_text']==''){
                 $usr_group = array();
                 foreach ($_SESSION['file_real'] as $key => $value) {
-                    array_push($usr_group, $_POST['group-'.$value]);
+                    if($_POST['group-'.$value]!=NULL)
+                        array_push($usr_group, $_POST['group-'.$value]);
+                    else
+                        array_push ($usr_group, 'default');
                 }
                 $_SESSION['usr_group'] = $usr_group;
                 file_put_contents("./result/".$_SESSION['file']."/group.txt", implode(";", $_SESSION['usr_group']));
