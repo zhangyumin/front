@@ -58,9 +58,13 @@
                         $species=$_GET['species'];
                     if($_GET['keyword']!=NULL)
                         $key=$_GET['keyword'];
-                    $go_qry=  mysql_query("select gene from t_".$species."_go where gene like '%$key%' or goid like '%$key%' or goterm like '%$key%' or genefunction like '%$key%'");
+                    $go_qry=  mysql_query("select gene from t_".$species."_go where gene like '%$key%' or goid like '%$key%' or goterm like '%$key%'");
                     while($go_result=  mysql_fetch_row($go_qry)){
                         array_push($go_array_key, $go_result[0]);
+                    }
+                    $detail_query = mysql_query("select gene from t_".$species."_genedesc where alias like '%$key%' or description like '%$key%' or description_full like '%$key%'");
+                    while($detail_result = mysql_fetch_row($detail_query)){
+                        array_push($go_array_key, $detail_result[0]);
                     }
                     $pac_qry= "create table db_user.Search_".$_SESSION['search']." select * from t_".$species."_pac where ";
                     $pac_qry.="gene in ('";
