@@ -709,7 +709,7 @@
         <div  id="page" style="width:1200px;margin:auto">
             <table  cellspacing="0" cellpadding="0" border="0" style="margin: 20px auto;border-collapse:collapse;" >
             <tbody>
-                <tr style="border: medium solid #5499c9;">
+                <tr id="summary" style="border: medium solid #5499c9;">
                     <td valign="top" id='tables' style="border-right: solid #5499c9;">
                     
                         <div id="gene">
@@ -880,11 +880,12 @@
                         </script>
                     </td>
                 </tr>
+                <tr><td style="border-top:0px"><input id="max" type="checkbox" onchange="maximize()">Maximize mode</td></tr>
                 <tr>
-                    <td colspan=2 style="padding-left:0px;padding-right:0px;">
+                    <td colspan=2 style="padding-left:0px;padding-right:0px;border-top: 0px">
                         <div class="tabs" style="padding:0px;border:solid #5499c9">
                             <div data-pws-tab="jbrowse" data-pws-tab-name="Jbrowse">
-                                <iframe src="../jbrowse/?data=data/<?php echo $_GET['species'];?>&loc=<?php echo $chr;?>:<?php echo $gene_start;?>..<?php echo $gene_end;?>&tracks=Arabidopsis,sys_polya" width=1200px height=500px>
+                                <iframe id="jbrowse" src="../jbrowse/?data=data/<?php echo $_GET['species'];?>&loc=<?php echo $chr;?>:<?php echo $gene_start;?>..<?php echo $gene_end;?>&tracks=Arabidopsis,sys_polya" width=1200px height=500px>
                                 </iframe>
                             </div>
                             <div data-pws-tab="genepic" data-pws-tab-name="PAT distribution">
@@ -907,15 +908,15 @@
                                 <?php
                                     if($_GET['flag']=='intergenic'){
                                         if($_GET['analysis']==1)
-                                            echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord&analysis=1\" width=1190px  height=500px></iframe>";
+                                            echo "<iframe id='pacpic' src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord&analysis=1\" width=1190px  height=500px></iframe>";
                                         else
-                                            echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord\" width=1190px  height=500px></iframe>";
+                                            echo "<iframe id='pacpic' src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord\" width=1190px  height=500px></iframe>";
                                     }
                                     else{
                                         if($_GET['analysis']==1)
-                                            echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord&analysis=1\" width=1190px  height=500px></iframe>";
+                                            echo "<iframe id='pacpic' src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord&analysis=1\" width=1190px  height=500px></iframe>";
                                         else
-                                            echo "<iframe src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord\" width=1190px  height=500px></iframe>";
+                                            echo "<iframe id='pacpic' src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord\" width=1190px  height=500px></iframe>";
                                     }
                                 ?>
                             </div>
@@ -928,6 +929,24 @@
                                 containerWidth: '1196px'
                              });
                              });
+                             function maximize(){
+                                if($('#max').is(':checked')){
+                                    $("#summary").hide();
+                                    $(".straight_matter").hide();
+                                    $(".tabs").height(1010);
+                                    $("#jbrowse").height(1000);
+                                    $("#genepic").height(1000);
+                                    $("#pacpic").height(1000);
+                                }
+                                else{
+                                    $("#summary").show();
+                                    $(".straight_matter").show();
+                                    $(".tabs").height(510);
+                                    $("#jbrowse").height(500);
+                                    $("#genepic").height(500);
+                                    $("#pacpic").height(500);
+                                }
+                            }
                         </script>
                     </td>
                 </tr>
