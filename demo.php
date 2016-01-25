@@ -20,4 +20,20 @@
         $_SESSION['file_real']=$upload_name;
         header("location: ./show_result.php");
     }
+    if($_GET['method']=='degene'){
+        $_SESSION['analysis'] = 'demo_degene';
+        header("location: ./aftertreatment_result_test.php?result=degene&species=arab");
+    }
+    if($_GET['method']=='depac'){
+        $_SESSION['analysis'] = 'demo_depac';
+        header("location: ./aftertreatment_result_test.php?result=depac&species=arab");
+    }
+    if($_GET['method']=='only3utr'){
+        $_SESSION['analysis'] = 'demo_only3utr';
+        header("location: ./aftertreatment_result_test.php?result=switchinggene_o&species=arab");
+    }
+    if($_GET['method']=='none3utr'){
+        $_SESSION['analysis'] = 'demo_none3utr';
+        header("location: ./aftertreatment_result_test.php?result=switchinggene_n&species=arab");
+    }
 ?>
