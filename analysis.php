@@ -111,6 +111,9 @@
             $('#mainpage').hide();
             $('#loading').show();
         }
+        function demo(a){
+            window.location.href='demo.php?method='+a;
+        }
         </script>
     <div class="ym-wrapper" id='mainpage'>
        <fieldset >
@@ -389,6 +392,7 @@
                                     <div class="box info fsubmit">
                                         <input type="button" id='degene-submit' value="submit">
                                         <button type="reset">reset</button>
+                                        <input type="button" onclick="demo('degene')" value="demo">
                                     </div>
                                     </form>
                               </div>
@@ -625,6 +629,7 @@
                                     <div class="box info fsubmit">
                                         <input type="button" id='depac-submit' value="submit">
                                         <button type="reset">reset</button>
+                                        <input type="button" onclick="demo('depac')" value="demo">
                                     </div>
                                     </form>
                                 </div>
@@ -856,6 +861,7 @@
                                     <div class="box info fsubmit">
                                         <input type="button" id='only3utr-submit' value="submit">
                                         <button type="reset">reset</button>
+                                        <input type="button" onclick="demo('only3utr')" value="demo">
                                     </div>
                                     </form>
                                 </div>
@@ -1100,6 +1106,7 @@
                                     <div class="box info fsubmit">
                                         <input type="button" id='none3utr-submit' value="submit">
                                         <button type="reset">reset</button>
+                                        <input type="button" onclick="demo('none3utr')" value="demo">
                                     </div>
                                     </form>
                                 </div>
