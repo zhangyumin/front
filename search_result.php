@@ -490,6 +490,10 @@
                                     title:'strand',
                                     edit:false
                                 },
+                                coord:{
+                                    title:'coordinate',
+                                    edit:false
+                                },
                                 ftr:{
                                     title:'genomic region',
                                     edit:false
