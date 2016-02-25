@@ -227,16 +227,17 @@
             $singnals = array("AATAAA","TGTAAA","CATAAA","GATAAA","ATTAAA","ACTAAA","AGTAAA","AAAAAA","AACAAA","AAGAAA","AATTAA","AATCAA","AATGAA","AATATA","AATACA","AATAGA","AATAAT","AATAAC","AATAAG");        
             //取sequence的起始和终点坐标
             if($_GET['flag']=='intergenic'){
-                $a="SELECT * from db_server.t_".$species."_gff_all where gene='$seq' and ftr='intergenic';";
+                $gene_start = $coord -200;
+                $gene_end = $coord + 200;
             }
             else{
                 $a="SELECT * from db_server.t_".$species."_gff_all where gene='$seq' and ftr='gene';";
-            }
-            $result=mysql_query($a);
-            while($row=mysql_fetch_row($result))
-            {
-                $gene_start=$row[3];
-                $gene_end=$row[4];
+                $result=mysql_query($a);
+                while($row=mysql_fetch_row($result))
+                {
+                    $gene_start=$row[3];
+                    $gene_end=$row[4];
+                }
             }
             //sequence处理，包括加空格、span坐标
             $sequence_pos = str_split($sequence);
