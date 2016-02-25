@@ -774,7 +774,10 @@
 //                                                $i=1;
                                                 echo "<tr>";
 //                                                        . "<td>PAC$i</td>";
-                                                if($ext_end[0]==NULL|| $ext_start[0] ==NULL){
+                                                if($_GET['flag']=='intergenic'){
+                                                    echo "<td>$pac_r[2](intergenic)</td>";
+                                                }
+                                                else if($ext_end[0]==NULL|| $ext_start[0] ==NULL){
                                                          echo "<td>$pac_r[2](3UTR)</td>";
                                                 }
                                                 else if($strand==1&&$pac_r[2]>$ext_end[0])
