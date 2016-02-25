@@ -315,6 +315,14 @@ and open the template in the editor.
                                 <button type="button" id="triggerUpload-polya" class="btn btn-primary">Upload Queued Files</button>
                             </div>
                         </div>
+                        <hr style="border-bottom: 2px #5499c9 solid">
+                            <img id="polya-uploadtext" src="pic/down.png" onclick="div_hidden('polya-uploadtext','polya-examples','polya-uploadtextdiv','polya-note')"><div style="display: inline" id='polya-note'>Or click here to enter a sequence</div>
+                            <br><br>
+                            <div id='polya-uploadtextdiv' style="display: none">
+                                name:&nbsp;<input id="polya_name" name='polya_text_name' style="width: auto;display: inline">&nbsp;&nbsp;&nbsp;&nbsp;group:&nbsp;<input id="polya_group" name='polya_text_group' style="width: auto;display: inline"><input type="button" value="example" style="margin-left: 10px;width: auto" onclick="example('polya')"><br>
+                                sequence in Poly(A) format: <br>
+                                <textarea id="polya_text" name='polya_sequence_text' style="margin: 0px;width: 900px;height: 230px"></textarea>
+                            </div>
                     </div>
                 </fieldset>
                 <fieldset style="margin-top: 20px;margin-bottom: 5px;">
