@@ -397,6 +397,9 @@
         <script type="text/javascript">
             var pa_min = Math.min.apply(null,pa_start);
             var pa_max = Math.max.apply(null,pa_start);
+            window.onload = function(){
+                $('.pws_tabs_controll').append($('#maximize'))
+            }
             $(document).ready(function (){
                 $('#other_patt').SumoSelect({ csvDispCount: 2,okCancelInMulti:true,selectAll:true });
                 $('#find_patt').click(function(){
@@ -884,7 +887,7 @@
                         </script>
                     </td>
                 </tr>
-                <tr><td style="border-top:0px"><input id="max" type="checkbox" onchange="maximize()">Maximize mode</td></tr>
+                <div id="maximize" style="float:right;display: inline-block;padding: 0.9375em 1.25em;"><input id="max" type="checkbox" onchange="maximize()">Maximize mode</div>
                 <tr>
                     <td colspan=2 style="padding-left:0px;padding-right:0px;border-top: 0px">
                         <div class="tabs" style="padding:0px;border:solid #5499c9">
