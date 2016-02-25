@@ -69,7 +69,7 @@ and open the template in the editor.
             $gene_start=  min($ftr_start);
             $gene_end= max($ftr_end);
             if($_GET['intergenic']==1){
-                $gene_start=$_GET['coord']-200;
+                $gene_start=$_GET['coord']-300;
                 $gene_end=$_GET['coord']+200;
             }
             $genelength=$gene_end-$gene_start;
