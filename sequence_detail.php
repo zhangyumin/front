@@ -193,7 +193,7 @@
             //如果是intergenic
             if($_GET['flag']=='intergenic'){
                 $coord=$_GET['coord'];
-                $coordL=$coord-200;
+                $coordL=$coord-300;
                 $coordH=$coord+200;
                 $seq_result=mysql_query("select substring(seq,$coordL,401) from db_server.t_".$species."_fa where title='$chr';");
                 while($rows=mysql_fetch_row($seq_result))
@@ -227,7 +227,7 @@
             $singnals = array("AATAAA","TGTAAA","CATAAA","GATAAA","ATTAAA","ACTAAA","AGTAAA","AAAAAA","AACAAA","AAGAAA","AATTAA","AATCAA","AATGAA","AATATA","AATACA","AATAGA","AATAAT","AATAAC","AATAAG");        
             //取sequence的起始和终点坐标
             if($_GET['flag']=='intergenic'){
-                $gene_start = $coord -200;
+                $gene_start = $coord -300;
                 $gene_end = $coord + 200;
             }
             else{
