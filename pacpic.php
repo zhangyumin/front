@@ -427,7 +427,7 @@ and open the template in the editor.
             function amb(startpos,endpos,strand,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
-                context.fillStyle="#F35A4A";//amb为兰色
+                context.fillStyle="#9FE0F6";//amb为兰色
                 if(endpos==1000&&strand==1){
                     context.fillRect(startpos,90,endpos-startpos-10,20);
 //                    var_dump($pactmp);
