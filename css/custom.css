@@ -213,9 +213,10 @@ fieldset{
         margin-right: 1em;
     }
     #degene,#depac,#only3utr,#none3utr{
-        width: 45%;
+        width: 44%;
         float: right;
-        margin-right: 1em;
+        margin-top: 1em;
+        margin-right:1em;
     }
     #degene .box,#depac .box,#only3utr .box,#none3utr .box{
         padding-bottom: 1em;
