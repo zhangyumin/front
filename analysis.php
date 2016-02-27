@@ -316,10 +316,13 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div id="degene" class="ym-form" style="padding-top: 20px">
-                                        <input type="radio" checked="true" name="option" onclick="chgoption()" value="option">basic
-                                        <input type="radio" name="option" onclick="chgoption()" value="addition">addtional
-                                        <div id="option" class="ym-fbox box">
+                                    <div id="degene" class="ym-form box" style="padding: 1.42857em;">
+                                        <div id="OptionType" class="ym-fbox" style="margin: 0px;width: 300px">
+                                            <input type="radio" checked="true" name="option" onclick="chgoption()" value="option">basic
+                                            <input type="radio" name="option" onclick="chgoption()" value="addition">addtional
+                                            <hr style=" height:2px;border:none;border-top:1px solid #ccc;" />
+                                        </div>
+                                        <div id="option" class="ym-fbox">
                                                     <label for="nor_method">Normalization method</label>
                                                     <select name="degene_nor_method" id="nor_method">
                                                           <option value='none' selected="true">None</option>
@@ -348,7 +351,7 @@
                                                     <option value='0.1'>0.1</option>
                                                </select>
                                         </div>    
-                                         <div id="addition" class="box ym-fbox" style="display: none;margin-top: 12px">
+                                         <div id="addition" class="ym-fbox" style="display: none;margin-top: 12px">
                                              <br><label for="chr" style="display: inline;padding-right: 15px">in</label>
                                               <select id="chr1" name="chr" style="display: inline;">
                                                     <option value="all" selected="selected">All</option>
