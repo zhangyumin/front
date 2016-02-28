@@ -53,7 +53,7 @@
                 $sysQry.="')";
             }
             $sysQry.=");";
-            $_SESSION['debug'] = $sysQry;
+//            $_SESSION['debug'] = $sysQry;
 //            file_put_contents("./tojbrowse/test.txt", $sysQry);
             $query_result=mysql_query($sysQry);
         }
