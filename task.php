@@ -196,11 +196,12 @@
                 }
              ?>
             <fieldset id="task-history" class="table-tools">
-                    <legend style="text-align:left;">
-                        <h4>
-                            <font color="#224055"><b>Your task history</b></font>
-                        </h4>
-                    </legend>
+                <legend style="text-align:left;">
+                    <h4>
+                        <font color="#224055"><b>Your task history</b></font>
+                    </h4>
+                </legend>
+                <div style="height: 540px;overflow-y: scroll">
                     <table cellspacing="1" cellpadding="0" border="0" style="border:1px solid #5499c9;">
                     <thead>
                         <tr class="theme">
@@ -224,6 +225,7 @@
                             ?>
                     </tbody>
                     </table>
+                </div>
             </fieldset>
         </div>
        <div class="bottom">
