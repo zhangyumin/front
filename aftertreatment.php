@@ -34,6 +34,7 @@
     if(!isset($_SESSION['file'])||((isset($_SESSION['file'])&&$_POST['species']!=$_SESSION['species']))){
         //若go搜索无输入
         if($go_accession==NULL&&$go_name==NULL&&$function==NULL){
+            mysql_query("drop table db_user.SearchedPAC_".$_SESSION['analysis'].";");
             $sysQry="create table db_user.SearchedPAC_".$_SESSION['analysis']." as(select * from db_server.t_".$_POST['species']."_pac where 1=1";
             if($_POST['chr']!='all'){
                 $sysQry.=" and chr='".$_POST['chr']."'";
@@ -52,11 +53,13 @@
                 $sysQry.="')";
             }
             $sysQry.=");";
+            $_SESSION['debug'] = $sysQry;
 //            file_put_contents("./tojbrowse/test.txt", $sysQry);
             $query_result=mysql_query($sysQry);
         }
         else
         {
+            mysql_query("drop table db_user.SearchedPAC_".$_SESSION['analysis'].";");
             $go_sysQry="select gene from db_server.t_".$_POST['species']."_go where 1=1";
             if($_POST['go_name']!=NULL)
             {
@@ -115,6 +118,7 @@
             //删除已经搜索过的数据
             mysql_query("drop table db_user.sysQryPAC_".$_SESSION['analysis'].";");
             mysql_query("drop table db_user.usrQryPAC_".$_SESSION['analysis'].";");
+            mysql_query("drop table db_user.SearchedPAC_".$_SESSION['analysis'].";");
             //系统及用户数据过滤筛选
            if($go_accession==NULL&&$go_name==NULL&&$function==NULL){
             $sysQry="create table db_user.sysQryPAC_".$_SESSION['analysis']." as(select * from db_server.t_".$_POST['species']."_pac where 1=1";
