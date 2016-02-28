@@ -351,7 +351,7 @@
                                                     <option value='0.1'>0.1</option>
                                                </select>
                                         </div>    
-                                         <div id="addition" class="ym-fbox" style="display: none;margin-top: 12px">
+                                         <div id="addition" class="ym-fbox" style="display: none;">
                                              <br><label for="chr" style="display: inline;padding-right: 15px">in</label>
                                               <select id="chr1" name="chr" style="display: inline;">
                                                     <option value="all" selected="selected">All</option>
