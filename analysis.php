@@ -140,7 +140,7 @@
                             <a href="#" hidefocus="true">3'UTR Lenghening</a>
                             <a href="#" hidefocus="true">APA Switching</a>
                         </div><br>    
-                        <div class="swiper-container">
+                        <div class="swiper-container" style="height: 552px">
                             <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="content-slide">
