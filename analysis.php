@@ -765,67 +765,47 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div id="only3utr" class="ym-form">
-                                            <div class="box ym-fbox">
-                                                <div class="ym-grid ym-fbox">
-                                                    <label for="sgminpat">Min PAT</label>
-                                                    <input type='text' value='5' name="sgminpat"/>
-                                                </div>
-                                                <div class="ym-grid ym-fbox">
-                                                    <label for="">Multi-test adjustment method</label>
-                                                    <select>
-                                                        <option checked='true' value='bonferroni' />Bonferroni
-                                                        <option value='notadjust'/>Not adjust
-                                                    </select>
-                                                </div>
-                                                <div class="ym-grid ym-fbox">
-                                                    <label for="only3utr_sig">Significance Level</label>
-                                                    <select name="only3utr_sig">
-                                                        <option value="0.01"/>0.01
-                                                        <option checked='true' value="0.05"/>0.05
-                                                        <option value="0.1"/>0.1
-                                                    </select>
-                                                </div>
+                                        <div id="only3utr" class="ym-form box" style="padding: 1.42857em;">
+                                            <div id="only3utrOptionType" class="ym-fbox" style="margin: 0px;width: 300px">
+                                                <input type="radio" checked="true" name="option" onclick="chgoption('only3utr')" value="only3utr_option">Must options&nbsp;&nbsp;&nbsp;
+                                                <input type="radio" name="option" onclick="chgoption('only3utr')" value="only3utr_addition">Filter options
+                                                <hr style=" height:2px;border:none;border-top:1px solid #ccc;" />
                                             </div>
-                                        </div>
-                                    <div class="ym-clearfix"></div>
-                                    <div class="box info additonal">   
-                                        <a class="ym-button ym-add flip">Additional Options</a>
-                                        <div id="search">
-                                            <div class="box info ym-form">
-                                            <div class="ym-grid ym-fbox">
-                                                <div class="ym-g33 ym-gl">
-                                                    <label for="chr" style="margin-right:2%">in</label>
-                                                      <select id="chr3" name="chr" style="width:80%">
-                                                            <option value="all" selected="selected">All</option>
-                                                     </select>
-                                                </div>
-                                                <div class="ym-g50 ym-gl">
-                                                    <label for="start"style="margin:0 1%;"> from</label>
-                                                    <input type="text" id='start' name="start">
-                                                    <label for="end" style="margin:0 1%;"> to</label>
-                                                    <input type="text" id='end' name="end">
-                                                </div>
+                                            <div id="only3utr_option" class="ym-fbox">
+                                                <label for="sgminpat">Min PAT</label>
+                                                <input type='text' value='5' name="sgminpat"/>
+                                                <label for="">Multi-test adjustment method</label>
+                                                <select>
+                                                    <option checked='true' value='bonferroni' />Bonferroni
+                                                    <option value='notadjust'/>Not adjust
+                                                </select>
+                                                <label for="only3utr_sig">Significance Level</label>
+                                                <select name="only3utr_sig">
+                                                    <option value="0.01"/>0.01
+                                                    <option checked='true' value="0.05"/>0.05
+                                                    <option value="0.1"/>0.1
+                                                </select>
                                             </div>
-                                            <div class="ym-grid ym-fbox">
+                                            <div id="only3utr_addition" class="ym-fbox" style="display: none;">
+                                                 <br><label for="chr" style="display: inline;padding-right: 15px">in</label>
+                                                  <select id="chr3" name="chr" style="display: inline;">
+                                                        <option value="all" selected="selected">All</option>
+                                                 </select><br>
+                                                <label for="start" style="display: inline"> from</label>
+                                                <input type="text" id='start' name="start" style="display: inline;"><br>
+                                                <label for="end" style="display: inline"> to</label>
+                                                <input type="text" id='end' name="end" style="display: inline;margin-left: 14px">
                                                 <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
-                                                <textarea style="width:100%" name="gene_id" id='gene_id'></textarea>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
+                                                <textarea style="width:77%" name="gene_id" id='gene_id'></textarea>
                                                 <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
-                                                <textarea style="width:100%" name='go_accession' id='go_accession'></textarea>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
+                                                <textarea style="width:77%" name='go_accession' id='go_accession'></textarea>
                                                 <label for="go_name" >Go term name:</label>
-                                                <input type='text' name='go_name' class="ym-gr" id='go_name' style="width:89%;"/>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
+                                                <input type='text' name='go_name' id='go_name' style="width:77%;"/>
                                                 <label for="function">Function:</label>
-                                                <input type='text' name='function' id='function' class="ym-gr" style="width:89%;"/><br>
+                                                <input type='text' name='function' id='function' style="width:77%;"/>
                                             </div>
-                                            </div>
-                                        </div>
                                     </div>
+                                    <div class="ym-clearfix"></div>
                                     <div class="box info fsubmit">
                                         <input type="button" id='only3utr-submit' value="submit">
                                         <button type="reset">reset</button>
