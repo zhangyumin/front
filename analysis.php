@@ -318,8 +318,8 @@
                                     </div>
                                     <div id="degene" class="ym-form box" style="padding: 1.42857em;">
                                         <div id="OptionType" class="ym-fbox" style="margin: 0px;width: 300px">
-                                            <input type="radio" checked="true" name="option" onclick="chgoption()" value="option">basic
-                                            <input type="radio" name="option" onclick="chgoption()" value="addition">addtional
+                                            <input type="radio" checked="true" name="option" onclick="chgoption()" value="option">Must options&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="option" onclick="chgoption()" value="addition">Filter options
                                             <hr style=" height:2px;border:none;border-top:1px solid #ccc;" />
                                         </div>
                                         <div id="option" class="ym-fbox">
