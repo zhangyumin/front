@@ -34,7 +34,7 @@
                         <br>The supported species are listed in the drop-down box.
                         </p>
                         <p>2) Input
-                        <br>You can upload two kinds of sequences, short reads and ESTs. You can also click “Try an example” button to load the demo data. In addition, you can upload a file to specific coordinates of poly(A) sites. If this file is provided, PASPA will skip the extraction pipeline and load the input sites to a user database directly.
+                        <br>You can upload two kinds of sequences, short reads and ESTs. You can also click “Try an example” button to load the demo data. In addition, you can upload a file to specific coordinates of poly(A) sites. If this file is provided, PlantAPA will skip the extraction pipeline and load the input sites to a user database directly.
                         </p>
                         <p>3) Options for mapping reads (optional)
                         <br>If sequences are uploaded, users can use the default parameters set by PlantAPA or specific the parameters for mapping reads.
