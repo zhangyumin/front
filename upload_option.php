@@ -244,7 +244,7 @@ and open the template in the editor.
                             <img id="uploadtext" src="pic/down.png" onclick="div_hidden('uploadtext','seq-examples','uploadtextdiv','seq-note')"><div style="display: inline" id='seq-note'>Or click here to enter a sequence</div>
                             <br><br>
                             <div id='uploadtextdiv' style="display: none">
-                                name:&nbsp;<input id="seq_name" name='text_name'>&nbsp;&nbsp;&nbsp;&nbsp;group:&nbsp;<input id="seq_group" name='text_group'><input style="margin-left: 10px" type="button" value="example" onclick="example('seq')"><br>
+                                name:&nbsp;<input id="seq_name" name='text_name'>&nbsp;&nbsp;&nbsp;&nbsp;group:&nbsp;<input id="seq_group" name='text_group'><input style="margin-left: 10px" type="button" value="try an example" onclick="example('seq')"><br>
                                 sequence in FASTA format: <br>
                                 <textarea id="seq_text" name='sequence_text' style="margin: 0px;width: 900px;height: 230px"></textarea>
                             </div>
@@ -325,7 +325,7 @@ and open the template in the editor.
                             <img id="polya-uploadtext" src="pic/down.png" onclick="div_hidden('polya-uploadtext','polya-examples','polya-uploadtextdiv','polya-note')"><div style="display: inline" id='polya-note'>Or click here to enter a sequence</div>
                             <br><br>
                             <div id='polya-uploadtextdiv' style="display: none">
-                                name:&nbsp;<input id="polya_name" name='polya_text_name' style="width: auto;display: inline">&nbsp;&nbsp;&nbsp;&nbsp;group:&nbsp;<input id="polya_group" name='polya_text_group' style="width: auto;display: inline"><input type="button" value="example" style="margin-left: 10px;width: auto" onclick="example('polya')"><br>
+                                name:&nbsp;<input id="polya_name" name='polya_text_name' style="width: auto;display: inline">&nbsp;&nbsp;&nbsp;&nbsp;group:&nbsp;<input id="polya_group" name='polya_text_group' style="width: auto;display: inline"><input type="button" value="try an example" style="margin-left: 10px;width: auto" onclick="example('polya')"><br>
                                 sequence in Poly(A) format: <br>
                                 <textarea id="polya_text" name='polya_sequence_text' style="margin: 0px;width: 900px;height: 230px"></textarea>
                             </div>
@@ -365,7 +365,7 @@ and open the template in the editor.
                             <img id="est-uploadtext" src="pic/down.png" onclick="div_hidden('est-uploadtext','est-examples','est-uploadtextdiv','est-note')"><div style="display: inline" id='est-note'>Or click here to enter a sequence</div>
                             <br><br>
                             <div id='est-uploadtextdiv' style="display: none">
-                                name:&nbsp;<input id="est_name" name='est_text_name' style="width: auto;display: inline">&nbsp;&nbsp;&nbsp;&nbsp;group:&nbsp;<input id="est_group" name='est_text_group' style="width: auto;display: inline"><input type="button" value="example" style="margin-left: 10px;width: auto" onclick="example('est')"><br>
+                                name:&nbsp;<input id="est_name" name='est_text_name' style="width: auto;display: inline">&nbsp;&nbsp;&nbsp;&nbsp;group:&nbsp;<input id="est_group" name='est_text_group' style="width: auto;display: inline"><input type="button" value="try an example" style="margin-left: 10px;width: auto" onclick="example('est')"><br>
                                 sequence in EST format: <br>
                                 <textarea id="est_text" name='est_sequence_text' style="margin: 0px;width: 900px;height: 230px"></textarea>
                             </div>
