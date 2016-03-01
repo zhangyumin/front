@@ -25,8 +25,8 @@
                         <span style="font: 25px bold;">Suggested Browsers</span>
                         <p>Advanced browsers, such as Chrome, Firefox, Safari, and Internet Explorer (10.0 or later) can be used for browsing PlantAPA. 
                        <br>Firefox and Chrome are recommended:
-                       <br>Mozilla Firefox 3.5 or greater (http://www.mozilla.org/)
-                       <br>Google Chrome 6.0 or greater (http://www.google.com/chrome/)</p>
+                       <br>Mozilla Firefox 3.5 or greater (<a href=http://www.mozilla.org>http://www.mozilla.org</a>)
+                       <br>Google Chrome 6.0 or greater (<a href=http://www.google.com/chrome/>http://www.google.com/chrome/</a>)</p>
                       </div>
                       <div class="jumpto-block">
                         <h2>1. Introduction</h2>
