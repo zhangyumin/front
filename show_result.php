@@ -285,8 +285,8 @@
                             <option value="seq">export gene sequences</option>
                         </select><br>
                         <div id="pacs" style="display:none">
-                            Upstream (nt) <input type="text" value="200" name='upstream' style="margin-left:35;margin-bottom: 5;width: 226px"></input><br>
-                            Downstream (nt) <input type="text" value="200" name='downstream' style="margin-left:20;margin-bottom: 5;width: 226px"></input><br>
+                            Upstream (nt) <input type="text" value="200" name='upstream' style="margin-left:33;margin-bottom: 5;width: 226px"></input><br>
+                            Downstream (nt) <input type="text" value="200" name='downstream' style="margin-left:18;margin-bottom: 5;width: 226px"></input><br>
                             PAC in region <select name='pac_region' style="margin-left:33;margin-bottom: 5;width: 226px">
                                 <option value="all">all</option>
                                 <option value="genomic-region">genomic region</option>
@@ -299,7 +299,7 @@
                             </select>
                         </div>
                         <div id="pacs-region" style="display:none">
-                            Region of PACs <select name='pacs_region' style="margin-left:26;margin-bottom: 5;width: 226px">
+                            Region of PACs <select name='pacs_region' style="margin-left:21;margin-bottom: 5;width: 226px">
                                 <option value="all">all</option>
                                 <option value="genomic-region">genomic region</option>
                                 <option value="3TUR">3'UTR</option>
@@ -311,11 +311,11 @@
                             </select>
                         </div>
                         <div id="seq" style="display:none">
-                            Annotation version <select name='anno_version' style="margin-left:9;margin-bottom: 5;width: 226px">
+                            Annotation version <select name='anno_version' style="margin-left:7;margin-bottom: 5;width: 226px">
                                 <option value="raw-annotation">raw annotation</option>
                                 <option value="3utr-extended-annotation">3' UTR extended annotation</option>
                             </select><br>
-                            Export <select name='export' style="margin-left:73;margin-bottom: 5;width: 226px">
+                            Export <select name='export' style="margin-left:72;margin-bottom: 5;width: 226px">
                                 <option value="whole-gene">whole gene</option>
                                 <option value="joined-cds">joined CDS</option>
                                 <option value="3utr-only">3' UTR only</option>
