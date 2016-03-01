@@ -887,7 +887,7 @@
                         </script>
                     </td>
                 </tr>
-                <div id="maximize" style="float:right;display: inline-block;padding: 0.9375em 1.25em;"><input id="max" type="checkbox" onchange="maximize()">Maximize mode</div>
+                <div id="maximize" style="float:right;display: inline-block;font-weight: bold;font-size: 22px"><input id="max" type="checkbox" onchange="maximize()" style="width:16px;height: 16px">Maximize mode</div>
                 <tr>
                     <td colspan=2 style="padding-left:0px;padding-right:0px;border-top: 0px">
                         <div class="tabs" style="padding:0px;border:solid #5499c9">
