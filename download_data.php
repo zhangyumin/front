@@ -3,7 +3,7 @@
     header("Content-type:text/html;charset=utf-8"); 
     //用以解决中文不能显示出来的问题 
     if($_GET['type']==1){
-        $file_path="/var/www/front/download/";
+        $file_path="./download/";
     }
     elseif($_GET['type']==2){
         $file_path="./data/".$_SESSION['file']."/";
