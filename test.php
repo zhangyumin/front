@@ -1,4 +1,4 @@
 <?php
     session_start();
-    var_dump($_SESSION['analysis']);
+    var_dump($_SESSION['test']);
 ?>
