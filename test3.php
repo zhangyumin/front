@@ -1,9 +1,23 @@
-<?php
-    $a = array();
-    $a = file("./line.txt");
-    foreach ($a as $key => $value) {
-        $c = explode("\n", $value);
-        $b = $b.$c[0]."\\n";
-    }
-    file_put_contents("./haha.txt", $b);
-?>
+<html>
+    <head>
+        <title>抓AD专用页面</title>
+    </head>
+    <body onload="GetAd()">
+        <div id="a"></div>
+        <script>
+            function GetAd(){
+                var omain = document.getElementById("oMain");
+                var a = document.getElementById("a");
+                if(omain){
+                    alert('find advertisement')
+                }
+                else{
+                    for(i = 0 ;i < 10000000000 ; i++){
+                        
+                    }
+                    location.reload();
+                }
+            }
+        </script>
+    </body>
+</html>
