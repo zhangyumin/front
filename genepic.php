@@ -428,6 +428,10 @@ and open the template in the editor.
                         if($strand==-1){
                             if($sutr_end_org[$key]!=null&&$sutr_start_org[$key]!=null)
                                 echo "sutr_extend($st_st,$start,0,1000,-1,'gene');\n";
+                            
+                            else if(($sutr_end_org[$key-1]==null || $sutr_start_org[$key-1]==null)){
+                                
+                            }
                             else{
                                 $start = ($sutr_start_org[$key-1]-$gene_start)*$rate;
                                 echo "sutr_extend($st_st,$start,0,1000,-1,'gene');\n";
@@ -436,6 +440,9 @@ and open the template in the editor.
                         else if($strand==1){
                             if($sutr_end_org[$key]!=null&&$sutr_start_org[$key]!=null)
                                 echo "sutr_extend($end,$st_ed,0,1000,1,'gene');\n";
+                            else if(($sutr_end_org[$key-1]==null || $sutr_start_org[$key-1]==null)){
+                                
+                            }
                             else{
                                 $end = ($sutr_end_org[$key-1]-$gene_start)*$rate;
                                 echo "sutr_extend($end,$st_ed,0,1000,1,'gene');\n";
