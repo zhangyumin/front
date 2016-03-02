@@ -87,11 +87,32 @@ and open the template in the editor.
                 </tr>
                 </thead>
                 <tr>
+                    <td>Japonica rice</td>
+                    <td>sequence</td>
+                    <td>81.5MB</td>
+                    <td>GFF3</td>
+                    <td><a href="./download_data.php?type=1&name=japonica.gff3"/>Click here</td>
+                </tr>
+                <tr>
                     <td>Arabidopsis thaliana</td>
                     <td>sequence</td>
-                    <td>333MB</td>
+                    <td>66.2MB</td>
                     <td>GFF3</td>
-                    <td><a href="./download_data.php?type=1&name=Arabidopsis_thaliana.TAIR10.23.gff3"/>Click here</td>
+                    <td><a href="./download_data.php?type=1&name=arab.gff3"/>Click here</td>
+                </tr>
+                <tr>
+                    <td>Medicago truncatula</td>
+                    <td>sequence</td>
+                    <td>63.7MB</td>
+                    <td>GFF3</td>
+                    <td><a href="./download_data.php?type=1&name=mtr.gff3"/>Click here</td>
+                </tr>
+                <tr>
+                    <td>Chlamydomonas reinhardtii (Green alga)</td>
+                    <td>sequence</td>
+                    <td>33.5MB</td>
+                    <td>GFF3</td>
+                    <td><a href="./download_data.php?type=1&name=chlamy.gff3"/>Click here</td>
                 </tr>
             </table><br>
         </div>
