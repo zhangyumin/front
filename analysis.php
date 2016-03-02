@@ -318,7 +318,7 @@
                                     </div>
                                     <div id="degene" class="ym-form box" style="padding: 1.42857em;">
                                         <div id="degeneOptionType" class="ym-fbox" style="margin: 0px;width: 300px">
-                                            <input type="radio" checked="true" name="option" onclick="chgoption('degene')" value="degene_option">Must options&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" checked="true" name="option" onclick="chgoption('degene')" value="degene_option">Required options&nbsp;&nbsp;&nbsp;
                                             <input type="radio" name="option" onclick="chgoption('degene')" value="degene_addition">Filter options
                                             <hr style=" height:2px;border:none;border-top:1px solid #ccc;" />
                                         </div>
@@ -544,7 +544,7 @@
                                     </div>
                                     <div id="depac" class="ym-form box" style="padding: 1.42857em;">
                                         <div id="depacOptionType" class="ym-fbox" style="margin: 0px;width: 300px">
-                                            <input type="radio" checked="true" name="option" onclick="chgoption('depac')" value="depac_option">Must options&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" checked="true" name="option" onclick="chgoption('depac')" value="depac_option">Required options&nbsp;&nbsp;&nbsp;
                                             <input type="radio" name="option" onclick="chgoption('depac')" value="depac_addition">Filter options
                                             <hr style=" height:2px;border:none;border-top:1px solid #ccc;" />
                                         </div>
@@ -767,7 +767,7 @@
                                         </div>
                                         <div id="only3utr" class="ym-form box" style="padding: 1.42857em;">
                                             <div id="only3utrOptionType" class="ym-fbox" style="margin: 0px;width: 300px">
-                                                <input type="radio" checked="true" name="option" onclick="chgoption('only3utr')" value="only3utr_option">Must options&nbsp;&nbsp;&nbsp;
+                                                <input type="radio" checked="true" name="option" onclick="chgoption('only3utr')" value="only3utr_option">Required options&nbsp;&nbsp;&nbsp;
                                                 <input type="radio" name="option" onclick="chgoption('only3utr')" value="only3utr_addition">Filter options
                                                 <hr style=" height:2px;border:none;border-top:1px solid #ccc;" />
                                             </div>
@@ -979,7 +979,7 @@
                                     </div>
                                     <div id="none3utr" method="post" class="ym-form box"  style="padding: 1.42857em;">
                                         <div id="none3utrOptionType" class="ym-fbox" style="margin: 0px;width: 300px">
-                                            <input type="radio" checked="true" name="option" onclick="chgoption('none3utr')" value="none3utr_option">Must options&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" checked="true" name="option" onclick="chgoption('none3utr')" value="none3utr_option">Required options&nbsp;&nbsp;&nbsp;
                                             <input type="radio" name="option" onclick="chgoption('none3utr')" value="none3utr_addition">Filter options
                                             <hr style=" height:2px;border:none;border-top:1px solid #ccc;" />
                                         </div>
