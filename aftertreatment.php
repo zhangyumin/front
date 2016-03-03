@@ -30,8 +30,8 @@
     else{
         $_SESSION['analysis']=$_POST['species'].substr($_SESSION['analysis'], strpos($_SESSION['analysis'], "201"));
     }
-    //如果没有进行trap,或者trap的物种与analysis提交的物种不同,则只对系统数据进行搜索过滤
-    if(!isset($_SESSION['file'])||((isset($_SESSION['file'])&&$_POST['species']!=$_SESSION['species']))){
+    //如果没有勾选trap后的sample,则只对系统数据进行搜索过滤
+    if(empty(array_intersect($_SESSION['file_real'], $_POST['sample1'])) && empty(array_intersect($_SESSION['file_real'], $_POST['sample2']))){
         //若go搜索无输入
         if($go_accession==NULL&&$go_name==NULL&&$function==NULL){
             mysql_query("drop table db_user.SearchedPAC_".$_SESSION['analysis'].";");
