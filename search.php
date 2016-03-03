@@ -256,7 +256,7 @@ and open the template in the editor.
                                     <span title="Browse gene detail for 'AT1G01020'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                                 </a>
                             </td>
-                            <td class="style1"  width='50' style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
+                            <td class="style1"  width='50' style="white-space: nowrap;">
                                 <span class="more1" title="View more information about arabidopsis thanliana" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
                             </td>
                         </tr>
@@ -345,7 +345,7 @@ and open the template in the editor.
                                     </table>
                                     <div class="ym-grid "  style="text-align: center">
                                         <div class="ym-g50 ym-gl">
-                                            <img src='./pic/arab_PACs.png' style="width:400px;height: 244px"/>
+                                            <img src='./pic/arab_PACs.png' style="width:400px;height: 240px"/>
                                         </div>
                                         <div class="ym-g50 ym-gr" >
                                             <img src='./pic/arab_PATs.png' style="width:400px;height: 240px"/>
@@ -375,7 +375,7 @@ and open the template in the editor.
                                     <span title="Browse gene detail for 'LOC_Os01g01080'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                                 </a>
                             </td>
-                            <td class="style1" width='50' style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
+                            <td class="style1" width='50' style="white-space: nowrap;">
                                 <span class="more2" title="Browse search result for 'LOC_Os01g01080'" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
                             </td>
                         </tr>
@@ -405,7 +405,7 @@ and open the template in the editor.
                                     </table>
                                     <div class="ym-grid "  style="text-align: center">
                                         <div class="ym-g50 ym-gl">
-                                            <img src='./pic/japonica_PACs.png' style="width:400px;height: 245px"/>
+                                            <img src='./pic/japonica_PACs.png' style="width:400px;height: 240px"/>
                                         </div>
                                         <div class="ym-g50 ym-gl">
                                             <img src='./pic/japonica_PATs.png' style="width:400px;height: 240px"/>
@@ -432,7 +432,7 @@ and open the template in the editor.
                                     <span title="Browse gene detail for 'Medtr0019s0160'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                                 </a>
                             </td>
-                            <td class="style1" width='50' style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
+                            <td class="style1" width='50' style="white-space: nowrap;">
                                 <span class="more3" title="View more information about Medicago truncatula'" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
                             </td>
                         </tr>
@@ -462,7 +462,7 @@ and open the template in the editor.
                                     </table>
                                     <div class="ym-grid "  style="text-align: center">
                                         <div class="ym-g50 ym-gl">
-                                            <img src='./pic/mtr_PACs.png' style="width:400px;height: 245px"/>
+                                            <img src='./pic/mtr_PACs.png' style="width:400px;height: 240px"/>
                                         </div>
                                         <div class="ym-g50 ym-gl">
                                             <img src='./pic/mtr_PATs.png' style="width:400px;height: 240px"/>
@@ -491,7 +491,7 @@ and open the template in the editor.
                                     <span title="Browse gene detail for 'Cre01.g000650'" style="background-color:#0066cc;color: #FFFFFF">View</span>
                                 </a>
                             </td>
-                            <td class="style1" width='50' style="white-space: nowrap;border-top: 1px dotted #c9bc9c;">
+                            <td class="style1" width='50' style="white-space: nowrap;">
                                 <span class="more4" title="View more information about Chlamydomonas reinhardtii'" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
                             </td>
                         </tr>
@@ -536,7 +536,7 @@ and open the template in the editor.
                                     </table>
                                     <div class="ym-grid" style="text-align: center">
                                         <div class="ym-g50 ym-gl">
-                                            <img src='./pic/chlamy_PACs.png' style="width:400px;height: 245px"/>
+                                            <img src='./pic/chlamy_PACs.png' style="width:400px;height: 240px"/>
                                         </div>
                                         <div class="ym-g50 ym-gl">
                                             <img src='./pic/chlamy_PATs.png' style="width:400px;height: 240px"/>
