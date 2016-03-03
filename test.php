@@ -1,4 +1,6 @@
 <?php
     session_start();
-    session_destroy();
+    var_dump($_SESSION['test1']);
+    var_dump($_SESSION['test2']);
+//    session_destroy();
 ?>
