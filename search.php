@@ -476,11 +476,11 @@ and open the template in the editor.
                         </tr>
                         <tr>
                             <td>Chlamydomonas reinhardtii</td>
-                            <td>3</td>
-                            <td>39295</td>
-                            <td>1002767</td>
-                            <td>poly(A) sites extracted from ESTs, 454, and Illumina sequence reads</td>
-                            <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>                     
+                            <td>4</td>
+                            <td>45372</td>
+                            <td>13536005</td>
+                            <td>poly(A) sites extracted from ESTs, 454, Illumina, and  PAT-seq sequence reads</td>
+                            <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014; Umen et al. PloS one, 2016</td>                     
                             <td>
                                 <a target="_blank" href="../jbrowse/?data=data/chlamy">
                                     <span title="Browse polyA sites in Jbrowse" style="background-color:#0066cc;color: #FFFFFF">Chr</span>
@@ -530,6 +530,14 @@ and open the template in the editor.
                                                 <td>mix</td>
                                                 <td>mix</td>
                                                 <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
+                                                <td>Creinhardtii 281 v55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Chlamydomonas reinhardtii</td>
+                                                <td>from PAT-seq</td>
+                                                <td>mix</td>
+                                                <td>mix</td>
+                                                <td>Umen et al. PloS one, 2016</td>
                                                 <td>Creinhardtii 281 v55</td>
                                             </tr>
                                         </tbody>
