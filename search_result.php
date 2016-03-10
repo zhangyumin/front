@@ -13,7 +13,7 @@
         <![endif]-->
     </head>
     <style type="text/css">
-        .STYLE1 {font-size: 12px}
+        .STYLE1 {font-size: 12p}
         a:link {
         color: #5499c9;
         text-decoration: none;
