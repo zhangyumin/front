@@ -9,6 +9,7 @@
         <img style="float:left;height: 50px;padding: 15px 20px" src="./pic/biglogo.jpg"/>
         <span style="float:left;font-size: 18px;padding: 40px 20px 0px 30px">A portal for visualization and analysis of alternative polyadenylation in plants</span>
         <img style="float:right;height: 70px;padding: 5px 20px;" src="./pic/schoollogo.jpg"/>
+        <div style="clear:both"></div>
   </div>
 </header>
 <nav id="nav" class="fix" role="navigation">
