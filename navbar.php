@@ -1,10 +1,13 @@
 <meta name="renderer" content="webkit">
 <header>
   <div class="ym-wrapper">
-    <div class="ym-wbox">
-<!--        <img src="./pic/plantapa.png"/>
-        <span style="float:right;font-size: 15px">a portal for visualization and analysis of alternative polyadenylation in plants</span>-->
-    </div>
+<!--    <div class="ym-wbox">
+        <img src="./pic/plantapa.png"/>
+        <span style="float:right;font-size: 15px">a portal for visualization and analysis of alternative polyadenylation in plants</span>
+    </div>-->
+        <div id="logo" class="top" style="float:left;">logo</div>
+        <div id="serach_area" class="top" style="float:left;">search</div>
+        <div id="other" class="top" style="float:left;">other</div>
   </div>
 </header>
 <nav id="nav" class="fix" role="navigation">
