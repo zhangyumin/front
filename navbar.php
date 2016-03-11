@@ -33,7 +33,7 @@
             <option value="mtr">Medicago</option>
             <option value="chlamy">Chlamy</option>
         </select>
-          <input class="ym-searchfield" name="key" type="search" placeholder="keyword" style="border-radius: 0.2em"/>
+          <input class="ym-searchfield" name="key" type="search" placeholder="input keyword here" style="border-radius: 0.2em"/>
           <button class="ym-searchbutton" type="submit" style="height: 30px">Search</button>
       </form>
     </div>
