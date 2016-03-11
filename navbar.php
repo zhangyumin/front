@@ -2,12 +2,13 @@
 <header>
   <div class="ym-wrapper">
 <!--    <div class="ym-wbox">
-        <img src="./pic/plantapa.png"/>
+        <img src="./pic/biglogoshadow.jpg"/>
         <span style="float:right;font-size: 15px">a portal for visualization and analysis of alternative polyadenylation in plants</span>
     </div>-->
-        <div id="logo" class="top" style="float:left;">logo</div>
-        <div id="serach_area" class="top" style="float:left;">search</div>
-        <div id="other" class="top" style="float:left;">other</div>
+        <!--<img style="float:left;" src="./pic/logo.jpg"/>-->
+        <img style="float:left;height: 50px;padding: 15px 20px" src="./pic/biglogo.jpg"/>
+        <span style="float:left;font-size: 18px;padding: 40px 20px 0px 30px">A portal for visualization and analysis of alternative polyadenylation in plants</span>
+        <img style="float:right;height: 70px;padding: 5px 20px;" src="./pic/schoollogo.jpg"/>
   </div>
 </header>
 <nav id="nav" class="fix" role="navigation">
@@ -24,7 +25,7 @@
               <li><a href="./task.php">My task</a></li>
               <li><a href="./help.php">Help</a></li>
       </ul>
-<!--        <form class="ym-searchform" method="post" action="search_result.php?method=fuzzy" style="height: 30px;padding: 6px 7.5px">
+        <form class="ym-searchform" method="post" action="search_result.php?method=fuzzy" style="height: 30px;padding: 6px 7.5px">
           <select name="species" style="height: 29px;border-radius: 0.2em">
             <option value="japonica">Rice</option>
             <option value="arab" selected="true">Arabidopsis</option>
@@ -33,7 +34,7 @@
         </select>
           <input class="ym-searchfield" name="key" type="search" placeholder="keyword" style="border-radius: 0.2em"/>
           <button class="ym-searchbutton" type="submit" style="height: 30px">Search</button>
-      </form>-->
+      </form>
     </div>
   </div>
 </nav>
