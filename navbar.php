@@ -2,8 +2,8 @@
 <header>
   <div class="ym-wrapper">
     <div class="ym-wbox">
-        <img src="./pic/plantapa.png"/>
-        <span style="float:right;font-size: 15px">a portal for visualization and analysis of alternative polyadenylation in plants</span>
+<!--        <img src="./pic/plantapa.png"/>
+        <span style="float:right;font-size: 15px">a portal for visualization and analysis of alternative polyadenylation in plants</span>-->
     </div>
   </div>
 </header>
@@ -21,7 +21,7 @@
               <li><a href="./task.php">My task</a></li>
               <li><a href="./help.php">Help</a></li>
       </ul>
-        <form class="ym-searchform" method="post" action="search_result.php?method=fuzzy" style="height: 30px;padding: 6px 7.5px">
+<!--        <form class="ym-searchform" method="post" action="search_result.php?method=fuzzy" style="height: 30px;padding: 6px 7.5px">
           <select name="species" style="height: 29px;border-radius: 0.2em">
             <option value="japonica">Rice</option>
             <option value="arab" selected="true">Arabidopsis</option>
@@ -30,7 +30,7 @@
         </select>
           <input class="ym-searchfield" name="key" type="search" placeholder="keyword" style="border-radius: 0.2em"/>
           <button class="ym-searchbutton" type="submit" style="height: 30px">Search</button>
-      </form>
+      </form>-->
     </div>
   </div>
 </nav>
