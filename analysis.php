@@ -137,7 +137,7 @@
                         <div class="tabs">
                             <a href="#" hidefocus="true" class="active">DE Gene</a>
                             <a href="#" hidefocus="true">DE PAC</a>
-                            <a href="#" hidefocus="true">3'UTR Lenghening</a>
+                            <a href="#" hidefocus="true">3'UTR Lengthening</a>
                             <a href="#" hidefocus="true">APA Switching</a>
                         </div><br>    
                         <div class="swiper-container" style="height: 552px">
