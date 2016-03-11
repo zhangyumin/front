@@ -33,8 +33,9 @@
 
   /* Basic Element Styling */
   header {
-    background: #257;
-    color: #ccc;
+    /*background: #257;*/
+    /*color: #ccc;*/
+    height: 80px;
   }
   header h1 {
     background: transparent;
@@ -45,7 +46,8 @@
   }
 
   nav {
-    background: #5499C9;
+    /*background: #5499C9;*/
+    background: #5db95b;
   }
 
   main .info {
