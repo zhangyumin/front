@@ -137,10 +137,10 @@
                         <div class="tabs">
                             <a href="#" hidefocus="true" class="active">DE Gene</a>
                             <a href="#" hidefocus="true">DE PAC</a>
-                            <a href="#" hidefocus="true">3'UTR Lengthening</a>
+                            <a href="#" hidefocus="true">3'UTR Lenghening</a>
                             <a href="#" hidefocus="true">APA Switching</a>
                         </div><br>    
-                        <div class="swiper-container" style="height: 552px">
+                        <div class="swiper-container">
                             <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="content-slide">
@@ -316,13 +316,8 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div id="degene" class="ym-form box" style="padding: 1.42857em;">
-                                        <div id="degeneOptionType" class="ym-fbox" style="margin: 0px;width: 300px">
-                                            <input type="radio" checked="true" name="option" onclick="chgoption('degene')" value="degene_option">Required options&nbsp;&nbsp;&nbsp;
-                                            <input type="radio" name="option" onclick="chgoption('degene')" value="degene_addition">Filter options
-                                            <hr style=" height:2px;border:none;border-top:1px solid #ccc;" />
-                                        </div>
-                                        <div id="degene_option" class="ym-fbox">
+                                    <div id="degene" class="ym-form">
+                                        <div class="ym-fbox box">
                                                     <label for="nor_method">Normalization method</label>
                                                     <select name="degene_nor_method" id="nor_method">
                                                           <option value='none' selected="true">None</option>
@@ -338,6 +333,8 @@
                                                     </select>
                                                   <label for="min_pat">Min PAT</label>
                                                 <input type='text' name='degene_min_pat' value='5'/>
+                                           
+                                        
                                               <label for="multi_test">Multi-test adjustment method</label>
                                                 <select name="degene_multi_test">
                                                     <option value='Bonferroni' selected="true">Bonferroni</option>
@@ -351,26 +348,47 @@
                                                     <option value='0.1'>0.1</option>
                                                </select>
                                         </div>    
-                                         <div id="degene_addition" class="ym-fbox" style="display: none;">
-                                             <br><label for="chr" style="display: inline;padding-right: 15px">in</label>
-                                              <select id="chr1" name="chr" style="display: inline;">
-                                                    <option value="all" selected="selected">All</option>
-                                             </select><br>
-                                            <label for="start" style="display: inline"> from</label>
-                                            <input type="text" id='start' name="start" style="display: inline;"><br>
-                                            <label for="end" style="display: inline"> to</label>
-                                            <input type="text" id='end' name="end" style="display: inline;margin-left: 14px">
-                                            <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
-                                            <textarea style="width:77%" name="gene_id" id='gene_id'></textarea>
-                                            <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
-                                            <textarea style="width:77%" name='go_accession' id='go_accession'></textarea>
-                                            <label for="go_name" >Go term name:</label>
-                                            <input type='text' name='go_name' id='go_name' style="width:77%;"/>
-                                            <label for="function">Function:</label>
-                                            <input type='text' name='function' id='function' style="width:77%;"/>
-                                        </div>
+                                       
                                     </div>
                                     <div class="ym-clearfix"></div>
+                                    <div class="box info additonal">   
+                                        <a class="ym-button ym-add flip">Filter gene or PAC by additional options</a>
+                                    
+                                        <div id="search">
+                                            <div class="box info ym-form">
+                                            <div class="ym-grid ym-fbox">
+                                                <div class="ym-g33 ym-gl">
+                                                    <label for="chr" style="margin-right:2%">in</label>
+                                                      <select id="chr1" name="chr" style="width:80%">
+                                                            <option value="all" selected="selected">All</option>
+                                                     </select>
+                                                </div>
+                                                <div class="ym-g50 ym-gl">
+                                                    <label for="start"style="margin:0 1%;"> from</label>
+                                                    <input type="text" id='start' name="start">
+                                                    <label for="end" style="margin:0 1%;"> to</label>
+                                                    <input type="text" id='end' name="end">
+                                                </div>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
+                                                <textarea style="width:100%" name="gene_id" id='gene_id'></textarea>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
+                                                <textarea style="width:100%" name='go_accession' id='go_accession'></textarea>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="go_name" >Go term name:</label>
+                                                <input type='text' name='go_name' class="ym-gr" id='go_name' style="width:89%;"/>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="function">Function:</label>
+                                                <input type='text' name='function' id='function' class="ym-gr" style="width:89%;"/><br>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="box info fsubmit">
                                         <input type="button" id='degene-submit' value="submit">
                                         <button type="reset">reset</button>
@@ -542,13 +560,8 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div id="depac" class="ym-form box" style="padding: 1.42857em;">
-                                        <div id="depacOptionType" class="ym-fbox" style="margin: 0px;width: 300px">
-                                            <input type="radio" checked="true" name="option" onclick="chgoption('depac')" value="depac_option">Required options&nbsp;&nbsp;&nbsp;
-                                            <input type="radio" name="option" onclick="chgoption('depac')" value="depac_addition">Filter options
-                                            <hr style=" height:2px;border:none;border-top:1px solid #ccc;" />
-                                        </div>
-                                        <div id="depac_option" class="ym-fbox ">
+                                    <div id="depac" method="post" class="ym-form">
+                                        <div class="ym-fbox box">
                                             <label for="depac_normethod">Normalization method</label>
                                             <select name="depac_normethod" id="depac_normethod">
                                                     <option value='none' selected="true">None</option>
@@ -574,26 +587,45 @@
                                                 <option value='0.1'>0.1</option>
                                             </select>
                                         </div>
-                                        <div id="depac_addition" class="ym-fbox" style="display: none;">
-                                            <br><label for="chr" style="display: inline;padding-right: 15px">in</label>
-                                                  <select id="chr2" name="chr" style="display: inline;">
-                                                        <option value="all" selected="selected">All</option>
-                                                 </select><br>
-                                                <label for="start" style="display: inline"> from</label>
-                                                <input type="text" id='start' name="start" style="display: inline;"><br>
-                                                <label for="end" style="display: inline"> to</label>
-                                                <input type="text" id='end' name="end" style="display: inline;margin-left: 14px">
-                                                <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
-                                                <textarea style="width:77%" name="gene_id" id='gene_id'></textarea>
-                                                <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
-                                                <textarea style="width:77%" name='go_accession' id='go_accession'></textarea>
-                                                <label for="go_name" >Go term name:</label>
-                                                <input type='text' name='go_name' id='go_name' style="width:77%;"/>
-                                                <label for="function">Function:</label>
-                                                <input type='text' name='function' id='function' style="width:77%;"/>
-                                        </div>
                                     </div>
                                     <div class="ym-clearfix"></div>
+                                    <div class="box info additonal">   
+                                        <a class="ym-button ym-add flip">Additional Options</a>
+                                        <div id="search">
+                                            <div class="box info ym-form">
+                                            <div class="ym-grid ym-fbox">
+                                                <div class="ym-g33 ym-gl">
+                                                    <label for="chr" style="margin-right:2%">in</label>
+                                                      <select id="chr2" name="chr" style="width:80%">
+                                                            <option value="all" selected="selected">All</option>
+                                                     </select>
+                                                </div>
+                                                <div class="ym-g50 ym-gl">
+                                                    <label for="start"style="margin:0 1%;"> from</label>
+                                                    <input type="text" id='start' name="start">
+                                                    <label for="end" style="margin:0 1%;"> to</label>
+                                                    <input type="text" id='end' name="end">
+                                                </div>
+                                            </div>           
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
+                                                <textarea style="width:100%" name="gene_id" id='gene_id'></textarea>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
+                                                <textarea style="width:100%" name='go_accession' id='go_accession'></textarea>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="go_name" >Go term name:</label>
+                                                <input type='text' name='go_name' class="ym-gr" id='go_name' style="width:89%;"/>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="function">Function:</label>
+                                                <input type='text' name='function' id='function' class="ym-gr" style="width:89%;"/><br>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="box info fsubmit">
                                         <input type="button" id='depac-submit' value="submit">
                                         <button type="reset">reset</button>
@@ -765,47 +797,67 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div id="only3utr" class="ym-form box" style="padding: 1.42857em;">
-                                            <div id="only3utrOptionType" class="ym-fbox" style="margin: 0px;width: 300px">
-                                                <input type="radio" checked="true" name="option" onclick="chgoption('only3utr')" value="only3utr_option">Required options&nbsp;&nbsp;&nbsp;
-                                                <input type="radio" name="option" onclick="chgoption('only3utr')" value="only3utr_addition">Filter options
-                                                <hr style=" height:2px;border:none;border-top:1px solid #ccc;" />
+                                        <div id="only3utr" class="ym-form">
+                                            <div class="box ym-fbox">
+                                                <div class="ym-grid ym-fbox">
+                                                    <label for="sgminpat">Min PAT</label>
+                                                    <input type='text' value='5' name="sgminpat"/>
+                                                </div>
+                                                <div class="ym-grid ym-fbox">
+                                                    <label for="">Multi-test adjustment method</label>
+                                                    <select>
+                                                        <option checked='true' value='bonferroni' />Bonferroni
+                                                        <option value='notadjust'/>Not adjust
+                                                    </select>
+                                                </div>
+                                                <div class="ym-grid ym-fbox">
+                                                    <label for="only3utr_sig">Significance Level</label>
+                                                    <select name="only3utr_sig">
+                                                        <option value="0.01"/>0.01
+                                                        <option checked='true' value="0.05"/>0.05
+                                                        <option value="0.1"/>0.1
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div id="only3utr_option" class="ym-fbox">
-                                                <label for="sgminpat">Min PAT</label>
-                                                <input type='text' value='5' name="sgminpat"/>
-                                                <label for="">Multi-test adjustment method</label>
-                                                <select>
-                                                    <option checked='true' value='bonferroni' />Bonferroni
-                                                    <option value='notadjust'/>Not adjust
-                                                </select>
-                                                <label for="only3utr_sig">Significance Level</label>
-                                                <select name="only3utr_sig">
-                                                    <option value="0.01"/>0.01
-                                                    <option checked='true' value="0.05"/>0.05
-                                                    <option value="0.1"/>0.1
-                                                </select>
-                                            </div>
-                                            <div id="only3utr_addition" class="ym-fbox" style="display: none;">
-                                                 <br><label for="chr" style="display: inline;padding-right: 15px">in</label>
-                                                  <select id="chr3" name="chr" style="display: inline;">
-                                                        <option value="all" selected="selected">All</option>
-                                                 </select><br>
-                                                <label for="start" style="display: inline"> from</label>
-                                                <input type="text" id='start' name="start" style="display: inline;"><br>
-                                                <label for="end" style="display: inline"> to</label>
-                                                <input type="text" id='end' name="end" style="display: inline;margin-left: 14px">
-                                                <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
-                                                <textarea style="width:77%" name="gene_id" id='gene_id'></textarea>
-                                                <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
-                                                <textarea style="width:77%" name='go_accession' id='go_accession'></textarea>
-                                                <label for="go_name" >Go term name:</label>
-                                                <input type='text' name='go_name' id='go_name' style="width:77%;"/>
-                                                <label for="function">Function:</label>
-                                                <input type='text' name='function' id='function' style="width:77%;"/>
-                                            </div>
-                                    </div>
+                                        </div>
                                     <div class="ym-clearfix"></div>
+                                    <div class="box info additonal">   
+                                        <a class="ym-button ym-add flip">Additional Options</a>
+                                        <div id="search">
+                                            <div class="box info ym-form">
+                                            <div class="ym-grid ym-fbox">
+                                                <div class="ym-g33 ym-gl">
+                                                    <label for="chr" style="margin-right:2%">in</label>
+                                                      <select id="chr3" name="chr" style="width:80%">
+                                                            <option value="all" selected="selected">All</option>
+                                                     </select>
+                                                </div>
+                                                <div class="ym-g50 ym-gl">
+                                                    <label for="start"style="margin:0 1%;"> from</label>
+                                                    <input type="text" id='start' name="start">
+                                                    <label for="end" style="margin:0 1%;"> to</label>
+                                                    <input type="text" id='end' name="end">
+                                                </div>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
+                                                <textarea style="width:100%" name="gene_id" id='gene_id'></textarea>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
+                                                <textarea style="width:100%" name='go_accession' id='go_accession'></textarea>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="go_name" >Go term name:</label>
+                                                <input type='text' name='go_name' class="ym-gr" id='go_name' style="width:89%;"/>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="function">Function:</label>
+                                                <input type='text' name='function' id='function' class="ym-gr" style="width:89%;"/><br>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="box info fsubmit">
                                         <input type="button" id='only3utr-submit' value="submit">
                                         <button type="reset">reset</button>
@@ -977,52 +1029,80 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div id="none3utr" method="post" class="ym-form box"  style="padding: 1.42857em;">
-                                        <div id="none3utrOptionType" class="ym-fbox" style="margin: 0px;width: 300px">
-                                            <input type="radio" checked="true" name="option" onclick="chgoption('none3utr')" value="none3utr_option">Required options&nbsp;&nbsp;&nbsp;
-                                            <input type="radio" name="option" onclick="chgoption('none3utr')" value="none3utr_addition">Filter options
-                                            <hr style=" height:2px;border:none;border-top:1px solid #ccc;" />
-                                        </div>
-                                        <div id="none3utr_option" class="ym-fbox">
-                                            <label for="sgnm">Normalization method</label>
-                                            <select id="sgnm">
-                                                <option value="none" checked="true"/>None
-                                                <option value="TPM"/>None
-                                                <option value="DESeq"/>None
-                                            </select>
-                                            <label for="minpat2">Distance(nt)</label>
-                                            <input type="text" value="50" name="minpat2"/>
-                                            <label for="uttp">Using top two PACs</label>
-                                            <input type="checkbox" checked="true" name="uttp"/>
-                                            <label for="minpat3">Min PAT of one PAC</label>
-                                            <input type="text" value="5"name="minpat3"/>
-                                            <label for="minpat4">Min total PAT of one PAC in both samples</label>
-                                            <input type="text" value="10" name="minpat4"/>
-                                            <label for="minpat5">Min difference of PAC between the two PAC</label>
-                                            <input type="text" value="5" name="minpat5"/>
-                                            <label for="minpat6">Min fold change of two PAC in at least one sample</label>
-                                            <input type="text" value="2" name="minpat6"/>
-                                        </div>
-                                        <div id="none3utr_addition" class="ym-fbox" style="display: none;">
-                                             <br><label for="chr" style="display: inline;padding-right: 15px">in</label>
-                                              <select id="chr4" name="chr" style="display: inline;">
-                                                    <option value="all" selected="selected">All</option>
-                                             </select><br>
-                                            <label for="start" style="display: inline"> from</label>
-                                            <input type="text" id='start' name="start" style="display: inline;"><br>
-                                            <label for="end" style="display: inline"> to</label>
-                                            <input type="text" id='end' name="end" style="display: inline;margin-left: 14px">
-                                            <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
-                                            <textarea style="width:77%" name="gene_id" id='gene_id'></textarea>
-                                            <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
-                                            <textarea style="width:77%" name='go_accession' id='go_accession'></textarea>
-                                            <label for="go_name" >Go term name:</label>
-                                            <input type='text' name='go_name' id='go_name' style="width:77%;"/>
-                                            <label for="function">Function:</label>
-                                            <input type='text' name='function' id='function' style="width:77%;"/>
+                                    <div id="none3utr" method="post" class="ym-form">
+                                        <div class="box ym-fbox">
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="sgnm">Normalization method</label>
+                                                <select id="sgnm">
+                                                    <option value="none" checked="true"/>None
+                                                    <option value="TPM"/>None
+                                                    <option value="DESeq"/>None
+                                                </select>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="minpat2">Distance(nt)</label>
+                                                <input type="text" value="50" name="minpat2"/>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="uttp">Using top two PACs</label>
+                                                <input type="checkbox" checked="true" name="uttp"/>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="minpat3">Min PAT of one PAC</label>
+                                                <input type="text" value="5"name="minpat3"/>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="minpat4">Min total PAT of one PAC in both samples</label>
+                                                <input type="text" value="10" name="minpat4"/>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="minpat5">Min difference of PAC between the two PAC</label>
+                                                <input type="text" value="5" name="minpat5"/>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="minpat6">Min fold change of two PAC in at least one sample</label>
+                                                <input type="text" value="2" name="minpat6"/>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="ym-clearfix"></div>
+                                    <div class="box info additonal">   
+                                        <a class="ym-button ym-add flip">Additional Options</a>
+                                        <div id="search">
+                                            <div class="box info ym-form">
+                                                <div class="ym-grid ym-fbox">
+                                                    <div class="ym-g33 ym-gl">
+                                                        <label for="chr" style="margin-right:2%">in</label>
+                                                          <select id="chr4" name="chr" style="width:80%">
+                                                                <option value="all" selected="selected">All</option>
+                                                         </select>
+                                                    </div>
+                                                    <div class="ym-g50 ym-gl">
+                                                        <label for="start"style="margin:0 1%;"> from</label>
+                                                        <input type="text" id='start' name="start">
+                                                        <label for="end" style="margin:0 1%;"> to</label>
+                                                        <input type="text" id='end' name="end">
+                                                    </div>
+                                                </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
+                                                <textarea style="width:100%" name="gene_id" id='gene_id'></textarea>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
+                                                <textarea style="width:100%" name='go_accession' id='go_accession'></textarea>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="go_name" >Go term name:</label>
+                                                <input type='text' name='go_name' class="ym-gr" id='go_name' style="width:89%;"/>
+                                            </div>
+                                            <div class="ym-grid ym-fbox">
+                                                <label for="function">Function:</label>
+                                                <input type='text' name='function' id='function' class="ym-gr" style="width:89%;"/><br>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="box info fsubmit">
                                         <input type="button" id='none3utr-submit' value="submit">
                                         <button type="reset">reset</button>
@@ -1208,12 +1288,6 @@
                 $(".tabs a").click(function(e){
                   e.preventDefault()
                 })
-                function chgoption(b){
-                    $("#"+b+"_option").hide();
-                    $("#"+b+"_addition").hide();
-                    var a = $('#'+b+'OptionType input:radio[name=option]:checked').val();
-                    $('#'+a).show();
-                }
             </script>
         </fieldset>
     </div>
