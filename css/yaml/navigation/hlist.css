@@ -24,7 +24,7 @@
     height: 50px;
   }
   .ym-hlist ul {
-    margin: 0;
+    margin: 5px;
     padding: 0.5em 1.5em;
     display: inline;
     float: left;
