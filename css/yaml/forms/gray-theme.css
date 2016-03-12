@@ -49,7 +49,7 @@
     margin: 0;
   }
   .ym-form .ym-fbox + .ym-fbox {
-    margin: 0.5em 0;
+    margin: 1em 0;
   }
   .ym-form .ym-fbox:last-child {
     margin-bottom: 1em;
