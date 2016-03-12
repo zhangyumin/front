@@ -23,12 +23,9 @@
              mysql_select_db("db_server",$con);
         ?>
         <div class="ym-wrapper">
-        <fieldset id="get_back" >
-                    <legend style="text-align:left;">
-                        <h4>
-                            <font color="#224055"><b>Search task</b>:Get your results back</font>
-                        </h4>
-                    </legend>
+                    <h2 style="border-bottom: 2px #5499c9 solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left;">
+                        <font color="#224055" ><b>Search Task:</b> get your results back</font>
+                    </h2>
                     <div class="box info ym-form">
                         <form method="post" id="getback" action="#">
                             Task ID:&nbsp;&nbsp;
@@ -36,7 +33,6 @@
                             <button type="submit">submit</button>
                         </form>
                     </div>
-        </fieldset>
         <?php
             session_start();
             if($_POST['getback']!=NULL||$_GET['getback']!=NULL){
@@ -195,14 +191,11 @@
                     </div>";
                 }
              ?>
-            <fieldset id="task-history" class="table-tools">
-                <legend style="text-align:left;">
-                    <h4>
-                        <font color="#224055"><b>Your task history</b></font>
-                    </h4>
-                </legend>
-                <div style="height: 540px;overflow-y: scroll">
-                    <table cellspacing="1" cellpadding="0" border="0" style="border:1px solid #5499c9;">
+                <h2 style="border-bottom: 2px #5499c9 solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
+                    <font color="#224055" >Your task history</font>
+                </h2>
+                <div style="height: 440px;overflow-y: scroll">
+                    <table cellspacing="1" cellpadding="0" border="0" style="border:1px solid #e1e1e1;">
                     <thead>
                         <tr class="theme">
                             <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Task ID</td>
@@ -226,7 +219,6 @@
                     </tbody>
                     </table>
                 </div>
-            </fieldset>
         </div>
        <div class="bottom">
         <?php
