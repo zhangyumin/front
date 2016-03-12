@@ -28,19 +28,19 @@ and open the template in the editor.
                         </div>  
                     </div>
                     <div id="news" style="float: right;width: 30%">
-                        <div style="padding:20px;font-size: 17px">
-                            <h2 style="border-bottom:1px solid #5db95b;">What's new</h2>
+                        <div style="padding:20px;font-size: 15px;color: #333">
+                            <h2 style="border-bottom:1px solid #5db95b;text-align: left">What's new</h2>
                             <div style="background-color:#eee;border-radius: 4px">
-                                Version 1.2.0&emsp;&emsp;&emsp;&emsp;&emsp;2016-03-12
+                                Version 1.2.0&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2016-03-12
                             <ul>
                                 <li>Adjust the layout of the page</li>
                                 <li>Add new sample("from PAT-seq") in chlamy</li>
                             </ul><br>
-                                Version 1.1.0&emsp;&emsp;&emsp;&emsp;&emsp;2015-10-12
+                                Version 1.1.0&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2015-10-12
                             <ul>
                                 <li>Add function of <a href="analysis.php">data analysis</a> </li>
                             </ul><br>
-                                Version 1.0.0&emsp;&emsp;&emsp;&emsp;&emsp;2015-06-01
+                                Version 1.0.0&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2015-06-01
                             <ul>
                                 <li>Release first version of PlantAPA</li>
                             </ul>
