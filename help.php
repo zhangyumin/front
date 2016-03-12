@@ -18,15 +18,17 @@
     </head>
     <body>
         <?php include './navbar.php'; ?>
+        <div class="ym-wrapper">
 	<div class="main">
                     <div class="page_container">
-                      <div class="jumpto-block">
-                        <h1 style="text-align: center;">How to use PlantAPA</h1>
-                        <span style="font: 25px bold;">Suggested Browsers</span>
-                        <p>Advanced browsers, such as Chrome, Firefox, Safari, and Internet Explorer (10.0 or later) can be used for browsing PlantAPA. 
-                       <br>Firefox and Chrome are recommended:
-                       <br>Mozilla Firefox 3.5 or greater (<a href=http://www.mozilla.org>http://www.mozilla.org</a>)
-                       <br>Google Chrome 6.0 or greater (<a href=http://www.google.com/chrome/>http://www.google.com/chrome/</a>)</p>
+                       <div class="jumpto-block">
+                            <h1 style="text-align: center;">How to use PlantAPA</h1>
+                            <div  style="color:#a94442;background-color: #f2dede;border-color: #ebccd1;padding: 15px;border:1px solid transparent;border-radius: 4px;">
+                                <p style="color:#a94442;font-size: 16px;margin-bottom: 0px">For better browse experience, advanced browsers such as Chrome, Firefox, Safari, and Internet Explorer (10.0 or later) can be used for browsing PlantAPA. 
+                               <br>Firefox and Chrome are recommended:
+                               <br>Mozilla Firefox 3.5 or greater (<a href=http://www.mozilla.org>http://www.mozilla.org</a>)
+                               <br>Google Chrome 6.0 or greater (<a href=http://www.google.com/chrome/>http://www.google.com/chrome/</a>)</p>
+                            </div>
                       </div>
                       <div class="jumpto-block">
                         <h2>1. Introduction</h2>
@@ -159,6 +161,8 @@
                         </p>
                     </div>
                     </div>
+        </div>
+        </div>
 	<script type="text/javascript">
 	  $(document).ready( function() {
 	    $(".page_container").jumpto({
