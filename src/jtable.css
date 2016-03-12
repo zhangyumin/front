@@ -217,7 +217,7 @@ div.jtable-contextmenu-overlay {
   z-index: 100;
 }
 div.jtable-main-container {
-  font-family: "Droid Serif", Georgia, "Times New Roman", Times, serif;
+  font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;
   font-size: 11px;
   font-weight: 400;
   color: #222;
@@ -404,7 +404,7 @@ div.jtable-main-container div.jtable-column-selection-container {
   box-shadow: 2px 2px 4px rgba(50, 51, 50, 0.75);
 }
 form.jtable-dialog-form {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;
   font-size: 11px;
   font-weight: 400;
 }
