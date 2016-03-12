@@ -35,12 +35,6 @@ and open the template in the editor.
             include"./navbar.php";
         ?>
     <div class="ym-wrapper">
-        <fieldset id="get_back" >
-                    <legend style="text-align:left;">
-                        <h4>
-                            <font color="#224055"><b>Download:</b> Get data from here</font>
-                        </h4>
-                    </legend>
         <div class="ym-wbox">
 <!--        <div class="download">
             <h1 class="center">Tools</h1>
@@ -75,7 +69,9 @@ and open the template in the editor.
         </div>
         <br>-->
         <div class="download">
-            <h1 class="center">Datasets</h1>
+            <h2 style="border-bottom: 2px #5499c9 solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
+                <font color="#224055" ><b>Datasets</b></font>
+            </h2>
             <table  class="bordertable">
                 <thead>
                 <tr>
@@ -116,6 +112,64 @@ and open the template in the editor.
                 </tr>
             </table><br>
         </div>
+        <div class="download">
+            <h2 style="border-bottom: 2px #5499c9 solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
+                <font color="#224055" ><b>Demos</b></font>
+            </h2>
+            <table  class="bordertable">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Size</th>
+                    <th>File type</th>
+                    <th>Download</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>arab</td>
+                    <td>poly(A) site file for PAC Trap(Arabidopsis thaliana)</td>
+                    <td>145.8KB</td>
+                    <td>PA</td>
+                    <td><a href="./download_data.php?type=1&name=arab.PA"/>Click here</td>
+                </tr>
+                <tr>
+                    <td>arab_sample_100k</td>
+                    <td>short read for PAC Trap(Arabidopsis thaliana)</td>
+                    <td>25.5MB</td>
+                    <td>fastq</td>
+                    <td><a href="./download_data.php?type=1&name=arab_sample_100k.fastq"/>Click here</td>
+                </tr>
+                <tr>
+                    <td>AtEST.demo</td>
+                    <td>EST file for PAC Trap(Arabidopsis thaliana)</td>
+                    <td>6.2MB</td>
+                    <td>fa</td>
+                    <td><a href="./download_data.php?type=1&name=AtEST.demo.fa"/>Click here</td>
+                </tr>
+                <tr>
+                    <td>rice_japonica1</td>
+                    <td>short read for PAC Trap(Japonica rice)</td>
+                    <td>636.3KB</td>
+                    <td>fa</td>
+                    <td><a href="./download_data.php?type=1&name=rice_japonica1.fa"/>Click here</td>
+                </tr>
+                <tr>
+                    <td>rice_japonica2</td>
+                    <td>short read for PAC Trap(Japonica rice)</td>
+                    <td>638.8KB</td>
+                    <td>fa</td>
+                    <td><a href="./download_data.php?type=1&name=rice_japonica2.fa"/>Click here</td>
+                </tr>
+                <tr>
+                    <td>rice_japonica_all</td>
+                    <td>short read for PAC Trap(Japonica rice)</td>
+                    <td>6.4MB</td>
+                    <td>fa</td>
+                    <td><a href="./download_data.php?type=1&name=rice_japonica_all.fa"/>Click here</td>
+                </tr>
+            </table><br>
+        </div>
         <br>
         <?php
             session_start();
@@ -128,7 +182,7 @@ and open the template in the editor.
                 $snc_array= explode("/", $snc);
                 $snc=$snc_array[3];
                 echo "<div class=\"download\">"
-                    . "<h1 class=\"center\">Results</h1>"
+                    . "<h2 style=\"border-bottom: 2px #5499c9 solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left\"><font color=\"#224055\" ><b>Results</b></font></h2>"
                     . "<table class='bordertable'>"
                     . "<thead>"
                     . "<tr>"
@@ -167,7 +221,6 @@ and open the template in the editor.
             }
         ?>
     </div>
-</fieldset>
     </div>
         <?php
             include"./footer.php";
