@@ -437,9 +437,12 @@
     background: #f0f0f0;
   }
   table.bordertable tbody th {
+    border-left: 1px #ccc solid;
     border-right: 1px solid #ccc;
   }
   table.bordertable tbody td {
+    width: 23%;
+    border-left: 1px #ccc solid;
     border-right: 1px solid #ccc;
   }
 
@@ -479,7 +482,7 @@
   }
   tbody td {
     text-align: left;
-    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
   }
  /* tbody tr:hover th,
   tbody tr:hover td {
