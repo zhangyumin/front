@@ -20,7 +20,9 @@ h1 span {
 
 .page_container, .other {
   max-width: 80em;
-  margin: 50px auto;
+  margin-top: 30px;
+  margin-right: 0px;
+  margin-left: auto;
 }
 .page_container h2{
     margin: 40px 0 20px;
@@ -28,7 +30,6 @@ h1 span {
 }
 .page_container h2, .page_container h1, .other h2, .other h1  {
   border-bottom: 1px solid #5499c9;
-  padding-bottom: 15px;
 }
 .page_container h2, .page_container h3, .other h3 , .other h2  {
   text-align: left;
@@ -38,12 +39,12 @@ h1 span {
 }
 .page_container p, .other p {
   font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;
-  color: black;
-  font-size: 16px;
-  line-height: 180%;
+  color: #333;
+  font-size: 12px;
+  /*line-height: 180%;*/
   text-align: justify;
-  letter-spacing: 1px;
-  word-spacing: 2px;
+/*  letter-spacing: 1px;
+  word-spacing: 2px;*/
 }
 
 .other h1 {
