@@ -6,9 +6,9 @@
         <span style="float:right;font-size: 15px">a portal for visualization and analysis of alternative polyadenylation in plants</span>
     </div>-->
         <!--<img style="float:left;" src="./pic/logo.jpg"/>-->
-        <img style="float:left;height: 50px;padding: 15px 20px" src="./pic/biglogo.jpg"/>
-        <span style="float:left;font-size: 18px;padding: 40px 20px 0px 30px">A portal for visualization and analysis of alternative polyadenylation in plants</span>
-        <img style="float:right;height: 70px;padding: 5px 20px;" src="./pic/schoollogo.jpg"/>
+        <img style="float:left;height: 50px;padding: 15px 0px" src="./pic/biglogo.jpg"/>
+        <span style="float:left;font-size: 18px;padding: 40px 0px 0px 3%">A portal for visualization and analysis of alternative polyadenylation in plants</span>
+        <img style="float:right;height: 70px;padding: 5px 20px 5px 0px;" src="./pic/schoollogo.jpg"/>
         <div style="clear:both"></div>
   </div>
 </header>
