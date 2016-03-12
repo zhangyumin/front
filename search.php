@@ -29,40 +29,63 @@ and open the template in the editor.
         <!--[if lt IE 9]>
         <script src="./js/html5shiv/html5shiv.js"></script>
         <![endif]-->
+        <style>
+            .col-md-12{
+                border:1px solid #faebcc;
+            }
+            .panel-title{
+                color:#8a6b3d;
+                padding-left: 10px;
+                margin-top: 0;
+                margin-bottom: 0;
+                font-size: 18px;
+            }
+            .panel-heading{
+                background-color: #fcf8a1;
+                padding: 10px 15px;
+            }
+            .panel-body{
+                padding: 15px;
+                font-size: 16px;
+                letter-spacing: 0.5px;
+                text-align: justify;
+                word-spacing: 1px;
+            }
+        </style>
     </head>
     <script type="text/javascript">
 
-            $(document).ready(function(){
-                
-                $(".more1").click(function(){
-                    $(".more1_content div,.more1_content").slideToggle("slow");
-                    if($(".more1").text()=='More')
-                        $(".more1").html("Close");
-                    else
-                        $(".more1").html("More");
-                });
-                $(".more2").click(function(){
-                    $(".more2_content div,.more2_content").slideToggle("slow");
-                    if($(".more2").text()=='More')
-                        $(".more2").html("Close");
-                    else
-                        $(".more2").html("More");
-                });
-                $(".more3").click(function(){
-                    $(".more3_content div,.more3_content").slideToggle("slow");
-                    if($(".more3").text()=='More')
-                        $(".more3").html("Close");
-                    else
-                        $(".more3").html("More");
-                });
-                $(".more4").click(function(){
-                    $(".more4_content div,.more4_content").slideToggle("slow");
-                    if($(".more4").text()=='More')
-                        $(".more4").html("Close");
-                    else
-                        $(".more4").html("More");
-                });
-            });
+//            $(document).ready(function(){
+//                
+//                $(".more1").click(function(){
+//                    $(".more1_content div,.more1_content").slideToggle("slow");
+//                    if($(".more1").text()=='More')
+//                        $(".more1").html("Close");
+//                    else
+//                        $(".more1").html("More");
+//                });
+//                $(".more2").click(function(){
+//                    $(".more2_content div,.more2_content").slideToggle("slow");
+//                    if($(".more2").text()=='More')
+//                        $(".more2").html("Close");
+//                    else
+//                        $(".more2").html("More");
+//                });
+//                $(".more3").click(function(){
+//                    $(".more3_content div,.more3_content").slideToggle("slow");
+//                    if($(".more3").text()=='More')
+//                        $(".more3").html("Close");
+//                    else
+//                        $(".more3").html("More");
+//                });
+//                $(".more4").click(function(){
+//                    $(".more4_content div,.more4_content").slideToggle("slow");
+//                    if($(".more4").text()=='More')
+//                        $(".more4").html("Close");
+//                    else
+//                        $(".more4").html("More");
+//                });
+//            });
                 <?php
                     $arr_arab=array();
                     $arr_japonica=array();
@@ -140,52 +163,51 @@ and open the template in the editor.
     <body onload="getchr()">        
         <?php include './navbar.php'; ?>
         <div class="ym-wrapper">
-                <legend style="padding-top:10px">
-                    <h4>
-                        <font color="#224055" ><b>Search:</b> search and view the system samples</font>
-                    </h4>
-                </legend>
-                <hr style="border-bottom: 2px #5499c9 solid">
-               <div class="box info ym-form">
+                <h2 style="border-bottom: 2px #5499c9 solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
+                    <font color="#224055" ><b>Search:</b> search and view the system samples</font>
+                </h2>
+               <div class=" info ym-form">
                    <form name="search" method="post" id="getback" action="search_result.php">
                        <div class="ym-grid ym-fbox">
-                            <div class="ym-g33 ym-gl">
+                            <div class="ym-g30 ym-gl">
                                 <label for="species" style="margin-right:2%;">Species:</label>
-                                <select id="species" name="species" style="width:80%" onclick="getchr()">
+                                <select id="species" name="species" style="width:75%" onclick="getchr()">
                                      <option value="japonica">Japonica rice</option>
                                     <option value="arab" selected="selected">Arabidopsis thaliana</option>
                                     <option value="mtr">Medicago truncatula</option>
                                     <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
                                 </select>
                             </div>
-                            <div class="ym-g33 ym-gl">
+                            <div class="ym-g30 ym-gl">
                                <label for="chr" style="margin: 0 2%">in</label>
-                                    <select id="chr" name="chr" style="width:80%">
+                                    <select id="chr" name="chr" style="width:75%">
                                         <option value="all" selected="selected">All</option>
                                     </select>
+                            </div><div style="clear:both"></div><br>
+                            <div class="ym-g30 ym-gl">    
+                               <label for="start" style="margin-right: 7.5%"> From</label>
+                               <input type="text" name="start" id="start" style="width:75%">
                             </div>
-                            <div class="ym-g33 ym-gl">    
-                               <label for="start" style="margin:0 2% 0 -9%;"> from</label>
-                                <input type="text" name="start" id="start" style="width:44.1%">
-                               <label for="end" style="margin:0 2%;"> to</label>
-                               <input type="text" name="end" id="end" style="width:44.2%">
-                            </div>
+                            <div class="ym-g30 ym-gl">
+                               <label for="end" style="margin: 0 2%"> to</label>
+                               <input type="text" name="end" id="end" style="width:75%">
+                            </div><div style="clear:both"></div>
                         </div>
                         <div class="ym-grid ym-fbox">    
                             <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
-                            <textarea style="width:100%" name="gene_id"></textarea>
+                            <textarea style="width:100%;height: 50px" name="gene_id"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
                             <label for="go_accession">Go term accession:(use ',' to split different go id)</label>
-                            <textarea style="width:100%" name='go_accession' id="go_accession"></textarea>
+                            <textarea style="width:100%;height: 50px" name='go_accession' id="go_accession"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
                             <label for="go_name" >Go term name:</label>
-                            <input type='text' name='go_name' class="ym-gr" style="width:89%;"/>
+                            <textarea type='text' name='go_name' style="width:100%;height: 50px"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
                             <label for="function" >Function:</label>
-                            <input type='text' name='function' class="ym-gr" style="width:89%;"/>
+                            <textarea type='text' name='function' style="width:100%;height: 50px"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
                                 <button type="submit">submit</button>
@@ -218,7 +240,7 @@ and open the template in the editor.
                         </div>
                         </form>
                </div>
-                <legend>
+<!--                <legend>
                     <h4>
                         <font color="#224055"><b>Datasets list: </b>all species documented in browser</font>
                     </h4>
@@ -557,7 +579,26 @@ and open the template in the editor.
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table>-->
+            <div class="col-md-12" style="margin-top:20px">
+                <div class="panel panel-info">
+                    <div class="panel-heading" id="summaryHeading">
+                        <h3 class="panel-title">About search</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                        The search module allows users to query genes or PACs in the data sets of interest by a variety of keywords, such as gene ID, chromosome fragment, gene functions, GO term, and GO ID. 
+                        </p>
+                        <p>
+                        Example queries:<br>
+                        1) Enter genome coordinate: <a href='search_result.php?method=fuzzy&keyword=Chr1&species=arab'>Species:Arabidopsis thaliana in Chr1</a><br>
+                        2) Enter one gene ID: gene: <a href='search_result.php?method=fuzzy&keyword=AT1G02130&species=arab'>AT1G02130</a> or <a href='search_result.php?method=fuzzy&keyword=Medtr2g105570&species=mtr'>Medtr2g105570</a>.<br>
+                        3) Enter one Go ID: <a href='search_result.php?method=fuzzy&keyword=0006888&species=arab'>GO:0006888</a><br>
+                        4) Enter one Go function: <a href='search_result.php?method=fuzzy&keyword=transport&species=arab'>transport</a><br>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="bottom">
             <?php
