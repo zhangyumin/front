@@ -20,7 +20,7 @@ and open the template in the editor.
                 <div id="floor1">
                     <div id="info" style="float:left;background-color: #eee;width: 70%;border-radius: 20px">
                         <div style="padding:20px">
-                            <img src="./pic/logo.jpg" style="float:left"> 
+                            <img src="./pic/logo.png" style="float:left;height: 70px"> 
                             <h1 style="padding:20px 0px 0px 0px;">Welcome to PlantAPA!</h1>
                             <hr style="margin:10px 0px;border-top: 1px solid #d5d5d5;clear: both">
                             <p style="font-size:19px;word-spacing:1px; letter-spacing: 1px;color: #000">PlantAPA is a web server for query, visualization, and analysis of poly(A) sites in plants, which can profile heterogeneous cleavage sites and quantify expression pattern of poly(A) sites across different conditions. To date, PlantAPA provides the largest database of APA in plants, including rice, Arabidopsis, Medicago truncatula, and Chlamydomonas reinhardtii.</p>
