@@ -23,8 +23,8 @@
              mysql_select_db("db_server",$con);
         ?>
         <div class="ym-wrapper">
-                    <h2 style="border-bottom: 2px #5499c9 solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left;">
-                        <font color="#224055" ><b>Search Task:</b> get your results back</font>
+                    <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left;">
+                        <font color="#224055" ><b>Task:</b> get your results back</font>
                     </h2>
                     <div class="box info ym-form">
                         <form method="post" id="getback" action="#">
@@ -191,7 +191,7 @@
                     </div>";
                 }
              ?>
-                <h2 style="border-bottom: 2px #5499c9 solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
+                <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
                     <font color="#224055" >Your task history</font>
                 </h2>
                 <div style="height: 440px;overflow-y: scroll">
