@@ -24,6 +24,18 @@ and open the template in the editor.
         <script src="./src/fineuploader/devenv-polya.js"></script>
         <script src="./src/fineuploader/devenv-est.js"></script>
         <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
+        <style>
+            .step-title{
+                margin: auto;
+                margin-top: 15px;
+                margin-bottom: 0px;
+                height: 20px;
+                background-color: #5db95b;
+                padding: 10px 8px 6px;
+                border: 0px solid #000;
+                border-radius: 8px;
+            }
+        </style>
         <!--[if lte IE 7]>
         <link href="./css/iehacks.min.css" rel="stylesheet" type="text/css" />
         <![endif]-->
@@ -205,12 +217,11 @@ and open the template in the editor.
                  $_SESSION['tmp']=date("Y").date("m").date("d").date("h").date("i").date("s");
             ?>
         <div class="ym-wrapper" id='mainpage'>
-            <fieldset >
-                <legend>
+                <div class="step-title">
                     <h4>
                         <font color="#224055"><b>STEP 1:</b> Select file(s) type</font>
                     </h4>
-                </legend>
+                </div>
                 <div class="box info ym-form">
                     <input type='radio' name='upload_method' value='upload' checked="true" onclick="SltFileType()"/>Short read&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type='radio' name='upload_method' value='up_est' onclick="SltFileType()"/>EST&nbsp;&nbsp;&nbsp;&nbsp;
@@ -223,15 +234,13 @@ and open the template in the editor.
                         <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
                     </select>
                 </div>
-            </fieldset>
             <div class="upload" id='upload'>
                 <form id="upload_seq" class="ym-form" action="get_result.php" method="post">
-                    <fieldset>
-                        <legend>
+                        <div class="step-title">
                             <h4>
                                 <font color="#224055"><b>STEP 2:</b> Upload file(s)</font>
                             </h4>
-                        </legend>
+                        </div>
                         <div class="box info">
                             <ul id="foobar"></ul>
                             <div id="seq-examples">
@@ -240,7 +249,7 @@ and open the template in the editor.
                                     <button type="button" id="triggerUpload" class="btn btn-primary">Upload Queued Files</button>
                                 </div>
                             </div>
-                            <hr style="border-bottom: 2px #5499c9 solid">
+                            <hr style="border-bottom: 2px #5db95b solid">
                             <img id="uploadtext" src="pic/down.png" onclick="div_hidden('uploadtext','seq-examples','uploadtextdiv','seq-note')"><div style="display: inline" id='seq-note'>Or click here to enter a sequence</div>
                             <br><br>
                             <div id='uploadtextdiv' style="display: none">
@@ -249,59 +258,46 @@ and open the template in the editor.
                                 <textarea id="seq_text" name='sequence_text' style="margin: 0px;width: 900px;height: 230px"></textarea>
                             </div>
                         </div>
-                    </fieldset>
 
-                    <fieldset style="margin-top: 20px;">
-                        <legend>
+                        <div class="step-title">
                             <h4>
                                 <font color="#224055"><b>STEP 3:</b> Additional options</font>
                             </h4>
-                        </legend>
+                        </div>
                         <div class="box info">
-                            <font color="#224055" style="font-weight:100;"><b>1. quality filter
-                            <br>
+                            <font style="font-weight:100;">
                             Quality cut-off: <input type="text" name="qct" value="20" size="1" style="margin-left: 21px;margin-right: 23px;height:30px;width: 210px"/>
                             Minimum percentage: <input type="text" name="mp" value="50" size="1" style="height:30px;width: 210px"/>
                             <br><br>
-                                2. remove poly(A/T) tail
-                            <br>
-                            Poly type:<select id="tailremove" name="tailremove" style="margin-left:53px;margin-right: 23px;height:30px;width:210px;">
+                            Poly type:<select id="tailremove" name="tailremove" style="margin-left:49px;margin-right: 23px;height:30px;width:210px;">
                                                 <option value="A">A</option>
                                                 <option value="T" selected="true">T</option>
                                                 <option value="unknown">unknown</option>
                                                 </select>
-                                Min length: <input type="text" name="minlength" value="25" size="1" style="margin-left: 58px;height:30px;width: 210px"/>
+                                Min length: <input type="text" name="minlength" value="25" size="1" style="margin-left: 57px;height:30px;width: 210px"/>
                             <br><br>
-                                 3. read mapping
-                            <br>
-                                Aligner: <select id="aligner" name="aligner" style="margin-left: 61px;height:30px;width:210px;">
+                                Aligner: <select id="aligner" name="aligner" style="margin-left: 58px;height:30px;width:210px;">
                                                 <option value="bowtie2">bowtie2</option>
                                                 <option value="bowtie">bowtie</option>
                                                 </select>
                             <br><br>
-                                4. remove internal priming
-                            <br>
-                                <input type="radio" name="rip" value="yes" checked="checked"/>YES
+                            Remove internal priming:
+                            <input type="radio" name="rip" value="yes" checked="checked" style="margin-left:31px"/>YES
                                 <input type="radio" name="rip" value="no" style="margin-left:65px;margin-top: 5px;"/>NO
                             <br><br>
-                                5. cluster PAT
-                            <br>
-                                distance: <input type="text" name="distance" value="24" size="1" style="margin-left: 55px;height:30px;width:210px;"/>
-                                </b></font>
+                                Distance: <input type="text" name="distance" value="24" size="1" style="margin-left: 50px;height:30px;width:210px;"/>
+                                </font>
                         </div>
-                    </fieldset>
-                    <fieldset >
-                        <legend>
+                        <div class="step-title">
                             <h4>
                                 <font color="#224055"><b>STEP 4:</b> Submit</font>
                             </h4>
-                        </legend>
+                        </div>
                         <div class="box info">
                             <input type="button" id='seq-submit' value="submit">
                             <input type="reset" value="reset"/>
                             <input type="button" onclick="demo()" value="demo">
                         </div>
-                    </fieldset>
                 </form>
             </div>
         
