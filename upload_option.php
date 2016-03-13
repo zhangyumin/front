@@ -303,12 +303,11 @@ and open the template in the editor.
         
         <div class="upload_polya" id='up_polya' style='display: none'>
             <form id="upload_polya" class="ym-form" action="upload_polya.php" method="post">
-                <fieldset>
-                    <legend>
+                    <div class="step-title">
                         <h4>
                             <font color="#224055"><b>STEP 2:</b> Upload file(s)</font>
                         </h4>
-                    </legend>
+                    </div>
                     <div class="box info">
                         <ul id="foobar-polya"></ul>
                         <div id="polya-examples">
@@ -317,7 +316,7 @@ and open the template in the editor.
                                 <button type="button" id="triggerUpload-polya" class="btn btn-primary">Upload Queued Files</button>
                             </div>
                         </div>
-                        <hr style="border-bottom: 2px #5499c9 solid">
+                        <hr style="border-bottom: 2px #5db95b solid">
                             <img id="polya-uploadtext" src="pic/down.png" onclick="div_hidden('polya-uploadtext','polya-examples','polya-uploadtextdiv','polya-note')"><div style="display: inline" id='polya-note'>Or click here to enter a sequence</div>
                             <br><br>
                             <div id='polya-uploadtextdiv' style="display: none">
@@ -326,29 +325,25 @@ and open the template in the editor.
                                 <textarea id="polya_text" name='polya_sequence_text' style="margin: 0px;width: 900px;height: 230px"></textarea>
                             </div>
                     </div>
-                </fieldset>
-                <fieldset style="margin-top: 20px;margin-bottom: 5px;">
-                    <legend>
+                    <div class="step-title">
                         <h4>
                             <font color="#224055"><b>STEP 3:</b> Submit</font>
                         </h4>
-                    </legend>
+                    </div>
                     <div class="box info">
                         <input type="button" id='polya-submit' value="submit" style="width: auto"/>
                         <input type="reset" value="reset" style="width: auto"/>
                             <input type="button" onclick="demo()" value="demo"  style="width: auto"/>
                     </div>
-                </fieldset>
             </form>
         </div>
         <div class="upload_est" id='up_est' style='display: none'>
             <form id="upload_est" class="ym-form" action="get_result_est.php" method="post">
-                <fieldset>
-                    <legend>
+                    <div class="step-title">
                         <h4>
                             <font color="#224055"><b>STEP 2:</b> Upload file(s)</font>
                         </h4>
-                    </legend>
+                    </div>
                     <div class="box info">
                         <ul id="foobar-est"></ul>
                         <div id="est-examples">
@@ -357,7 +352,7 @@ and open the template in the editor.
                                 <button type="button" id="triggerUpload-est" class="btn btn-primary">Upload Queued Files</button>
                             </div>
                         </div>
-                        <hr style="border-bottom: 2px #5499c9 solid">
+                        <hr style="border-bottom: 2px #5db95b solid">
                             <img id="est-uploadtext" src="pic/down.png" onclick="div_hidden('est-uploadtext','est-examples','est-uploadtextdiv','est-note')"><div style="display: inline" id='est-note'>Or click here to enter a sequence</div>
                             <br><br>
                             <div id='est-uploadtextdiv' style="display: none">
@@ -366,13 +361,11 @@ and open the template in the editor.
                                 <textarea id="est_text" name='est_sequence_text' style="margin: 0px;width: 900px;height: 230px"></textarea>
                             </div>
                     </div>
-                </fieldset>
-                    <fieldset style="margin-top: 20px;">
-                        <legend>
+                    <div class="step-title">
                             <h4>
                                 <font color="#224055"><b>STEP 3:</b> Additional options</font>
                             </h4>
-                        </legend>
+                    </div>
                         <div class="box info">
                             PolyA type: <select id="poly_type" name="poly_type" style="margin-left:200px;margin-bottom:5px;height:30px;width:210px;display: inline">
                                                 <option value="A">A</option>
@@ -388,19 +381,16 @@ and open the template in the editor.
                             <br>
                             Max distance from aligned-end to poly tail (nt) : <input type="text" name="max_distance1" value="5" size="1" style="margin-left:11px;display: inline;width: 210px;height:30px;"/>
                         </div>
-                    </fieldset>
-                <fieldset >
-                    <legend>
+                    <div class="step-title">
                         <h4>
                             <font color="#224055"><b>STEP 4:</b> Submit</font>
                         </h4>
-                    </legend>
+                    </div>
                     <div class="box info">
                         <input type="button" id='est-submit' value="submit" style="width: auto"/>
                         <input type="reset" value="reset" style="width: auto"/>
                             <input type="button" onclick="demo()" value="demo"  style="width: auto"/>
                     </div>
-                </fieldset>
             </form>
         </div>
         </div>
