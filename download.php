@@ -69,7 +69,7 @@ and open the template in the editor.
         </div>
         <br>-->
         <div class="download">
-            <h2 style="border-bottom: 2px #5499c9 solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
+            <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
                 <font color="#224055" ><b>Datasets</b></font>
             </h2>
             <table  class="bordertable">
@@ -113,7 +113,7 @@ and open the template in the editor.
             </table><br>
         </div>
         <div class="download">
-            <h2 style="border-bottom: 2px #5499c9 solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
+            <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
                 <font color="#224055" ><b>Demos</b></font>
             </h2>
             <table  class="bordertable">
