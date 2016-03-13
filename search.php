@@ -163,7 +163,7 @@ and open the template in the editor.
     <body onload="getchr()">        
         <?php include './navbar.php'; ?>
         <div class="ym-wrapper">
-                <h2 style="border-bottom: 2px #5499c9 solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
+                <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
                     <font color="#224055" ><b>Search:</b> search and view the system samples</font>
                 </h2>
                <div class=" info ym-form">
