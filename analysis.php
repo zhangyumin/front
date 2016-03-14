@@ -116,12 +116,9 @@
         }
         </script>
     <div class="ym-wrapper" id='mainpage'>
-       <fieldset >
-            <legend>
-                <h4 >
+                <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left;">
                     <font color="#224055" ><b>Analysis: </b>analysis of APA switching between two conditions</font>
-                </h4>
-            </legend>
+                </h2>
            <div class="box info ym-form">
                <label for="species" style="float:left;width:7%">Species:&nbsp;</label>
                 <select id="species" name="species" style="width:93%" onchange="div_option2(this);getchr()">
@@ -1289,7 +1286,6 @@
                   e.preventDefault()
                 })
             </script>
-        </fieldset>
     </div>
         <div class="ym-wrapper" id='loading' style="display: none">
             <fieldset >
