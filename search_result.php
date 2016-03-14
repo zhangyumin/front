@@ -29,7 +29,11 @@
         text-decoration: none;
         }
         .jtable{
-            margin: 0px auto;
+            margin-bottom: 0px;
+        }
+        #jtable{
+            
+            margin-top: 20px;
         }
     </style>
     <body>
@@ -453,9 +457,9 @@
              <script type="text/javascript">
                     $(document).ready(function (){
                         $('#jtable').jtable({
-                            title:'PAC',
+                            title:'Search results',
                             paging:true,
-                            pageSize:5,
+                            pageSize:15,
                             sorting:true,
                             defaultSorting:'gene ASC',
                             actions:{
