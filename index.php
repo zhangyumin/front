@@ -64,15 +64,15 @@ and open the template in the editor.
                     <table cellspacing="1" cellpadding="0" border="0" style="border:1px solid #5db95b;">
                         <thead>
                             <tr class="theme">
-                                <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Species</td>
-                                <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Samples</td>
-                                <td class="theme" bgcolor="#e1e1e1" align="center" height="24">PAC</td>
-                                <td class="theme" bgcolor="#e1e1e1" align="center" height="24">PAT</td>
-                                <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Description</td>
-                                <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Reference</td>
-                                <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Jbrowse</td>
-                                <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Example</td>
-                                <td class="theme" bgcolor="#e1e1e1" align="center" height="24"></td>
+                                <td class="theme" bgcolor="#e1e1e1" height="24">Species</td>
+                                <td class="theme" bgcolor="#e1e1e1" height="24">Samples</td>
+                                <td class="theme" bgcolor="#e1e1e1" height="24">PAC</td>
+                                <td class="theme" bgcolor="#e1e1e1" height="24">PAT</td>
+                                <td class="theme" bgcolor="#e1e1e1" height="24">Description</td>
+                                <td class="theme" bgcolor="#e1e1e1" height="24">Reference</td>
+                                <td class="theme" bgcolor="#e1e1e1" height="24">Jbrowse</td>
+                                <td class="theme" bgcolor="#e1e1e1" height="24">Example</td>
+                                <td class="theme" bgcolor="#e1e1e1" height="24"></td>
                             </tr>
                         </thead>
                         <tbody>
