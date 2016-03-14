@@ -12,6 +12,13 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
         <script src="./src/jquery-1.10.1.min.js"></script>
+        <style>
+            .tablebutton{
+                    background-color:#5db95b;
+                    color: #FFFFFF;
+                    cursor: pointer;
+            }
+        </style>
     </head>
     <body>
         <?php include './navbar.php'; ?>
@@ -78,16 +85,16 @@ and open the template in the editor.
                                 <td>Wu et al. PNAS, 2011; Thomas et al. Plant Cell, 2012; Liu et al. PloS One, 2014</td>                     
                                 <td>
                                     <a target="_blank" href="../jbrowse/?data=data/arab">
-                                        <span title="Browse polyA sites in Jbrowse" style="background-color:#0066cc;color: #FFFFFF">Chr</span>
+                                        <span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>
                                     </a>
                                 </td>
                                 <td>
                                     <a target="_blank" href="./sequence_detail.php?species=arab&seq=AT1G01020">
-                                        <span title="Browse gene detail for 'AT1G01020'" style="background-color:#0066cc;color: #FFFFFF">View</span>
+                                        <span class="tablebutton" title="Browse gene detail for 'AT1G01020'">View</span>
                                     </a>
                                 </td>
                                 <td class="style1"  width='50' style="white-space: nowrap;">
-                                    <span class="more1" title="View more information about arabidopsis thanliana" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
+                                    <span class="more1 tablebutton" title="View more information about arabidopsis thanliana">More</span>
                                 </td>
                             </tr>
                             <tr  >
@@ -197,16 +204,16 @@ and open the template in the editor.
                                 <td>Shen et al. Nucleic Acids Res, 2008</td>                     
                                 <td>
                                     <a target="_blank" href="../jbrowse/?data=data/japonica">
-                                        <span title="Browse polyA sites in Jbrowse" style="background-color:#0066cc;color: #FFFFFF">Chr</span>
+                                        <span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>
                                     </a>
                                 </td>
                                 <td>
                                     <a target="_blank" href="./sequence_detail.php?seq=LOC_Os01g01080&species=japonica">
-                                        <span title="Browse gene detail for 'LOC_Os01g01080'" style="background-color:#0066cc;color: #FFFFFF">View</span>
+                                        <span class="tablebutton" title="Browse gene detail for 'LOC_Os01g01080'">View</span>
                                     </a>
                                 </td>
                                 <td class="style1" width='50' style="white-space: nowrap;">
-                                    <span class="more2" title="Browse search result for 'LOC_Os01g01080'" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
+                                    <span class="more2 tablebutton" title="Browse search result for 'LOC_Os01g01080'">More</span>
                                 </td>
                             </tr>
                             <tr >
@@ -253,16 +260,16 @@ and open the template in the editor.
                                 <td>Wu et al. BMC Genomics, 2014</td>                     
                                 <td>
                                     <a target="_blank" href="../jbrowse/?data=data/mtr">
-                                        <span title="Browse polyA sites in Jbrowse" style="background-color:#0066cc;color: #FFFFFF">Chr</span>
+                                        <span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>
                                     </a>
                                 </td>
                                 <td>
                                     <a target="_blank" href="./sequence_detail.php?seq=Medtr0019s0160&species=mtr">
-                                        <span title="Browse gene detail for 'Medtr0019s0160'" style="background-color:#0066cc;color: #FFFFFF">View</span>
+                                        <span class="tablebutton" title="Browse gene detail for 'Medtr0019s0160'">View</span>
                                     </a>
                                 </td>
                                 <td class="style1" width='50' style="white-space: nowrap;">
-                                    <span class="more3" title="View more information about Medicago truncatula'" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
+                                    <span class="more3 tablebutton" title="View more information about Medicago truncatula'">More</span>
                                 </td>
                             </tr>
                             <tr class="more3_content">
@@ -311,16 +318,16 @@ and open the template in the editor.
                                 <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014; Umen et al. PloS one, 2016</td>                     
                                 <td>
                                     <a target="_blank" href="../jbrowse/?data=data/chlamy">
-                                        <span title="Browse polyA sites in Jbrowse" style="background-color:#0066cc;color: #FFFFFF">Chr</span>
+                                        <span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>
                                     </a>
                                 </td>
                                 <td>
                                     <a target="_blank" href="./sequence_detail.php?seq=Cre01.g000650&species=chlamy">
-                                        <span title="Browse gene detail for 'Cre01.g000650'" style="background-color:#0066cc;color: #FFFFFF">View</span>
+                                        <span class="tablebutton" title="Browse gene detail for 'Cre01.g000650'">View</span>
                                     </a>
                                 </td>
                                 <td class="style1" width='50' style="white-space: nowrap;">
-                                    <span class="more4" title="View more information about Chlamydomonas reinhardtii'" style="cursor: pointer;background-color:#0066cc;color: #FFFFFF">More</span>
+                                    <span class="more4 tablebutton" title="View more information about Chlamydomonas reinhardtii'">More</span>
                                 </td>
                             </tr>
                             <tr class="more4_content" >
