@@ -17,7 +17,7 @@ fieldset{
 }
 .theme{
     font-size: 16px;
-    text-align: center;
+    /*text-align: center;*/
 }
 /*.download{
 	border-style: dotted;
@@ -47,11 +47,7 @@ fieldset{
         /*font-size: 14px;*/
         text-align: center;
     }
-    
-    .theme {
-        font-size: 16px;
-        text-align: center;
-    }
+   
     
     .wrap {
         margin: 0px auto;
