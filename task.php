@@ -30,7 +30,7 @@
                         <form method="post" id="getback" action="#">
                             Task ID:&nbsp;&nbsp;
                             <input name="getback" style="width: 40%;"/>
-                            <button type="submit">submit</button>
+                            <button type="submit">Submit</button>
                         </form>
                     </div>
         <?php
