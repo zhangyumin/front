@@ -294,9 +294,9 @@ and open the template in the editor.
                             </h4>
                         </div>
                         <div class="box info">
-                            <input type="button" id='seq-submit' value="submit">
-                            <input type="reset" value="reset"/>
-                            <input type="button" onclick="demo()" value="demo">
+                            <input type="button" id='seq-submit' value="Submit">
+                            <input type="reset" value="Reset"/>
+                            <input type="button" onclick="demo()" value="Demo">
                         </div>
                 </form>
             </div>
@@ -331,9 +331,9 @@ and open the template in the editor.
                         </h4>
                     </div>
                     <div class="box info">
-                        <input type="button" id='polya-submit' value="submit" style="width: auto"/>
-                        <input type="reset" value="reset" style="width: auto"/>
-                            <input type="button" onclick="demo()" value="demo"  style="width: auto"/>
+                        <input type="button" id='polya-submit' value="Submit" style="width: auto"/>
+                        <input type="reset" value="Reset" style="width: auto"/>
+                            <input type="button" onclick="demo()" value="Demo"  style="width: auto"/>
                     </div>
             </form>
         </div>
@@ -387,9 +387,9 @@ and open the template in the editor.
                         </h4>
                     </div>
                     <div class="box info">
-                        <input type="button" id='est-submit' value="submit" style="width: auto"/>
-                        <input type="reset" value="reset" style="width: auto"/>
-                            <input type="button" onclick="demo()" value="demo"  style="width: auto"/>
+                        <input type="button" id='est-submit' value="Submit" style="width: auto"/>
+                        <input type="reset" value="Reset" style="width: auto"/>
+                            <input type="button" onclick="demo()" value="Demo"  style="width: auto"/>
                     </div>
             </form>
         </div>
