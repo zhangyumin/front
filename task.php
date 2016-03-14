@@ -89,12 +89,9 @@
                 if(isset($_SESSION['file']))
                 {
                     echo "<div id=\"task_summery\" >
-                                    <fieldset >
-                                        <legend>
-                                            <h4>
-                                                <font color=\"#224055\"><b>Task summary</b></font>
-                                            </h4>
-                                        </legend>";
+                                            <h2 style=\"border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left\">
+                                                <font color=\"#224055\">Task summary</font>
+                                            </h2>";
                     $file=  file_get_contents("./log/".$_SESSION['file'].".txt");
                     $array_file=  explode("\n", $file);
                     foreach ($array_file as $key => $value) {
