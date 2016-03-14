@@ -104,14 +104,11 @@
         ?>
     
     <div id="task_summery" style="clear: both;">
-        <fieldset class="summary">
-            <legend>
-                <h4>
+                <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
                     <span class="h3_italic">
-                        <font color="#224055"><b>Task Summary</b></font>
+                        <font color="#224055">Task Summary</font>
                     </span>
-                </h4>
-            </legend>
+                </h2>
                 <?php
                     $file=  file_get_contents("./log/".$_SESSION['file'].".txt");
                     $array_file=  explode("\n", $file);
@@ -226,15 +223,15 @@
                 <tbody>
                     <tr>
                         <td style="width:15%;font-weight:bold;" bgcolor="#e1e1e1">Task id</td>
-                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Input reads</td>
+                        <td style="width:8%;font-weight:bold;" bgcolor="#e1e1e1">Input reads</td>
                         <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Low quality reads</td>
-                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Reads with tail</td>
-                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Aligned reads</td>
+                        <td style="width:9%;font-weight:bold;" bgcolor="#e1e1e1">Reads with tail</td>
+                        <td style="width:9%;font-weight:bold;" bgcolor="#e1e1e1">Aligned reads</td>
                         <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Alignment rate</td>
                         <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Internal priming reads</td>
-                        <td style="width:8%;font-weight:bold;" bgcolor="#e1e1e1">PAT</td>
+                        <td style="width:7%;font-weight:bold;" bgcolor="#e1e1e1">PAT</td>
                         <td style="width:7%;font-weight:bold;" bgcolor="#e1e1e1">PAC</td>
-                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Download</td>                        
+                        <td style="width:15%;font-weight:bold;" bgcolor="#e1e1e1">Download</td>                        
                     </tr>
                     <tr>
                         <td><?php echo $_SESSION['file']?></td>
@@ -246,11 +243,10 @@
                         <td><?php echo $internal_priming_reads?></td>
                         <td><?php echo $pat?></td>
                         <td><?php echo $pac?></td>
-                        <td><?php echo "<a style='display:block;text-align:right;;' href='./download.php?data=".$_SESSION['file']."'>Click to download results</a>"?></td>
+                        <td><?php echo "<a style='display:block;' href='./download.php?data=".$_SESSION['file']."'>Click to download results</a>"?></td>
                     </tr>
                 </tbody>
             </table>
-            </fieldset>
     </div><br>
     <div class="filter" id="filter">
             <form>
@@ -363,7 +359,7 @@
             }
         $(document).ready(function (){
             $('#jtable').jtable({
-                title:'PAC',
+                title:'PAC trap results',
                 paging:true,
                 pageSize:5,
                 sorting:true,
