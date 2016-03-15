@@ -1288,7 +1288,7 @@
             </script>
     </div>
         <div class="ym-wrapper" id='loading' style="display: none">
-            <fieldset >
+            <fieldset>
                 <legend>
                     <h4 >
                         <font color="#224055" ><b>Loading</b>:data is being processed</font>
