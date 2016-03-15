@@ -17,8 +17,20 @@
             <![endif]-->
         <!--<link rel="stylesheet" href="./src/font-awesome.min.css">-->
         <!--<link rel="stylesheet" href="./src/example.css">-->
-        <script src="./src/idangerous.swiper.min.js"></script>
-        <link rel="stylesheet" href="./src/idangerous.swiper.css">
+        <link type="text/css" rel="stylesheet" href="./src/pws-tabs/jquery.pwstabs-1.2.1.css"></link>
+        <script src="./src/pws-tabs/jquery.pwstabs-1.2.1.js"></script>
+        <style>
+                    .step-title{
+                        margin: auto;
+                        margin-top: 15px;
+                        margin-bottom: 0px;
+                        height: 20px;
+                        background-color: #5db95b;
+                        padding: 0px 18px 1px;
+                        border: 0px solid #000;
+                        border-radius: 8px;
+                    }
+        </style>
     </head>
     <body onload="getchr()">
         <?php
@@ -31,7 +43,7 @@
         <script>  
         $(document).ready(function(){  
                  $('#degene-submit').click(function (){
-                    var params = $('#species,#degene-form').serialize(); //序列化表单的值
+                    var params = $('#species,#degene-form,#search').serialize(); //序列化表单的值
 //                    console.log(params);
 //                    alert(params);
                     $.ajax({  
@@ -44,7 +56,7 @@
                     });  
                  });
                  $('#depac-submit').click(function (){
-                    var params = $('#species,#depac-form').serialize(); //序列化表单的值
+                    var params = $('#species,#depac-form,#search').serialize(); //序列化表单的值
 //                    console.log(params);
 //                    alert(params);
                     $.ajax({  
@@ -57,7 +69,7 @@
                     });  
                  });
                  $('#only3utr-submit').click(function (){
-                    var params = $('#species,#only3utr-form').serialize(); //序列化表单的值
+                    var params = $('#species,#only3utr-form,#search').serialize(); //序列化表单的值
 //                    console.log(params);
 //                    alert(params);
                     $.ajax({  
@@ -70,7 +82,7 @@
                     });  
                  });
                  $('#none3utr-submit').click(function (){
-                    var params = $('input,textarea,select').serialize(); //序列化表单的值
+                    var params = $('#species,#none3utr-form,#search').serialize(); //序列化表单的值
 //                    console.log(params);
 //                    alert(params);
                     $.ajax({  
@@ -84,7 +96,6 @@
                  });
                  $(".flip").click(function(){
                     $('#search div').slideToggle("slow");
-
 
                  });
         });
@@ -121,26 +132,59 @@
                 </h2>
            <div class="box info ym-form">
                <label for="species" style="float:left;width:7%">Species:&nbsp;</label>
-                <select id="species" name="species" style="width:93%" onchange="div_option2(this);getchr()">
+                <select id="species" name="species" style="width:93%" onchange="div_option2(this);getchr();refresh();">
                     <option value="japonica">Japonica rice</option>
                      <option value="arab" selected="selected">Arabidopsis thaliana</option>
                     <option value="mtr">Medicago truncatula</option>
                     <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
                  </select>
             </div>
+            <div class="info" style="padding-bottom:20px">   
+                <div class="step-title flip">
+                    <h4>
+                        <font color="#224055">Additional options</font>
+                    </h4>
+                </div>
+                <form id="search">
+                    <div class="box info ym-form">
+                    <div class="ym-grid ym-fbox">
+                        <div class="ym-g33 ym-gl">
+                            <label for="chr" style="margin-right:2%">in</label>
+                              <select id="chr1" name="chr" style="width:80%">
+                                    <option value="all" selected="selected">All</option>
+                             </select>
+                        </div>
+                        <div class="ym-g50 ym-gl">
+                            <label for="start"style="margin:0 1%;"> from</label>
+                            <input type="text" id='start' name="start">
+                            <label for="end" style="margin:0 1%;"> to</label>
+                            <input type="text" id='end' name="end">
+                        </div>
+                    </div>           
+                    <div class="ym-grid ym-fbox">
+                        <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
+                        <textarea style="width:100%" name="gene_id" id='gene_id'></textarea>
+                    </div>
+                    <div class="ym-grid ym-fbox">
+                        <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
+                        <textarea style="width:100%" name='go_accession' id='go_accession'></textarea>
+                    </div>
+                    <div class="ym-grid ym-fbox">
+                        <label for="go_name" >Go term name:</label>
+                        <input type='text' name='go_name' class="ym-gr" id='go_name' style="width:89%;"/>
+                    </div>
+                    <div class="ym-grid ym-fbox">
+                        <label for="function">Function:</label>
+                        <input type='text' name='function' id='function' class="ym-gr" style="width:89%;"/><br>
+                    </div>
+                    </div>
+                </form>
+            </div>
             <div class="ym-grid" >
                 <div > 
                     <div class="wrap">
-                        <div class="tabs">
-                            <a href="#" hidefocus="true" class="active">DE Gene</a>
-                            <a href="#" hidefocus="true">DE PAC</a>
-                            <a href="#" hidefocus="true">3'UTR Lengthening</a>
-                            <a href="#" hidefocus="true">APA Switching</a>
-                        </div><br>    
-                        <div class="swiper-container">
-                            <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="content-slide">
+                         <div class="tabs" style="padding:0px;border:solid #5db95b">
+                             <div data-pws-tab="DE Gene" data-pws-tab-name="DE Gene" style="width: 100%">
                                     <form id="degene-form">
                                     <div class="box info samples">
                                         <table id="samples" >
@@ -348,54 +392,14 @@
                                        
                                     </div>
                                     <div class="ym-clearfix"></div>
-                                    <div class="box info additonal">   
-                                        <a class="ym-button ym-add flip">Filter gene or PAC by additional options</a>
-                                    
-                                        <div id="search">
-                                            <div class="box info ym-form">
-                                            <div class="ym-grid ym-fbox">
-                                                <div class="ym-g33 ym-gl">
-                                                    <label for="chr" style="margin-right:2%">in</label>
-                                                      <select id="chr1" name="chr" style="width:80%">
-                                                            <option value="all" selected="selected">All</option>
-                                                     </select>
-                                                </div>
-                                                <div class="ym-g50 ym-gl">
-                                                    <label for="start"style="margin:0 1%;"> from</label>
-                                                    <input type="text" id='start' name="start">
-                                                    <label for="end" style="margin:0 1%;"> to</label>
-                                                    <input type="text" id='end' name="end">
-                                                </div>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
-                                                <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
-                                                <textarea style="width:100%" name="gene_id" id='gene_id'></textarea>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
-                                                <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
-                                                <textarea style="width:100%" name='go_accession' id='go_accession'></textarea>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
-                                                <label for="go_name" >Go term name:</label>
-                                                <input type='text' name='go_name' class="ym-gr" id='go_name' style="width:89%;"/>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
-                                                <label for="function">Function:</label>
-                                                <input type='text' name='function' id='function' class="ym-gr" style="width:89%;"/><br>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="box info fsubmit">
                                         <input type="button" id='degene-submit' value="submit">
                                         <button type="reset">reset</button>
                                         <input type="button" onclick="demo('degene')" value="demo">
                                     </div>
                                     </form>
-                              </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="content-slide">
+                             </div>
+                             <div data-pws-tab="DE PAC" data-pws-tab-name="DE PAC" style="width: 100%">
                                     <form id="depac-form">
                                     <div class="box info samples">
                                         <table id="samples" >
@@ -586,53 +590,14 @@
                                         </div>
                                     </div>
                                     <div class="ym-clearfix"></div>
-                                    <div class="box info additonal">   
-                                        <a class="ym-button ym-add flip">Additional Options</a>
-                                        <div id="search">
-                                            <div class="box info ym-form">
-                                            <div class="ym-grid ym-fbox">
-                                                <div class="ym-g33 ym-gl">
-                                                    <label for="chr" style="margin-right:2%">in</label>
-                                                      <select id="chr2" name="chr" style="width:80%">
-                                                            <option value="all" selected="selected">All</option>
-                                                     </select>
-                                                </div>
-                                                <div class="ym-g50 ym-gl">
-                                                    <label for="start"style="margin:0 1%;"> from</label>
-                                                    <input type="text" id='start' name="start">
-                                                    <label for="end" style="margin:0 1%;"> to</label>
-                                                    <input type="text" id='end' name="end">
-                                                </div>
-                                            </div>           
-                                            <div class="ym-grid ym-fbox">
-                                                <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
-                                                <textarea style="width:100%" name="gene_id" id='gene_id'></textarea>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
-                                                <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
-                                                <textarea style="width:100%" name='go_accession' id='go_accession'></textarea>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
-                                                <label for="go_name" >Go term name:</label>
-                                                <input type='text' name='go_name' class="ym-gr" id='go_name' style="width:89%;"/>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
-                                                <label for="function">Function:</label>
-                                                <input type='text' name='function' id='function' class="ym-gr" style="width:89%;"/><br>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="box info fsubmit">
                                         <input type="button" id='depac-submit' value="submit">
                                         <button type="reset">reset</button>
                                         <input type="button" onclick="demo('depac')" value="demo">
                                     </div>
                                     </form>
-                                </div>
-                              </div>
-                            <div class="swiper-slide">
-                                <div class="content-slide">
+                             </div>
+                             <div data-pws-tab="3'UTR Lengthening" data-pws-tab-name="3'UTR Lengthening" style="width: 100%">
                                     <form id="only3utr-form">
                                         <div class="box info samples">
                                             <table id="samples" >
@@ -818,53 +783,14 @@
                                             </div>
                                         </div>
                                     <div class="ym-clearfix"></div>
-                                    <div class="box info additonal">   
-                                        <a class="ym-button ym-add flip">Additional Options</a>
-                                        <div id="search">
-                                            <div class="box info ym-form">
-                                            <div class="ym-grid ym-fbox">
-                                                <div class="ym-g33 ym-gl">
-                                                    <label for="chr" style="margin-right:2%">in</label>
-                                                      <select id="chr3" name="chr" style="width:80%">
-                                                            <option value="all" selected="selected">All</option>
-                                                     </select>
-                                                </div>
-                                                <div class="ym-g50 ym-gl">
-                                                    <label for="start"style="margin:0 1%;"> from</label>
-                                                    <input type="text" id='start' name="start">
-                                                    <label for="end" style="margin:0 1%;"> to</label>
-                                                    <input type="text" id='end' name="end">
-                                                </div>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
-                                                <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
-                                                <textarea style="width:100%" name="gene_id" id='gene_id'></textarea>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
-                                                <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
-                                                <textarea style="width:100%" name='go_accession' id='go_accession'></textarea>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
-                                                <label for="go_name" >Go term name:</label>
-                                                <input type='text' name='go_name' class="ym-gr" id='go_name' style="width:89%;"/>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
-                                                <label for="function">Function:</label>
-                                                <input type='text' name='function' id='function' class="ym-gr" style="width:89%;"/><br>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="box info fsubmit">
                                         <input type="button" id='only3utr-submit' value="submit">
                                         <button type="reset">reset</button>
                                         <input type="button" onclick="demo('only3utr')" value="demo">
                                     </div>
                                     </form>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="content-slide">
+                             </div>
+                             <div data-pws-tab="APA Switching" data-pws-tab-name="APA Switching" style="width: 100%">
                                     <form id="none3utr-form">
                                     <div class="box info samples">
                                         <table id="samples" >
@@ -1063,58 +989,32 @@
                                         </div>
                                     </div>
                                     <div class="ym-clearfix"></div>
-                                    <div class="box info additonal">   
-                                        <a class="ym-button ym-add flip">Additional Options</a>
-                                        <div id="search">
-                                            <div class="box info ym-form">
-                                                <div class="ym-grid ym-fbox">
-                                                    <div class="ym-g33 ym-gl">
-                                                        <label for="chr" style="margin-right:2%">in</label>
-                                                          <select id="chr4" name="chr" style="width:80%">
-                                                                <option value="all" selected="selected">All</option>
-                                                         </select>
-                                                    </div>
-                                                    <div class="ym-g50 ym-gl">
-                                                        <label for="start"style="margin:0 1%;"> from</label>
-                                                        <input type="text" id='start' name="start">
-                                                        <label for="end" style="margin:0 1%;"> to</label>
-                                                        <input type="text" id='end' name="end">
-                                                    </div>
-                                                </div>
-                                            <div class="ym-grid ym-fbox">
-                                                <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
-                                                <textarea style="width:100%" name="gene_id" id='gene_id'></textarea>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
-                                                <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
-                                                <textarea style="width:100%" name='go_accession' id='go_accession'></textarea>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
-                                                <label for="go_name" >Go term name:</label>
-                                                <input type='text' name='go_name' class="ym-gr" id='go_name' style="width:89%;"/>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
-                                                <label for="function">Function:</label>
-                                                <input type='text' name='function' id='function' class="ym-gr" style="width:89%;"/><br>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="box info fsubmit">
                                         <input type="button" id='none3utr-submit' value="submit">
                                         <button type="reset">reset</button>
                                         <input type="button" onclick="demo('none3utr')" value="demo">
                                     </div>
                                     </form>
-                                </div>
-                            </div>
-                          </div>
-                       </div>
+                             </div>
+                         </div>
                     </div>
                 </div>
             </div>
            
             <script>
+                jQuery(document).ready(function($){
+                                $('.tabs').pwstabs({
+                                effect: 'slideleft',
+                                defaultTab: 1,
+                                containerWidth: '1080px'
+                             });
+                             });
+                function refresh(){
+                    var tabDataIdValue = $('.pws_tab_active').data('tab-id');
+                    var pwsParent = $('.pws_tab_active').parent().parent().parent();
+                    var currentTab = pwsParent.find('div[data-pws-tab="' + tabDataIdValue + '"]');
+                    currentTab.parent().height(parseInt(currentTab.height()));
+                }
                 <?php
                     $arr_arab=array();
                     $arr_japonica=array();
@@ -1182,19 +1082,10 @@
                 function getchr(){
                     var sltSpecies=document.getElementById("species");
                     var sltChr1=document.getElementById("chr1");
-                    var sltChr2=document.getElementById("chr2");
-                    var sltChr3=document.getElementById("chr3");
-                    var sltChr4=document.getElementById("chr4");
                     var speciesChr=chr[sltSpecies.selectedIndex];
                     sltChr1.length=1;
-                    sltChr2.length=1;
-                    sltChr3.length=1;
-                    sltChr4.length=1;
                     for(var i=0;i<speciesChr.length;i++){
                         sltChr1[i+1]=new Option(speciesChr[i],speciesChr[i]);
-                        sltChr2[i+1]=new Option(speciesChr[i],speciesChr[i]);
-                        sltChr3[i+1]=new Option(speciesChr[i],speciesChr[i]);
-                        sltChr4[i+1]=new Option(speciesChr[i],speciesChr[i]);
                     }
                 };   
                 function userchr(a){
@@ -1269,22 +1160,6 @@
                     var O = document.getElementById(id);
                     O.disabled=obj.checked;
                 }
-                var tabsSwiper = new Swiper('.swiper-container',{
-                  speed:500,
-                  onSlideChangeStart: function(){
-                    $(".tabs .active").removeClass('active');
-                    $(".tabs a").eq(tabsSwiper.activeIndex).addClass('active');
-                  }
-                });
-                $(".tabs a").on('touchstart mousedown',function(e){
-                  e.preventDefault()
-                  $(".tabs .active").removeClass('active');
-                  $(this).addClass('active');
-                  tabsSwiper.swipeTo($(this).index());
-                })
-                $(".tabs a").click(function(e){
-                  e.preventDefault()
-                })
             </script>
     </div>
         <div class="ym-wrapper" id='loading' style="display: none">
