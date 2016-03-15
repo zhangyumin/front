@@ -61,7 +61,7 @@
   .pws_tabs_container.pws_tabs_responsive .pws_responsive_small_menu {
     width: 100%;
     height: 40px;
-    background-color: #5499c9;
+    background-color: #5db95b;
     display: block;
   }
   .pws_tabs_container.pws_tabs_responsive .pws_responsive_small_menu a {
@@ -139,7 +139,7 @@
 }
 .pws_tabs_container ul.pws_tabs_controll li a.pws_tab_active {
 
-  background-color: #5499c9;
+  background-color: #5db95b;
   color: #fff;
 }
 
