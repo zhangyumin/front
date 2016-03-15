@@ -29,6 +29,7 @@
                         padding: 0px 18px 1px;
                         border: 0px solid #000;
                         border-radius: 8px;
+                        cursor: pointer;
                     }
         </style>
     </head>
