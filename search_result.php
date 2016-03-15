@@ -213,11 +213,9 @@
                 document.getElementById("seq").style.display='none';
                 if(document.getElementById("method").value=='choose'){
                     document.getElementById("sub").disabled=true;
-                    document.getElementById("can").disabled=true;
                 }
                 else{
                     document.getElementById("sub").disabled=false;
-                    document.getElementById("can").disabled=false;
                     document.getElementById(document.getElementById("method").value).style.display='block';
 //                console.log(document.getElementById("method").value);
                 }
@@ -300,7 +298,7 @@
         </div>
         <!--          浮层框架开始         -->
         <div id="Layer2" align="center" style="border: 1px solid;position: absolute; z-index: 3; left: 40%; top: 30%;background-color: #fff; display: none;" >
-            <table width="350" height="100" border="0" cellpadding="0" cellspacing="0" style="border: 0    solid    #e7e3e7;border-collapse: collapse ;" >
+            <table width="350" height="100" border="0" cellpadding="0" cellspacing="0" style="border: 0    solid    #e7e3e7;border-collapse: collapse ; margin:0px" >
                 <tr>
                     <td style="background-color: #73A2d6; color: #fff; padding-left: 4px; padding-top: 2px;font-weight: bold; font-size: 12px;" height="10" valign="middle">
                          <div align="right">
@@ -355,8 +353,7 @@
                                     <option value="3utr-only">3' UTR only</option>
                                 </select>
                             </div>
-                            <button id="sub" type="submit" disabled="true">Submit</button>
-                            <button id="can" type="reset" disabled="true">Reset</button>
+                            <button id="sub" type="submit" disabled="true">Download</button>
                         </form>
                     </td>
                 </tr>
