@@ -183,7 +183,7 @@
             <div class="ym-grid" >
                 <div > 
                     <div class="wrap">
-                         <div class="tabs" style="padding:0px;border:solid #5499c9">
+                         <div class="tabs" style="padding:0px;border:solid #5db95b">
                              <div data-pws-tab="DE Gene" data-pws-tab-name="DE Gene" style="width: 100%">
                                     <form id="degene-form">
                                     <div class="box info samples">
