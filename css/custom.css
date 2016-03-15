@@ -182,16 +182,6 @@ fieldset{
         display: none;
     }
     
-    div.flip{
-        background-color:#5499c9;
-        border-radius:4px;
-    }
-    .flip h4{
-         font-size: 16px;
-    line-height: 20px;
-    padding: 10px 0 10px 20px;
-    color: white;
-    }
     .additonal{
         margin-left: 1em;
         margin-right: 1em;
@@ -213,9 +203,6 @@ fieldset{
         float: right;
         margin-top: 1em;
         margin-right:1em;
-    }
-    #degene .box,#depac .box,#only3utr .box,#none3utr .box{
-        padding-bottom: 1em;
     }
     .ym-searchform select{
          /*border: 1px solid #ddd;*/
