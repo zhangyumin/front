@@ -272,9 +272,8 @@ and open the template in the editor.
                                     <span class="more3 tablebutton" title="View more information about Medicago truncatula'">More</span>
                                 </td>
                             </tr>
-                            <tr class="more3_content">
-
-                                <td colspan="9" >
+                            <tr>
+                                <td class="more3_content" colspan="9" >
                                     <div class="box info">
                                         <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5db95b;width:100%;margin: 10px 2px;">
                                             <tbody>
@@ -309,7 +308,7 @@ and open the template in the editor.
                                         </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr style="border-bottom:2px solid #5db95b;">
                                 <td>Chlamydomonas reinhardtii</td>
                                 <td>4</td>
                                 <td>45372</td>
@@ -330,8 +329,8 @@ and open the template in the editor.
                                     <span class="more4 tablebutton" title="View more information about Chlamydomonas reinhardtii'">More</span>
                                 </td>
                             </tr>
-                            <tr class="more4_content" >
-                                <td colspan="9">
+                            <tr>
+                                <td class="more4_content"  colspan="9">
                                     <div class="box info">
                                         <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5db95b;width:100%;margin: 10px 2px;">
                                             <tbody>
