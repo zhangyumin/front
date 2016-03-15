@@ -142,7 +142,8 @@
             </div>
             <div class="info" style="padding-bottom:20px">   
                 <div class="step-title flip">
-                    <h4>
+                    <img id="arrow" src="./pic/down.png" style="height:18px" onclick="chgArrow()">
+                    <h4 style="display:inline">
                         <font color="#224055">Additional options</font>
                     </h4>
                 </div>
@@ -1080,6 +1081,14 @@
                     echo "\"]";
                     echo "];";
                 ?>
+                function chgArrow(){
+                    if($('#search div').is(":visible")){
+                        $('#arrow').attr("src","./pic/down.png");
+                    }
+                    else{
+                        $('#arrow').attr("src","./pic/up.png");
+                    }
+                }
                 function getchr(){
                     var sltSpecies=document.getElementById("species");
                     var sltChr1=document.getElementById("chr1");
