@@ -258,72 +258,64 @@
             <div style="clear:both;"></div>
     </div>
     <div id="jtable"></div>
-    <div id="ly" style="position: absolute; top: 0px; opacity:0.4; background-color: #777;z-index: 2; left: 0px; display: none;">
-    </div>
-    <!--          浮层框架开始         -->
-    <div id="Layer2" align="center" style="border: 1px solid;position: absolute; z-index: 3; left: 40%; top: 50%;background-color: #fff; display: none;" >
-        <table width="350" height="100" border="0" cellpadding="0" cellspacing="0" style="border: 0    solid    #e7e3e7;border-collapse: collapse ;" >
-            <tr>
-                <td style="background-color: #73A2d6; color: #fff; padding-left: 4px; padding-top: 2px;font-weight: bold; font-size: 12px;" height="10" valign="middle">
-                     <div align="right">
-                         <a style="color:#fff" href=JavaScript:; class="STYLE1" onclick="Lock_CheckForm(this);">[Close]
-                         </a> &nbsp;&nbsp;&nbsp;&nbsp;
-                     </div>
-                </td>
-            </tr>
-            <tr>
-                <td align="center">
-                    <form name="pac_export" method="post" action="export_seq.php?source=PAC&species=<?php echo $_SESSION['species']; ?>" target="_blank">
-                        Method<select id="method" name="method" onchange="ChgMtd()" style="margin-left:70;margin-bottom: 5;width: 226px">
-                            <option value="choose">Please choose</option>
-                            <option value="pacs">export sequences of PACs</option>
-                            <option value="pacs-region">export sequences of regions of  PACs</option>
-                            <option value="seq">export gene sequences</option>
+    <div id="ly" style="position: absolute; top: 0px; opacity:0.4; background-color: rgba(94, 110, 141, 0.9);z-index: 2; left: 0px; display: none;">
+        </div>
+        <!--          浮层框架开始         -->
+        <div id="Layer2" align="center" style="position: absolute; z-index: 3; left: 40%; top: 30%;background-color: #fff; display: none;box-shadow: 0 0 20px;border-radius: .25em .25em .4em .4em; " >
+            <div style="padding:20px;">
+                <p style="color:#8f9cb5;font-size: 16px">Export sequences of interest</p>
+                <form name="pac_export" method="post" action="export_seq.php?source=Search&species=<?php echo $species; ?>" target="_blank">
+                    Method<select id="method" name="method" onchange="ChgMtd()" style="margin-left:70;margin-bottom: 5;width: 226px">
+                        <option value="choose">Please choose</option>
+                        <option value="pacs">export sequences of PACs</option>
+                        <option value="pacs-region">export sequences of regions of  PACs</option>
+                        <option value="seq">export gene sequences</option>
+                    </select><br>
+                    <div id="pacs" style="display:none">
+                        Upstream (nt) <input type="text" value="200" name='upstream' style="margin-left:35;margin-bottom: 5;width: 226px"></input><br>
+                        Downstream (nt) <input type="text" value="200" name='downstream' style="margin-left:20;margin-bottom: 5;width: 226px"></input><br>
+                        PAC in region <select name='pac_region' style="margin-left:33;margin-bottom: 5;width: 226px">
+                            <option value="all">all</option>
+                            <option value="genomic-region">genomic region</option>
+                            <option value="3TUR">3'UTR</option>
+                            <option value="5UTR">5‘UTR</option>
+                            <option value="CDS">CDS</option>
+                            <option value="intron">intron</option>
+                            <option value="intergenic.igt">intergenic</option>
+                            <option value="intergenic.pm">promoter</option>
+                        </select>
+                    </div>
+                    <div id="pacs-region" style="display:none">
+                        Region of PACs <select name='pacs_region' style="margin-left:26;margin-bottom: 5;width: 226px">
+                            <option value="all">all</option>
+                            <option value="genomic-region">genomic region</option>
+                            <option value="3TUR">3'UTR</option>
+                            <option value="5UTR">5‘UTR</option>
+                            <option value="CDS">CDS</option>
+                            <option value="intron">intron</option>
+                            <option value="intergenic.igt">intergenic</option>
+                            <option value="intergenic.pm">promoter</option>
+                        </select>
+                    </div>
+                    <div id="seq" style="display:none">
+                        Annotation version <select name='anno_version' style="margin-left:9;margin-bottom: 5;width: 226px">
+                            <option value="raw-annotation">raw annotation</option>
+                            <option value="3utr-extended-annotation">3' UTR extended annotation</option>
                         </select><br>
-                        <div id="pacs" style="display:none">
-                            Upstream (nt) <input type="text" value="200" name='upstream' style="margin-left:33;margin-bottom: 5;width: 226px"></input><br>
-                            Downstream (nt) <input type="text" value="200" name='downstream' style="margin-left:18;margin-bottom: 5;width: 226px"></input><br>
-                            PAC in region <select name='pac_region' style="margin-left:33;margin-bottom: 5;width: 226px">
-                                <option value="all">all</option>
-                                <option value="genomic-region">genomic region</option>
-                                <option value="3TUR">3'UTR</option>
-                                <option value="5UTR">5‘UTR</option>
-                                <option value="CDS">CDS</option>
-                                <option value="intron">intron</option>
-                                <option value="intergenic.igt">intergenic</option>
-                                <option value="intergenic.pm">promoter</option>
-                            </select>
-                        </div>
-                        <div id="pacs-region" style="display:none">
-                            Region of PACs <select name='pacs_region' style="margin-left:21;margin-bottom: 5;width: 226px">
-                                <option value="all">all</option>
-                                <option value="genomic-region">genomic region</option>
-                                <option value="3TUR">3'UTR</option>
-                                <option value="5UTR">5‘UTR</option>
-                                <option value="CDS">CDS</option>
-                                <option value="intron">intron</option>
-                                <option value="intergenic.igt">intergenic</option>
-                                <option value="intergenic.pm">promoter</option>
-                            </select>
-                        </div>
-                        <div id="seq" style="display:none">
-                            Annotation version <select name='anno_version' style="margin-left:7;margin-bottom: 5;width: 226px">
-                                <option value="raw-annotation">raw annotation</option>
-                                <option value="3utr-extended-annotation">3' UTR extended annotation</option>
-                            </select><br>
-                            Export <select name='export' style="margin-left:72;margin-bottom: 5;width: 226px">
-                                <option value="whole-gene">whole gene</option>
-                                <option value="joined-cds">joined CDS</option>
-                                <option value="3utr-only">3' UTR only</option>
-                            </select>
-                        </div>
-                        <button id="sub" type="submit" disabled="true">Submit</button>
-                        <button id="can" type="reset" disabled="true">Reset</button>
-                    </form>
-                </td>
-            </tr>
-        </table>
-    </div>
+                        Export <select name='export' style="margin-left:73;margin-bottom: 5;width: 226px">
+                            <option value="whole-gene">whole gene</option>
+                            <option value="joined-cds">joined CDS</option>
+                            <option value="3utr-only">3' UTR only</option>
+                        </select>
+                    </div>
+                    <!--<button id="sub" type="submit" disabled="true">Download</button>-->
+                </form>
+            </div>
+                    <ul>
+                        <li style="float:left;width: 50%;margin-left: 0px"><a id='sub' href='javascript:document.pac_export.submit();' style="background: #5db95d;border-radius: 0 0 0 .25em;display: block;height: 40px;line-height: 40px;text-transform: uppercase;color: #fff;-webkit-transition: background-color 0.2s;-moz-transition: background-color 0.2s;transition: background-color 0.2s;text-decoration: none;">Download</a></li>
+                        <li style="float:left;width: 50%;margin-left: 0px"><a id='can' href='javascript:Lock_CheckForm(this);' style="background: #c5ccd8;border-radius: 0 0 0 .25em;display: block;height: 40px;line-height: 40px;text-transform: uppercase;color: #fff;-webkit-transition: background-color 0.2s;-moz-transition: background-color 0.2s;transition: background-color 0.2s;text-decoration: none;">Cancel</a></li>
+                    </ul>
+        </div>
     <link href="src/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
     <link href="src/jtable.css" rel="stylesheet" type="text/css" />
     
@@ -348,11 +340,11 @@
                 document.getElementById("seq").style.display='none';
                 if(document.getElementById("method").value=='choose'){
                     document.getElementById("sub").disabled=true;
-                    document.getElementById("can").disabled=true;
+                    document.getElementById("sub").removeAttribute('href');
                 }
                 else{
                     document.getElementById("sub").disabled=false;
-                    document.getElementById("can").disabled=false;
+                    document.getElementById("sub").setAttribute("href",'javascript:document.pac_export.submit();');
                     document.getElementById(document.getElementById("method").value).style.display='block';
 //                console.log(document.getElementById("method").value);
                 }
