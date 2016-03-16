@@ -713,10 +713,10 @@
         <div  id="page" style="width:1200px;margin:auto">
             <table  cellspacing="0" cellpadding="0" border="0" style="margin: 20px auto;border-collapse:collapse;" >
             <tbody>
-                <tr id="summary" style="border: medium solid #5499c9;">
-                    <td valign="top" id='tables' style="border-right: solid #5499c9;">
-                    
-                        <div id="gene">
+                <tr>
+                    <td colspan="2">
+                    <div style="width:20%;float: left"></div>
+                    <div id="gene" style="float:left;width: 80%">
                             <table id="genetable">
                                 <tbody>
                                     <tr>
@@ -759,7 +759,10 @@
                                 </tbody>
                             </table>
                         </div>
-                        <hr size="2" align="left" style="border-top: 2px solid #5499c9;">
+                    </td>
+                </tr>
+                <tr id="summary" style="border: medium solid #5499c9;">
+                    <td valign="top" id='tables' style="border-right: solid #5499c9;">
                         <div id="polya" style="overflow-x: auto;background-color: #fff;">
                             <table id="polyatable"  class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
                                 <thead>
@@ -838,7 +841,7 @@
                         <script>
                             $(document).ready(function(){
                                 $('#gotable').dataTable({
-                                    "lengthMenu":[[15,-1],[15,"all"]],
+                                    "lengthMenu":[[3,-1],[3,"all"]],
                                     "pagingType":"full_numbers",
                                     lengthChange:false,
                                     info:false,
