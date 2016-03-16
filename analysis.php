@@ -141,14 +141,14 @@
                  </select>
             </div>
             <div class="info" style="padding-bottom:20px">   
-                <div class="step-title flip">
-                    <img id="arrow" src="./pic/down.png" style="height:18px" onclick="chgArrow()">
+                <div class="step-title flip" onclick="chgArrow()">
+                    <img id="arrow" src="./pic/down.png" style="height:18px">
                     <h4 style="display:inline">
                         <font color="#224055">Additional options</font>
                     </h4>
                 </div>
                 <form id="search">
-                    <div class="box info ym-form">
+                    <div class="box info ym-form" id='hid'>
                     <div class="ym-grid ym-fbox">
                         <div class="ym-g33 ym-gl">
                             <label for="chr" style="margin-right:2%">in</label>
@@ -1082,10 +1082,10 @@
                     echo "];";
                 ?>
                 function chgArrow(){
-                    if($('#search div').is(":visible")){
+                    if($('#hid').is(":visible")){
                         $('#arrow').attr("src","./pic/down.png");
                     }
-                    else{
+                    else if($('#hid').is(":hidden")){
                         $('#arrow').attr("src","./pic/up.png");
                     }
                 }
