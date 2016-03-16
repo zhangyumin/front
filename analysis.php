@@ -1085,7 +1085,7 @@
                     if($('#hid').is(":visible")){
                         $('#arrow').attr("src","./pic/down.png");
                     }
-                    else if($('#hid').is(":hidden")){
+                    else{
                         $('#arrow').attr("src","./pic/up.png");
                     }
                 }
