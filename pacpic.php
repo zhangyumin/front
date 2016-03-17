@@ -158,7 +158,7 @@ and open the template in the editor.
                 $num = count($_SESSION['sample']);
 //                $samples = $_SESSION['sample'];
             }
-//            var_dump(array_unique($group));
+            var_dump(array_unique($group));
             
             //group处理
             $statistics_samples = array();#存储statistics的title
