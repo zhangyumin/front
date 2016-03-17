@@ -784,15 +784,15 @@
                                                 if($_GET['flag']=='intergenic'){
                                                     echo "<td>$pac_r[2](intergenic)</td>";
                                                 }
-                                                else if($ext_end[0]==NULL|| $ext_start[0] ==NULL){
+                                                else if($ext_end[0]==NULL|| $ext_start[0] ==NULL ){
                                                          echo "<td>$pac_r[2](3UTR)</td>";
                                                 }
-                                                else if($strand==1&&$pac_r[2]>$ext_end[0])
+                                                else if($strand==1&&$pac_r[2]>$ext_end[0] || $strand==-1&&$pac_r[2]<$ext_start[0])
                                                     echo "<td>$pac_r[2](3UTR Extend)</td>";
-                                                else if($strand==-1&&$pac_r[2]<$ext_start[0])
-                                                    echo "<td>$pac_r[2](3UTR Extend)</td>";
-                                                else
+                                                else if($pac_r[2]<$ext_end[0]&& $pac_r[2] > $ext_start[0] || $pac_r[2]>$ext_end[0]&& $pac_r[2]< $ext_start[0] )
                                                     echo "<td>$pac_r[2](3UTR)</td>";
+                                                else
+                                                    echo "<td>$pac_r[2]</td>";
                                                 echo "<td>$pac_r[12]</td>"
                                                         . "<td>$pac_r[3]</td>"
                                                         . "<td>$pac_r[10]~$pac_r[11]</td>";
