@@ -85,6 +85,7 @@ and open the template in the editor.
                 array_push($pacol, $table_row['PA_col']);
                 array_push($patable, $table_row['PA_table']);
             }
+            var_dump($group);
             $samples = $pacol;
             //patable去除重复并重新排列
             $patable = array_unique($patable);
