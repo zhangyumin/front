@@ -55,6 +55,23 @@
                     mysql_query("drop table db_user.Search_".$_SESSION['search']."");
                     $_SESSION['search']=$_POST['species'].substr($_SESSION['search'], strpos($_SESSION['search'], "201"));
                 }
+                //geneid不属于一个表，先从数据库中读取所有的geneid
+                $gene_array=array();
+                if($_POST['gene_id'] != NULL){
+                    $gene_array=  explode(",", $_POST['gene_id']);
+                    $gene_array=  array_unique($gene_array);
+                    $sql_geneid = "select gene from t_".$_POST['species']."_genedesc where gene in ('".implode("','", $gene_array)."') or alias in ('".implode("','", $gene_array)."');";
+                    $geneid_result = mysql_query($sql_geneid);
+                    $gene_array=array();
+//                    var_dump($gene_array);
+                    while($geneid_result_row=  mysql_fetch_row($geneid_result)){
+                        array_push($gene_array, $geneid_result_row[0]);
+//                        var_dump($geneid_result_row[0]);
+                    }
+                    $gene_array=  array_unique($gene_array);
+//                    var_dump($sql_geneid);
+//                    var_dump($gene_array);
+                }
 //                echo $_SESSION['search'];
                 //模糊搜索
                 if($_GET['method']=='fuzzy'){
@@ -87,7 +104,6 @@
                     $go_accession=$_POST['go_accession'];
                     $go_name=$_POST['go_name'];
                     $function=$_POST['function'];
-                    $gene_array=array();
                     $go_array=array();
                     $species=$_POST['species'];
                    //若go搜索无输入
@@ -103,8 +119,6 @@
                             $sysQry.=" and ftr_end<=".$_POST['end']."";
                         }
                         if($_POST['gene_id']!=NULL){
-                            $gene_array=  explode(",", $gene_id);
-                            $gene_array=  array_unique($gene_array);
                             $sysQry.=" and gene in ('";
                             $sysQry.=implode("','", $gene_array);
                             $sysQry.="')";
@@ -162,8 +176,6 @@
                                        $sysQry.=" and ftr_end<=".$_POST['end']."";
                                    }
                                    if($_POST['gene_id']!=NULL){
-                                        $gene_array=  explode(",", $gene_id);
-                                        $gene_array=  array_unique($gene_array);
                                         $sysQry.=" and gene in ('";
                                         $sysQry.=implode("','", $gene_array);
                                         $sysQry.="')";
