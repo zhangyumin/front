@@ -427,7 +427,7 @@ and open the template in the editor.
                             echo "sutr_shorten($start,$end,$st,$en,$strand,'no_extend');\n";
                         if($strand==-1){
                             if($sutr_start_org[$key] == $gene_start_org && $sutr_start != $gene_start_org){
-                                 echo "sutr_extend(10,$start,0,1000,-1,'gene');\n";
+                                 echo "sutr_extend(10,$start,0,1000,-1,'gene');\n";//预留一部分给arrow
                             }
 //                            if($sutr_end_org[$key]!=null&&$sutr_start_org[$key]!=null)
 //                                echo "sutr_extend($st_st,$start,0,1000,-1,'gene');\n";
