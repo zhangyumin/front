@@ -864,7 +864,7 @@
                                     searching:false
                                 });
                                 $('#polyatable').dataTable({
-                                    "lengthMenu":[[5,10,15,-1],[5,10,15,"all"]],
+                                    "lengthMenu":[[3,-1],[3,"all"]],
                                     "pagingType":"full_numbers",
                                     lengthChange:false,
                                     info:false,
