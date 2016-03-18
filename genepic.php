@@ -419,34 +419,40 @@ and open the template in the editor.
                     $st=($gene_start_org-$gene_start)*$rate;
                     $en=($gene_end_org-$gene_start)*$rate;
                     foreach ($sutr_start as $key => $value) {
-                        $st_st=($sutr_start[$key]-$gene_start)*$rate;
-                        $start=($sutr_start_org[$key]-$gene_start)*$rate;
-                        $st_ed=($sutr_end[$key]-$gene_start )*$rate;
-                        $end=($sutr_end_org[$key]-$gene_start)*$rate;
+                        $st_st=($sutr_start[$key]-$gene_start)*$rate;//长gene的3utr起始位置
+                        $start=($sutr_start_org[$key]-$gene_start)*$rate;//短gene的3utr起始位置
+                        $st_ed=($sutr_end[$key]-$gene_start )*$rate;//长gene的3utr终止位置
+                        $end=($sutr_end_org[$key]-$gene_start)*$rate;//短gene的3utr终止位置
                         if($start>=0 && $start<=1000 && $end>=0 && $end<=1000)
                             echo "sutr_shorten($start,$end,$st,$en,$strand,'no_extend');\n";
                         if($strand==-1){
-                            if($sutr_end_org[$key]!=null&&$sutr_start_org[$key]!=null)
-                                echo "sutr_extend($st_st,$start,0,1000,-1,'gene');\n";
-                            
-                            else if(($sutr_end_org[$key-1]==null || $sutr_start_org[$key-1]==null)){
-                                
+                            if($sutr_start_org[$key] == $gene_start_org && $sutr_start != $gene_start_org){
+                                 echo "sutr_extend(10,$start,0,1000,-1,'gene');\n";
                             }
-                            else{
-                                $start = ($sutr_start_org[$key-1]-$gene_start)*$rate;
-                                echo "sutr_extend($st_st,$start,0,1000,-1,'gene');\n";
-                            }
+//                            if($sutr_end_org[$key]!=null&&$sutr_start_org[$key]!=null)
+//                                echo "sutr_extend($st_st,$start,0,1000,-1,'gene');\n";
+//                            
+//                            else if(($sutr_end_org[$key-1]==null || $sutr_start_org[$key-1]==null)){
+//                                
+//                            }
+//                            else{
+//                                $start = ($sutr_start_org[$key-1]-$gene_start)*$rate;
+//                                echo "sutr_extend($st_st,$start,0,1000,-1,'gene');\n";
+//                            }
                         }
                         else if($strand==1){
-                            if($sutr_end_org[$key]!=null&&$sutr_start_org[$key]!=null)
-                                echo "sutr_extend($end,$st_ed,0,1000,1,'gene');\n";
-                            else if(($sutr_end_org[$key-1]==null || $sutr_start_org[$key-1]==null)){
-                                
+                            if($sutr_end_org[$key] == $gene_end_org && $sutr_end != $gene_end_org){
+                                 echo "sutr_extend($end,990,0,1000,-1,'gene');\n";
                             }
-                            else{
-                                $end = ($sutr_end_org[$key-1]-$gene_start)*$rate;
-                                echo "sutr_extend($end,$st_ed,0,1000,1,'gene');\n";
-                            }
+//                            if($sutr_end_org[$key]!=null&&$sutr_start_org[$key]!=null)
+//                                echo "sutr_extend($end,$st_ed,0,1000,1,'gene');\n";
+//                            else if(($sutr_end_org[$key-1]==null || $sutr_start_org[$key-1]==null)){
+//                                
+//                            }
+//                            else{
+//                                $end = ($sutr_end_org[$key-1]-$gene_start)*$rate;
+//                                echo "sutr_extend($end,$st_ed,0,1000,1,'gene');\n";
+//                            }
                         }
                     }
                     foreach ($wutr_start_org as $key => $value) {
