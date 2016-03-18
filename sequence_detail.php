@@ -821,7 +821,7 @@
                                 </thead>
                                 <tbody>
                                         <?php
-                                                    $go_sql="select * from t_".$species."_go where gene=\"".$_GET['seq']."\";";
+                                                    $go_sql="select distinct * from t_".$species."_go where gene=\"".$_GET['seq']."\";";
                                                     $go_result=mysql_query($go_sql);
 //                                                    echo $sql;
 //                                                    $type=mysql_query("select * from db_bio.gff_arab10_all where gene=\"AT2G01008\";");
