@@ -86,70 +86,74 @@ and open the template in the editor.
 //                        $(".more4").html("More");
 //                });
 //            });
-                <?php
-                    $arr_arab=array();
-                    $arr_japonica=array();
-                    $arr_mtr=array();
-                    $arr_chlamy=array();
-                    echo "var chr=[";
-                    //arabidopsis
-                    $arab_sql=mysql_query("select distinct chr from t_japonica_gff;");
-                    $i=0;
-                    while($arab_row=  mysql_fetch_row($arab_sql)){
-                        array_push($arr_arab, $arab_row[0]);
-                    }
-                    echo "[\"";
-                    foreach ($arr_arab as $key => $value) {
-                        if($key!=  count($arr_arab)-1)
-                            echo $value."\",\"";
-                        else
-                            echo $value;
-                    }
-                    echo "\"],";
-                    //japonica
-                    $arab_sql=mysql_query("select distinct chr from t_arab_gff;");
-                    $i=0;
-                    while($arab_row=  mysql_fetch_row($arab_sql)){
-                        array_push($arr_japonica, $arab_row[0]);
-                    }
-                    echo "[\"";
-                    foreach ($arr_japonica as $key => $value) {
-                        if($key!=  count($arr_japonica)-1)
-                            echo $value."\",\"";
-                        else
-                            echo $value;
-                    }
-                    echo "\"],";
-                    //mtr
-                    $arab_sql=mysql_query("select distinct chr from t_mtr_gff;");
-                    $i=0;
-                    while($arab_row=  mysql_fetch_row($arab_sql)){
-                        array_push($arr_mtr, $arab_row[0]);
-                    }
-                    echo "[\"";
-                    foreach ($arr_mtr as $key => $value) {
-                        if($key!=  count($arr_mtr)-1)
-                            echo $value."\",\"";
-                        else
-                            echo $value;
-                    }
-                    echo "\"],";
-                    //chlamy
-                    $arab_sql=mysql_query("select distinct chr from t_chlamy_gff;");
-                    $i=0;
-                    while($arab_row=  mysql_fetch_row($arab_sql)){
-                        array_push($arr_chlamy, $arab_row[0]);
-                    }
-                    echo "[\"";
-                    foreach ($arr_chlamy as $key => $value) {
-                        if($key!=  count($arr_chlamy)-1)
-                            echo $value."\",\"";
-                        else
-                            echo $value;
-                    }
-                    echo "\"]";
-                    echo "];";
-                ?>
+                
+                //<?php
+//                //读取mysql生成js数组信息
+//                    $arr_arab=array();
+//                    $arr_japonica=array();
+//                    $arr_mtr=array();
+//                    $arr_chlamy=array();
+//                    echo "var ftr=[";
+//                    //arabidopsis
+//                    $arab_sql=mysql_query("select distinct ftr from t_japonica_pac;");
+//                    $i=0;
+//                    while($arab_row=  mysql_fetch_row($arab_sql)){
+//                        array_push($arr_arab, $arab_row[0]);
+//                    }
+//                    echo "[\"";
+//                    foreach ($arr_arab as $key => $value) {
+//                        if($key!=  count($arr_arab)-1)
+//                            echo $value."\",\"";
+//                        else
+//                            echo $value;
+//                    }
+//                    echo "\"],";
+//                    //japonica
+//                    $arab_sql=mysql_query("select distinct ftr from t_arab_pac;");
+//                    $i=0;
+//                    while($arab_row=  mysql_fetch_row($arab_sql)){
+//                        array_push($arr_japonica, $arab_row[0]);
+//                    }
+//                    echo "[\"";
+//                    foreach ($arr_japonica as $key => $value) {
+//                        if($key!=  count($arr_japonica)-1)
+//                            echo $value."\",\"";
+//                        else
+//                            echo $value;
+//                    }
+//                    echo "\"],";
+//                    //mtr
+//                    $arab_sql=mysql_query("select distinct ftr from t_mtr_pac;");
+//                    $i=0;
+//                    while($arab_row=  mysql_fetch_row($arab_sql)){
+//                        array_push($arr_mtr, $arab_row[0]);
+//                    }
+//                    echo "[\"";
+//                    foreach ($arr_mtr as $key => $value) {
+//                        if($key!=  count($arr_mtr)-1)
+//                            echo $value."\",\"";
+//                        else
+//                            echo $value;
+//                    }
+//                    echo "\"],";
+//                    //chlamy
+//                    $arab_sql=mysql_query("select distinct ftr from t_chlamy_pac;");
+//                    $i=0;
+//                    while($arab_row=  mysql_fetch_row($arab_sql)){
+//                        array_push($arr_chlamy, $arab_row[0]);
+//                    }
+//                    echo "[\"";
+//                    foreach ($arr_chlamy as $key => $value) {
+//                        if($key!=  count($arr_chlamy)-1)
+//                            echo $value."\",\"";
+//                        else
+//                            echo $value;
+//                    }
+//                    echo "\"]";
+//                    echo "];";
+//                ?>
+    
+                    var chr=[["Chr1","Chr10","Chr11","Chr12","Chr2","Chr3","Chr4","Chr5","Chr6","Chr7","Chr8","Chr9"],["chloroplast","Chr1","Chr2","Chr3","Chr4","Chr5","mitochondria"],["chr1","chr2","chr3","chr4","chr5","chr6","chr7","chr8","scaffold0001","scaffold0002","scaffold0003","scaffold0004","scaffold0005","scaffold0006","scaffold0007","scaffold0008","scaffold0009","scaffold0010","scaffold0011","scaffold0012","scaffold0013","scaffold0014","scaffold0015","scaffold0016","scaffold0018","scaffold0019","scaffold0020","scaffold0022","scaffold0024","scaffold0025","scaffold0026","scaffold0027","scaffold0028","scaffold0034","scaffold0035","scaffold0036","scaffold0040","scaffold0041","scaffold0042","scaffold0043","scaffold0044","scaffold0045","scaffold0047","scaffold0048","scaffold0049","scaffold0050","scaffold0053","scaffold0054","scaffold0057","scaffold0058","scaffold0059","scaffold0062","scaffold0064","scaffold0066","scaffold0068","scaffold0069","scaffold0072","scaffold0076","scaffold0078","scaffold0082","scaffold0086","scaffold0088","scaffold0091","scaffold0092","scaffold0097","scaffold0100","scaffold0101","scaffold0103","scaffold0110","scaffold0113","scaffold0118","scaffold0121","scaffold0122","scaffold0123","scaffold0133","scaffold0136","scaffold0140","scaffold0147","scaffold0148","scaffold0151","scaffold0154","scaffold0167","scaffold0168","scaffold0170","scaffold0172","scaffold0173","scaffold0175","scaffold0180","scaffold0189","scaffold0194","scaffold0196","scaffold0197","scaffold0199","scaffold0202","scaffold0204","scaffold0212","scaffold0216","scaffold0219","scaffold0221","scaffold0227","scaffold0236","scaffold0242","scaffold0246","scaffold0249","scaffold0251","scaffold0256","scaffold0262","scaffold0263","scaffold0268","scaffold0274","scaffold0275","scaffold0276","scaffold0279","scaffold0280","scaffold0288","scaffold0291","scaffold0294","scaffold0308","scaffold0314","scaffold0316","scaffold0325","scaffold0332","scaffold0334","scaffold0340","scaffold0349","scaffold0361","scaffold0374","scaffold0380","scaffold0388","scaffold0392","scaffold0393","scaffold0417","scaffold0419","scaffold0428","scaffold0429","scaffold0443","scaffold0468","scaffold0493","scaffold0504","scaffold0508","scaffold0536","scaffold0591","scaffold0603","scaffold0650","scaffold0658","scaffold0683","scaffold0693","scaffold0699","scaffold0783","scaffold0795","scaffold0874","scaffold0927","scaffold1051","scaffold1099","scaffold1457","scaffold1514","scaffold2053"],["chromosome_1","chromosome_10","chromosome_11","chromosome_12","chromosome_13","chromosome_14","chromosome_15","chromosome_16","chromosome_17","chromosome_2","chromosome_3","chromosome_4","chromosome_5","chromosome_6","chromosome_7","chromosome_8","chromosome_9","scaffold_18","scaffold_19","scaffold_20","scaffold_21","scaffold_22","scaffold_23","scaffold_24","scaffold_25","scaffold_26","scaffold_27","scaffold_28","scaffold_31","scaffold_33","scaffold_34","scaffold_35","scaffold_36","scaffold_37","scaffold_39","scaffold_40","scaffold_42","scaffold_44","scaffold_46","scaffold_47","scaffold_48","scaffold_49","scaffold_50"]];
                     function getchr(){
                         var sltSpecies=document.search.species;
                         var sltChr=document.search.chr;
@@ -159,8 +163,18 @@ and open the template in the editor.
                             sltChr[i+1]=new Option(speciesChr[i],speciesChr[i]);
                         }
                     }
+                    var ftr=[["3UTR","CDS","intergenic.igt","intron","5UTR","intergenic.pm"],["intergenic.igt","5UTR","3UTR","CDS","AMB","intron","exon","pseudogenic_exon","intergenic.pm"],["intergenic.igt","3UTR","CDS","intron","AMB","5UTR","intergenic.pm"],["intergenic","3UTR","AMB","intron","CDS","5UTR"]];
+                    function getftr(){
+                        var sltSpecies=document.search.species;
+                        var sltFtr=document.search.ftr;
+                        var speciesFtr=ftr[sltSpecies.selectedIndex];
+                        sltFtr.length=1;
+                        for(var i=0;i<speciesFtr.length;i++){
+                            sltFtr[i+1]=new Option(speciesFtr[i],speciesFtr[i]);
+                        }
+                    }
     </script>
-    <body onload="getchr()">        
+    <body onload="getchr();getftr()">        
         <?php include './navbar.php'; ?>
         <div class="ym-wrapper">
                 <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
@@ -169,28 +183,34 @@ and open the template in the editor.
                <div class=" info ym-form">
                    <form name="search" method="post" id="getback" action="search_result.php">
                        <div class="ym-grid ym-fbox">
-                            <div class="ym-g30 ym-gl">
+                            <div class="ym-g20 ym-gl">
                                 <label for="species" style="margin-right:2%;">Species:</label>
-                                <select id="species" name="species" style="width:75%" onclick="getchr()">
+                                <select id="species" name="species" style="width:75%" onclick="getchr();getftr()">
                                      <option value="japonica">Japonica rice</option>
                                     <option value="arab" selected="selected">Arabidopsis thaliana</option>
                                     <option value="mtr">Medicago truncatula</option>
                                     <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
                                 </select>
                             </div>
-                            <div class="ym-g30 ym-gl">
-                               <label for="chr" style="margin: 0 2%">in</label>
+                            <div class="ym-g20 ym-gl">
+                               <label for="chr" style="margin-right: 2%;margin-left: 17%">in</label>
                                     <select id="chr" name="chr" style="width:75%">
                                         <option value="all" selected="selected">All</option>
                                     </select>
-                            </div><div style="clear:both"></div><br>
-                            <div class="ym-g30 ym-gl">    
-                               <label for="start" style="margin-right: 7.5%"> From</label>
+                            </div>
+                            <div class="ym-g20 ym-gl">    
+                               <label for="start" style="margin-right: 2%;margin-left: 8%"> From</label>
                                <input type="text" name="start" id="start" style="width:75%">
                             </div>
-                            <div class="ym-g30 ym-gl">
-                               <label for="end" style="margin: 0 2%"> to</label>
+                            <div class="ym-g20 ym-gl">
+                               <label for="end" style="margin-right: 2%;margin-left: 16%"> to</label>
                                <input type="text" name="end" id="end" style="width:75%">
+                            </div>
+                           <div class="ym-g20 ym-gl">
+                               <label for="ftr" style="margin-right: 2%;margin-left: 14%"> for</label>
+                               <select id="ftr" name="ftr" style="width:75%">
+                                    <option value="all" selected="selected">All</option>
+                                </select>
                             </div><div style="clear:both"></div>
                         </div>
                         <div class="ym-grid ym-fbox">    
