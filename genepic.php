@@ -399,7 +399,7 @@ and open the template in the editor.
                         $end=($intron_end[$key]-$gene_start)*$rate;
                         echo "intron($start,$end,0,1000,$strand,'gene');\n";
                     }
-                    foreach ($exon as $key => $value) {
+                    foreach ($exon_start as $key => $value) {
                         $start=($exon_start[$key]-$gene_start)*$rate;
                         $end=($exon_end[$key]-$gene_start)*$rate;
                         echo "exon($start,$end,0,1000,$strand,'gene');\n";
@@ -465,7 +465,7 @@ and open the template in the editor.
                         $end=($intron_end_org[$key]-$gene_start)*$rate;
                         echo "intron_shorten($start,$end,$st,$en,$strand,'no_extend');\n";
                     }
-                    foreach ($exon_org as $key => $value) {
+                    foreach ($exon_start_org as $key => $value) {
                         $start=($exon_start_org[$key]-$gene_start)*$rate;
                         $end=($exon_end_org[$key]-$gene_start)*$rate;
                         echo "exon_shorten($start,$end,$st,$en,$strand,'no_extend');\n";
