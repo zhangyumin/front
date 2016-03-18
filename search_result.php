@@ -93,7 +93,7 @@
                     $pac_qry= "create table db_user.Search_".$_SESSION['search']." select * from t_".$species."_pac where ";
                     $pac_qry.="gene in ('";
                     $pac_qry.=implode("','", $go_array_key);
-                    $pac_qry.="') or chr like '%$key%' or gene like '%$key%'; ";
+                    $pac_qry.="') or chr like '%$key%' or gene like '%$key%' or ftr like '%$key%'; ";
                     $query_result=  mysql_query($pac_qry);
                 }
                 else{
@@ -106,6 +106,7 @@
                     $function=$_POST['function'];
                     $go_array=array();
                     $species=$_POST['species'];
+                    $ftr = $_POST['ftr'];
                    //若go搜索无输入
                     if($go_accession==NULL&&$go_name==NULL&&$function==NULL){
                         $sysQry="create table db_user.Search_".$_SESSION['search']." select * from db_server.t_".$_POST['species']."_pac where 1=1";
@@ -117,6 +118,9 @@
                         }
                         if($_POST['end']!=NULL){
                             $sysQry.=" and ftr_end<=".$_POST['end']."";
+                        }
+                        if($_POST['ftr']!='all'){
+                            $sysQry.=" and ftr='$ftr'";
                         }
                         if($_POST['gene_id']!=NULL){
                             $sysQry.=" and gene in ('";
@@ -175,6 +179,9 @@
                                    if($_POST['end']!=NULL){
                                        $sysQry.=" and ftr_end<=".$_POST['end']."";
                                    }
+                                   if($_POST['ftr']!='all'){
+                                        $sysQry.=" and ftr='$ftr'";
+                                    }
                                    if($_POST['gene_id']!=NULL){
                                         $sysQry.=" and gene in ('";
                                         $sysQry.=implode("','", $gene_array);
