@@ -619,6 +619,14 @@ and open the template in the editor.
                 xscale("gene");
 //                xscale("3utr_extend");
             }
+            <?php
+                if($_GET['scale']==null){
+                    echo "scale = 50;";
+                }
+                else{
+                    echo "scale = ".$_GET['scale'].";";
+                }
+            ?>
             function seq_title(color,text,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
@@ -710,7 +718,7 @@ and open the template in the editor.
                     context.moveTo(500,20*i);
                     context.lineTo(505,20*i);
                     context.font="12px sans-serif";
-                    context.fillText(60-10*i,505,21*i);
+                    context.fillText(scale - scale/5*(i-1),505,21*i);
                 }
                 context.stroke();
             }
@@ -957,7 +965,7 @@ and open the template in the editor.
                 context.closePath();
                 context.fillStyle="#00ABD8";
                 context.fill();
-            } 
+            }
             function pa(loc,tagnum,key,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
@@ -1007,11 +1015,11 @@ and open the template in the editor.
                 }
                 context.beginPath();
                 context.moveTo(loc,120);
-                if(tagnum>50){
-                    context.lineTo(loc,10);
+                if(tagnum>scale){
+                    context.lineTo(loc,20);
                 }
                 else{
-                    context.lineTo(loc,120-2*tagnum);
+                    context.lineTo(loc,120-2*tagnum/scale*50);
                 }
                 context.stroke();
             }
@@ -1064,16 +1072,16 @@ and open the template in the editor.
                     context.strokeStyle="#3b3b3b";
                     context.fillStyle="#3b3b3b";
                 }
-                if(tagnum>50){
-                    context.moveTo(loc-5,10);
-                    context.lineTo(loc+7,10);
-                    context.fillRect(loc,120,3,-110);
+                if(tagnum>scale){
+                    context.moveTo(loc-5,20);
+                    context.lineTo(loc+7,20);
+                    context.fillRect(loc,120,3,-100);
                     context.fillText(tagnum,loc-10,135);
                 }
                 else if(tagnum==0){
                 }
                 else{
-                    context.fillRect(loc,120,3,-2*tagnum);
+                    context.fillRect(loc,120,3,-2*tagnum/scale*50);
                     context.fillText(tagnum,loc-4,135);
                 }
                 context.stroke();
@@ -1122,6 +1130,13 @@ and open the template in the editor.
     </head>
     <body style="width:1000px;font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;">
         <div id="button" style="width:1200px;">
+            Scale
+            <select id="scale" onchange="chgScale(this)">
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="200">200</option>
+                <option value="400">400</option>
+            </select>&nbsp;
             <input type="radio" name="display" value="origin" checked="checked" onchange="reset($(this).val())"/>individual
             <div class="origind" style="display: inline;">
                  <select id="origin"   multiple="multiple" placeholder="Select to display" onchange="getname($(this).children(':selected'))" class="okbutton">
@@ -1153,8 +1168,8 @@ and open the template in the editor.
                     ?>
                 </select>
             </div>
-            &nbsp;&nbsp;<span style="text-align:center;background-color: #878787">&nbsp;&nbsp;&nbsp;&nbsp;</span>Extended 3'UTR
-            &nbsp;<span style="text-align:center;background-color:#9FE0F6">&nbsp;&nbsp;&nbsp;&nbsp;</span>AMB
+<!--            &nbsp;&nbsp;<span style="text-align:center;background-color: #878787">&nbsp;&nbsp;&nbsp;&nbsp;</span>Extended 3'UTR
+            &nbsp;<span style="text-align:center;background-color:#9FE0F6">&nbsp;&nbsp;&nbsp;&nbsp;</span>AMB-->
         </div>
         <script>
             $(document).ready(function () {
@@ -1226,6 +1241,16 @@ and open the template in the editor.
                 else
                     window.location.href=url.substring(0,loc)+"pac="+select.toString();
             }
+            function chgScale(a){
+//                console.log(a.value);
+                url = parent.document.getElementById("genepic").contentWindow.location.href;
+                loc = url.lastIndexOf("scale");
+                if(loc==-1)
+                    window.location.href=url+"&scale="+a.value;
+                else
+                    window.location.href=url.substring(0,loc)+"scale="+a.value;
+            }
+            $("#scale option[value="+scale+"]").attr("selected", true);
         </script>
         <canvas id="gene" width="1150px;" height="100px;"></canvas><br>
         <canvas id='no_extend' width="1150px" height="40px;"></canvas><br>
