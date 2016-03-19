@@ -1229,19 +1229,31 @@ and open the template in the editor.
                 select = select.slice(0,a.length);
                 url = parent.document.getElementById("genepic").contentWindow.location.href;
                 loc = url.lastIndexOf("pac");
+                loc_rest = url.lastIndexOf("&");
+//                console.log("loc="+loc);
+//                console.log("loc_rest="+loc_rest);
                 if(loc==-1)
                     window.location.href=url+"&pac="+select.toString();
-                else
+                else if(loc - loc_rest == 1){
                     window.location.href=url.substring(0,loc)+"pac="+select.toString();
+                }
+                else{
+                    window.location.href=url.substring(0,loc)+"pac="+select.toString()+url.substring(loc_rest);
+                }
             }
             function chgScale(a){
 //                console.log(a.value);
                 url = parent.document.getElementById("genepic").contentWindow.location.href;
                 loc = url.lastIndexOf("scale");
+                loc_rest = url.lastIndexOf("&");
                 if(loc==-1)
                     window.location.href=url+"&scale="+a.value;
-                else
+                else if(loc - loc_rest == 1){
                     window.location.href=url.substring(0,loc)+"scale="+a.value;
+                }
+                else{
+                    window.location.href=url.substring(0,loc)+"scale="+a.value+url.substring(loc_rest);
+                }
             }
             $("#scale option[value="+scale+"]").attr("selected", true);
         </script>
