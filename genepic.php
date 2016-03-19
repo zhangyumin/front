@@ -1257,44 +1257,42 @@ and open the template in the editor.
                 select = select.slice(0,a.length);
                 url = parent.document.getElementById("genepic").contentWindow.location.href;
                 loc = url.lastIndexOf("pac");
-                loc_rest = url.lastIndexOf("&");
+                loc_rest = url.substring(loc).indexOf("&");
 //                console.log("loc="+loc);
 //                console.log("loc_rest="+loc_rest);
                 if(loc==-1)
                     window.location.href=url+"&pac="+select.toString();
-                else if(loc - loc_rest == 1){
+                else if(loc_rest==-1)
                     window.location.href=url.substring(0,loc)+"pac="+select.toString();
-                }
                 else{
-                    window.location.href=url.substring(0,loc)+"pac="+select.toString()+url.substring(loc_rest);
+                    window.location.href=url.substring(0,loc)+"pac="+select.toString()+url.substring(loc).substring(loc_rest);
                 }
             }
             function chgScale(a){
 //                console.log(a.value);
                 url = parent.document.getElementById("genepic").contentWindow.location.href;
                 loc = url.lastIndexOf("scale");
-                loc_rest = url.lastIndexOf("&");
+                loc_rest = url.substring(loc).indexOf("&");
+                console.log(url.substring(loc));
                 if(loc==-1)
                     window.location.href=url+"&scale="+a.value;
-                else if(loc - loc_rest == 1){
+                else if(loc_rest==-1)
                     window.location.href=url.substring(0,loc)+"scale="+a.value;
-                }
                 else{
-                    window.location.href=url.substring(0,loc)+"scale="+a.value+url.substring(loc_rest);
+                    window.location.href=url.substring(0,loc)+"scale="+a.value+url.substring(loc).substring(loc_rest);
                 }
             }
             $("#scale option[value="+scale+"]").attr("selected", true);
             function chgMode(a){
                 url = parent.document.getElementById("genepic").contentWindow.location.href;
                 loc = url.lastIndexOf("mode");
-                loc_rest = url.lastIndexOf("&");
+                loc_rest = url.substring(loc).indexOf("&");
                 if(loc==-1)
                     window.location.href=url+"&mode="+a.value;
-                else if(loc - loc_rest == 1){
+                else if(loc_rest==-1)
                     window.location.href=url.substring(0,loc)+"mode="+a.value;
-                }
                 else{
-                    window.location.href=url.substring(0,loc)+"mode="+a.value+url.substring(loc_rest);
+                    window.location.href=url.substring(0,loc)+"mode="+a.value+url.substring(loc).substring(loc_rest);
                 }
             }
             $("#mode option[value="+mode+"]").attr("selected", true);
