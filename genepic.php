@@ -626,6 +626,12 @@ and open the template in the editor.
                 else{
                     echo "scale = ".$_GET['scale'].";";
                 }
+                if($_GET['mode']==null){
+                    echo "mode = 'raw';";
+                }
+                else{
+                    echo "mode = '".$_GET['mode']."';";
+                }
             ?>
             function title(color,text,id){
                 var canvas = document.getElementById(id);
@@ -962,6 +968,12 @@ and open the template in the editor.
             function pa(loc,tagnum,key,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
+                if(mode == 'log2'){
+                    tagnum = Math.log(tagnum)/Math.log(2);
+                }
+                else if(mode == 'log10'){
+                    tagnum = Math.log(tagnum)/Math.log(10);
+                }
                 if(key == 'none'){
                     context.strokeStyle="#808a87";
                     context.fillStyle="#808a87";
@@ -1019,6 +1031,16 @@ and open the template in the editor.
             function pac(loc,tagnum,key,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
+                if(tagnum != 0){
+                    if(mode == 'log2'){
+                        tagnum = Math.log(tagnum)/Math.log(2);
+                        tagnum = tagnum.toFixed(1);
+                    }
+                    else if(mode == 'log10'){
+                        tagnum = Math.log(tagnum)/Math.log(10);
+                        tagnum = tagnum.toFixed(1);
+                    }
+                }
                 context.beginPath();
                 context.font="10px sans-serif";
                 if(key == 'none'){
@@ -1129,6 +1151,12 @@ and open the template in the editor.
                 <option value="100">100</option>
                 <option value="200">200</option>
                 <option value="400">400</option>
+            </select>&nbsp;
+            Mode
+            <select id="mode" onchange="chgMode(this)">
+                <option value="raw">raw</option>
+                <option value="log2">log2</option>
+                <option value="log10">log10</option>
             </select>&nbsp;
             <input type="radio" name="display" value="origin" checked="checked" onchange="reset($(this).val())"/>individual
             <div class="origind" style="display: inline;">
@@ -1256,6 +1284,20 @@ and open the template in the editor.
                 }
             }
             $("#scale option[value="+scale+"]").attr("selected", true);
+            function chgMode(a){
+                url = parent.document.getElementById("genepic").contentWindow.location.href;
+                loc = url.lastIndexOf("mode");
+                loc_rest = url.lastIndexOf("&");
+                if(loc==-1)
+                    window.location.href=url+"&mode="+a.value;
+                else if(loc - loc_rest == 1){
+                    window.location.href=url.substring(0,loc)+"mode="+a.value;
+                }
+                else{
+                    window.location.href=url.substring(0,loc)+"mode="+a.value+url.substring(loc_rest);
+                }
+            }
+            $("#mode option[value="+mode+"]").attr("selected", true);
         </script>
         <canvas id="gene" width="1150px;" height="100px;"></canvas><br>
         <canvas id='no_extend' width="1150px" height="40px;"></canvas><br>
