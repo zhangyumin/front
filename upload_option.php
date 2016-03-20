@@ -38,6 +38,10 @@ and open the template in the editor.
             #uploadtext,#polya-uploadtext,#est-uploadtext{
                 cursor: pointer;
             }
+            .qq-alert-dialog-selector{
+                left: 50%;
+                padding: 20px;
+            }
         </style>
         <!--[if lte IE 7]>
         <link href="./css/iehacks.min.css" rel="stylesheet" type="text/css" />
