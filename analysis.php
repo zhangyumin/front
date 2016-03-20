@@ -44,56 +44,72 @@
         <script>  
         $(document).ready(function(){  
                  $('#degene-submit').click(function (){
-                    var params = $('#species,#degene-form,#search').serialize(); //序列化表单的值
-//                    console.log(params);
-//                    alert(params);
-                    $.ajax({  
-                        url:'aftertreatment.php?method=degene', //后台处理程序  
-                        type:'post',       //数据传送方式  
-                        dataType:'json',   //接受数据格式  
-                        data:params,       //要传送的数据
-                        beforeSend:loading,
-                        success:update_page1//回传函数(这里是函数名字)  
-                    });  
+                    if($(".degene1:checked").length>0 && $(".degene2:checked").length> 0){
+                        var params = $('#species,#degene-form,#search').serialize(); //序列化表单的值
+    //                    console.log(params);
+    //                    alert(params);
+                        $.ajax({  
+                            url:'aftertreatment.php?method=degene', //后台处理程序  
+                            type:'post',       //数据传送方式  
+                            dataType:'json',   //接受数据格式  
+                            data:params,       //要传送的数据
+                            beforeSend:loading,
+                            success:update_page1//回传函数(这里是函数名字)  
+                        });
+                    }else{
+                        alert("Please check samples before analysis.");
+                    }
                  });
                  $('#depac-submit').click(function (){
-                    var params = $('#species,#depac-form,#search').serialize(); //序列化表单的值
-//                    console.log(params);
-//                    alert(params);
-                    $.ajax({  
-                        url:'aftertreatment.php?method=depac', //后台处理程序  
-                        type:'post',       //数据传送方式  
-                        dataType:'json',   //接受数据格式  
-                        data:params,       //要传送的数据  
-                        beforeSend:loading,
-                        success:update_page2//回传函数(这里是函数名字)  
-                    });  
+                     if($(".depac1:checked").length>0 && $(".depac2:checked").length> 0){
+                        var params = $('#species,#depac-form,#search').serialize(); //序列化表单的值
+    //                    console.log(params);
+    //                    alert(params);
+                        $.ajax({  
+                            url:'aftertreatment.php?method=depac', //后台处理程序  
+                            type:'post',       //数据传送方式  
+                            dataType:'json',   //接受数据格式  
+                            data:params,       //要传送的数据  
+                            beforeSend:loading,
+                            success:update_page2//回传函数(这里是函数名字)  
+                        });  
+                    }else{
+                        alert("Please check samples before analysis.");
+                    }
                  });
                  $('#only3utr-submit').click(function (){
-                    var params = $('#species,#only3utr-form,#search').serialize(); //序列化表单的值
-//                    console.log(params);
-//                    alert(params);
-                    $.ajax({  
-                        url:'aftertreatment.php?method=only3utr', //后台处理程序  
-                        type:'post',       //数据传送方式  
-                        dataType:'json',   //接受数据格式  
-                        data:params,       //要传送的数据 
-                        beforeSend:loading, 
-                        success:update_page3//回传函数(这里是函数名字)  
-                    });  
+                     if($(".only3utr1:checked").length>0 && $(".only3utr2:checked").length> 0){
+                        var params = $('#species,#only3utr-form,#search').serialize(); //序列化表单的值
+    //                    console.log(params);
+    //                    alert(params);
+                        $.ajax({  
+                            url:'aftertreatment.php?method=only3utr', //后台处理程序  
+                            type:'post',       //数据传送方式  
+                            dataType:'json',   //接受数据格式  
+                            data:params,       //要传送的数据 
+                            beforeSend:loading, 
+                            success:update_page3//回传函数(这里是函数名字)  
+                        });  
+                    }else{
+                        alert("Please check samples before analysis.");
+                    }
                  });
                  $('#none3utr-submit').click(function (){
-                    var params = $('#species,#none3utr-form,#search').serialize(); //序列化表单的值
-//                    console.log(params);
-//                    alert(params);
-                    $.ajax({  
-                        url:'aftertreatment.php?method=none3utr', //后台处理程序  
-                        type:'post',       //数据传送方式  
-                        dataType:'json',   //接受数据格式  
-                        data:params,       //要传送的数据  
-                        beforeSend:loading,
-                        success:update_page4//回传函数(这里是函数名字)  
-                    });  
+                     if($(".none3utr:checked").length>0 && $(".none3utr:checked").length> 0){
+                        var params = $('#species,#none3utr-form,#search').serialize(); //序列化表单的值
+    //                    console.log(params);
+    //                    alert(params);
+                        $.ajax({  
+                            url:'aftertreatment.php?method=none3utr', //后台处理程序  
+                            type:'post',       //数据传送方式  
+                            dataType:'json',   //接受数据格式  
+                            data:params,       //要传送的数据  
+                            beforeSend:loading,
+                            success:update_page4//回传函数(这里是函数名字)  
+                        });  
+                    }else{
+                        alert("Please check samples before analysis.");
+                    }
                  });
                  $(".flip").click(function(){
                     $('#search div').slideToggle("slow");
@@ -207,7 +223,7 @@
                                                                     echo "<div id='arab1'>";
                                                                     while($arab_row= mysql_fetch_row($mysql_arab))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=a1$i name=sample1[] value=$arab_row[0] onclick=\"ClickOption(this,'b1$i')\">$arab_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='degene1' id=a1$i name=sample1[] value=$arab_row[0] onclick=\"ClickOption(this,'b1$i')\">$arab_row[0]<br>";
                                                                         $i++;
                                                                         array_push($sys_sample_arab, $arab_row[0]);
                                                                     }
@@ -215,7 +231,7 @@
                                                                     if($_SESSION['species']=='arab'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample1[] id=asys1$j value=$value onclick=\"ClickOption(this,'asys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='degene1' name=sample1[] id=asys1$j value=$value onclick=\"ClickOption(this,'asys2$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -226,7 +242,7 @@
                                                                     echo "<div id='japonica1' style='display:none'>";
                                                                     while($japonica_row= mysql_fetch_row($mysql_japonica))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=a2$i name=sample1[] value=$japonica_row[0] onclick=\"ClickOption(this,'b2$i')\">$japonica_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='degene1' id=a2$i name=sample1[] value=$japonica_row[0] onclick=\"ClickOption(this,'b2$i')\">$japonica_row[0]<br>";
                                                                         $i++;
                                                                         array_push($sys_sample_japonica, $japonica_row[0]);
                                                                     }
@@ -234,7 +250,7 @@
                                                                     if($_SESSION['species']=='japonica'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample1[] id=asys1$j value=$value onclick=\"ClickOption(this,'asys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='degene1' name=sample1[] id=asys1$j value=$value onclick=\"ClickOption(this,'asys2$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -245,7 +261,7 @@
                                                                     echo "<div id='mtr1' style='display:none'>";
                                                                     while($mtr_row= mysql_fetch_row($mysql_mtr))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=a3$i name=sample1[] value=$mtr_row[0] onclick=\"ClickOption(this,'b3$i')\">$mtr_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='degene1' id=a3$i name=sample1[] value=$mtr_row[0] onclick=\"ClickOption(this,'b3$i')\">$mtr_row[0]<br>";
                                                                         $i++;
                                                                         array_push($sys_sample_mtr, $mtr_row[0]);
                                                                     }
@@ -253,7 +269,7 @@
                                                                     if($_SESSION['species']=='mtr'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample1[] id=asys1$j value=$value onclick=\"ClickOption(this,'asys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='degene1' name=sample1[] id=asys1$j value=$value onclick=\"ClickOption(this,'asys2$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -264,7 +280,7 @@
                                                                     echo "<div id='chlamy1' style='display:none'>";
                                                                     while($chlamy_row= mysql_fetch_row($mysql_chlamy))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=a4$i name=sample1[] value=$chlamy_row[0] onclick=\"ClickOption(this,'b4$i')\">$chlamy_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='degene1' id=a4$i name=sample1[] value=$chlamy_row[0] onclick=\"ClickOption(this,'b4$i')\">$chlamy_row[0]<br>";
                                                                         $i++;
                                                                         array_push($sys_sample_chlamy, $chlamy_row[0]);
                                                                     }
@@ -272,7 +288,7 @@
                                                                     if($_SESSION['species']=='chlamy'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample1[] id=asys1$j value=$value onclick=\"ClickOption(this,'asys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='degene1' name=sample1[] id=asys1$j value=$value onclick=\"ClickOption(this,'asys2$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -290,13 +306,13 @@
                                                                     echo "<div id='arab2'>";
                                                                     while($arab_row= mysql_fetch_row($mysql_arab))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=b1$i name=sample2[] value=$arab_row[0] onclick=\"ClickOption(this,'a1$i')\">$arab_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='degene2' id=b1$i name=sample2[] value=$arab_row[0] onclick=\"ClickOption(this,'a1$i')\">$arab_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='arab'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample2[] id=asys2$j value=$value onclick=\"ClickOption(this,'asys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='degene2' name=sample2[] id=asys2$j value=$value onclick=\"ClickOption(this,'asys1$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -307,13 +323,13 @@
                                                                     echo "<div id='japonica2' style='display:none'>";
                                                                     while($japonica_row= mysql_fetch_row($mysql_japonica))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=b2$i name=sample2[] value=$japonica_row[0] onclick=\"ClickOption(this,'a2$i')\">$japonica_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='degene2' id=b2$i name=sample2[] value=$japonica_row[0] onclick=\"ClickOption(this,'a2$i')\">$japonica_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='japonica'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample2[] id=asys2$j value=$value onclick=\"ClickOption(this,'asys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='degene2' name=sample2[] id=asys2$j value=$value onclick=\"ClickOption(this,'asys1$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -324,13 +340,13 @@
                                                                     echo "<div id='mtr2' style='display:none'>";
                                                                     while($mtr_row= mysql_fetch_row($mysql_mtr))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=b3$i name=sample2[] value=$mtr_row[0] onclick=\"ClickOption(this,'a3$i')\">$mtr_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='degene2' id=b3$i name=sample2[] value=$mtr_row[0] onclick=\"ClickOption(this,'a3$i')\">$mtr_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='mtr'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample2[] id=asys2$j value=$value onclick=\"ClickOption(this,'asys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='degene2' name=sample2[] id=asys2$j value=$value onclick=\"ClickOption(this,'asys1$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -341,13 +357,13 @@
                                                                     echo "<div id='chlamy2' style='display:none'>";
                                                                     while($chlamy_row= mysql_fetch_row($mysql_chlamy))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=b4$i name=sample2[] value=$chlamy_row[0] onclick=\"ClickOption(this,'a4$i')\">$chlamy_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='degene2' id=b4$i name=sample2[] value=$chlamy_row[0] onclick=\"ClickOption(this,'a4$i')\">$chlamy_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='chlamy'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample2[] id=asys2$j value=$value onclick=\"ClickOption(this,'asys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='degene2' name=sample2[] id=asys2$j value=$value onclick=\"ClickOption(this,'asys1$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -418,14 +434,14 @@
                                                                     echo "<div id='arab3'>";
                                                                     while($arab_row= mysql_fetch_row($mysql_arab))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=c1$i name=sample1[] value=$arab_row[0] onclick=\"ClickOption(this,'d1$i')\">$arab_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='depac1' id=c1$i name=sample1[] value=$arab_row[0] onclick=\"ClickOption(this,'d1$i')\">$arab_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     unset($sys_sample);
                                                                     if($_SESSION['species']=='arab'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample1[] id=bsys1$j value=$value onclick=\"ClickOption(this,'bsys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='depac1' name=sample1[] id=bsys1$j value=$value onclick=\"ClickOption(this,'bsys2$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -436,13 +452,13 @@
                                                                     echo "<div id='japonica3' style='display:none'>";
                                                                     while($japonica_row= mysql_fetch_row($mysql_japonica))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=c2$i name=sample1[] value=$japonica_row[0] onclick=\"ClickOption(this,'d2$i')\">$japonica_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='depac1' id=c2$i name=sample1[] value=$japonica_row[0] onclick=\"ClickOption(this,'d2$i')\">$japonica_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='japonica'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample1[] id=bsys1$j value=$value onclick=\"ClickOption(this,'bsys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='depac1' name=sample1[] id=bsys1$j value=$value onclick=\"ClickOption(this,'bsys2$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -453,13 +469,13 @@
                                                                     echo "<div id='mtr3' style='display:none'>";
                                                                     while($mtr_row= mysql_fetch_row($mysql_mtr))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=c3$i name=sample1[] value=$mtr_row[0] onclick=\"ClickOption(this,'d3$i')\">$mtr_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='depac1' id=c3$i name=sample1[] value=$mtr_row[0] onclick=\"ClickOption(this,'d3$i')\">$mtr_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='mtr'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample1[] id=bsys1$j value=$value onclick=\"ClickOption(this,'bsys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='depac1' name=sample1[] id=bsys1$j value=$value onclick=\"ClickOption(this,'bsys2$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -470,13 +486,13 @@
                                                                     echo "<div id='chlamy3' style='display:none'>";
                                                                     while($chlamy_row= mysql_fetch_row($mysql_chlamy))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=c4$i name=sample1[] value=$chlamy_row[0] onclick=\"ClickOption(this,'d4$i')\">$chlamy_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='depac1' id=c4$i name=sample1[] value=$chlamy_row[0] onclick=\"ClickOption(this,'d4$i')\">$chlamy_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='chlamy'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample1[] id=bsys1$j value=$value onclick=\"ClickOption(this,'bsys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='depac1' name=sample1[] id=bsys1$j value=$value onclick=\"ClickOption(this,'bsys2$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -494,13 +510,13 @@
                                                                     echo "<div id='arab4'>";
                                                                     while($arab_row= mysql_fetch_row($mysql_arab))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=d1$i name=sample2[] value=$arab_row[0] onclick=\"ClickOption(this,'c1$i')\">$arab_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='depac2' id=d1$i name=sample2[] value=$arab_row[0] onclick=\"ClickOption(this,'c1$i')\">$arab_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='arab'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample2[] id=bsys2$j value=$value onclick=\"ClickOption(this,'bsys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='depac2' name=sample2[] id=bsys2$j value=$value onclick=\"ClickOption(this,'bsys1$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -511,13 +527,13 @@
                                                                     echo "<div id='japonica4' style='display:none'>";
                                                                     while($japonica_row= mysql_fetch_row($mysql_japonica))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=d2$i name=sample2[] value=$japonica_row[0] onclick=\"ClickOption(this,'c2$i')\">$japonica_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='depac2' id=d2$i name=sample2[] value=$japonica_row[0] onclick=\"ClickOption(this,'c2$i')\">$japonica_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='japonica'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample2[] id=bsys2$j value=$value onclick=\"ClickOption(this,'bsys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='depac2' name=sample2[] id=bsys2$j value=$value onclick=\"ClickOption(this,'bsys1$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -528,13 +544,13 @@
                                                                     echo "<div id='mtr4' style='display:none'>";
                                                                     while($mtr_row= mysql_fetch_row($mysql_mtr))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=d3$i name=sample2[] value=$mtr_row[0] onclick=\"ClickOption(this,'c3$i')\">$mtr_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='depac2' id=d3$i name=sample2[] value=$mtr_row[0] onclick=\"ClickOption(this,'c3$i')\">$mtr_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='mtr'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample2[] id=bsys2$j value=$value onclick=\"ClickOption(this,'bsys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='depac2' name=sample2[] id=bsys2$j value=$value onclick=\"ClickOption(this,'bsys1$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -545,13 +561,13 @@
                                                                     echo "<div id='chlamy4' style='display:none'>";
                                                                     while($chlamy_row= mysql_fetch_row($mysql_chlamy))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=d4$i name=sample2[] value=$chlamy_row[0] onclick=\"ClickOption(this,'c4$i')\">$chlamy_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='depac2' id=d4$i name=sample2[] value=$chlamy_row[0] onclick=\"ClickOption(this,'c4$i')\">$chlamy_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='chlamy'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample2[] id=bsys2$j value=$value onclick=\"ClickOption(this,'bsys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='depac2' name=sample2[] id=bsys2$j value=$value onclick=\"ClickOption(this,'bsys1$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -617,13 +633,13 @@
                                                                         echo "<div id='arab5'>";
                                                                         while($arab_row= mysql_fetch_row($mysql_arab))
                                                                         {
-                                                                            echo "<input type=\"checkbox\" id=e1$i name=sample1[] value=$arab_row[0] onclick=\"ClickOption(this,'f1$i')\">$arab_row[0]<br>";
+                                                                            echo "<input type=\"checkbox\" class='only3utr1' id=e1$i name=sample1[] value=$arab_row[0] onclick=\"ClickOption(this,'f1$i')\">$arab_row[0]<br>";
                                                                             $i++;
                                                                         }
                                                                         if($_SESSION['species']=='arab'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                                echo "<input type=\"checkbox\" name=sample1[] id=csys1$j value=$value onclick=\"ClickOption(this,'csys2$j')\">$value<br>";
+                                                                                echo "<input type=\"checkbox\" class='only3utr1' name=sample1[] id=csys1$j value=$value onclick=\"ClickOption(this,'csys2$j')\">$value<br>";
                                                                                 $j++;
                                                                             }
                                                                         }
@@ -634,13 +650,13 @@
                                                                         echo "<div id='japonica5' style='display:none'>";
                                                                         while($japonica_row= mysql_fetch_row($mysql_japonica))
                                                                         {
-                                                                            echo "<input type=\"checkbox\" id=e2$i name=sample1[] value=$japonica_row[0] onclick=\"ClickOption(this,'f2$i')\">$japonica_row[0]<br>";
+                                                                            echo "<input type=\"checkbox\" class='only3utr1' id=e2$i name=sample1[] value=$japonica_row[0] onclick=\"ClickOption(this,'f2$i')\">$japonica_row[0]<br>";
                                                                             $i++;
                                                                         }
                                                                         if($_SESSION['species']=='japonica'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                                echo "<input type=\"checkbox\" name=sample1[] id=csys1$j value=$value onclick=\"ClickOption(this,'csys2$j')\">$value<br>";
+                                                                                echo "<input type=\"checkbox\" class='only3utr1' name=sample1[] id=csys1$j value=$value onclick=\"ClickOption(this,'csys2$j')\">$value<br>";
                                                                                 $j++;
                                                                             }
                                                                         }
@@ -651,13 +667,13 @@
                                                                         echo "<div id='mtr5' style='display:none'>";
                                                                         while($mtr_row= mysql_fetch_row($mysql_mtr))
                                                                         {
-                                                                            echo "<input type=\"checkbox\" id=e3$i name=sample1[] value=$mtr_row[0] onclick=\"ClickOption(this,'f3$i')\">$mtr_row[0]<br>";
+                                                                            echo "<input type=\"checkbox\" class='only3utr1' id=e3$i name=sample1[] value=$mtr_row[0] onclick=\"ClickOption(this,'f3$i')\">$mtr_row[0]<br>";
                                                                             $i++;
                                                                         }
                                                                         if($_SESSION['species']=='mtr'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                                echo "<input type=\"checkbox\" name=sample1[] id=csys1$j value=$value onclick=\"ClickOption(this,'csys2$j')\">$value<br>";
+                                                                                echo "<input type=\"checkbox\" class='only3utr1' name=sample1[] id=csys1$j value=$value onclick=\"ClickOption(this,'csys2$j')\">$value<br>";
                                                                                 $j++;
                                                                             }
                                                                         }
@@ -668,13 +684,13 @@
                                                                         echo "<div id='chlamy5' style='display:none'>";
                                                                         while($chlamy_row= mysql_fetch_row($mysql_chlamy))
                                                                         {
-                                                                            echo "<input type=\"checkbox\" id=e4$i name=sample1[] value=$chlamy_row[0] onclick=\"ClickOption(this,'f4$i')\">$chlamy_row[0]<br>";
+                                                                            echo "<input type=\"checkbox\" class='only3utr1' id=e4$i name=sample1[] value=$chlamy_row[0] onclick=\"ClickOption(this,'f4$i')\">$chlamy_row[0]<br>";
                                                                             $i++;
                                                                         }
                                                                         if($_SESSION['species']=='chlamy'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                                echo "<input type=\"checkbox\" name=sample1[] id=csys1$j value=$value onclick=\"ClickOption(this,'csys2$j')\">$value<br>";
+                                                                                echo "<input type=\"checkbox\" class='only3utr1' name=sample1[] id=csys1$j value=$value onclick=\"ClickOption(this,'csys2$j')\">$value<br>";
                                                                                 $j++;
                                                                             }
                                                                         }
@@ -692,13 +708,13 @@
                                                                         echo "<div id='arab6'>";
                                                                         while($arab_row= mysql_fetch_row($mysql_arab))
                                                                         {
-                                                                            echo "<input type=\"checkbox\" id=f1$i name=sample2[] value=$arab_row[0] onclick=\"ClickOption(this,'e1$i')\">$arab_row[0]<br>";
+                                                                            echo "<input type=\"checkbox\" class='only3utr2' id=f1$i name=sample2[] value=$arab_row[0] onclick=\"ClickOption(this,'e1$i')\">$arab_row[0]<br>";
                                                                             $i++;
                                                                         }
                                                                         if($_SESSION['species']=='arab'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                                echo "<input type=\"checkbox\" name=sample2[] id=csys2$j value=$value onclick=\"ClickOption(this,'csys1$j')\">$value<br>";
+                                                                                echo "<input type=\"checkbox\" class='only3utr2' name=sample2[] id=csys2$j value=$value onclick=\"ClickOption(this,'csys1$j')\">$value<br>";
                                                                                 $j++;
                                                                             }
                                                                         }
@@ -709,13 +725,13 @@
                                                                         echo "<div id='japonica6' style='display:none'>";
                                                                         while($japonica_row= mysql_fetch_row($mysql_japonica))
                                                                         {
-                                                                            echo "<input type=\"checkbox\" id=f2$i name=sample2[] value=$japonica_row[0] onclick=\"ClickOption(this,'e2$i')\">$japonica_row[0]<br>";
+                                                                            echo "<input type=\"checkbox\" class='only3utr2' id=f2$i name=sample2[] value=$japonica_row[0] onclick=\"ClickOption(this,'e2$i')\">$japonica_row[0]<br>";
                                                                             $i++;
                                                                         }
                                                                         if($_SESSION['species']=='japonica'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                                echo "<input type=\"checkbox\" name=sample2[] id=csys2$j value=$value onclick=\"ClickOption(this,'csys1$j')\">$value<br>";
+                                                                                echo "<input type=\"checkbox\" class='only3utr2' name=sample2[] id=csys2$j value=$value onclick=\"ClickOption(this,'csys1$j')\">$value<br>";
                                                                                 $j++;
                                                                             }
                                                                         }
@@ -726,13 +742,13 @@
                                                                         echo "<div id='mtr6' style='display:none'>";
                                                                         while($mtr_row= mysql_fetch_row($mysql_mtr))
                                                                         {
-                                                                            echo "<input type=\"checkbox\" id=f3$i name=sample2[] value=$mtr_row[0] onclick=\"ClickOption(this,'e3$i')\">$mtr_row[0]<br>";
+                                                                            echo "<input type=\"checkbox\" class='only3utr2' id=f3$i name=sample2[] value=$mtr_row[0] onclick=\"ClickOption(this,'e3$i')\">$mtr_row[0]<br>";
                                                                             $i++;
                                                                         }
                                                                         if($_SESSION['species']=='mtr'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                                echo "<input type=\"checkbox\" name=sample2[] id=csys2$j value=$value onclick=\"ClickOption(this,'csys1$j')\">$value<br>";
+                                                                                echo "<input type=\"checkbox\" class='only3utr2' name=sample2[] id=csys2$j value=$value onclick=\"ClickOption(this,'csys1$j')\">$value<br>";
                                                                                 $j++;
                                                                             }
                                                                         }
@@ -743,13 +759,13 @@
                                                                         echo "<div id='chlamy6' style='display:none'>";
                                                                         while($chlamy_row= mysql_fetch_row($mysql_chlamy))
                                                                         {
-                                                                            echo "<input type=\"checkbox\" id=f4$i name=sample2[] value=$chlamy_row[0] onclick=\"ClickOption(this,'e4$i')\">$chlamy_row[0]<br>";
+                                                                            echo "<input type=\"checkbox\" class='only3utr2' id=f4$i name=sample2[] value=$chlamy_row[0] onclick=\"ClickOption(this,'e4$i')\">$chlamy_row[0]<br>";
                                                                             $i++;
                                                                         }
                                                                         if($_SESSION['species']=='chlamy'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                                echo "<input type=\"checkbox\" name=sample2[] id=csys2$j value=$value onclick=\"ClickOption(this,'csys1$j')\">$value<br>";
+                                                                                echo "<input type=\"checkbox\" class='only3utr2' name=sample2[] id=csys2$j value=$value onclick=\"ClickOption(this,'csys1$j')\">$value<br>";
                                                                                 $j++;
                                                                             }
                                                                         }
@@ -810,13 +826,13 @@
                                                                     echo "<div id='arab7'>";
                                                                     while($arab_row= mysql_fetch_row($mysql_arab))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=g1$i name=sample1[] value=$arab_row[0] onclick=\"ClickOption(this,'h1$i')\">$arab_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='none3utr1' id=g1$i name=sample1[] value=$arab_row[0] onclick=\"ClickOption(this,'h1$i')\">$arab_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='arab'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample1[] id=dsys1$j value=$value onclick=\"ClickOption(this,'dsys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='none3utr1' name=sample1[] id=dsys1$j value=$value onclick=\"ClickOption(this,'dsys2$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -827,13 +843,13 @@
                                                                     echo "<div id='japonica7' style='display:none'>";
                                                                     while($japonica_row= mysql_fetch_row($mysql_japonica))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=g2$i name=sample1[] value=$japonica_row[0] onclick=\"ClickOption(this,'h2$i')\">$japonica_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='none3utr1' id=g2$i name=sample1[] value=$japonica_row[0] onclick=\"ClickOption(this,'h2$i')\">$japonica_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='japonica'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample1[] id=dsys1$j value=$value onclick=\"ClickOption(this,'dsys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='none3utr1' name=sample1[] id=dsys1$j value=$value onclick=\"ClickOption(this,'dsys2$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -844,13 +860,13 @@
                                                                     echo "<div id='mtr7' style='display:none'>";
                                                                     while($mtr_row= mysql_fetch_row($mysql_mtr))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=g3$i name=sample1[] value=$mtr_row[0] onclick=\"ClickOption(this,'h3$i')\">$mtr_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='none3utr1' id=g3$i name=sample1[] value=$mtr_row[0] onclick=\"ClickOption(this,'h3$i')\">$mtr_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='mtr'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample1[] id=dsys1$j value=$value onclick=\"ClickOption(this,'dsys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='none3utr1' name=sample1[] id=dsys1$j value=$value onclick=\"ClickOption(this,'dsys2$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -861,13 +877,13 @@
                                                                     echo "<div id='chlamy7' style='display:none'>";
                                                                     while($chlamy_row= mysql_fetch_row($mysql_chlamy))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=g4$i name=sample1[] value=$chlamy_row[0] onclick=\"ClickOption(this,'h4$i')\">$chlamy_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='none3utr1' id=g4$i name=sample1[] value=$chlamy_row[0] onclick=\"ClickOption(this,'h4$i')\">$chlamy_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='chlamy'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample1[] id=dsys1$j value=$value onclick=\"ClickOption(this,'dsys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='none3utr1' name=sample1[] id=dsys1$j value=$value onclick=\"ClickOption(this,'dsys2$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -885,13 +901,13 @@
                                                                     echo "<div id='arab8'>";
                                                                     while($arab_row= mysql_fetch_row($mysql_arab))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=h1$i name=sample2[] value=$arab_row[0] onclick=\"ClickOption(this,'g1$i')\">$arab_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='none3utr2' id=h1$i name=sample2[] value=$arab_row[0] onclick=\"ClickOption(this,'g1$i')\">$arab_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='arab'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample2[] id=dsys2$j value=$value onclick=\"ClickOption(this,'dsys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='none3utr2' name=sample2[] id=dsys2$j value=$value onclick=\"ClickOption(this,'dsys1$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -902,13 +918,13 @@
                                                                     echo "<div id='japonica8' style='display:none'>";
                                                                     while($japonica_row= mysql_fetch_row($mysql_japonica))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=h2$i name=sample2[] value=$japonica_row[0] onclick=\"ClickOption(this,'g2$i')\">$japonica_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='none3utr2' id=h2$i name=sample2[] value=$japonica_row[0] onclick=\"ClickOption(this,'g2$i')\">$japonica_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='japonica'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample2[] id=dsys2$j value=$value onclick=\"ClickOption(this,'dsys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='none3utr2' name=sample2[] id=dsys2$j value=$value onclick=\"ClickOption(this,'dsys1$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -919,13 +935,13 @@
                                                                     echo "<div id='mtr8' style='display:none'>";
                                                                     while($mtr_row= mysql_fetch_row($mysql_mtr))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=h3$i name=sample2[] value=$mtr_row[0] onclick=\"ClickOption(this,'g3$i')\">$mtr_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='none3utr2' id=h3$i name=sample2[] value=$mtr_row[0] onclick=\"ClickOption(this,'g3$i')\">$mtr_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='mtr'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample2[] id=dsys2$j value=$value onclick=\"ClickOption(this,'dsys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='none3utr2' name=sample2[] id=dsys2$j value=$value onclick=\"ClickOption(this,'dsys1$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -936,13 +952,13 @@
                                                                     echo "<div id='chlamy8' style='display:none'>";
                                                                     while($chlamy_row= mysql_fetch_row($mysql_chlamy))
                                                                     {
-                                                                        echo "<input type=\"checkbox\" id=h4$i name=sample2[] value=$chlamy_row[0] onclick=\"ClickOption(this,'g4$i')\">$chlamy_row[0]<br>";
+                                                                        echo "<input type=\"checkbox\" class='none3utr2' id=h4$i name=sample2[] value=$chlamy_row[0] onclick=\"ClickOption(this,'g4$i')\">$chlamy_row[0]<br>";
                                                                         $i++;
                                                                     }
                                                                     if($_SESSION['species']=='chlamy'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" name=sample2[] id=dsys2$j value=$value onclick=\"ClickOption(this,'dsys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='none3utr2' name=sample2[] id=dsys2$j value=$value onclick=\"ClickOption(this,'dsys1$j')\">$value<br>";
                                                                             $j++;
                                                                         }
                                                                     }
