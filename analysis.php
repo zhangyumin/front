@@ -151,15 +151,15 @@
                     <div class="box info ym-form" id='hid'>
                     <div class="ym-grid ym-fbox">
                         <div class="ym-g33 ym-gl">
-                            <label for="chr" style="margin-right:2%">in</label>
+                            <label for="chr" style="margin-right:2%">In</label>
                               <select id="chr1" name="chr" style="width:80%">
                                     <option value="all" selected="selected">All</option>
                              </select>
                         </div>
                         <div class="ym-g50 ym-gl">
-                            <label for="start"style="margin:0 1%;"> from</label>
+                            <label for="start"style="margin:0 1%;"> From</label>
                             <input type="text" id='start' name="start">
-                            <label for="end" style="margin:0 1%;"> to</label>
+                            <label for="end" style="margin:0 1%;"> To</label>
                             <input type="text" id='end' name="end">
                         </div>
                     </div>           
@@ -395,9 +395,9 @@
                                     </div>
                                     <div class="ym-clearfix"></div>
                                     <div class="box info fsubmit">
-                                        <input type="button" id='degene-submit' value="submit">
-                                        <button type="reset">reset</button>
-                                        <input type="button" onclick="demo('degene')" value="demo">
+                                        <input type="button" id='degene-submit' value="Submit">
+                                        <button type="reset">Reset</button>
+                                        <input type="button" onclick="demo('degene')" value="Demo">
                                     </div>
                                     </form>
                              </div>
@@ -593,9 +593,9 @@
                                     </div>
                                     <div class="ym-clearfix"></div>
                                     <div class="box info fsubmit">
-                                        <input type="button" id='depac-submit' value="submit">
-                                        <button type="reset">reset</button>
-                                        <input type="button" onclick="demo('depac')" value="demo">
+                                        <input type="button" id='depac-submit' value="Submit">
+                                        <button type="reset">Reset</button>
+                                        <input type="button" onclick="demo('depac')" value="Demo">
                                     </div>
                                     </form>
                              </div>
@@ -786,9 +786,9 @@
                                         </div>
                                     <div class="ym-clearfix"></div>
                                     <div class="box info fsubmit">
-                                        <input type="button" id='only3utr-submit' value="submit">
-                                        <button type="reset">reset</button>
-                                        <input type="button" onclick="demo('only3utr')" value="demo">
+                                        <input type="button" id='only3utr-submit' value="Submit">
+                                        <button type="reset">Reset</button>
+                                        <input type="button" onclick="demo('only3utr')" value="Demo">
                                     </div>
                                     </form>
                              </div>
@@ -992,9 +992,9 @@
                                     </div>
                                     <div class="ym-clearfix"></div>
                                     <div class="box info fsubmit">
-                                        <input type="button" id='none3utr-submit' value="submit">
-                                        <button type="reset">reset</button>
-                                        <input type="button" onclick="demo('none3utr')" value="demo">
+                                        <input type="button" id='none3utr-submit' value="Submit">
+                                        <button type="reset">Reset</button>
+                                        <input type="button" onclick="demo('none3utr')" value="Demo">
                                     </div>
                                     </form>
                              </div>
