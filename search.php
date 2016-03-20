@@ -193,7 +193,7 @@ and open the template in the editor.
                                 </select>
                             </div>
                             <div class="ym-g20 ym-gl">
-                               <label for="chr" style="margin-right: 2%;margin-left: 17%">in</label>
+                               <label for="chr" style="margin-right: 2%;margin-left: 16%">In</label>
                                     <select id="chr" name="chr" style="width:75%">
                                         <option value="all" selected="selected">All</option>
                                     </select>
@@ -203,11 +203,11 @@ and open the template in the editor.
                                <input type="text" name="start" id="start" style="width:75%">
                             </div>
                             <div class="ym-g20 ym-gl">
-                               <label for="end" style="margin-right: 2%;margin-left: 16%"> to</label>
+                               <label for="end" style="margin-right: 2%;margin-left: 14%"> To</label>
                                <input type="text" name="end" id="end" style="width:75%">
                             </div>
                            <div class="ym-g20 ym-gl">
-                               <label for="ftr" style="margin-right: 2%;margin-left: 14%"> for</label>
+                               <label for="ftr" style="margin-right: 2%;margin-left: 13%"> For</label>
                                <select id="ftr" name="ftr" style="width:75%">
                                     <option value="all" selected="selected">All</option>
                                 </select>
