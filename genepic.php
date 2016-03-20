@@ -1183,7 +1183,7 @@ and open the template in the editor.
                 <option value="log2">log2</option>
                 <option value="log10">log10</option>
             </select>&nbsp;
-            <input type="radio" name="display" value="origin" checked="checked" onchange="reset($(this).val())"/>individual
+            <input type="radio" name="display" value="origin" checked="checked" onchange="reset($(this).val())"/>Individual
             <div class="origind" style="display: inline;">
                  <select id="origin"   multiple="multiple" placeholder="Select to display" onchange="getname($(this).children(':selected'))" class="okbutton">
                      <?php
@@ -1193,7 +1193,7 @@ and open the template in the editor.
                      ?>
                    </select>
             </div>
-            <input type="radio" name="display" value="statistics" onchange="reset($(this).val())"/>grouping
+            <input type="radio" name="display" value="statistics" onchange="reset($(this).val())"/>Grouping
             <div class="statisticsd" style="display: inline;">
                 <select id="statistics"   multiple="multiple" placeholder="Select to display" onchange="getname($(this).children(':selected'))" class="okbutton">
                      <option selected value="sum">sum</option>
