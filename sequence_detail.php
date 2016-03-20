@@ -120,15 +120,15 @@
                 background-color: #008B00;
             }
             fieldset{
-                border-color: #5499c9 !important;
+                border-color: #5db95b !important;
                 border-style: solid !important;
                 border-width: 2px !important;
                 padding: 5px 10px !important;
             }
             .wrap{margin:0px auto;width: 100%;}
             .tabs {width:100%;}
-            .tabs a{display: block;float: left;width:33.3%;color: #5499c9;text-align: center;background: #eee;line-height: 40px;font-size:16px;text-decoration: none;}
-            .tabs a.active {color: #fff;background: #5499c9;border-radius: 5px 5px 0px 0px;}
+            .tabs a{display: block;float: left;width:33.3%;color: #5db95b;text-align: center;background: #eee;line-height: 40px;font-size:16px;text-decoration: none;}
+            .tabs a.active {color: #fff;background: #5db95b;border-radius: 5px 5px 0px 0px;}
             .swiper-container {height:500px;border-radius: 0 0 5px 5px;width: 100%;border-top: 0;background-color:#fff}
             .swiper-slide {height:325px;width:100%;background: none;color: #fff;}
             /*.content-slide {padding: 40px;}*/
@@ -761,8 +761,8 @@
                         </div>
                     </td>
                 </tr>
-                <tr id="summary" style="border: medium solid #5499c9;">
-                    <td valign="top" id='tables' style="border-right: solid #5499c9;">
+                <tr id="summary" style="border: medium solid #5db95b;">
+                    <td valign="top" id='tables' style="border-right: solid #5db95b;">
                         <div id="polya" style="overflow-x: auto;background-color: #fff;">
                             <table id="polyatable"  class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
                                 <thead>
@@ -893,7 +893,7 @@
                 <div id="maximize" style="float:right;display: inline-block;font-weight: bold;font-size: 22px"><input id="max" type="checkbox" onchange="maximize()" style="width:16px;height: 16px">Maximize mode</div>
                 <tr>
                     <td colspan=2 style="padding-left:0px;padding-right:0px;border-top: 0px">
-                        <div class="tabs" style="padding:0px;border:solid #5499c9">
+                        <div class="tabs" style="padding:0px;border:solid #5db95b">
                             <div data-pws-tab="jbrowse" data-pws-tab-name="Jbrowse">
                                 <iframe id="jbrowse" src="../jbrowse/?data=data/<?php echo $_GET['species'];?>&loc=<?php echo $chr;?>:<?php echo $gene_start;?>..<?php echo $gene_end;?>&tracks=Arabidopsis,sys_polya" width=1200px height=500px>
                                 </iframe>
