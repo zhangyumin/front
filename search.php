@@ -230,9 +230,9 @@ and open the template in the editor.
                             <textarea type='text' name='function' style="width:100%;height: 50px"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
-                                <button type="submit">submit</button>
-                                <button type="reset">reset</button>
-                                <button type="button" onclick="search_example()">example</button>
+                                <button type="submit">Submit</button>
+                                <button type="reset">Reset</button>
+                                <button type="button" onclick="search_example()">Example</button>
                                 <script type="text/javascript">
                                     function search_example(){
                                         if(document.getElementById("species").value=='arab'){
