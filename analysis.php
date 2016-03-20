@@ -133,7 +133,7 @@
                 </h2>
            <div class="box info ym-form">
                <label for="species" style="float:left;width:7%">Species:&nbsp;</label>
-                <select id="species" name="species" style="width:93%" onchange="div_option2(this);getchr();refresh();">
+                <select id="species" name="species" style="width:93%" onchange="div_option2(this);getchr();refresh();unchecked();">
                     <option value="japonica">Japonica rice</option>
                      <option value="arab" selected="selected">Arabidopsis thaliana</option>
                     <option value="mtr">Medicago truncatula</option>
@@ -1169,6 +1169,9 @@
                 function ClickOption(obj,id){
                     var O = document.getElementById(id);
                     O.disabled=obj.checked;
+                }
+                function unchecked(){
+                    $("[type='checkbox']").removeAttr("checked");
                 }
             </script>
     </div>
