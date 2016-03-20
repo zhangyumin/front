@@ -617,6 +617,7 @@ and open the template in the editor.
                 ?>
                 title("#000000","<?php echo $seq;?>","gene");
                 xscale("gene");
+                rule("gene");
 //                xscale("3utr_extend");
             }
             <?php
@@ -633,6 +634,30 @@ and open the template in the editor.
                     echo "mode = '".$_GET['mode']."';";
                 }
             ?>
+            function rule(id){
+                var canvas = document.getElementById(id);
+                var context = canvas.getContext("2d");
+                context.fillStyle="#000000";
+                context.strokeStyle="#000000";
+                context.font="13px sans-serif";
+                context.beginPath();
+                //左箭头
+                context.moveTo(300,30);
+                context.lineTo(305,25);
+                context.moveTo(300,30);
+                context.lineTo(305,35);
+                context.moveTo(300,30);
+                context.lineTo(320,30);
+                //右箭头
+                context.moveTo(400,30);
+                context.lineTo(395,25);
+                context.moveTo(400,30);
+                context.lineTo(395,35);
+                context.moveTo(400,30);
+                context.lineTo(380,30);
+                context.stroke();
+                context.fillText(Math.round(genelength/10)+"bp",325,35);
+            }
             function title(color,text,id){
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
