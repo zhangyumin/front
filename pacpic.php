@@ -516,8 +516,8 @@ and open the template in the editor.
     </head>
     <body>
         <div id="button" style="width:1000px;font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;">
-            <input type="radio" name="display" value="origin" checked="checked" onchange="display()"/>individual
-            <input type="radio" name="display" value="statistics" onchange="display()"/>grouping
+            <input type="radio" name="display" value="origin" checked="checked" onchange="display()"/>Individual
+            <input type="radio" name="display" value="statistics" onchange="display()"/>Grouping
             <div class="statisticsd" style="display: inline;">
                 <select id="statistics"   multiple="multiple" placeholder="Select to display" onchange="getname($(this).children(':selected'))" class="okbutton">
                      <option selected value="sum">sum</option>
@@ -525,7 +525,7 @@ and open the template in the editor.
                      <option selected value="med">median</option>
                 </select>
             </div>
-            <input id="ratiobutton" type="checkbox" name="ratio" value="ratio" onclick="GetRatio(this)"/>ratio
+            <input id="ratiobutton" type="checkbox" name="ratio" value="ratio" onclick="GetRatio(this)"/>Ratio
             &nbsp;&nbsp;<span style="text-align:center;background-color: #878787">&nbsp;&nbsp;&nbsp;&nbsp;</span>Extended 3'UTR
             &nbsp;<span style="text-align:center;background-color:#9FE0F6">&nbsp;&nbsp;&nbsp;&nbsp;</span>AMB
         </div>
