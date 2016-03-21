@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <?php 
     session_start();
-    $_SESSION['file']=0;//
+    $_SESSION['file']=0;
     ?>
 <html>
     <head>
