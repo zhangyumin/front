@@ -62,6 +62,9 @@
                 $upload_name = array_unique($upload_name);
                 //$_SESSION['file_real']=array();
                 $_SESSION['file_real']=$upload_name;
+                echo "<script>";
+                echo "location.href='./show_result.php'";
+                echo "</script>";
             }
             ?>
             <?php
