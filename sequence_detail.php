@@ -148,6 +148,21 @@
                 font-size: 15px;
                 font-family: "Droid Serif", Georgia, "Times New Roman", Times, serif;
             }
+            .step-title{
+                margin: auto;
+                margin-top: 15px;
+                margin-bottom: 0px;
+                height: 20px;
+                background-color: #5db95b;
+                padding: 7px 18px 7px;
+                border: 0px solid #000;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+            .left{
+                text-align: right;
+                font-weight: bold;
+            }
         </style>
         <script src="./src/idangerous.swiper.min.js"></script> 
         <link rel="stylesheet" href="./src/idangerous.swiper.css">
@@ -713,22 +728,29 @@
         <div  id="page" style="width:1200px;margin:auto">
             <table  cellspacing="0" cellpadding="0" border="0" style="margin: 20px auto;border-collapse:collapse;" >
             <tbody>
+                <tr class="flip" onclick="chgArrow()">
+                    <td colspan="2" class="step-title">
+                        <img id="arrow" src="./pic/down.png" style="height:18px">
+                        <h4 style="display:inline">
+                            <font color="#224055">Gene Info</font>
+                        </h4>
+                    </td>
+                </tr>
                 <tr>
                     <td colspan="2">
-                    <div style="width:20%;float: left"></div>
                     <div id="gene" style="float:left;width: 80%">
                             <table id="genetable">
                                 <tbody>
                                     <tr>
-                                        <td width='25%'>Gene name:</td>
+                                        <td class="left" width='15%'>Gene name:</td>
                                         <td><?php echo $_GET['seq']?></td>
                                     </tr>
                                     <tr>
-                                        <td>Gene locus:</td>
+                                        <td class="left">Gene locus:</td>
                                         <td><?php echo $chr.":".$gene_start."-".$gene_end;?></td>
                                     </tr>
                                     <tr>
-                                        <td>Gene Type:</td>
+                                        <td class="left">Gene Type:</td>
                                         <?php
                                                     if($_GET['flag']=='intergenic'){
                                                         $sql="select gene_type from t_".$species."_gff_all where gene=\"".$_GET['seq']."\" and ftr='intergenic';";
@@ -745,20 +767,21 @@
                                             $detail = mysql_query("select * from t_".$species."_genedesc where gene='".$_GET['seq']."'");
                                             while($detail_row = mysql_fetch_row($detail)){
                                                 if($detail_row[1]!='')
-                                                    echo "<tr><td>Gene alias:</td><td>$detail_row[1]</td></tr>";
+                                                    echo "<tr><td class=\"left\">Gene alias:</td><td>$detail_row[1]</td></tr>";
                                                 else
-                                                    echo "<tr><td>Gene alias:</td><td>-</td></tr>";
+                                                    echo "<tr><td class=\"left\">Gene alias:</td><td>-</td></tr>";
                                                 if($detail_row[2]!='')
-                                                    echo "<tr><td>Gene description:</td><td>$detail_row[2]</td></tr>";
+                                                    echo "<tr><td class=\"left\">Gene description:</td><td>$detail_row[2]</td></tr>";
                                                 else
-                                                    echo "<tr><td>Gene description:</td><td>-</td></tr>";
+                                                    echo "<tr><td class=\"left\">Gene description:</td><td>-</td></tr>";
                                                 if($detail_row[3]!='')
-                                                    echo "<tr><td>Gene description full:</td><td>$detail_row[3]</td></tr>";
+                                                    echo "<tr><td class=\"left\">Gene description full:</td><td>$detail_row[3]</td></tr>";
                                             }
                                         ?>
                                 </tbody>
                             </table>
                         </div>
+                    <div style="width:20%;float: left"></div>
                     </td>
                 </tr>
                 <tr id="summary" style="border: medium solid #5db95b;">
@@ -840,6 +863,9 @@
                         </div>
                         <script>
                             $(document).ready(function(){
+                                $(".flip").click(function(){
+                                    $('#gene').slideToggle("slow");
+                                 });
                                 $('#gotable').dataTable({
                                     "lengthMenu":[[3,-1],[3,"all"]],
                                     "pagingType":"full_numbers",
@@ -955,6 +981,14 @@
                                     $("#jbrowse").height(500);
                                     $("#genepic").height(500);
                                     $("#pacpic").height(500);
+                                }
+                            }
+                            function chgArrow(){
+                                if($('#gene').is(":visible")){
+                                    $('#arrow').attr("src","./pic/down.png");
+                                }
+                                else{
+                                    $('#arrow').attr("src","./pic/up.png");
                                 }
                             }
                         </script>
