@@ -1047,17 +1047,17 @@
                             <input type = "text" id = "user_pattern" style="margin-top:10px;margin-bottom:10px;width:217px;height: 25px"/>(Ex. AATAAA, TGTAAA)
                             <br>
                             <div style="float: left;margin-right: 20px;">Search</div><div class="slider" style="float:left"></div><div style="float: left;margin-left: 20px;">around PAC</div>
-                            <legend id='text' style="clear:both"><span class="h3_italic">Annotation</span>&nbsp;&nbsp;&nbsp;<input type="checkbox" id='annotation-select' value="uncheck"/>all<br>
+                            <legend id='text' style="clear:both"><span class="h3_italic">Annotation</span>&nbsp;&nbsp;&nbsp;<input type="checkbox" id='annotation-select' value="uncheck"/>&nbsp;All<br>
                                 <div style="padding:10px 0px;font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif">
-                                    <input type="checkbox" name="cbox2" value="EXT"/><span class='extend' style="text-align:center;">Extended 3'UTR</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="checkbox" name="cbox2" value="UTR"/><span class='sutr' style="text-align:center;">UTR</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="checkbox" name="cbox2" value="EXT"/>&nbsp;<span class='extend' style="text-align:center;">Extended 3'UTR</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="checkbox" name="cbox2" value="UTR"/>&nbsp;<span class='sutr' style="text-align:center;">UTR</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <!--<input type="checkbox" name="cbox2" value="5UTR"/>5'UTR&nbsp;<span class='wutr' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;-->
-                                    <input type="checkbox" name="cbox2" value="CDSEXON"/><span class='cds' style="text-align:center;">CDS/exon</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="checkbox" name="cbox2" value="INTRON"/><span class='intron' style="text-align:center;">intron</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="checkbox" name="cbox2" value="CDSEXON"/>&nbsp;<span class='cds' style="text-align:center;">CDS/exon</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="checkbox" name="cbox2" value="INTRON"/>&nbsp;<span class='intron' style="text-align:center;">intron</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <!--<input type="checkbox" name="cbox2" value="EXON"/>exon&nbsp;<span class='exon' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;-->
-                                    <input type="checkbox" name="cbox2" value="AMB"/><span class='amb' style="text-align:center;">AMB</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="checkbox" name="cbox2" value="PA"/><span class="pa">Cleavage site</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="checkbox" name="cbox2" value="PAC"/><span class="pac">PAC</span>
+                                    <input type="checkbox" name="cbox2" value="AMB"/>&nbsp;<span class='amb' style="text-align:center;">AMB</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="checkbox" name="cbox2" value="PA"/>&nbsp;<span class="pa">Cleavage site</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="checkbox" name="cbox2" value="PAC"/>&nbsp;<span class="pac">PAC</span>
                                 </div>
                             </legend>
                             <br>
