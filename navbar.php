@@ -26,7 +26,7 @@
               <li><a href="./task.php">My task</a></li>
               <li><a href="./help.php">Help</a></li>
       </ul>
-        <form class="ym-searchform" method="post" action="search_result.php?method=fuzzy" style="height: 30px;padding: 6px 7.5px">
+        <form class="ym-searchform" method="post" action="search_result.php?method=fuzzy" style="height: 30px;padding: 11px 7.5px">
           <select name="species" style="height: 29px;border-radius: 0.2em">
             <option value="japonica">Rice</option>
             <option value="arab" selected="true">Arabidopsis</option>
