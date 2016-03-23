@@ -353,7 +353,7 @@
             $('#jtable').jtable({
                 title:'PAC trap results',
                 paging:true,
-                pageSize:5,
+                pageSize:10,
                 sorting:true,
                 defaultSorting:'gene ASC',
                 actions:{
