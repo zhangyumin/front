@@ -223,11 +223,11 @@ and open the template in the editor.
                         </div>
                         <div class="ym-grid ym-fbox">
                             <label for="go_name" >Go term name:</label>
-                            <textarea type='text' name='go_name' style="width:100%;height: 50px"></textarea>
+                            <textarea type='text' name='go_name' style="width:100%;height: 25px"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
                             <label for="function" >Function:</label>
-                            <textarea type='text' name='function' style="width:100%;height: 50px"></textarea>
+                            <textarea type='text' name='function' style="width:100%;height: 25px"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
                                 <button type="submit">Submit</button>
