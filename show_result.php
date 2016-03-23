@@ -562,7 +562,9 @@
                         //坐标轴类型，纵轴默认为数值型'value'  
                         type: 'value',  
                         //分隔区域，默认不显示  
-                        splitArea: {show: true}  
+                        splitArea: {show: true},
+                        min:0,
+                        max:1
                     }  
                 ],  
                   
