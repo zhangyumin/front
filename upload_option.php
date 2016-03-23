@@ -226,6 +226,9 @@ and open the template in the editor.
         <div class="ym-wrapper" id='mainpage'>
                 <div class="step-title">
                     <h4>
+                        <a href="help.php#trapstep1" target="_blank">
+                            <img style="width:20px;height: 20px;display: inline-block" src="./pic/help.png">
+                        </a>
                         <font color="#224055"><b>STEP 1:</b> Select file(s) type</font>
                     </h4>
                 </div>
@@ -245,6 +248,9 @@ and open the template in the editor.
                 <form id="upload_seq" class="ym-form" action="get_result.php" method="post">
                         <div class="step-title">
                             <h4>
+                                <a href="help.php#trapstep2" target="_blank">
+                                    <img style="width:20px;height: 20px;display: inline-block" src="./pic/help.png">
+                                </a>
                                 <font color="#224055"><b>STEP 2:</b> Upload file(s)</font>
                             </h4>
                         </div>
@@ -268,6 +274,9 @@ and open the template in the editor.
 
                         <div class="step-title">
                             <h4>
+                                <a href="help.php#trapstep3" target="_blank">
+                                    <img style="width:20px;height: 20px;display: inline-block" src="./pic/help.png">
+                                </a>
                                 <font color="#224055"><b>STEP 3:</b> Additional options</font>
                             </h4>
                         </div>
