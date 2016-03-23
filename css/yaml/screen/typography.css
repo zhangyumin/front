@@ -482,7 +482,7 @@
   }
   tbody td {
     text-align: left;
-    border-bottom: 1px solid #ccc;
+    /*border-bottom: 1px solid #ccc;*/
   }
  /* tbody tr:hover th,
   tbody tr:hover td {
