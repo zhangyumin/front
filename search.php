@@ -163,14 +163,16 @@ and open the template in the editor.
                             sltChr[i+1]=new Option(speciesChr[i],speciesChr[i]);
                         }
                     }
-                    var ftr=[["3UTR","CDS","intergenic.igt","intron","5UTR","intergenic.pm"],["intergenic.igt","5UTR","3UTR","CDS","AMB","intron","exon","pseudogenic_exon","intergenic.pm"],["intergenic.igt","3UTR","CDS","intron","AMB","5UTR","intergenic.pm"],["intergenic","3UTR","AMB","intron","CDS","5UTR"]];
+                    var ftr=[["3'UTR","CDS","intergenic","intron","5'UTR","promoter"],["intergenic","5'UTR","3'UTR","CDS","AMB","intron","exon","pseudogenic exon","promoter"],["intergenic","3'UTR","CDS","intron","AMB","5'UTR","promoter"],["intergenic","3'UTR","AMB","intron","CDS","5'UTR"]];
+                    var ftr_value=[["3UTR","CDS","intergenic.igt","intron","5UTR","intergenic.pm"],["intergenic.igt","5UTR","3UTR","CDS","AMB","intron","exon","pseudogenic_exon","intergenic.pm"],["intergenic.igt","3UTR","CDS","intron","AMB","5UTR","intergenic.pm"],["intergenic","3UTR","AMB","intron","CDS","5UTR"]];
                     function getftr(){
                         var sltSpecies=document.search.species;
                         var sltFtr=document.search.ftr;
                         var speciesFtr=ftr[sltSpecies.selectedIndex];
+                        var speciesFtrValue = ftr_value[sltSpecies.selectedIndex]
                         sltFtr.length=1;
                         for(var i=0;i<speciesFtr.length;i++){
-                            sltFtr[i+1]=new Option(speciesFtr[i],speciesFtr[i]);
+                            sltFtr[i+1]=new Option(speciesFtr[i],speciesFtrValue[i]);
                         }
                     }
     </script>
