@@ -57,7 +57,7 @@
                             success:update_page1//回传函数(这里是函数名字)  
                         });
                     }else{
-                        alert("Please check samples before analysis.");
+                        alert("Please select two groups of samples.");
                     }
                  });
                  $('#depac-submit').click(function (){
@@ -74,7 +74,7 @@
                             success:update_page2//回传函数(这里是函数名字)  
                         });  
                     }else{
-                        alert("Please check samples before analysis.");
+                        alert("Please select two groups of samples.");
                     }
                  });
                  $('#only3utr-submit').click(function (){
@@ -91,7 +91,7 @@
                             success:update_page3//回传函数(这里是函数名字)  
                         });  
                     }else{
-                        alert("Please check samples before analysis.");
+                        alert("Please select two groups of samples.");
                     }
                  });
                  $('#none3utr-submit').click(function (){
@@ -108,7 +108,7 @@
                             success:update_page4//回传函数(这里是函数名字)  
                         });  
                     }else{
-                        alert("Please check samples before analysis.");
+                        alert("Please select two groups of samples.");
                     }
                  });
                  $(".flip").click(function(){
