@@ -18,6 +18,9 @@ and open the template in the editor.
                     color: #FFFFFF;
                     cursor: pointer;
             }
+            td a:hover{
+                background-color: #fff;
+            }
         </style>
     </head>
     <body>
@@ -85,12 +88,14 @@ and open the template in the editor.
                                 <td>Wu et al. PNAS, 2011; Thomas et al. Plant Cell, 2012; Liu et al. PloS One, 2014</td>                     
                                 <td>
                                     <a target="_blank" href="../jbrowse/?data=data/arab">
-                                        <span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>
+                                        <!--<span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>-->
+                                        <img src="./pic/browser.png" title="Browse polyA sites in Jbrowse">
                                     </a>
                                 </td>
                                 <td>
                                     <a target="_blank" href="./sequence_detail.php?species=arab&seq=AT1G01020">
-                                        <span class="tablebutton" title="Browse gene detail for 'AT1G01020'">View</span>
+                                        <!--<span class="tablebutton" title="Browse gene detail for 'AT1G01020'">View</span>-->
+                                        <img src="./pic/detail.png" title="Browse gene detail for 'AT1G01020'">
                                     </a>
                                 </td>
                                 <td class="style1"  width='50' style="white-space: nowrap;">
@@ -204,12 +209,14 @@ and open the template in the editor.
                                 <td>Shen et al. Nucleic Acids Res, 2008</td>                     
                                 <td>
                                     <a target="_blank" href="../jbrowse/?data=data/japonica">
-                                        <span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>
+                                        <!--<span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>-->
+                                        <img src="./pic/browser.png" title="Browse polyA sites in Jbrowse">
                                     </a>
                                 </td>
                                 <td>
                                     <a target="_blank" href="./sequence_detail.php?seq=LOC_Os01g01080&species=japonica">
-                                        <span class="tablebutton" title="Browse gene detail for 'LOC_Os01g01080'">View</span>
+                                        <!--<span class="tablebutton" title="Browse gene detail for 'LOC_Os01g01080'">View</span>-->
+                                        <img src="./pic/detail.png" title="Browse gene detail for 'LOC_Os01g01080'">
                                     </a>
                                 </td>
                                 <td class="style1" width='50' style="white-space: nowrap;">
@@ -260,12 +267,14 @@ and open the template in the editor.
                                 <td>Wu et al. BMC Genomics, 2014</td>                     
                                 <td>
                                     <a target="_blank" href="../jbrowse/?data=data/mtr">
-                                        <span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>
+                                        <!--<span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>-->
+                                        <img src="./pic/browser.png" title="Browse polyA sites in Jbrowse">
                                     </a>
                                 </td>
                                 <td>
                                     <a target="_blank" href="./sequence_detail.php?seq=Medtr0019s0160&species=mtr">
-                                        <span class="tablebutton" title="Browse gene detail for 'Medtr0019s0160'">View</span>
+                                        <!--<span class="tablebutton" title="Browse gene detail for 'Medtr0019s0160'">View</span>-->
+                                        <img src="./pic/detail.png" title="Browse gene detail for 'Medtr0019s0160'">
                                     </a>
                                 </td>
                                 <td class="style1" width='50' style="white-space: nowrap;">
@@ -317,12 +326,14 @@ and open the template in the editor.
                                 <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014; Umen et al. PloS one, 2016</td>                     
                                 <td>
                                     <a target="_blank" href="../jbrowse/?data=data/chlamy">
-                                        <span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>
+                                        <!--<span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>-->
+                                        <img src="./pic/browser.png" title="Browse polyA sites in Jbrowse">
                                     </a>
                                 </td>
                                 <td>
                                     <a target="_blank" href="./sequence_detail.php?seq=Cre01.g000650&species=chlamy">
-                                        <span class="tablebutton" title="Browse gene detail for 'Cre01.g000650'">View</span>
+                                        <!--<span class="tablebutton" title="Browse gene detail for ''">View</span>-->
+                                        <img src="./pic/detail.png" title="Browse gene detail for 'Cre01.g000650'">
                                     </a>
                                 </td>
                                 <td class="style1" width='50' style="white-space: nowrap;">
