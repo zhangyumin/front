@@ -732,7 +732,7 @@
                     <td colspan="2" class="step-title">
                         <img id="arrow" src="./pic/down.png" style="height:18px">
                         <h4 style="display:inline">
-                            <font color="#224055">Gene Info</font>
+                            <font color="#224055">Gene info</font>
                         </h4>
                     </td>
                 </tr>
@@ -784,7 +784,16 @@
                     <div style="width:20%;float: left"></div>
                     </td>
                 </tr>
+                <tr class="flip_detail" onclick="">
+                    <td colspan="2" class="step-title">
+                        <img id="arrow" src="./pic/down.png" style="height:18px">
+                        <h4 style="display:inline">
+                            <font color="#224055">Gene detail</font>
+                        </h4>
+                    </td>
+                </tr>
                 <tr id="summary" style="border: medium solid #5db95b;">
+                    <div id="hahas">
                     <td valign="top" id='tables' style="border-right: solid #5db95b;">
                         <div id="polya" style="overflow-x: auto;background-color: #fff;">
                             <table id="polyatable"  class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
@@ -866,6 +875,9 @@
                                 $(".flip").click(function(){
                                     $('#gene').slideToggle("slow");
                                  });
+                                 $(".flip_detail").click(function(){
+                                    $('#hahas').slideToggle("slow");
+                                 });
                                 $('#gotable').dataTable({
                                     "lengthMenu":[[3,-1],[3,"all"]],
                                     "pagingType":"full_numbers",
@@ -915,6 +927,7 @@
                             });
                         </script>
                     </td>
+                    </div>
                 </tr>
                 <div id="maximize" style="float:right;display: inline-block;font-weight: bold;font-size: 22px"><input id="max" type="checkbox" onchange="maximize()" style="width:16px;height: 16px">Maximize mode</div>
                 <tr>
