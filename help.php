@@ -49,7 +49,7 @@
                         <h2>2. PAC trap: extracting poly(A) sites from uploaded sequences</h2>
                         <!--<h3>2.1. Start a new task for poly(A) site extraction</h3>-->
                         <!--<p>1) Choose file type and species-->
-                        <p>
+                        <p id="trapstep1">
                             You can upload two kinds of sequences, short reads and ESTs<span class="pic_red"> (Fig. 1)</span>. You can also click “Try an example” button to load the demo data. In addition, you can upload a file to specific coordinates of poly(A) sites. Also, the supported species are listed in the drop-down box.
                         </p>
                         <div class="picdiv">
@@ -57,7 +57,7 @@
                             <br>Fig 1. The species and files type selection panel
                         </div>
                         <!--<p>2) Input-->
-                        <p>
+                        <p id="trapstep2">
                         There are two input ways provided for users<span class="pic_red"> (Fig. 2)</span>. The first one serves for users to upload a file where sequences are stored.
                         </p>
                         <div class="picdiv">
@@ -79,7 +79,7 @@
                             <br>Fig 4. Area of pasting sequence
                         </div>
                         <!--<p>3) Options for mapping reads (optional)-->
-                        <p>
+                        <p id="trapstep3">
                         If sequences are uploaded, users can use the default parameters set by PlantAPA or specific the parameters for mapping reads.<span class="pic_red">(Fig. 5 & Fig. 6)</span>
                         </p>
                         <div class="picdiv">
