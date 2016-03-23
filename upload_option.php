@@ -31,7 +31,7 @@ and open the template in the editor.
                 margin-bottom: 0px;
                 height: 20px;
                 background-color: #5db95b;
-                padding: 0px 18px 1px;
+                padding: 7px 18px 7px;
                 border: 0px solid #000;
                 border-radius: 8px;
             }
