@@ -264,7 +264,7 @@
         <div id="Layer2" align="center" style="position: absolute; z-index: 3; left: 40%; top: 30%;background-color: #fff; display: none;box-shadow: 0 0 20px;border-radius: .25em .25em .4em .4em; " >
             <div style="padding:20px;">
                 <p style="color:#8f9cb5;font-size: 16px">Export sequences of interest</p>
-                <form name="pac_export" method="post" action="export_seq.php?source=Search&species=<?php echo $species; ?>" target="_blank">
+                <form name="pac_export" method="post" action="export_seq.php?source=PAC&species=<?php echo $_SESSION['species']; ?>" target="_blank">
                     Method<select id="method" name="method" onchange="ChgMtd()" style="margin-left:70;margin-bottom: 5;width: 226px">
                         <option value="choose">Please choose</option>
                         <option value="pacs">export sequences of PACs</option>
