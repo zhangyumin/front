@@ -141,12 +141,10 @@
             }
             .h3_italic{
                 font-size: 15px;
-                font-family: "Droid Serif", Georgia, "Times New Roman", Times, serif;
                 font-weight: bold;
             }
             #text{
                 font-size: 15px;
-                font-family: "Droid Serif", Georgia, "Times New Roman", Times, serif;
             }
             .step-title{
                 margin: auto;
@@ -1022,8 +1020,8 @@
 //                                echo "</tr>";
                                 ?>
                             </table>-->
-                            <input type="checkbox" name="cbox" value="AATAAA"/><font class="patt_text">AATAAA</font>&nbsp;<span class='aat' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="cbox" value="TGTAA"/><font class="patt_text">TGTAA</font>&nbsp;<span class='tgt' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="cbox" value="AATAAA"/>&nbsp;<font class="patt_text">AATAAA</font>&nbsp;<span class='aat' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="cbox" value="TGTAA"/>&nbsp;<font class="patt_text">TGTAA</font>&nbsp;<span class='tgt' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <font class="patt_text">Others</font>&nbsp;<span class='patt2' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;<select id="other_patt"   multiple="multiple" placeholder="Select to display" class="okbutton" >
                                     <option selected value='CATAAA'>CATAAA</option>
                                     <option selected value='GATAAA'>GATAAA</option>
