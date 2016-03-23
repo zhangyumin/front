@@ -214,11 +214,11 @@ and open the template in the editor.
                             </div><div style="clear:both"></div>
                         </div>
                         <div class="ym-grid ym-fbox">    
-                            <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
+                            <label for="gene_id">Gene symbol or locus ID: (use ',' to split different id)</label>
                             <textarea style="width:100%;height: 50px" name="gene_id"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
-                            <label for="go_accession">Go term accession:(use ',' to split different go id)</label>
+                            <label for="go_accession">Go term accession: (use ',' to split different go id)</label>
                             <textarea style="width:100%;height: 50px" name='go_accession' id="go_accession"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
@@ -612,7 +612,7 @@ and open the template in the editor.
                         <p>
                         Example queries:<br>
                         1) Enter genome coordinate: <a href='search_result.php?method=fuzzy&keyword=Chr1&species=arab'>Species:Arabidopsis thaliana in Chr1</a><br>
-                        2) Enter one gene ID: gene: <a href='search_result.php?method=fuzzy&keyword=AT1G02130&species=arab'>AT1G02130</a> or <a href='search_result.php?method=fuzzy&keyword=Medtr2g105570&species=mtr'>Medtr2g105570</a>.<br>
+                        2) Enter one gene ID: gene: <a href='search_result.php?method=fuzzy&keyword=AT1G02130&species=arab'>AT1G02130</a> or <a href='search_result.php?method=fuzzy&keyword=Medtr2g105570&species=mtr'>Medtr2g105570</a><br>
                         3) Enter one Go ID: <a href='search_result.php?method=fuzzy&keyword=0006888&species=arab'>GO:0006888</a><br>
                         4) Enter one Go function: <a href='search_result.php?method=fuzzy&keyword=transport&species=arab'>transport</a><br>
                         </p>
