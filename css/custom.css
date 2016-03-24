@@ -16,8 +16,9 @@ fieldset{
     text-align: center;
 }
 .theme{
+    font-weight: bold;
     font-size: 16px;
-    /*text-align: center;*/
+    text-align: left;
 }
 /*.download{
 	border-style: dotted;
