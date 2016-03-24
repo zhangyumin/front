@@ -784,18 +784,17 @@
                     <div style="width:20%;float: left"></div>
                     </td>
                 </tr>
-                <tr class="flip_detail" onclick="">
+                <tr class="flip_detail" onclick="chgArrow_detail()">
                     <td colspan="2" class="step-title">
-                        <img id="arrow" src="./pic/down.png" style="height:18px">
+                        <img id="arrow_detail" src="./pic/down.png" style="height:18px">
                         <h4 style="display:inline">
                             <font color="#224055">Gene detail</font>
                         </h4>
                     </td>
                 </tr>
                 <tr id="summary" style="border: medium solid #5db95b;">
-                    <div id="hahas">
                     <td valign="top" id='tables' style="border-right: solid #5db95b;">
-                        <div id="polya" style="overflow-x: auto;background-color: #fff;">
+                        <div id="polya" class="summary" style="overflow-x: auto;background-color: #fff;height: 130px">
                             <table id="polyatable"  class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
                                 <thead>
                                     <tr>
@@ -840,9 +839,9 @@
                             </table>
                         </div>
                     </td>
-                    <td >
+                    <td class="summary">
                      
-                        <div id="go" style="background-color: #fff;margin:auto;">
+                        <div class="summary" id="go" style="background-color: #fff;margin:auto;height: 130px">
                             <table id="gotable" class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
                                 <thead>
                                     <tr>
@@ -876,7 +875,7 @@
                                     $('#gene').slideToggle("slow");
                                  });
                                  $(".flip_detail").click(function(){
-                                    $('#hahas').slideToggle("slow");
+                                    $('.summary, #summary').slideToggle("slow");
                                  });
                                 $('#gotable').dataTable({
                                     "lengthMenu":[[3,-1],[3,"all"]],
@@ -1002,6 +1001,14 @@
                                 }
                                 else{
                                     $('#arrow').attr("src","./pic/up.png");
+                                }
+                            }
+                            function chgArrow_detail(){
+                                if($('#summary').is(":visible")){
+                                    $('#arrow_detail').attr("src","./pic/down.png");
+                                }
+                                else{
+                                    $('#arrow_detail').attr("src","./pic/up.png");
                                 }
                             }
                         </script>
