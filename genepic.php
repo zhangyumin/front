@@ -1168,8 +1168,8 @@ and open the template in the editor.
             }
         </script>
     </head>
-    <body style="width:1000px;font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;">
-        <div id="button" style="width:1200px;">
+    <body style="font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;">
+        <div id="button" style="width:1180px;">
             Scale
             <select id="scale" onchange="chgScale(this)">
                 <option value="50">50</option>
@@ -1319,6 +1319,9 @@ and open the template in the editor.
                 else{
                     window.location.href=url.substring(0,loc)+"mode="+a.value+url.substring(loc).substring(loc_rest);
                 }
+            }
+            function setIframeHeight(id){
+                
             }
             $("#mode option[value="+mode+"]").attr("selected", true);
         </script>
