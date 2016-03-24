@@ -95,7 +95,7 @@
                     }
                  });
                  $('#none3utr-submit').click(function (){
-                     if($(".none3utr:checked").length>0 && $(".none3utr:checked").length> 0){
+                     if($(".none3utr1:checked").length>0 && $(".none3utr2:checked").length> 0){
                         var params = $('#species,#none3utr-form,#search').serialize(); //序列化表单的值
     //                    console.log(params);
     //                    alert(params);
