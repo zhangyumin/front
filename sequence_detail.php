@@ -411,7 +411,7 @@
             var pa_min = Math.min.apply(null,pa_start);
             var pa_max = Math.max.apply(null,pa_start);
             window.onload = function(){
-                $('.pws_tabs_controll').append($('#maximize'))
+                $('.pws_tabs_controll').append($('#newwindow'))
                     clear();
                     load_pattern();
             }
@@ -928,7 +928,7 @@
                     </td>
                     </div>
                 </tr>
-                <div id="maximize" style="float:right;display: inline-block;font-weight: bold;font-size: 22px"><input id="max" type="checkbox" onchange="maximize()" style="width:16px;height: 16px">Maximize mode</div>
+                <div id="newwindow" style="float:right;display: inline-block;font-weight: bold;background-color: #5db95b;font-size: 22px"><a href="./display.php?species=arab&seq=AT1G02130"><img src="pic/newwindow.png" style="width:20px;padding: 10px;height:20px"></a>
                 <tr>
                     <td colspan=2 style="padding-left:0px;padding-right:0px;border-top: 0px">
                         <div class="tabs" style="padding:0px;border:solid #5db95b">
@@ -974,27 +974,9 @@
                                 $('.tabs').pwstabs({
                                 effect: 'slideleft',
                                 defaultTab: 1,
-                                containerWidth: '1196px'
+                                containerWidth: '1200px'
                              });
                              });
-                             function maximize(){
-                                if($('#max').is(':checked')){
-                                    $("#summary").hide();
-                                    $(".straight_matter").hide();
-                                    $(".tabs").height(1010);
-                                    $("#jbrowse").height(1000);
-                                    $("#genepic").height(1000);
-                                    $("#pacpic").height(1000);
-                                }
-                                else{
-                                    $("#summary").show();
-                                    $(".straight_matter").show();
-                                    $(".tabs").height(510);
-                                    $("#jbrowse").height(500);
-                                    $("#genepic").height(500);
-                                    $("#pacpic").height(500);
-                                }
-                            }
                             function chgArrow(){
                                 if($('#gene').is(":visible")){
                                     $('#arrow').attr("src","./pic/down.png");
