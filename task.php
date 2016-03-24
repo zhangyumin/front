@@ -92,7 +92,7 @@
                 if(isset($_SESSION['file']))
                 {
                     echo "<div id=\"task_summery\" >
-                                            <h2 style=\"border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left\">
+                                            <h2 style=\"padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left\">
                                                 <font color=\"#224055\">Task summary</font>
                                             </h2>";
                     $file=  file_get_contents("./log/".$_SESSION['file'].".txt");
@@ -156,7 +156,7 @@
                         $internal_priming_reads='-';
                     
                    ?>
-                   <table style="font-size: 15px;TABLE-LAYOUT:fixed;WORD-WRAP:break-word;border-color: #e1e1e1" border="1">
+                   <table style="font-size: 16px;TABLE-LAYOUT:fixed;WORD-WRAP:break-word;border-color: #e1e1e1;text-align: center;">
                 <tbody>
                     <tr>
                         <td style="width:18%;font-weight:bold;" bgcolor="#e1e1e1">Task id</td>
@@ -169,7 +169,7 @@
                         <td style="width:8%;font-weight:bold;" bgcolor="#e1e1e1">PAT</td>
                         <td style="width:7%;font-weight:bold;" bgcolor="#e1e1e1">PAC</td>                      
                     </tr>
-                    <tr>
+                    <tr style="border: 1px solid #e1e1e1">
                         <td><?php echo $_SESSION['file']?></td>
                         <td><?php echo $input_reads ?></td>
                         <td><?php echo $low_quality_reads ?></td>
@@ -191,14 +191,14 @@
                     </div>";
                 }
              ?>
-                <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
+                <h2 style="padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
                     <font color="#224055" >Your task history</font>
                 </h2>
                 <div style="height: 440px;overflow-y: scroll">
                     <table cellspacing="1" cellpadding="0" border="0" style="border:1px solid #e1e1e1;">
                     <thead>
                         <tr class="theme">
-                            <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Task ID</td>
+                            <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Task id</td>
                             <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Speices</td>
                             <td class="theme" bgcolor="#e1e1e1" align="center" height="24">IP</td>
                             <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Time</td>
@@ -209,10 +209,10 @@
                                 $list = mysql_query("select * from User_Task where ip = '$uip' order by time desc;");
                                 while ($list_row = mysql_fetch_row($list)){
                                     echo "<tr>";
-                                    echo"<td style='text-align:center'><a href='./task.php?getback=$list_row[0]'>$list_row[0]</a></td>";
-                                    echo"<td style='text-align:center'>$list_row[1]</td>";
-                                    echo"<td style='text-align:center'>$list_row[2]</td>";
-                                    echo"<td style='text-align:center'>$list_row[3]</td>";
+                                    echo"<td><a href='./task.php?getback=$list_row[0]'>$list_row[0]</a></td>";
+                                    echo"<td>$list_row[1]</td>";
+                                    echo"<td>$list_row[2]</td>";
+                                    echo"<td>$list_row[3]</td>";
                                     echo "</tr>";
                                 }
                             ?>
