@@ -785,14 +785,14 @@
                     </td>
                 </tr>
                 <tr class="flip_detail" onclick="chgArrow_detail()">
-                    <td colspan="2" class="step-title">
+                    <td colspan="2" class="step-title" style="border-radius:8px 8px 0px 0px">
                         <img id="arrow_detail" src="./pic/down.png" style="height:18px">
                         <h4 style="display:inline">
                             <font color="#224055">Gene detail</font>
                         </h4>
                     </td>
                 </tr>
-                <tr id="summary" style="border: medium solid #5db95b;">
+                <tr id="summary" style="border: 2px solid #5db95b;">
                     <td valign="top" id='tables' style="border-right: solid #5db95b;">
                         <div id="polya" class="summary" style="overflow-x: auto;background-color: #fff;height: 130px">
                             <table id="polyatable"  class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
