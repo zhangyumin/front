@@ -156,7 +156,7 @@
                     <option value="chlamy">Chlamydomonas reinhardtii (Green alga)</option>
                  </select>
             </div>
-            <div class="info" style="padding-bottom:20px">   
+            <div class="info">   
                 <div class="step-title flip" onclick="chgArrow()">
                     <img id="arrow" src="./pic/down.png" style="height:18px">
                     <h4 style="display:inline">
@@ -164,11 +164,11 @@
                     </h4>
                 </div>
                 <form id="search">
-                    <div class="box info ym-form" id='hid'>
+                    <div class="box info ym-form" id='hid' style="padding:0px;margin:0 1.4857em 1.4857em 1.4857em">
                     <div class="ym-grid ym-fbox">
-                        <div class="ym-g33 ym-gl">
-                            <label for="chr" style="margin-right:2%">In</label>
-                              <select id="chr1" name="chr" style="width:80%">
+                        <div class="ym-g38 ym-gl">
+                            <label for="chr" style="margin-right:2%">Gene / poly(A) sites in</label>
+                              <select id="chr1" name="chr" style="width:60%">
                                     <option value="all" selected="selected">All</option>
                              </select>
                         </div>
@@ -193,12 +193,12 @@
                     </div>
                     <div class="ym-grid ym-fbox">
                         <label for="function">Function:</label>
-                        <input type='text' name='function' id='function' class="ym-gr" style="width:89%;"/><br>
+                        <input type='text' name='function' id='function' class="ym-gr" style="width:89%;"/>
                     </div>
                     </div>
                 </form>
             </div>
-            <div class="ym-grid" >
+        <div class="ym-grid" style="padding-top:10px">
                 <div > 
                     <div class="wrap">
                          <div class="tabs" style="padding:0px;border:solid #5db95b">
