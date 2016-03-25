@@ -102,7 +102,7 @@
         <?php
             include './navbar.php'
         ?>
-    
+        <div class="ym-wrapper">    
     <div id="task_summery" style="clear: both;">
                 <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
                     <span class="h3_italic">
@@ -497,7 +497,7 @@
                     //显示策略，可选为：true（显示） | false（隐藏），默认值为true  
                     show: true,  
                     //水平安放位置，默认为全图居中，可选为：'center' | 'left' | 'right' | {number}（x坐标，单位px）  
-                    x: 'right',  
+                    x: 'left',  
                     //垂直安放位置，默认为全图顶端，可选为：'top' | 'bottom' | 'center' | {number}（y坐标，单位px）  
                     y: 'top',  
                     //legend的data: 用于设置图例，data内的字符串数组需要与sereis数组内每一个series的name值对应  
@@ -508,9 +508,9 @@
                     //显示策略，可选为：true（显示） | false（隐藏），默认值为false  
                     show: true,  
                     //启用功能，目前支持feature，工具箱自定义功能回调处理  
-                    orient: 'vertical',
+//                    orient: 'vertical',
                     x:'right',
-                    y:'center',
+                    y:'top',
                     feature: {  
                         //dataZoom，框选区域缩放，自动与存在的dataZoom控件同步，分别是启用，缩放后退  
                         dataZoom: {  
@@ -567,7 +567,11 @@
                         max:1
                     }  
                 ],  
-                  
+                grid: { // 控制图的大小，调整下面这些值就可以，
+                          x: 24,
+                          x2: 5,
+                          y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
+                      },
                 //sereis的数据: 用于设置图表数据之用。series是一个对象嵌套的结构；对象内包含对象  
                 series: [  
                     {  
@@ -738,6 +742,7 @@
     );  
     </script>  
 </div>
+    </div>
     <?php
 //        include './wheelmenu.php';
         include './footer.php';
