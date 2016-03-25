@@ -224,7 +224,7 @@ and open the template in the editor.
                             <textarea style="width:100%;height: 50px" name='go_accession' id="go_accession"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
-                            <label for="go_name" >Go term name:</label>
+                            <label for="go_name" >GO term name:</label>
                             <textarea type='text' name='go_name' style="width:100%;height: 25px"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
