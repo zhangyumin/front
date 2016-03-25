@@ -743,7 +743,14 @@
                                 <tbody>
                                     <tr>
                                         <td class="left" width='15%'>Gene name:</td>
-                                        <td><?php echo $_GET['seq']?></td>
+                                        <td><?php
+                                                    if($_GET['flag'] == 'intergenic'){
+                                                        echo explode(".", $_GET['seq'])[0];
+                                                    }
+                                                    else
+                                                        echo $_GET['seq'];
+                                                ?>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="left">Gene locus:</td>
