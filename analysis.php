@@ -180,11 +180,11 @@
                         </div>
                     </div>           
                     <div class="ym-grid ym-fbox">
-                        <label for="gene_id">Gene ID:(use ',' to split different gene id)</label>
+                        <label for="gene_id">Gene symbol or locus ID: (use ',' to split different ID)</label>
                         <textarea style="width:100%" name="gene_id" id='gene_id'></textarea>
                     </div>
                     <div class="ym-grid ym-fbox">
-                        <label for="go_accession">Go term accession:(use ',' to split different gene id)</label>
+                        <label for="go_accession">Go term accession:(use ',' to split different go ID)</label>
                         <textarea style="width:100%" name='go_accession' id='go_accession'></textarea>
                     </div>
                     <div class="ym-grid ym-fbox">
