@@ -188,7 +188,7 @@
                         <textarea style="width:100%" name='go_accession' id='go_accession'></textarea>
                     </div>
                     <div class="ym-grid ym-fbox">
-                        <label for="go_name" >Go term name:</label>
+                        <label for="go_name" >GO term name:</label>
                         <input type='text' name='go_name' class="ym-gr" id='go_name' style="width:89%;"/>
                     </div>
                     <div class="ym-grid ym-fbox">
