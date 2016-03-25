@@ -203,8 +203,8 @@
                     <div class="wrap">
                          <div class="tabs" style="padding:0px;border:solid #5db95b">
                              <div data-pws-tab="DE Gene" data-pws-tab-name="DE Gene" style="width: 100%">
-                                    <form id="degene-form">
-                                    <div class="box info samples">
+                                 <form id="degene-form" class="info">
+                                    <div class="box samples">
                                         <table id="samples" >
                                             <thead><center>Select two groups of samples</center></thead>
                                             <tbody>
@@ -410,7 +410,7 @@
                                        
                                     </div>
                                     <div class="ym-clearfix"></div>
-                                    <div class="box info fsubmit">
+                                    <div class="box fsubmit">
                                         <input type="button" id='degene-submit' value="Submit">
                                         <button type="reset">Reset</button>
                                         <input type="button" onclick="demo('degene')" value="Demo">
@@ -418,8 +418,8 @@
                                     </form>
                              </div>
                              <div data-pws-tab="DE PAC" data-pws-tab-name="DE PAC" style="width: 100%">
-                                    <form id="depac-form">
-                                    <div class="box info samples">
+                                 <form id="depac-form" class="info">
+                                    <div class="box samples">
                                         <table id="samples" >
                                             <thead><center>Select two groups of samples</center></thead>
                                             <tbody>
@@ -608,7 +608,7 @@
                                         </div>
                                     </div>
                                     <div class="ym-clearfix"></div>
-                                    <div class="box info fsubmit">
+                                    <div class="box fsubmit">
                                         <input type="button" id='depac-submit' value="Submit">
                                         <button type="reset">Reset</button>
                                         <input type="button" onclick="demo('depac')" value="Demo">
@@ -616,8 +616,8 @@
                                     </form>
                              </div>
                              <div data-pws-tab="3'UTR Lengthening" data-pws-tab-name="3'UTR Lengthening" style="width: 100%">
-                                    <form id="only3utr-form">
-                                        <div class="box info samples">
+                                 <form id="only3utr-form" class="info">
+                                        <div class="box samples">
                                             <table id="samples" >
                                                 <thead><center>Select two groups of samples</center></thead>
                                                 <tbody>
@@ -801,7 +801,7 @@
                                             </div>
                                         </div>
                                     <div class="ym-clearfix"></div>
-                                    <div class="box info fsubmit">
+                                    <div class="box fsubmit">
                                         <input type="button" id='only3utr-submit' value="Submit">
                                         <button type="reset">Reset</button>
                                         <input type="button" onclick="demo('only3utr')" value="Demo">
@@ -809,8 +809,8 @@
                                     </form>
                              </div>
                              <div data-pws-tab="APA Switching" data-pws-tab-name="APA Switching" style="width: 100%">
-                                    <form id="none3utr-form">
-                                    <div class="box info samples">
+                                 <form id="none3utr-form" class="info">
+                                    <div class="box samples">
                                         <table id="samples" >
                                             <thead><center>Select two groups of samples</center></thead>
                                             <tbody>
@@ -1007,7 +1007,7 @@
                                         </div>
                                     </div>
                                     <div class="ym-clearfix"></div>
-                                    <div class="box info fsubmit">
+                                    <div class="box fsubmit">
                                         <input type="button" id='none3utr-submit' value="Submit">
                                         <button type="reset">Reset</button>
                                         <input type="button" onclick="demo('none3utr')" value="Demo">
