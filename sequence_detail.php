@@ -845,8 +845,8 @@
                             <table id="gotable" class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
                                 <thead>
                                     <tr>
-                                        <th width='20%'>Go id</th>
-                                        <th>Go term</th>
+                                        <th width='20%'>GO ID</th>
+                                        <th>GO term</th>
                                         <th>Function</th>
                                     </tr>
                                 </thead>
