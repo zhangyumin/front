@@ -104,12 +104,12 @@
         ?>
         <div class="ym-wrapper">    
     <div id="task_summery" style="clear: both;">
-                <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
+                <h2 style="padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
                     <span class="h3_italic">
                         <font color="#224055">Task Summary</font>
                     </span>
-                </h2>
-                <?php
+                </h2> 
+               <?php
                     $file=  file_get_contents("./log/".$_SESSION['file'].".txt");
                     $array_file=  explode("\n", $file);
                     foreach ($array_file as $key => $value) {
