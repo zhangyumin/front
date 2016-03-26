@@ -11,7 +11,10 @@ and open the template in the editor.
         <title>polyA browser</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
-        <script src="./src/jquery-1.10.1.min.js"></script>
+        <script src="./src/jquery-1.10.1.min.js"></script>        
+        <!-- webui popover -->
+        <script src="./src/jquery.webui-popover.js"></script>
+        <link href="./src/jquery.webui-popover.css" rel="stylesheet" type="text/css"/>
         <style>
             .tablebutton{
                     background-color:#5db95b;
@@ -20,6 +23,14 @@ and open the template in the editor.
             }
             td a:hover{
                 background-color: #fff;
+            }
+            .ref:hover{
+                color:#fff;
+                cursor: pointer;
+                background-color: #5db95b;
+            }
+            .ref{
+                color:blue;
             }
         </style>
     </head>
@@ -85,7 +96,7 @@ and open the template in the editor.
                                 <td>62834</td>
                                 <td>68388227</td>
                                 <td>poly(A) sites from leaf, seed, and root tissues of WT and Oxt6 mutant by poly(A) tag sequencing</td>
-                                <td>Wu et al. PNAS, 2011; Thomas et al. Plant Cell, 2012; Liu et al. PloS One, 2014</td>                     
+                                <td><a id='ref1' class='ref'>Wu et al. PNAS, 2011; Thomas et al. Plant Cell, 2012; Liu et al. PloS One, 2014</a></td>                     
                                 <td>
                                     <a target="_blank" href="../jbrowse/?data=data/arab">
                                         <!--<span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>-->
@@ -206,7 +217,7 @@ and open the template in the editor.
                                 <td>32657</td>
                                 <td>57852</td>
                                 <td>poly(A) sites extracted from ESTs</td>
-                                <td>Shen et al. Nucleic Acids Res, 2008</td>                     
+                                <td><a id='ref2' class="ref">Shen et al. Nucleic Acids Res, 2008</a></td>                     
                                 <td>
                                     <a target="_blank" href="../jbrowse/?data=data/japonica">
                                         <!--<span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>-->
@@ -264,7 +275,7 @@ and open the template in the editor.
                                 <td>42691</td>
                                 <td>2747920</td>
                                 <td>poly(A) sites from leaf tissue by poly(A) tag sequencing</td>
-                                <td>Wu et al. BMC Genomics, 2014</td>                     
+                                <td><a id='ref3' class="ref">Wu et al. BMC Genomics, 2014</a></td>                     
                                 <td>
                                     <a target="_blank" href="../jbrowse/?data=data/mtr">
                                         <!--<span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>-->
@@ -323,7 +334,7 @@ and open the template in the editor.
                                 <td>45372</td>
                                 <td>13536005</td>
                                 <td>poly(A) sites extracted from ESTs, 454, Illumina, and  PAT-seq sequence reads</td>
-                                <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014; Umen et al. PloS one, 2016</td>                     
+                                <td><a id='ref4' class="ref">Zhao et al. G3:Genes|Genomes|Genetics, 2014; Umen et al. PloS one, 2016</a></td>                     
                                 <td>
                                     <a target="_blank" href="../jbrowse/?data=data/chlamy">
                                         <!--<span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>-->
@@ -438,6 +449,34 @@ and open the template in the editor.
                     else
                         $(".more4").html("More");
                 });
+            });
+            $('#ref1').webuiPopover({
+                placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
+                title:'Link to',
+                content:'<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1073%2Fpnas.1019732108">Wu et al. PNAS, 2011</a><br><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a><br><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a>',
+                trigger:'hover',
+                type:'html'
+            });
+            $('#ref2').webuiPopover({
+                placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
+                title:'Link to',
+                content:'<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1093%2Fnar%2Fgkn158">Shen et al. Nucleic Acids Res, 2008</a>',
+                trigger:'hover',
+                type:'html'
+            });
+            $('#ref3').webuiPopover({
+                placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
+                title:'Link to',
+                content:'<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1186%2F1471-2164-15-615">Wu et al. BMC Genomics, 2014</a>',
+                trigger:'hover',
+                type:'html'
+            });
+            $('#ref4').webuiPopover({
+                placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
+                title:'Link to',
+                content:'<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a><br><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0146107">Umen et al. PloS one, 2016</a>',
+                trigger:'hover',
+                type:'html'
             });
             </script>
         <?php
