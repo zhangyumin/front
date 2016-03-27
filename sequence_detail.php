@@ -933,7 +933,7 @@
                             <?php
                                 echo "var species = '".$_GET['species']."';";
                                         if($_GET['flag'] == 'intergenic'){
-                                            echo "var sequence = '".explode(".", $_GET['seq'])[0]."';";
+                                            echo "var sequence = '".explode(".i", $_GET['seq'])[0]."';";
                                         }
                                         else
                                             echo "var sequence = '".$_GET['seq']."';";
@@ -942,7 +942,34 @@
                                 $('#genename').webuiPopover({
                                     placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
                                     title:'External datasets',
-                                    content:'<a href="http://www.arabidopsis.org/servlets/Search?type=general&search_action=detail&method=1&show_obsolete=F&name='+sequence+'&sub_type=gene&SEARCH_EXACT=4&SEARCH_CONTAINS=1">Link to TAIR The Arabidopsis Information Resource</a>',
+                                    content:'<a target="_blank" href="http://www.arabidopsis.org/servlets/Search?type=general&search_action=detail&method=1&show_obsolete=F&name='+sequence+'&sub_type=gene&SEARCH_EXACT=4&SEARCH_CONTAINS=1">Link to TAIR The Arabidopsis Information Resource</a>',
+                                    trigger:'hover',
+                                    type:'html'
+                                });
+                            }
+                            else if(species == 'japonica'){
+                                $('#genename').webuiPopover({
+                                    placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
+                                    title:'External datasets',
+                                    content:'<a target="_blank" href="http://rice.plantbiology.msu.edu/cgi-bin/ORF_infopage.cgi?orf='+sequence+'">Link to MSU Rice Genome Annotation Project</a>',
+                                    trigger:'hover',
+                                    type:'html'
+                                });
+                            }
+                            else if(species == 'chlamy'){
+                                $('#genename').webuiPopover({
+                                    placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
+                                    title:'External datasets',
+                                    content:'<a target="_blank" href="https://phytozome.jgi.doe.gov/pz/portal.html#!results?search=0&crown=1&star=1&method=4614&searchText='+sequence+'&offset=0">Link to JGI Phytozome</a>',
+                                    trigger:'hover',
+                                    type:'html'
+                                });
+                            }
+                            else if(species == 'mtr'){
+                                $('#genename').webuiPopover({
+                                    placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
+                                    title:'External datasets',
+                                    content:'<a target="_blank" href="http://medicago.jcvi.org/cgi-bin/medicago/manatee/shared/ORF_infopage.cgi?db=mta4&user=access&password=access&identifier=locus&orf='+sequence+'">Link to JCVI Medicago Truncatula Genome Project</a>',
                                     trigger:'hover',
                                     type:'html'
                                 });
