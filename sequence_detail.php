@@ -30,6 +30,9 @@
         <!-- sumoselect -->
          <script src="./src/optselect/jquery.sumoselect.js"></script>
         <link href="./src/optselect/sumoselect.css" rel="stylesheet" />
+        <!-- webui popover -->
+        <script src="./src/jquery.webui-popover.js"></script>
+        <link href="./src/jquery.webui-popover.css" rel="stylesheet" type="text/css"/>
         <style>
             .patt_text{
                 font-size: 15px;
@@ -743,13 +746,9 @@
                                 <tbody>
                                     <tr>
                                         <td class="left" width='15%'>Gene name:</td>
-                                        <td><?php
-                                                    if($_GET['flag'] == 'intergenic'){
-                                                        echo explode(".", $_GET['seq'])[0];
-                                                    }
-                                                    else
+                                        <td><a id="genename" href=""><?php
                                                         echo $_GET['seq'];
-                                                ?>
+                                                    ?></a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -931,6 +930,23 @@
                                     searching:false
                                 });
                             });
+                            <?php
+                                echo "var species = '".$_GET['species']."';";
+                                        if($_GET['flag'] == 'intergenic'){
+                                            echo "var sequence = '".explode(".", $_GET['seq'])[0]."';";
+                                        }
+                                        else
+                                            echo "var sequence = '".$_GET['seq']."';";
+                            ?>
+                            if(species == 'arab'){
+                                $('#genename').webuiPopover({
+                                    placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
+                                    title:'External datasets',
+                                    content:'<a href="http://www.arabidopsis.org/servlets/Search?type=general&search_action=detail&method=1&show_obsolete=F&name='+sequence+'&sub_type=gene&SEARCH_EXACT=4&SEARCH_CONTAINS=1">Link to TAIR The Arabidopsis Information Resource</a>',
+                                    trigger:'hover',
+                                    type:'html'
+                                });
+                            }
                         </script>
                     </td>
                     </div>
