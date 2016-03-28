@@ -800,7 +800,7 @@
                 </tr>
                 <tr id="summary" style="border: 2px solid #5db95b;">
                     <td valign="top" id='tables' style="border-right: solid #5db95b;">
-                        <div id="polya" class="summary" style="overflow-x: auto;background-color: #fff;height: 130px">
+                        <div id="polya" class="summary" style=" overflow:hidden;background-color: #fff;height: 130px">
                             <table id="polyatable"  class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
                                 <thead>
                                     <tr>
@@ -847,7 +847,7 @@
                     </td>
                     <td class="summary">
                      
-                        <div class="summary" id="go" style="background-color: #fff;margin:auto;height: 130px">
+                        <div class="summary" id="go" style="background-color: #fff;margin:auto;height: 130px;overflow: hidden">
                             <table id="gotable" class="display dataTable" cellspacing="0" role="grid" aria-describedby="example_infox" style="text-align: center;">
                                 <thead>
                                     <tr>
