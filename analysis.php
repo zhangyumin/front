@@ -782,25 +782,19 @@
                                         </div>
                                         <div id="only3utr" class="ym-form">
                                             <div class="box ym-fbox">
-                                                <div class="ym-grid ym-fbox">
                                                     <label for="sgminpat">Min PAT</label>
                                                     <input type='text' value='5' name="sgminpat"/>
-                                                </div>
-                                                <div class="ym-grid ym-fbox">
                                                     <label for="">Multi-test adjustment method</label>
                                                     <select>
                                                         <option checked='true' value='bonferroni' />Bonferroni
                                                         <option value='notadjust'/>Not adjust
                                                     </select>
-                                                </div>
-                                                <div class="ym-grid ym-fbox">
                                                     <label for="only3utr_sig">Significance Level</label>
                                                     <select name="only3utr_sig">
                                                         <option value="0.01"/>0.01
                                                         <option checked='true' value="0.05"/>0.05
                                                         <option value="0.1"/>0.1
                                                     </select>
-                                                </div>
                                             </div>
                                         </div>
                                     <div class="ym-clearfix"></div>
@@ -976,38 +970,24 @@
                                     </div>
                                     <div id="none3utr" method="post" class="ym-form">
                                         <div class="box ym-fbox">
-                                            <div class="ym-grid ym-fbox">
                                                 <label for="sgnm">Normalization method</label>
                                                 <select id="sgnm">
                                                     <option value="none" checked="true"/>None
                                                     <option value="TPM"/>None
                                                     <option value="DESeq"/>None
                                                 </select>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
                                                 <label for="minpat2">Distance(nt)</label>
                                                 <input type="text" value="50" name="minpat2"/>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
                                                 <label for="uttp">Using top two PACs</label>
                                                 <input type="checkbox" checked="true" name="uttp"/>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
                                                 <label for="minpat3">Min PAT of one PAC</label>
                                                 <input type="text" value="5"name="minpat3"/>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
                                                 <label for="minpat4">Min total PAT of one PAC in both samples</label>
                                                 <input type="text" value="10" name="minpat4"/>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
                                                 <label for="minpat5">Min difference of PAC between the two PAC</label>
                                                 <input type="text" value="5" name="minpat5"/>
-                                            </div>
-                                            <div class="ym-grid ym-fbox">
                                                 <label for="minpat6">Min fold change of two PAC in at least one sample</label>
                                                 <input type="text" value="2" name="minpat6"/>
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="ym-clearfix"></div>
