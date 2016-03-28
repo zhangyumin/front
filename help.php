@@ -238,7 +238,7 @@
                             <img class="pic" src="./pic/help/analysis.png"/>
                             <br>Fig. 25 The page of analysis function
                         </div>
-                        <p>
+                        <p id='analysishelp2'>
                         To make the result statistically significant, a p-value or adjusted p-value will be calculated and assigned to each PAC/gene. Users can download the output lists to their local computer, or continue to inspect the result PAC/gene by clicking the link on a particular item in the list.
                         </p>
                         <!--<h3>7.1. Detection of differentially expressed genes</h3>-->
@@ -250,14 +250,14 @@
                             <br>Fig. 26 The results of DE gene
                         </div>
                         <!--<h3>7.2. Detection of PACs with differential usage</h3>-->
-                        <p>Users can specific parameters for detecting PACs with differential usage.
+                        <p id='analysishelp3'>Users can specific parameters for detecting PACs with differential usage.
                         The main output is a table that lists all resulted PACs<span class="pic_red"> (Fig. 27)</span>.</p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysis_result2.png"/>
                             <br>Fig. 27 The results of DE pac
                         </div>
                         <!--<h3>7.3. Detection of genes with 3’ UTR lengthening or shortening</h3>-->
-                        <p>After choosing two groups of samples, users can specific parameters for detecting genes with tandem 3’ UTR switching.
+                        <p id='analysishelp4'>After choosing two groups of samples, users can specific parameters for detecting genes with tandem 3’ UTR switching.
                             The main output is a table that lists all genes with 3’ UTR lengthening or shortening and the associated PACs<span class="pic_red"> (Fig. 28)</span>.
                         </p>
                         <div class="picdiv">
@@ -265,7 +265,7 @@
                             <br>Fig. 28 The results of 3'UTR lengthening
                         </div>
                         <!--<h3>7.4. Detection of nonconnonical APA-site switching genes</h3>-->
-                        <p>After choosing two groups of samples, users can specific parameters for the detection of nonconnonical APA-site switching genes. These genes involve at least one PAC located in CDS or introns.
+                        <p id='analysishelp5'>After choosing two groups of samples, users can specific parameters for the detection of nonconnonical APA-site switching genes. These genes involve at least one PAC located in CDS or introns.
                             The main output is a table that lists all resulted genes and PACs<span class="pic_red"> (Fig. 29)</span>.</p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysis_result4.png"/>
