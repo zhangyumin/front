@@ -230,7 +230,7 @@
                     </div>
                     <div class="jumpto-block">
                         <h2>7. PAC analysis: analysis of APA switching between two conditions</h2>
-                        <p>Following the “PAC analysis” tab in the main menu, users can choose to generate lists of differentially expressed genes, PACs with differential usage, genes with 3’ UTR lengthening or shortening, and APA-site switching genes, using the user uploaded PACs together with PlantAPA stored PACs.
+                        <p id="analysishelp1">Following the “PAC analysis” tab in the main menu, users can choose to generate lists of differentially expressed genes, PACs with differential usage, genes with 3’ UTR lengthening or shortening, and APA-site switching genes, using the user uploaded PACs together with PlantAPA stored PACs.
                         Two groups of samples each with one or more than one condition need to be selected in order to obtain the output gene/PAC lists. 
                         Raw count or normalized count based on TPM normalization and methods in EdgeR or DESeq can be chosen as input. Additional parameters can be set for each assay, such as minimum number of PATs for pre-filtering of PACs, significance level, p-value adjusted method<span class="pic_red"> (Fig. 25)</span>.
                         </p>
