@@ -973,8 +973,8 @@
                                                 <label for="sgnm">Normalization method</label>
                                                 <select id="sgnm">
                                                     <option value="none" checked="true"/>None
-                                                    <option value="TPM"/>None
-                                                    <option value="DESeq"/>None
+                                                    <option value="TPM"/>TPM
+                                                    <option value="DESeq"/>DESeq
                                                 </select>
                                                 <label for="minpat2">Distance(nt)</label>
                                                 <input type="text" value="50" name="minpat2"/>
