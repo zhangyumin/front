@@ -29,6 +29,9 @@ and open the template in the editor.
         <!--[if lt IE 9]>
         <script src="./js/html5shiv/html5shiv.js"></script>
         <![endif]-->
+        <!-- webui popover -->
+        <script src="./src/jquery.webui-popover.js"></script>
+        <link href="./src/jquery.webui-popover.css" rel="stylesheet" type="text/css"/>
         <style>
             .col-md-12{
                 border:1px solid #faebcc;
@@ -50,6 +53,13 @@ and open the template in the editor.
                 letter-spacing: 0.5px;
                 text-align: justify;
                 word-spacing: 1px;
+            }
+            .margin5px{
+                margin-right: 5px;
+            }
+            .demo:hover{
+                background-color: #fff;
+                cursor: pointer;
             }
         </style>
     </head>
@@ -216,19 +226,19 @@ and open the template in the editor.
                             </div><div style="clear:both"></div>
                         </div>
                         <div class="ym-grid ym-fbox">    
-                            <label for="gene_id">Gene symbol or locus ID: (use ',' to split different ID)</label>
+                            <label for="gene_id" class="margin5px">Gene symbol or locus ID: (use ',' to split different ID)</label><a id="nameexp" class="demo"><img src="./pic/exp.png" style="width:15px;height: 15px;display: inline-block;vertical-align: bottom;padding-bottom: 1px;"></a>
                             <textarea style="width:100%;height: 50px" name="gene_id"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
-                            <label for="go_accession">GO term accession: (use ',' to split different GO ID)</label>
+                            <label for="go_accession" class="margin5px">GO term accession: (use ',' to split different GO ID)</label><a id="goexp" class="demo"><img src="./pic/exp.png" style="width:15px;height: 15px;display: inline-block;vertical-align: bottom;padding-bottom: 1px;"></a>
                             <textarea style="width:100%;height: 50px" name='go_accession' id="go_accession"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
-                            <label for="go_name" >GO term name:</label>
+                            <label for="go_name" class="margin5px">GO term name:</label><a id="termexp" class="demo"><img src="./pic/exp.png" style="width:15px;height: 15px;display: inline-block;vertical-align: bottom;padding-bottom: 1px;"></a>
                             <textarea type='text' name='go_name' style="width:100%;height: 25px"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
-                            <label for="function" >Function:</label>
+                            <label for="function" class="margin5px">Function:</label><a id="functionexp" class="demo"><img src="./pic/exp.png" style="width:15px;height: 15px;display: inline-block;vertical-align: bottom;padding-bottom: 1px;"></a>
                             <textarea type='text' name='function' style="width:100%;height: 25px"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
@@ -258,6 +268,34 @@ and open the template in the editor.
                                             document.getElementById("end").value="100000";
                                         }
                                     }
+                                     $('#nameexp').webuiPopover({
+                                        placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
+                                        title:'demo',
+                                        content:'<a onclick="javascript:alert(\'haha\')">hhaha</a>',
+                                        trigger:'hover',
+                                        type:'html'
+                                    });
+                                    $('#goexp').webuiPopover({
+                                        placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
+                                        title:'demo',
+                                        content:'<a target="_blank" href="http://www.arabidopsis.org/servlets/Search?type=general&search_action=detail&method=1&show_obsolete=F&name=sub_type=gene&SEARCH_EXACT=4&SEARCH_CONTAINS=1">Link to TAIR The Arabidopsis Information Resource</a>',
+                                        trigger:'hover',
+                                        type:'html'
+                                    });
+                                    $('#termexp').webuiPopover({
+                                        placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
+                                        title:'demo',
+                                        content:'plasma',
+                                        trigger:'hover',
+                                        type:'html'
+                                    });
+                                    $('#functionexp').webuiPopover({
+                                        placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
+                                        title:'demo',
+                                        content:'transcript',
+                                        trigger:'hover',
+                                        type:'html'
+                                    });
                                 </script>
                         </div>
                         </form>
