@@ -158,7 +158,7 @@
             </div>
             <div class="info">   
                 <div class="step-title flip" onclick="chgArrow()">
-                    <a href="./help.php#analysishelp1"><img src="./pic/help.png" style="width:20px;height: 20px;display: inline-block"></a>
+                    <a href="./help.php#analysishelp1"><img src="./pic/help.png" title="tip" style="width:20px;height: 20px;display: inline-block"></a>
                     <img id="arrow" src="./pic/down.png" style="height:18px">
                     <h4 style="display:inline">
                         <font color="#224055">Additional options</font>
