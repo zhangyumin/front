@@ -61,6 +61,9 @@ and open the template in the editor.
                 background-color: #fff;
                 cursor: pointer;
             }
+            a:hover{
+                cursor:pointer;
+            }
         </style>
     </head>
     <script type="text/javascript">
@@ -186,7 +189,7 @@ and open the template in the editor.
                         }
                     }
     </script>
-    <body onload="getchr();getftr()">        
+    <body onload="getchr();getftr();">        
         <?php include './navbar.php'; ?>
         <div class="ym-wrapper">
                 <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
@@ -197,7 +200,7 @@ and open the template in the editor.
                        <div class="ym-grid ym-fbox">
                             <div class="ym-g20 ym-gl">
                                 <label for="species" style="margin-right:2%;">Species:</label>
-                                <select id="species" name="species" style="width:75%" onclick="getchr();getftr()">
+                                <select id="species" name="species" style="width:75%" onclick="getchr();getftr();">
                                      <option value="japonica">Japonica rice</option>
                                     <option value="arab" selected="selected">Arabidopsis thaliana</option>
                                     <option value="mtr">Medicago truncatula</option>
@@ -227,7 +230,7 @@ and open the template in the editor.
                         </div>
                         <div class="ym-grid ym-fbox">    
                             <label for="gene_id" class="margin5px">Gene symbol or locus ID: (use ',' to split different ID)</label><a id="nameexp" class="demo"><img src="./pic/exp.png" style="width:15px;height: 15px;display: inline-block;vertical-align: bottom;padding-bottom: 1px;"></a>
-                            <textarea style="width:100%;height: 50px" name="gene_id"></textarea>
+                            <textarea id="gene_id" style="width:100%;height: 50px" name="gene_id"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
                             <label for="go_accession" class="margin5px">GO term accession: (use ',' to split different GO ID)</label><a id="goexp" class="demo"><img src="./pic/exp.png" style="width:15px;height: 15px;display: inline-block;vertical-align: bottom;padding-bottom: 1px;"></a>
@@ -268,17 +271,45 @@ and open the template in the editor.
                                             document.getElementById("end").value="100000";
                                         }
                                     }
+                                    function name_demo(){
+                                        if(document.getElementById("species").value=='arab'){
+                                                document.getElementById("gene_id").value="ARC2,GIF2,AT1G01020,JAM2,AT1G02130";
+                                            }
+                                            else if(document.getElementById("species").value=='japonica'){
+                                                document.getElementById("gene_id").value="LOC_Os01g01070,LOC_Os01g01170,LOC_Os01g01307";
+                                            }
+                                            else if(document.getElementById("species").value=='mtr'){
+                                                document.getElementById("gene_id").value="Medtr1g004950,Medtr1g006650,Medtr1g007030";
+                                            }
+                                            else if(document.getElementById("species").value=='chlamy'){
+                                                document.getElementById("gene_id").value="Cre01.g000950,Cre01.g002350,Cre01.g003100";
+                                        }
+                                    }
+                                    function go_demo(){
+                                        if(document.getElementById("species").value=='arab'){
+                                                document.getElementById("go_accession").value="GO:0006888,GO:0006355";
+                                            }
+                                            else if(document.getElementById("species").value=='japonica'){
+                                                document.getElementById("go_accession").value="GO:0009987,GO:0009987";
+                                            }
+                                            else if(document.getElementById("species").value=='mtr'){
+                                                document.getElementById("go_accession").value="GO:0003899,GO:0006412";
+                                            }
+                                            else if(document.getElementById("species").value=='chlamy'){
+                                                document.getElementById("go_accession").value="GO:0005507,GO:0003743,";
+                                        }
+                                    }
                                      $('#nameexp').webuiPopover({
                                         placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
                                         title:'demo',
-                                        content:'<a onclick="javascript:alert(\'haha\')">hhaha</a>',
+                                        content:'<a onclick="javascript:name_demo()">a</a>',
                                         trigger:'hover',
                                         type:'html'
                                     });
                                     $('#goexp').webuiPopover({
                                         placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
                                         title:'demo',
-                                        content:'<a target="_blank" href="http://www.arabidopsis.org/servlets/Search?type=general&search_action=detail&method=1&show_obsolete=F&name=sub_type=gene&SEARCH_EXACT=4&SEARCH_CONTAINS=1">Link to TAIR The Arabidopsis Information Resource</a>',
+                                        content:'<a onclick="javascript:go_demo()">b</a>',
                                         trigger:'hover',
                                         type:'html'
                                     });
