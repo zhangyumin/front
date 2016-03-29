@@ -240,8 +240,8 @@ and open the template in the editor.
                                <input type="text" name="end" id="end" style="width:70%">
                             </div>
                            <div class="ym-g20 ym-gl">
-                               <label for="ftr" style="margin-right: 2%;margin-left: 13%"> For</label>
-                               <select id="ftr" name="ftr" style="width:74%">
+                               <label for="ftr" style="margin-right: 2%;margin-left: 15%"> For</label>
+                               <select id="ftr" name="ftr" style="width:70%">
                                     <option value="all" selected="selected">All</option>
                                 </select>
                             </div><div style="clear:both"></div>
