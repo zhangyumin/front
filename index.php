@@ -316,7 +316,7 @@ and open the template in the editor.
                                                     <td class="theme" bgcolor="#5db95b" align="center" height="24">Tissue</td>
                                                     <td class="theme" bgcolor="#5db95b" align="center" height="24">Reference</td>
                                                     <td class="theme" bgcolor="#5db95b" align="center" height="24">Genome Annotation</td>
-                                                    <td class="theme"  height="24">PATs</td>
+                                                    <td class="theme" bgcolor="#5db95b" align="center" height="24">PATs</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Oryza sativa</td>
@@ -325,6 +325,7 @@ and open the template in the editor.
                                                     <td>mix</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1093%2Fnar%2Fgkn158">shen et al. Plant Cell, 2012</a></td>
                                                     <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
+                                                    <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cfrom_EST%20PAT%20minus%20strand%2Cfrom_EST%20PAT%20plus%20strand&highlight=' target='_blanck'>57852</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -382,7 +383,8 @@ and open the template in the editor.
                                                     <td>WT</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1186%2F1471-2164-15-615">Wu et al. BMC Genomics, 2014</a></td>
-                                                    <td><a href='http://medicago.jcvi.org/medicago/index.php' target="_blank">JCVI Medtr v4</a></td>
+                                                    <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
+                                                    <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Cwt_leaf_1%20PAT%20minus%20strand%2Cwt_leaf_1%20PAT%20plus%20strand&highlight=' target="_blank">2747920</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -443,6 +445,7 @@ and open the template in the editor.
                                                     <td>mix</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
                                                     <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
+                                                    <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2Cfrom_illumina%20PAT%20plus%20strand%2Cfrom_illumina%20%20PAT%20minus%20strand&highlight=' target="_blank">622248</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Chlamydomonas reinhardtii</td>
@@ -451,6 +454,7 @@ and open the template in the editor.
                                                     <td>mix</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
                                                     <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
+                                                    <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2CGene%20annotation%2CFrom_454%20PAT%20minus%20strand%2CFrom_454%20PAT%20plus%20strand&highlight=' target="_blank">324305</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Chlamydomonas reinhardtii</td>
@@ -459,6 +463,7 @@ and open the template in the editor.
                                                     <td>mix</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
                                                     <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
+                                                    <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2CGene%20annotation%2CFrom_EST%20PAT%20minus%20strand%2CFrom_EST%20PAT%20plus%20strand&highlight=' target="_blank">56754</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Chlamydomonas reinhardtii</td>
@@ -467,6 +472,7 @@ and open the template in the editor.
                                                     <td>mix</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0146107">Umen et al. PloS one, 2016</a></td>
                                                     <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
+                                                    <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2CGene%20annotation%2CFrom_PATseq%20PAT%20plus%20strand%2CFrom_PATseq%20%20PAT%20minus%20strand&highlight=' target="_blank">12532698</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
