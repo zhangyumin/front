@@ -276,13 +276,13 @@ and open the template in the editor.
                                                 document.getElementById("gene_id").value="ARC2,GIF2,AT1G01020,JAM2,AT1G02130";
                                             }
                                             else if(document.getElementById("species").value=='japonica'){
-                                                document.getElementById("gene_id").value="LOC_Os01g01070,LOC_Os01g01170,LOC_Os01g01307";
+                                                document.getElementById("gene_id").value="LOC_Os01g01070,LOC_Os01g03070,LOC_Os01g01307";
                                             }
                                             else if(document.getElementById("species").value=='mtr'){
-                                                document.getElementById("gene_id").value="Medtr1g004950,Medtr1g006650,Medtr1g007030";
+                                                document.getElementById("gene_id").value="Medtr0236s0040,Medtr0246s0020,Medtr0251s0050";
                                             }
                                             else if(document.getElementById("species").value=='chlamy'){
-                                                document.getElementById("gene_id").value="Cre01.g000950,Cre01.g002350,Cre01.g003100";
+                                                document.getElementById("gene_id").value="Cre04.g225950,Cre04.g226050,Cre04.g226150";
                                         }
                                     }
                                     function go_demo(){
