@@ -1144,8 +1144,8 @@
                                     <option selected value='AATAAC'>AATAAC</option>
                                     <option selected value='AATAAG'>AATAAG</option>
                                 </select>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='patt1' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
-                            <input type = "text" id = "user_pattern" style="margin-bottom:10px;width:217px;height: 25px;vertical-align: baseline"/>(Ex. AATAAA, TGTAAA)
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type = "text" id = "user_pattern" placeholder="Input patterns" style="margin-bottom:10px;width:217px;height: 25px;vertical-align: baseline"/>&nbsp;&nbsp;&nbsp;&nbsp;<span class='patt1' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;(Ex. AATAAA, TGTAAA)
                             <br>
                                 <div class="h3_italic" style="float: left;margin-right: 20px;padding-top: 10px;">Region to search around PAC</div><div class="slider" style="float:left;margin-top: 10px"></div><div style="float: left;margin-left: 20px;"></div>
                             <legend id='text' style="clear:both"><span class="h3_italic">Annotation</span>&nbsp;&nbsp;&nbsp;<input type="checkbox" id='annotation-select' value="checkall" checked="true"/>&nbsp;All&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
