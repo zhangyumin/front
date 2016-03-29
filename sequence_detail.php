@@ -75,6 +75,7 @@
             .scale{
                 color:#324a17;
                 font-weight: bold;
+                font-size: 12px;
             }
             .sutr{
                 /*background-color: #6F00D2;*/
@@ -205,6 +206,9 @@
             .SumoSelect{
                 vertical-align: middle;
             }
+            .sequence{
+                font-size: 12px;
+            }
         </style>
         <script src="./src/idangerous.swiper.min.js"></script> 
         <link rel="stylesheet" href="./src/idangerous.swiper.css">
@@ -321,7 +325,7 @@
                     $seq_with_pos .="<span id='pos$coordinate'>$value</span>";
                     if($key%10==9)
                         $seq_with_pos.="&nbsp";
-                    if($key%100 == 99){
+                    if($key%140 == 139){
                         $row_number++;
                         if($row_number<=9)
                             $seq_with_pos.="<br><span class='scale'>0$row_number&nbsp</span>";
