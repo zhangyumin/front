@@ -1086,7 +1086,7 @@
                              $('#tip').webuiPopover({
                                 placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
                                 title:'Gene modal color',
-                                content:'&nbsp;&nbsp;<span style="text-align:center;background-color: #878787">&nbsp;&nbsp;&nbsp;&nbsp;</span>Extended 3\'UTR<br><br>&nbsp;&nbsp;<span style="text-align:center;background-color:#9FE0F6">&nbsp;&nbsp;&nbsp;&nbsp;</span>AMB',
+                                content:'&nbsp;&nbsp;<span style="text-align:center;background-color: #878787">&nbsp;&nbsp;&nbsp;&nbsp;</span>Extended 3\'UTR<br><br>&nbsp;&nbsp;<span style="text-align:center;background-color:#9FE0F6">&nbsp;&nbsp;&nbsp;&nbsp;</span>AMB',//<br><br>&nbsp;&nbsp;<span style="text-align:center;background-color:#00ABD8">&nbsp;&nbsp;&nbsp;&nbsp;</span>CDS
                                 trigger:'hover',
                                 type:'html'
                             });
