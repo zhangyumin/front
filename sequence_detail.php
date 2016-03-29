@@ -310,7 +310,7 @@
                     $seq_with_pos .="<span id='pos$coordinate'>$value</span>";
                     if($key%10==9)
                         $seq_with_pos.="&nbsp";
-                    if($key%100 == 99){
+                    if($key%140 == 139){
                         $row_number++;
                         if($row_number<=9)
                             $seq_with_pos.="<br><span class='scale'>0$row_number&nbsp</span>";
@@ -1190,6 +1190,10 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140
                         </p>
                         <p class = "sequence" id = "sequence" style="word-break:break-all;margin:0px"><?php echo $seq_with_pos;  ?></p>	            	
                     </div>
