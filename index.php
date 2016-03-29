@@ -21,7 +21,13 @@ and open the template in the editor.
                     color: #FFFFFF;
                     cursor: pointer;
             }
-            td a:hover{
+            a:hover{
+                cursor: pointer;
+            }
+            .img:hover{
+               background-color:#fff;
+            }
+/*            td a:hover{
                 background-color: #fff;
             }
             .ref:hover{
@@ -31,7 +37,7 @@ and open the template in the editor.
             }
             .ref{
                 color:blue;
-            }
+            }*/
         </style>
     </head>
     <body>
@@ -98,13 +104,13 @@ and open the template in the editor.
                                 <td>poly(A) sites from leaf, seed, and root tissues of WT and Oxt6 mutant by poly(A) tag sequencing</td>
                                 <td><a id='ref1' class='ref'>Wu et al. PNAS, 2011; Thomas et al. Plant Cell, 2012; Liu et al. PloS One, 2014</a></td>                     
                                 <td>
-                                    <a target="_blank" href="../jbrowse/?data=data/arab">
+                                    <a class='img' target="_blank" href="../jbrowse/?data=data/arab">
                                         <!--<span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>-->
                                         <img src="./pic/browser.png" title="Browse polyA sites in Jbrowse">
                                     </a>
                                 </td>
                                 <td>
-                                    <a target="_blank" href="./sequence_detail.php?species=arab&seq=AT1G01020">
+                                    <a class='img' target="_blank" href="./sequence_detail.php?species=arab&seq=AT1G01020">
                                         <!--<span class="tablebutton" title="Browse gene detail for 'AT1G01020'">View</span>-->
                                         <img src="./pic/detail.png" title="Browse gene detail for 'AT1G01020'">
                                     </a>
@@ -135,7 +141,7 @@ and open the template in the editor.
                                                     <td>wt leaf 1</td>
                                                     <td>WT</td>
                                                     <td>leaf</td>
-                                                    <td>Thomas et al. Plant Cell, 2012</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
                                                     <td>TAIR 10</td>
                                                 </tr>
                                                 <tr>
@@ -143,7 +149,7 @@ and open the template in the editor.
                                                     <td>wt leaf 2</td>
                                                     <td>WT</td>
                                                     <td>leaf</td>
-                                                    <td>Wu et al. PNAS, 2012</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1073%2Fpnas.1019732108">Wu et al. PNAS, 2011</a></td>
                                                     <td>TAIR 10</td>
                                                 </tr>
                                                 <tr>
@@ -151,7 +157,7 @@ and open the template in the editor.
                                                     <td>wt leaf 3</td>
                                                     <td>WT</td>
                                                     <td>leaf</td>
-                                                    <td>Thomas et al. Plant Cell, 2012</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
                                                     <td>TAIR 10</td>
                                                 </tr>
                                                 <tr>
@@ -159,7 +165,7 @@ and open the template in the editor.
                                                     <td>wt seed 1</td>
                                                     <td>WT</td>
                                                     <td>seed</td>
-                                                    <td>Thomas et al. Plant Cell, 2012</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
                                                     <td>TAIR 10</td>
                                                 </tr>
                                                 <tr>
@@ -167,7 +173,7 @@ and open the template in the editor.
                                                     <td>wt seed 2</td>
                                                     <td>WT</td>
                                                     <td>seed</td>
-                                                    <td>Wu et al. PNAS, 2012</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1073%2Fpnas.1019732108">Wu et al. PNAS, 2011</a></td>
                                                     <td>TAIR 10</td>
                                                 </tr>
                                                 <tr>
@@ -175,7 +181,7 @@ and open the template in the editor.
                                                     <td>wt root 1</td>
                                                     <td>WT</td>
                                                     <td>root</td>
-                                                    <td>Liu et al. PloS, 2014</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
                                                     <td>TAIR 10</td>
                                                 </tr>
                                                 <tr>
@@ -183,7 +189,7 @@ and open the template in the editor.
                                                     <td>wt root 2</td>
                                                     <td>WT</td>
                                                     <td>root</td>
-                                                    <td>Liu et al. PloS, 2014</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
                                                     <td>TAIR 10</td>
                                                 </tr>
                                                 <tr>
@@ -191,7 +197,7 @@ and open the template in the editor.
                                                     <td>wt root 3</td>
                                                     <td>WT</td>
                                                     <td>root</td>
-                                                    <td>Liu et al. PloS, 2014</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
                                                     <td>TAIR 10</td>
                                                 </tr>
                                             </tbody>
@@ -219,13 +225,13 @@ and open the template in the editor.
                                 <td>poly(A) sites extracted from ESTs</td>
                                 <td><a id='ref2' class="ref">Shen et al. Nucleic Acids Res, 2008</a></td>                     
                                 <td>
-                                    <a target="_blank" href="../jbrowse/?data=data/japonica">
+                                    <a class='img' target="_blank" href="../jbrowse/?data=data/japonica">
                                         <!--<span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>-->
                                         <img src="./pic/browser.png" title="Browse polyA sites in Jbrowse">
                                     </a>
                                 </td>
                                 <td>
-                                    <a target="_blank" href="./sequence_detail.php?seq=LOC_Os01g01080&species=japonica">
+                                    <a class='img' target="_blank" href="./sequence_detail.php?seq=LOC_Os01g01080&species=japonica">
                                         <!--<span class="tablebutton" title="Browse gene detail for 'LOC_Os01g01080'">View</span>-->
                                         <img src="./pic/detail.png" title="Browse gene detail for 'LOC_Os01g01080'">
                                     </a>
@@ -253,7 +259,7 @@ and open the template in the editor.
                                                     <td>from EST</td>
                                                     <td>mix</td>
                                                     <td>mix</td>
-                                                    <td>shen et al. Plant Cell, 2012</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1093%2Fnar%2Fgkn158">shen et al. Plant Cell, 2012</a></td>
                                                     <td>TAIR 10</td>
                                                 </tr>
                                             </tbody>
@@ -277,13 +283,13 @@ and open the template in the editor.
                                 <td>poly(A) sites from leaf tissue by poly(A) tag sequencing</td>
                                 <td><a id='ref3' class="ref">Wu et al. BMC Genomics, 2014</a></td>                     
                                 <td>
-                                    <a target="_blank" href="../jbrowse/?data=data/mtr">
+                                    <a class='img' target="_blank" href="../jbrowse/?data=data/mtr">
                                         <!--<span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>-->
                                         <img src="./pic/browser.png" title="Browse polyA sites in Jbrowse">
                                     </a>
                                 </td>
                                 <td>
-                                    <a target="_blank" href="./sequence_detail.php?seq=Medtr0019s0160&species=mtr">
+                                    <a class='img' target="_blank" href="./sequence_detail.php?seq=Medtr0019s0160&species=mtr">
                                         <!--<span class="tablebutton" title="Browse gene detail for 'Medtr0019s0160'">View</span>-->
                                         <img src="./pic/detail.png" title="Browse gene detail for 'Medtr0019s0160'">
                                     </a>
@@ -310,7 +316,7 @@ and open the template in the editor.
                                                     <td>wt leaf</td>
                                                     <td>WT</td>
                                                     <td>leaf</td>
-                                                    <td>Wu et al. BMC Genomics, 2014</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1186%2F1471-2164-15-615">Wu et al. BMC Genomics, 2014</a></td>
                                                     <td>JCVI Medtr v4</td>
                                                 </tr>
                                             </tbody>
@@ -336,13 +342,13 @@ and open the template in the editor.
                                 <td>poly(A) sites extracted from ESTs, 454, Illumina, and  PAT-seq sequence reads</td>
                                 <td><a id='ref4' class="ref">Zhao et al. G3:Genes|Genomes|Genetics, 2014; Umen et al. PloS one, 2016</a></td>                     
                                 <td>
-                                    <a target="_blank" href="../jbrowse/?data=data/chlamy">
+                                    <a class='img' target="_blank" href="../jbrowse/?data=data/chlamy">
                                         <!--<span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>-->
                                         <img src="./pic/browser.png" title="Browse polyA sites in Jbrowse">
                                     </a>
                                 </td>
                                 <td>
-                                    <a target="_blank" href="./sequence_detail.php?seq=Cre01.g000650&species=chlamy">
+                                    <a class='img' target="_blank" href="./sequence_detail.php?seq=Cre01.g000650&species=chlamy">
                                         <!--<span class="tablebutton" title="Browse gene detail for ''">View</span>-->
                                         <img src="./pic/detail.png" title="Browse gene detail for 'Cre01.g000650'">
                                     </a>
@@ -369,7 +375,7 @@ and open the template in the editor.
                                                     <td>from illumina</td>
                                                     <td>mix</td>
                                                     <td>mix</td>
-                                                    <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
                                                     <td>Creinhardtii 281 v55</td>
                                                 </tr>
                                                 <tr>
@@ -377,7 +383,7 @@ and open the template in the editor.
                                                     <td>from 454</td>
                                                     <td>mix</td>
                                                     <td>mix</td>
-                                                    <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
                                                     <td>Creinhardtii 281 v55</td>
                                                 </tr>
                                                 <tr>
@@ -385,7 +391,7 @@ and open the template in the editor.
                                                     <td>from EST</td>
                                                     <td>mix</td>
                                                     <td>mix</td>
-                                                    <td>Zhao et al. G3:Genes|Genomes|Genetics, 2014</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
                                                     <td>Creinhardtii 281 v55</td>
                                                 </tr>
                                                 <tr>
@@ -393,7 +399,7 @@ and open the template in the editor.
                                                     <td>from PAT-seq</td>
                                                     <td>mix</td>
                                                     <td>mix</td>
-                                                    <td>Umen et al. PloS one, 2016</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0146107">Umen et al. PloS one, 2016</a></td>
                                                     <td>Creinhardtii 281 v55</td>
                                                 </tr>
                                             </tbody>
