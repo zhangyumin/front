@@ -1117,7 +1117,7 @@
                             <button id = "reset" style = "width:100px;"  class = "button blue medium">Clear</button>
                             <hr style="border-width: 2px"></hr>
                     </div>
-                    <div id = "seq_content" style="max-height:400px;overflow:auto;margin-top:20px;font-family: Courier New;font-size: 15px;">
+                    <div id = "seq_content" style="overflow:auto;margin-top:20px;font-family: Courier New;font-size: 15px;">
                         <p class="scale" style="margin:0px;">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20
