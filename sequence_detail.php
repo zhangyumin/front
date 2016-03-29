@@ -45,7 +45,7 @@
                 width: 700px;
             }
             #text{
-                padding-top: 20px;
+                padding-top: 10px;
             }
             .ui-widget-content .ui-slider-handle.ui-state-default{
                 background: #434d5a;
@@ -163,6 +163,41 @@
             .left{
                 text-align: right;
                 font-weight: bold;
+            }
+            button{
+                    display: inline-block;
+                    white-space: nowrap;
+                    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #cccccc));
+                    background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+                    background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+                    background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
+                    background-image: linear-gradient(to bottom, #eeeeee,#cccccc);
+                    background-color: #eeeeee;
+                    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#FFEEEEEE', endColorstr='#FFCCCCCC');
+                    zoom: 1;
+                    border: 1px solid #777;
+                    border-radius: .2em;
+                    -webkit-box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.8) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+                    box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.8) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+                    color: #333 !important;
+                    cursor: pointer;
+                    font: normal 1em/2em Arial, Helvetica;
+                    margin: 0 0.75em 0 0;
+                    padding: 0 1.5em;
+                    overflow: visible;
+                    /* removes extra side spacing in IE */
+                    text-decoration: none !important;
+                    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+            }
+            button:hover{
+                background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fafafa), color-stop(100%, #dddddd));
+                background-image: -webkit-linear-gradient(top, #fafafa, #dddddd);
+                background-image: -moz-linear-gradient(top, #fafafa, #dddddd);
+                background-image: -ms-linear-gradient(top, #fafafa, #dddddd);
+                background-image: linear-gradient(to bottom, #fafafa,#dddddd);
+                background-color: #fafafa;
+                filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#FFFAFAFA', endColorstr='#FFDDDDDD');
+                zoom: 1;
             }
         </style>
         <script src="./src/idangerous.swiper.min.js"></script> 
@@ -1057,7 +1092,7 @@
                 </legend>
                 <div class = "seq_viewer" id="seq_viewer">
                     <div id = "pattern">	
-                        <span class="h3_italic">Pattern</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="h3_italic" style="padding-bottom:20px">Pattern</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <!--                            <table style="width:950px;margin-top:10px;margin-bottom:10px;font-family: Courier New;font-size: 15px;">
                                 <?php
 //                                echo "<tr>";
@@ -1097,9 +1132,9 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='patt1' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
                             <input type = "text" id = "user_pattern" style="margin-bottom:10px;width:217px;height: 25px;vertical-align: middle"/>(Ex. AATAAA, TGTAAA)
                             <br>
-                            <div style="float: left;margin-right: 20px;">Search</div><div class="slider" style="float:left"></div><div style="float: left;margin-left: 20px;">around PAC</div>
-                            <legend id='text' style="clear:both"><span class="h3_italic">Annotation</span>&nbsp;&nbsp;&nbsp;<input type="checkbox" id='annotation-select' value="checkall" checked="true"/>&nbsp;All<br>
-                                <div style="padding:10px 0px;font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif">
+                                <div class="h3_italic" style="float: left;margin-right: 20px;padding-top: 10px;">Region to search around PAC</div><div class="slider" style="float:left;margin-top: 10px"></div><div style="float: left;margin-left: 20px;"></div>
+                            <legend id='text' style="clear:both"><span class="h3_italic">Annotation</span>&nbsp;&nbsp;&nbsp;<input type="checkbox" id='annotation-select' value="checkall" checked="true"/>&nbsp;All&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <div style="padding:10px 0px;font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;display: inline">
                                     <input type="checkbox" name="cbox2" checked="true" value="EXT"/>&nbsp;<span class='extend' style="text-align:center;">Extended 3'UTR</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <input type="checkbox" name="cbox2" checked="true" value="UTR"/>&nbsp;<span class='sutr' style="text-align:center;">UTR</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <!--<input type="checkbox" name="cbox2" value="5UTR"/>5'UTR&nbsp;<span class='wutr' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;-->
@@ -1111,9 +1146,8 @@
                                     <input type="checkbox" name="cbox2" checked="true" value="PAC"/>&nbsp;<span class="pac">PAC</span>
                                 </div>
                             </legend>
-                            <br>
-                            <button id = "find_patt" style="width:100px;"  class = "button blue medium">Show</button>
-                            <button id = "reset" style = "width:100px;"  class = "button blue medium">Clear</button>
+                            <button id = "find_patt" style="margin:12px 0px" >Show</button>
+                            <button id = "reset" style = "">Clear</button>
                             <hr style="border-width: 2px"></hr>
                     </div>
                     <div id = "seq_content" style="overflow:auto;margin-top:20px;font-family: Courier New;font-size: 15px;">
