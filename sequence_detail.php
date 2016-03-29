@@ -199,6 +199,9 @@
                 filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#FFFAFAFA', endColorstr='#FFDDDDDD');
                 zoom: 1;
             }
+            #tip:hover{
+                background-color: #fff;
+            }
         </style>
         <script src="./src/idangerous.swiper.min.js"></script> 
         <link rel="stylesheet" href="./src/idangerous.swiper.css">
@@ -449,7 +452,8 @@
             var pa_min = Math.min.apply(null,pa_start);
             var pa_max = Math.max.apply(null,pa_start);
             window.onload = function(){
-                $('.pws_tabs_controll').append($('#newwindow'))
+                $('.pws_tabs_controll').append($('#newwindow'));
+                $('.pws_tabs_controll').append($('#tip'));
                     clear();
                     load_pattern();
             }
@@ -1013,6 +1017,7 @@
                     </td>
                     </div>
                 </tr>
+                <a id='tip' src=''><img src='./pic/exp.png' style="height:20px;width: 20px;vertical-align: middle;padding-left: 20px;"></a>
                 <div id="newwindow" style="float:right;display: inline-block;font-weight: bold;background-color: #5db95b;font-size: 22px"><a href="./display.php?species=<?php echo $species;?>&seq=<?php echo $seq ?>" title="view in a new window"><img src="pic/newwindow.png" style="width:20px;padding:10px;height:20px"></a>
                 <tr>
                     <td colspan=2 style="padding-left:0px;padding-right:0px;border-top: 0px">
@@ -1078,6 +1083,13 @@
                                     $('#arrow_detail').attr("src","./pic/up.png");
                                 }
                             }
+                             $('#tip').webuiPopover({
+                                placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
+                                title:'Gene modal color',
+                                content:'&nbsp;&nbsp;<span style="text-align:center;background-color: #878787">&nbsp;&nbsp;&nbsp;&nbsp;</span>Extended 3\'UTR<br><br>&nbsp;&nbsp;<span style="text-align:center;background-color:#9FE0F6">&nbsp;&nbsp;&nbsp;&nbsp;</span>AMB',
+                                trigger:'hover',
+                                type:'html'
+                            });
                         </script>
                     </td>
                 </tr>
