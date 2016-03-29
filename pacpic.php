@@ -531,8 +531,8 @@ and open the template in the editor.
                 </select>
             </div>
             <input id="ratiobutton" type="checkbox" name="ratio" value="ratio" onclick="GetRatio(this)"/>Ratio
-            &nbsp;&nbsp;<span style="text-align:center;background-color: #878787">&nbsp;&nbsp;&nbsp;&nbsp;</span>Extended 3'UTR
-            &nbsp;<span style="text-align:center;background-color:#9FE0F6">&nbsp;&nbsp;&nbsp;&nbsp;</span>AMB
+<!--            &nbsp;&nbsp;<span style="text-align:center;background-color: #878787">&nbsp;&nbsp;&nbsp;&nbsp;</span>Extended 3'UTR
+            &nbsp;<span style="text-align:center;background-color:#9FE0F6">&nbsp;&nbsp;&nbsp;&nbsp;</span>AMB-->
         </div>
         <script>
             $(document).ready(function () {
