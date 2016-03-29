@@ -658,16 +658,16 @@ and open the template in the editor.
                 context.beginPath();
                 //左箭头
                 context.moveTo(300,30);
-                context.lineTo(305,25);
+                context.lineTo(303,26);
                 context.moveTo(300,30);
-                context.lineTo(305,35);
+                context.lineTo(303,34);
                 context.moveTo(300,30);
                 context.lineTo(320,30);
                 //右箭头
                 context.moveTo(400,30);
-                context.lineTo(395,25);
+                context.lineTo(397,26);
                 context.moveTo(400,30);
-                context.lineTo(395,35);
+                context.lineTo(397,34);
                 context.moveTo(400,30);
                 context.lineTo(380,30);
                 context.stroke();
