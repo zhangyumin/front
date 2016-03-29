@@ -8,6 +8,21 @@ and open the template in the editor.
         <script src="./src/jquery-1.10.1.min.js"></script>
         <script src="./src/optselect/jquery.sumoselect.js"></script>
         <link href="./src/optselect/sumoselect.css" rel="stylesheet" />
+        <style>
+            
+            .scale{
+                background-color: transparent;
+                border-radius: 2px;
+                height: 20.6px;
+                vertical-align: bottom;
+            }
+            .scale:hover{
+                border-color: #7799D0;
+            }
+            .origind,.statisticsd,.pacd div span,label{
+                font-size: 12px;
+            }
+        </style>
         <?php
             $con=  mysql_connect("localhost","root","root");
             mysql_select_db("db_server",$con);
@@ -1171,14 +1186,14 @@ and open the template in the editor.
     <body style="font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;">
         <div id="button" style="width:1180px;">
             Scale
-            <select id="scale" onchange="chgScale(this)">
+            <select class="scale" id="scale" onchange="chgScale(this)">
                 <option value="50">50</option>
                 <option value="100">100</option>
                 <option value="200">200</option>
                 <option value="400">400</option>
             </select>&nbsp;
             Mode
-            <select id="mode" onchange="chgMode(this)">
+            <select class="scale" id="mode" onchange="chgMode(this)">
                 <option value="raw">raw</option>
                 <option value="log2">log2</option>
                 <option value="log10">log10</option>
