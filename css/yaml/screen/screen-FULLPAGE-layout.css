@@ -21,6 +21,7 @@
     /*max-width: 80em;*/
     max-width: 90em;
     margin: 0 auto;
+    min-width: 1080px;
   }
 
   .ym-wbox {
