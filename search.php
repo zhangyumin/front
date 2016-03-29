@@ -218,7 +218,7 @@ and open the template in the editor.
                        <div class="ym-grid ym-fbox">
                             <div class="ym-g20 ym-gl">
                                 <label for="species" style="margin-right:2%;">Species:</label>
-                                <select id="species" name="species" style="width:75%" onclick="getchr();getftr();gettip()">
+                                <select id="species" name="species" style="width:70%" onclick="getchr();getftr();gettip()">
                                      <option value="japonica">Japonica rice</option>
                                     <option value="arab" selected="selected">Arabidopsis thaliana</option>
                                     <option value="mtr">Medicago truncatula</option>
@@ -227,21 +227,21 @@ and open the template in the editor.
                             </div>
                             <div class="ym-g20 ym-gl">
                                <label for="chr" style="margin-right: 2%;margin-left: 16%">In</label>
-                                    <select id="chr" name="chr" style="width:75%">
+                                    <select id="chr" name="chr" style="width:70%">
                                         <option value="all" selected="selected">All</option>
                                     </select>
                             </div>
                             <div class="ym-g20 ym-gl">    
                                <label for="start" style="margin-right: 2%;margin-left: 8%"> From</label>
-                               <input type="text" name="start" id="start" style="width:75%">
+                               <input type="text" name="start" id="start" style="width:70%">
                             </div>
                             <div class="ym-g20 ym-gl">
                                <label for="end" style="margin-right: 2%;margin-left: 14%"> To</label>
-                               <input type="text" name="end" id="end" style="width:75%">
+                               <input type="text" name="end" id="end" style="width:70%">
                             </div>
                            <div class="ym-g20 ym-gl">
                                <label for="ftr" style="margin-right: 2%;margin-left: 13%"> For</label>
-                               <select id="ftr" name="ftr" style="width:75%">
+                               <select id="ftr" name="ftr" style="width:74%">
                                     <option value="all" selected="selected">All</option>
                                 </select>
                             </div><div style="clear:both"></div>
