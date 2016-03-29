@@ -142,7 +142,7 @@ and open the template in the editor.
                                                     <td>WT</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
-                                                    <td>TAIR 10</td>
+                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -150,7 +150,7 @@ and open the template in the editor.
                                                     <td>WT</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1073%2Fpnas.1019732108">Wu et al. PNAS, 2011</a></td>
-                                                    <td>TAIR 10</td>
+                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -158,7 +158,7 @@ and open the template in the editor.
                                                     <td>WT</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
-                                                    <td>TAIR 10</td>
+                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -166,7 +166,7 @@ and open the template in the editor.
                                                     <td>WT</td>
                                                     <td>seed</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
-                                                    <td>TAIR 10</td>
+                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -174,7 +174,7 @@ and open the template in the editor.
                                                     <td>WT</td>
                                                     <td>seed</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1073%2Fpnas.1019732108">Wu et al. PNAS, 2011</a></td>
-                                                    <td>TAIR 10</td>
+                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -182,7 +182,7 @@ and open the template in the editor.
                                                     <td>WT</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
-                                                    <td>TAIR 10</td>
+                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -190,7 +190,7 @@ and open the template in the editor.
                                                     <td>WT</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
-                                                    <td>TAIR 10</td>
+                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -198,7 +198,7 @@ and open the template in the editor.
                                                     <td>WT</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
-                                                    <td>TAIR 10</td>
+                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -260,7 +260,7 @@ and open the template in the editor.
                                                     <td>mix</td>
                                                     <td>mix</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1093%2Fnar%2Fgkn158">shen et al. Plant Cell, 2012</a></td>
-                                                    <td>TAIR 10</td>
+                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -317,7 +317,7 @@ and open the template in the editor.
                                                     <td>WT</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1186%2F1471-2164-15-615">Wu et al. BMC Genomics, 2014</a></td>
-                                                    <td>JCVI Medtr v4</td>
+                                                    <td><a href='http://medicago.jcvi.org/medicago/index.php' target="_blank">JCVI Medtr v4</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -376,7 +376,7 @@ and open the template in the editor.
                                                     <td>mix</td>
                                                     <td>mix</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
-                                                    <td>Creinhardtii 281 v55</td>
+                                                    <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Chlamydomonas reinhardtii</td>
@@ -384,7 +384,7 @@ and open the template in the editor.
                                                     <td>mix</td>
                                                     <td>mix</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
-                                                    <td>Creinhardtii 281 v55</td>
+                                                    <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Chlamydomonas reinhardtii</td>
@@ -392,7 +392,7 @@ and open the template in the editor.
                                                     <td>mix</td>
                                                     <td>mix</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
-                                                    <td>Creinhardtii 281 v55</td>
+                                                    <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Chlamydomonas reinhardtii</td>
@@ -400,7 +400,7 @@ and open the template in the editor.
                                                     <td>mix</td>
                                                     <td>mix</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0146107">Umen et al. PloS one, 2016</a></td>
-                                                    <td>Creinhardtii 281 v55</td>
+                                                    <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
