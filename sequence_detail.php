@@ -1057,7 +1057,7 @@
                 </legend>
                 <div class = "seq_viewer" id="seq_viewer">
                     <div id = "pattern">	
-                        <span class="h3_italic">Typical Pattern</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="h3_italic">Pattern</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <!--                            <table style="width:950px;margin-top:10px;margin-bottom:10px;font-family: Courier New;font-size: 15px;">
                                 <?php
 //                                echo "<tr>";
@@ -1074,8 +1074,8 @@
 //                                echo "</tr>";
                                 ?>
                             </table>-->
-                            <input type="checkbox" name="cbox" value="AATAAA"/>&nbsp;<font class="patt_text">AATAAA</font>&nbsp;<span class='aat' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="cbox" value="TGTAA"/>&nbsp;<font class="patt_text">TGTAA</font>&nbsp;<span class='tgt' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input checked="true" type="checkbox" name="cbox" value="AATAAA"/>&nbsp;<font class="patt_text">AATAAA</font>&nbsp;<span class='aat' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input checked="true" type="checkbox" name="cbox" value="TGTAA"/>&nbsp;<font class="patt_text">TGTAA</font>&nbsp;<span class='tgt' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <font class="patt_text">Others</font>&nbsp;<span class='patt2' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;<select id="other_patt"   multiple="multiple" placeholder="Select to display" class="okbutton" >
                                     <option selected value='CATAAA'>CATAAA</option>
                                     <option selected value='GATAAA'>GATAAA</option>
@@ -1094,9 +1094,8 @@
                                     <option selected value='AATAAC'>AATAAC</option>
                                     <option selected value='AATAAG'>AATAAG</option>
                                 </select>
-                            <br><br>
-                                    <span class="h3_italic">User’s Pattern</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='patt1' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                            <input type = "text" id = "user_pattern" style="margin-top:10px;margin-bottom:10px;width:217px;height: 25px"/>(Ex. AATAAA, TGTAAA)
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='patt1' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;
+                            <input type = "text" id = "user_pattern" style="margin-bottom:10px;width:217px;height: 25px;vertical-align: middle"/>(Ex. AATAAA, TGTAAA)
                             <br>
                             <div style="float: left;margin-right: 20px;">Search</div><div class="slider" style="float:left"></div><div style="float: left;margin-left: 20px;">around PAC</div>
                             <legend id='text' style="clear:both"><span class="h3_italic">Annotation</span>&nbsp;&nbsp;&nbsp;<input type="checkbox" id='annotation-select' value="checkall" checked="true"/>&nbsp;All<br>
