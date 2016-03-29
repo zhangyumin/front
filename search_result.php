@@ -62,7 +62,6 @@
                     $gene_array=  array_unique($gene_array);
                     $sql_geneid = "select gene from t_".$_POST['species']."_genedesc where gene in ('".implode("','", $gene_array)."') or alias in ('".implode("','", $gene_array)."');";
                     $geneid_result = mysql_query($sql_geneid);
-                    $gene_array=array();
 //                    var_dump($gene_array);
                     while($geneid_result_row=  mysql_fetch_row($geneid_result)){
                         array_push($gene_array, $geneid_result_row[0]);
