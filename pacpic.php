@@ -9,6 +9,11 @@ and open the template in the editor.
         <script src="./src/jquery-1.10.1.min.js"></script>
         <script src="./src/optselect/jquery.sumoselect.js"></script>
         <link href="./src/optselect/sumoselect.css" rel="stylesheet" />
+        <style>
+            .statisticsd span{
+                font-size: 12px;
+            }
+        </style>
         <?php
             session_start();
             $con=  mysql_connect("localhost","root","root");
