@@ -35,7 +35,7 @@
         <link href="./src/jquery.webui-popover.css" rel="stylesheet" type="text/css"/>
         <style>
             .patt_text{
-                font-size: 15px;
+                font-size: 13px;
             }
             .CaptionCont SlectBox{
                 height: 14px;
@@ -143,7 +143,7 @@
                 #tables{overflow: scroll}
             }
             .h3_italic{
-                font-size: 15px;
+                font-size: 13px;
                 font-weight: bold;
             }
             #text{
@@ -1149,7 +1149,7 @@
                             <br>
                                 <div class="h3_italic" style="float: left;margin-right: 20px;padding-top: 10px;">Region to search around PAC</div><div class="slider" style="float:left;margin-top: 10px"></div><div style="float: left;margin-left: 20px;"></div>
                             <legend id='text' style="clear:both"><span class="h3_italic">Annotation</span>&nbsp;&nbsp;&nbsp;<input type="checkbox" id='annotation-select' value="checkall" checked="true"/>&nbsp;All&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <div style="padding:10px 0px;font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;display: inline">
+                                <div style="padding:10px 0px;font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;display: inline;font-size: 13px;">
                                     <input type="checkbox" name="cbox2" checked="true" value="EXT"/>&nbsp;<span class='extend' style="text-align:center;">Extended 3'UTR</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <input type="checkbox" name="cbox2" checked="true" value="UTR"/>&nbsp;<span class='sutr' style="text-align:center;">UTR</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <!--<input type="checkbox" name="cbox2" value="5UTR"/>5'UTR&nbsp;<span class='wutr' style="text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;-->
