@@ -256,11 +256,11 @@ and open the template in the editor.
                         </div>
                         <div class="ym-grid ym-fbox">
                             <label for="go_name" class="margin5px">GO term name:</label><a id="termexp" class="demo"><img src="./pic/exp.png" style="width:15px;height: 15px;display: inline-block;vertical-align: bottom;padding-bottom: 1px;"></a>
-                            <textarea type='text' name='go_name' style="width:100%;height: 25px"></textarea>
+                            <textarea type='text' name='go_name' id='go_name' style="width:100%;height: 25px"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
                             <label for="function" class="margin5px">Function:</label><a id="functionexp" class="demo"><img src="./pic/exp.png" style="width:15px;height: 15px;display: inline-block;vertical-align: bottom;padding-bottom: 1px;"></a>
-                            <textarea type='text' name='function' style="width:100%;height: 25px"></textarea>
+                            <textarea type='text' name='function' id='function' style="width:100%;height: 25px"></textarea>
                         </div>
                         <div class="ym-grid ym-fbox">
                                 <button type="submit">Submit</button>
@@ -317,31 +317,34 @@ and open the template in the editor.
                                                 document.getElementById("go_accession").value="GO:0005507,GO:0003743";
                                         }
                                     }
+                                    function generate_term(){
+                                        
+                                    }
                                      $('#nameexp').webuiPopover({
                                         placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
-                                        title:'demo',
+                                        title:'Example',
                                         content:'<a id="tip1" onclick="javascript:name_demo()">ARC2,GIF2,AT1G01020,JAM2,AT1G02130</a>',
                                         trigger:'hover',
                                         type:'html'
                                     });
                                     $('#goexp').webuiPopover({
                                         placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
-                                        title:'demo',
+                                        title:'Example',
                                         content:'<a id="tip2" onclick="javascript:go_demo()">GO:0006888,GO:0006355</a>',
                                         trigger:'hover',
                                         type:'html'
                                     });
                                     $('#termexp').webuiPopover({
                                         placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
-                                        title:'demo',
-                                        content:'plasma',
+                                        title:'Example',
+                                        content:'<a onclick=\"javascript:document.getElementById(\'go_name\').value=\'plasma\';\">plasma</a>',
                                         trigger:'hover',
                                         type:'html'
                                     });
                                     $('#functionexp').webuiPopover({
                                         placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
-                                        title:'demo',
-                                        content:'transcript',
+                                        title:'Example',
+                                        content:'<a onclick=\"javascript:document.getElementById(\'function\').value=\'transport\';\">transport</a>',
                                         trigger:'hover',
                                         type:'html'
                                     });
