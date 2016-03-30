@@ -48,9 +48,9 @@ and open the template in the editor.
                     <div id="info" style="float:left;background-color: #eee;width: 70%;border-radius: 20px">
                         <div style="padding:20px">
                             <img src="./pic/logo.png" style="float:left;height: 70px"> 
-                            <h1 style="padding:20px 0px 0px 0px;">Welcome to PlantAPA!</h1>
+                            <h2 style="padding:20px 0px 0px 0px;text-align: left;vertical-align: bottom;font-weight: bold">Welcome to PlantAPA!</h2>
                             <hr style="margin:10px 0px;border-top: 1px solid #d5d5d5;clear: both">
-                            <p style="font-size:18px;word-spacing:1px; letter-spacing: 0px;color: #000;text-align: justify;">PlantAPA is a web server for query, visualization, and analysis of poly(A) sites in plants, which can profile heterogeneous cleavage sites and quantify expression pattern of poly(A) sites across different conditions. To date, PlantAPA provides the largest database of APA in plants, including rice, Arabidopsis, Medicago truncatula, and Chlamydomonas reinhardtii.</p>
+                            <p style="font-size:17px;word-spacing:0px; letter-spacing: 0px;color: #000;text-align: justify;">PlantAPA is a web server for query, visualization, and analysis of poly(A) sites in plants, which can profile heterogeneous cleavage sites and quantify expression pattern of poly(A) sites across different conditions. To date, PlantAPA provides the largest database of APA in plants, including rice, Arabidopsis, Medicago truncatula, and Chlamydomonas reinhardtii.</p>
                             <p style="float:right;"><a href="./info.php" style="background-color:#5db95b;color:#fff;padding: 6px 12px;font-size: 12px;text-align: center;vertical-align: middle;border-radius: 4px;">More details</a></p>
                         </div>  
                     </div>
