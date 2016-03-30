@@ -541,8 +541,13 @@
                 var slider_all = $(".ui-slider-tip").text();
                 var slider_max = slider_all.substr(slider_min.length);
 //                alert("range:"+slider_min+":"+slider_max);
-                var min = Number(pa_min) + Number(slider_min);
-                var max = Number(pa_max) + Number(slider_max);
+                if(strand == 1){
+                    var min = Number(pa_min) + Number(slider_min);
+                    var max = Number(pa_max) + Number(slider_max);
+                }else if(strand == -1){
+                    var min = Number(pa_min) - Number(slider_max);
+                    var max = Number(pa_max) - Number(slider_min);
+                }
 //                alert("range:"+min+":"+max);
                 //ftr部分
                 if(ftr.indexOf("UTR")!=-1){
