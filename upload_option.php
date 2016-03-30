@@ -42,6 +42,9 @@ and open the template in the editor.
                 left: 50%;
                 padding: 20px;
             }
+            #addoption td{
+                vertical-align: middle;
+            }
         </style>
         <!--[if lte IE 7]>
         <link href="./css/iehacks.min.css" rel="stylesheet" type="text/css" />
@@ -281,7 +284,46 @@ and open the template in the editor.
                             </h4>
                         </div>
                         <div class="box info">
-                            <font style="font-weight:100;">
+                            <table id='addoption'>
+                                <tbody>
+                                    <tr>
+                                        <td>Quality cut-off:</td>
+                                        <td><input type="text" name="qct" value="20" size="1" style="height:30px;width: 210px"/></td>
+                                        <td>Minimum percentage:</td>
+                                        <td><input type="text" name="mp" value="50" size="1" style="height:30px;width: 210px"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Poly type:</td>
+                                        <td><select id="tailremove" name="tailremove" style="height:30px;width:210px;">
+                                                <option value="A">A</option>
+                                                <option value="T" selected="true">T</option>
+                                                <option value="unknown">unknown</option>
+                                                </select>
+                                        </td>
+                                        <td>Min length:</td>
+                                        <td><input type="text" name="minlength" value="25" size="1" style="height:30px;width: 210px"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Aligner:</td>
+                                        <td><select id="aligner" name="aligner" style="height:30px;width:210px;">
+                                                <option value="bowtie2">bowtie2</option>
+                                                <option value="bowtie">bowtie</option>
+                                                </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Remove internal priming:</td>
+                                        <td><input type="radio" name="rip" value="yes" checked="checked" style=""/>YES
+                                                <input type="radio" name="rip" value="no" style="margin-left:130px"/>NO
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Distance:</td>
+                                        <td><input type="text" name="distance" value="24" size="1" style="height:30px;width:210px;"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+<!--                            <font style="font-weight:100;">
                             Quality cut-off: <input type="text" name="qct" value="20" size="1" style="margin-left: 21px;margin-right: 23px;height:30px;width: 210px"/>
                             Minimum percentage: <input type="text" name="mp" value="50" size="1" style="height:30px;width: 210px"/>
                             <br><br>
@@ -302,7 +344,7 @@ and open the template in the editor.
                                 <input type="radio" name="rip" value="no" style="margin-left:65px;margin-top: 5px;"/>NO
                             <br><br>
                                 Distance: <input type="text" name="distance" value="24" size="1" style="margin-left: 50px;height:30px;width:210px;"/>
-                                </font>
+                                </font>-->
                         </div>
                         <div class="step-title">
                             <h4>
