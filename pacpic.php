@@ -719,7 +719,7 @@ and open the template in the editor.
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 30,
+                            x: 40,
                             x2: 10,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
