@@ -464,8 +464,8 @@ and open the template in the editor.
                     context.moveTo(990,65);
                     context.lineTo(995,65);
                     context.lineTo(1000,60);
-                    context.lineTo(995,35);
-                    context.lineTo(990,35);
+                    context.lineTo(995,55);
+                    context.lineTo(990,55);
                     context.lineTo(990,45);
                 }
                 else if(strand==-1){
