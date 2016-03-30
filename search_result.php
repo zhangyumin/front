@@ -537,7 +537,33 @@
                                 view:{
                                     title:'jbrowse',
                                     display: function (data) {
-                                        return "<a title='click to view detail in jbrowse' target=\"_blank\" href=\"../jbrowse/?data=data/"+species+"&amp;loc="+data.record.chr+":"+data.record.coord+"\">"+"<img src='./pic/browser.png'/></a>";
+                                        if(data.record.strand == '+'){
+                                            if(species == 'arab')
+                                                return "<a title='click to view detail in jbrowse' target=\"_blank\" href=\"../jbrowse/?data=data/"+species+"&amp;loc="+data.record.chr+":"+data.record.coord+"&tracks=DNA,Gene annotation,PlantAPA stored PAC,oxt6_leaf_1%20PAT%20plus%20strand%2Coxt6_leaf_2%20PAT%20plus%20strand%2Coxt6_leaf_3%20PAT%20plus%20strand%2Coxt6_root_1%20PAT%20plus%20strand%2Coxt6_root_2%20PAT%20plus%20strand%2Coxt6_root_3%20PAT%20plus%20strand%2Cwt_leaf_1%20PAT%20plus%20strand%2Cwt_leaf_2%20PAT%20plus%20strand%2Cwt_leaf_3%20PAT%20plus%20strand%2Cwt_root_1%20PAT%20plus%20strand%2Cwt_root_2%20PAT%20plus%20strand%2Cwt_root_3%20PAT%20plus%20strand%2Cwt_seed_1%20PAT%20plus%20strand%2Cwt_seed_2%20PAT%20plus%20strand\">"+"<img src='./pic/browser.png'/></a>";
+                                            else if(species == 'japonica'){
+                                                return "<a title='click to view detail in jbrowse' target=\"_blank\" href=\"../jbrowse/?data=data/"+species+"&amp;loc="+data.record.chr+":"+data.record.coord+"&tracks=DNA,Gene annotation,PlantAPA stored PAC,from_EST%20PAT%20plus%20strand\">"+"<img src='./pic/browser.png'/></a>";
+                                            }
+                                            else if(species == 'mtr'){
+                                                return "<a title='click to view detail in jbrowse' target=\"_blank\" href=\"../jbrowse/?data=data/"+species+"&amp;loc="+data.record.chr+":"+data.record.coord+"&tracks=DNA,Gene annotation,PlantAPA stored PAC,wt_leaf_1%20PAT%20plus%20strand\">"+"<img src='./pic/browser.png'/></a>";
+                                            }
+                                            else if(species == 'chlamy'){
+                                                return "<a title='click to view detail in jbrowse' target=\"_blank\" href=\"../jbrowse/?data=data/"+species+"&amp;loc="+data.record.chr+":"+data.record.coord+"&tracks=DNA,Gene annotation,PlantAPA stored PAC,From_454%20PAT%20plus%20strand%2CFrom_EST%20PAT%20plus%20strand%2Cfrom_illumina%20PAT%20plus%20strand%2CFrom_PATseq%20PAT%20plus%20strand\">"+"<img src='./pic/browser.png'/></a>";
+                                            }
+                                        }
+                                        else if(data.record.strand == '-'){
+                                            if(species == 'arab'){
+                                                return "<a title='click to view detail in jbrowse' target=\"_blank\" href=\"../jbrowse/?data=data/"+species+"&amp;loc="+data.record.chr+":"+data.record.coord+"&tracks=DNA,Gene annotation,PlantAPA stored PAC,oxt6_leaf_1%20PAT%20minus%20strand%2Coxt6_leaf_2%20PAT%20minus%20strand%2Coxt6_leaf_3%20PAT%20minus%20strand%2Coxt6_root_1%20PAT%20minus%20strand%2Coxt6_root_2%20PAT%20minus%20strand%2Coxt6_root_3%20PAT%20minus%20strand%2Cwt_leaf_1%20PAT%20minus%20strand%2Cwt_leaf_2%20PAT%20minus%20strand%2Cwt_leaf_3%20PAT%20minus%20strand%2Cwt_root_1%20PAT%20minus%20strand%2Cwt_root_2%20PAT%20minus%20strand%2Cwt_root_3%20PAT%20minus%20strand%2Cwt_seed_1%20PAT%20minus%20strand%2Cwt_seed_2%20PAT%20minus%20strand\">"+"<img src='./pic/browser.png'/></a>";
+                                            }
+                                            else if(species == 'japonica'){
+                                                return "<a title='click to view detail in jbrowse' target=\"_blank\" href=\"../jbrowse/?data=data/"+species+"&amp;loc="+data.record.chr+":"+data.record.coord+"&tracks=DNA,Gene annotation,PlantAPA stored PAC,from_EST%20PAT%20minus%20strand\">"+"<img src='./pic/browser.png'/></a>";
+                                            }
+                                            else if(species == 'mtr'){
+                                                return "<a title='click to view detail in jbrowse' target=\"_blank\" href=\"../jbrowse/?data=data/"+species+"&amp;loc="+data.record.chr+":"+data.record.coord+"&tracks=DNA,Gene annotation,PlantAPA stored PAC,wt_leaf_1%20PAT%20minus%20strand\">"+"<img src='./pic/browser.png'/></a>";
+                                            }
+                                            else if(species == 'chlamy'){
+                                                return "<a title='click to view detail in jbrowse' target=\"_blank\" href=\"../jbrowse/?data=data/"+species+"&amp;loc="+data.record.chr+":"+data.record.coord+"&tracks=DNA,Gene annotation,PlantAPA stored PAC,From_454%20PAT%20minus%20strand%2CFrom_EST%20PAT%20minus%20strand%2Cfrom_illumina%20%20PAT%20minus%20strand%2CFrom_PATseq%20%20PAT%20minus%20strand\">"+"<img src='./pic/browser.png'/></a>";
+                                            }
+                                        }
                                     }
                                 }
                             }
