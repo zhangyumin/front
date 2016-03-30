@@ -38,6 +38,9 @@ and open the template in the editor.
             .ref{
                 color:blue;
             }*/
+            a{
+                color:blue;
+            }
         </style>
     </head>
     <body>
