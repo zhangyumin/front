@@ -188,24 +188,6 @@ and open the template in the editor.
                             sltFtr[i+1]=new Option(speciesFtr[i],speciesFtrValue[i]);
                         }
                     }
-                    function gettip(){
-                        if(document.getElementById("species").value=='arab'){
-                            $("#tip1").text("ARC2,GIF2,AT1G01020,JAM2,AT1G02130");
-                            $("#tip2").text("GO:0006888,GO:0006355");
-                        }
-                        else if(document.getElementById("species").value=='japonica'){
-                            $("#tip1").text("LOC_Os01g01070,LOC_Os01g03070,LOC_Os01g01307");
-                            $("#tip2").text("GO:0009987,GO:0009987");
-                        }
-                        else if(document.getElementById("species").value=='mtr'){
-                            $("#tip1").text("Medtr0236s0040,Medtr0246s0020,Medtr0251s0050");
-                            $("#tip2").text("GO:0003899,GO:0006412");
-                        }
-                        else if(document.getElementById("species").value=='chlamy'){
-                            $("#tip1").text("Cre04.g225950,Cre04.g226050,Cre04.g226150");
-                            $("#tip2").text("GO:0005507,GO:0003743");
-                        }
-                    }
     </script>
     <body onload="getchr();getftr();gettip()">        
         <?php include './navbar.php'; ?>
@@ -348,6 +330,24 @@ and open the template in the editor.
                                         trigger:'hover',
                                         type:'html'
                                     });
+                                    function gettip(){
+                                        if(document.getElementById("species").value=='arab'){
+                                            $("#tip1").text("ARC2,GIF2,AT1G01020,JAM2,AT1G02130");
+                                            $("#tip2").text("GO:0006888,GO:0006355");
+                                        }
+                                        else if(document.getElementById("species").value=='japonica'){
+                                            $("#tip1").text("LOC_Os01g01070,LOC_Os01g03070,LOC_Os01g01307");
+                                            $("#tip2").text("GO:0009987,GO:0009987");
+                                        }
+                                        else if(document.getElementById("species").value=='mtr'){
+                                            $("#tip1").text("Medtr0236s0040,Medtr0246s0020,Medtr0251s0050");
+                                            $("#tip2").text("GO:0003899,GO:0006412");
+                                        }
+                                        else if(document.getElementById("species").value=='chlamy'){
+                                            $("#tip1").text("Cre04.g225950,Cre04.g226050,Cre04.g226150");
+                                            $("#tip2").text("GO:0005507,GO:0003743");
+                                        }
+                                    }
                                 </script>
                         </div>
                         </form>
