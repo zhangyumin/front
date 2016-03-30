@@ -189,7 +189,7 @@ and open the template in the editor.
                         }
                     }
     </script>
-    <body onload="getchr();getftr();gettip()">        
+    <body onload="getchr();getftr();">        
         <?php include './navbar.php'; ?>
         <div class="ym-wrapper">
                 <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
@@ -299,20 +299,17 @@ and open the template in the editor.
                                                 document.getElementById("go_accession").value="GO:0005507,GO:0003743";
                                         }
                                     }
-                                    function generate_term(){
-                                        
-                                    }
-                                     $('#nameexp').webuiPopover({
+                                    $('#nameexp').webuiPopover({
                                         placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
                                         title:'Example',
-                                        content:'<a id="tip1" onclick="javascript:name_demo()">ARC2,GIF2,AT1G01020,JAM2,AT1G02130</a>',
+                                        content:'<a id="tip1" onclick="javascript:name_demo()">Generate gene id and gene alias example</a>',
                                         trigger:'hover',
                                         type:'html'
                                     });
                                     $('#goexp').webuiPopover({
                                         placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
                                         title:'Example',
-                                        content:'<a id="tip2" onclick="javascript:go_demo()">GO:0006888,GO:0006355</a>',
+                                        content:'<a id="tip2" onclick="javascript:go_demo()">Generate GO id example</a>',
                                         trigger:'hover',
                                         type:'html'
                                     });
