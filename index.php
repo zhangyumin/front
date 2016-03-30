@@ -128,7 +128,7 @@ and open the template in the editor.
                                             <thead>
                                                 <tr class="theme" bgcolor="#5db95b">
                                                     <td class="theme"  height="24">Species</td>
-                                                    <td class="theme"  height="24">Lable</td>
+                                                    <td class="theme"  height="24">Label</td>
                                                     <td class="theme"  height="24">Cell Line</td>
                                                     <td class="theme"  height="24">Tissue</td>
                                                     <td class="theme"  height="24">Reference</td>
@@ -311,7 +311,7 @@ and open the template in the editor.
                                             <tbody>
                                                 <tr class="theme">
                                                     <td class="theme" bgcolor="#5db95b" align="center" height="24">Species</td>
-                                                    <td class="theme" bgcolor="#5db95b" align="center" height="24">Lable</td>
+                                                    <td class="theme" bgcolor="#5db95b" align="center" height="24">Label</td>
                                                     <td class="theme" bgcolor="#5db95b" align="center" height="24">Cell Line</td>
                                                     <td class="theme" bgcolor="#5db95b" align="center" height="24">Tissue</td>
                                                     <td class="theme" bgcolor="#5db95b" align="center" height="24">Reference</td>
@@ -370,7 +370,7 @@ and open the template in the editor.
                                             <tbody>
                                                 <tr class="theme" bgcolor="#5db95b">
                                                     <td class="theme"  height="24">Species</td>
-                                                    <td class="theme"  height="24">Lable</td>
+                                                    <td class="theme"  height="24">Label</td>
                                                     <td class="theme"  height="24">Cell Line</td>
                                                     <td class="theme"  height="24">Tissue</td>
                                                     <td class="theme"  height="24">Reference</td>
@@ -431,7 +431,7 @@ and open the template in the editor.
                                             <tbody>
                                                 <tr class="theme" bgcolor="#5db95b">
                                                     <td class="theme"  height="24">Species</td>
-                                                    <td class="theme"  height="24">Lable</td>
+                                                    <td class="theme"  height="24">Label</td>
                                                     <td class="theme"  height="24">Cell Line</td>
                                                     <td class="theme"  height="24">Tissue</td>
                                                     <td class="theme"  height="24">Reference</td>
