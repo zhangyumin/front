@@ -75,7 +75,7 @@
             $con=  mysql_connect("localhost","root","root");
             mysql_select_db("db_server",$con);
             session_start();
-            
+            $coord = $_GET['coord'];
             $seq = $_GET['seq'];
             if(isset($_GET['species'])){
                 $species = $_GET['species'];
