@@ -39,10 +39,10 @@ and open the template in the editor.
         }
         .panel-body{
             padding: 15px;
-            font-size: 16px;
+            font-size: 14px;
             letter-spacing: 0.5px;
             text-align: justify;
-            word-spacing: 1px;
+            word-spacing: 0px;
         }
     </style>
     <body>
