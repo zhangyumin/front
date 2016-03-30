@@ -323,7 +323,7 @@ and open the template in the editor.
                                                     <td>from EST</td>
                                                     <td>mix</td>
                                                     <td>mix</td>
-                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1093%2Fnar%2Fgkn158">shen et al. Plant Cell, 2012</a></td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1093%2Fnar%2Fgkn158">Shen et al. Plant Cell, 2012</a></td>
                                                     <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
                                                     <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cfrom_EST%20PAT%20minus%20strand%2Cfrom_EST%20PAT%20plus%20strand&highlight=' target='_blanck'>57852</a></td>
                                                 </tr>
