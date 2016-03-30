@@ -42,8 +42,11 @@ and open the template in the editor.
                 left: 50%;
                 padding: 20px;
             }
-            #addoption td{
+            .addoption td{
                 vertical-align: middle;
+            }
+            #est-add td:first-child{
+                width: 270px;
             }
         </style>
         <!--[if lte IE 7]>
@@ -284,7 +287,7 @@ and open the template in the editor.
                             </h4>
                         </div>
                         <div class="box info">
-                            <table id='addoption'>
+                            <table class='addoption' id='shortadd'>
                                 <tbody>
                                     <tr>
                                         <td>Quality cut-off:</td>
@@ -434,7 +437,37 @@ and open the template in the editor.
                             </h4>
                     </div>
                         <div class="box info">
-                            PolyA type: <select id="poly_type" name="poly_type" style="margin-left:200px;margin-bottom:5px;height:30px;width:210px;display: inline">
+                            <table class="addoption" id='est-add'>
+                                <tbody>
+                                    <tr>
+                                        <td>PolyA type:</td>
+                                        <td><select id="poly_type" name="poly_type" style="height:30px;width:210px">
+                                                <option value="A">A</option>
+                                                <option value="T">T</option>
+                                                <option value="AT">A&T</option>
+                                                </select>
+                                        </td>
+                                        <td></td><td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Min tail length (nt) :</td>
+                                        <td><input type="text" name="min_tail_length" value="8" size="1" style="height:30px;width:210px;"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Search tail within (nt) :</td>
+                                        <td><input type="text" name="search_tail_within" value="15" size="1" style="width: 210px;height:30px;"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Max distance from aligned-end to EST-end (nt) :</td>
+                                        <td><input type="text" name="max_distance1" value="20" size="1" style="width: 210px;height:30px;"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Max distance from aligned-end to poly tail (nt) :</td>
+                                        <td><input type="text" name="max_distance1" value="5" size="1" style="width: 210px;height:30px;"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+<!--                            PolyA type: <select id="poly_type" name="poly_type" style="margin-left:200px;margin-bottom:5px;height:30px;width:210px;display: inline">
                                                 <option value="A">A</option>
                                                 <option value="T">T</option>
                                                 <option value="AT">A&T</option>
@@ -446,7 +479,7 @@ and open the template in the editor.
                             <br>
                             Max distance from aligned-end to EST-end (nt) : <input type="text" name="max_distance1" value="20" size="1" style="margin-left:4px;margin-bottom: 5px;width: 210px;display: inline;height:30px;"/>
                             <br>
-                            Max distance from aligned-end to poly tail (nt) : <input type="text" name="max_distance1" value="5" size="1" style="margin-left:11px;display: inline;width: 210px;height:30px;"/>
+                            Max distance from aligned-end to poly tail (nt) : <input type="text" name="max_distance1" value="5" size="1" style="margin-left:11px;display: inline;width: 210px;height:30px;"/>-->
                         </div>
                     <div class="step-title">
                         <h4>
