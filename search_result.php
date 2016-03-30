@@ -484,7 +484,7 @@
                                     edit:false,
                                     create:false,
                                     columnResizable:false,
-                                    title:'gene',
+                                    title:'Gene',
                                     edit:false,
                                     display: function (data) {
                                         if(data.record.ftr=='intergenic.igt' || data.record.ftr=='intergenic.pm'){
@@ -500,27 +500,27 @@
                                     }
                                 },
                                 chr:{
-                                    title:'chromosome',
+                                    title:'Chromosome',
                                     edit:false
                                 },
                                 strand:{
-                                    title:'strand',
+                                    title:'Strand',
                                     edit:false
                                 },
                                 coord:{
-                                    title:'coordinate',
+                                    title:'Coordinate',
                                     edit:false
                                 },
                                 ftr:{
-                                    title:'genomic region',
+                                    title:'Genomic region',
                                     edit:false
                                 },
                                 gene_type:{
-                                    title:'gene type',
+                                    title:'Gene type',
                                     edit:false
                                 },
                                 detail:{
-                                    title:'view',
+                                    title:'View',
                                     display: function (data) {
                                         if(data.record.ftr=='intergenic.igt' || data.record.ftr=='intergenic.pm'){
                                             if(data.record.strand=='-'){
@@ -535,7 +535,7 @@
                                     }
                                 },
                                 view:{
-                                    title:'jbrowse',
+                                    title:'Jbrowse',
                                     display: function (data) {
                                         if(data.record.strand == '+'){
                                             if(species == 'arab')
