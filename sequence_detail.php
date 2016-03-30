@@ -810,13 +810,14 @@
                                         <td class="left">Gene Type:</td>
                                         <?php
                                                     if($_GET['flag']=='intergenic'){
-                                                        $sql="select gene_type from t_".$species."_gff_all where gene=\"".$_GET['seq']."\" and ftr='intergenic';";
+                                                        echo "<td>Intergenic region</td>";
                                                     }
-                                                    else
+                                                    else{
                                                         $sql="select gene_type from t_".$species."_gff_all where gene=\"".$_GET['seq']."\" and ftr='gene';";
-                                                    $type=mysql_query($sql);
-                                                    while($gene_type= mysql_fetch_row($type)){
-                                                            echo "<td>$gene_type[0]</td>";
+                                                        $type=mysql_query($sql);
+                                                        while($gene_type= mysql_fetch_row($type)){
+                                                                echo "<td>$gene_type[0]</td>";
+                                                        }
                                                     }
                                                 ?>
                                     </tr>
