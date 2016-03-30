@@ -672,7 +672,7 @@ and open the template in the editor.
 
                     var option1 = {
                         title : {
-                            text: 'PAC Tagnum',
+//                            text: 'PAC Tagnum',
 //                            subtext: '纯属虚构'
                         },
                         tooltip : {
@@ -714,12 +714,14 @@ and open the template in the editor.
                             {
 //                                max: 100,
 //                                min: -10,
+                                name:"Number of PATs",
+                                nameLocation:'end',
                                 scale: 0,
                                 type : 'value'
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 40,
+                            x: 75,
                             x2: 10,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
@@ -782,7 +784,7 @@ and open the template in the editor.
                     };
                     var option2 = {
                         title : {
-                            text: 'PAC Grouped Sum',
+//                            text: 'PAC Grouped Sum',
 //                            subtext: '纯属虚构'
                         },
                         tooltip : {
@@ -824,12 +826,13 @@ and open the template in the editor.
                             {
 //                                max: 100,
 //                                min: -10,
+                                name: 'PAC Grouped Sum',
                                 scale: 0,
                                 type : 'value'
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 40,
+                            x: 75,
                             x2: 15,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
@@ -899,7 +902,7 @@ and open the template in the editor.
                     };
                     var option3 = {
                         title : {
-                            text: 'PAC Grouped Average',
+//                            text: 'PAC Grouped Average',
 //                            subtext: '纯属虚构'
                         },
                         tooltip : {
@@ -941,12 +944,13 @@ and open the template in the editor.
                             {
 //                                max: 100,
 //                                min: -10,
+                                name: 'PAC Grouped Average',
                                 scale: 0,
                                 type : 'value'
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 40,
+                            x: 75,
                             x2: 15,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
@@ -1016,7 +1020,7 @@ and open the template in the editor.
                     };
                     var option4 = {
                         title : {
-                            text: 'PAC Grouped Median',
+//                            text: 'PAC Grouped Median',
 //                            subtext: '纯属虚构'
                         },
                         tooltip : {
@@ -1058,12 +1062,13 @@ and open the template in the editor.
                             {
 //                                max: 100,
 //                                min: -10,
+                                name: 'PAC Grouped Median',
                                 scale: 0,
                                 type : 'value'
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 40,
+                            x: 75,
                             x2: 15,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
@@ -1133,7 +1138,7 @@ and open the template in the editor.
                     };
                     var option5 = {
                         title : {
-                            text: 'PAC Tagnum(ratio)',
+//                            text: 'PAC Tagnum(ratio)',
 //                            subtext: '纯属虚构'
                         },
                         tooltip : {
@@ -1175,12 +1180,13 @@ and open the template in the editor.
                             {
                                 max: 1,
                                 min: 0,
+                                name: 'PAC Tagnum(ratio)',
                                 scale: 0,
                                 type : 'value'
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 40,
+                            x: 75,
                             x2: 15,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
@@ -1264,7 +1270,7 @@ and open the template in the editor.
                     };
                     var option6 = {
                         title : {
-                            text: 'PAC Grouped Sum(ratio)',
+//                            text: 'PAC Grouped Sum(ratio)',
 //                            subtext: '纯属虚构'
                         },
                         tooltip : {
@@ -1306,12 +1312,13 @@ and open the template in the editor.
                             {
                                 max: 1,
                                 min: 0,
+                                name: 'PAC Grouped Sum(ratio)',
                                 scale: 0,
                                 type : 'value'
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 40,
+                            x: 75,
                             x2: 15,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
@@ -1386,7 +1393,7 @@ and open the template in the editor.
                     };
                     var option7 = {
                         title : {
-                            text: 'PAC Grouped Average(ratio)',
+//                            text: 'PAC Grouped Average(ratio)',
 //                            subtext: '纯属虚构'
                         },
                         tooltip : {
@@ -1428,12 +1435,13 @@ and open the template in the editor.
                             {
                                 max: 1,
                                 min: 0,
+                                name: 'PAC Grouped Average(ratio)',
                                 scale: 0,
                                 type : 'value'
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 40,
+                            x: 85,
                             x2: 15,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
@@ -1507,7 +1515,7 @@ and open the template in the editor.
                     };
                     var option8 = {
                         title : {
-                            text: 'PAC Grouped Median(ratio)',
+//                            text: 'PAC Grouped Median(ratio)',
 //                            subtext: '纯属虚构'
                         },
                         tooltip : {
@@ -1549,12 +1557,13 @@ and open the template in the editor.
                             {
                                 max: 1,
                                 min: 0,
+                                name: 'PAC Grouped Median(ratio)',
                                 scale: 0,
                                 type : 'value'
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 40,
+                            x: 75,
                             x2: 15,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
