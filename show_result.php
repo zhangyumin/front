@@ -666,8 +666,9 @@
                 title: {  
                     text: 'Hexamers', 
 //                    subtext: 'exon',
-                    x: 'center',  
-                    y: '100'  
+                    x: 'left',  
+                    y: '100',
+                    show:false
                 },  
                 tooltip: {  
                     trigger: 'item'  
