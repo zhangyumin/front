@@ -199,7 +199,7 @@
                             <br>Fig. 20 Gene summary information
                         </div>
                         <!--<h3>6.1. Graphical representation</h3>-->
-                        <p>Three kinds of graphs are displayed in the middle of the page to quantify and visualize the PAC/PAT distributions across samples.
+                        <p id='seqresult'>Three kinds of graphs are displayed in the middle of the page to quantify and visualize the PAC/PAT distributions across samples.
                         One is a screenshot of a particular section of the PAC browser to show the intron-exon structure of a gene (if the PAC is located in genomic region) and the PAC/PAT tracks, which facilitates users to preview the gene model and locations of PACs before switching to the PAC browser<span class="pic_red"> (Fig. 21)</span>.
                         </p>
                         <div class="picdiv">
