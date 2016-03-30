@@ -22,19 +22,19 @@ and open the template in the editor.
     </head>
     <style>
         .row{
-            border: #bce8f1 1px solid;
+            border: #faebcc 1px solid;
             border-radius: 5px;
             font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;
         }
         .panel-title{
-            color:#5499c9;
+            color:#8a6b3d;
             padding-left: 10px;
             margin-top: 0;
             margin-bottom: 0;
             font-size: 18px;
         }
         .panel-heading{
-            background-color: #bce8f1;
+            background-color: #fcf8a1;
             padding: 10px 15px;
         }
         .panel-body{
