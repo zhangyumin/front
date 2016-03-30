@@ -1,14 +1,14 @@
 <meta name="renderer" content="webkit">
-<header>
-  <div class="ym-wrapper">
+<header style="background-image:url(./pic/navbgimg.jpg) ;background-position: 0px -200px;height: 150px;background-size: cover;background-repeat: no-repeat;min-width: 1080px">
+    <div>
 <!--    <div class="ym-wbox">
         <img src="./pic/biglogoshadow.jpg"/>
         <span style="float:right;font-size: 15px">a portal for visualization and analysis of alternative polyadenylation in plants</span>
     </div>-->
         <!--<img style="float:left;" src="./pic/logo.jpg"/>-->
-        <img style="float:left;height: 80px;" src="./pic/biglogo.png"/>
-        <span style="float:left;font-size: 18px;padding: 40px 0px 0px 3%">A portal for visualization and analysis of alternative polyadenylation in plants</span>
-        <img style="float:right;height: 70px;padding: 5px 20px 5px 0px;" src="./pic/schoollogo.jpg"/>
+        <img style="float:left;height: 80px;padding-top: 40px;padding-left: 80px" src="./pic/biglogo.png"/>
+        <div style="float:left;">Alternative Polyadenylation</div>
+<!--        <span style="float:left;font-size: 18px;padding: 40px 0px 0px 3%">A portal for visualization and analysis of alternative polyadenylation in plants</span>-->
         <div style="clear:both"></div>
   </div>
 </header>
