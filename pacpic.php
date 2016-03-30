@@ -236,7 +236,7 @@ and open the template in the editor.
 //                info("#D390B9",400,"intron","gene");
 //                info("#65D97D",500,"exon","gene");
 //                info("#F35A4A",600,"amb","gene");
-                xline("gene",100);
+                xline("gene",60);
                 <?php
                     foreach ($sutr_start as $key => $value) {
                         $start=($sutr_start[$key]-$gene_start)*$rate;
@@ -339,24 +339,24 @@ and open the template in the editor.
                 context.beginPath();
                 context.strokeStyle="#000000";
                 context.fillStyle="#000000";//x刻度尺为黑色
-                context.moveTo(0,60);
-                context.lineTo(1000,60);
-                context.moveTo(0,60);
-                context.lineTo(5,55);
-                context.moveTo(0,60);
-                context.lineTo(5,65);
-                context.moveTo(1000,60);
-                context.lineTo(995,55);
-                context.moveTo(1000,60);
-                context.lineTo(995,65);
+                context.moveTo(0,20);
+                context.lineTo(1000,20);
+                context.moveTo(0,20);
+                context.lineTo(5,15);
+                context.moveTo(0,20);
+                context.lineTo(5,25);
+                context.moveTo(1000,20);
+                context.lineTo(995,15);
+                context.moveTo(1000,20);
+                context.lineTo(995,25);
                 context.font="12px sans-serif";
                 start=<?php echo $gene_start;?>;
                 end=<?php echo $gene_end;?>;
-                context.fillText("start:"+start,15,75);
-                context.fillText(end+":end",915,75);
+                context.fillText("start:"+start,15,35);
+                context.fillText(end+":end",915,35);
                 for(i=1;i<10;i++){
                     x=<?php echo round(($gene_end-$gene_start)/10); ?>;
-                    context.fillText(start+x*i,100*i-20,55);
+                    context.fillText(start+x*i,100*i-20,15);
                 }
                 context.stroke();
             }
@@ -365,13 +365,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#00ABD8";//3utr为红色
                 if(endpos==1000&&strand==1){
-                    context.fillRect(startpos,95,endpos-startpos-10,10);
+                    context.fillRect(startpos,55,endpos-startpos-10,10);
                 }
                 else if(startpos==0&&strand==-1){
-                    context.fillRect(startpos+10,95,endpos-startpos-10,10);
+                    context.fillRect(startpos+10,55,endpos-startpos-10,10);
                 }
                 else{
-                    context.fillRect(startpos,95,endpos-startpos,10);
+                    context.fillRect(startpos,55,endpos-startpos,10);
                 }
             }
             function wutr(startpos,endpos,strand,id){
@@ -379,13 +379,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#00ABD8";//5utr为zise
                 if(endpos==1000&&strand==1){
-                    context.fillRect(startpos,95,endpos-startpos-10,10);
+                    context.fillRect(startpos,55,endpos-startpos-10,10);
                 }
                 else if(startpos==0&&strand==-1){
-                    context.fillRect(startpos+10,95,endpos-startpos-10,10);
+                    context.fillRect(startpos+10,55,endpos-startpos-10,10);
                 }
                 else{
-                    context.fillRect(startpos,95,endpos-startpos,10);
+                    context.fillRect(startpos,55,endpos-startpos,10);
                 }
             }
             function cds(startpos,endpos,strand,id){
@@ -393,13 +393,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#00ABD8";//cds为绿色
                 if(endpos==1000&&strand==1){
-                    context.fillRect(startpos,90,endpos-startpos-10,20);
+                    context.fillRect(startpos,50,endpos-startpos-10,20);
                 }
                 else if(startpos==0&&strand==-1){
-                    context.fillRect(startpos+10,90,endpos-startpos-10,20);
+                    context.fillRect(startpos+10,50,endpos-startpos-10,20);
                 }
                 else{
-                    context.fillRect(startpos,90,endpos-startpos,20);
+                    context.fillRect(startpos,50,endpos-startpos,20);
                 }
             }
             function intron(startpos,endpos,strand,id){
@@ -407,13 +407,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#878787";//intron为黑色
                 if(endpos==1000&&strand==1){
-                    context.fillRect(startpos,95,endpos-startpos-10,4);
+                    context.fillRect(startpos,55,endpos-startpos-10,4);
                 }
                 else if(startpos==0&&strand==-1){
-                    context.fillRect(startpos+10,98,endpos-startpos-10,4);
+                    context.fillRect(startpos+10,58,endpos-startpos-10,4);
                 }
                 else{
-                    context.fillRect(startpos,98,endpos-startpos,4);
+                    context.fillRect(startpos,58,endpos-startpos,4);
                 }
             }
             function exon(startpos,endpos,strand,id){
@@ -421,13 +421,13 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#00ABD8";//exon为黄色
                 if(endpos==1000&&strand==1){
-                    context.fillRect(startpos,90,endpos-startpos-10,20);
+                    context.fillRect(startpos,50,endpos-startpos-10,20);
                 }
                 else if(startpos==0&&strand==-1){
-                    context.fillRect(startpos+10,90,endpos-startpos-10,20);
+                    context.fillRect(startpos+10,50,endpos-startpos-10,20);
                 }
                 else{
-                    context.fillRect(startpos,90,endpos-startpos,20);
+                    context.fillRect(startpos,50,endpos-startpos,20);
                 }
             }
             function amb(startpos,endpos,strand,id){
@@ -435,14 +435,14 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#9FE0F6";//amb为兰色
                 if(endpos==1000&&strand==1){
-                    context.fillRect(startpos,90,endpos-startpos-10,20);
+                    context.fillRect(startpos,50,endpos-startpos-10,20);
 //                    var_dump($pactmp);
                 }
                 else if(startpos==0&&strand==-1){
-                    context.fillRect(startpos+10,90,endpos-startpos-10,20);
+                    context.fillRect(startpos+10,50,endpos-startpos-10,20);
                 }
                 else{
-                    context.fillRect(startpos,90,endpos-startpos,20);
+                    context.fillRect(startpos,50,endpos-startpos,20);
                 }
             }
             function intergenic(strand,id){
@@ -450,10 +450,10 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.fillStyle="#7BA3A8";//intergenic为灰色
                 if(strand==1){
-                    context.fillRect(0,90,990,20);
+                    context.fillRect(0,50,990,20);
                 }
                 else{
-                    context.fillRect(10,90,1000,20);
+                    context.fillRect(10,50,1000,20);
                 }
             }
             function arrow(id,strand){
@@ -461,20 +461,20 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 context.beginPath();
                if(strand==1){
-                    context.moveTo(990,105);
-                    context.lineTo(995,105);
-                    context.lineTo(1000,100);
-                    context.lineTo(995,95);
-                    context.lineTo(990,95);
-                    context.lineTo(990,105);
+                    context.moveTo(990,65);
+                    context.lineTo(995,65);
+                    context.lineTo(1000,60);
+                    context.lineTo(995,35);
+                    context.lineTo(990,35);
+                    context.lineTo(990,45);
                 }
                 else if(strand==-1){
-                    context.moveTo(0,100);
-                    context.lineTo(5,105);
-                    context.lineTo(10,105);
-                    context.lineTo(10,95);
-                    context.lineTo(5,95);
-                    context.lineTo(0,100);
+                    context.moveTo(0,60);
+                    context.lineTo(5,65);
+                    context.lineTo(10,65);
+                    context.lineTo(10,55);
+                    context.lineTo(5,55);
+                    context.lineTo(0,60);
                 }
                 context.closePath();
                 context.fillStyle="#00ABD8";
@@ -486,14 +486,14 @@ and open the template in the editor.
                 var context = canvas.getContext("2d");
                 <?php echo "var row =".count($pac_num).";";?>
                 context.beginPath();
-                context.moveTo(pos,120);
-                context.lineTo(pos-5,125);
-                context.lineTo(pos-1,125);
-                context.lineTo(pos-1,145);
-                context.lineTo(pos+1,145);
-                context.lineTo(pos+1,125);
-                context.lineTo(pos+5,125);
-                context.lineTo(pos,120);
+                context.moveTo(pos,80);
+                context.lineTo(pos-5,85);
+                context.lineTo(pos-1,85);
+                context.lineTo(pos-1,105);
+                context.lineTo(pos+1,105);
+                context.lineTo(pos+1,85);
+                context.lineTo(pos+5,85);
+                context.lineTo(pos,80);
                 context.closePath();
                 if(key%row==0)
                     context.fillStyle="#ff8247";
@@ -624,7 +624,7 @@ and open the template in the editor.
                 }
             }
         </script>
-        <canvas id="gene" width="1000px;" height="150px;"></canvas><br>
+        <canvas id="gene" width="1000px;" height="110px;"></canvas><br>
        
             <!--Step:1 为ECharts准备一个具备大小（宽高）的Dom-->  
             <div id="pactagnum" style="height:400px;width:1000px;border:1px solid #ccc;padding:10px;"></div>
