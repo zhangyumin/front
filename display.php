@@ -87,9 +87,18 @@
             //获得strand
             if($_GET['flag']=='intergenic'){
                  $cgs=  mysql_query("select * from db_server.t_".$species."_gff_all where gene='".$_GET['seq']."' and ftr='intergenic';");
+                 $gene_start = $coord -300;
+                 $gene_end = $coord + 200;
             }
             else{
                 $cgs=  mysql_query("select * from db_server.t_".$species."_gff_all where gene='".$_GET['seq']."' and ftr='gene';");
+                $a="SELECT * from db_server.t_".$species."_gff_all where gene='$seq' and ftr='gene';";
+                $result=mysql_query($a);
+                while($row=mysql_fetch_row($result))
+                {
+                    $gene_start=$row[3];
+                    $gene_end=$row[4];
+                }
             }
             while($cgs_row=  mysql_fetch_row($cgs)){
                 $chr=$cgs_row[0];
@@ -110,7 +119,7 @@
                     <td colspan=2 style="padding-left:0px;padding-right:0px;border-top: 0px">
                         <div class="tabs" style="padding:0px;border:solid #5db95b">
                             <div id="jbrowse_frame" data-pws-tab="jbrowse" data-pws-tab-name="Jbrowse">
-                                <iframe id="jbrowse" src="../jbrowse/?data=data/<?php echo $_GET['species'];?>&loc=<?php echo $chr;?>:<?php echo $gene_start;?>..<?php echo $gene_end;?>&tracks=DNA,Gene annotation,plantAPA stored PAC" width=1200px height="800px">
+                                <iframe id="jbrowse" src="../jbrowse/?data=data/<?php echo $_GET['species'];?>&loc=<?php echo $chr;?>:<?php echo $gene_start;?>..<?php echo $gene_end;?>&tracks=DNA,Gene annotation,PlantAPA stored PAC" width=1200px height="800px">
                                 </iframe>
                             </div>
                             <div id="genepic_frame" data-pws-tab="genepic" data-pws-tab-name="PAT distribution">
