@@ -200,7 +200,7 @@ and open the template in the editor.
                        <div class="ym-grid ym-fbox">
                             <div class="ym-g20 ym-gl">
                                 <label for="species" style="margin-right:2%;">Species:</label>
-                                <select id="species" name="species" style="width:75%" onchange="getchr();getftr();gettip()">
+                                <select id="species" name="species" style="width:70%" onchange="getchr();getftr();gettip()">
                                      <option value="japonica">Japonica rice</option>
                                     <option value="arab" selected="selected">Arabidopsis thaliana</option>
                                     <option value="mtr">Medicago truncatula</option>
