@@ -797,9 +797,16 @@
                                 <tbody>
                                     <tr>
                                         <td class="left" width='15%'>Gene name:</td>
-                                        <td><a id="genename" href=""><?php
-                                                        echo $_GET['seq'];
-                                                    ?></a>
+                                        <td><?php
+                                                        if($_GET['flag'] != 'intergenic'){
+                                                            echo '<a id="genename" href="">';
+                                                            echo $_GET['seq'];
+                                                            echo '</a>';
+                                                        }
+                                                       else{
+                                                            echo $_GET['seq'];
+                                                       }
+                                                    ?>
                                         </td>
                                     </tr>
                                     <tr>
