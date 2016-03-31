@@ -1,6 +1,6 @@
 <meta name="renderer" content="webkit">
 <header style="background-image:url(./pic/navbgimg.jpg) ;background-position: 0px -200px;height: 150px;background-size: cover;background-repeat: no-repeat;min-width: 1080px">
-    <div>
+    <div style="width: 400px;height: 150px;">
 <!--    <div class="ym-wbox">
         <img src="./pic/biglogoshadow.jpg"/>
         <span style="float:right;font-size: 15px">a portal for visualization and analysis of alternative polyadenylation in plants</span>
