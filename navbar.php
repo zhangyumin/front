@@ -26,20 +26,26 @@
               <li><a href="./task.php">My task</a></li>
               <li><a href="./help.php">Help</a></li>
       </ul>
-        <form class="ym-searchform" method="post" action="search_result.php?method=fuzzy" style="height: 30px;padding: 11px 7.5px">
+        <form class="ym-searchform" method="post" action="search_result.php?method=fuzzy" onsubmit="return check();" style="height: 30px;padding: 11px 7.5px">
           <select name="species" style="height: 30px;border-radius: 0.2em">
             <option value="japonica">Rice</option>
             <option value="arab" selected="true">Arabidopsis</option>
             <option value="mtr">Medicago</option>
             <option value="chlamy">Chlamy</option>
         </select>
-          <input class="ym-searchfield" name="key" type="search" placeholder="input keyword here" style="border-radius: 0.2em;padding: 4px;height: 22px"/>
+          <input class="ym-searchfield" id='inputkey' name="key" type="search" placeholder="input keyword here" style="border-radius: 0.2em;padding: 4px;height: 22px"/>
           <button class="ym-searchbutton" type="submit" style="height: 30px">Search</button>
       </form>
     </div>
   </div>
 </nav>
 <script type="text/javascript">
+    function check(){
+        if(document.getElementById("inputkey").value == ""){
+            alert("Please input keyword");
+            return false;
+        }
+    }
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
