@@ -22,6 +22,9 @@ and open the template in the editor.
             .origind,.statisticsd,.pacd div span,label{
                 font-size: 12px;
             }
+            .origin,.statistics,#gene,#no_extend{
+                overflow: hidden;
+            }
         </style>
         <?php
             $con=  mysql_connect("localhost","root","root");
