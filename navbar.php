@@ -7,7 +7,7 @@
     </div>-->
         <!--<img style="float:left;" src="./pic/logo.jpg"/>-->
         <img style="float:left;height: 80px;padding-top: 40px;padding-left: 80px" src="./pic/biglogo.png"/>
-        <div style="float:right;padding-right: 8px;font-weight: bold">Alternative Polyadenylation</div>
+        <div style="float:right;padding-right: 8px;font-weight: bold"><span style="color:#0168b8">A</span>lternative <span style="color:#5db95b">P</span>oly<span style="color:#d4245d">a</span>denylation</div>
 <!--        <span style="float:left;font-size: 18px;padding: 40px 0px 0px 3%">A portal for visualization and analysis of alternative polyadenylation in plants</span>-->
         <div style="clear:both"></div>
   </div>
