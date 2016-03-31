@@ -103,7 +103,11 @@ and open the template in the editor.
                 $$pac=array();
             }
             //读取pac数据并存入数组
-            $tmp_pac = mysql_query("select * from t_".$species."_pac where gene = '$seq'");
+            if($_GET['intergenic']==1){
+                $tmp_pac = mysql_query("select * from t_".$species."_pac where gene = '$seq' and coord>=$gene_start and coord<=$gene_end");
+            }else{
+                $tmp_pac = mysql_query("select * from t_".$species."_pac where gene = '$seq'");
+            }
             while($tmp_pac_row = mysql_fetch_row($tmp_pac)){
                 for($i=1;$i<=$num-count($_SESSION['file_real']);$i++){
                             $pac="pac".$i;
@@ -115,7 +119,11 @@ and open the template in the editor.
              //user trap数据
             if(isset($_SESSION['file'])){
                 $sql_sample = implode($_SESSION['file_real'], ",");
-                $user_pac = mysql_query("select coord,$sql_sample from db_user.PAC_".$_SESSION['file']." where gene = '$seq';");
+                if($_GET['intergenic']==1){
+                    $user_pac = mysql_query("select coord,$sql_sample from db_user.PAC_".$_SESSION['file']." where gene = '$seq' and coord>=$gene_start and coord<=$gene_end;");
+                }else{
+                    $user_pac = mysql_query("select coord,$sql_sample from db_user.PAC_".$_SESSION['file']." where gene = '$seq';");
+                }
                 while($usr_row_pac = mysql_fetch_row($user_pac)){
                     for($i=$num-count($_SESSION['file_real'])+1;$i<=$num;$i++){
                         $pac="pac".$i;
