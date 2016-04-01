@@ -418,7 +418,7 @@
                                             return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=1&flag=intergenic&coord="+data.record.coord+"\"><img align='center' src='./pic/detail.png'/></a>";
                                     }
                                     else{
-                                        return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"\"><img align='center' src='./pic/detail.png'/></a>";
+                                        return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&analysis=1\"><img align='center' src='./pic/detail.png'/></a>";
                                     }
                                 }
                             },
