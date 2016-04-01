@@ -42,7 +42,6 @@
 <script type="text/javascript">
     function check(){
         if(document.getElementById("inputkey").value == ""){
-            alert("Please input keyword");
             return false;
         }
     }
