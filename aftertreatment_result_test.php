@@ -125,6 +125,24 @@
         .jtable{
             margin: 0px auto;
         }
+        .step-title{
+            margin: auto;
+            margin-top: 15px;
+            margin-bottom: 0px;
+            height: 20px;
+            background-color: #5db95b;
+            padding: 7px 18px 7px;
+            border: 0px solid #000;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .left{
+            text-align: right;
+            font-weight: bold;
+        }
+        #result-table td{
+            padding: 4px;
+        }
         </style>
 </head>
 <body onload="DelOption()">
@@ -132,31 +150,41 @@
             include './navbar.php'
         ?>
     <div class="ym-wrapper">
-       
-        <fieldset>
-                    <legend>
-                        <h4>
-                            <font color="#224055"><b>Summary</b></font>
-                        </h4>
-                    </legend>
-            <table style="font-size: 15px;TABLE-LAYOUT:fixed;WORD-WRAP:break_word;">
-                <?php
-                        foreach ($b as $key => $value) {
-                            echo "<tr>";
-                            $summary = explode(":", $value,2);
-                            echo "<td style='width:20%;font-weight:bold;' bgcolor=\"#e1e1e1\">$summary[0]</td>";
-                            if($key == 0){
-                                $sample = explode(";", $summary[1]);
-                                echo "<td>$sample[0]<br>$sample[1]</td>";
-                            }
-                            else{
-                                echo "<td>$summary[1]</td>";
-                            }
-                            echo "</tr>";
-                        }
-                ?>
+        <table id='result-table' style="margin-top:20px;">
+                <tbody>
+                    <tr class="flip" onclick="chgArrow()">
+                        <td colspan="2" class="step-title">
+                            <img id="arrow" src="./pic/down.png" style="height:18px">
+                            <h4 style="display:inline">
+                                <font color="#224055">Results summary</font>
+                            </h4>
+                        </td>
+                    </tr>
+                    <tr class="result">
+                        <td>
+                            <div class="result">
+                            <table id='result' style="font-size: 12px;TABLE-LAYOUT:fixed;WORD-WRAP:break_word;width: 70%">
+                                <?php
+                                        foreach ($b as $key => $value) {
+                                            echo "<tr>";
+                                            $summary = explode(":", $value,2);
+                                            echo "<td class='left' style='width:20%'>$summary[0]</td>";
+                                            if($key == 0){
+                                                $sample = explode(";", $summary[1]);
+                                                echo "<td>$sample[0]<br>$sample[1]</td>";
+                                            }
+                                            else{
+                                                echo "<td>$summary[1]</td>";
+                                            }
+                                            echo "</tr>";
+                                        }
+                                ?>
+                            </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
-        </fieldset>
     <div id="ly" style="position: absolute; top: 0px; opacity:0.4; background-color: rgba(94, 110, 141, 0.9);z-index: 2; left: 0px; display: none;">
         </div>
         <!--          浮层框架开始         -->
@@ -419,6 +447,17 @@
                                 $('#jtable').jtable('load');
                             });
                 });
+                $(".flip").click(function(){
+                    $('.result').slideToggle("slow");
+                 });
+                function chgArrow(){
+                    if($('#result').is(":visible")){
+                        $('#arrow').attr("src","./pic/down.png");
+                    }
+                    else{
+                        $('#arrow').attr("src","./pic/up.png");
+                    }
+                }
             </script>
     </div>
     <?php
