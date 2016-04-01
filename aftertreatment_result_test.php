@@ -300,7 +300,7 @@
                                         edit:false,
                                         create:false,
                                         columnResizable:false,
-                                        title:'gene',
+                                        title:'Gene',
                                         edit:false,
                                         display: function (data) {
                                            return \"<a title='click to view detail' target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"&analysis=1'>\"+data.record.gene+\"</a>\";
@@ -323,7 +323,7 @@
                                         edit:false,
                                         create:false,
                                         columnResizable:false,
-                                        title:'gene',
+                                        title:'Gene',
                                         edit:false,
                                         display: function (data) {
                                            return \"<a title='click to view detail' target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"&analysis=1'>\"+data.record.gene+\"</a>\";
@@ -333,15 +333,31 @@
                                     if($value=='gene'||$value=='chr'||$value=='strand'||$key==count($title_tmp)-1)
                                     {}
                                     else{
+                                        if($value == 'coord'){
+                                            echo "$value:{
+                                                      title:'".ucfirst($value)."',
+                                                      edit:false
+                                                      }";
+                                            echo ",";
+                                        }
+                                        elseif ($value == 'ftr') {
                                         echo "$value:{
-                                                  title:'$value',
-                                                  edit:false
-                                                  }";
-                                        echo ",";
+                                                      title:'Genomic&nbspregion',
+                                                      edit:false
+                                                      }";
+                                            echo ",";
+                                        }
+                                        else{
+                                            echo "$value:{
+                                                      title:'$value',
+                                                      edit:false
+                                                      }";
+                                            echo ",";
+                                        }
                                     }
                                 }
                                 echo "padj:{"
-                                        . "title:'padj',"
+                                        . "title:'Padj',"
                                         . "edit:false"
                                         . "},";
                             }
@@ -351,14 +367,14 @@
                                         edit:false,
                                         create:false,
                                         columnResizable:false,
-                                        title:'gene',
+                                        title:'Gene',
                                         edit:false,
                                         display: function (data) {
                                            return \"<a title='click to view detail' target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"'>\"+data.record.gene+\"</a>\";
                                         }
                                         },";
                                 echo "average_PAT:{
-                                          title:'average_PAT',
+                                          title:'Average_PAT',
                                           edit:false
                                           },";
                                 echo "SUTR_length:{
@@ -366,15 +382,15 @@
                                           edit:false
                                           },";
                                 echo "correlation:{
-                                          title:'correlation',
+                                          title:'Correlation',
                                           edit:false
                                           },";
                                 echo "pval:{
-                                          title:'pval',
+                                          title:'Pval',
                                           edit:false
                                           },";
                                 echo "switching:{
-                                          title:'switching',
+                                          title:'Switching',
                                           edit:false
                                           },";
                             }
@@ -384,7 +400,7 @@
                                         edit:false,
                                         create:false,
                                         columnResizable:false,
-                                        title:'gene',
+                                        title:'Gene',
                                         edit:false,
                                         display: function (data) {
                                            return \"<a title='click to view detail' target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"&analysis=1'>\"+data.record.gene+\"</a>\";
@@ -394,11 +410,27 @@
                                     if($value=='gene'||$value=='gene_type'||$value=='chr'||$value=='strand'||$key==count($title_tmp)-1)
                                     {}
                                     else{
-                                        echo "$value:{
-                                                  title:'$value',
+                                        if($value == 'coord'){
+                                            echo "$value:{
+                                                  title:'".ucfirst($value)."',
                                                   edit:false
                                                   }";
-                                        echo ",";
+                                            echo ",";
+                                        }
+                                        else if($value == 'ftr'){
+                                            echo "$value:{
+                                                  title:'Genomic&nbspregion',
+                                                  edit:false
+                                                  }";
+                                            echo ",";
+                                        }
+                                        else{
+                                            echo "$value:{
+                                                      title:'$value',
+                                                      edit:false
+                                                      }";
+                                            echo ",";
+                                        }
                                     }
                                 }
                                      echo "switching_type:{"
@@ -408,7 +440,7 @@
                                 }
                             ?>
                             detail:{
-                                title:'view',
+                                title:'View',
                                 display: function (data) {
                                     if(data.record.ftr=='intergenic.igt' || data.record.ftr=='intergenic.pm'){
                                         if(data.record.strand=='-'){
@@ -423,7 +455,7 @@
                                 }
                             },
                             view:{
-                                title:'jbrowse',
+                                title:'Jbrowse',
                                 display: function (data) {
                                     return "<a title='click to view detail in jbrowse' target=\"_blank\" href=\"../jbrowse/?data=data/"+species+"&amp;loc="+data.record.chr+":"+data.record.coord+"\">"+"<img src='./pic/browser.png'/></a>";
                                 }
