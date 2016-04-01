@@ -305,10 +305,6 @@
                                         display: function (data) {
                                            return \"<a title='click to view detail' target='_blank' href='./sequence_detail.php?species=\"+species+\"&seq=\"+data.record.gene+\"&analysis=1'>\"+data.record.gene+\"</a>\";
                                         }
-                                        },
-                                        gene_type:{
-                                            title:'gene_type',
-                                            edit:false
                                         },";
                                 foreach ($title_tmp as $key => $value) {
                                     if($value=='gene'||$value=='gene_type'||$key==count($title_tmp)-1)
@@ -334,7 +330,7 @@
                                         }
                                         },";
                                 foreach ($title_tmp as $key => $value) {
-                                    if($value=='gene'||$key==count($title_tmp)-1)
+                                    if($value=='gene'||$value=='chr'||$value=='strand'||$key==count($title_tmp)-1)
                                     {}
                                     else{
                                         echo "$value:{
@@ -395,7 +391,7 @@
                                         }
                                         },";
                                 foreach ($title_tmp as $key => $value) {
-                                    if($value=='gene'||$key==count($title_tmp)-1)
+                                    if($value=='gene'||$value=='gene_type'||$value=='chr'||$value=='strand'||$key==count($title_tmp)-1)
                                     {}
                                     else{
                                         echo "$value:{
