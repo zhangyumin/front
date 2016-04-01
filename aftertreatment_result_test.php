@@ -286,7 +286,7 @@
                     $('#jtable').jtable({
                         title:'<?php echo $title;?>',
                         paging:true,
-                        pageSize:5,
+                        pageSize:10,
                         sorting:true,
                         defaultSorting:'gene ASC',
                         actions:{
@@ -410,7 +410,7 @@
                                     if($value=='gene'||$value=='gene_type'||$value=='chr'||$value=='strand'||$key==count($title_tmp)-1)
                                     {}
                                     else{
-                                        if($value == 'coord'){
+                                        if($value == 'coord' || $value=='sample1_average' || $value=='sample2_average' ){
                                             echo "$value:{
                                                   title:'".ucfirst($value)."',
                                                   edit:false
@@ -434,7 +434,7 @@
                                     }
                                 }
                                      echo "switching_type:{"
-                                        . "title:'switchinge_type',"
+                                        . "title:'Switching_type',"
                                         . "edit:false"
                                         . "},";
                                 }
