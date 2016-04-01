@@ -1,12 +1,12 @@
 <meta name="renderer" content="webkit">
-<header style="background-image:url(./pic/navbgimg.jpg) ;background-position: 0px -200px;height: 150px;background-size: cover;background-repeat: no-repeat;min-width: 1080px">
+<header style="background-image:url(./pic/navbgimg.jpg) ;background-position: 0px -200px;height: 100px;background-size: cover;background-repeat: no-repeat;min-width: 1080px">
     <div style="width: 400px;height: 150px;">
 <!--    <div class="ym-wbox">
         <img src="./pic/biglogoshadow.jpg"/>
         <span style="float:right;font-size: 15px">a portal for visualization and analysis of alternative polyadenylation in plants</span>
     </div>-->
         <!--<img style="float:left;" src="./pic/logo.jpg"/>-->
-        <img style="float:left;height: 80px;padding-top: 40px;padding-left: 80px" src="./pic/biglogo.png"/>
+        <img style="float:left;height: 80px;padding-left: 80px" src="./pic/biglogo.png"/>
         <div style="float:right;padding-right: 8px;font-weight: bold"><span style="color:#0168b8">A</span>lternative <span style="color:#5db95b">P</span>oly<span style="color:#d4245d">a</span>denylation</div>
 <!--        <span style="float:left;font-size: 18px;padding: 40px 0px 0px 3%">A portal for visualization and analysis of alternative polyadenylation in plants</span>-->
         <div style="clear:both"></div>
