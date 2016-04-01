@@ -926,7 +926,7 @@
                                 </thead>
                                 <tbody>
                                         <?php
-                                                    $go_sql="select distinct * from t_".$species."_go where gene=\"".$_GET['seq']."\";";
+                                                    $go_sql="select distinct goid,goterm,genefunction from t_".$species."_go where gene=\"".$_GET['seq']."\";";
                                                     $go_result=mysql_query($go_sql);
 //                                                    echo $sql;
 //                                                    $type=mysql_query("select * from db_bio.gff_arab10_all where gene=\"AT2G01008\";");
@@ -934,9 +934,9 @@
 //                                                        var_dump($type);
                                                     while($go_result_row= mysql_fetch_row($go_result)){
                                                             echo "<tr>";
+                                                            echo "<td>$go_result_row[0]</td>";
                                                             echo "<td>$go_result_row[1]</td>";
                                                             echo "<td>$go_result_row[2]</td>";
-                                                            echo "<td>$go_result_row[5]</td>";
                                                             echo "</tr>";
                                                     }
                                                 ?>
