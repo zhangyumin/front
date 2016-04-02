@@ -11,7 +11,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Upload sequence</title>
+        <title>PlantAPA-PAC trap</title>
         <link href="./src/navbar.css" rel="stylesheet"/>
         <script src="./src/jquery-1.10.1.min.js"></script>
             <!--fineuploader的依赖包-->
