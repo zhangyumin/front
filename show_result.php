@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <title>show results</title>
+    <title>PlantAPA-Trap results</title>
     <link href="./src/navbar.css" rel="stylesheet"/>
     <script src="./src/jquery-1.10.1.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
