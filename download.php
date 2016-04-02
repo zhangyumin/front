@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Download</title>
+        <title>PlantAPA-download</title>
         <link href="./src/index.css" rel="stylesheet" type="text/css" />
         <script src="./src/jquery-2.0.0.min.js"></script>
         <script src="./src/jquery.slides.min.js"></script>
