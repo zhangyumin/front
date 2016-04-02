@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Analysis</title>
+        <title>PlantAPA-analysis</title>
         <link href="./src/index.css" rel="stylesheet" type="text/css" />
         <script src="./src/jquery-1.10.1.min.js"></script>
         <script src="./src/jquery.slides.min.js"></script>
