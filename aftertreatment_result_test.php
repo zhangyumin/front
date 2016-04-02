@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <title>Aftertreatment Result</title>
+    <title>PlantAPA-Analysis results</title>
     <!-- Mobile viewport optimisation -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css" />
