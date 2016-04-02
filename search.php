@@ -12,7 +12,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>PlantAPA-PAC search</title>
+        <title>PlantAPA-search</title>
         <script src="./src/jquery-1.10.1.min.js"></script>
 
         <link href="./src/index.css" rel="stylesheet" type="text/css" />
