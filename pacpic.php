@@ -571,6 +571,7 @@ and open the template in the editor.
                     $('#pactagnum_avg').hide();
                     $('#pactagnum_med').hide();
                     if($("#ratiobutton").is(':checked')){
+                        $('#pactagnum').hide();
                         $("#pactagnum_ratio").show();
                     }
                 }
@@ -597,6 +598,7 @@ and open the template in the editor.
                     $("#pactagnum_"+a[i]).show();
                     if($("#ratiobutton").is(':checked')){
                         $("#pactagnum_"+a[i]+"_ratio").show();
+                        $("#pactagnum_"+a[i]).hide();
                     }
                 }
             }
@@ -616,19 +618,33 @@ and open the template in the editor.
                         select = select.slice(0,b.length);
                         for(var i in select){
                             $("#pactagnum_"+select[i]+"_ratio").show();
+                            $("#pactagnum_"+select[i]).hide();
                         }
                     }
                     else{
+                        var b = $("#statistics").children((':selected'));
+                        var select=[];
+                        for(var i in b){
+                            select.push(b[i].value);
+                        }
+                        select = select.slice(0,b.length);
+                        for(var i in select){
+                            $("#pactagnum_"+select[i]).show();
+                        }
                         $('#pactagnum_sum_ratio').hide();
                         $('#pactagnum_avg_ratio').hide();
                         $('#pactagnum_med_ratio').hide();
                     }
                 }
                 else if(Slt=='origin'){
-                    if(a.checked)
+                    if(a.checked){
                         $('#pactagnum_ratio').show();
-                    else
+                        $('#pactagnum').hide();
+                    }
+                    else{
                         $('#pactagnum_ratio').hide();
+                        $('#pactagnum').show();
+                    }
                 }
             }
         </script>
