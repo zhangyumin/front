@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Sequence Detail</title>
+        <title>PlantAPA-Sequence detail</title>
         <script src="./src/jquery-1.10.1.min.js"></script>
         <!-- Mobile viewport optimisation -->
         <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
