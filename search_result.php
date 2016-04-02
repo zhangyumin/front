@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Search results</title>
+        <title>PlantAPA-Search results</title>
         <script src="./src/jquery-1.10.1.min.js"></script>
         <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
         <!--[if lte IE 7]>
