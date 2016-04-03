@@ -216,7 +216,7 @@
 //                    fclose($configure_file);
                 }
                 foreach ($upload_name as $key => $value) {
-                    mysql_query("select chr,strand,UPA_start,UPA_end,$value from db_user.PAC_".$_SESSION['file']." where $value>0 into outfile '/var/www/front/tojbrowse/$value.pac'");
+                    mysql_query("select chr,strand,UPA_start,UPA_end,$value,coord from db_user.PAC_".$_SESSION['file']." where $value>0 into outfile '/var/www/front/tojbrowse/$value.pac'");
                     rename("/var/www/front/tojbrowse/$value.pac", "/var/www/jbrowse/data/".$_SESSION['file']."/$value.pac");
                     shell_exec("./src/c/txt2bed ../jbrowse/data/".$_SESSION['file']."/$value.pac ../jbrowse/data/".$_SESSION['file']."/$value.bed");
                     shell_exec("../jbrowse/bin/flatfile-to-json.pl --bed ../jbrowse/data/".$_SESSION['file']."/$value.bed --trackLabel PAC_$value --out ../jbrowse/data/".$_SESSION['file']."/");
