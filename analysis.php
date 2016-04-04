@@ -44,7 +44,10 @@
         <script>  
         $(document).ready(function(){  
                  $('#degene-submit').click(function (){
-                    if($(".degene1:checked").length>0 && $(".degene2:checked").length> 0){
+                    if($(".degene1:checked").length ==1 && $(".degene2:checked").length == 1 && $("#degene_method").val() == 'EdgeR'){
+                        alert("Method = EdgeR, please select at least two samples for group 1 or group 2.");
+                    }
+                    else if($(".degene1:checked").length>0 && $(".degene2:checked").length> 0){
                         var params = $('#species,#degene-form,#search').serialize(); //序列化表单的值
     //                    console.log(params);
     //                    alert(params);
@@ -61,7 +64,10 @@
                     }
                  });
                  $('#depac-submit').click(function (){
-                     if($(".depac1:checked").length>0 && $(".depac2:checked").length> 0){
+                     if($(".depac1:checked").length ==1 && $(".depac2:checked").length == 1){
+                        alert("Method = DEXseq, please select at least two samples for group 1 or group 2.");
+                    }
+                     else if($(".depac1:checked").length>0 && $(".depac2:checked").length> 0){
                         var params = $('#species,#depac-form,#search').serialize(); //序列化表单的值
     //                    console.log(params);
     //                    alert(params);
@@ -386,7 +392,7 @@
                                                           <option value='EdgeR'>EdgeR</option>
                                                     </select>
                                                     <label for="method">Method</label>
-                                                    <select name="degene_method">
+                                                    <select name="degene_method" id="degene_method">
                                                         <option value='EdgeR'>EdgeR</option>
                                                         <option value='DESeq'>DESeq</option>
                                                         <option value='DESeq2'>DESeq2</option>
