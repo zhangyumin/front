@@ -850,7 +850,8 @@ and open the template in the editor.
                             {
 //                                max: 100,
 //                                min: -10,
-                                name: 'PAC Grouped Sum',
+//                                name: 'PAC Grouped Sum',
+                                name: 'Number of PATs, Sum',
                                 scale: 0,
                                 type : 'value'
                             }
@@ -968,7 +969,7 @@ and open the template in the editor.
                             {
 //                                max: 100,
 //                                min: -10,
-                                name: 'PAC Grouped Average',
+                                name: 'Number of PATs, Average',
                                 scale: 0,
                                 type : 'value'
                             }
@@ -1086,7 +1087,7 @@ and open the template in the editor.
                             {
 //                                max: 100,
 //                                min: -10,
-                                name: 'PAC Grouped Median',
+                                name: 'Number of PATs, Median',
                                 scale: 0,
                                 type : 'value'
                             }
@@ -1204,7 +1205,7 @@ and open the template in the editor.
                             {
                                 max: 1,
                                 min: 0,
-                                name: 'PAC Tagnum(ratio)',
+                                name: 'Number of PATs, Ratio',
                                 scale: 0,
                                 type : 'value'
                             }
@@ -1336,7 +1337,7 @@ and open the template in the editor.
                             {
                                 max: 1,
                                 min: 0,
-                                name: 'PAC Grouped Sum(ratio)',
+                                name: 'Number of PATs, Sum, Ratio',
                                 scale: 0,
                                 type : 'value'
                             }
@@ -1459,7 +1460,7 @@ and open the template in the editor.
                             {
                                 max: 1,
                                 min: 0,
-                                name: 'PAC Grouped Average(ratio)',
+                                name: 'Number of PATs, Average, Ratio',
                                 scale: 0,
                                 type : 'value'
                             }
@@ -1581,7 +1582,7 @@ and open the template in the editor.
                             {
                                 max: 1,
                                 min: 0,
-                                name: 'PAC Grouped Median(ratio)',
+                                name: 'Number of PATs, Median, Ratio',
                                 scale: 0,
                                 type : 'value'
                             }
