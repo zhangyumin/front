@@ -268,6 +268,7 @@
         $_SESSION['sample2'] = $_POST['sample2'];
         $depac_cmd="Rscript /var/www/front/src/r/R_DEPAC.r ofile='depac.".$_SESSION['analysis']."' method=$method adj=$Adj sig=$sig minpat=$minpat donorm=$donorm path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['analysis']." cols='".implode(':',$_POST['sample1']).";".implode(':', $_POST['sample2'])."' groups=sample1:sample2 conf=/var/www/front/src/r/db_2.xml";
 //        echo "<br><br>$depac_cmd<br><br>";
+//        $_SESSION['test']=$depac_cmd;
         shell_exec($depac_cmd);
 //        echo '<script>window.location.href="aftertreatment_result_test.php?result=depac";</script>';
         print_r(json_encode($_POST));
@@ -283,6 +284,7 @@
             $_SESSION['sample2'] = $_POST['sample2'];
             $sg_ocmd="Rscript /var/www/front/src/r/R_switch3UTR.r ofile='only3utr.".$_SESSION['analysis']."' adj=0 sig=$sig avgPAT=$avgpat path='/var/www/front/searched/' intbl=SearchedPAC_".$_SESSION['analysis']." cols='".implode(':',$_POST['sample1']).";".implode(':', $_POST['sample2'])."' groups=sample1:sample2 conf=/var/www/front/src/r/db_2.xml";
 //            echo $sg_ocmd;
+//            $_SESSION['test'] = $sg_ocmd;
             shell_exec($sg_ocmd);
             print_r(json_encode($_POST));
 //            echo '<script>window.location.href="aftertreatment_result_test.php?result=switchinggene_o";</script>';
