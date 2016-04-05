@@ -152,7 +152,11 @@ and open the template in the editor.
             $patable = array_unique($patable);
             $patable = array_merge($patable);
 //            var_dump($patable);
-            $num = count($pacol)+count($_SESSION['file_real']);#sample的个数
+            if($_SESSION['species'] == $_GET['speices']){
+                $num = count($pacol)+count($_SESSION['file_real']);#sample的个数
+            }else{
+                $num = count($pacol);
+            }
             //声明存储各个sample的数组，包括PA和PAC
             for($i=1;$i<=$num;$i++){
                 $pa="pa".$i;
@@ -197,7 +201,7 @@ and open the template in the editor.
             }
             
             //user trap数据
-            if(isset($_SESSION['file'])){
+            if(isset($_SESSION['file'])&&$_GET['species']==$_SESSION['species']){
                 $sql_sample = implode($_SESSION['file_real'], ",");
                 $user_pa = mysql_query("select coord,$sql_sample from db_user.PA_".$_SESSION['file']." where chr='$chr' and coord>=$gene_start and coord<=$gene_end;");
                 if($_GET['intergenic']==1){
