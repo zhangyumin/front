@@ -152,7 +152,7 @@ and open the template in the editor.
             $patable = array_unique($patable);
             $patable = array_merge($patable);
 //            var_dump($patable);
-            if($_SESSION['species'] == $_GET['speices']){
+            if(strcmp($_SESSION['species'], $_GET['species']) == 0){
                 $num = count($pacol)+count($_SESSION['file_real']);#sample的个数
             }else{
                 $num = count($pacol);
@@ -192,7 +192,7 @@ and open the template in the editor.
                 $tmp_pac = mysql_query("select * from t_".$species."_pac where gene = '$seq'");
             }
             while($tmp_pac_row = mysql_fetch_row($tmp_pac)){
-                for($i=1;$i<=$num-count($_SESSION['file_real']);$i++){
+                for($i=1;$i<=count($pacol);$i++){
                     $pac="pac".$i;
                     ${$pac}[$tmp_pac_row[2]] = $tmp_pac_row[$i+13];
                 }
@@ -201,7 +201,7 @@ and open the template in the editor.
             }
             
             //user trap数据
-            if(isset($_SESSION['file'])&&$_GET['species']==$_SESSION['species']){
+            if(isset($_SESSION['file'])&&strcmp($_SESSION['species'], $_GET['species']) == 0){
                 $sql_sample = implode($_SESSION['file_real'], ",");
                 $user_pa = mysql_query("select coord,$sql_sample from db_user.PA_".$_SESSION['file']." where chr='$chr' and coord>=$gene_start and coord<=$gene_end;");
                 if($_GET['intergenic']==1){
