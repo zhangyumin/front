@@ -8,7 +8,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>PlantAPA-Home</title>
+        <title>PlantAPA-Home11111</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
         <script src="./src/jquery-1.10.1.min.js"></script>        
