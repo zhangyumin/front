@@ -407,7 +407,7 @@
                                                     <option value='Not'>Not adjust</option>
                                                </select>
             
-                                                <label for="sig">Significance Level</label>
+                                                <label for="sig">Significance level</label>
                                                 <select name="degene_sig">
                                                     <option value='0.01'>0.01</option>
                                                     <option value='0.05' selected="true">0.05</option>
