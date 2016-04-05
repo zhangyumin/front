@@ -31,9 +31,16 @@
                         border-radius: 8px;
                         cursor: pointer;
                     }
+                    .warn{
+                        color:#a94442;
+                        background-color: #f2dede;
+                        border:1px #ebccd1 solid;
+                        border-radius: 2px;
+                        padding: 7px;
+                    }
         </style>
     </head>
-    <body onload="getchr()">
+    <body onload="getchr();warn();">
         <?php
             include"navbar.php";
             session_start();
@@ -155,7 +162,7 @@
                 </h2>
            <div class="box info ym-form">
                <label for="species" style="float:left;width:7%">Species:&nbsp;</label>
-                <select id="species" name="species" style="width:93%" onchange="div_option2(this);getchr();refresh();unchecked();">
+                <select id="species" name="species" style="width:93%" onchange="div_option2(this);getchr();refresh();unchecked();warn();">
                     <option value="japonica">Japonica rice</option>
                      <option value="arab" selected="selected">Arabidopsis thaliana</option>
                     <option value="mtr">Medicago truncatula</option>
@@ -209,7 +216,7 @@
                 <div > 
                     <div class="wrap">
                          <div class="tabs" style="padding:0px;border:solid #5db95b">
-                             <div data-pws-tab="DE Gene" data-pws-tab-name="DE Gene" style="width: 100%">
+                             <div data-pws-tab="degene" data-pws-tab-name="DE Gene" style="width: 100%">
                                  <form id="degene-form" class="info">
                                     <div class="box samples">
                                         <table id="samples" >
@@ -418,14 +425,15 @@
                                     </div>
                                     <div class="ym-clearfix"></div>
                                     <div class="box fsubmit">
-                                        <input type="button" id='degene-submit' value="Submit">
+                                        <input type="button" class="submit" id='degene-submit' value="Submit">
                                         <button type="reset">Reset</button>
                                         <input type="button" onclick="demo('degene')" value="Demo">
                                         <input type="button" onclick="javascript:window.location.href='./help.php#analysishelp2'" value='Help'>
+                                        <div class="warn" style="display:none">Only one sample is available in this data set, PAC analysis is disabled</div>
                                     </div>
                                     </form>
                              </div>
-                             <div data-pws-tab="DE PAC" data-pws-tab-name="DE PAC" style="width: 100%">
+                             <div data-pws-tab="depac" data-pws-tab-name="DE PAC" style="width: 100%">
                                  <form id="depac-form" class="info">
                                     <div class="box samples">
                                         <table id="samples" >
@@ -617,14 +625,15 @@
                                     </div>
                                     <div class="ym-clearfix"></div>
                                     <div class="box fsubmit">
-                                        <input type="button" id='depac-submit' value="Submit">
+                                        <input type="button" class="submit" id='depac-submit' value="Submit">
                                         <button type="reset">Reset</button>
                                         <input type="button" onclick="demo('depac')" value="Demo">
                                         <input type="button" onclick="javascript:window.location.href='./help.php#analysishelp3'" value='Help'>
+                                        <div class="warn" style="display:inline">Only one sample is available in this data set, PAC analysis is disabled</div>
                                     </div>
                                     </form>
                              </div>
-                             <div data-pws-tab="3'UTR Lengthening" data-pws-tab-name="3'UTR Lengthening" style="width: 100%">
+                             <div data-pws-tab="only3utr" data-pws-tab-name="3'UTR Lengthening" style="width: 100%">
                                  <form id="only3utr-form" class="info">
                                         <div class="box samples">
                                             <table id="samples" >
@@ -805,14 +814,15 @@
                                         </div>
                                     <div class="ym-clearfix"></div>
                                     <div class="box fsubmit">
-                                        <input type="button" id='only3utr-submit' value="Submit">
+                                        <input type="button" class="submit" id='only3utr-submit' value="Submit">
                                         <button type="reset">Reset</button>
                                         <input type="button" onclick="demo('only3utr')" value="Demo">
                                         <input type="button" onclick="javascript:window.location.href='./help.php#analysishelp4'" value='Help'>
+                                        <div class="warn" style="display:inline">Only one sample is available in this data set, PAC analysis is disabled</div>
                                     </div>
                                     </form>
                              </div>
-                             <div data-pws-tab="APA Switching" data-pws-tab-name="APA Switching" style="width: 100%">
+                             <div data-pws-tab="none3utr" data-pws-tab-name="APA Switching" style="width: 100%">
                                  <form id="none3utr-form" class="info">
                                     <div class="box samples">
                                         <table id="samples" >
@@ -998,10 +1008,11 @@
                                     </div>
                                     <div class="ym-clearfix"></div>
                                     <div class="box fsubmit">
-                                        <input type="button" id='none3utr-submit' value="Submit">
+                                        <input type="button" class="submit" id='none3utr-submit' value="Submit">
                                         <button type="reset">Reset</button>
                                         <input type="button" onclick="demo('none3utr')" value="Demo">
                                         <input type="button" onclick="javascript:window.location.href='./help.php#analysishelp5'" value='Help'>
+                                        <div class="warn" style="display:inline">Only one sample is available in this data set, PAC analysis is disabled</div>
                                     </div>
                                     </form>
                              </div>
@@ -1179,6 +1190,18 @@
                 }
                 function unchecked(){
                     $("[type='checkbox']").removeAttr("checked");
+                }
+                function warn(){
+                    if($(".degene1:visible").length<=1){
+                        $(".warn").css("display","inline");
+                        $(".submit").attr("disabled","true");
+                    }else{
+                        $(".warn").css("display","none");
+                        $(".submit").removeAttr("disabled");
+                    }
+                }
+                function setIframeHeight(){
+                    
                 }
             </script>
     </div>
