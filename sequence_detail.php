@@ -665,8 +665,6 @@
                 }
                 //pattern部分
                 //user pattern
-                var pos1_start = [];
-                var pos1_end = [];
                 for(var key1 in patts1)
                 {
                     var patt = patts1[key1];
@@ -680,23 +678,24 @@
                         }
                         var reg=new RegExp(patt,"gi");
                         var result;
-                        var j = -1;
                         while((result = reg.exec(original_seq)) != null)
                         {
+                            var pos1_start = [];
+                            var pos1_end = [];
                             if(strand == -1){
-                                j++;
                                 pos1_end.push(gene_end - result.index);
                                 pos1_start.push(gene_end  - patt.length - result.index+1);
                             }
                             else if(strand == 1){
-                                j++;
                                 pos1_end.push(gene_start + result.index + patt.length - 1);
                                 pos1_start.push(gene_start + result.index);
                             }
-                            for(var i = pos1_start[j]; i<= pos1_end[j];i++){
-                                if(min <= i && i <= max){
-                                    $('#pos'+i).addClass("patt1");
-                                    $('#pos'+i).attr("title","Poly(A) signal:"+i);
+                            for(var i in pos1_start){
+                                for(var j = pos1_start[i]; j<= pos1_end[i]; j++){
+                                    if(min <= j && j <= max){
+                                        $('#pos'+j).addClass("patt1");
+                                        $('#pos'+j).attr("title","Poly(A) signal:"+i);
+                                    }
                                 }
                             }
                         }
