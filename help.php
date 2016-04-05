@@ -53,7 +53,7 @@
                             You can upload two kinds of sequences, short reads and ESTs<span class="pic_red"> (Fig. 1)</span>. You can also click “Try an example” button to load the demo data. In addition, you can upload a file to specific coordinates of poly(A) sites. Also, the supported species are listed in the drop-down box.
                         </p>
                         <div class="picdiv">
-                            <img class="pic" src="./pic/help/species.bmp"/>
+                            <img class="pic" src="./pic/help/species.png"/>
                             <br>Fig. 1 The species and files type selection panel
                         </div>
                         <!--<p>2) Input-->
@@ -83,9 +83,9 @@
                         If sequences are uploaded, users can use the default parameters set by PlantAPA or specific the parameters for mapping reads<span class="pic_red"> (Fig. 5 & Fig. 6)</span>.
                         </p>
                         <div class="picdiv">
-                            <img class="pic" src="./pic/help/fastq_option.bmp"/>
+                            <img class="pic" src="./pic/help/fastq_option.png"/>
                             <br>Fig. 5 Options of uploading short read
-                            <img class="pic" src="./pic/help/est_option.bmp"/>
+                            <img class="pic" src="./pic/help/est_option.png"/>
                             <br>Fig. 6 Options of uploading EST
                         </div>
                         <!--<h3>2.2. Get a task by task ID</h3>-->
@@ -232,44 +232,48 @@
                         <h2>7. PAC analysis: analysis of APA switching between two conditions</h2>
                         <p id="analysishelp1">Following the “PAC analysis” tab in the main menu, users can choose to generate lists of differentially expressed genes, PACs with differential usage, genes with 3’ UTR lengthening or shortening, and APA-site switching genes, using the user uploaded PACs together with PlantAPA stored PACs.
                         Two groups of samples each with one or more than one condition need to be selected in order to obtain the output gene/PAC lists. 
-                        Raw count or normalized count based on TPM normalization and methods in EdgeR or DESeq can be chosen as input. Additional parameters can be set for each assay, such as minimum number of PATs for pre-filtering of PACs, significance level, p-value adjusted method<span class="pic_red"> (Fig. 25)</span>.
+                        Raw count or normalized count based on TPM normalization and methods in EdgeR or DESeq can be chosen as input. Additional parameters can be set for each assay, such as minimum number of PATs for pre-filtering of PACs, significance level, p-value adjusted method<span class="pic_red"> (Fig. 25 & Fig. 26)</span>.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysis.bmp"/>
                             <br>Fig. 25 The page of analysis function
+                            <img class="pic" src="./pic/help/analysis_additional_option.png"/>
+                            <br>Fig. 26 The panel of analysis addtional option
                         </div>
                         <p id='analysishelp2'>
                         To make the result statistically significant, a p-value or adjusted p-value will be calculated and assigned to each PAC/gene. Users can download the output lists to their local computer, or continue to inspect the result PAC/gene by clicking the link on a particular item in the list.
                         </p>
                         <!--<h3>7.1. Detection of differentially expressed genes</h3>-->
-                        <p>After choosing two groups of samples, users can specific parameters for DE gene detection<span class="pic_red"> (Fig. 26)</span>.
+                        <p>After choosing two groups of samples, users can specific parameters for DE gene detection<span class="pic_red"> (Fig. 27)</span>.
                         The main output is a table that lists all resulted DE genes.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysis_result1.bmp"/>
-                            <br>Fig. 26 The results of DE gene
+                            <br>Fig. 27 The results of DE gene
                         </div>
                         <!--<h3>7.2. Detection of PACs with differential usage</h3>-->
                         <p id='analysishelp3'>Users can specific parameters for detecting PACs with differential usage.
-                        The main output is a table that lists all resulted PACs<span class="pic_red"> (Fig. 27)</span>.</p>
+                        The main output is a table that lists all resulted PACs<span class="pic_red"> (Fig. 28)</span>.</p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysis_result2.bmp"/>
-                            <br>Fig. 27 The results of DE pac
+                            <br>Fig. 28 The results of DE pac
                         </div>
                         <!--<h3>7.3. Detection of genes with 3’ UTR lengthening or shortening</h3>-->
                         <p id='analysishelp4'>After choosing two groups of samples, users can specific parameters for detecting genes with tandem 3’ UTR switching.
-                            The main output is a table that lists all genes with 3’ UTR lengthening or shortening and the associated PACs<span class="pic_red"> (Fig. 28)</span>.
+                            The main output is a table that lists all genes with 3’ UTR lengthening or shortening and the associated PACs<span class="pic_red"> (Fig. 29)</span>.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysis_result3.bmp"/>
-                            <br>Fig. 28 The results of 3'UTR lengthening
+                            <br>Fig. 29 The results of 3'UTR lengthening
                         </div>
                         <!--<h3>7.4. Detection of nonconnonical APA-site switching genes</h3>-->
-                        <p id='analysishelp5'>After choosing two groups of samples, users can specific parameters for the detection of nonconnonical APA-site switching genes. These genes involve at least one PAC located in CDS or introns.
-                            The main output is a table that lists all resulted genes and PACs<span class="pic_red"> (Fig. 29)</span>.</p>
+                        <p id='analysishelp5'>After choosing two groups of samples, users can specific parameters for the detection of nonconnonical APA-site switching genes<span class="pic_red">(Fig. 30)</span>. These genes involve at least one PAC located in CDS or introns.
+                            The main output is a table that lists all resulted genes and PACs<span class="pic_red"> (Fig. 31)</span>.</p>
                         <div class="picdiv">
+                            <img class="pic" src="./pic/help/apaswitching.png"/>
+                            <br>Fig. 30 The panel of APA switching
                             <img class="pic" src="./pic/help/analysis_result4.bmp"/>
-                            <br>Fig. 29 The results of APA switching
+                            <br>Fig. 31 The results of APA switching
                         </div>
                     </div>
                     </div>
