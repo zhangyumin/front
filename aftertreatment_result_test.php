@@ -16,11 +16,11 @@
         mysql_select_db("db_server",$con);
         session_start();
         $analysis=$_SESSION['analysis'];
-        if(isset($_SESSION['species'])){
-            $species=$_SESSION['species'];
+        if(isset($_GET['species'])){
+            $species=$_GET['species'];
         }
         else{
-            $species=$_GET['species'];
+            $species=$_SESSION['species'];
         }
 //        var_dump($analysis);
 //        var_dump($_SESSION['file_real']);
