@@ -1061,7 +1061,15 @@
                     <td colspan=2 style="padding-left:0px;padding-right:0px;border-top: 0px">
                         <div class="tabs" style="padding:0px;border:solid #5db95b">
                             <div data-pws-tab="jbrowse" data-pws-tab-name="Jbrowse">
-                                <iframe id="jbrowse" src="../jbrowse/?data=data/<?php echo $_GET['species'];?>&loc=<?php echo $chr;?>:<?php echo $gene_start;?>..<?php echo $gene_end;?>&tracks=DNA,Gene annotation,PlantAPA stored PAC" width=1200px height=500px>
+                                <iframe id="jbrowse" src="
+                                        <?php
+                                            if(isset($_SESSION['file']) && strcmp($_SESSION['species'], $_GET['species']) == 0){
+                                                echo '../jbrowse/?data=data/'.$_SESSION['file'].'&loc='.$chr.':'.$gene_start.'..'.$gene_end.'&tracks=DNA,Gene annotation,PlantAPA stored PAC';
+                                            }else{
+                                                echo '../jbrowse/?data=data/'.$_GET['species'].'&loc='.$chr.':'.$gene_start.'..'.$gene_end.'&tracks=DNA,Gene annotation,PlantAPA stored PAC';
+                                            }
+                                        ?>
+                                        " width=1200px height=500px>
                                 </iframe>
                             </div>
                             <div data-pws-tab="genepic" data-pws-tab-name="PAT distribution">
