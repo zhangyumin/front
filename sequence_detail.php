@@ -409,22 +409,32 @@
                 {
                     $i++;
                     if($strand == 1){
-                        if($ext_end[$i]!=null){
-                            echo "sutr_start.push('$ext_start[$i]');";
-                            echo "sutr_end.push('$ext_end[$i]');";
-                            $ext_start_pos = $ext_end[$i]+1;
+                        if($f_end[$f_key] == $gene_end && $ext_end[$i] != $gene_end){
+                            if($ext_end[$i]!=null){
+                                echo "sutr_start.push('$ext_start[$i]');";
+                                echo "sutr_end.push('$ext_end[$i]');";
+                                $ext_start_pos = $ext_end[$i]+1;
+                            }
+                            echo "ext_start.push('$ext_start_pos');";
+                            echo "ext_end.push('$f_end[$f_key]');";
+                        }else{
+                            echo "sutr_start.push('$f_start[$f_key]');";//6791
+                            echo "sutr_end.push('$f_end[$f_key]');";//6790
                         }
-                        echo "ext_start.push('$ext_start_pos');";
-                        echo "ext_end.push('$f_end[$f_key]');";
                     }
                     else if ($strand == -1){
-                        if($ext_start[$i]!=null){
-                            $ext_start_pos = $ext_start[$i]+1;
-                            echo "sutr_start.push('$ext_start_pos');";
-                            echo "sutr_end.push('$f_end[$f_key]');";
+                        if($f_start[$f_key] == $gene_start && $ext_start[$i] != $gene_start){
+                            if($ext_start[$i]!=null){
+                                $ext_start_pos = $ext_start[$i]+1;
+                                echo "sutr_start.push('$ext_start_pos');";//6791
+                                echo "sutr_end.push('$f_end[$f_key]');";//6790
+                            }
+                            echo "ext_start.push('$f_start[$f_key]');";//6670
+                            echo "ext_end.push('$ext_start[$i]');";//6790
+                        }else{
+                                echo "sutr_start.push('$f_start[$f_key]');";//6791
+                                echo "sutr_end.push('$f_end[$f_key]');";//6790
                         }
-                        echo "ext_start.push('$f_start[$f_key]');";
-                        echo "ext_end.push('$ext_start[$i]');";
                     }
                 }
                 if(strcmp($val, '5UTR')==0)
