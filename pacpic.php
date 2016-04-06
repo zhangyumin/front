@@ -113,7 +113,7 @@ and open the template in the editor.
                 $tmp_pac = mysql_query("select * from t_".$species."_pac where gene = '$seq'");
             }
             while($tmp_pac_row = mysql_fetch_row($tmp_pac)){
-                for($i=1;$i<=$num-count($_SESSION['file_real']);$i++){
+                for($i=1;$i<=count($pacol);$i++){
                             $pac="pac".$i;
                             ${$pac}[$tmp_pac_row[2]] = $tmp_pac_row[$i+13];
 //                            echo $i;
