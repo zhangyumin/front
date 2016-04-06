@@ -788,7 +788,7 @@
             }
         </script>
             
-        <div  id="page" style="width:1200px;margin:auto">
+        <div  id="page" style="width:1200px;margin:auto;min-width: 1200px;">
             <table  cellspacing="0" cellpadding="0" border="0" style="margin: 20px auto;border-collapse:collapse;" >
             <tbody>
                 <tr class="flip" onclick="chgArrow()">
@@ -1145,8 +1145,8 @@
                 </tr>
             </tbody>
             </table>
-            <div  class="straight_matter">
-            <fieldset style="margin-top: 20px;">
+            <div  class="straight_matter" style="min-width:1200px;">
+            <fieldset style="margin-top: 20px;min-width: 1170px;">
                 <legend>
                     <span class="h3_italic" style="font-size:21px">
                         <font color="#224055"><b>Sequence Viewer</b></font>
