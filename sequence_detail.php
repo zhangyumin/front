@@ -2,7 +2,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>PlantAPA-Sequence detail</title>
-        <script src="./src/jquery-1.10.1.min.js"></script>
+        <script src="./src/jquery-2.0.0.min.js"></script>
         <!-- Mobile viewport optimisation -->
         <link href="./css/flexible-grids.css" rel="stylesheet" type="text/css"/>
         <!--[if lte IE 7]>
