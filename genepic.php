@@ -176,7 +176,7 @@ and open the template in the editor.
                         $continue = $i;
                     }
                     else if($key==1){
-                        for($i=$continue;$i<=$num-count($_SESSION['file_real']);$i++){
+                        for($i=$continue;$i<=count($pacol);$i++){
                             $pa="pa".$i;
                             ${$pa}[$tmp_pa_row[2]] = $tmp_pa_row[$i-5];
                         }
