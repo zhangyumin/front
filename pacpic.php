@@ -6,7 +6,7 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <script src="./src/jquery-1.10.1.min.js"></script>
+            <script src="./src/jquery-2.0.0.min.js"></script>
         <script src="./src/optselect/jquery.sumoselect.js"></script>
         <link href="./src/optselect/sumoselect.css" rel="stylesheet" />
         <style>
