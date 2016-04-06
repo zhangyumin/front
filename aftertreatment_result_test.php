@@ -457,7 +457,7 @@
                             view:{
                                 title:'Jbrowse',
                                 display: function (data) {
-                                    return "<a title='click to view detail in jbrowse' target=\"_blank\" href=\"../jbrowse/?data=data/"+species+"&amp;loc="+data.record.chr+":"+data.record.coord+"\">"+"<img src='./pic/browser.png'/></a>";
+                                    return "<a title='click to view detail in jbrowse' target=\"_blank\" href=\"../jbrowse/?data=data/"+species+"&amp;loc="+data.record.gene+"\">"+"<img src='./pic/browser.png'/></a>";
                                 }
                             }
                         }
