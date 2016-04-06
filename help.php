@@ -39,9 +39,10 @@
                             <h1 style="text-align: center;">How to use PlantAPA</h1>
                             <div  style="color:#a94442;background-color: #f2dede;border-color: #ebccd1;padding: 15px;border:1px solid transparent;border-radius: 4px;">
                                 <p style="color:#a94442;font-size: 16px;margin-bottom: 0px">For better browse experience, advanced browsers such as Chrome, Firefox, Safari, and Internet Explorer (11.0 or later) can be used for browsing PlantAPA. 
-                               <br>Firefox and Chrome are recommended:
+                               <br><br>Firefox and Chrome are recommended:
                                <br>Mozilla Firefox 39.0 or greater (<a href=http://www.mozilla.org>http://www.mozilla.org</a>)
-                               <br>Google Chrome 46.0 or greater (<a href=http://www.google.com/chrome/>http://www.google.com/chrome/</a>)</p><br>
+                               <br>Google Chrome 46.0 or greater (<a href=http://www.google.com/chrome/>http://www.google.com/chrome/</a>)
+                                </p><br>
                                 <table>
                                     <thead>
                                         <th>OS</th>
