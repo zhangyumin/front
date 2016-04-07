@@ -201,7 +201,7 @@ and open the template in the editor.
             }
             
             //user trap数据
-            if(isset($_SESSION['file'])&&strcmp($_SESSION['species'], $_GET['species']) == 0){
+            if(isset($_SESSION['file'])&&strcmp($_SESSION['species'], $_GET['species']) == 0&&$_GET['search']!=1){
                 $sql_sample = implode($_SESSION['file_real'], ",");
                 $user_pa = mysql_query("select coord,$sql_sample from db_user.PA_".$_SESSION['file']." where chr='$chr' and coord>=$gene_start and coord<=$gene_end;");
                 if($_GET['intergenic']==1){
