@@ -96,7 +96,7 @@ and open the template in the editor.
             $patable = array_unique($patable);
             $patable = array_merge($patable);
 //            var_dump($patable);
-            if(strcmp($_SESSION['species'], $_GET['species']) == 0){
+            if(strcmp($_SESSION['species'], $_GET['species']) == 0 && $_GET['search']!=1){
                 $num = count($pacol)+count($_SESSION['file_real']);#sample的个数
             }else{
                 $num = count($pacol);
