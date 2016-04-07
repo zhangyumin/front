@@ -121,7 +121,7 @@ and open the template in the editor.
             }
             
              //user trap数据
-            if(isset($_SESSION['file'])&&strcmp($_SESSION['species'], $_GET['species']) == 0){
+            if(isset($_SESSION['file'])&&strcmp($_SESSION['species'], $_GET['species']) == 0 && $_GET['search']!=1){
                 $sql_sample = implode($_SESSION['file_real'], ",");
                 if($_GET['intergenic']==1){
                     $user_pac = mysql_query("select coord,$sql_sample from db_user.PAC_".$_SESSION['file']." where gene = '$seq' and coord>=$gene_start and coord<=$gene_end;");
