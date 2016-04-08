@@ -209,6 +209,9 @@
             .sequence{
                 font-size: 12px;
             }
+            .copy-right,.address,header,#nav{
+                min-width: 1200px !important ;
+            }
         </style>
         <script src="./src/idangerous.swiper.min.js"></script> 
         <link rel="stylesheet" href="./src/idangerous.swiper.css">
