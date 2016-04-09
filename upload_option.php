@@ -239,9 +239,9 @@ and open the template in the editor.
                     </h4>
                 </div>
                 <div class="box info ym-form">
-                    <input type='radio' name='upload_method' value='upload' checked="true" onclick="SltFileType()"/>Short read&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type='radio' name='upload_method' value='up_est' onclick="SltFileType()"/>EST&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type='radio' name='upload_method' value='up_polya' onclick="SltFileType()"/>Poly(A) site&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+                    <input type='radio' name='upload_method' value='upload' checked="true" title="Short reads of fq or fa format, which will be aligned by Bowtie or Bowtie2" onclick="SltFileType()"/>Short read&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type='radio' name='upload_method' value='up_est' title="ESTs (long sequences) in fa format, which will be aligned by GMAP" onclick="SltFileType()"/>EST&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type='radio' name='upload_method' value='up_polya' title="Poly(A) site data, each line is one poly(A) site with four columns: chr, strand, coordinate, #PAT" onclick="SltFileType()"/>Poly(A) site&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
                     <label title="Select species" for="species" style="display: inline">Select species here:</label>
                      <select id="species" name="species" style="display: inline;margin-left: 2%;width: 85%">
                         <option value="japonica">Japonica rice</option>
