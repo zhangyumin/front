@@ -316,6 +316,10 @@
                                                   },";
                                     }
                                 }
+                                 echo "padj:{"
+                                        . "title:'Padj',"
+                                        . "edit:false"
+                                        . "},";
                             }
                             else if($_GET['result']=='depac'){
                                 echo "gene:{
