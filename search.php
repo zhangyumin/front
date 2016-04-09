@@ -193,7 +193,7 @@ and open the template in the editor.
         <?php include './navbar.php'; ?>
         <div class="ym-wrapper">
                 <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
-                    <font color="#224055" ><b>Search:</b> search and view the system samples</font>
+                    <font color="#224055" ><b>Search:</b> search poly(A) sites in PlantAPA</font>
                 </h2>
                <div class=" info ym-form">
                    <form name="search" method="post" id="getback" action="search_result.php">
