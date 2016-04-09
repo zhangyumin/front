@@ -27,13 +27,13 @@
               <li><a href="./help.php">Help</a></li>
       </ul>
         <form class="ym-searchform" method="post" action="search_result.php?method=fuzzy" onsubmit="return check();" style="height: 30px;padding: 11px 7.5px">
-          <select name="species" style="height: 30px;border-radius: 0.2em">
+          <select name="species" id="navspecies" style="height: 30px;border-radius: 0.2em" onchange="chgtitle()">
             <option value="japonica">Rice</option>
             <option value="arab" selected="true">Arabidopsis</option>
             <option value="mtr">Medicago</option>
             <option value="chlamy">Chlamy</option>
         </select>
-          <input class="ym-searchfield" id='inputkey' name="key" type="search" placeholder="input keyword here" style="border-radius: 0.2em;padding: 4px;height: 22px"/>
+          <input title="Example: AT1G01020" class="ym-searchfield" id='inputkey' name="key" type="search" placeholder="input a keyword" style="border-radius: 0.2em;padding: 4px;height: 22px"/>
           <button class="ym-searchbutton" type="submit" style="height: 30px">Search</button>
       </form>
     </div>
@@ -44,6 +44,16 @@
         if(document.getElementById("inputkey").value == ""){
             return false;
         }
+    }
+    function chgtitle(){
+        if(document.getElementById("navspecies").value == 'arab')
+            document.getElementById("inputkey").setAttribute("title","Example: AT1G01020");
+        else if(document.getElementById("navspecies").value == 'mtr')
+            document.getElementById("inputkey").setAttribute("title","Example: Medtr0236s0040");
+        else if(document.getElementById("navspecies").value == 'chlamy')
+            document.getElementById("inputkey").setAttribute("title","Example: Cre04.g225950");
+        else if(document.getElementById("navspecies").value == 'japonica')
+            document.getElementById("inputkey").setAttribute("title","Example: LOC_Os01g01070");
     }
 var _hmt = _hmt || [];
 (function() {
