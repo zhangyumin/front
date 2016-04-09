@@ -10,7 +10,7 @@ qq(window).attach("load", function() {
         element: document.getElementById("manual-example"),
         autoUpload: false,
         debug: true,
-        uploadButtonText: "Select Files",
+        uploadButtonText: "Upload one or more files",
         display: {
             fileSizeOnSubmit: true
         },
