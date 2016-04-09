@@ -616,7 +616,7 @@
                                                 <option value='Bonferroni' selected="true">Bonferroni</option>
                                                 <option value='Not'>Not adjust</option>
                                             </select>
-                                            <label for="depac_sig">Significance Level</label>
+                                            <label for="depac_sig">Significance level</label>
                                             <select name="depac_sig">
                                                 <option value='0.01'>0.01</option>
                                                 <option value='0.05' selected="true">0.05</option>
@@ -805,7 +805,7 @@
                                                         <option checked='true' value='bonferroni' />Bonferroni
                                                         <option value='notadjust'/>Not adjust
                                                     </select>
-                                                    <label for="only3utr_sig">Significance Level</label>
+                                                    <label for="only3utr_sig">Significance level</label>
                                                     <select name="only3utr_sig">
                                                         <option value="0.01"/>0.01
                                                         <option checked='true' value="0.05"/>0.05
