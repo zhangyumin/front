@@ -196,7 +196,7 @@ and open the template in the editor.
                 }
                 else{
                     $('#'+a).attr("src","./pic/up.png");
-                    $('#'+d).html('Or click here to enter a sequence');
+                    $('#'+d).html('Or click here to enter sequence(s)');
                 }
                 $('#'+b).slideToggle('slow');
                 $('#'+c).slideToggle('slow');
@@ -269,7 +269,7 @@ and open the template in the editor.
                                 </div>
                             </div>
                             <hr style="border-bottom: 2px #5db95b solid">
-                            <img id="uploadtext" src="pic/up.png" onclick="div_hidden('uploadtext','seq-examples','uploadtextdiv','seq-note')"><div style="display: inline" id='seq-note'>Or click here to enter a sequence</div>
+                            <img id="uploadtext" src="pic/up.png" onclick="div_hidden('uploadtext','seq-examples','uploadtextdiv','seq-note')"><div style="display: inline" id='seq-note'>Or click here to enter sequence(s)</div>
                             <br><br>
                             <div id='uploadtextdiv' style="display: none">
                                 name:&nbsp;<input id="seq_name" name='text_name'>&nbsp;&nbsp;&nbsp;&nbsp;group:&nbsp;<input id="seq_group" name='text_group'><input style="margin-left: 10px" type="button" value="Try an example" onclick="example('seq')"><br>
@@ -381,7 +381,7 @@ and open the template in the editor.
                             </div>
                         </div>
                         <hr style="border-bottom: 2px #5db95b solid">
-                            <img id="polya-uploadtext" src="pic/up.png" onclick="div_hidden('polya-uploadtext','polya-examples','polya-uploadtextdiv','polya-note')"><div style="display: inline" id='polya-note'>Or click here to enter a sequence</div>
+                            <img id="polya-uploadtext" src="pic/up.png" onclick="div_hidden('polya-uploadtext','polya-examples','polya-uploadtextdiv','polya-note')"><div style="display: inline" id='polya-note'>Or click here to enter sequence(s)</div>
                             <br><br>
                             <div id='polya-uploadtextdiv' style="display: none">
                                 name:&nbsp;<input id="polya_name" name='polya_text_name' style="width: auto;display: inline">&nbsp;&nbsp;&nbsp;&nbsp;group:&nbsp;<input id="polya_group" name='polya_text_group' style="width: auto;display: inline"><input type="button" value="Try an example" style="margin-left: 10px;width: auto" onclick="example('polya')"><br>
@@ -420,7 +420,7 @@ and open the template in the editor.
                             </div>
                         </div>
                         <hr style="border-bottom: 2px #5db95b solid">
-                            <img id="est-uploadtext" src="pic/up.png" onclick="div_hidden('est-uploadtext','est-examples','est-uploadtextdiv','est-note')"><div style="display: inline" id='est-note'>Or click here to enter a sequence</div>
+                            <img id="est-uploadtext" src="pic/up.png" onclick="div_hidden('est-uploadtext','est-examples','est-uploadtextdiv','est-note')"><div style="display: inline" id='est-note'>Or click here to enter sequence(s)</div>
                             <br><br>
                             <div id='est-uploadtextdiv' style="display: none">
                                 name:&nbsp;<input id="est_name" name='est_text_name' style="width: auto;display: inline">&nbsp;&nbsp;&nbsp;&nbsp;group:&nbsp;<input id="est_group" name='est_text_group' style="width: auto;display: inline"><input type="button" value="Try an example" style="margin-left: 10px;width: auto" onclick="example('est')"><br>
