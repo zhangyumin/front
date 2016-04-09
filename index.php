@@ -410,7 +410,7 @@ and open the template in the editor.
                                 <td>45372</td>
                                 <td>13536005</td>
                                 <td>poly(A) sites extracted from ESTs, 454, Illumina, and  PAT-seq sequence reads</td>
-                                <td><a id='ref4' class="ref">Zhao et al. G3:Genes|Genomes|Genetics, 2014; Umen et al. PloS one, 2016</a></td>                     
+                                <td><a id='ref4' class="ref">Zhao et al. G3:Genes|Genomes|Genetics, 2014; Bell et al. PloS one, 2016</a></td>                     
                                 <td>
                                     <a class='img' target="_blank" href="../jbrowse/?data=data/chlamy">
                                         <!--<span class="tablebutton" title="Browse polyA sites in Jbrowse">Chr</span>-->
@@ -473,7 +473,7 @@ and open the template in the editor.
                                                     <td>from PAT-seq</td>
                                                     <td>mix</td>
                                                     <td>mix</td>
-                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0146107">Umen et al. PloS one, 2016</a></td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0146107">Bell et al. PloS one, 2016</a></td>
                                                     <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
                                                     <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2CGene%20annotation%2CFrom_PATseq%20PAT%20plus%20strand%2CFrom_PATseq%20%20PAT%20minus%20strand&highlight=' target="_blank">12532698</a></td>
                                                 </tr>
