@@ -291,20 +291,20 @@ and open the template in the editor.
                                 <tbody>
                                     <tr>
                                         <td>Quality cut-off:</td>
-                                        <td><input type="text" name="qct" value="20" size="1" style="height:30px;width: 210px"/></td>
+                                        <td><input type="text" name="qct" value="20" size="1" title="Quality filtering options for “fastq_quality_filter -q 20 -p 50" style="height:30px;width: 210px"/></td>
                                         <td>Minimum percentage:</td>
-                                        <td><input type="text" name="mp" value="50" size="1" style="height:30px;width: 210px"/></td>
+                                        <td><input type="text" name="mp" value="50" size="1" title="Quality filtering options for “fastq_quality_filter -q 20 -p 50" style="height:30px;width: 210px"/></td>
                                     </tr>
                                     <tr>
                                         <td>Poly type:</td>
-                                        <td><select id="tailremove" name="tailremove" style="height:30px;width:210px;">
+                                        <td><select id="tailremove" name="tailremove" title="=T, reads are started with T stretch;&#10;=A, reads are ended with A stretches&#10;=unknown, auto detect A or T" style="height:30px;width:210px;">
                                                 <option value="A">A</option>
                                                 <option value="T" selected="true">T</option>
                                                 <option value="unknown">unknown</option>
                                                 </select>
                                         </td>
                                         <td>Min length:</td>
-                                        <td><input type="text" name="minlength" value="25" size="1" style="height:30px;width: 210px"/></td>
+                                        <td><input type="text" name="minlength" value="25" size="1" title="Minimum length of a read after A/T stretch is cut off" style="height:30px;width: 210px"/></td>
                                     </tr>
                                     <tr>
                                         <td>Aligner:</td>
@@ -322,7 +322,7 @@ and open the template in the editor.
                                     </tr>
                                     <tr>
                                         <td>Distance:</td>
-                                        <td><input type="text" name="distance" value="24" size="1" style="height:30px;width:210px;"/></td>
+                                        <td><input type="text" name="distance" value="24" size="1" title="Cluster poly(A) tags within a given distance into a poly(A) site cluster (PAC)" style="height:30px;width:210px;"/></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -441,7 +441,7 @@ and open the template in the editor.
                                 <tbody>
                                     <tr>
                                         <td>PolyA type:</td>
-                                        <td><select id="poly_type" name="poly_type" style="height:30px;width:210px">
+                                        <td><select id="poly_type" name="poly_type" title="=T, ESTs are started with T stretch; &#10;=A, ESTs are ended with A stretches; &#10;=A&T, mixed ESTs with A or T stretches" style="height:30px;width:210px">
                                                 <option value="A">A</option>
                                                 <option value="T">T</option>
                                                 <option value="AT">A&T</option>
@@ -451,19 +451,19 @@ and open the template in the editor.
                                     </tr>
                                     <tr>
                                         <td>Min tail length (nt) :</td>
-                                        <td><input type="text" name="min_tail_length" value="8" size="1" style="height:30px;width:210px;"/></td>
+                                        <td><input type="text" name="min_tail_length" value="8" size="1" title="Minimum tail length to call an EST as a valid poly(A) site" style="height:30px;width:210px;"/></td>
                                     </tr>
                                     <tr>
                                         <td>Search tail within (nt) :</td>
-                                        <td><input type="text" name="search_tail_within" value="15" size="1" style="width: 210px;height:30px;"/></td>
+                                        <td><input type="text" name="search_tail_within" value="15" size="1" title="A/T stretch needs to be found in the start or end 15 nt range of an EST " style="width: 210px;height:30px;"/></td>
                                     </tr>
                                     <tr>
                                         <td>Max distance from aligned-end to EST-end (nt) :</td>
-                                        <td><input type="text" name="max_distance1" value="20" size="1" style="width: 210px;height:30px;"/></td>
+                                        <td><input type="text" name="max_distance1" value="20" size="1" title="Distance from the aligned 3’ end to the EST 3’ end should be <=20 nt" style="width: 210px;height:30px;"/></td>
                                     </tr>
                                     <tr>
                                         <td>Max distance from aligned-end to poly tail (nt) :</td>
-                                        <td><input type="text" name="max_distance1" value="5" size="1" style="width: 210px;height:30px;"/></td>
+                                        <td><input type="text" name="max_distance1" value="5" size="1" title="Distance from the aligned 3’ end to the A/T stretch should be <=5nt" style="width: 210px;height:30px;"/></td>
                                     </tr>
                                 </tbody>
                             </table>
