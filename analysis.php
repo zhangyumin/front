@@ -405,8 +405,8 @@
                                                         <option value='DESeq'>DESeq</option>
                                                         <option value='DESeq2'>DESeq2</option>
                                                     </select>
-                                                  <label for="min_pat">Min PAT</label>
-                                                <input type='text' name='degene_min_pat' value='5'/>
+                                                <label for="min_pat">Min PAT</label>
+                                                <input type='text' title="Minimum total number of PATs required for a PAC" name='degene_min_pat' value='5'/>
                                            
                                         
                                               <label for="multi_test">Multi-test adjustment method</label>
@@ -610,7 +610,7 @@
                                                     <option value='DEXSEQ'>DEXSEQ</option>
                                             </select>
                                             <label for="depac_min_pat">Min PAT</label>
-                                            <input type='text' name='depac_min_pat' value='5'/>
+                                            <input type='text' title="Minimum total number of PATs required for a PAC" name='depac_min_pat' value='5'/>
                                             <label for="depac_multi_test">Multi-test adjustment method</label>
                                             <select name="depac_multi_test">
                                                 <option value='Bonferroni' selected="true">Bonferroni</option>
@@ -799,7 +799,7 @@
                                         <div id="only3utr" class="ym-form">
                                             <div class="box ym-fbox">
                                                     <label for="sgminpat">Min PAT</label>
-                                                    <input type='text' value='5' name="sgminpat"/>
+                                                    <input type='text' value='5' title="Minimum total number of PATs required for a PAC" name="sgminpat"/>
                                                     <label for="">Multi-test adjustment method</label>
                                                     <select>
                                                         <option checked='true' value='bonferroni' />Bonferroni
@@ -994,7 +994,7 @@
                                                     <option value="DESeq"/>DESeq
                                                 </select>
                                                 <label for="minpat2">Distance(nt)</label>
-                                                <input type="text" value="50" name="minpat2"/>
+                                                <input type="text" value="50" name="minpat2" title="Minimum distance between two PACs"/>
                                                 <label for="uttp">Using top two PACs</label>
                                                 <input type="checkbox" checked="true" name="uttp"/>
                                                 <label for="minpat3">Min PAT of one PAC</label>
