@@ -282,7 +282,7 @@
                         </p>
                         <div class="picdiv">
                             <br><img class="pic" src="./pic/help/pac_usage.bmp"/>
-                            <br>Fig. 23 The Details of pac usage
+                            <br>Fig. 23 The Details of PAC usage
                         </div>
                         <!--<h3>6.2. Gene sequence viewer</h3>-->
                         <p>PlantAPA provides the gene sequence annotated with exon-intron structure and 3’ UTR, poly(A) signals and positions. By default the most dominant poly(A) signal, AAUAAA, and its 1 nt variants are scanned to obtain poly(A) signals. Users can also specify other patterns to locate possible poly(A) signals. Further, users can choose highlight genomic regions (intron, exon, 3’ UTR etc.), cleavage sites, and poly(A) signals in different styles or colors in the corresponding gene sequence, facilitating manual inspection of poly(A) sites in different genomic locations. Particularly, the heterogeneous cleavage sites of each PAC are underlined, and the most dominant cleavage site in each PAC is highlighted in dark red and underlined in bold<span class="pic_red"> (Fig. 24)</span>. 
@@ -313,14 +313,14 @@
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysis_result1.bmp"/>
-                            <br>Fig. 27 The results of DE gene
+                            <br>Fig. 27 The results of DE Gene
                         </div>
                         <!--<h3>7.2. Detection of PACs with differential usage</h3>-->
                         <p id='analysishelp3'>Users can specific parameters for detecting PACs with differential usage.
                         The main output is a table that lists all result PACs<span class="pic_red"> (Fig. 28)</span>.</p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysis_result2.bmp"/>
-                            <br>Fig. 28 The results of DE pac
+                            <br>Fig. 28 The results of DE PAC
                         </div>
                         <!--<h3>7.3. Detection of genes with 3’ UTR lengthening or shortening</h3>-->
                         <p id='analysishelp4'>After choosing two groups of samples, users can specific parameters for detecting genes with tandem 3’ UTR switching.
@@ -328,16 +328,16 @@
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysis_result3.bmp"/>
-                            <br>Fig. 29 The results of 3'UTR lengthening
+                            <br>Fig. 29 The results of 3'UTR Lengthening
                         </div>
                         <!--<h3>7.4. Detection of nonconnonical APA-site switching genes</h3>-->
                         <p id='analysishelp5'>After choosing two groups of samples, users can specific parameters for the detection of nonconnonical APA-site switching genes<span class="pic_red">(Fig. 30)</span>. These genes involve at least one PAC located in CDS or introns.
                             The main output is a table that lists all result genes and PACs<span class="pic_red"> (Fig. 31)</span>.</p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/apaswitching.png"/>
-                            <br>Fig. 30 The panel of APA switching
+                            <br>Fig. 30 The panel of APA Switching
                             <img class="pic" src="./pic/help/analysis_result4.bmp"/>
-                            <br>Fig. 31 The results of APA switching
+                            <br>Fig. 31 The results of APA Switching
                         </div>
                     </div>
                     </div>
