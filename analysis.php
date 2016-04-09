@@ -49,7 +49,8 @@
 //            var_dump($_SESSION['analysis']);
         ?>
         <script>  
-        $(document).ready(function(){  
+        $(document).ready(function(){
+                $("#species").val("arab");
                  $('#degene-submit').click(function (){
                     if($(".degene1:checked").length ==1 && $(".degene2:checked").length == 1 && $("#degene_method").val() == 'EdgeR'){
                         alert("Method = EdgeR, please select at least two samples for group 1 or group 2.");
