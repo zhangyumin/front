@@ -275,7 +275,7 @@
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/pat_distribution.bmp"/>
-                            <br>Fig. 22 The Details of pat distribution
+                            <br>Fig. 22 The Details of PAT distribution
                         </div>
                         <p>
                         An additional bar chart is presented to profile the usage quantification of all PACs of the queried gene across different samples, providing a simple and direct way to compare the usage of PACs and further find the ubiquitous and specific PACs<span class="pic_red"> (Fig. 23)</span>.
