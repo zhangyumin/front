@@ -122,50 +122,43 @@ and open the template in the editor.
                     <th>Name</th>
                     <th>Description</th>
                     <th>Size</th>
-                    <th>File type</th>
                     <th>Download</th>
                 </tr>
                 </thead>
                 <tr>
-                    <td>arab</td>
+                    <td>Ath.demo.PA</td>
                     <td>poly(A) site file for PAC Trap(Arabidopsis thaliana)</td>
                     <td>145.8KB</td>
-                    <td>PA</td>
                     <td><a href="./download_data.php?type=1&name=arab.PA"/>Click here</td>
                 </tr>
                 <tr>
-                    <td>arab_sample_100k</td>
+                    <td>Ath.demo.NGS.fq</td>
                     <td>short read for PAC Trap(Arabidopsis thaliana)</td>
                     <td>25.5MB</td>
-                    <td>fastq</td>
                     <td><a href="./download_data.php?type=1&name=arab_sample_100k.fastq"/>Click here</td>
                 </tr>
                 <tr>
-                    <td>AtEST.demo</td>
+                    <td>Ath.demo.EST.fa</td>
                     <td>EST file for PAC Trap(Arabidopsis thaliana)</td>
                     <td>6.2MB</td>
-                    <td>fa</td>
                     <td><a href="./download_data.php?type=1&name=AtEST.demo.fa"/>Click here</td>
                 </tr>
                 <tr>
-                    <td>rice_japonica1</td>
+                    <td>Rice_japonica1.demo.fa</td>
                     <td>short read for PAC Trap(Japonica rice)</td>
                     <td>636.3KB</td>
-                    <td>fa</td>
                     <td><a href="./download_data.php?type=1&name=rice_japonica1.fa"/>Click here</td>
                 </tr>
                 <tr>
-                    <td>rice_japonica2</td>
+                    <td>Rice_japonica2.demo.fa</td>
                     <td>short read for PAC Trap(Japonica rice)</td>
                     <td>638.8KB</td>
-                    <td>fa</td>
                     <td><a href="./download_data.php?type=1&name=rice_japonica2.fa"/>Click here</td>
                 </tr>
                 <tr>
-                    <td>rice_japonica_all</td>
+                    <td>Rice_japonica_3.demo.fa</td>
                     <td>short read for PAC Trap(Japonica rice)</td>
                     <td>6.4MB</td>
-                    <td>fa</td>
                     <td><a href="./download_data.php?type=1&name=rice_japonica_all.fa"/>Click here</td>
                 </tr>
             </table><br>
