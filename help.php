@@ -211,7 +211,7 @@
                       </div>
                       <div class="jumpto-block">
                         <h2>4. Exporting sequences</h2>
-                        <p>To facilitate further inspection poly(A) site or genes, we designed a toolbar above the resulted PAC list which allows users to input a keyword to locate entries within the list and export sequences of interest. Users can export various kinds of sequences onto their local computers for other analysis purpose.
+                        <p>To facilitate further inspection poly(A) site or genes, we designed a toolbar above the result PAC list which allows users to input a keyword to locate entries within the list and export sequences of interest. Users can export various kinds of sequences onto their local computers for other analysis purpose.
                         </p>
                         <!--<h3>4.1. Export sequences of PACs</h3>-->
                         <p>Sequences regarding PACs are exportable, including upstream and downstream sequences around PACs, sequences of PACs in a defined region (3’ UTR, 5’ UTR, CDS, intron, intergenic region, etc.)<span class="pic_red"> (Fig. 14)</span>.
@@ -309,7 +309,7 @@
                         </p>
                         <!--<h3>7.1. Detection of differentially expressed genes</h3>-->
                         <p>After choosing two groups of samples, users can specific parameters for DE gene detection<span class="pic_red"> (Fig. 27)</span>.
-                        The main output is a table that lists all resulted DE genes.
+                        The main output is a table that lists all result DE genes.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysis_result1.bmp"/>
@@ -317,7 +317,7 @@
                         </div>
                         <!--<h3>7.2. Detection of PACs with differential usage</h3>-->
                         <p id='analysishelp3'>Users can specific parameters for detecting PACs with differential usage.
-                        The main output is a table that lists all resulted PACs<span class="pic_red"> (Fig. 28)</span>.</p>
+                        The main output is a table that lists all result PACs<span class="pic_red"> (Fig. 28)</span>.</p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysis_result2.bmp"/>
                             <br>Fig. 28 The results of DE pac
@@ -332,7 +332,7 @@
                         </div>
                         <!--<h3>7.4. Detection of nonconnonical APA-site switching genes</h3>-->
                         <p id='analysishelp5'>After choosing two groups of samples, users can specific parameters for the detection of nonconnonical APA-site switching genes<span class="pic_red">(Fig. 30)</span>. These genes involve at least one PAC located in CDS or introns.
-                            The main output is a table that lists all resulted genes and PACs<span class="pic_red"> (Fig. 31)</span>.</p>
+                            The main output is a table that lists all result genes and PACs<span class="pic_red"> (Fig. 31)</span>.</p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/apaswitching.png"/>
                             <br>Fig. 30 The panel of APA switching
