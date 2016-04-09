@@ -580,7 +580,7 @@ var qq = function (a) {
 	function b() {
 		var a = document.createElement("input");
 		return a.setAttribute(qq.UploadButton.BUTTON_ID_ATTR_NAME, d),
-		a.setAttribute("title", "file input"),
+		a.setAttribute("title", "Upload one or more files"),
 		e.setMultiple(g.multiple, a),
 		g.folders && qq.supportedFeatures.folderSelection && a.setAttribute("webkitdirectory", ""),
 		g.acceptFiles && a.setAttribute("accept", g.acceptFiles),
