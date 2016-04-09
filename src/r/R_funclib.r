@@ -959,7 +959,8 @@ doDE<-function(dat,method,grpInd1,grpInd2,grpLbl1,grpLbl2,doNorm=T,sizeFactor=NU
      dat.ds <- newCountDataSet( dat, group)
      sizeFactors(dat.ds)=rep(1,ncol(dat))
      if (length(grpInd1)==1 | length(grpInd2)==1) {
-       dat.ds <- estimateDispersions( dat.ds,blind=T)
+       #dat.ds <- estimateDispersions( dat.ds,blind=T)
+	dat.ds <- estimateDispersions( dat.ds, method = 'blind', fitType='local')
      } else {
        dat.ds <- estimateDispersions( dat.ds,fitType='local') #2012-07-20 要加上local，否则可能有错
      }
