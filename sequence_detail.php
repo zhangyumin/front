@@ -848,20 +848,19 @@
                                             }
                                             else{
                                                 $detail = mysql_query("select * from t_".$species."_genedesc where gene='".$_GET['seq']."'");
-                                                while($detail_row = mysql_fetch_row($detail)){
-                                                    if($detail_row[1]!='')
-                                                        echo "<tr><td class=\"left\">Gene alias:</td><td>$detail_row[1]</td></tr>";
-                                                    else
-                                                        echo "<tr><td class=\"left\">Gene alias:</td><td>-</td></tr>";
-                                                    if($detail_row[2]!='')
-                                                        echo "<tr><td class=\"left\">Gene description:</td><td>$detail_row[2]</td></tr>";
-                                                    else
-                                                        echo "<tr><td class=\"left\">Gene description:</td><td>-</td></tr>";
-                                                    if($detail_row[3]!='')
-                                                        echo "<tr><td class=\"left\">Gene description full:</td><td>$detail_row[3]</td></tr>";
-                                                    else
-                                                        echo "<tr><td class=\"left\">Gene description full:</td><td>-</td></tr>";
-                                                }
+                                                $detail_row = mysql_fetch_row($detail);
+                                                if($detail_row[1]!='')
+                                                    echo "<tr><td class=\"left\">Gene alias:</td><td>$detail_row[1]</td></tr>";
+                                                else
+                                                    echo "<tr><td class=\"left\">Gene alias:</td><td>-</td></tr>";
+                                                if($detail_row[2]!='')
+                                                    echo "<tr><td class=\"left\">Gene description:</td><td>$detail_row[2]</td></tr>";
+                                                else
+                                                    echo "<tr><td class=\"left\">Gene description:</td><td>-</td></tr>";
+                                                if($detail_row[3]!='')
+                                                    echo "<tr><td class=\"left\">Gene description full:</td><td>$detail_row[3]</td></tr>";
+                                                else
+                                                    echo "<tr><td class=\"left\">Gene description full:</td><td>-</td></tr>";
                                             }
                                         ?>
                                 </tbody>
