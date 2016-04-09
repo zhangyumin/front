@@ -74,42 +74,198 @@ and open the template in the editor.
             </h2>
             <table  class="bordertable">
                 <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Size</th>
-                    <th>File type</th>
-                    <th>Download</th>
-                </tr>
+                    <tr>
+                        <th  height="24">Species</th>
+                        <th  height="24">Label</th>
+                        <th  height="24">Cell Line</th>
+                        <th  height="24">Tissue</th>
+                        <th  height="24">Reference</th>
+                        <th  height="24">Genome Annotation</th>
+                        <th  height="24">PATs</th>
+                    </tr>
                 </thead>
-                <tr>
-                    <td>Japonica rice</td>
-                    <td>sequence</td>
-                    <td>81.5MB</td>
-                    <td>GFF3</td>
-                    <td><a href="./download_data.php?type=1&name=japonica.gff3"/>Click here</td>
-                </tr>
-                <tr>
-                    <td>Arabidopsis thaliana</td>
-                    <td>sequence</td>
-                    <td>66.2MB</td>
-                    <td>GFF3</td>
-                    <td><a href="./download_data.php?type=1&name=arab.gff3"/>Click here</td>
-                </tr>
-                <tr>
-                    <td>Medicago truncatula</td>
-                    <td>sequence</td>
-                    <td>63.7MB</td>
-                    <td>GFF3</td>
-                    <td><a href="./download_data.php?type=1&name=mtr.gff3"/>Click here</td>
-                </tr>
-                <tr>
-                    <td>Chlamydomonas reinhardtii (Green alga)</td>
-                    <td>sequence</td>
-                    <td>33.5MB</td>
-                    <td>GFF3</td>
-                    <td><a href="./download_data.php?type=1&name=chlamy.gff3"/>Click here</td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>Arabidopsis thanliana</td>
+                        <td>wt leaf 1</td>
+                        <td>WT</td>
+                        <td>leaf</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
+                        <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_1%20PAT%20minus%20strand%2Cwt_leaf_1%20PAT%20plus%20strand&highlight=' target='_blanck'>1110951</a></td>
+                    </tr>
+                    <tr>
+                        <td>Arabidopsis thanliana</td>
+                        <td>wt leaf 2</td>
+                        <td>WT</td>
+                        <td>leaf</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1073%2Fpnas.1019732108">Wu et al. PNAS, 2011</a></td>
+                        <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_2%20PAT%20minus%20strand%2Cwt_leaf_2%20PAT%20plus%20strand&highlight=' target='_blanck'>695258</a></td>
+                    </tr>
+                    <tr>
+                        <td>Arabidopsis thanliana</td>
+                        <td>wt leaf 3</td>
+                        <td>WT</td>
+                        <td>leaf</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
+                        <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_3%20PAT%20minus%20strand%2Cwt_leaf_3%20PAT%20plus%20strand&highlight=' target='_blanck'>22176</a></td>
+                    </tr>
+                    <tr>
+                        <td>Arabidopsis thanliana</td>
+                        <td>wt seed 1</td>
+                        <td>WT</td>
+                        <td>seed</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
+                        <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_seed_1%20PAT%20minus%20strand%2Cwt_seed_1%20PAT%20plus%20strand&highlight=' target='_blanck'>21416</a></td>
+                    </tr>
+                    <tr>
+                        <td>Arabidopsis thanliana</td>
+                        <td>wt seed 2</td>
+                        <td>WT</td>
+                        <td>seed</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1073%2Fpnas.1019732108">Wu et al. PNAS, 2011</a></td>
+                        <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_seed_2%20PAT%20minus%20strand%2Cwt_seed_2%20PAT%20plus%20strand&highlight=' target='_blanck'>1314335</a></td>
+                    </tr>
+                    <tr>
+                        <td>Arabidopsis thanliana</td>
+                        <td>wt root 1</td>
+                        <td>WT</td>
+                        <td>root</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                        <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_1%20PAT%20minus%20strand%2Cwt_root_1%20PAT%20plus%20strand&highlight=' target='_blanck'>16229894</a></td>
+                    </tr>
+                    <tr>
+                        <td>Arabidopsis thanliana</td>
+                        <td>wt root 2</td>
+                        <td>WT</td>
+                        <td>root</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                        <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_2%20PAT%20minus%20strand%2Cwt_root_2%20PAT%20plus%20strand&highlight=' target='_blanck'>10703765</a></td>
+                    </tr>
+                    <tr>
+                        <td>Arabidopsis thanliana</td>
+                        <td>wt root 3</td>
+                        <td>WT</td>
+                        <td>root</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                        <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_3%20PAT%20minus%20strand%2Cwt_root_3%20PAT%20plus%20strand&highlight=' target='_blanck'>12541261</a></td>
+                    </tr>
+                    <tr>
+                        <td>Arabidopsis thanliana</td>
+                        <td>oxt6 root 1</td>
+                        <td>Oxt6</td>
+                        <td>root</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                        <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_1%20PAT%20minus%20strand%2Coxt6_root_1%20PAT%20plus%20strand&highlight=' target='_blanck'>977997</a></td>
+                    </tr>
+                    <tr>
+                        <td>Arabidopsis thanliana</td>
+                        <td>oxt6 root 2</td>
+                        <td>Oxt6</td>
+                        <td>root</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                        <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_2%20PAT%20minus%20strand%2Coxt6_root_2%20PAT%20plus%20strand&highlight=' target='_blanck'>76768</a></td>
+                    </tr>
+                    <tr>
+                        <td>Arabidopsis thanliana</td>
+                        <td>oxt6 root 3</td>
+                        <td>Oxt6</td>
+                        <td>root</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                        <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_3%20PAT%20minus%20strand%2Coxt6_root_3%20PAT%20plus%20strand&highlight=' target='_blanck'>2176288</a></td>
+                    </tr>
+                    <tr>
+                        <td>Arabidopsis thanliana</td>
+                        <td>oxt6 leaf 1</td>
+                        <td>Oxt6</td>
+                        <td>leaf</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
+                        <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_1%20PAT%20minus%20strand%2Coxt6_leaf_1%20PAT%20plus%20strand&highlight=' target='_blanck'>6092063</a></td>
+                    </tr>
+                    <tr>
+                        <td>Arabidopsis thanliana</td>
+                        <td>oxt6 leaf 2</td>
+                        <td>Oxt6</td>
+                        <td>leaf</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
+                        <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_2%20PAT%20minus%20strand%2Coxt6_leaf_2%20PAT%20plus%20strand&highlight=' target='_blanck'>10589959</a></td>
+                    </tr>
+                    <tr>
+                        <td>Arabidopsis thanliana</td>
+                        <td>oxt6 leaf 3</td>
+                        <td>Oxt6</td>
+                        <td>leaf</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
+                        <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_3%20PAT%20minus%20strand%2Coxt6_leaf_3%20PAT%20plus%20strand&highlight=' target='_blanck'>5875054</a></td>
+                    </tr>
+                    <tr>
+                        <td>Oryza sativa</td>
+                        <td>from EST</td>
+                        <td>mix</td>
+                        <td>mix</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1093%2Fnar%2Fgkn158">Shen et al. Plant Cell, 2012</a></td>
+                        <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
+                        <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cfrom_EST%20PAT%20minus%20strand%2Cfrom_EST%20PAT%20plus%20strand&highlight=' target='_blanck'>57852</a></td>
+                    </tr>
+                    <tr>
+                        <td>Medicago truncatula</td>
+                        <td>wt leaf</td>
+                        <td>WT</td>
+                        <td>leaf</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1186%2F1471-2164-15-615">Wu et al. BMC Genomics, 2014</a></td>
+                        <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
+                        <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Cwt_leaf_1%20PAT%20minus%20strand%2Cwt_leaf_1%20PAT%20plus%20strand&highlight=' target="_blank">2747920</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chlamydomonas reinhardtii</td>
+                        <td>from illumina</td>
+                        <td>mix</td>
+                        <td>mix</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
+                        <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
+                        <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2Cfrom_illumina%20PAT%20plus%20strand%2Cfrom_illumina%20%20PAT%20minus%20strand&highlight=' target="_blank">622248</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chlamydomonas reinhardtii</td>
+                        <td>from 454</td>
+                        <td>mix</td>
+                        <td>mix</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
+                        <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
+                        <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2CGene%20annotation%2CFrom_454%20PAT%20minus%20strand%2CFrom_454%20PAT%20plus%20strand&highlight=' target="_blank">324305</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chlamydomonas reinhardtii</td>
+                        <td>from EST</td>
+                        <td>mix</td>
+                        <td>mix</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
+                        <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
+                        <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2CGene%20annotation%2CFrom_EST%20PAT%20minus%20strand%2CFrom_EST%20PAT%20plus%20strand&highlight=' target="_blank">56754</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chlamydomonas reinhardtii</td>
+                        <td>from PAT-seq</td>
+                        <td>mix</td>
+                        <td>mix</td>
+                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0146107">Bell et al. PloS one, 2016</a></td>
+                        <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
+                        <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2CGene%20annotation%2CFrom_PATseq%20PAT%20plus%20strand%2CFrom_PATseq%20%20PAT%20minus%20strand&highlight=' target="_blank">12532698</a></td>
+                    </tr>
+                </tbody>
             </table><br>
         </div>
         <div class="download">
