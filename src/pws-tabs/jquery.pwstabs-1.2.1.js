@@ -148,7 +148,7 @@
             $(this).attr('data-pws-tab-id', pwsTabsDataCounter);
 
             // Add LIs and A controls
-            $(this).parent().parent().find('ul.pws_tabs_controll').append('<li><a href="#" data-tab-id="' + $(this).data('pws-tab') + '" onclick=setIframeHeight("'+ $(this).data('pws-tab') +'")>' + $(this).data('pws-tab-name') + '</a></li>');
+            $(this).parent().parent().find('ul.pws_tabs_controll').append('<li><a href="#" data-tab-id="' + $(this).data('pws-tab') + '" onclick=warn();setIframeHeight("'+ $(this).data('pws-tab') +'")>' + $(this).data('pws-tab-name') + '</a></li>');
 
             // Adding class to our selector children (Tabs)
             $(this).addClass('pws_tab_single');
