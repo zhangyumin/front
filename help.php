@@ -171,7 +171,7 @@
                         <p>Upon the completion of the PAC extraction process, users can download the PAC list directly from the web site onto their local computers <span class="pic_red"> (Fig. 9)</span>.
                         </p>
                         <div class="picdiv">
-                            <img class="pic" src="./pic/help/download.bmp"/>
+                            <img class="pic" src="./pic/help/download.png"/>
                             <br>Fig. 9 The data download page
                         </div>
                         <p>
@@ -274,7 +274,7 @@
                         Another graph presents both the original and the modified versions of the gene model and the distributions of PACs/PATs across different samples in a more intuitive way, where users can inspect the locations, expression patterns, and differential usage of PACs in a gene, especially the selection of heterogeneous cleavage sites. Cleavage sites in a PAC are depicted in vertical lines with height representing number of supporting PATs, and the dominant cleavage site that supported by maximum number of PATs in a PAC is highlighted in red. There is a text label under each PAC to clearly indicate its expression level (total number of supporting PATs)<span class="pic_red"> (Fig. 22)</span>. 
                         </p>
                         <div class="picdiv">
-                            <img class="pic" src="./pic/help/pat_distribution.bmp"/>
+                            <img class="pic" src="./pic/help/pat_distribution.png"/>
                             <br>Fig. 22 The Details of PAT distribution
                         </div>
                         <p>
@@ -295,6 +295,12 @@
                     <div class="jumpto-block">
                         <h2>7. PAC analysis: analysis of APA switching between two conditions</h2>
                         <p id="analysishelp1">Following the “PAC analysis” tab in the main menu, users can choose to generate lists of differentially expressed genes, PACs with differential usage, genes with 3’ UTR lengthening or shortening, and APA-site switching genes, using the user uploaded PACs together with PlantAPA stored PACs.
+                        </p>
+                        <div class="picdiv">
+                            <img class="pic" src="./pic/help/analysispic.png"/>
+                            <br>Schema of four functions in PAC analysis module
+                        </div>
+                        <p>
                         Two groups of samples each with one or more than one condition need to be selected in order to obtain the output gene/PAC lists. 
                         Raw count or normalized count based on TPM normalization and methods in EdgeR or DESeq can be chosen as input. Additional parameters can be set for each assay, such as minimum number of PATs for pre-filtering of PACs, significance level, p-value adjusted method<span class="pic_red"> (Fig. 25 & Fig. 26)</span>.
                         </p>
@@ -312,14 +318,14 @@
                         The main output is a table that lists all result DE genes.
                         </p>
                         <div class="picdiv">
-                            <img class="pic" src="./pic/help/analysis_result1.bmp"/>
+                            <img class="pic" src="./pic/help/analysis_result1.png"/>
                             <br>Fig. 27 The results of DE Gene
                         </div>
                         <!--<h3>7.2. Detection of PACs with differential usage</h3>-->
                         <p id='analysishelp3'>Users can specific parameters for detecting PACs with differential usage.
                         The main output is a table that lists all result PACs<span class="pic_red"> (Fig. 28)</span>.</p>
                         <div class="picdiv">
-                            <img class="pic" src="./pic/help/analysis_result2.bmp"/>
+                            <img class="pic" src="./pic/help/analysis_result2.png"/>
                             <br>Fig. 28 The results of DE PAC
                         </div>
                         <!--<h3>7.3. Detection of genes with 3’ UTR lengthening or shortening</h3>-->
@@ -327,7 +333,7 @@
                             The main output is a table that lists all genes with 3’ UTR lengthening or shortening and the associated PACs<span class="pic_red"> (Fig. 29)</span>.
                         </p>
                         <div class="picdiv">
-                            <img class="pic" src="./pic/help/analysis_result3.bmp"/>
+                            <img class="pic" src="./pic/help/analysis_result3.png"/>
                             <br>Fig. 29 The results of 3'UTR Lengthening
                         </div>
                         <!--<h3>7.4. Detection of nonconnonical APA-site switching genes</h3>-->
@@ -336,7 +342,7 @@
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/apaswitching.png"/>
                             <br>Fig. 30 The panel of APA Switching
-                            <img class="pic" src="./pic/help/analysis_result4.bmp"/>
+                            <img class="pic" src="./pic/help/analysis_result4.png"/>
                             <br>Fig. 31 The results of APA Switching
                         </div>
                     </div>
