@@ -75,13 +75,13 @@ and open the template in the editor.
             <table  class="bordertable">
                 <thead>
                     <tr>
-                        <th  height="24">Species</th>
-                        <th  height="24">Label</th>
-                        <th  height="24">Cell Line</th>
-                        <th  height="24">Tissue</th>
-                        <th  height="24">Reference</th>
-                        <th  height="24">Genome Annotation</th>
-                        <th  height="24">PATs</th>
+                        <th>Species</th>
+                        <th>Label</th>
+                        <th>Cell Line</th>
+                        <th>Tissue</th>
+                        <th>Reference</th>
+                        <th>Genome Annotation</th>
+                        <th>PATs</th>
                     </tr>
                 </thead>
                 <tbody>
