@@ -441,8 +441,8 @@
     border-right: 1px solid #ccc;
   }
   table.bordertable tbody td {
-    border-left: 1px #ccc solid;
-    border-right: 1px solid #ccc;
+    /*border-left: 1px #ccc solid;*/
+    /*border-right: 1px solid #ccc;*/
   }
 
   caption {
