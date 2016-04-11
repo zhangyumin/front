@@ -555,7 +555,7 @@ and open the template in the editor.
             $('#ref4').webuiPopover({
                 placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
                 title:'Link to',
-                content:'<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a><br><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0146107">Umen et al. PloS one, 2016</a>',
+                content:'<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a><br><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0146107">Bell et al. PloS one, 2016</a>',
                 trigger:'hover',
                 type:'html'
             });
