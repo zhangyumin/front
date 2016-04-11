@@ -97,6 +97,7 @@ and open the template in the editor.
             }
             $gene_start_org=  min($ftr_start_org);
             $gene_end_org= max($ftr_end_org);
+            
             //延长3UTR部分
             $result= mysql_query("select * from t_".$_GET['species']."_gff where gene='$seq' order by ftr_end;");
             while($row=  mysql_fetch_row($result)){
@@ -408,10 +409,10 @@ and open the template in the editor.
 //                    info("#00ABD8",350,"cds&exon","gene");//cds和exon为蓝色
 //                    info("#9FE0F6",500,"AMB","gene");//amb为浅蓝色
 //                    info("#42A881",650,"3'utr","gene");
-//                line("gene");
-//                line("no_extend");
+                gene_line("gene");
                 grid("no_extend","1");
                 grid("gene","title");
+                gene_line("no_extend",<?php echo ($gene_start_org-$gene_start)*$rate;?>,<?php echo ($gene_end_org-$gene_start)*$rate;?>,<?php echo $_GET['strand'];?>);
                 <?php
                 //extend部分
                     foreach ($sutr_start as $key => $value) {
@@ -702,6 +703,22 @@ and open the template in the editor.
                 context.font="bold 15px sans-serif";
                 context.fillRect(loc+70,20,20,20);
                 context.fillText(text,loc+95,35);
+            }
+            function gene_line(id, start ,end ,strand){
+                var canvas = document.getElementById(id);
+                var context = canvas.getContext("2d");
+                context.strokeStyle="#000000";
+                context.fillStyle="#000000";//line为黑色
+                context.beginPath();
+                if(id == 'gene'){
+                    context.moveTo(0,60);
+                    context.lineTo(1000,60);
+                }
+                else{
+                    context.moveTo(start,20);
+                    context.lineTo(end,20);
+                }
+                context.stroke();
             }
             function line(id){
                 var canvas = document.getElementById(id);
