@@ -429,7 +429,7 @@
                                         <input type="button" class="submit" id='degene-submit' value="Submit">
                                         <button type="reset">Reset</button>
                                         <input type="button" onclick="demo('degene')" value="Demo">
-                                        <input type="button" onclick="javascript:window.location.href='./help.php#analysishelp2'" value='Help'>
+                                        <input type="button" onclick="javascript:window.open('./help.php#analysishelp2')" value='Help'>
                                         <div class="warn" style="display:none">Only one sample is available in this data set, PAC analysis is disabled</div>
                                     </div>
                                     </form>
@@ -629,7 +629,7 @@
                                         <input type="button" class="submit" id='depac-submit' value="Submit">
                                         <button type="reset">Reset</button>
                                         <input type="button" onclick="demo('depac')" value="Demo">
-                                        <input type="button" onclick="javascript:window.location.href='./help.php#analysishelp3'" value='Help'>
+                                        <input type="button" onclick="javascript:window.open('./help.php#analysishelp3')" value='Help'>
                                         <div class="warn" style="display:inline">Only one sample is available in this data set, PAC analysis is disabled</div>
                                     </div>
                                     </form>
@@ -818,7 +818,7 @@
                                         <input type="button" class="submit" id='only3utr-submit' value="Submit">
                                         <button type="reset">Reset</button>
                                         <input type="button" onclick="demo('only3utr')" value="Demo">
-                                        <input type="button" onclick="javascript:window.location.href='./help.php#analysishelp4'" value='Help'>
+                                        <input type="button" onclick="javascript:window.open('./help.php#analysishelp4')" value='Help'>
                                         <div class="warn" style="display:inline">Only one sample is available in this data set, PAC analysis is disabled</div>
                                     </div>
                                     </form>
@@ -1012,7 +1012,7 @@
                                         <input type="button" class="submit" id='none3utr-submit' value="Submit">
                                         <button type="reset">Reset</button>
                                         <input type="button" onclick="demo('none3utr')" value="Demo">
-                                        <input type="button" onclick="javascript:window.location.href='./help.php#analysishelp5'" value='Help'>
+                                        <input type="button" onclick="javascript:window.open('./help.php#analysishelp5')" value='Help'>
                                         <div class="warn" style="display:inline">Only one sample is available in this data set, PAC analysis is disabled</div>
                                     </div>
                                     </form>
