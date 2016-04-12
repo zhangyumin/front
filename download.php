@@ -324,19 +324,19 @@ and open the template in the editor.
                     <td>Rice_japonica1.demo.fa</td>
                     <td>short read for PAC Trap (Japonica rice)</td>
                     <td>636.3KB</td>
-                    <td><a href="./download_data.php?type=1&name=rice_japonica1.fa"/>Click here</td>
+                    <td><a href="./download_data.php?type=1&name=rice_japonica1.fq"/>Click here</td>
                 </tr>
                 <tr>
                     <td>Rice_japonica2.demo.fa</td>
                     <td>short read for PAC Trap (Japonica rice)</td>
                     <td>638.8KB</td>
-                    <td><a href="./download_data.php?type=1&name=rice_japonica2.fa"/>Click here</td>
+                    <td><a href="./download_data.php?type=1&name=rice_japonica2.fq"/>Click here</td>
                 </tr>
                 <tr>
                     <td>Rice_japonica_3.demo.fa</td>
                     <td>short read for PAC Trap (Japonica rice)</td>
                     <td>6.4MB</td>
-                    <td><a href="./download_data.php?type=1&name=rice_japonica_all.fa"/>Click here</td>
+                    <td><a href="./download_data.php?type=1&name=rice_japonica_all.fq"/>Click here</td>
                 </tr>
             </table><br>
         </div>
