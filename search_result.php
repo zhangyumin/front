@@ -372,7 +372,7 @@
             </div>
                     <ul>
                         <li style="float:left;width: 50%;margin-left: 0px"><a id="sub" style="background: #5db95d;border-radius: 0 0 0 .25em;display: block;height: 40px;line-height: 40px;text-transform: uppercase;color: #fff;-webkit-transition: background-color 0.2s;-moz-transition: background-color 0.2s;transition: background-color 0.2s;text-decoration: none;">Download</a></li>
-                        <li style="float:left;width: 50%;margin-left: 0px"><a id="can" href='javascript:Lock_CheckForm(this);' style="background: #c5ccd8;border-radius: 0 0 0 .25em;display: block;height: 40px;line-height: 40px;text-transform: uppercase;color: #fff;-webkit-transition: background-color 0.2s;-moz-transition: background-color 0.2s;transition: background-color 0.2s;text-decoration: none;">Cancel</a></li>
+                        <li style="float:left;width: 50%;margin-left: 0px"><a id="can" onclick="Lock_CheckForm(this)" style="background: #c5ccd8;border-radius: 0 0 0 .25em;display: block;height: 40px;line-height: 40px;text-transform: uppercase;color: #fff;-webkit-transition: background-color 0.2s;-moz-transition: background-color 0.2s;transition: background-color 0.2s;text-decoration: none;cursor: pointer">Cancel</a></li>
                     </ul>
         </div>
         <div class="ym-wrapper">
