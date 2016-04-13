@@ -71,6 +71,9 @@ and open the template in the editor.
         <div class="download">
             <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
                 <font color="#224055" ><b>Downloading datasets in PlantAPA</b></font>
+                <a href="help.php#download" target="_blank">
+                    <img title="Get help for downloading" style="width:20px;height: 20px;display: inline-block" src="./pic/help.png">
+                </a>
             </h2>
             <table  class="bordertable">
                 <thead>
