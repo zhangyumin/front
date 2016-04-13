@@ -106,11 +106,11 @@
                             </div>
                       </div>
                       <div class="jumpto-block">
-                        <h2>1. Introduction</h2>
+                        <h2>1. <span>Introduction</span></h2>
                         <p>PlantAPA is a web server for query, visualization, and analysis of poly(A) sites in plants, which can profile heterogeneous cleavage sites and quantify expression pattern of poly(A) sites across different conditions. To date, PlantAPA provides the largest database of APA in plants, including rice, Arabidopsis, Medicago truncatula, and Chlamydomonas reinhardtii (see data sets).</p>
                       </div>
                       <div class="jumpto-block">
-                        <h2>2. PAC trap: extracting poly(A) sites from uploaded sequences</h2>
+                        <h2>2. <span>PAC trap</span>: extracting poly(A) sites from uploaded sequences</h2>
                         <!--<h3>2.1. Start a new task for poly(A) site extraction</h3>-->
                         <!--<p>1) Choose file type and species-->
                         <p id="trapstep1">
@@ -185,7 +185,7 @@
                         By following the web link on a particular PAC, users can continue to use other seamlessly integrated modules for PAC visualization and mining. Particularly, if there are multiple input files, users can further compare poly(A) site usage between their input libraries or with PlantAPA-provided libraries through the PAC analysis module.</p>
                       </div>
                       <div class="jumpto-block">
-                        <h2>3. PAC search: searching PlantAPA</h2>
+                        <h2>3. <span>PAC search</span>: searching PlantAPA</h2>
                         <!--<h3>3.1. Multi-keywords search</h3>-->
                         <p>The PAC search module allows users to query genes or PACs in the data sets of interest by a variety of keywords, such as gene ID, chromosome fragment, gene functions, GO term, and GO ID.Batch search is supported, where lists of Gene IDs, GO terms, or GO IDs can be provided as query input<span class="pic_red"> (Fig. 11)</span>.
                         </p>
@@ -210,7 +210,7 @@
                         </div>
                       </div>
                       <div class="jumpto-block">
-                        <h2>4. Exporting sequences</h2>
+                        <h2>4. <span>Exporting sequences</span></h2>
                         <p>To facilitate further inspection poly(A) site or genes, we designed a toolbar above the result PAC list which allows users to input a keyword to locate entries within the list and export sequences of interest. Users can export various kinds of sequences onto their local computers for other analysis purpose.
                         </p>
                         <!--<h3>4.1. Export sequences of PACs</h3>-->
@@ -236,7 +236,7 @@
                         </div>
                       </div>
                       <div class="jumpto-block">
-                        <h2>5. PAC browse: browsing PACs in the PAC browser</h2>
+                        <h2>5. <span>PAC browse</span>: browsing PACs in the PAC browser</h2>
                         <p>Users can have a quick access to the PAC browser by clicking the “PAC browse” tab in the main menu or the “View” link in a PAC list<span class="pic_red"> (Fig. 17)</span>.
                         </p>
                         <div class="picdiv">
@@ -255,7 +255,7 @@
                         </div>
                       </div>
                       <div class="jumpto-block">
-                        <h2>6. Quantification and visualization of PACs across different conditions</h2>
+                        <h2>6. <span>PAC viewer</span>: quantification and visualization of PACs across different conditions</h2>
                         <p>By following the web link on a particular PAC or gene, a user can inspect various graphics and detailed information of the PACs in a gene or in a intergenic region, such as gene/PAC sequence, poly(A) signals, and PAT distributions across diverse conditions in the PAC viewer module<span class="pic_red"> (Fig. 20)</span>.
                         Summary information about the PAC and the associated gene was given at the top of the web page. </p>
                         <div class="picdiv">
@@ -293,7 +293,7 @@
                         </div>
                     </div>
                     <div class="jumpto-block">
-                        <h2>7. PAC analysis: analysis of APA switching between two conditions</h2>
+                        <h2>7. <span>PAC analysis</span>: analysis of APA switching between two conditions</h2>
                         <p id="analysishelp1">Following the “PAC analysis” tab in the main menu, users can choose to generate lists of differentially expressed genes, PACs with differential usage, genes with 3’ UTR lengthening or shortening, and APA-site switching genes, using the user uploaded PACs together with PlantAPA stored PACs.
                         </p>
                         <div class="picdiv">
@@ -352,7 +352,7 @@
 	<script type="text/javascript">
 	  $(document).ready( function() {
 	    $(".page_container").jumpto({
-	      firstLevel: "> h2",
+	      firstLevel: "> h2 span",
 	      animate: false,
                       offset: 150,
                       innerWrapper: ".jumpto-block",
