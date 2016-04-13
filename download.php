@@ -320,7 +320,7 @@ and open the template in the editor.
             <table  class="bordertable">
                 <thead>
                 <tr>
-                    <th>Name</th>
+                    <th>File</th>
                     <th>Description</th>
                     <th>Size</th>
                     <th>Download</th>
@@ -330,7 +330,7 @@ and open the template in the editor.
                     <td>Ath.demo.PA</td>
                     <td>Poly(A) site file for PAC Trap (Arabidopsis thaliana)</td>
                     <td>145.8KB</td>
-                    <td><a href="./download_data.php?type=1&name=arab.PA"/>Download</td>
+                    <td><a href="./download_data.php?type=1&name=Ath.demo.PA"/>Download</td>
                 </tr>
                 <tr>
                     <td>Ath.demo.NGS.fq</td>
@@ -342,25 +342,25 @@ and open the template in the editor.
                     <td>Ath.demo.EST.fa</td>
                     <td>EST file for PAC Trap (Arabidopsis thaliana)</td>
                     <td>6.2MB</td>
-                    <td><a href="./download_data.php?type=1&name=AtEST.demo.fa"/>Download</td>
+                    <td><a href="./download_data.php?type=1&name=Ath.demo.NGS.fq"/>Download</td>
                 </tr>
                 <tr>
                     <td>Rice_japonica1.demo.fa</td>
                     <td>Short read for PAC Trap (Japonica rice)</td>
                     <td>636.3KB</td>
-                    <td><a href="./download_data.php?type=1&name=rice_japonica1.fq"/>Download</td>
+                    <td><a href="./download_data.php?type=1&name=Rice_japonica1.demo.fa"/>Download</td>
                 </tr>
                 <tr>
                     <td>Rice_japonica2.demo.fa</td>
                     <td>Short read for PAC Trap (Japonica rice)</td>
                     <td>638.8KB</td>
-                    <td><a href="./download_data.php?type=1&name=rice_japonica2.fq"/>Download</td>
+                    <td><a href="./download_data.php?type=1&name=Rice_japonica2.demo.fa"/>Download</td>
                 </tr>
                 <tr>
                     <td>Rice_japonica_3.demo.fa</td>
                     <td>Short read for PAC Trap (Japonica rice)</td>
                     <td>6.4MB</td>
-                    <td><a href="./download_data.php?type=1&name=rice_japonica_all.fq"/>Download</td>
+                    <td><a href="./download_data.php?type=1&name=Rice_japonica_3.demo.fa"/>Download</td>
                 </tr>
             </table><br>
         </div>
