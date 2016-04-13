@@ -376,37 +376,32 @@ and open the template in the editor.
                 $snc_array= explode("/", $snc);
                 $snc=$snc_array[3];
                 echo "<div class=\"download\">"
-                    . "<h2 style=\"border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left\"><font color=\"#224055\" ><b>Downloading trap result in PlantAPA</b></font></h2>"
+                    . "<h2 style=\"border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left\"><font color=\"#224055\" ><b>PAC trap results</b></font></h2>"
                     . "<table class='bordertable'>"
                     . "<thead>"
                     . "<tr>"
-                    . "<th>Name</th>"
+                    . "<th>Sample label</th>"
                     . "<th>Description</th>"
-                    . "<th>File Type</th>"
                     . "<th>Download</th>"
                     . "</tr>"
                     . "</thead>"
                     . "<tbody>"
                     . "<tr>";
-                echo "<td>hexamer</td>"
-                    . "<td>hexamer statistics</td>"
-                    . "<td>txt</td>"
+                echo "<td>-</td>"
+                    . "<td>Top 50 hexamers in near upstream region of PAC</td>"
                     . "<td><a href=\"./download_data.php?type=3&name=$hexamer\"/>Download</td>"
                     . "</tr>";
-                echo "<td>Single Nucleotide</td>"
-                    . "<td>Single Nucleotide Compositions</td>"
-                    . "<td>cnt</td>"
+                echo "<td>-</td>"
+                    . "<td>Single Nucleotide Compositions around PAC</td>"
                     . "<td><a href=\"./download_data.php?type=3&name=$snc\"/>Download</td>"
                     . "</tr>";
                 foreach ($_SESSION['file_real'] as $key =>$value){
                     echo "<td>$value</td>"
-                    . "<td>polyA site file</td>"
-                    . "<td>PA</td>"
+                    . "<td>Poly(A) site</td>"
                     . "<td><a href=\"./download_data.php?type=2&name=$value.qc.fa.noT.fa.sam.M30S10.PA\"/>Download</td>"
                     . "</tr>";
                     echo "<td>$value</td>"
-                    . "<td>PAT file</td>"
-                    . "<td>PAT</td>"
+                    . "<td>Poly(A) tag</td>"
                     . "<td><a href=\"./download_data.php?type=2&name=$value.qc.fa.noT.fa.sam.M30S10.PA_PAT\"/>Download</td>"
                     . "</tr>";
                 }
