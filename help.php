@@ -168,7 +168,7 @@
                             <br>Fig. 8 Task hitory of your results
                         </div>
                         <!--<h3>2.3. Outputs of poly(A) site extraction pipeline</h3>-->
-                        <p>Upon the completion of the PAC extraction process, users can download the PAC list directly from the web site onto their local computers <span class="pic_red"> (Fig. 9)</span>.
+                        <p id='download'>Upon the completion of the PAC extraction process, users can download the PAC list directly from the web site onto their local computers <span class="pic_red"> (Fig. 9)</span>.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/download.png"/>
