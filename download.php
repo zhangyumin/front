@@ -313,7 +313,7 @@ and open the template in the editor.
                 </tbody>
             </table><br>
         </div>
-        <div class="download">
+        <div class="download" id='demo'>
             <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
                 <font color="#224055" ><b>Downloading demo data in PlantAPA</b></font>
             </h2>
