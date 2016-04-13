@@ -86,6 +86,7 @@ and open the template in the editor.
                         <th>Genome Annotation</th>
                         <th>PATs</th>
                         <th>Download PAT</th>
+                        <th>Download PAC</th>
                         <th>Download Sequences</th>
                     </tr>
                 </thead>
@@ -99,6 +100,7 @@ and open the template in the editor.
                         <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                         <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_1%20PAT%20minus%20strand%2Cwt_leaf_1%20PAT%20plus%20strand&highlight=' target='_blanck'>1110951</a></td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr>
@@ -110,6 +112,7 @@ and open the template in the editor.
                         <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                         <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_2%20PAT%20minus%20strand%2Cwt_leaf_2%20PAT%20plus%20strand&highlight=' target='_blanck'>695258</a></td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf2_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf2_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf2_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr>
@@ -121,6 +124,7 @@ and open the template in the editor.
                         <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                         <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_3%20PAT%20minus%20strand%2Cwt_leaf_3%20PAT%20plus%20strand&highlight=' target='_blanck'>22176</a></td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf3_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf3_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf3_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr>
@@ -132,6 +136,7 @@ and open the template in the editor.
                         <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                         <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_seed_1%20PAT%20minus%20strand%2Cwt_seed_1%20PAT%20plus%20strand&highlight=' target='_blanck'>21416</a></td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_seed1_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_seed1_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_seed1_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr>
@@ -143,6 +148,7 @@ and open the template in the editor.
                         <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                         <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_seed_2%20PAT%20minus%20strand%2Cwt_seed_2%20PAT%20plus%20strand&highlight=' target='_blanck'>1314335</a></td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_seed2_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_seed2_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_seed2_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr>
@@ -154,6 +160,7 @@ and open the template in the editor.
                         <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                         <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_1%20PAT%20minus%20strand%2Cwt_root_1%20PAT%20plus%20strand&highlight=' target='_blanck'>16229894</a></td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root1_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root1_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root1_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr>
@@ -165,6 +172,7 @@ and open the template in the editor.
                         <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                         <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_2%20PAT%20minus%20strand%2Cwt_root_2%20PAT%20plus%20strand&highlight=' target='_blanck'>10703765</a></td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root2_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root2_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root2_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr>
@@ -176,6 +184,7 @@ and open the template in the editor.
                         <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                         <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_3%20PAT%20minus%20strand%2Cwt_root_3%20PAT%20plus%20strand&highlight=' target='_blanck'>12541261</a></td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root3_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root3_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root3_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr>
@@ -187,6 +196,7 @@ and open the template in the editor.
                         <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                         <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_1%20PAT%20minus%20strand%2Coxt6_root_1%20PAT%20plus%20strand&highlight=' target='_blanck'>977997</a></td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root1_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root1_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root1_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr>
@@ -198,6 +208,7 @@ and open the template in the editor.
                         <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                         <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_2%20PAT%20minus%20strand%2Coxt6_root_2%20PAT%20plus%20strand&highlight=' target='_blanck'>76768</a></td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root2_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root2_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root2_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr>
@@ -209,6 +220,7 @@ and open the template in the editor.
                         <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                         <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_3%20PAT%20minus%20strand%2Coxt6_root_3%20PAT%20plus%20strand&highlight=' target='_blanck'>2176288</a></td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root3_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root3_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root3_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr>
@@ -220,6 +232,7 @@ and open the template in the editor.
                         <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                         <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_1%20PAT%20minus%20strand%2Coxt6_leaf_1%20PAT%20plus%20strand&highlight=' target='_blanck'>6092063</a></td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf1_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf1_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf1_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr>
@@ -231,6 +244,7 @@ and open the template in the editor.
                         <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                         <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_2%20PAT%20minus%20strand%2Coxt6_leaf_2%20PAT%20plus%20strand&highlight=' target='_blanck'>10589959</a></td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf2_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf2_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf2_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr style="border-bottom: 1px #ccc dashed">
@@ -242,6 +256,7 @@ and open the template in the editor.
                         <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                         <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_3%20PAT%20minus%20strand%2Coxt6_leaf_3%20PAT%20plus%20strand&highlight=' target='_blanck'>5875054</a></td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf3_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf3_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf3_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr style="border-bottom: 1px #ccc dashed">
@@ -253,6 +268,7 @@ and open the template in the editor.
                         <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
                         <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cfrom_EST%20PAT%20minus%20strand%2Cfrom_EST%20PAT%20plus%20strand&highlight=' target='_blanck'>57852</a></td>
                         <td><a href="./download_data.php?type=1&name=Rice_MSU7_From_EST_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Rice_MSU7_From_EST_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Rice_MSU7_From_EST_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr style="border-bottom: 1px #ccc dashed">
@@ -264,6 +280,7 @@ and open the template in the editor.
                         <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
                         <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Cwt_leaf_1%20PAT%20minus%20strand%2Cwt_leaf_1%20PAT%20plus%20strand&highlight=' target="_blank">2747920</a></td>
                         <td><a href="./download_data.php?type=1&name=Mtr_JCVIv4_WT_leaf1_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Mtr_JCVIv4_WT_leaf1_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Mtr_JCVIv4_WT_leaf1_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr>
@@ -275,6 +292,7 @@ and open the template in the editor.
                         <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
                         <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2Cfrom_illumina%20PAT%20plus%20strand%2Cfrom_illumina%20%20PAT%20minus%20strand&highlight=' target="_blank">622248</a></td>
                         <td><a href="./download_data.php?type=1&name=Chlamy_C281v55_From_illumina_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Chlamy_C281v55_From_illumina_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Chlamy_C281v55_From_illumina_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr>
@@ -286,6 +304,7 @@ and open the template in the editor.
                         <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
                         <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2CGene%20annotation%2CFrom_454%20PAT%20minus%20strand%2CFrom_454%20PAT%20plus%20strand&highlight=' target="_blank">324305</a></td>
                         <td><a href="./download_data.php?type=1&name=Chlamy_C281v55_From_454_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Chlamy_C281v55_From_454_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Chlamy_C281v55_From_454_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr>
@@ -297,6 +316,7 @@ and open the template in the editor.
                         <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
                         <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2CGene%20annotation%2CFrom_EST%20PAT%20minus%20strand%2CFrom_EST%20PAT%20plus%20strand&highlight=' target="_blank">56754</a></td>
                         <td><a href="./download_data.php?type=1&name=Chlamy_C281v55_From_EST_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Chlamy_C281v55_From_EST_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Chlamy_C281v55_From_EST_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                     <tr>
@@ -308,6 +328,7 @@ and open the template in the editor.
                         <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
                         <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2CGene%20annotation%2CFrom_PATseq%20PAT%20plus%20strand%2CFrom_PATseq%20%20PAT%20minus%20strand&highlight=' target="_blank">12532698</a></td>
                         <td><a href="./download_data.php?type=1&name=Chlamy_C281v55_From_PATseq_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>Download</td>
+                        <td><a href="./download_data.php?type=1&name=Chlamy_C281v55_From_PATseq_PAC"/>Download</td>
                         <td><a href="./download_data.php?type=1&name=Chlamy_C281v55_From_PATseq_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Download</td>
                     </tr>
                 </tbody>
