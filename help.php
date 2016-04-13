@@ -253,9 +253,9 @@
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/browser_download.png"/>
                             <br>Ways of saving track data
-                            <br><br>
+<!--                            <br><br>
                             <img class="pic" src="./pic/help/browse2pac.png"/>
-                            <br>Link of view gene details
+                            <br>Link of view gene details-->
                         </div>
                       </div>
                       <div class="jumpto-block">
