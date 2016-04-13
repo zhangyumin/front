@@ -266,6 +266,7 @@ and open the template in the editor.
                                 <div class="example">
                                     <ul id="manual-example" class="unstyled"></ul>
                                     <button type="button" id="triggerUpload" class="btn btn-primary">Upload Queued Files</button>
+                                    <button type="button" id="downloadDemo" class="btn btn-primary" onclick="javascript:window.open('./download.php#demo')">Download demo data</button>
                                 </div>
                             </div>
                             <hr style="border-bottom: 2px #5db95b solid">
@@ -378,6 +379,7 @@ and open the template in the editor.
                             <div class="example">
                                 <ul id="manual-example-polya" class="unstyled"></ul>
                                 <button type="button" id="triggerUpload-polya" class="btn btn-primary">Upload Queued Files</button>
+                                    <button type="button" id="downloadDemo" class="btn btn-primary" onclick="javascript:window.open('./download.php#demo')">Download demo data</button>
                             </div>
                         </div>
                         <hr style="border-bottom: 2px #5db95b solid">
@@ -417,6 +419,7 @@ and open the template in the editor.
                             <div class="example">
                                 <ul id="manual-example-est" class="unstyled"></ul>
                                 <button type="button" id="triggerUpload-est" class="btn btn-primary">Upload Queued Files</button>
+                                    <button type="button" id="downloadDemo" class="btn btn-primary" onclick="javascript:window.open('./download.php#demo')">Download demo data</button>
                             </div>
                         </div>
                         <hr style="border-bottom: 2px #5db95b solid">
