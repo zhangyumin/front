@@ -104,7 +104,7 @@ and open the template in the editor.
                                 <td>14</td>
                                 <td>62834</td>
                                 <td>68388227</td>
-                                <td>poly(A) sites from leaf, seed, and root tissues of WT and Oxt6 mutant by poly(A) tag sequencing</td>
+                                <td>Poly(A) sites from leaf, seed, and root tissues of WT and Oxt6 mutant by poly(A) tag sequencing</td>
                                 <td><a id='ref1' class='ref'>Wu et al. PNAS, 2011; Thomas et al. Plant Cell, 2012; Liu et al. PloS One, 2014</a></td>                     
                                 <td>
                                     <a class='img' target="_blank" href="../jbrowse/?data=data/arab">
@@ -288,7 +288,7 @@ and open the template in the editor.
                                 <td>1</td>
                                 <td>32657</td>
                                 <td>57852</td>
-                                <td>poly(A) sites extracted from ESTs</td>
+                                <td>Poly(A) sites extracted from ESTs</td>
                                 <td><a id='ref2' class="ref">Shen et al. Nucleic Acids Res, 2008</a></td>                     
                                 <td>
                                     <a class='img' target="_blank" href="../jbrowse/?data=data/japonica">
@@ -348,7 +348,7 @@ and open the template in the editor.
                                 <td>1</td>
                                 <td>42691</td>
                                 <td>2747920</td>
-                                <td>poly(A) sites from leaf tissue by poly(A) tag sequencing</td>
+                                <td>Poly(A) sites from leaf tissue by poly(A) tag sequencing</td>
                                 <td><a id='ref3' class="ref">Wu et al. BMC Genomics, 2014</a></td>                     
                                 <td>
                                     <a class='img' target="_blank" href="../jbrowse/?data=data/mtr">
@@ -409,7 +409,7 @@ and open the template in the editor.
                                 <td>4</td>
                                 <td>45372</td>
                                 <td>13536005</td>
-                                <td>poly(A) sites extracted from ESTs, 454, Illumina, and  PAT-seq sequence reads</td>
+                                <td>Poly(A) sites extracted from ESTs, 454, Illumina, and  PAT-seq sequence reads</td>
                                 <td><a id='ref4' class="ref">Zhao et al. G3:Genes|Genomes|Genetics, 2014; Bell et al. PloS one, 2016</a></td>                     
                                 <td>
                                     <a class='img' target="_blank" href="../jbrowse/?data=data/chlamy">
