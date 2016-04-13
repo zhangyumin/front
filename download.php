@@ -85,8 +85,8 @@ and open the template in the editor.
                         <th>Reference</th>
                         <th>Genome Annotation</th>
                         <th>PATs</th>
-                        <th>Download PAT</th>
-                        <th>Download PAC</th>
+                        <th>Download PATs</th>
+                        <th>Download PACs</th>
                         <th>Download Sequences</th>
                     </tr>
                 </thead>
