@@ -224,7 +224,7 @@
             $con=  mysql_connect("localhost","root","root");
             mysql_select_db("db_server",$con);
             session_start();
-            
+            $method = $_GET['method'];
             $seq = $_GET['seq'];
             if(isset($_GET['species'])){
                 $species = $_GET['species'];
@@ -357,7 +357,28 @@
             //polyA 位点信息
             $pa_start=array();
             $pa_tagnum=array();
-            $pa_result=mysql_query("select * from db_server.t_".$_GET['species']."_pa1 where chr='$chr' and coord>=$gene_start and coord<=$gene_end and tot_tagnum>0;");
+            if($method == 'search'){
+                $pa_query1 = "select * from db_server.t_".$_GET['species']."_pa1 where chr='$chr' and coord>=$gene_start and coord<=$gene_end and tot_tagnum>0;";
+                if($_GET['species'] == 'arab'){
+                    $pa_query2 = "select * from db_server.t_".$_GET['species']."_pa1 where chr='$chr' and coord>=$gene_start and coord<=$gene_end and tot_tagnum>0;";
+                    $pa_result1 = mysql_query($pa_query2);
+                    while ($pa_row1=  mysql_fetch_row($pa_result1))
+                    {
+                        array_push($pa_start, $pa_row1[2]);
+                        array_push($pa_tagnum, $pa_row1[3]);
+                    }
+                }                
+            }
+            else if($method == 'analysis'){
+                
+            }
+            else if($method == 'trap'){
+                $pa_query1 = "select * from db_user.PA_".$_SESSION['file']." where chr='$chr' and coord>=$gene_start and coord<=$gene_end and tot_tagnum>0;";
+            }
+            else{
+                echo "<script>alert(\"Data input error.\");history.go(-1)</script>";
+            }
+            $pa_result=mysql_query($pa_query1);
             while ($pa_row=  mysql_fetch_row($pa_result))
             {
                 array_push($pa_start, $pa_row[2]);
@@ -366,7 +387,19 @@
             //pac 信息
             $pac_start=array();
             $pac_tagnum=array();
-            $pac_result=mysql_query("select * from db_server.t_".$_GET['species']."_pac where gene='$seq'");
+            if($method == 'search'){
+                $pac_query = "select * from t_".$species."_pac where gene='$seq'";
+            }
+            else if($method == 'analysis'){
+                
+            }
+            else if($method == 'trap'){
+                $pac_query = "select * from db_user.PAC_".$_SESSION['file']." where gene='$seq'";
+            }
+            else{
+                echo "<script>alert(\"Data input error.\");history.go(-1)</script>";
+            }
+            $pac_result=mysql_query($pac_query);
             while ($pac_row=  mysql_fetch_row($pac_result))
             {
                 array_push($pac_start, $pac_row[2]);
@@ -892,7 +925,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                            $pac_res=mysql_query("select * from t_".$species."_pac where gene='$seq';");
+                                            $pac_res=mysql_query($pac_query);
                                             while($pac_r=  mysql_fetch_row($pac_res)){
 //                                                $i=1;
                                                 echo "<tr>";
