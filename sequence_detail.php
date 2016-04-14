@@ -356,7 +356,7 @@
             }
             //polyA 位点信息
             $pa_start=array();
-            $pa_tagnum=array();
+            $pa_analysis_tagnum = array();
             if($method == 'search'){
                 $pa_query1 = "select * from db_server.t_".$speices."_pa1 where chr='$chr' and coord>=$gene_start and coord<=$gene_end and tot_tagnum>0;";
                 if($species == 'arab'){
@@ -365,14 +365,12 @@
                     while ($pa_row1=  mysql_fetch_row($pa_result1))
                     {
                         array_push($pa_start, $pa_row1[2]);
-                        array_push($pa_tagnum, $pa_row1[3]);
                     }
                 }
                 $pa_result=mysql_query($pa_query1);
                 while ($pa_row=  mysql_fetch_row($pa_result))
                 {
                     array_push($pa_start, $pa_row[2]);
-                    array_push($pa_tagnum, $pa_row[3]);
                 }
             }
             else if($method == 'analysis'){
@@ -395,29 +393,30 @@
                         }
                     }
                     $string_pa1 = implode("+", $pa1);
-                    $pa_query1 = "select * from db_server.t_".$species."_pa1 where chr='$chr' and coord>=$gene_start and coord<=$gene_end and $string_pa1 > 0";
+                    $pa_query1 = "select coord from db_server.t_".$species."_pa1 where chr='$chr' and coord>=$gene_start and coord<=$gene_end and $string_pa1 > 0";
                     $pa_result1 = mysql_query($pa_query1);
                     while ($pa_row1=  mysql_fetch_row($pa_result1))
                     {
-                        array_push($pa_start, $pa_row1[2]);
-                        array_push($pa_tagnum, $pa_row1[3]);
+                        array_push($pa_start, $pa_row1[0]);
                     }
                     $string_pa2 = implode("+", $pa2);
-                    $pa_query2 = "select * from db_server.t_".$species."_pa2 where chr='$chr' and coord>=$gene_start and coord<=$gene_end and $string_pa2 > 0";
+                    $pa_query2 = "select coord from db_server.t_".$species."_pa2 where chr='$chr' and coord>=$gene_start and coord<=$gene_end and $string_pa2 > 0";
                     $pa_result2 = mysql_query($pa_query2);
                     while ($pa_row2 =  mysql_fetch_row($pa_result2))
                     {
-                        array_push($pa_start, $pa_row2[2]);
-                        array_push($pa_tagnum, $pa_row2[3]);
+                        if(!in_array($pa_row2[0], $pa_start)){
+                            array_push($pa_start, $pa_row2[0]);
+                        }
                     }
                     if(count($usr_pa) > 0){
                         $string_usr_pa = implode("+", $usr_pa);
-                        $pa_query3 = "select * from db_user.PA_".$_SESSION['file']." where chr='$chr' and coord>=$gene_start and coord<=$gene_end and $string_usr_pa > 0";
+                        $pa_query3 = "select coord from db_user.PA_".$_SESSION['file']." where chr='$chr' and coord>=$gene_start and coord<=$gene_end and $string_usr_pa > 0";
                         $pa_result3 = mysql_query($pa_query3);
                         while ($pa_row3 =  mysql_fetch_row($pa_result3))
                         {
-                            array_push($pa_start, $pa_row3[2]);
-                            array_push($pa_tagnum, $pa_row3[3]);
+                            if(!in_array($pa_row3[0], $pa_start)){
+                                array_push($pa_start, $pa_row3[0]);
+                            }
                         }
                     }
                     //否则只分pa1和usr_pa两种情况
@@ -434,12 +433,11 @@
                     }
                     $pa1 = array_merge($pa1);
                     $string_pa1 = implode("+", $pa1);
-                    $pa_query1 = "select * from db_server.t_".$species."_pa1 where chr='$chr' and coord>=$gene_start and coord<=$gene_end and $string_pa1 > 0";
+                    $pa_query1 = "select coord from db_server.t_".$species."_pa1 where chr='$chr' and coord>=$gene_start and coord<=$gene_end and $string_pa1 > 0";
                     $pa_result1 = mysql_query($pa_query1);
                     while ($pa_row1=  mysql_fetch_row($pa_result1))
                     {
-                        array_push($pa_start, $pa_row1[2]);
-                        array_push($pa_tagnum, $pa_row1[3]);
+                        array_push($pa_start, $pa_row1[0]);
                     }
                     if(count($usr_pa) > 0){
                         $string_usr_pa = implode("+", $usr_pa);
@@ -447,8 +445,9 @@
                         $pa_result3 = mysql_query($pa_query3);
                         while ($pa_row3 =  mysql_fetch_row($pa_result3))
                         {
-                            array_push($pa_start, $pa_row3[2]);
-                            array_push($pa_tagnum, $pa_row3[3]);
+                            if(!in_array($pa_row3[0], $pa_start)){
+                                array_push($pa_start, $pa_row3[0]);
+                            }
                         }
                     }
                 }
@@ -459,7 +458,6 @@
                 while ($pa_row=  mysql_fetch_row($pa_result))
                 {
                     array_push($pa_start, $pa_row[2]);
-                    array_push($pa_tagnum, $pa_row[3]);
                 }
             }
             else{
@@ -540,13 +538,11 @@
             echo "var amb_start=[];";
             echo "var amb_end=[];";
             echo "var pa_start=[];";
-            echo "var pa_tagnum=[];";
             echo "var pac_start=[];";
             echo "var pac_tagnum=[];";
             foreach ($pa_start as $key => $value)
             {
                 echo "pa_start.push('$value');";
-                echo "pa_tagnum.push('$pa_tagnum[$key]');";
             }
             foreach ($pac_start as $key => $value)
             {
@@ -1040,6 +1036,53 @@
                                 </thead>
                                 <tbody>
                                     <?php
+                                        if($_GET['method'] == 'analysis'){
+                                            $table_pac_start = array();
+                                            $table_pac_end = array();
+                                            $table_pac_tagnum = array();
+                                            $string_coord = implode(",", $pac_start);
+                                            $table_pac_result = mysql_query("select UPA_start,UPA_end,$string_pac1 from t_".$species."_pac where  coord in ($string_coord) and gene='$seq'");
+                                            while($table_pac_row = mysql_fetch_row($table_pac_result)){
+                                                array_push($table_pac_start, $table_pac_row[0]);
+                                                array_push($table_pac_end, $table_pac_row[1]);
+                                                array_push($table_pac_tagnum, $table_pac_row[2]);
+                                            }
+                                            if(count($usr_pac)>0){
+                                                $table_pac_result1 = mysql_query("select UPA_start,UPA_end,$string_usr_pac from db_user.PAC_".$_SESSION['file']." where  coord in ($string_coord) and gene='$seq'");
+                                                while($table_pac_row1 = mysql_fetch_row($table_pac_result1)){
+                                                    foreach ($table_pac_start as $key => $value) {
+                                                        if($value == $table_pac_row1[0]){
+                                                            $table_pac_tagnum[$key] = $table_pac_tagnum[$key] + $table_pac_row1[2];
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            foreach ($pac_start as $key1 => $value1) {
+                                                $patagnum = 0;
+                                                foreach ($pa_start as $key2 => $value2) {
+                                                    if($value2 >= $table_pac_start[$key1] && $value2 <= $table_pac_end[$key1]){
+                                                        $patagnum +=1;
+                                                    }
+                                                }
+                                                echo "<tr>";
+                                                if($_GET['flag']=='intergenic'){
+                                                    echo "<td>$value1(intergenic)</td>";
+                                                }
+                                                else if($ext_end[0]==NULL|| $ext_start[0] ==NULL ){
+                                                         echo "<td>$value1(3UTR)</td>";
+                                                }
+                                                else if($strand==1&&$value1>$ext_end[0] || $strand==-1&&$value1<$ext_start[0])
+                                                    echo "<td>$value1(3UTR Extend)</td>";
+                                                else if($value1<$ext_end[0]&& $value1 > $ext_start[0] || $value1>$ext_end[0]&& $value1< $ext_start[0] )
+                                                    echo "<td>$value1(3UTR)</td>";
+                                                else
+                                                    echo "<td>$value1</td>";
+                                                echo "<td>$patagnum</td>";
+                                                echo "<td>$table_pac_tagnum[$key1]</td>";
+                                                echo "<td>$table_pac_start[$key1]~$table_pac_end[$key1]</td>";
+                                            }
+                                        }
+                                        else{
                                             $pac_res=mysql_query($pac_query);
                                             while($pac_r=  mysql_fetch_row($pac_res)){
 //                                                $i=1;
@@ -1060,7 +1103,9 @@
                                                 echo "<td>$pac_r[12]</td>"
                                                         . "<td>$pac_r[3]</td>"
                                                         . "<td>$pac_r[10]~$pac_r[11]</td>";
+                                                echo "</tr>";
                                             }
+                                        }
                                     ?>
                                 </tbody>
                             </table>
