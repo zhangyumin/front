@@ -370,13 +370,13 @@
                         display: function (data) {
                             if(data.record.ftr=='intergenic.igt' || data.record.ftr=='intergenic.pm'){
                                 if(data.record.strand=='-'){
-                                    return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=-1&flag=intergenic&coord="+data.record.coord+"\">"+data.record.gene+"</a>";
+                                    return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&method=trap&seq="+data.record.gene+"&strand=-1&flag=intergenic&coord="+data.record.coord+"\">"+data.record.gene+"</a>";
                                 }
                                 else
-                                    return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=1&flag=intergenic&coord="+data.record.coord+"\">"+data.record.gene+"</a>";
+                                    return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&method=trap&seq="+data.record.gene+"&strand=1&flag=intergenic&coord="+data.record.coord+"\">"+data.record.gene+"</a>";
                             }
                             else{
-                                return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"\">"+data.record.gene+"</a>";
+                                return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&method=trap&seq="+data.record.gene+"\">"+data.record.gene+"</a>";
                             }
                         }
                     },
@@ -413,13 +413,13 @@
                         display: function (data) {
                             if(data.record.ftr=='intergenic.igt' || data.record.ftr=='intergenic.pm'){
                                 if(data.record.strand=='-'){
-                                    return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=-1&flag=intergenic&coord="+data.record.coord+"\"><img align='center' src='./pic/detail.png'/></a>";
+                                    return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&method=trap&seq="+data.record.gene+"&strand=-1&flag=intergenic&coord="+data.record.coord+"\"><img align='center' src='./pic/detail.png'/></a>";
                                 }
                                 else
-                                    return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"&strand=1&flag=intergenic&coord="+data.record.coord+"\"><img align='center' src='./pic/detail.png'/></a>";
+                                    return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&method=trap&seq="+data.record.gene+"&strand=1&flag=intergenic&coord="+data.record.coord+"\"><img align='center' src='./pic/detail.png'/></a>";
                             }
                             else{
-                                return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&seq="+data.record.gene+"\"><img align='center' src='./pic/detail.png'/></a>";
+                                return "<a title='click to view detail' target=\"_blank\" href=\"./sequence_detail.php?species="+species+"&method=trap&seq="+data.record.gene+"\"><img align='center' src='./pic/detail.png'/></a>";
                             }
                         }
                     },
