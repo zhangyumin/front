@@ -1060,12 +1060,6 @@
                                                 echo "<td>$pac_r[12]</td>"
                                                         . "<td>$pac_r[3]</td>"
                                                         . "<td>$pac_r[10]~$pac_r[11]</td>";
-//                                                                if($pac_r[2]<$ext_start)
-//                                                                    echo "<td>3UTR extend</td>";
-//                                                                else 
-//                                                                    echo "<td>3UTR</td>"
-//                                                $i++;
-
                                             }
                                     ?>
                                 </tbody>
