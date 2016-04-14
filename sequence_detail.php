@@ -367,43 +367,55 @@
                         array_push($pa_start, $pa_row1[2]);
                         array_push($pa_tagnum, $pa_row1[3]);
                     }
-                }                
+                }
+                $pa_result=mysql_query($pa_query1);
+                while ($pa_row=  mysql_fetch_row($pa_result))
+                {
+                    array_push($pa_start, $pa_row[2]);
+                    array_push($pa_tagnum, $pa_row[3]);
+                }
             }
             else if($method == 'analysis'){
                 
             }
             else if($method == 'trap'){
                 $pa_query1 = "select * from db_user.PA_".$_SESSION['file']." where chr='$chr' and coord>=$gene_start and coord<=$gene_end and tot_tagnum>0;";
+            $pa_result=mysql_query($pa_query1);
+                while ($pa_row=  mysql_fetch_row($pa_result))
+                {
+                    array_push($pa_start, $pa_row[2]);
+                    array_push($pa_tagnum, $pa_row[3]);
+                }
             }
             else{
                 echo "<script>alert(\"Data input error.\");history.go(-1)</script>";
-            }
-            $pa_result=mysql_query($pa_query1);
-            while ($pa_row=  mysql_fetch_row($pa_result))
-            {
-                array_push($pa_start, $pa_row[2]);
-                array_push($pa_tagnum, $pa_row[3]);
             }
             //pac 信息
             $pac_start=array();
             $pac_tagnum=array();
             if($method == 'search'){
                 $pac_query = "select * from t_".$species."_pac where gene='$seq'";
+                $pac_result=mysql_query($pac_query);
+                while ($pac_row=  mysql_fetch_row($pac_result))
+                {
+                    array_push($pac_start, $pac_row[2]);
+                    array_push($pac_tagnum, $pac_row[3]);
+                }
             }
             else if($method == 'analysis'){
                 
             }
             else if($method == 'trap'){
                 $pac_query = "select * from db_user.PAC_".$_SESSION['file']." where gene='$seq'";
+                $pac_result=mysql_query($pac_query);
+                while ($pac_row=  mysql_fetch_row($pac_result))
+                {
+                    array_push($pac_start, $pac_row[2]);
+                    array_push($pac_tagnum, $pac_row[3]);
+                }
             }
             else{
                 echo "<script>alert(\"Data input error.\");history.go(-1)</script>";
-            }
-            $pac_result=mysql_query($pac_query);
-            while ($pac_row=  mysql_fetch_row($pac_result))
-            {
-                array_push($pac_start, $pac_row[2]);
-                array_push($pac_tagnum, $pac_row[3]);
             }
             echo "<script type=\"text/javascript\">";
             echo "var original_seq = '$sequence';";
