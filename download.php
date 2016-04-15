@@ -397,7 +397,7 @@ and open the template in the editor.
                 $snc_array= explode("/", $snc);
                 $snc=$snc_array[3];
                 echo "<div class=\"download\">"
-                    . "<h2 style=\"border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left\"><font color=\"#224055\" ><b>PAC trap results</b></font></h2>"
+                    . "<h2 style=\"border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left\"><font color=\"#224055\" ><b>Downloading PAC trap results</b></font></h2>"
                     . "<table class='bordertable'>"
                     . "<thead>"
                     . "<tr>"
