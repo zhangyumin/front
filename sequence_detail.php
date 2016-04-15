@@ -1264,17 +1264,17 @@
                             <div data-pws-tab="genepic" data-pws-tab-name="PAT distribution">
                                 <?php
                                     if($_GET['flag']=='intergenic'){
-                                        if($_GET['analysis']==1)
+                                        if($_GET['method']=='analysis')
                                             echo "<iframe id='genepic' src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord&analysis=1\" width=1190px  height=500px></iframe>";
-                                        else if($_GET['search']==1)
+                                        else if($_GET['method']=='search')
                                             echo "<iframe id='genepic' src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord&search=1\" width=1190px  height=500px></iframe>";
                                         else
                                             echo "<iframe id='genepic' src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord\" width=1190px  height=500px></iframe>";
                                     }
                                     else{
-                                        if($_GET['analysis']==1)
+                                        if($_GET['method']=='analysis')
                                             echo "<iframe id='genepic' src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&analysis=1\" width=1190px  height=500px></iframe>";
-                                        else if($_GET['search'] == 1) 
+                                        else if($_GET['method'] == 'search') 
                                             echo "<iframe id='genepic' src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&search=1\" width=1190px  height=500px></iframe>";
                                         else
                                             echo "<iframe id='genepic' src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand\" width=1190px  height=500px></iframe>";
@@ -1284,17 +1284,17 @@
                             <div data-pws-tab="pacpic" data-pws-tab-name="PAC usage">
                                 <?php
                                     if($_GET['flag']=='intergenic'){
-                                        if($_GET['analysis']==1)
+                                        if($_GET['method']=='analysis')
                                             echo "<iframe id='pacpic' src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord&analysis=1\" width=1190px  height=500px></iframe>";
-                                        else if($_GET['search'] == 1)
+                                        else if($_GET['method'] == 'search')
                                             echo "<iframe id='pacpic' src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord&search=1\" width=1190px  height=500px></iframe>";
                                         else
                                             echo "<iframe id='pacpic' src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord\" width=1190px  height=500px></iframe>";
                                     }
                                     else{
-                                        if($_GET['analysis']==1)
+                                        if($_GET['method']=='analysis')
                                             echo "<iframe id='pacpic' src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord&analysis=1\" width=1190px  height=500px></iframe>";
-                                        else if($_GET['search'] == 1)
+                                        else if($_GET['method'] == 'search')
                                             echo "<iframe id='pacpic' src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord&search=1\" width=1190px  height=500px></iframe>";
                                        else
                                             echo "<iframe id='pacpic' src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord\" width=1190px  height=500px></iframe>";
