@@ -169,6 +169,32 @@ and open the template in the editor.
                 for($i=count($_SESSION['sample'])+1;$i<=$num;$i++){
                     unset(${"pac".$i});
                 }
+                $num = count($_SESSION['sample']);
+                if(isset($_SESSION['file'])&&strcmp($_SESSION['species'], $_GET['species']) == 0){
+                    $usr_selected = array();
+                    //判断是否有user data选中
+                    foreach ($_SESSION['file_real'] as $key => $value) {
+                        if(in_array($value, $_SESSION['sample'])){
+                            array_push($usr_selected, $value);
+                        }
+                    }
+                    //存在trap数据被勾选
+                    if(count($usr_selected)){
+                        for($i=$num+1-count($usr_selected);$i<=$num;$i++){
+                            unset(${"pac".$i});
+                        }
+                        $string_selected = implode(",", $usr_selected);
+                        $usr_pac_result = mysql_query("select coord,$string_selected from db_user.PAC_".$_SESSION['file']." where gene = '$seq'");
+                        while($usr_pac_result_row = mysql_fetch_row($usr_pac_result)){
+                            for($i=$num-count($usr_selected)+1;$i<=$num;$i++){
+                                $pac="pac".$i;
+                                ${$pac}[$usr_pac_result_row[0]] = $usr_pac_result_row[$i - $num + count($usr_selected)];
+                            }
+                        }
+                        $samples = array_merge($samples,$usr_selected);
+//                        var_dump($samples);
+                    }
+                }
                 //根据勾选重新分组
                 foreach ($samples as $key => $value) {
                     if(in_array($value, $_SESSION['sample1']))
