@@ -1245,7 +1245,7 @@
                     </div>
                 </tr>
                 <a id='tip' src=''><img src='./pic/exp.png' style="height:20px;width: 20px;vertical-align: middle;padding-left: 20px;"></a>
-                <div id="newwindow" style="float:right;display: inline-block;font-weight: bold;background-color: #5db95b;font-size: 22px;width: 40px;height: 40px"><a href="./display.php?species=<?php echo $species;?>&seq=<?php echo $seq ?>&strand=<?php echo $strand?>&flag=<?php echo $_GET['flag']?>&coord=<?php echo $coord?>" title="view in a new window"><img src="pic/newwindow.png" style="width:20px;padding:10px;height:20px"></a>
+                <div id="newwindow" style="float:right;display: inline-block;font-weight: bold;background-color: #5db95b;font-size: 22px;width: 40px;height: 40px"><a href="./display.php?species=<?php echo $species;?>&seq=<?php echo $seq ?>&strand=<?php echo $strand?>&flag=<?php echo $_GET['flag']?>&coord=<?php echo $coord?>&method=<?php echo $method;?>" title="view in a new window"><img src="pic/newwindow.png" style="width:20px;padding:10px;height:20px"></a>
                 <tr>
                     <td colspan=2 style="padding-left:0px;padding-right:0px;border-top: 0px">
                         <div class="tabs" style="padding:0px;border:solid #5db95b">
