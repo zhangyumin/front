@@ -1054,6 +1054,11 @@
                                                         if($value == $table_pac_row1[0]){
                                                             $table_pac_tagnum[$key] = $table_pac_tagnum[$key] + $table_pac_row1[2];
                                                         }
+                                                        else if(!in_array($table_pac_row1[0], $table_pac_start)){
+                                                            array_push($table_pac_start, $table_pac_row1[0]);
+                                                            array_push($table_pac_end, $table_pac_row1[1]);
+                                                            array_push($table_pac_tagnum, $table_pac_row1[2]);
+                                                        }
                                                     }
                                                 }
                                             }
