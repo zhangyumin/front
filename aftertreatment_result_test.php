@@ -374,7 +374,7 @@
                                         title:'Gene',
                                         edit:false,
                                         display: function (data) {
-                                           return \"<a title='click to view detail' target='_blank' href='./sequence_detail.php?species=\"+species+\"&method=analysisseq=\"+data.record.gene+\"'>\"+data.record.gene+\"</a>\";
+                                           return \"<a title='click to view detail' target='_blank' href='./sequence_detail.php?species=\"+species+\"&method=analysis&seq=\"+data.record.gene+\"'>\"+data.record.gene+\"</a>\";
                                         }
                                         },";
                                 echo "average_PAT:{
