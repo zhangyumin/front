@@ -294,6 +294,8 @@ and open the template in the editor.
                                 ${$pa}[$usr_pa_result_row[0]] = $usr_pa_result_row[$i - $num + count($usr_selected)];
                             }
                         }
+                        $samples = array_merge($samples,$usr_selected);
+//                        var_dump($samples);
                     }
                 }
                 //根据勾选重新分组
