@@ -210,6 +210,7 @@ and open the template in the editor.
                 }
                 //重新排列samples和分组group
                 $samples = $_SESSION['file_real'];
+                $samples = array_merge($samples);
                 $group = $_SESSION['usr_group'];
                 //读取数据库重新保存用户的pa和pac数据
                 $sql_sample = implode($_SESSION['file_real'], ",");
