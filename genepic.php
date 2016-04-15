@@ -287,6 +287,13 @@ and open the template in the editor.
                                 ${$pac}[$usr_pac_result_row[0]] = $usr_pac_result_row[$i - $num + count($usr_selected)];
                             }
                         }
+                        $usr_pa_result = mysql_query("select coord,$string_selected from db_user.PA_".$_SESSION['file']." where chr='$chr' and coord>=$gene_start and coord<=$gene_end;");
+                        while($usr_pa_result_row = mysql_fetch_row($usr_pa_result)){
+                            for($i=$num-count($usr_selected)+1;$i<=$num;$i++){
+                                $pa="pa".$i;
+                                ${$pa}[$usr_pa_result_row[0]] = $usr_pa_result_row[$i - $num + count($usr_selected)];
+                            }
+                        }
                     }
                 }
                 //根据勾选重新分组
@@ -300,8 +307,8 @@ and open the template in the editor.
             }
 //            PA数据测试
 //            for($i=1;$i<=$num;$i++){
-////                $pa="pa".$i;
-//                if($i==5){
+//                $pa="pa".$i;
+//                if($i==12){
 //                    var_dump(${"pa".$i});
 //                }
 //            }
