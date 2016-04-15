@@ -1268,16 +1268,22 @@
                                             echo "<iframe id='genepic' src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord&analysis=1\" width=1190px  height=500px></iframe>";
                                         else if($_GET['method']=='search')
                                             echo "<iframe id='genepic' src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord&search=1\" width=1190px  height=500px></iframe>";
-                                        else
-                                            echo "<iframe id='genepic' src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord\" width=1190px  height=500px></iframe>";
+                                        else if($_GET['method'] == 'trap')
+                                            echo "<iframe id='genepic' src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord&trap=1\" width=1190px  height=500px></iframe>";
+                                        else{
+                                            echo "<script>alert('Date format error.')</script>";
+                                        }
                                     }
                                     else{
                                         if($_GET['method']=='analysis')
                                             echo "<iframe id='genepic' src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&analysis=1\" width=1190px  height=500px></iframe>";
                                         else if($_GET['method'] == 'search') 
                                             echo "<iframe id='genepic' src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&search=1\" width=1190px  height=500px></iframe>";
-                                        else
-                                            echo "<iframe id='genepic' src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand\" width=1190px  height=500px></iframe>";
+                                        else if($_GET['method'] == 'trap')
+                                            echo "<iframe id='genepic' src=\"./genepic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&trap=1\" width=1190px  height=500px></iframe>";
+                                        else{
+                                            echo "<script>alert('Date format error.')</script>";
+                                        }
                                     }
                                     ?>
                             </div>
@@ -1288,16 +1294,22 @@
                                             echo "<iframe id='pacpic' src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord&analysis=1\" width=1190px  height=500px></iframe>";
                                         else if($_GET['method'] == 'search')
                                             echo "<iframe id='pacpic' src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord&search=1\" width=1190px  height=500px></iframe>";
-                                        else
-                                            echo "<iframe id='pacpic' src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord\" width=1190px  height=500px></iframe>";
+                                        else if($_GET['method'] == 'trap')
+                                            echo "<iframe id='pacpic' src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&intergenic=1&coord=$coord&trap=1\" width=1190px  height=500px></iframe>";
+                                        else{
+                                            echo "<script>alert('Date format error.')</script>";
+                                        }
                                     }
                                     else{
                                         if($_GET['method']=='analysis')
                                             echo "<iframe id='pacpic' src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord&analysis=1\" width=1190px  height=500px></iframe>";
                                         else if($_GET['method'] == 'search')
                                             echo "<iframe id='pacpic' src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord&search=1\" width=1190px  height=500px></iframe>";
-                                       else
-                                            echo "<iframe id='pacpic' src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord\" width=1190px  height=500px></iframe>";
+                                       else if($_GET['method'] == 'trap')
+                                            echo "<iframe id='pacpic' src=\"./pacpic.php?species=$species&seq=".$_GET['seq']."&chr=$chr&strand=$strand&coord=$coord&trap=1\" width=1190px  height=500px></iframe>";
+                                       else{
+                                            echo "<script>alert('Date format error.')</script>";
+                                        }
                                     }
                                 ?>
                             </div>
