@@ -713,7 +713,7 @@
                         for(var sutrkey in sutr_start){
                             for(var i = sutr_start[sutrkey]; i<= sutr_end[sutrkey]; i++){
                                 $('#pos'+i).addClass("sutr");
-                                $('#pos'+i).attr("title","3' UTR:"+i);
+                                $('#pos'+i).attr("title","3' UTR: "+i);
                             }
                         }
                     }
@@ -722,7 +722,7 @@
                         for(var wutrkey in wutr_start){
                             for(var i = wutr_start[wutrkey]; i<= wutr_end[wutrkey]; i++){
                                 $('#pos'+i).addClass("wutr");
-                                $('#pos'+i).attr("title","5' UTR:"+i);
+                                $('#pos'+i).attr("title","5' UTR: "+i);
                             }
                         }
                     }
@@ -733,7 +733,7 @@
                         for(var extkey in ext_start){
                             for(var i = ext_start[extkey]; i<= ext_end[extkey]; i++){
                                 $('#pos'+i).addClass("extend");
-                                $('#pos'+i).attr("title","Extended 3' UTR:"+i);
+                                $('#pos'+i).attr("title","Extended 3' UTR: "+i);
                             }
                         }
                     }
@@ -754,7 +754,7 @@
                         for(var cdskey in cds_start){
                             for(var i = cds_start[cdskey]; i<= cds_end[cdskey]; i++){
                                 $('#pos'+i).addClass("cds");
-                                $('#pos'+i).attr("title","CDS/exon:"+i);
+                                $('#pos'+i).attr("title","CDS/exon: "+i);
                             }
                         }
                     }
@@ -763,7 +763,7 @@
                         for(var exonkey in exon_start){
                             for(var i = exon_start[exonkey]; i<= exon_end[exonkey]; i++){
                                 $('#pos'+i).addClass("exon");
-                                $('#pos'+i).attr("title","CDS/exon:"+i);
+                                $('#pos'+i).attr("title","CDS/exon: "+i);
                             }
                         }
                     }
@@ -774,7 +774,7 @@
                         for(var intronkey in intron_start){
                             for(var i = intron_start[intronkey]; i<= intron_end[intronkey]; i++){
                                 $('#pos'+i).addClass("intron");
-                                $('#pos'+i).attr("title","intron:"+i);
+                                $('#pos'+i).attr("title","intron: "+i);
                             }
                         }
                     }
@@ -795,7 +795,7 @@
                         for(var ambkey in amb_start){
                             for(var i = amb_start[ambkey]; i<= amb_end[ambkey]; i++){
                                 $('#pos'+i).addClass("amb");
-                                $('#pos'+i).attr("title","AMBiguous region:"+i);
+                                $('#pos'+i).attr("title","AMBiguous region: "+i);
                             }
                         }
                     }
@@ -806,7 +806,7 @@
                         for(var pakey in pa_start){
 //                            console.log(pa_start[pakey]);
                             $('#pos'+pa_start[pakey]).addClass("pa");
-                            $('#pos'+pa_start[pakey]).attr("title","cleavage site"+pa_start[pakey]);
+                            $('#pos'+pa_start[pakey]).attr("title","cleavage site: "+pa_start[pakey]);
                         }
                     }
                 }
@@ -816,7 +816,7 @@
                         for(var packey in pac_start){
 //                            console.log(pa_start[pakey]);
                             $('#pos'+pac_start[packey]).addClass("pac");
-                            $('#pos'+pac_start[packey]).attr("title","PAC:"+pac_start[packey]);
+                            $('#pos'+pac_start[packey]).attr("title","PAC: "+pac_start[packey]);
                         }
                     }
                 }
@@ -851,7 +851,7 @@
                                 for(var j = pos1_start[i]; j<= pos1_end[i]; j++){
                                     if(min <= j && j <= max){
                                         $('#pos'+j).addClass("patt1");
-                                        $('#pos'+j).attr("title","Poly(A) signal:"+i);
+                                        $('#pos'+j).attr("title","Poly(A) signal: "+i);
                                     }
                                 }
                             }
@@ -914,19 +914,19 @@
                                 for(var i = pos2_start[j]; i<= pos2_end[j];i++){
                                     if(min <= i && i <= max){
                                         $('#pos'+i).addClass("patt2");
-                                        $('#pos'+i).attr("title","Poly(A) signal:"+i);
+                                        $('#pos'+i).attr("title","Poly(A) signal: "+i);
                                     }
                                 }
                                 for(var i = aat_start[j]; i<= aat_end[j];i++){
                                     if(min <= i && i <= max){
                                         $('#pos'+i).addClass("aat");
-                                        $('#pos'+i).attr("title","Poly(A) signal:"+i);
+                                        $('#pos'+i).attr("title","Poly(A) signal: "+i);
                                     }
                                 }
                                 for(var i = tgt_start[j]; i<= tgt_end[j];i++){
                                     if(min <= i && i <= max){
                                         $('#pos'+i).addClass("tgt");
-                                        $('#pos'+i).attr("title","Poly(A) signal:"+i);
+                                        $('#pos'+i).attr("title","Poly(A) signal: "+i);
                                     }
                                 }
                             }
