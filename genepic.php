@@ -202,7 +202,16 @@ and open the template in the editor.
             }
             
             //user trap数据
-            if(isset($_SESSION['file'])&&strcmp($_SESSION['species'], $_GET['species']) == 0&&$_GET['search']!=1){
+            if(isset($_SESSION['file'])&&strcmp($_SESSION['species'], $_GET['species']) == 0&&$_GET['trap']==1){
+                //清除保存的pa和pac系统数据
+                for($i=1;$i<=$num;$i++){
+                        unset(${"pa".$i});
+                        unset(${"pac".$i});
+                }
+                //重新排列samples和分组group
+                $samples = $_SESSION['file_real'];
+                $group = $_SESSION['usr_group'];
+                //读取数据库重新保存用户的pa和pac数据
                 $sql_sample = implode($_SESSION['file_real'], ",");
                 $user_pa = mysql_query("select coord,$sql_sample from db_user.PA_".$_SESSION['file']." where chr='$chr' and coord>=$gene_start and coord<=$gene_end;");
                 if($_GET['intergenic']==1){
@@ -210,23 +219,18 @@ and open the template in the editor.
                 }else{
                     $user_pac = mysql_query("select coord,$sql_sample from db_user.PAC_".$_SESSION['file']." where gene = '$seq';");
                 }
+                $num = count($_SESSION['file_real']);
                 while($usr_row_pa = mysql_fetch_row($user_pa)){
-                    for($i=$num-count($_SESSION['file_real'])+1;$i<=$num;$i++){
+                    for($i=1;$i<=$num;$i++){
                         $pa="pa".$i;
-                        ${$pa}[$usr_row_pa[0]] = $usr_row_pa[$i-$num+count($_SESSION['file_real'])];
+                        ${$pa}[$usr_row_pa[0]] = $usr_row_pa[$i];
                     }
                 }
                 while($usr_row_pac = mysql_fetch_row($user_pac)){
-                    for($i=$num-count($_SESSION['file_real'])+1;$i<=$num;$i++){
+                    for($i=1;$i<=$num;$i++){
                         $pac="pac".$i;
-                        ${$pac}[$usr_row_pac[0]] = $usr_row_pac[$i-$num+count($_SESSION['file_real'])];
+                        ${$pac}[$usr_row_pac[0]] = $usr_row_pac[$i];
                     }
-                }
-                foreach ($_SESSION['usr_group'] as $key => $value) {
-                    array_push($group, $value);
-                }
-                foreach ($_SESSION['file_real'] as $key => $value) {
-                    array_push($samples, $value);
                 }
             }
             //如果是analysis的数据
