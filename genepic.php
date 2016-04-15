@@ -452,7 +452,12 @@ and open the template in the editor.
                 gene_line("gene");
                 grid("no_extend","1");
                 grid("gene","title");
-                gene_line("no_extend",<?php echo ($gene_start_org-$gene_start)*$rate;?>,<?php echo ($gene_end_org-$gene_start)*$rate;?>,<?php echo $_GET['strand'];?>);
+                <?php
+                    $a = ($gene_start_org-$gene_start)*$rate;
+                    $b = ($gene_end_org-$gene_start)*$rate;
+                    if($_GET['intergenic']!=1)
+                    echo "gene_line(\"no_extend\",$a,$b,".$_GET['strand'].");";
+                ?>
                 <?php
                 //extend部分
                     foreach ($sutr_start as $key => $value) {
