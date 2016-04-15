@@ -121,7 +121,16 @@ and open the template in the editor.
             }
             
              //user trap数据
-            if(isset($_SESSION['file'])&&strcmp($_SESSION['species'], $_GET['species']) == 0 && $_GET['search']!=1){
+            if(isset($_SESSION['file'])&&strcmp($_SESSION['species'], $_GET['species']) == 0&&$_GET['trap']==1){
+                //清除保存的pa和pac系统数据
+                for($i=1;$i<=$num;$i++){
+                        unset(${"pa".$i});
+                        unset(${"pac".$i});
+                }
+                //重新排列samples和分组group
+                $samples = $_SESSION['file_real'];
+                $group = $_SESSION['usr_group'];
+                //读取数据库重新保存用户的pa和pac数据
                 $sql_sample = implode($_SESSION['file_real'], ",");
                 if($_GET['intergenic']==1){
                     $user_pac = mysql_query("select coord,$sql_sample from db_user.PAC_".$_SESSION['file']." where gene = '$seq' and coord>=$gene_start and coord<=$gene_end;");
@@ -129,16 +138,10 @@ and open the template in the editor.
                     $user_pac = mysql_query("select coord,$sql_sample from db_user.PAC_".$_SESSION['file']." where gene = '$seq';");
                 }
                 while($usr_row_pac = mysql_fetch_row($user_pac)){
-                    for($i=$num-count($_SESSION['file_real'])+1;$i<=$num;$i++){
+                    for($i=1;$i<=$num;$i++){
                         $pac="pac".$i;
-                        ${$pac}[$usr_row_pac[0]] = $usr_row_pac[$i-$num+count($_SESSION['file_real'])];
+                        ${$pac}[$usr_row_pac[0]] = $usr_row_pac[$i];
                     }
-                }
-                foreach ($_SESSION['usr_group'] as $key => $value) {
-                    array_push($group, $value);
-                }
-                foreach ($_SESSION['file_real'] as $key => $value) {
-                    array_push($samples, $value);
                 }
             }
             //如果是analysis的数据
@@ -1347,7 +1350,7 @@ and open the template in the editor.
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 75,
+                            x: 80,
                             x2: 15,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
@@ -1470,7 +1473,7 @@ and open the template in the editor.
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 85,
+                            x: 87,
                             x2: 15,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
@@ -1592,7 +1595,7 @@ and open the template in the editor.
                             }
                         ],
                         grid: { // 控制图的大小，调整下面这些值就可以，
-                            x: 75,
+                            x: 85,
                             x2: 15,
                             y2: 50,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
                         },
