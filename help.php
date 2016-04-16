@@ -109,14 +109,18 @@
                       <div class="jumpto-block">
                         <h2>1. <span>Introduction</span></h2>
                         <p>PlantAPA is a web server for query, visualization, and analysis of poly(A) sites in plants, which can profile heterogeneous cleavage sites and quantify expression pattern of poly(A) sites across different conditions. To date, PlantAPA provides the largest database of APA in plants, including rice, Arabidopsis, Medicago truncatula, and Chlamydomonas reinhardtii (see <a href="./index.php">datasets</a>).</p>
-                        <p id="download">Users can download PATs, PACs, and relevent sequences from the <a href="./download.php">download</a> page.</p>
+                        <p id="download">Users can download PATs, PACs, and relevent sequences from the <a href="./download.php">download</a> page.</p> 
+                        <div class="picdiv">
+                            <img class="pic" src="./pic/help/download.png"/>
+                            <br>Datasets for downloading in PlantAPA
+                        </div>
                       </div>
                       <div class="jumpto-block">
                         <h2>2. <span>PAC trap</span>: extracting poly(A) sites from uploaded sequences</h2>
                         <!--<h3>2.1. Start a new task for poly(A) site extraction</h3>-->
                         <!--<p>1) Choose file type and species-->
                         <p id="trapstep1">
-                            You can upload two kinds of sequences, short reads and ESTs. You can also click “Try an example” button to load the demo data. In addition, you can upload a file to specific coordinates of poly(A) sites. Also, the supported species are listed in the drop-down box.
+                            In the <a href="./upload_option.php">PAC trap</a> module, users can upload two kinds of sequences, short reads and ESTs. You can also click “Try an example” button to load the demo data. In addition, you can upload a file to specific coordinates of poly(A) sites. Also, the supported species are listed in the drop-down box.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/species.png"/>
@@ -138,13 +142,20 @@
                             <br>Add group information
                         </div>
                         <p>
-                        The second one serves for users to paste sequencs in the textarea if they do not prepare a file.  If data is provided, PlantAPA will skip the extraction pipeline and load the input sites to a user database directly.
+                        The second one serves for users to paste sequencs in the textbox if they do not prepare a file. It is of note that only one sample can be input if this way is used.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/text.bmp"/>
                             <br>Area of pasting sequence
                         </div>
                         <!--<p>3) Options for mapping reads (optional)-->
+                        <p>
+                            Users can also provide the poly(A) site file directly. In this way, PlantAPA will skip the extraction pipeline and load the input sites to a user database directly. Then users can browse, visualize, and analyze their own poly(A) sites through the PAC browse module, PAC viewer module, and PAC analysis module in PlantAPA.
+                            <div class="picdiv">
+                                <img class="pic" src="./pic/help/upload_polya.png"/>
+                                <br>Inputting poly(A) sites, each line is Chr, Strand, Coordinate, Number of PATs
+                            </div>
+                        </p>
                         <p id="trapstep3">
                         If sequences are uploaded, users can use the default parameters set by PlantAPA or specific the parameters for mapping reads.
                         </p>
@@ -157,14 +168,14 @@
                         </div>
                         <!--<h3>2.2. Get a task by task ID</h3>-->
                         <p>
-                        Each time, when a user visits our website to conduct a poly(A) site extraction, an unique task ID will be assigned. In our server, a folder in the same name as this project name will be created to hold all relevant data for the poly(A) site extraction. The user can further obtain all results of this task by searching the task ID in the “My task” page.
+                            Each time, when a user visits PlantAPA to conduct a poly(A) site extraction, an unique task ID will be assigned. In our server, a folder in the same name as this project name will be created to hold all relevant data for the poly(A) site extraction. The user can further obtain all results of this task by searching the task ID in the “<a href="./task.php">My task</a>” page.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/task.bmp"/>
                             <br>The data retrieving page
                         </div>
                         <p>
-                        All tasks started from the same IP address are also listed in the “My task” page for the user to retrieve at any time.
+                            All tasks started from the same IP address are also listed in the “<a href="./task.php">My task</a>” page for the user to retrieve at any time.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/task_list.bmp"/>
@@ -173,10 +184,6 @@
                         <!--<h3>2.3. Outputs of poly(A) site extraction pipeline</h3>-->
                         <p>Upon the completion of the PAC extraction process, users can download the PAC list directly from the web site onto their local computers.
                         </p>
-                        <div class="picdiv">
-                            <img class="pic" src="./pic/help/download.png"/>
-                            <br>The data download page
-                        </div>
                         <p>
                         Also, additional information, such as mapping summary, single nucleotide compositions around PACs, top hexamers upstream of PACs, will be displayed in the result page to facilitate users to evaluate their own data.
                         </p>
@@ -190,7 +197,7 @@
                       <div class="jumpto-block">
                         <h2>3. <span>PAC search</span>: searching PlantAPA</h2>
                         <!--<h3>3.1. Multi-keywords search</h3>-->
-                        <p>The PAC search module allows users to query genes or PACs in the data sets of interest by a variety of keywords, such as gene ID, chromosome fragment, gene functions, GO term, and GO ID.Batch search is supported, where lists of Gene IDs, GO terms, or GO IDs can be provided as query input.
+                        <p>The <a href="./search.php">PAC search</a> module allows users to query genes or PACs in the data sets of interest by a variety of keywords, such as gene ID, chromosome fragment, gene functions, GO term, and GO ID.Batch search is supported, where lists of Gene IDs, GO terms, or GO IDs can be provided as query input.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/search.bmp"/>
@@ -204,8 +211,8 @@
                             <br>The fuzzy search panel
                         </div>
                         <!--<h3>3.4. Search result</h3>-->
-                        <p>Users can retrieve the search result of an example gene by clicking the button labeled ‘Example’, and view the subsets and detail descriptions of a data set by clicking the corresponding ‘More’- labeled icon. 
-                        The query output is a media page that lists all the matched PACs in a dynamic table, where users can choose to view detailed information (poly(A) signals, sequences, expression patterns, etc.) and graphics of PACs and the corresponding gene by clicking the link on a PAC of interest. The PAC list tabulating all PACs in genomic regions as well as intergenic regions would facilitate the inspection of polyadenylation events associated with novel transcripts, lincRNAs, or antisense transcription.
+                        <p>
+                            The query output is a media page that lists all the matched PACs in a dynamic table, where users can choose to view detailed information (poly(A) signals, sequences, expression patterns, etc.) and graphics of PACs and the corresponding gene by clicking the link on a PAC of interest. The PAC list tabulating all PACs in genomic regions as well as intergenic regions would facilitate the inspection of polyadenylation events associated with novel transcripts, lincRNAs, or antisense transcription.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/search_result.bmp"/>
@@ -240,15 +247,14 @@
                       </div>
                       <div class="jumpto-block">
                         <h2>5. <span>PAC browse</span>: browsing PACs in the PAC browser</h2>
-                        <p>Users can have a quick access to the PAC browser by clicking the “PAC browse” tab in the main menu or the “View” link in a PAC list.
+                        <p>Users can have a quick access to the PAC browser by clicking the “<a href="./browse.php">PAC browse</a>” tab in the main menu or the “View” link in a PAC list.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/browse.bmp"/>
                             <br>The page of PAC browser
                         </div>
                         <p>
-                        One or more data sets from each plant species can be quickly loaded and graphically browsed online, by selecting the checkboxes of data sets in the ‘Tracks’ panel. Users can conduct a search with a gene or chromosome fragment to zoom in on particular PAC regions. Data tracks of PACs from different cells, tissues or conditions can be displayed in sync with tracks of PATs, offering a more intuitive way to explore and compare the usage of PACs among different samples.
-                        Users can download the data of one or more tracks onto their local computers, or choose to view detailed information of a gene or PAC by right clicking a PAC or gene model in the browser.   
+                            One or more data sets from each plant species can be quickly loaded and graphically browsed online, by selecting the checkboxes of data sets in the ‘Available Tracks’ panel. Users can conduct a search with a gene or chromosome fragment to zoom in on particular PAC regions. Data tracks of PACs from different cells, tissues or conditions can be displayed in sync with tracks of PATs, offering a more intuitive way to explore and compare the usage of PACs among different samples. Users can download the data of one or more tracks onto their local computers, or choose to view detailed information of a gene or PAC by right clicking a PAC or gene model in the browser.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/browser_download.png"/>
@@ -260,7 +266,7 @@
                       </div>
                       <div class="jumpto-block">
                         <h2>6. <span>PAC viewer</span>: quantification and visualization of PACs across different conditions</h2>
-                        <p>By following the web link on a particular PAC or gene, a user can inspect various graphics and detailed information of the PACs in a gene or in a intergenic region, such as gene/PAC sequence, poly(A) signals, and PAT distributions across diverse conditions in the PAC viewer module.
+                        <p>By following the web link on a particular PAC or gene, a user can inspect various graphics and detailed information of the PACs in a gene or in a intergenic region, such as gene/PAC sequence, poly(A) signals, and PAT distributions across diverse conditions in the <a href="./sequence_detail.php?species=arab&seq=AT1G04480&method=search">PAC viewer</a> module.
                         Summary information about the PAC and the associated gene was given at the top of the web page. </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/gene_summary.bmp"/>
@@ -275,21 +281,22 @@
                             <br>The display of the gene data in browser
                         </div>
                         <p>
-                        Another graph presents both the original and the modified versions of the gene model and the distributions of PACs/PATs across different samples in a more intuitive way, where users can inspect the locations, expression patterns, and differential usage of PACs in a gene, especially the selection of heterogeneous cleavage sites. Cleavage sites in a PAC are depicted in vertical lines with height representing number of supporting PATs, and the dominant cleavage site that supported by maximum number of PATs in a PAC is highlighted in red. There is a text label under each PAC to clearly indicate its expression level (total number of supporting PATs). 
+                            Another graph presents both the original and the modified versions of the gene model and the distributions of PACs/PATs across different samples in a more intuitive way, where users can inspect the locations, expression patterns, and differential usage of PACs in a gene, especially the selection of heterogeneous cleavage sites. Cleavage sites of a PAC are depicted in vertical lines with height representing the number of supporting PATs. The dominant cleavage site supported by the maximum number of PATs in a PAC is marked by a thick line. If the number of PATs of the dominant cleavage site exceeds the maximum scale value (default of 50) of the vertical axis, a small horizontal line will be shown on the top of the thick line. A text label is found under each dominant cleavage site to clearly indicate the expression level, i.e., total number of supporting PATs, of the respective PAC.Users can also view selected samples by choosing specific samples in the ‘Individual’ drop-down list or group replicates within each individual sample by clicking the ‘Grouping’ drop-down list.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/pat_distribution.png"/>
                             <br>The Details of PAT distribution
                         </div>
                         <p>
-                        An additional bar chart is presented to profile the usage quantification of all PACs of the queried gene across different samples, providing a simple and direct way to compare the usage of PACs and further find the ubiquitous and specific PACs.
+                            An additional bar chart is presented to profile the usage quantification of all PACs of the queried gene across different samples, providing a simple and direct way to compare the usage of PACs and determine ubiquitous or sample-specific PACs. By default, the bar chart displays the number of PATs of all samples. By checking the “Ratio” box, users can compare the usage of PACs within each sample to avoid great disparity in PAT number among samples.
                         </p>
                         <div class="picdiv">
                             <br><img class="pic" src="./pic/help/pac_usage.bmp"/>
                             <br>The Details of PAC usage
                         </div>
                         <!--<h3>6.2. Gene sequence viewer</h3>-->
-                        <p>PlantAPA provides the gene sequence annotated with exon-intron structure and 3’ UTR, poly(A) signals and positions. By default the most dominant poly(A) signal, AAUAAA, and its 1 nt variants are scanned to obtain poly(A) signals. Users can also specify other patterns to locate possible poly(A) signals. Further, users can choose highlight genomic regions (intron, exon, 3’ UTR etc.), cleavage sites, and poly(A) signals in different styles or colors in the corresponding gene sequence, facilitating manual inspection of poly(A) sites in different genomic locations. Particularly, the heterogeneous cleavage sites of each PAC are underlined, and the most dominant cleavage site in each PAC is highlighted in dark red and underlined in bold. 
+                        <p>
+                            PlantAPA provides the gene sequence annotated with exon-intron structure and 3’ UTR, poly(A) signals and positions. By default the most dominant poly(A) signal, AATAAA, and its 1 nt variants are scanned to obtain poly(A) signals. Users can also specify additional patterns to locate possible poly(A) signals. Users can set a region around poly(A) sites to narrow the scope of poly(A) signal search by dragging the slider. Further, users can choose to highlight genic regions, e.g., intron, exon, or 3’UTR, cleavage sites, and poly(A) signals in different styles or colors in the corresponding sequence, facilitating manual inspection of the sequence of poly(A) sites in different genic locations. Particularly, heterogeneous cleavage sites of each PAC are in pink background, and the most dominant cleavage site in each PAC is denoted in red and highlighted in yellow.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/gene_viewer.bmp"/>
@@ -298,7 +305,7 @@
                     </div>
                     <div class="jumpto-block">
                         <h2>7. <span>PAC analysis</span>: analysis of APA switching between two conditions</h2>
-                        <p id="analysishelp1">Following the “PAC analysis” tab in the main menu, users can choose to generate lists of differentially expressed genes, PACs with differential usage, genes with 3’ UTR lengthening or shortening, and APA-site switching genes, using the user uploaded PACs together with PlantAPA stored PACs.
+                        <p id="analysishelp1">Following the “<a href="./analysis.php">PAC analysis</a>” tab in the main menu, users can choose to generate lists of differentially expressed genes, PACs with differential usage, genes with 3’ UTR lengthening or shortening, and APA-site switching genes, using the user uploaded PACs together with PlantAPA stored PACs.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysispic.png"/>
@@ -311,7 +318,11 @@
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysis.bmp"/>
                             <br>The page of analysis function
-                            <br><br>
+                        </div>
+                        <p>
+                            Before analyzing PACs between two samples, users can filter PACs or genes by various combination of filtering conditions.
+                        </p>
+                        <div class="picdiv">
                             <img class="pic" src="./pic/help/analysis_additional_option.png"/>
                             <br>The panel of analysis addtional option
                         </div>
@@ -324,14 +335,14 @@
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysis_result1.png"/>
-                            <br>The results of DE Gene
+                            <br>Result page of 'DE Gene' function (Click <a href="demo.php?method=degene">here</a> for an example)
                         </div>
                         <!--<h3>7.2. Detection of PACs with differential usage</h3>-->
                         <p id='analysishelp3'>Users can specific parameters for detecting PACs with differential usage.
                         The main output is a table that lists all result PACs.</p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysis_result2.png"/>
-                            <br>The results of DE PAC
+                            <br>Result page of 'DE PAC' function (Click <a href="demo.php?method=depac">here</a> for an example)
                         </div>
                         <!--<h3>7.3. Detection of genes with 3’ UTR lengthening or shortening</h3>-->
                         <p id='analysishelp4'>After choosing two groups of samples, users can specific parameters for detecting genes with tandem 3’ UTR switching.
@@ -339,7 +350,7 @@
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysis_result3.png"/>
-                            <br>The results of 3'UTR Lengthening
+                            <br>Result page of '3'UTR Lengthening' function (Click <a href="demo.php?method=only3utr">here</a> for an example)
                         </div>
                         <!--<h3>7.4. Detection of nonconnonical APA-site switching genes</h3>-->
                         <p id='analysishelp5'>After choosing two groups of samples, users can specific parameters for the detection of nonconnonical APA-site switching genes. These genes involve at least one PAC located in CDS or introns.
@@ -349,7 +360,7 @@
                             <br>The panel of APA Switching
                             <br><br>
                             <img class="pic" src="./pic/help/analysis_result4.png"/>
-                            <br>The results of APA Switching
+                            <br>Result page of 'APA Switching' function (Click <a href="demo.php?method=none3utr">here</a> for an example)
                         </div>
                     </div>
                     </div>
