@@ -704,10 +704,10 @@ and open the template in the editor.
                         </p>
                         <p>
                         Example queries:<br>
-                        1) Enter genome coordinate: <a href='search_result.php?method=fuzzy&keyword=Chr1&species=arab'>Species:Arabidopsis thaliana in Chr1</a><br>
-                        2) Enter one gene ID: gene: <a href='search_result.php?method=fuzzy&keyword=AT1G02130&species=arab'>AT1G02130</a> or <a href='search_result.php?method=fuzzy&keyword=Medtr2g105570&species=mtr'>Medtr2g105570</a><br>
-                        3) Enter one Go ID: <a href='search_result.php?method=fuzzy&keyword=0006888&species=arab'>GO:0006888</a><br>
-                        4) Enter one Go function: <a href='search_result.php?method=fuzzy&keyword=transport&species=arab'>transport</a><br>
+                        1) Enter genome coordinate: <a href='search_process.php?method=fuzzy&keyword=Chr1&species=arab'>Species:Arabidopsis thaliana in Chr1</a><br>
+                        2) Enter one gene ID: gene: <a href='search_process.php?method=fuzzy&keyword=AT1G02130&species=arab'>AT1G02130</a> or <a href='search_process.php?method=fuzzy&keyword=Medtr2g105570&species=mtr'>Medtr2g105570</a><br>
+                        3) Enter one Go ID: <a href='search_process.php?method=fuzzy&keyword=0006888&species=arab'>GO:0006888</a><br>
+                        4) Enter one Go function: <a href='search_process.php?method=fuzzy&keyword=transport&species=arab'>transport</a><br>
                         </p>
                     </div>
                 </div>
