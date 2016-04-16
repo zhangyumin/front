@@ -306,6 +306,27 @@ and open the template in the editor.
                         array_push ($group, 'sample2');
                 }
 //                $samples = $_SESSION['sample'];
+                //遍历坐标，删除重复pac数据
+                $analysis_coord = array();
+                for($i = 1; $i <= $num; $i++){
+                     $pac="pac".$i;
+                     $analysis_coord = $analysis_coord + $$pac;
+                }
+                foreach ($analysis_coord as $key => $value) {
+                    $j = 0;
+                    for($i = 1; $i <= $num; $i++){
+                        $pac="pac".$i;
+                        if(${$pac}[$key] == 0)
+                            $j ++;
+                    }
+                    if($j == $num){
+                        for($i = 1; $i <= $num; $i++){
+                            $pac="pac".$i;
+                            unset(${$pac}[$key]);
+                        }
+                    }
+                        
+                }
             }
 //            PA数据测试
 //            for($i=1;$i<=$num;$i++){
@@ -317,7 +338,7 @@ and open the template in the editor.
 //            PAC数据测试
 //            for($i=1;$i<=$num;$i++){
 //                $pac="pac".$i;
-//                if($i==12){
+//                if($i==1){
 //                    var_dump($$pac);
 //                }
 //            }
@@ -348,7 +369,7 @@ and open the template in the editor.
 //                    echo $value1;
                         $pa_group_key = $pa_group_key + ${"pa".$value1};
                         $pac_group_key = $pac_group_key + ${"pac".$value1};
-//                        var_dump($pac1);
+//                        var_dump(${"pac".$value1});
                 }
                 //遍历coord值
                 foreach ($pa_group_key as $key2 => $value2) {
