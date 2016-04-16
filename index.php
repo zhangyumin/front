@@ -147,7 +147,7 @@ and open the template in the editor.
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_1%20PAT%20minus%20strand%2Cwt_leaf_1%20PAT%20plus%20strand&highlight=' target='_blanck'>1110951</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_1%20PAT%20minus%20strand%2Cwt_leaf_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>1110951</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -156,7 +156,7 @@ and open the template in the editor.
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1073%2Fpnas.1019732108">Wu et al. PNAS, 2011</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_2%20PAT%20minus%20strand%2Cwt_leaf_2%20PAT%20plus%20strand&highlight=' target='_blanck'>695258</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_2%20PAT%20minus%20strand%2Cwt_leaf_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>695258</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -165,7 +165,7 @@ and open the template in the editor.
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_3%20PAT%20minus%20strand%2Cwt_leaf_3%20PAT%20plus%20strand&highlight=' target='_blanck'>22176</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_3%20PAT%20minus%20strand%2Cwt_leaf_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>22176</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -174,7 +174,7 @@ and open the template in the editor.
                                                     <td>seed</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_seed_1%20PAT%20minus%20strand%2Cwt_seed_1%20PAT%20plus%20strand&highlight=' target='_blanck'>21416</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_seed_1%20PAT%20minus%20strand%2Cwt_seed_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>21416</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -183,7 +183,7 @@ and open the template in the editor.
                                                     <td>seed</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1073%2Fpnas.1019732108">Wu et al. PNAS, 2011</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_seed_2%20PAT%20minus%20strand%2Cwt_seed_2%20PAT%20plus%20strand&highlight=' target='_blanck'>1314335</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_seed_2%20PAT%20minus%20strand%2Cwt_seed_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>1314335</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -192,7 +192,7 @@ and open the template in the editor.
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_1%20PAT%20minus%20strand%2Cwt_root_1%20PAT%20plus%20strand&highlight=' target='_blanck'>16229894</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_1%20PAT%20minus%20strand%2Cwt_root_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>16229894</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -201,7 +201,7 @@ and open the template in the editor.
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_2%20PAT%20minus%20strand%2Cwt_root_2%20PAT%20plus%20strand&highlight=' target='_blanck'>10703765</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_2%20PAT%20minus%20strand%2Cwt_root_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>10703765</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -210,7 +210,7 @@ and open the template in the editor.
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_3%20PAT%20minus%20strand%2Cwt_root_3%20PAT%20plus%20strand&highlight=' target='_blanck'>12541261</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_3%20PAT%20minus%20strand%2Cwt_root_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>12541261</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -219,7 +219,7 @@ and open the template in the editor.
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_1%20PAT%20minus%20strand%2Coxt6_root_1%20PAT%20plus%20strand&highlight=' target='_blanck'>977997</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_1%20PAT%20minus%20strand%2Coxt6_root_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>977997</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -228,7 +228,7 @@ and open the template in the editor.
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_2%20PAT%20minus%20strand%2Coxt6_root_2%20PAT%20plus%20strand&highlight=' target='_blanck'>76768</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_2%20PAT%20minus%20strand%2Coxt6_root_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>76768</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -237,7 +237,7 @@ and open the template in the editor.
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_3%20PAT%20minus%20strand%2Coxt6_root_3%20PAT%20plus%20strand&highlight=' target='_blanck'>2176288</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_3%20PAT%20minus%20strand%2Coxt6_root_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>2176288</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -246,7 +246,7 @@ and open the template in the editor.
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_1%20PAT%20minus%20strand%2Coxt6_leaf_1%20PAT%20plus%20strand&highlight=' target='_blanck'>6092063</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_1%20PAT%20minus%20strand%2Coxt6_leaf_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>6092063</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -255,7 +255,7 @@ and open the template in the editor.
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_2%20PAT%20minus%20strand%2Coxt6_leaf_2%20PAT%20plus%20strand&highlight=' target='_blanck'>10589959</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_2%20PAT%20minus%20strand%2Coxt6_leaf_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>10589959</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -264,7 +264,7 @@ and open the template in the editor.
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_3%20PAT%20minus%20strand%2Coxt6_leaf_3%20PAT%20plus%20strand&highlight=' target='_blanck'>5875054</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_3%20PAT%20minus%20strand%2Coxt6_leaf_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>5875054</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
