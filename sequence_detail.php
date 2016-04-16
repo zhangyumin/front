@@ -967,7 +967,10 @@
                                     </tr>
                                     <tr>
                                         <td class="left">Gene locus:</td>
-                                        <td><?php echo $chr.":".$gene_start."-".$gene_end;?></td>
+                                        <td><?php echo $chr.":".$gene_start."-".$gene_end;
+                                                    if($_GET['flag']=='intergenic')
+                                                        echo " (upstream 250bp and downstream 250bp around the query PAC)";
+                                        ?></td>
                                     </tr>
                                     <tr>
                                         <td class="left">Gene Type:</td>
