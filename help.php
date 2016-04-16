@@ -108,7 +108,7 @@
                       </div>
                       <div class="jumpto-block">
                         <h2>1. <span>Introduction</span></h2>
-                        <p>PlantAPA is a web server for query, visualization, and analysis of poly(A) sites in plants, which can profile heterogeneous cleavage sites and quantify expression pattern of poly(A) sites across different conditions. To date, PlantAPA provides the largest database of APA in plants, including rice, Arabidopsis, Medicago truncatula, and Chlamydomonas reinhardtii (see <a href="./index.php">datasets</a>).</p>
+                        <p>PlantAPA is a web server for query, visualization, and analysis of poly(A) sites in plants, which can profile heterogeneous cleavage sites and quantify expression pattern of poly(A) sites across different conditions. To date, PlantAPA provides the largest database of APA in plants, including rice, Arabidopsis, <span style="font-style:italic">Medicago truncatula</span>, and <span style="font-style:italic">Chlamydomonas reinhardtii</span> (see <a href="./index.php">datasets</a>).</p>
                         <p id="download">Users can download PATs, PACs, and relevent sequences from the <a href="./download.php">download</a> page.</p> 
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/download.png"/>
