@@ -124,7 +124,7 @@
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/species.png"/>
-                            <br>The species and files type selection panel
+                            <br>Panel of choosing species and file types
                         </div>
                         <!--<p>2) Input-->
                         <p id="trapstep2">
@@ -132,21 +132,21 @@
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/input.bmp"/>
-                            <br>The file uploading panel
+                            <br>Panel of file uploading
                         </div>
                         <p>
                         PlantAPA allows users to upload more than one files, each file can be assigned two labels, one denoting the respective sample (ex. leaf_replicate1), the other denoting its group.Assigning each file with sample or group label is useful in the analysis of APA, for example, detecting DE genes or PACs, and is also useful in visualizing poly(A) sites from individual groups in our graphic module. 
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/group.bmp"/>
-                            <br>Add group information
+                            <br>Adding group label for each input file
                         </div>
                         <p>
                         The second one serves for users to paste sequencs in the textbox if they do not prepare a file. It is of note that only one sample can be input if this way is used.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/text.bmp"/>
-                            <br>Area of pasting sequence
+                            <br>Inputting sequences in a textbox
                         </div>
                         <!--<p>3) Options for mapping reads (optional)-->
                         <p>
@@ -172,14 +172,14 @@
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/task.bmp"/>
-                            <br>The data retrieving page
+                            <br>Data retrieving page
                         </div>
                         <p>
                             All tasks started from the same IP address are also listed in the “<a href="./task.php">My task</a>” page for the user to retrieve at any time.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/task_list.bmp"/>
-                            <br>Task hitory of your results
+                            <br>Task hitory of users' results
                         </div>
                         <!--<h3>2.3. Outputs of poly(A) site extraction pipeline</h3>-->
                         <p>Upon the completion of the PAC extraction process, users can download the PAC list directly from the web site onto their local computers.
@@ -189,7 +189,7 @@
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/result.bmp"/>
-                            <br>Results of your task
+                            <br>Result page of a PAC trap task (Click <a href="./demo.php?method=trap">here</a> to view an example)
                         </div>
                         <p>
                         By following the web link on a particular PAC, users can continue to use other seamlessly integrated modules for PAC visualization and mining. Particularly, if there are multiple input files, users can further compare poly(A) site usage between their input libraries or with PlantAPA-provided libraries through the PAC analysis module.</p>
@@ -201,14 +201,14 @@
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/search.bmp"/>
-                            <br>The search panel
+                            <br>Search panel
                         </div>
                         <!--<h3>3.2. Batch search</h3>-->
                         <!--<h3>3.3. Fuzzy search</h3>-->
                         <p>Fuzzy search, is also permitted, which allows user to search various database entries by a single keyword.</p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/fuzzy_search.bmp"/>
-                            <br>The fuzzy search panel
+                            <br>Fuzzy search panel
                         </div>
                         <!--<h3>3.4. Search result</h3>-->
                         <p>
@@ -216,7 +216,7 @@
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/search_result.bmp"/>
-                            <br>The search result page
+                            <br>Search result page (Click <a href='search_process.php?method=fuzzy&keyword=Chr1&species=arab'>here</a> to view an example)
                         </div>
                       </div>
                       <div class="jumpto-block">
@@ -228,21 +228,21 @@
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/export2.bmp"/>
-                            <br>The panel of exporting sequences of PACs
+                            <br>Panel of exporting sequences of PACs
                         </div>
                         <!--<h3>4.2. Export sequences of regions of PACs</h3>-->
                         <p>Users can also export sequences of genomic regions where PACs are located.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/export3.bmp"/>
-                            <br>The panel of exporting sequences of regions of PACs
+                            <br>Panel of exporting sequences of genomic regions of PACs
                         <!--<h3>4.3. Export gene sequences</h3>-->
                         </div>
                         <p>Sequences of genes with PACs based on original version or the extended version of genome annotation are also exportable.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/export1.bmp"/>
-                            <br>The panel of exporting gene sequences
+                            <br>Panel of exporting gene sequences
                         </div>
                       </div>
                       <div class="jumpto-block">
@@ -251,14 +251,14 @@
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/browse.bmp"/>
-                            <br>The page of PAC browser
+                            <br>Web page of the PAC browser
                         </div>
                         <p>
                             One or more data sets from each plant species can be quickly loaded and graphically browsed online, by selecting the checkboxes of data sets in the ‘Available Tracks’ panel. Users can conduct a search with a gene or chromosome fragment to zoom in on particular PAC regions. Data tracks of PACs from different cells, tissues or conditions can be displayed in sync with tracks of PATs, offering a more intuitive way to explore and compare the usage of PACs among different samples. Users can download the data of one or more tracks onto their local computers, or choose to view detailed information of a gene or PAC by right clicking a PAC or gene model in the browser.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/browser_download.png"/>
-                            <br>Ways of saving track data
+                            <br>Right-click context menu on a gene model or PAC 
 <!--                            <br><br>
                             <img class="pic" src="./pic/help/browse2pac.png"/>
                             <br>Link of view gene details-->
@@ -270,7 +270,7 @@
                         Summary information about the PAC and the associated gene was given at the top of the web page. </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/gene_summary.bmp"/>
-                            <br>Gene summary information
+                            <br>Summary information
                         </div>
                         <!--<h3>6.1. Graphical representation</h3>-->
                         <p id='seqresult'>Three kinds of graphs are displayed in the middle of the page to quantify and visualize the PAC/PAT distributions across samples.
@@ -278,21 +278,21 @@
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/gene_browser.bmp"/>
-                            <br>The display of the gene data in browser
+                            <br>PAC browser
                         </div>
                         <p>
                             Another graph presents both the original and the modified versions of the gene model and the distributions of PACs/PATs across different samples in a more intuitive way, where users can inspect the locations, expression patterns, and differential usage of PACs in a gene, especially the selection of heterogeneous cleavage sites. Cleavage sites of a PAC are depicted in vertical lines with height representing the number of supporting PATs. The dominant cleavage site supported by the maximum number of PATs in a PAC is marked by a thick line. If the number of PATs of the dominant cleavage site exceeds the maximum scale value (default of 50) of the vertical axis, a small horizontal line will be shown on the top of the thick line. A text label is found under each dominant cleavage site to clearly indicate the expression level, i.e., total number of supporting PATs, of the respective PAC.Users can also view selected samples by choosing specific samples in the ‘Individual’ drop-down list or group replicates within each individual sample by clicking the ‘Grouping’ drop-down list.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/pat_distribution.png"/>
-                            <br>The Details of PAT distribution
+                            <br>Graph presents both the gene model and the distributions of PACs/PATs across different samples
                         </div>
                         <p>
                             An additional bar chart is presented to profile the usage quantification of all PACs of the queried gene across different samples, providing a simple and direct way to compare the usage of PACs and determine ubiquitous or sample-specific PACs. By default, the bar chart displays the number of PATs of all samples. By checking the “Ratio” box, users can compare the usage of PACs within each sample to avoid great disparity in PAT number among samples.
                         </p>
                         <div class="picdiv">
                             <br><img class="pic" src="./pic/help/pac_usage.bmp"/>
-                            <br>The Details of PAC usage
+                            <br>Bar chart profiles the usage quantification of all PACs in a gene
                         </div>
                         <!--<h3>6.2. Gene sequence viewer</h3>-->
                         <p>
@@ -300,7 +300,7 @@
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/gene_viewer.bmp"/>
-                            <br>The page of sequence viewer
+                            <br>Gene sequence annotated with gene model, poly(A) signals, and cleavage sites
                         </div>
                     </div>
                     <div class="jumpto-block">
@@ -317,14 +317,14 @@
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysis.bmp"/>
-                            <br>The page of analysis function
+                            <br>Page of PAC analysis module 
                         </div>
                         <p>
                             Before analyzing PACs between two samples, users can filter PACs or genes by various combination of filtering conditions.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysis_additional_option.png"/>
-                            <br>The panel of analysis addtional option
+                            <br>Additional options for PAC analysis
                         </div>
                         <p id='analysishelp2'>
                         To make the result statistically significant, a p-value or adjusted p-value will be calculated and assigned to each PAC/gene. Users can download the output lists to their local computer, or continue to inspect the result PAC/gene by clicking the link on a particular item in the list.
