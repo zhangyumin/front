@@ -24,6 +24,9 @@
         $_SESSION['sys_real']=$_SESSION['sys_real_chlamy'];
     }
     
+    if($_SESSION['analysis']== 'demo_degene' || $_SESSION['analysis']== 'demo_depac' || $_SESSION['analysis']== 'demo_only3utr' || $_SESSION['analysis']== 'demo_none3utr' ){
+        unset($_SESSION['analysis']);
+    }
     if(!isset($_SESSION['analysis'])){
             $_SESSION['analysis']=$_POST['species'].date("Y").date("m").date("d").date("h").date("i").date("s");
     }
