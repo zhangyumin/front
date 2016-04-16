@@ -2,7 +2,6 @@
                 session_start();
                 $con=  mysql_connect("localhost","root","root");
                 mysql_select_db("db_server",$con);
-                    $_SESSION['search_species'] = $_POST['species'];
                 if(!isset($_SESSION['search'])){
                     $_SESSION['search']=$_POST['species'].date("Y").date("m").date("d").date("h").date("i").date("s");
                 }
@@ -150,6 +149,8 @@
                                $query_result=mysql_query($sysQry);
                              }  
                 }
+                $_SESSION['search_species'] = $species;
+
 //                echo "select * from Search_".$_SESSION['search']." into outfile '/var/www/front/searched/Search_".$_SESSION['search'].".txt';";
                 mysql_query("select * from db_user.Search_".$_SESSION['search']." into outfile '/var/www/front/searched/Search_".$_SESSION['search'].".txt';");
         //            echo $_SESSION['file'];
