@@ -196,7 +196,7 @@ and open the template in the editor.
                     <font color="#224055" ><b>Search:</b> search poly(A) sites in PlantAPA</font>
                 </h2>
                <div class=" info ym-form">
-                   <form name="search" method="post" id="getback" action="search_result.php">
+                   <form name="search" method="post" id="getback" action="search_process.php">
                        <div class="ym-grid ym-fbox">
                             <div class="ym-g20 ym-gl">
                                 <label for="species" style="margin-right:2%;">Species:</label>
