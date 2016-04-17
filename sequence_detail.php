@@ -487,22 +487,25 @@
                     }
                 }
                 $pac1 = array_merge($pac1);
-                $string_pac1 = implode("+", $pac1);
-                $pac_query1 = "select * from db_server.t_".$species."_pac where gene='$seq' and $string_pac1 > 0";
-                $pac_result1 = mysql_query($pac_query1);
-                while ($pac_row1=  mysql_fetch_row($pac_result1))
-                {
-                    array_push($pac_start, $pac_row1[2]);
-                    array_push($pac_tagnum, $pac_row1[3]);
-                }
                 if(count($usr_pac) > 0){
-                    $string_usr_pac = implode("+", $usr_pac);
-                    $pac_query3 = "select * from db_user.PAC_".$_SESSION['file']." where gene='$seq' and $string_usr_pac > 0";
+                    $string_usr_pac = implode(">0 or ", $_SESSION['sample']);
+                    $pac_query3 = "select * from db_user.PAC_merge_".$_SESSION['analysis']." where gene='$seq' and ( $string_usr_pac > 0)";
+//                    var_dump($pac_query3);
                     $pac_result3 = mysql_query($pac_query3);
                     while ($pac_row3 =  mysql_fetch_row($pac_result3))
                     {
                         array_push($pac_start, $pac_row3[2]);
-                        array_push($pac_tagnum, $pac_row3[3]);
+                        array_push($pac_tagnum, $pac_row3[-1]);
+                    }
+                }
+                else{
+                    $string_pac1 = implode("+", $pac1);
+                    $pac_query1 = "select * from db_server.t_".$species."_pac where gene='$seq' and $string_pac1 > 0";
+                    $pac_result1 = mysql_query($pac_query1);
+                    while ($pac_row1=  mysql_fetch_row($pac_result1))
+                    {
+                        array_push($pac_start, $pac_row1[2]);
+                        array_push($pac_tagnum, $pac_row1[3]);
                     }
                 }
             }
@@ -1044,25 +1047,23 @@
                                             $table_pac_end = array();
                                             $table_pac_tagnum = array();
                                             $string_coord = implode(",", $pac_start);
-                                            $table_pac_result = mysql_query("select UPA_start,UPA_end,$string_pac1 from t_".$species."_pac where  coord in ($string_coord) and gene='$seq'");
-                                            while($table_pac_row = mysql_fetch_row($table_pac_result)){
-                                                array_push($table_pac_start, $table_pac_row[0]);
-                                                array_push($table_pac_end, $table_pac_row[1]);
-                                                array_push($table_pac_tagnum, $table_pac_row[2]);
-                                            }
                                             if(count($usr_pac)>0){
-                                                $table_pac_result1 = mysql_query("select UPA_start,UPA_end,$string_usr_pac from db_user.PAC_".$_SESSION['file']." where  coord in ($string_coord) and gene='$seq'");
+                                                $string_usr_pac1 = implode(",", $_SESSION['sample']);
+                                                $table_pac_result1 = mysql_query("select UPA_start,UPA_end,tot_tagnum from db_user.PAC_merge_".$_SESSION['analysis']." where gene='$seq'");
+//                                                var_dump("select UPA_start,UPA_end,$string_usr_pac1 from db_user.PAC_merge_".$_SESSION['analysis']." where  coord in ($string_coord) and gene='$seq'");
+//                                                var_dump($table_pac_result1);
                                                 while($table_pac_row1 = mysql_fetch_row($table_pac_result1)){
-                                                    foreach ($table_pac_start as $key => $value) {
-                                                        if($value == $table_pac_row1[0]){
-                                                            $table_pac_tagnum[$key] = $table_pac_tagnum[$key] + $table_pac_row1[2];
-                                                        }
-                                                        else if(!in_array($table_pac_row1[0], $table_pac_start)){
-                                                            array_push($table_pac_start, $table_pac_row1[0]);
-                                                            array_push($table_pac_end, $table_pac_row1[1]);
-                                                            array_push($table_pac_tagnum, $table_pac_row1[2]);
-                                                        }
-                                                    }
+                                                        array_push($table_pac_start, $table_pac_row1[0]);
+                                                        array_push($table_pac_end, $table_pac_row1[1]);
+                                                        array_push($table_pac_tagnum, $table_pac_row1[2]);
+                                                }
+                                            }
+                                            else{
+                                                $table_pac_result = mysql_query("select UPA_start,UPA_end,$string_pac1 from t_".$species."_pac where  coord in ($string_coord) and gene='$seq'");
+                                                while($table_pac_row = mysql_fetch_row($table_pac_result)){
+                                                    array_push($table_pac_start, $table_pac_row[0]);
+                                                    array_push($table_pac_end, $table_pac_row[1]);
+                                                    array_push($table_pac_tagnum, $table_pac_row[2]);
                                                 }
                                             }
                                             foreach ($pac_start as $key1 => $value1) {
