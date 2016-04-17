@@ -112,9 +112,9 @@ and open the template in the editor.
                                     </a>
                                 </td>
                                 <td>
-                                    <a class='img' target="_blank" href="./sequence_detail.php?species=arab&seq=AT1G01020">
+                                    <a class='img' target="_blank" href="./sequence_detail.php?species=arab&seq=AT1G01020&method=search">
                                         <!--<span class="tablebutton" title="View detailed information for an example gene 'AT1G01020'">View</span>-->
-                                        <img src="./pic/detail.png" title="View detailed information for an example gene 'AT1G01020'">
+                                        <img src="./pic/detail.png" title="View detailed information for an example gene 'AT1G01020&method=search'">
                                     </a>
                                 </td>
                                 <td class="style1"  width='50' style="white-space: nowrap;">
@@ -296,7 +296,7 @@ and open the template in the editor.
                                     </a>
                                 </td>
                                 <td>
-                                    <a class='img' target="_blank" href="./sequence_detail.php?seq=LOC_Os01g01080&species=japonica">
+                                    <a class='img' target="_blank" href="./sequence_detail.php?seq=LOC_Os01g01080&species=japonica&method=search">
                                         <!--<span class="tablebutton" title="View detailed information for an example gene 'LOC_Os01g01080'">View</span>-->
                                         <img src="./pic/detail.png" title="View detailed information for an example gene 'LOC_Os01g01080'">
                                     </a>
@@ -356,7 +356,7 @@ and open the template in the editor.
                                     </a>
                                 </td>
                                 <td>
-                                    <a class='img' target="_blank" href="./sequence_detail.php?seq=Medtr0019s0160&species=mtr">
+                                    <a class='img' target="_blank" href="./sequence_detail.php?seq=Medtr0019s0160&species=mtr&method=search">
                                         <!--<span class="tablebutton" title="View detailed information for an example gene 'Medtr0019s0160'">View</span>-->
                                         <img src="./pic/detail.png" title="View detailed information for an example gene 'Medtr0019s0160'">
                                     </a>
@@ -417,7 +417,7 @@ and open the template in the editor.
                                     </a>
                                 </td>
                                 <td>
-                                    <a class='img' target="_blank" href="./sequence_detail.php?seq=Cre01.g000650&species=chlamy">
+                                    <a class='img' target="_blank" href="./sequence_detail.php?seq=Cre01.g000650&species=chlamy&method=search">
                                         <!--<span class="tablebutton" title="View detailed information for an example gene ''">View</span>-->
                                         <img src="./pic/detail.png" title="View detailed information for an example gene 'Cre01.g000650'">
                                     </a>
