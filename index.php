@@ -59,20 +59,19 @@ and open the template in the editor.
                     </div>
                     <div id="news" style="float: right;width: 30%">
                         <div style="padding-left:20px;font-size: 15px;color: #333">
-                            <h2 style="border-bottom:1px solid #5db95b;text-align: left;padding-left: 10px">What's new</h2>
+                            <h2 style="border-bottom:1px solid #5db95b;text-align: left;padding-left: 10px">What's new<a href="./changelog.php" style="background-color:#5db95b;color:#fff;padding: 4px 5px;float:right;font-size: 12px;text-align: center;vertical-align: middle;border-radius: 4px;">More</a></h2>
                             <div style="background-color:#eee;border-radius: 4px;padding: 10px">
-                                Version 1.2.0&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2016-03-12
+                                Version 1.2.0&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2016-03-28
                             <ul>
-                                <li>Adjust the layout of the page</li>
-                                <li>Add new sample("from PAT-seq") in chlamy</li>
+                                <li>Update the web UI and extensively debugging</li>
                             </ul><br>
-                                Version 1.1.0&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2015-10-12
+                                Version 1.1.9&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2016-02-20
                             <ul>
-                                <li>Add function of <a href="analysis.php">data analysis</a> </li>
+                                <li>Add new dataset for Chlamy</li>
                             </ul><br>
-                                Version 1.0.0&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2015-06-01
+                                Version 1.1.8&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2016-02-12
                             <ul>
-                                <li>Release first version of PlantAPA</li>
+                                <li>Add PAC analysis module</li>
                             </ul>
                             </div>
                         </div>
