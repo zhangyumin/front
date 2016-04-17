@@ -265,6 +265,9 @@
                     $sequence=$rows[0];
                 }
             }
+            //若无strand数据弹出没有数据
+            if($strand == null)
+                echo "<script>alert('No data in this sequence');window.close();</script>";
             //反转互补
             if(strcmp($strand,-1)==0)
             {
