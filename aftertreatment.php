@@ -223,20 +223,6 @@
 //            file_put_contents("/var/www/front/searched/test.txt",$sysQry."\n".$usrQry);
              shell_exec($merge);
         }
-        $usr_selected = array();
-        $sys_selected = array();
-        foreach ($_SESSION['file_real'] as $key => $value) {
-            if(in_array($value, $_SESSION['sample'])){
-                array_push($usr_selected, $value);
-            }
-        }
-        $sys_selected = array_diff($_SESSION['sample'], $usr_selected);
-        if(count($usr_selected)>0){
-            mysql_query("drop table db_user.PAC_merge_".$_SESSION['analysis'].";");
-            $merge = "./src/perl/PAT_mergePAC.pl -smptbls 'db_user.PAC_".$_SESSION['file'].";db_server.t_".$_POST['species']."_pac' -reftbl db_user.PAC_".$_SESSION['file']." -smpcols '".implode(":", $usr_selected).";".  implode(":", $sys_selected)."' -otbl PAC_merge_".$_SESSION['analysis']." -udist 24 -conf ./src/r/db_2.xml";
-//            $_SESSION['test'] = "drop table db_user.PAC_merge_".$_SESSION['analysis'].";";
-            shell_exec($merge);
-        }
         
     if($_GET['method']=='degene'){
 //            echo "<script>alert('in it')</script>";
@@ -327,3 +313,17 @@
         print_r(json_encode($_POST));
 //        echo '<script>window.location.href="aftertreatment_result_test.php?result=switchinggene_n";</script>';
     }
+        $usr_selected = array();
+        $sys_selected = array();
+        foreach ($_SESSION['file_real'] as $key => $value) {
+            if(in_array($value, $_SESSION['sample'])){
+                array_push($usr_selected, $value);
+            }
+        }
+        $sys_selected = array_diff($_SESSION['sample'], $usr_selected);
+        if(count($usr_selected)>0){
+            mysql_query("drop table db_user.PAC_merge_".$_SESSION['analysis'].";");
+            $merge = "./src/perl/PAT_mergePAC.pl -smptbls 'db_user.PAC_".$_SESSION['file'].";db_server.t_".$_POST['species']."_pac' -reftbl db_user.PAC_".$_SESSION['file']." -smpcols '".implode(":", $usr_selected).";".  implode(":", $sys_selected)."' -otbl PAC_merge_".$_SESSION['analysis']." -udist 24 -conf ./src/r/db_2.xml";
+//            $_SESSION['test'] = "drop table db_user.PAC_merge_".$_SESSION['analysis'].";";
+            shell_exec($merge);
+        }
