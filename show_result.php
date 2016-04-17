@@ -243,7 +243,7 @@
                         <td><?php echo $internal_priming_reads?></td>
                         <td><?php echo $pat?></td>
                         <td><?php echo $pac?></td>
-                        <td><?php echo "<a style='display:block;' href='./download.php?data=".$_SESSION['file']."'>Click to download results</a>"?></td>
+                        <td><?php echo "<a style='display:block;' href='./download.php?data=".$_SESSION['file']."&source=".$_GET['source']."'>Click to download results</a>"?></td>
                     </tr>
                 </tbody>
             </table>
