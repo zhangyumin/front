@@ -172,23 +172,28 @@ and open the template in the editor.
                 $num = count($_SESSION['sample']);
                 if(isset($_SESSION['file'])&&strcmp($_SESSION['species'], $_GET['species']) == 0){
                     $usr_selected = array();
+                    $sys_selected = array();
                     //判断是否有user data选中
                     foreach ($_SESSION['file_real'] as $key => $value) {
                         if(in_array($value, $_SESSION['sample'])){
                             array_push($usr_selected, $value);
                         }
                     }
+                    $sys_selected = array_diff($_SESSION['sample'], $usr_selected);
                     //存在trap数据被勾选
                     if(count($usr_selected)){
-                        for($i=$num+1-count($usr_selected);$i<=$num;$i++){
+                        for($i=1;$i<=$num;$i++){
                             unset(${"pac".$i});
                         }
                         $string_selected = implode(",", $usr_selected);
-                        $usr_pac_result = mysql_query("select coord,$string_selected from db_user.PAC_".$_SESSION['file']." where gene = '$seq'");
+                        $string_all_selected = implode(",", $_SESSION['sample']);
+                        $usr_pac_result = mysql_query("select coord,$string_all_selected from db_user.PAC_merge_".$_SESSION['analysis']." where gene = '$seq'");
+//                        var_dump("select coord,$string_all_selected from db_user.PAC_merge_".$_SESSION['analysis']." where gene = '$seq'");
+//                                var_dump($usr_pac_result);
                         while($usr_pac_result_row = mysql_fetch_row($usr_pac_result)){
-                            for($i=$num-count($usr_selected)+1;$i<=$num;$i++){
+                            for($i=1;$i<=$num;$i++){
                                 $pac="pac".$i;
-                                ${$pac}[$usr_pac_result_row[0]] = $usr_pac_result_row[$i - $num + count($usr_selected)];
+                                ${$pac}[$usr_pac_result_row[0]] = $usr_pac_result_row[$i];
                             }
                         }
                         $samples = array_merge($samples,$usr_selected);
