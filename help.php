@@ -316,7 +316,7 @@
                         Raw count or normalized count based on TPM normalization and methods in EdgeR or DESeq can be chosen as input. Additional parameters can be set for each assay, such as minimum number of PATs for pre-filtering of PACs, significance level, p-value adjusted method.
                         </p>
                         <div class="picdiv">
-                            <img class="pic" src="./pic/help/analysis.bmp"/>
+                            <img class="pic" src="./pic/help/analysis.png"/>
                             <br>Page of PAC analysis module 
                         </div>
                         <p>
