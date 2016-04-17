@@ -234,7 +234,7 @@
         if(count($usr_selected)>0){
             mysql_query("drop table db_user.PAC_merge_".$_SESSION['analysis'].";");
             $merge = "./src/perl/PAT_mergePAC.pl -smptbls 'db_user.PAC_".$_SESSION['file'].";db_server.t_".$_POST['species']."_pac' -reftbl db_user.PAC_".$_SESSION['file']." -smpcols '".implode(":", $usr_selected).";".  implode(":", $sys_selected)."' -otbl PAC_merge_".$_SESSION['analysis']." -udist 24 -conf ./src/r/db_2.xml";
-//            $_SESSION['test'] = $merge;
+//            $_SESSION['test'] = "drop table db_user.PAC_merge_".$_SESSION['analysis'].";";
             shell_exec($merge);
         }
         
