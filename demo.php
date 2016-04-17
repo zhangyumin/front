@@ -25,27 +25,27 @@
         $_SESSION['sample'] = array("wt_leaf_1","wt_leaf_2","wt_leaf_3","wt_seed_1","wt_seed_2","wt_root_1","wt_root_2","wt_root_3","oxt6_root_1","oxt6_root_2","oxt6_root_3","oxt6_leaf_1","oxt6_leaf_2","oxt6_leaf_3");
         $_SESSION['sample1'] = array("wt_leaf_1","wt_leaf_2","wt_leaf_3","wt_seed_1","wt_seed_2");
         $_SESSION['sample2'] = array("wt_root_1","wt_root_2","wt_root_3","oxt6_root_1","oxt6_root_2","oxt6_root_3","oxt6_leaf_1","oxt6_leaf_2","oxt6_leaf_3");
-        header("location: ./aftertreatment_result_test.php?result=degene&species=arab");
+        header("location: ./aftertreatment_result.php?result=degene&species=arab");
     }
     if($_GET['method']=='depac'){
         $_SESSION['analysis'] = 'demo_depac';
         $_SESSION['sample'] = array("wt_leaf_1","wt_leaf_2","wt_leaf_3","wt_seed_1","wt_seed_2","wt_root_1","wt_root_2","wt_root_3","oxt6_root_1","oxt6_root_2","oxt6_root_3","oxt6_leaf_1","oxt6_leaf_2","oxt6_leaf_3");
         $_SESSION['sample1'] = array("wt_leaf_1","wt_leaf_2","wt_leaf_3","wt_seed_1","wt_seed_2");
         $_SESSION['sample2'] = array("wt_root_1","wt_root_2","wt_root_3","oxt6_root_1","oxt6_root_2","oxt6_root_3","oxt6_leaf_1","oxt6_leaf_2","oxt6_leaf_3");
-        header("location: ./aftertreatment_result_test.php?result=depac&species=arab");
+        header("location: ./aftertreatment_result.php?result=depac&species=arab");
     }
     if($_GET['method']=='only3utr'){
         $_SESSION['analysis'] = 'demo_only3utr';
         $_SESSION['sample'] = array("wt_leaf_1","wt_leaf_2","wt_leaf_3","wt_seed_1","wt_seed_2","wt_root_1","wt_root_2","wt_root_3","oxt6_root_1","oxt6_root_2","oxt6_root_3","oxt6_leaf_1","oxt6_leaf_2","oxt6_leaf_3");
         $_SESSION['sample1'] = array("wt_leaf_1","wt_leaf_2","wt_leaf_3","wt_seed_1","wt_seed_2");
         $_SESSION['sample2'] = array("wt_root_1","wt_root_2","wt_root_3","oxt6_root_1","oxt6_root_2","oxt6_root_3","oxt6_leaf_1","oxt6_leaf_2","oxt6_leaf_3");
-        header("location: ./aftertreatment_result_test.php?result=switchinggene_o&species=arab");
+        header("location: ./aftertreatment_result.php?result=switchinggene_o&species=arab");
     }
     if($_GET['method']=='none3utr'){
         $_SESSION['analysis'] = 'demo_none3utr';
         $_SESSION['sample'] = array("wt_leaf_1","wt_leaf_2","wt_leaf_3","wt_seed_1","wt_seed_2","wt_root_1","wt_root_2","wt_root_3","oxt6_root_1","oxt6_root_2","oxt6_root_3","oxt6_leaf_1","oxt6_leaf_2","oxt6_leaf_3");
         $_SESSION['sample1'] = array("wt_leaf_1","wt_leaf_2","wt_leaf_3","wt_seed_1","wt_seed_2");
         $_SESSION['sample2'] = array("wt_root_1","wt_root_2","wt_root_3","oxt6_root_1","oxt6_root_2","oxt6_root_3","oxt6_leaf_1","oxt6_leaf_2","oxt6_leaf_3");
-        header("location: ./aftertreatment_result_test.php?result=switchinggene_n&species=arab");
+        header("location: ./aftertreatment_result.php?result=switchinggene_n&species=arab");
     }
 ?>
