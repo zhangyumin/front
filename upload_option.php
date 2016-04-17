@@ -147,7 +147,7 @@ and open the template in the editor.
                             dataType:'json',   //接受数据格式  
                             data:params,       //要传送的数据
                             beforeSend:loading,
-                            success:update_page_seq//回传函数(这里是函数名字)  
+                            success:update_page//回传函数(这里是函数名字)  
                         });  
                      });
                      $('#polya-submit').click(function (){
@@ -160,7 +160,7 @@ and open the template in the editor.
                             dataType:'json',   //接受数据格式  
                             data:params,       //要传送的数据
                             beforeSend:loading,
-                            success:update_page_polya//回传函数(这里是函数名字)  
+                            success:update_page//回传函数(这里是函数名字)  
                         });  
                      });
                      $('#est-submit').click(function (){
@@ -173,23 +173,15 @@ and open the template in the editor.
                             dataType:'json',   //接受数据格式  
                             data:params,       //要传送的数据
                             beforeSend:loading,
-                            success:update_page_est//回传函数(这里是函数名字)  
+                            success:update_page//回传函数(这里是函数名字)  
                         });  
                      });
             });
             function test(json){
                 alert(json.species);
             }
-            function update_page_seq(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
-                    window.location.href='show_result.php?source=seq';
-//                alert("successful");
-            }
-            function update_page_est(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
-                    window.location.href='show_result.php?source=est';
-//                alert("successful");
-            }
-            function update_page_polya(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
-                    window.location.href='show_result.php?source=polya';
+            function update_page(json) { //回传函数实体，参数为XMLhttpRequest.responseText  
+                    window.location.href='show_result.php';
 //                alert("successful");
             }
             function loading(){
