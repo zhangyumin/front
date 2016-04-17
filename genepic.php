@@ -168,9 +168,9 @@ and open the template in the editor.
             //循环读取$patable 查询数据库并存储pa数据
             foreach ($patable as $key => $value) {
                 $tmp_pa = mysql_query("select * from $value where chr='$chr' and coord>=$gene_start and coord<=$gene_end;");
-                if(mysql_fetch_row($tmp_pa) == false && $_GET['intergenic'] != 1 && $_GET['analysis'] == 1){
-                    echo "<script>alert('Data format error.');parent.window.close();</script>";
-                }
+//                if(mysql_fetch_row($tmp_pa) == false && $_GET['intergenic'] != 1 && $_GET['analysis'] == 1){
+//                    echo "<script>alert('Data format error.');parent.window.close();</script>";
+//                }
                 while($tmp_pa_row = mysql_fetch_row($tmp_pa)){
                     if($key==0){
                         for($i=1;$i<=count($tmp_pa_row)-4;$i++){
