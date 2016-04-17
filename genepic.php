@@ -702,7 +702,13 @@ and open the template in the editor.
                     }
                 ?>
                 arrow("gene",10,<?php echo $_GET['strand'];?>);
-                shorten_arrow("no_extend",<?php echo ($gene_start_org-$gene_start)*$rate;?>,<?php echo ($gene_end_org-$gene_start)*$rate;?>,<?php echo $_GET['strand'];?>);
+                <?php
+                    if($_GET['intergenic'] != 1){
+                        $c = ($gene_start_org-$gene_start)*$rate;
+                        $d = ($gene_end_org-$gene_start)*$rate;
+                        echo "shorten_arrow(\"no_extend\",$c,$d,".$_GET['strand'].");";
+                    }
+                ?>
                 <?php
                     for($i=1;$i<=$num;$i++){
                         $r=$i-1;
