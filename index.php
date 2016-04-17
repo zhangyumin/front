@@ -81,7 +81,7 @@ and open the template in the editor.
                 <div id="floor2">
                     <div style="padding-top: 30px">
                         <h2 style="border-bottom:1px #5db95b solid;text-align: left">
-                            <font color="#000">Datasets list: all species documented in browser</font>
+                            <font color="#000">Datasets list: all species documented in PlantAPA</font>
                         </h2>
                     <table cellspacing="1" cellpadding="0" border="0" style="border:1px solid #5db95b;">
                         <thead>
