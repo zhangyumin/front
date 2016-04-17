@@ -162,7 +162,7 @@
         </script>
     <div class="ym-wrapper" id='mainpage'>
                 <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left;">
-                    <font color="#224055" ><b>Analysis: </b>analysis of APA switching between two conditions</font>
+                    <font color="#224055" ><b>PAC analysis: </b>analysis of APA switching between two conditions</font>
                 </h2>
            <div class="box info ym-form">
                <label for="species" style="float:left;width:7%">Species:&nbsp;</label>
