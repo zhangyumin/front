@@ -109,6 +109,11 @@
                       <div class="jumpto-block">
                         <h2>1. <span>Introduction</span></h2>
                         <p>PlantAPA is a web server for query, visualization, and analysis of poly(A) sites in plants, which can profile heterogeneous cleavage sites and quantify expression pattern of poly(A) sites across different conditions. To date, PlantAPA provides the largest database of APA in plants, including rice, Arabidopsis, <span style="font-style:italic">Medicago truncatula</span>, and <span style="font-style:italic">Chlamydomonas reinhardtii</span> (see <a href="./index.php">datasets</a>).</p>
+                        <p>A computational pipeline was implemented in Perl to detect poly(A) sites from next generation sequencing (NGS) or EST data. Reads with T stretch at the 5’ end or A stretch at the 3’ end are filtered and the A/T stretches trimmed off (step 1). After obtaining reads that can be uniquely mapped to the reference genome, coordinates of candidate poly(A) sites can be obtained. Candidate poly(A) sites that represent possible internal priming by reverse transcriptase are discarded (step 2). Further, to reduce the impact of microheterogeneity, a snowball-like method was adopted to cluster poly(A) tags within a given distance into a poly(A) site cluster (PAC) (step 3). PACs are annotated based on the refined genome annotation to determine their genomic locations (3’ UTR, CDS, intron, AMB, or intergenic).</p>
+                        <div class="picdiv">
+                            <img class="pic" src="./pic/help/pipeline.png"/>
+                            <br>Pipeline to determine PAC and the PAC table
+                        </div>
                         <p id="download">Users can download PATs, PACs, and relevent sequences from the <a href="./download.php">download</a> page.</p> 
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/download.png"/>
