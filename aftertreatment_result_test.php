@@ -168,7 +168,10 @@
                                         foreach ($b as $key => $value) {
                                             echo "<tr>";
                                             $summary = explode(":", $value,2);
-                                            echo "<td class='left' style='width:20%'>$summary[0]</td>";
+                                            if($key == 0)
+                                                echo "<td class='left' style='width:20%'>Group1:<br>Group2:</td>";
+                                            else
+                                                echo "<td class='left' style='width:20%'>$summary[0]</td>";
                                             if($key == 0){
                                                 $sample = explode(";", $summary[1]);
                                                 echo "<td>$sample[0]<br>$sample[1]</td>";
