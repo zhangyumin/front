@@ -43,7 +43,7 @@
                     }
         </style>
     </head>
-    <body onload="getchr();warn();">
+    <body onload="getchr();warn();reset_checkbox()">
         <?php
             include"navbar.php";
             session_start();
@@ -430,7 +430,7 @@
                                     <div class="ym-clearfix"></div>
                                     <div class="box fsubmit">
                                         <input type="button" class="submit" id='degene-submit' value="Submit">
-                                        <button type="reset">Reset</button>
+                                        <button type="reset" onclick="reset_checkbox()">Reset</button>
                                         <input type="button" onclick="demo('degene')" value="Demo">
                                         <input type="button" onclick="javascript:window.open('./help.php#analysishelp2')" value='Help'>
                                         <div class="warn" style="display:none">Only one sample is available in this data set, PAC analysis is disabled</div>
@@ -630,7 +630,7 @@
                                     <div class="ym-clearfix"></div>
                                     <div class="box fsubmit">
                                         <input type="button" class="submit" id='depac-submit' value="Submit">
-                                        <button type="reset">Reset</button>
+                                        <button type="reset" onclick="reset_checkbox()">Reset</button>
                                         <input type="button" onclick="demo('depac')" value="Demo">
                                         <input type="button" onclick="javascript:window.open('./help.php#analysishelp3')" value='Help'>
                                         <div class="warn" style="display:inline">Only one sample is available in this data set, PAC analysis is disabled</div>
@@ -819,7 +819,7 @@
                                     <div class="ym-clearfix"></div>
                                     <div class="box fsubmit">
                                         <input type="button" class="submit" id='only3utr-submit' value="Submit">
-                                        <button type="reset">Reset</button>
+                                        <button type="reset" onclick="reset_checkbox()">Reset</button>
                                         <input type="button" onclick="demo('only3utr')" value="Demo">
                                         <input type="button" onclick="javascript:window.open('./help.php#analysishelp4')" value='Help'>
                                         <div class="warn" style="display:inline">Only one sample is available in this data set, PAC analysis is disabled</div>
@@ -1013,7 +1013,7 @@
                                     <div class="ym-clearfix"></div>
                                     <div class="box fsubmit">
                                         <input type="button" class="submit" id='none3utr-submit' value="Submit">
-                                        <button type="reset">Reset</button>
+                                        <button type="reset" onclick="reset_checkbox()">Reset</button>
                                         <input type="button" onclick="demo('none3utr')" value="Demo">
                                         <input type="button" onclick="javascript:window.open('./help.php#analysishelp5')" value='Help'>
                                         <div class="warn" style="display:inline">Only one sample is available in this data set, PAC analysis is disabled</div>
@@ -1206,6 +1206,24 @@
                 }
                 function setIframeHeight(){
                     
+                }
+                function reset_checkbox(){
+                    $(".degene1").attr("checked",false);
+                    $(".degene2").attr("checked",false);
+                    $(".depac1").attr("checked",false);
+                    $(".depac2").attr("checked",false);
+                    $(".only3utr1").attr("checked",false);
+                    $(".only3utr2").attr("checked",false);
+                    $(".none3utr1").attr("checked",false);
+                    $(".none3utr2").attr("checked",false);
+                    $(".degene1").attr("disabled",false);
+                    $(".degene2").attr("disabled",false);
+                    $(".depac1").attr("disabled",false);
+                    $(".depac2").attr("disabled",false);
+                    $(".only3utr1").attr("disabled",false);
+                    $(".only3utr2").attr("disabled",false);
+                    $(".none3utr1").attr("disabled",false);
+                    $(".none3utr2").attr("disabled",false);
                 }
             </script>
     </div>
