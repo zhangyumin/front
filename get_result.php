@@ -150,6 +150,8 @@
                 #echo $cmd4;
                 $out4=  shell_exec($cmd4);
 //                 echo"<pre>$out4</pre>";
+            //为download提供文件下载
+            copy("./data/".$_SESSION['file']."/$value.qc.fa.noT.fa.sam.M30S10.PA","./data/".$_SESSION['file']."/$value.pa");
 
              if($_POST['rip']=='yes')
              {
@@ -198,6 +200,7 @@
 //                echo"<pre>$out10</pre>";
             //导出PAC列表
             mysql_query("select * from db_user.PAC_".$_SESSION['file']." into outfile '/var/www/front/searched/PAC_".$_SESSION['file'].".txt'");
+            
             
              #PAT导入jbrowse显示
              //shell_exec("cp ./data/".$_SESSION['file']."/$file_real[0].qc.fa.noT.fa.sam.M30S10.PA ./tojbrowse/pat.txt");//移动文件
