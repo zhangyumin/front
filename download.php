@@ -419,11 +419,7 @@ and open the template in the editor.
                 foreach ($_SESSION['file_real'] as $key =>$value){
                     echo "<td>$value</td>"
                     . "<td>Poly(A) site</td>"
-                    . "<td><a href=\"./download_data.php?type=2&name=$value.qc.fa.noT.fa.sam.M30S10.PA\"/>Download</td>"
-                    . "</tr>";
-                    echo "<td>$value</td>"
-                    . "<td>Poly(A) tag</td>"
-                    . "<td><a href=\"./download_data.php?type=2&name=$value.qc.fa.noT.fa.sam.M30S10.PA_PAT\"/>Download</td>"
+                    . "<td><a href=\"./download_data.php?type=2&name=$value.pa\"/>Download</td>"
                     . "</tr>";
                 }
                     echo " </tbody></table><br>"
