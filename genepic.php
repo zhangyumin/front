@@ -713,17 +713,83 @@ and open the template in the editor.
                     }
                 ?>
                 <?php
+                    $group_unique = array_unique($group);
+                    $group_unique = array_merge($group_unique);
                     for($i=1;$i<=$num;$i++){
                         $r=$i-1;
                         echo "line(\"sample$i\");";
-                        echo "title(\"#000000\",\"$samples[$r]\",\"sample$i\");";
+                        if(array_search($group[$r], $group_unique) == 0){
+                            echo "title(\"#ff8247\",\"$samples[$r]\",\"sample$i\");";
+                        }
+                        else if(array_search($group[$r], $group_unique) == 1){
+                            echo "title(\"#9acd32\",\"$samples[$r]\",\"sample$i\");";
+                        }
+                        else if(array_search($group[$r], $group_unique) == 2){
+                            echo "title(\"#b23aee\",\"$samples[$r]\",\"sample$i\");";
+                        }
+                        else if(array_search($group[$r], $group_unique) == 3){
+                            echo "title(\"#4169e1\",\"$samples[$r]\",\"sample$i\");";
+                        }
+                        else if(array_search($group[$r], $group_unique) == 4){
+                            echo "title(\"#00fa9a\",\"$samples[$r]\",\"sample$i\");";
+                        }
+                        else if(array_search($group[$r], $group_unique) == 5){
+                            echo "title(\"#cd96cd\",\"$samples[$r]\",\"sample$i\");";
+                        }
+                        else if(array_search($group[$r], $group_unique) == 6){
+                            echo "title(\"#9acd32\",\"$samples[$r]\",\"sample$i\");";
+                        }
+                        else if(array_search($group[$r], $group_unique) == 7){
+                            echo "title(\"#cdcd00\",\"$samples[$r]\",\"sample$i\");";
+                        }
+                        else if(array_search($group[$r], $group_unique) == 8){
+                            echo "title(\"#cd00cd\",\"$samples[$r]\",\"sample$i\");";
+                        }
+                        else if(array_search($group[$r], $group_unique) == 9){
+                            echo "title(\"#3b3b3b\",\"$samples[$r]\",\"sample$i\");";
+                        }
+                        else{
+                            echo "title(\"#000000\",\"$samples[$r]\",\"sample$i\");";
+                        }
                         echo "yscale(\"sample$i\");";
                         echo "grid(\"sample$i\",\"sample\");";
                     }
                     for($i=1;$i<=count(array_unique($group))*3;$i++){
                         $r=$i-1;
                         echo "line(\"statistics_sample$i\");";
-                        echo "title(\"#000000\",\"$statistics_samples[$r]\",\"statistics_sample$i\");";
+                        if($i / 3 <= 1){
+                            echo "title(\"#ff8247\",\"$statistics_samples[$r]\",\"statistics_sample$i\");";
+                        }
+                        else if($i / 3 <= 2){
+                            echo "title(\"#9acd32\",\"$statistics_samples[$r]\",\"statistics_sample$i\");";
+                        }
+                        else if($i / 3 <= 3){
+                            echo "title(\"#b23aee\",\"$statistics_samples[$r]\",\"statistics_sample$i\");";
+                        }
+                        else if($i / 3 <= 4){
+                            echo "title(\"#4169e1\",\"$statistics_samples[$r]\",\"statistics_sample$i\");";
+                        }
+                        else if($i / 3 <= 5){
+                            echo "title(\"#00fa9a\",\"$statistics_samples[$r]\",\"statistics_sample$i\");";
+                        }
+                        else if($i / 3 <= 6){
+                            echo "title(\"#cd96cd\",\"$statistics_samples[$r]\",\"statistics_sample$i\");";
+                        }
+                        else if($i / 3 <= 7){
+                            echo "title(\"#9acd32\",\"$statistics_samples[$r]\",\"statistics_sample$i\");";
+                        }
+                        else if($i / 3 <= 8){
+                            echo "title(\"#cdcd00\",\"$statistics_samples[$r]\",\"statistics_sample$i\");";
+                        }
+                        else if($i / 3 <= 9){
+                            echo "title(\"#cd00cd\",\"$statistics_samples[$r]\",\"statistics_sample$i\");";
+                        }
+                        else if($i / 3 <= 10){
+                            echo "title(\"#3b3b3b\",\"$statistics_samples[$r]\",\"statistics_sample$i\");";
+                        }
+                        else{
+                            echo "title(\"#000000\",\"$statistics_samples[$r]\",\"statistics_sample$i\");";
+                        }
                         echo "yscale(\"statistics_sample$i\");";
                         echo "grid(\"statistics_sample$i\",\"statistics_sample\");";
                     }
