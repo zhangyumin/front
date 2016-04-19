@@ -287,17 +287,23 @@ and open the template in the editor.
                         for($i = 1;$i <= $num ; $i++){
                             unset(${"pac".$i});
                         }
+                        $upa_start = array();
+                        $upa_end = array();
                         $string_selected = implode(",", $usr_selected);
                         $string_all_selected = implode(",", $_SESSION['sample']);
-                        $usr_pac_result = mysql_query("select coord,$string_all_selected from db_user.PAC_merge_".$_SESSION['analysis']." where gene = '$seq'");
+                        $usr_pac_result = mysql_query("select UPA_start,UPA_end,coord,$string_all_selected from db_user.PAC_merge_".$_SESSION['analysis']." where gene = '$seq'");
 //                        var_dump("select coord,$string_all_selected from db_user.PAC_merge_".$_SESSION['analysis']." where gene = '$seq'");
 //                                var_dump($usr_pac_result);
                         while($usr_pac_result_row = mysql_fetch_row($usr_pac_result)){
                             for($i=1;$i<=$num;$i++){
                                 $pac="pac".$i;
-                                ${$pac}[$usr_pac_result_row[0]] = $usr_pac_result_row[$i];
+                                ${$pac}[$usr_pac_result_row[2]] = $usr_pac_result_row[$i+2];
                             }
+                            array_push($upa_start, $usr_pac_result_row[0]);
+                            array_push($upa_end, $usr_pac_result_row[1]);
                         }
+//                        var_dump($upa_start);
+//                        var_dump($upa_end);
                         //merge系统和用户trap两个数据，并导入到pac数组
                         $usr_pa_result = mysql_query("select coord,$string_selected from db_user.PA_".$_SESSION['file']." where chr='$chr' and coord>=$gene_start and coord<=$gene_end;");
                         while($usr_pa_result_row = mysql_fetch_row($usr_pa_result)){
@@ -333,10 +339,20 @@ and open the template in the editor.
                             $j ++;
                     }
                     if($j == $num){
-                        array_push($empty_pac_list, $key);
+                        for($i = 1; $i <= $num; $i++){
+                            $pac="pac".$i;
+                            unset(${$pac}[$key]);
+                        }
+                        foreach ($upa_start as $key1 => $value1) {
+                            if($value1 <= $key && $upa_end[$key1] >= $key){
+                                unset ($upa_start[$key1]);
+                                unset($upa_end[$key1]);
+                            }
+                        }
                     }
                 }
-//                var_dump($empty_pac_list);
+                $upa_start = array_merge($upa_start);
+                $upa_end = array_merge($upa_end);
             }
 //            PA数据测试
 //            for($i=1;$i<=$num;$i++){
@@ -600,20 +616,24 @@ and open the template in the editor.
                             }
                             $loc=($key1-$gene_start)*$rate;
                             if($j!=10){
+                                if($value1 > 0){
                                 if(in_array($pac_num[$j], $pac_selected))
                                     echo "pa($loc,$value1,$j,'sample$i');\n";
                                 else
                                     echo "pa($loc,$value1,'none','sample$i');\n";
+                                }
                             }
                         }
                         foreach ($$pac as $key2 => $value2) {
                             $loc=($key2-$gene_start)*$rate;
-                            if(in_array($key2, $pac_selected)){
-                                $j = array_keys($pac_selected, $key2)[0];
-                                echo "pac($loc,$value2,$j,'sample$i');\n";
+                            if($value2 >0){
+                                if(in_array($key2, $pac_selected)){
+                                    $j = array_keys($pac_selected, $key2)[0];
+                                    echo "pac($loc,$value2,$j,'sample$i');\n";
+                                }
+                                else
+                                    echo "pac($loc,$value2,'none','sample$i');\n";
                             }
-                            else
-                                echo "pac($loc,$value2,'none','sample$i');\n";
                         }
                     }
                     $i = 1;
@@ -626,20 +646,24 @@ and open the template in the editor.
                             }
                             $loc=($key1-$gene_start)*$rate;
                             if($j!=10){
-                                if(in_array($pac_num[$j], $pac_selected))
-                                    echo "pa($loc,$value1,$j,'statistics_sample$i');\n";
-                                else
-                                    echo "pa($loc,$value1,'none','statistics_sample$i');\n";
+                                if($value1 > 0){
+                                    if(in_array($pac_num[$j], $pac_selected))
+                                        echo "pa($loc,$value1,$j,'statistics_sample$i');\n";
+                                    else
+                                        echo "pa($loc,$value1,'none','statistics_sample$i');\n";
+                                }
                             }
                         }
                         foreach (${"pac_".$value."_sum"} as $key1 => $value1) {
                             $loc=($key1-$gene_start)*$rate;
-                            if(in_array($key1, $pac_selected)){
-                                $j = array_keys($pac_selected, $key1)[0];
-                                echo "pac($loc,$value1,$j,'statistics_sample$i');\n";
+                            if($value1 > 0){
+                                if(in_array($key1, $pac_selected)){
+                                    $j = array_keys($pac_selected, $key1)[0];
+                                    echo "pac($loc,$value1,$j,'statistics_sample$i');\n";
+                                }
+                                else
+                                    echo "pac($loc,$value1,'none','statistics_sample$i');\n";
                             }
-                            else
-                                echo "pac($loc,$value1,'none','statistics_sample$i');\n";
                         }
                         $i++;
                         foreach (${"pa_".$value."_avg"} as $key2 => $value2) {
@@ -650,20 +674,24 @@ and open the template in the editor.
                             }
                             $loc=($key2-$gene_start)*$rate;
                             if($j!=10){
-                                if(in_array($pac_num[$j], $pac_selected))
-                                    echo "pa($loc,$value2,$j,'statistics_sample$i');\n";
-                                else
-                                    echo "pa($loc,$value2,'none','statistics_sample$i');\n";
+                                if($value2 > 0){
+                                    if(in_array($pac_num[$j], $pac_selected))
+                                        echo "pa($loc,$value2,$j,'statistics_sample$i');\n";
+                                    else
+                                        echo "pa($loc,$value2,'none','statistics_sample$i');\n";
+                                }
                             }
                         }
                         foreach (${"pac_".$value."_avg"} as $key2 => $value2) {
                             $loc=($key2-$gene_start)*$rate;
-                            if(in_array($key2, $pac_selected)){
-                                $j = array_keys($pac_selected, $key2)[0];
-                                echo "pac($loc,$value2,$j,'statistics_sample$i');\n";
+                            if($value2 > 0){
+                                if(in_array($key2, $pac_selected)){
+                                    $j = array_keys($pac_selected, $key2)[0];
+                                    echo "pac($loc,$value2,$j,'statistics_sample$i');\n";
+                                }
+                                else
+                                    echo "pac($loc,$value2,'none','statistics_sample$i');\n";
                             }
-                            else
-                                echo "pac($loc,$value2,'none','statistics_sample$i');\n";
                         }
                         $i++;
                         foreach (${"pa_".$value."_med"} as $key3 => $value3) {
@@ -674,33 +702,35 @@ and open the template in the editor.
                             }
                             $loc=($key3-$gene_start)*$rate;
                             if($j!=10){
-                                if(in_array($pac_num[$j], $pac_selected))
-                                    echo "pa($loc,$value3,$j,'statistics_sample$i');\n";
-                                else
-                                    echo "pa($loc,$value3,'none','statistics_sample$i');\n";
+                                if($value3 > 0){
+                                    if(in_array($pac_num[$j], $pac_selected))
+                                        echo "pa($loc,$value3,$j,'statistics_sample$i');\n";
+                                    else
+                                        echo "pa($loc,$value3,'none','statistics_sample$i');\n";
+                                }
                             }
                         }
                         foreach (${"pac_".$value."_med"} as $key3 => $value3) {
                             $loc=($key3-$gene_start)*$rate;
-                            if(in_array($key3, $pac_selected)){
-                                $j = array_keys($pac_selected, $key3)[0];
-                                echo "pac($loc,$value3,$j,'statistics_sample$i');\n";
+                            if($value3 > 0){
+                                if(in_array($key3, $pac_selected)){
+                                    $j = array_keys($pac_selected, $key3)[0];
+                                    echo "pac($loc,$value3,$j,'statistics_sample$i');\n";
+                                }
+                                else
+                                    echo "pac($loc,$value3,'none','statistics_sample$i');\n";
                             }
-                            else
-                                echo "pac($loc,$value3,'none','statistics_sample$i');\n";
                         }
                         $i++;
                     }
                     foreach ($pac_num as $key => $value) {
                         //画pac的pointer
                         $position = ($value-$gene_start)* $rate;
-                        if(!in_array($value, $empty_pac_list)){
-                            if(in_array($value, $pac_selected)){
-                                echo "pointer($position,$key,\"gene\");";
-                            }
-                            else{
-                                echo "pointer($position,'none',\"gene\");";
-                            }
+                        if(in_array($value, $pac_selected)){
+                            echo "pointer($position,$key,\"gene\");";
+                        }
+                        else{
+                            echo "pointer($position,'none',\"gene\");";
                         }
                     }
                 ?>
