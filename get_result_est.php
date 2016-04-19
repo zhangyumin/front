@@ -211,7 +211,7 @@
                     rename("/var/www/front/tojbrowse/$value.pac", "/var/www/jbrowse/data/".$_SESSION['file']."/$value.pac");
                     shell_exec("./src/c/txt2bed ../jbrowse/data/".$_SESSION['file']."/$value.pac ../jbrowse/data/".$_SESSION['file']."/$value.bed");
                     shell_exec("../jbrowse/bin/flatfile-to-json.pl --bed ../jbrowse/data/".$_SESSION['file']."/$value.bed --trackLabel PAC_$value --out ../jbrowse/data/".$_SESSION['file']."/");
-                    shell_exec("./src/c/jq '(.tracks[-1]) |= . +{\"menuTemplate\" : [{\"url\" : \"../../front/converse.php?species=".$_SESSION['species']."&chr={seq_id}&coord={start}&strand={strand}\",\"iconClass\" : \"digitIconDatabase\",\"action\" : \"newwindow\",\"label\" : \"seqence detail for this position\",\"title\" : \"seqence detail for this position\"}],\"category\": \"user data\"}' /var/www/jbrowse/data/".$_SESSION['file']."/trackList.json > /var/www/jbrowse/data/".$_SESSION['file']."/trackList1.json");
+                    shell_exec("./src/c/jq '(.tracks[-1]) |= . +{\"category\": \"user data\"}' /var/www/jbrowse/data/".$_SESSION['file']."/trackList.json > /var/www/jbrowse/data/".$_SESSION['file']."/trackList1.json");
                     unlink("../jbrowse/data/".$_SESSION['file']."/trackList.json");
                     rename("../jbrowse/data/".$_SESSION['file']."/trackList1.json", "../jbrowse/data/".$_SESSION['file']."/trackList.json");               
 //                    $txt=file("../jbrowse/data/".$_SESSION['file']."/trackList.json");
