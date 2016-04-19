@@ -199,6 +199,10 @@
                         <!--<h3>2.3. Outputs of poly(A) site extraction pipeline</h3>-->
                         <p>Upon the completion of the PAC extraction process, users can download the PAC list directly from the web site onto their local computers.
                         </p>
+                        <div class="picdiv">
+                            <img class="pic" src="./pic/help/jbrowsesave.png"/>
+                            <br>Task hitory of users' results
+                        </div>
                         <p>
                         Also, additional information, such as mapping summary, single nucleotide compositions around PACs, top hexamers upstream of PACs, will be displayed in the result page to facilitate users to evaluate their own data.
                         </p>
@@ -242,21 +246,21 @@
                         <p>Sequences regarding PACs are exportable, including upstream and downstream sequences around PACs, sequences of PACs in a defined region (3’ UTR, 5’ UTR, CDS, intron, intergenic region, etc.).
                         </p>
                         <div class="picdiv">
-                            <img class="pic" src="./pic/help/export2.bmp"/>
+                            <img class="pic" src="./pic/help/export2.png"/>
                             <br>Panel of exporting sequences of PACs
                         </div>
                         <!--<h3>4.2. Export sequences of regions of PACs</h3>-->
                         <p>Users can also export sequences of genomic regions where PACs are located.
                         </p>
                         <div class="picdiv">
-                            <img class="pic" src="./pic/help/export3.bmp"/>
+                            <img class="pic" src="./pic/help/export3.png"/>
                             <br>Panel of exporting sequences of genomic regions of PACs
                         <!--<h3>4.3. Export gene sequences</h3>-->
                         </div>
                         <p>Sequences of genes with PACs based on original version or the extended version of genome annotation are also exportable.
                         </p>
                         <div class="picdiv">
-                            <img class="pic" src="./pic/help/export1.bmp"/>
+                            <img class="pic" src="./pic/help/export1.png"/>
                             <br>Panel of exporting gene sequences
                         </div>
                       </div>
@@ -269,7 +273,7 @@
                             <br>Web page of the PAC browser
                         </div>
                         <p>
-                            One or more data sets from each plant species can be quickly loaded and graphically browsed online, by selecting the checkboxes of data sets in the ‘Available Tracks’ panel. Users can conduct a search with a gene or chromosome fragment to zoom in on particular PAC regions. Data tracks of PACs from different cells, tissues or conditions can be displayed in sync with tracks of PATs, offering a more intuitive way to explore and compare the usage of PACs among different samples. Users can download the data of one or more tracks onto their local computers, or choose to view detailed information of a gene or PAC by right clicking a PAC or gene model in the browser.
+                            One or more data sets from each plant species can be quickly loaded and graphically browsed online, by selecting the checkboxes of data sets in the ‘Available Tracks’ panel. Users can conduct a search with a gene or chromosome fragment to zoom in on particular PAC regions. Data tracks of PACs from different cells, tissues or conditions can be displayed in sync with tracks of PATs, offering a more intuitive way to explore and compare the usage of PACs among different samples. Users can download the data of one or more tracks onto their local computers.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/browser_download.png"/>
