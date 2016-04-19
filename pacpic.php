@@ -209,6 +209,27 @@ and open the template in the editor.
                 }
                 $num = count($_SESSION['sample']);
 //                $samples = $_SESSION['sample'];
+                //遍历坐标，删除重复pac数据
+                $empty_pac_list = array();
+                $analysis_coord = array();
+                for($i = 1; $i <= $num; $i++){
+                     $pac="pac".$i;
+                     $analysis_coord = $analysis_coord + $$pac;
+                }
+                foreach ($analysis_coord as $key => $value) {
+                    $j = 0;
+                    for($i = 1; $i <= $num; $i++){
+                        $pac="pac".$i;
+                        if(${$pac}[$key] == 0)
+                            $j ++;
+                    }
+                    if($j == $num){
+                        for($i = 1; $i <= $num; $i++){
+                            $pac="pac".$i;
+                            unset(${$pac}[$key]);
+                        }
+                    }
+                }
             }
 //            var_dump(array_unique($group));
             
