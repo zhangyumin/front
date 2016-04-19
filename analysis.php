@@ -464,7 +464,7 @@
                                                                     if($_SESSION['species']=='arab'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" class='depac1' name=sample1[] id=bsys1$j value=$value onclick=\"ClickOption(this,'bsys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='depac1' name=sample1[] id=bsys1$j value=$value onclick=\"ClickOption(this,'bsys2$j')\"><span class='usrdata'>$value</span><br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -481,7 +481,7 @@
                                                                     if($_SESSION['species']=='japonica'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" class='depac1' name=sample1[] id=bsys1$j value=$value onclick=\"ClickOption(this,'bsys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='depac1' name=sample1[] id=bsys1$j value=$value onclick=\"ClickOption(this,'bsys2$j')\"><span class='usrdata'>$value</span><br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -498,7 +498,7 @@
                                                                     if($_SESSION['species']=='mtr'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" class='depac1' name=sample1[] id=bsys1$j value=$value onclick=\"ClickOption(this,'bsys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='depac1' name=sample1[] id=bsys1$j value=$value onclick=\"ClickOption(this,'bsys2$j')\"><span class='usrdata'>$value</span><br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -515,7 +515,7 @@
                                                                     if($_SESSION['species']=='chlamy'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" class='depac1' name=sample1[] id=bsys1$j value=$value onclick=\"ClickOption(this,'bsys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='depac1' name=sample1[] id=bsys1$j value=$value onclick=\"ClickOption(this,'bsys2$j')\"><span class='usrdata'>$value</span><br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -539,7 +539,7 @@
                                                                     if($_SESSION['species']=='arab'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" class='depac2' name=sample2[] id=bsys2$j value=$value onclick=\"ClickOption(this,'bsys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='depac2' name=sample2[] id=bsys2$j value=$value onclick=\"ClickOption(this,'bsys1$j')\"><span class='usrdata'>$value</span><br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -556,7 +556,7 @@
                                                                     if($_SESSION['species']=='japonica'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" class='depac2' name=sample2[] id=bsys2$j value=$value onclick=\"ClickOption(this,'bsys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='depac2' name=sample2[] id=bsys2$j value=$value onclick=\"ClickOption(this,'bsys1$j')\"><span class='usrdata'>$value</span><br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -573,7 +573,7 @@
                                                                     if($_SESSION['species']=='mtr'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" class='depac2' name=sample2[] id=bsys2$j value=$value onclick=\"ClickOption(this,'bsys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='depac2' name=sample2[] id=bsys2$j value=$value onclick=\"ClickOption(this,'bsys1$j')\"><span class='usrdata'>$value</span><br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -590,7 +590,7 @@
                                                                     if($_SESSION['species']=='chlamy'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" class='depac2' name=sample2[] id=bsys2$j value=$value onclick=\"ClickOption(this,'bsys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='depac2' name=sample2[] id=bsys2$j value=$value onclick=\"ClickOption(this,'bsys1$j')\"><span class='usrdata'>$value</span><br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -664,7 +664,7 @@
                                                                         if($_SESSION['species']=='arab'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                                echo "<input type=\"checkbox\" class='only3utr1' name=sample1[] id=csys1$j value=$value onclick=\"ClickOption(this,'csys2$j')\">$value<br>";
+                                                                                echo "<input type=\"checkbox\" class='only3utr1' name=sample1[] id=csys1$j value=$value onclick=\"ClickOption(this,'csys2$j')\"><span class='usrdata'>$value</span><br>";
                                                                                 $j++;
                                                                             }
                                                                         }
@@ -681,7 +681,7 @@
                                                                         if($_SESSION['species']=='japonica'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                                echo "<input type=\"checkbox\" class='only3utr1' name=sample1[] id=csys1$j value=$value onclick=\"ClickOption(this,'csys2$j')\">$value<br>";
+                                                                                echo "<input type=\"checkbox\" class='only3utr1' name=sample1[] id=csys1$j value=$value onclick=\"ClickOption(this,'csys2$j')\"><span class='usrdata'>$value</span><br>";
                                                                                 $j++;
                                                                             }
                                                                         }
@@ -698,7 +698,7 @@
                                                                         if($_SESSION['species']=='mtr'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                                echo "<input type=\"checkbox\" class='only3utr1' name=sample1[] id=csys1$j value=$value onclick=\"ClickOption(this,'csys2$j')\">$value<br>";
+                                                                                echo "<input type=\"checkbox\" class='only3utr1' name=sample1[] id=csys1$j value=$value onclick=\"ClickOption(this,'csys2$j')\"><span class='usrdata'>$value</span><br>";
                                                                                 $j++;
                                                                             }
                                                                         }
@@ -715,7 +715,7 @@
                                                                         if($_SESSION['species']=='chlamy'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                                echo "<input type=\"checkbox\" class='only3utr1' name=sample1[] id=csys1$j value=$value onclick=\"ClickOption(this,'csys2$j')\">$value<br>";
+                                                                                echo "<input type=\"checkbox\" class='only3utr1' name=sample1[] id=csys1$j value=$value onclick=\"ClickOption(this,'csys2$j')\"><span class='usrdata'>$value</span><br>";
                                                                                 $j++;
                                                                             }
                                                                         }
@@ -739,7 +739,7 @@
                                                                         if($_SESSION['species']=='arab'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                                echo "<input type=\"checkbox\" class='only3utr2' name=sample2[] id=csys2$j value=$value onclick=\"ClickOption(this,'csys1$j')\">$value<br>";
+                                                                                echo "<input type=\"checkbox\" class='only3utr2' name=sample2[] id=csys2$j value=$value onclick=\"ClickOption(this,'csys1$j')\"><span class='usrdata'>$value</span><br>";
                                                                                 $j++;
                                                                             }
                                                                         }
@@ -756,7 +756,7 @@
                                                                         if($_SESSION['species']=='japonica'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                                echo "<input type=\"checkbox\" class='only3utr2' name=sample2[] id=csys2$j value=$value onclick=\"ClickOption(this,'csys1$j')\">$value<br>";
+                                                                                echo "<input type=\"checkbox\" class='only3utr2' name=sample2[] id=csys2$j value=$value onclick=\"ClickOption(this,'csys1$j')\"><span class='usrdata'>$value</span><br>";
                                                                                 $j++;
                                                                             }
                                                                         }
@@ -773,7 +773,7 @@
                                                                         if($_SESSION['species']=='mtr'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                                echo "<input type=\"checkbox\" class='only3utr2' name=sample2[] id=csys2$j value=$value onclick=\"ClickOption(this,'csys1$j')\">$value<br>";
+                                                                                echo "<input type=\"checkbox\" class='only3utr2' name=sample2[] id=csys2$j value=$value onclick=\"ClickOption(this,'csys1$j')\"><span class='usrdata'>$value</span><br>";
                                                                                 $j++;
                                                                             }
                                                                         }
@@ -790,7 +790,7 @@
                                                                         if($_SESSION['species']=='chlamy'){
                                                                             $j=1;
                                                                             foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                                echo "<input type=\"checkbox\" class='only3utr2' name=sample2[] id=csys2$j value=$value onclick=\"ClickOption(this,'csys1$j')\">$value<br>";
+                                                                                echo "<input type=\"checkbox\" class='only3utr2' name=sample2[] id=csys2$j value=$value onclick=\"ClickOption(this,'csys1$j')\"><span class='usrdata'>$value</span><br>";
                                                                                 $j++;
                                                                             }
                                                                         }
@@ -853,7 +853,7 @@
                                                                     if($_SESSION['species']=='arab'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" class='none3utr1' name=sample1[] id=dsys1$j value=$value onclick=\"ClickOption(this,'dsys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='none3utr1' name=sample1[] id=dsys1$j value=$value onclick=\"ClickOption(this,'dsys2$j')\"><span class='usrdata'>$value</span><br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -870,7 +870,7 @@
                                                                     if($_SESSION['species']=='japonica'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" class='none3utr1' name=sample1[] id=dsys1$j value=$value onclick=\"ClickOption(this,'dsys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='none3utr1' name=sample1[] id=dsys1$j value=$value onclick=\"ClickOption(this,'dsys2$j')\"><span class='usrdata'>$value</span><br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -887,7 +887,7 @@
                                                                     if($_SESSION['species']=='mtr'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" class='none3utr1' name=sample1[] id=dsys1$j value=$value onclick=\"ClickOption(this,'dsys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='none3utr1' name=sample1[] id=dsys1$j value=$value onclick=\"ClickOption(this,'dsys2$j')\"><span class='usrdata'>$value</span><br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -904,7 +904,7 @@
                                                                     if($_SESSION['species']=='chlamy'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" class='none3utr1' name=sample1[] id=dsys1$j value=$value onclick=\"ClickOption(this,'dsys2$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='none3utr1' name=sample1[] id=dsys1$j value=$value onclick=\"ClickOption(this,'dsys2$j')\"><span class='usrdata'>$value</span><br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -928,7 +928,7 @@
                                                                     if($_SESSION['species']=='arab'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" class='none3utr2' name=sample2[] id=dsys2$j value=$value onclick=\"ClickOption(this,'dsys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='none3utr2' name=sample2[] id=dsys2$j value=$value onclick=\"ClickOption(this,'dsys1$j')\"><span class='usrdata'>$value</span><br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -945,7 +945,7 @@
                                                                     if($_SESSION['species']=='japonica'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" class='none3utr2' name=sample2[] id=dsys2$j value=$value onclick=\"ClickOption(this,'dsys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='none3utr2' name=sample2[] id=dsys2$j value=$value onclick=\"ClickOption(this,'dsys1$j')\"><span class='usrdata'>$value</span><br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -962,7 +962,7 @@
                                                                     if($_SESSION['species']=='mtr'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" class='none3utr2' name=sample2[] id=dsys2$j value=$value onclick=\"ClickOption(this,'dsys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='none3utr2' name=sample2[] id=dsys2$j value=$value onclick=\"ClickOption(this,'dsys1$j')\"><span class='usrdata'>$value</span><br>";
                                                                             $j++;
                                                                         }
                                                                     }
@@ -979,7 +979,7 @@
                                                                     if($_SESSION['species']=='chlamy'){
                                                                         $j=1;
                                                                         foreach ($_SESSION['file_real'] as $key => $value) {
-                                                                            echo "<input type=\"checkbox\" class='none3utr2' name=sample2[] id=dsys2$j value=$value onclick=\"ClickOption(this,'dsys1$j')\">$value<br>";
+                                                                            echo "<input type=\"checkbox\" class='none3utr2' name=sample2[] id=dsys2$j value=$value onclick=\"ClickOption(this,'dsys1$j')\"><span class='usrdata'>$value</span><br>";
                                                                             $j++;
                                                                         }
                                                                     }
