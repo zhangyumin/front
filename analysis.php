@@ -163,6 +163,9 @@
     <div class="ym-wrapper" id='mainpage'>
                 <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left;">
                     <font color="#224055" ><b>PAC analysis: </b>analysis of APA switching between two conditions</font>
+                    <a href="help.php#analysistitle" target="_blank">
+                        <img title="Get help for this page" style="width:20px;height: 20px;display: inline-block" src="./pic/help.png">
+                    </a>
                 </h2>
            <div class="box info ym-form">
                <label for="species" style="float:left;width:7%">Species:&nbsp;</label>
