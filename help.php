@@ -193,16 +193,12 @@
                             All tasks started from the same IP address are also listed in the “<a href="./task.php">My task</a>” page for the user to retrieve at any time.
                         </p>
                         <div class="picdiv">
-                            <img class="pic" src="./pic/help/task_list.bmp"/>
+                            <img class="pic" src="./pic/help/task_list.png"/>
                             <br>Task hitory of users' results
                         </div>
                         <!--<h3>2.3. Outputs of poly(A) site extraction pipeline</h3>-->
                         <p>Upon the completion of the PAC extraction process, users can download the PAC list directly from the web site onto their local computers.
                         </p>
-                        <div class="picdiv">
-                            <img class="pic" src="./pic/help/jbrowsesave.png"/>
-                            <br>Task hitory of users' results
-                        </div>
                         <p>
                         Also, additional information, such as mapping summary, single nucleotide compositions around PACs, top hexamers upstream of PACs, will be displayed in the result page to facilitate users to evaluate their own data.
                         </p>
@@ -234,7 +230,7 @@
                             The query output is a media page that lists all the matched PACs in a dynamic table, where users can choose to view detailed information (poly(A) signals, sequences, expression patterns, etc.) and graphics of PACs and the corresponding gene by clicking the link on a PAC of interest. The PAC list tabulating all PACs in genomic regions as well as intergenic regions would facilitate the inspection of polyadenylation events associated with novel transcripts, lincRNAs, or antisense transcription.
                         </p>
                         <div class="picdiv">
-                            <img class="pic" src="./pic/help/search_result.bmp"/>
+                            <img class="pic" src="./pic/help/search_result.png"/>
                             <br>Search result page (Click <a href='search_process.php?method=fuzzy&keyword=Chr1&species=arab'>here</a> to view an example)
                         </div>
                       </div>
@@ -276,7 +272,7 @@
                             One or more data sets from each plant species can be quickly loaded and graphically browsed online, by selecting the checkboxes of data sets in the ‘Available Tracks’ panel. Users can conduct a search with a gene or chromosome fragment to zoom in on particular PAC regions. Data tracks of PACs from different cells, tissues or conditions can be displayed in sync with tracks of PATs, offering a more intuitive way to explore and compare the usage of PACs among different samples. Users can download the data of one or more tracks onto their local computers.
                         </p>
                         <div class="picdiv">
-                            <img class="pic" src="./pic/help/browser_download.png"/>
+                            <img class="pic" src="./pic/help/jbrowsesave.png"/>
                             <br>Right-click context menu on a gene model or PAC 
 <!--                            <br><br>
                             <img class="pic" src="./pic/help/browse2pac.png"/>
