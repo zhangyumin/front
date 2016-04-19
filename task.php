@@ -25,6 +25,9 @@
         <div class="ym-wrapper">
                     <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left;">
                         <font color="#224055" ><b>Task:</b> get your results back</font>
+                        <a href="help.php#task" target="_blank">
+                            <img title="Get help for this page" style="width:20px;height: 20px;display: inline-block" src="./pic/help.png">
+                        </a>
                     </h2>
                     <div class="box info ym-form">
                         <form method="post" id="getback" action="#">
