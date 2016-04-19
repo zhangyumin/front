@@ -109,7 +109,7 @@
                       <div class="jumpto-block">
                         <h2>1. <span>Introduction</span></h2>
                         <p>PlantAPA is a web server for query, visualization, and analysis of poly(A) sites in plants, which can profile heterogeneous cleavage sites and quantify expression pattern of poly(A) sites across different conditions. To date, PlantAPA provides the largest database of APA in plants, including rice, Arabidopsis, <span style="font-style:italic">Medicago truncatula</span>, and <span style="font-style:italic">Chlamydomonas reinhardtii</span> (see <a href="./index.php">datasets</a>).</p>
-                        <p>A computational pipeline was implemented in Perl to detect poly(A) sites from next generation sequencing (NGS) or EST data. Reads with T stretch at the 5’ end or A stretch at the 3’ end are filtered and the A/T stretches trimmed off (step 1). After obtaining reads that can be uniquely mapped to the reference genome, coordinates of candidate poly(A) sites can be obtained. Candidate poly(A) sites that represent possible internal priming by reverse transcriptase are discarded (step 2). Further, to reduce the impact of microheterogeneity, a snowball-like method was adopted to cluster poly(A) tags within a given distance into a poly(A) site cluster (PAC) (step 3). PACs are annotated based on the refined genome annotation to determine their genomic locations (3’ UTR, CDS, intron, AMB, or intergenic).</p>
+                        <p id="dataset">A computational pipeline was implemented in Perl to detect poly(A) sites from next generation sequencing (NGS) or EST data. Reads with T stretch at the 5’ end or A stretch at the 3’ end are filtered and the A/T stretches trimmed off (step 1). After obtaining reads that can be uniquely mapped to the reference genome, coordinates of candidate poly(A) sites can be obtained. Candidate poly(A) sites that represent possible internal priming by reverse transcriptase are discarded (step 2). Further, to reduce the impact of microheterogeneity, a snowball-like method was adopted to cluster poly(A) tags within a given distance into a poly(A) site cluster (PAC) (step 3). PACs are annotated based on the refined genome annotation to determine their genomic locations (3’ UTR, CDS, intron, AMB, or intergenic).</p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/pipeline.png"/>
                             <br>Pipeline to determine PAC and the PAC table
@@ -182,7 +182,7 @@
                             <br>Options of uploading EST
                         </div>
                         <!--<h3>2.2. Get a task by task ID</h3>-->
-                        <p>
+                        <p id="task">
                             Each time, when a user visits PlantAPA to conduct a poly(A) site extraction, an unique task ID will be assigned. In our server, a folder in the same name as this project name will be created to hold all relevant data for the poly(A) site extraction. The user can further obtain all results of this task by searching the task ID in the “<a href="./task.php">My task</a>” page.
                         </p>
                         <div class="picdiv">
@@ -212,7 +212,7 @@
                       <div class="jumpto-block">
                         <h2>4. <span>PAC search</span>: searching PlantAPA</h2>
                         <!--<h3>3.1. Multi-keywords search</h3>-->
-                        <p>The <a href="./search.php">PAC search</a> module allows users to query genes or PACs in the data sets of interest by a variety of keywords, such as gene ID, chromosome fragment, gene functions, GO term, and GO ID.Batch search is supported, where lists of Gene IDs, GO terms, or GO IDs can be provided as query input.
+                        <p id="searchmodule">The <a href="./search.php">PAC search</a> module allows users to query genes or PACs in the data sets of interest by a variety of keywords, such as gene ID, chromosome fragment, gene functions, GO term, and GO ID.Batch search is supported, where lists of Gene IDs, GO terms, or GO IDs can be provided as query input.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/search.bmp"/>
@@ -262,7 +262,7 @@
                       </div>
                       <div class="jumpto-block">
                         <h2>6. <span>PAC browse</span>: browsing PACs in the PAC browser</h2>
-                        <p>Users can have a quick access to the PAC browser by clicking the “<a href="./browse.php">PAC browse</a>” tab in the main menu or the “View” link in a PAC list.
+                        <p id="browse">Users can have a quick access to the PAC browser by clicking the “<a href="./browse.php">PAC browse</a>” tab in the main menu or the “View” link in a PAC list.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/browse.bmp"/>
@@ -281,7 +281,7 @@
                       </div>
                       <div class="jumpto-block">
                         <h2>7. <span>PAC viewer</span>: quantification and visualization of PACs across different conditions</h2>
-                        <p>By following the web link on a particular PAC or gene, a user can inspect various graphics and detailed information of the PACs in a gene or in a intergenic region, such as gene/PAC sequence, poly(A) signals, and PAT distributions across diverse conditions in the <a href="./sequence_detail.php?species=arab&seq=AT1G04480&method=search">PAC viewer</a> module.
+                        <p id="pacviewer">By following the web link on a particular PAC or gene, a user can inspect various graphics and detailed information of the PACs in a gene or in a intergenic region, such as gene/PAC sequence, poly(A) signals, and PAT distributions across diverse conditions in the <a href="./sequence_detail.php?species=arab&seq=AT1G04480&method=search">PAC viewer</a> module.
                         Summary information about the PAC and the associated gene was given at the top of the web page. </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/gene_summary.bmp"/>
@@ -320,7 +320,7 @@
                     </div>
                     <div class="jumpto-block">
                         <h2>8. <span>PAC analysis</span>: analysis of APA switching between two conditions</h2>
-                        <p id="analysishelp1">Following the “<a href="./analysis.php">PAC analysis</a>” tab in the main menu, users can choose to generate lists of differentially expressed genes, PACs with differential usage, genes with 3’ UTR lengthening or shortening, and APA-site switching genes, using the user uploaded PACs together with PlantAPA stored PACs.
+                        <p id="analysistitle">Following the “<a href="./analysis.php">PAC analysis</a>” tab in the main menu, users can choose to generate lists of differentially expressed genes, PACs with differential usage, genes with 3’ UTR lengthening or shortening, and APA-site switching genes, using the user uploaded PACs together with PlantAPA stored PACs.
                         </p>
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/analysispic.png"/>
@@ -334,7 +334,7 @@
                             <img class="pic" src="./pic/help/analysis.png"/>
                             <br>Page of PAC analysis module 
                         </div>
-                        <p>
+                        <p id="analysishelp1">
                             Before analyzing PACs between two samples, users can filter PACs or genes by various combination of filtering conditions.
                         </p>
                         <div class="picdiv">
