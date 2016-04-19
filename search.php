@@ -194,6 +194,9 @@ and open the template in the editor.
         <div class="ym-wrapper">
                 <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
                     <font color="#224055" ><b>Search:</b> search poly(A) sites in PlantAPA</font>
+                    <a href="help.php#searchmodule" target="_blank">
+                        <img title="Get help for this page" style="width:20px;height: 20px;display: inline-block" src="./pic/help.png">
+                    </a>
                 </h2>
                <div class=" info ym-form">
                    <form name="search" method="post" id="getback" action="search_process.php">
