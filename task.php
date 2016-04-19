@@ -15,6 +15,17 @@
 
         <!--<link rel="stylesheet" href="./src/font-awesome.min.css">-->
         <!--<link rel="stylesheet" href="./src/example.css">-->
+        <style>
+            #task_summery table tr th,#task_list table tr th{
+                background: #e0e0e0;
+                border-right: 1px #ccc solid;
+                border-bottom: 1px #ccc solid;
+                font-size: 12px;
+            }
+            #task_summery table tr td{
+                font-size: 12px;
+            }
+        </style>
     </head>
     <body>
         <?php
@@ -95,7 +106,7 @@
                 if(isset($_SESSION['file']))
                 {
                     echo "<div id=\"task_summery\" >
-                                            <h2 style=\"padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left\">
+                                            <h2 style=\"border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left\">
                                                 <font color=\"#224055\">Task summary</font>
                                             </h2>";
                     $file=  file_get_contents("./log/".$_SESSION['file'].".txt");
@@ -162,15 +173,15 @@
                    <table style="font-size: 16px;TABLE-LAYOUT:fixed;WORD-WRAP:break-word;border-color: #e1e1e1;text-align: center;">
                 <tbody>
                     <tr>
-                        <td style="width:18%;font-weight:bold;" bgcolor="#e1e1e1">Task id</td>
-                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Input reads</td>
-                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Low quality reads</td>
-                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Reads with tail</td>
-                        <td style="width:7%;font-weight:bold;" bgcolor="#e1e1e1">Aligned reads</td>
-                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Alignment rate</td>
-                        <td style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Internal priming reads</td>
-                        <td style="width:8%;font-weight:bold;" bgcolor="#e1e1e1">PAT</td>
-                        <td style="width:7%;font-weight:bold;" bgcolor="#e1e1e1">PAC</td>                      
+                        <th style="width:18%;font-weight:bold;" bgcolor="#e1e1e1">Task id</th>
+                        <th style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Input reads</th>
+                        <th style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Low quality reads</th>
+                        <th style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Reads with tail</th>
+                        <th style="width:7%;font-weight:bold;" bgcolor="#e1e1e1">Aligned reads</th>
+                        <th style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Alignment rate</th>
+                        <th style="width:10%;font-weight:bold;" bgcolor="#e1e1e1">Internal priming reads</th>
+                        <th style="width:8%;font-weight:bold;" bgcolor="#e1e1e1">PAT</th>
+                        <th style="width:7%;font-weight:bold;" bgcolor="#e1e1e1">PAC</th>                      
                     </tr>
                     <tr style="border: 1px solid #e1e1e1">
                         <td><?php echo $_SESSION['file']?></td>
@@ -194,17 +205,17 @@
                     </div>";
                 }
              ?>
-                <h2 style="padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
+                <h2 style="border-bottom: 2px #5db95b solid;padding: 15px 0px 0px 0px;margin-bottom: 0px;text-align: left">
                     <font color="#224055" >Your task history</font>
                 </h2>
-                <div style="height: 440px;overflow-y: scroll">
+                <div id="task_list" style="height: 440px;overflow-y: scroll">
                     <table cellspacing="1" cellpadding="0" border="0" style="border:1px solid #e1e1e1;">
                     <thead>
                         <tr class="theme">
-                            <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Task id</td>
-                            <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Speices</td>
-                            <td class="theme" bgcolor="#e1e1e1" align="center" height="24">IP</td>
-                            <td class="theme" bgcolor="#e1e1e1" align="center" height="24">Time</td>
+                            <th class="theme" bgcolor="#e1e1e1" align="center" height="24">Task id</th>
+                            <th class="theme" bgcolor="#e1e1e1" align="center" height="24">Speices</th>
+                            <th class="theme" bgcolor="#e1e1e1" align="center" height="24">IP</th>
+                            <th class="theme" bgcolor="#e1e1e1" align="center" height="24">Time</th>
                         </tr>
                     </thead>
                     <tbody>
