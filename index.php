@@ -114,7 +114,7 @@ and open the template in the editor.
                                 <td>
                                     <a class='img' target="_blank" href="./sequence_detail.php?species=arab&seq=AT1G01020&method=search">
                                         <!--<span class="tablebutton" title="View detailed information for an example gene 'AT1G01020'">View</span>-->
-                                        <img src="./pic/detail.png" title="View detailed information for an example gene 'AT1G01020&method=search'">
+                                        <img src="./pic/detail.png" title="View detailed information for an example gene 'AT1G01020'">
                                     </a>
                                 </td>
                                 <td class="style1"  width='50' style="white-space: nowrap;">
