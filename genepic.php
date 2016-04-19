@@ -319,6 +319,7 @@ and open the template in the editor.
                 }
 //                $samples = $_SESSION['sample'];
                 //遍历坐标，删除重复pac数据
+                $empty_pac_list = array();
                 $analysis_coord = array();
                 for($i = 1; $i <= $num; $i++){
                      $pac="pac".$i;
@@ -332,13 +333,10 @@ and open the template in the editor.
                             $j ++;
                     }
                     if($j == $num){
-                        for($i = 1; $i <= $num; $i++){
-                            $pac="pac".$i;
-                            unset(${$pac}[$key]);
-                        }
+                        array_push($empty_pac_list, $key);
                     }
-                        
                 }
+                var_dump($empty_pac_list);
             }
 //            PA数据测试
 //            for($i=1;$i<=$num;$i++){
@@ -696,11 +694,13 @@ and open the template in the editor.
                     foreach ($pac_num as $key => $value) {
                         //画pac的pointer
                         $position = ($value-$gene_start)* $rate;
-                        if(in_array($value, $pac_selected)){
-                            echo "pointer($position,$key,\"gene\");";
-                        }
-                        else{
-                            echo "pointer($position,'none',\"gene\");";
+                        if(!in_array($value, $empty_pac_list)){
+                            if(in_array($value, $pac_selected)){
+                                echo "pointer($position,$key,\"gene\");";
+                            }
+                            else{
+                                echo "pointer($position,'none',\"gene\");";
+                            }
                         }
                     }
                 ?>
