@@ -113,7 +113,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf2_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs">PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf2_PAC" title="File of poly(A) site clusters">PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf2_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)">Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)">PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf2_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)">PAT Track</a></td>
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
@@ -126,7 +126,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf3_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs">PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf3_PAC" title="File of poly(A) site clusters">PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf3_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)">Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)">PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf3_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)">PAT Track</a></td>
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
@@ -139,7 +139,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_seed1_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_seed1_PAC" title="File of poly(A) site clusters"/>PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_seed1_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_seed1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
@@ -152,7 +152,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_seed2_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_seed2_PAC" title="File of poly(A) site clusters"/>PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_seed2_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_seed2_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
@@ -165,7 +165,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root1_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root1_PAC" title="File of poly(A) site clusters"/>PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root1_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
@@ -178,7 +178,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root2_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root2_PAC" title="File of poly(A) site clusters"/>PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root2_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root2_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
@@ -191,7 +191,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root3_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root3_PAC" title="File of poly(A) site clusters"/>PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root3_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_root3_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
@@ -204,7 +204,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root1_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root1_PAC" title="File of poly(A) site clusters"/>PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root1_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
@@ -217,7 +217,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root2_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root2_PAC" title="File of poly(A) site clusters"/>PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root2_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root2_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
@@ -230,7 +230,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root3_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root3_PAC" title="File of poly(A) site clusters"/>PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root3_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_root3_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
@@ -243,7 +243,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf1_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf1_PAC" title="File of poly(A) site clusters"/>PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf1_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
@@ -256,7 +256,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf2_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf2_PAC" title="File of poly(A) site clusters"/>PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf2_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf2_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
                     </tr>
                     <tr style="border-bottom: 1px #ccc dashed">
                         <td>Arabidopsis thanliana</td>
@@ -269,7 +269,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf3_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf3_PAC" title="File of poly(A) site clusters"/>PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf3_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_Oxt6_leaf3_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
                     </tr>
                     <tr style="border-bottom: 1px #ccc dashed">
                         <td>Oryza sativa</td>
@@ -282,7 +282,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Rice_MSU7_From_EST_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Rice_MSU7_From_EST_PAC" title="File of poly(A) site clusters"/>PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Rice_MSU7_From_EST_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Rice_MSU7_From_EST_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
                     </tr>
                     <tr style="border-bottom: 1px #ccc dashed">
                         <td>Medicago truncatula</td>
@@ -295,7 +295,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Mtr_JCVIv4_WT_leaf1_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Mtr_JCVIv4_WT_leaf1_PAC" title="File of poly(A) site clusters"/>PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Mtr_JCVIv4_WT_leaf1_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Mtr_JCVIv4_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
                     </tr>
                     <tr>
                         <td>Chlamydomonas reinhardtii</td>
@@ -308,7 +308,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Chlamy_C281v55_From_illumina_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Chlamy_C281v55_From_illumina_PAC" title="File of poly(A) site clusters"/>PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Chlamy_C281v55_From_illumina_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Chlamy_C281v55_From_illumina_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
                     </tr>
                     <tr>
                         <td>Chlamydomonas reinhardtii</td>
@@ -321,7 +321,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Chlamy_C281v55_From_454_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Chlamy_C281v55_From_454_PAC" title="File of poly(A) site clusters"/>PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Chlamy_C281v55_From_454_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Chlamy_C281v55_From_454_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
                     </tr>
                     <tr>
                         <td>Chlamydomonas reinhardtii</td>
@@ -334,7 +334,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Chlamy_C281v55_From_EST_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Chlamy_C281v55_From_EST_PAC" title="File of poly(A) site clusters"/>PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Chlamy_C281v55_From_EST_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Chlamy_C281v55_From_EST_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
                     </tr>
                     <tr>
                         <td>Chlamydomonas reinhardtii</td>
@@ -347,7 +347,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Chlamy_C281v55_From_PATseq_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Chlamy_C281v55_From_PATseq_PAC" title="File of poly(A) site clusters"/>PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Chlamy_C281v55_From_PATseq_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_WT_leaf1_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
+                        |&nbsp;<a href="./download_data.php?type=1&name=Chlamy_C281v55_From_PATseq_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
                     </tr>
                 </tbody>
             </table><br>
