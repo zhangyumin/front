@@ -13,7 +13,7 @@
         <script src="./js/html5shiv/html5shiv.js"></script>
         <![endif]-->
 
-        <!--<link rel="stylesheet" href="./src/font-awesome.min.ss">-->
+        <!--<link rel="stylesheet" href="./src/font-awesome.min.css">-->
         <!--<link rel="stylesheet" href="./src/example.css">-->
         <!-- sliders -->
         <script src="./src/slider/js/jquery-plus-ui.min.js"></script>
