@@ -177,12 +177,19 @@ and open the template in the editor.
                             $pa="pa".$i;
                             ${$pa}[$tmp_pa_row[2]] = $tmp_pa_row[$i+3];
                         }
-                        $continue = $i;
+                        $continue1 = $i;
                     }
                     else if($key==1){
-                        for($i=$continue;$i<=count($pacol);$i++){
+                        for($i=$continue1;$i<=count($tmp_pa_row)+$continue1-5;$i++){
                             $pa="pa".$i;
                             ${$pa}[$tmp_pa_row[2]] = $tmp_pa_row[$i-5];
+                        }
+                        $continue2 = $i;
+                    }
+                    else if($key==2){
+                        for($i=$continue2;$i<=count($pacol);$i++){
+                            $pa="pa".$i;
+                            ${$pa}[$tmp_pa_row[2]] = $tmp_pa_row[$i-11];
                         }
                     }
                 }
