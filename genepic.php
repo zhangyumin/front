@@ -880,8 +880,8 @@ and open the template in the editor.
                 var canvas = document.getElementById(id);
                 var context = canvas.getContext("2d");
                 context.fillStyle=color;
-                context.font="bold 15px sans-serif";
-                context.fillText(text,1015,85);
+                context.font="bold 13px sans-serif";
+                context.fillText(text,1000,75);
             }
             function info(color,loc,text,id){
                 var canvas = document.getElementById(id);
