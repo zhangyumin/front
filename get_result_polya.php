@@ -88,8 +88,9 @@
                 foreach($upload_name as $key => $value)
                 {
                     //step0:统一文件后缀名
-                    rename("./data/".$_SESSION['file']."/$file_name[$key]", "./data/".$_SESSION['file']."/$value.pa");
-//                    shell_exec("mv ./data/".$_SESSION['file']."/$file_name[$key] ./data/".$_SESSION['file']."/$value.pa");
+                 //去除空行、注释行和标题行
+                    $_SESSION['test'] = "grep -v '^#' './data/".$_SESSION['file']."/$file_name[$key]' | grep -v '^$' | grep -v 'PAT_number' > './data/".$_SESSION['file']."/$value.pa'";
+//                    shell_exec("grep -v '^#' './data/".$_SESSION['file']."/$file_name[$key]' | grep -v '^$' | grep -v 'PAT_number' > './data/".$_SESSION['file']."/$value.pa'");
                     //文件校验处理、
                     $pafile=array();
                     $tmp_pa=array();
@@ -131,6 +132,7 @@
                         $cmd7plus.=$value;
                 }
                $cmd7=$cmd7origin.$cmd7plus." conf=\"/var/www/front/config/db_".$_SESSION['species'].".xml\"  >>./log/".$_SESSION['file'].".txt";
+               $_SESSION['test'] = $cmd7;
 //               echo $cmd7; 
                $out7=  shell_exec($cmd7);
 //                echo"<pre>$out7</pre>";
