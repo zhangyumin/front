@@ -89,7 +89,8 @@
                 {
                     //step0:统一文件后缀名
                  //去除空行、注释行和标题行
-                    $_SESSION['test'] = "grep -v '^#' './data/".$_SESSION['file']."/$file_name[$key]' | grep -v '^$' | grep -v 'PAT_number' > './data/".$_SESSION['file']."/$value.pa'";
+//                    $_SESSION['test'] = "grep -v '^#' './data/".$_SESSION['file']."/$file_name[$key]' | grep -v '^$' | grep -v 'PAT_number' > './data/".$_SESSION['file']."/$value.pa'";
+                    rename("./data/".$_SESSION['file']."/$file_name[$key]", "./data/".$_SESSION['file']."/$value.pa");
 //                    shell_exec("grep -v '^#' './data/".$_SESSION['file']."/$file_name[$key]' | grep -v '^$' | grep -v 'PAT_number' > './data/".$_SESSION['file']."/$value.pa'");
                     //文件校验处理、
                     $pafile=array();
