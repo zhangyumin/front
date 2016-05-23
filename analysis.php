@@ -231,7 +231,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <div id="sample1" style="width:50%;margin:auto;">
+                                                        <div id="sample1" style="width:65%;margin:auto;">
                                                             <label for="all1">Sample 1</label><br>
                                                                 <?php
                                                                     $sys_sample_arab=array();
@@ -318,7 +318,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <div id="sample2" style="width:50%;margin:auto;">
+                                                        <div id="sample2" style="width:65%;margin:auto;">
                                                             <label for="all2">Sample 2</label><br>
                                                                 <?php
                                                                     //arab
@@ -448,7 +448,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <div id="sample3" style="width:50%;margin:auto;">
+                                                        <div id="sample3" style="width:65%;margin:auto;">
                                                             <label for="all1">Sample 1</label><br>
                                                                 <?php
                                                                     //arab
@@ -524,7 +524,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <div id="sample4" style="width:50%;margin:auto;">
+                                                        <div id="sample4" style="width:65%;margin:auto;">
                                                             <label for="all2">Sample 2</label><br>
                                                                 <?php
                                                                     //arab
@@ -648,7 +648,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <div id="sample5" style="width:50%;margin:auto;">
+                                                            <div id="sample5" style="width:65%;margin:auto;">
                                                                 <label for="all1">Sample 1</label><br>
                                                                     <?php
                                                                     $sys_sample=array();
@@ -724,7 +724,7 @@
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <div id="sample6" style="width:50%;margin:auto;">
+                                                            <div id="sample6" style="width:65%;margin:auto;">
                                                                 <label for="all2">Sample 2</label><br>
                                                                     <?php
                                                                         //arab
@@ -837,7 +837,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <div id="sample7" style="width:50%;margin:auto;">
+                                                        <div id="sample7" style="width:65%;margin:auto;">
                                                             <label for="all1">Sample 1</label><br>
                                                                 <?php
                                                                 $sys_sample=array();
@@ -913,7 +913,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <div id="sample8" style="width:50%;margin:auto;">
+                                                        <div id="sample8" style="width:65%;margin:auto;">
                                                             <label for="all2">Sample 2</label><br>
                                                                 <?php
                                                                     //arab
