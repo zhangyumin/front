@@ -381,9 +381,68 @@
                 if($species == 'arab'){
                     $pa1 = array();
                     $pa2 = array();
+                    $pa3 = array();
                     $usr_pa = array();
                     $table_pa1 = array("wt_leaf_1","wt_leaf_2","wt_leaf_3","wt_seed_1","wt_seed_2","wt_root_1","wt_root_2","wt_root_3");
                     $table_pa2 = array("oxt6_leaf_1","oxt6_leaf_2","oxt6_leaf_3","oxt6_root_1","oxt6_root_2","oxt6_root_3");
+                    $table_pa3 = array("g1","g2","g3","gm1","gm2","gm3");
+                    foreach ($_SESSION['sample'] as $key => $value) {
+                        if(in_array($value, $table_pa1)){
+                            array_push($pa1, $value);
+                        }
+                        else if (in_array($value, $table_pa2)) {
+                            array_push($pa2, $value);
+                        }
+                        else if (in_array($value, $table_pa3)) {
+                            array_push($pa3, $value);
+                        }
+                        else{
+                            array_push($usr_pa, $value);
+                        }
+                    }
+                    $string_pa1 = implode("+", $pa1);
+                    $pa_query1 = "select coord from db_server.t_".$species."_pa1 where chr='$chr' and coord>=$gene_start and coord<=$gene_end and $string_pa1 > 0";
+                    $pa_result1 = mysql_query($pa_query1);
+                    while ($pa_row1=  mysql_fetch_row($pa_result1))
+                    {
+                        array_push($pa_start, $pa_row1[0]);
+                    }
+                    $string_pa2 = implode("+", $pa2);
+                    $pa_query2 = "select coord from db_server.t_".$species."_pa2 where chr='$chr' and coord>=$gene_start and coord<=$gene_end and $string_pa2 > 0";
+                    $pa_result2 = mysql_query($pa_query2);
+                    while ($pa_row2 =  mysql_fetch_row($pa_result2))
+                    {
+                        if(!in_array($pa_row2[0], $pa_start)){
+                            array_push($pa_start, $pa_row2[0]);
+                        }
+                    }
+                    $string_pa3 = implode("+", $pa3);
+                    $pa_query3 = "select coord from db_server.t_".$species."_pa2 where chr='$chr' and coord>=$gene_start and coord<=$gene_end and $string_pa3 > 0";
+                    $pa_result3 = mysql_query($pa_query3);
+                    while ($pa_row3 =  mysql_fetch_row($pa_result3))
+                    {
+                        if(!in_array($pa_row3[0], $pa_start)){
+                            array_push($pa_start, $pa_row3[0]);
+                        }
+                    }
+                    if(count($usr_pa) > 0){
+                        $string_usr_pa = implode("+", $usr_pa);
+                        $pa_query4 = "select coord from db_user.PA_".$_SESSION['file']." where chr='$chr' and coord>=$gene_start and coord<=$gene_end and $string_usr_pa > 0";
+                        $pa_result4 = mysql_query($pa_query4);
+                        while ($pa_row4 =  mysql_fetch_row($pa_result4))
+                        {
+                            if(!in_array($pa_row4[0], $pa_start)){
+                                array_push($pa_start, $pa_row4[0]);
+                            }
+                        }
+                    }
+                }
+                else if($species == 'japonica'){
+                    $pa1 = array();
+                    $pa2 = array();
+                    $usr_pa = array();
+                    $table_pa1 = array("from_EST");
+                    $table_pa2 = array("from_RNAseq","flower_buds","flowers","leaves_before_flowering","leaves_after_flowering","roots_before_flowering","roots_after_flowering","milk_grains","mature_seeds");
                     foreach ($_SESSION['sample'] as $key => $value) {
                         if(in_array($value, $table_pa1)){
                             array_push($pa1, $value);
@@ -413,17 +472,62 @@
                     }
                     if(count($usr_pa) > 0){
                         $string_usr_pa = implode("+", $usr_pa);
-                        $pa_query3 = "select coord from db_user.PA_".$_SESSION['file']." where chr='$chr' and coord>=$gene_start and coord<=$gene_end and $string_usr_pa > 0";
-                        $pa_result3 = mysql_query($pa_query3);
-                        while ($pa_row3 =  mysql_fetch_row($pa_result3))
+                        $pa_query4 = "select coord from db_user.PA_".$_SESSION['file']." where chr='$chr' and coord>=$gene_start and coord<=$gene_end and $string_usr_pa > 0";
+                        $pa_result4 = mysql_query($pa_query4);
+                        while ($pa_row4 =  mysql_fetch_row($pa_result4))
                         {
-                            if(!in_array($pa_row3[0], $pa_start)){
-                                array_push($pa_start, $pa_row3[0]);
+                            if(!in_array($pa_row4[0], $pa_start)){
+                                array_push($pa_start, $pa_row4[0]);
                             }
                         }
                     }
-                    //否则只分pa1和usr_pa两种情况
-                }else{
+                }
+                else if($species == 'mtr'){
+                    $pa1 = array();
+                    $pa2 = array();
+                    $usr_pa = array();
+                    $table_pa1 = array("wt_leaf_1");
+                    $table_pa2 = array("hairy_root","leaf_CK","leaf_OS","leaf_SS","root_CK","root_OS","root_SS");
+                    foreach ($_SESSION['sample'] as $key => $value) {
+                        if(in_array($value, $table_pa1)){
+                            array_push($pa1, $value);
+                        }
+                        else if (in_array($value, $table_pa2)) {
+                            array_push($pa2, $value);
+                        }
+                        else{
+                            array_push($usr_pa, $value);
+                        }
+                    }
+                    $string_pa1 = implode("+", $pa1);
+                    $pa_query1 = "select coord from db_server.t_".$species."_pa1 where chr='$chr' and coord>=$gene_start and coord<=$gene_end and $string_pa1 > 0";
+                    $pa_result1 = mysql_query($pa_query1);
+                    while ($pa_row1=  mysql_fetch_row($pa_result1))
+                    {
+                        array_push($pa_start, $pa_row1[0]);
+                    }
+                    $string_pa2 = implode("+", $pa2);
+                    $pa_query2 = "select coord from db_server.t_".$species."_pa2 where chr='$chr' and coord>=$gene_start and coord<=$gene_end and $string_pa2 > 0";
+                    $pa_result2 = mysql_query($pa_query2);
+                    while ($pa_row2 =  mysql_fetch_row($pa_result2))
+                    {
+                        if(!in_array($pa_row2[0], $pa_start)){
+                            array_push($pa_start, $pa_row2[0]);
+                        }
+                    }
+                    if(count($usr_pa) > 0){
+                        $string_usr_pa = implode("+", $usr_pa);
+                        $pa_query4 = "select coord from db_user.PA_".$_SESSION['file']." where chr='$chr' and coord>=$gene_start and coord<=$gene_end and $string_usr_pa > 0";
+                        $pa_result4 = mysql_query($pa_query4);
+                        while ($pa_row4 =  mysql_fetch_row($pa_result4))
+                        {
+                            if(!in_array($pa_row4[0], $pa_start)){
+                                array_push($pa_start, $pa_row4[0]);
+                            }
+                        }
+                    }
+                }
+                else{
                     $pa1 = array();
                     $usr_pa = array();
                     $pa1 = $_SESSION['sample'];
