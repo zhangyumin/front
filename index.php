@@ -103,9 +103,9 @@ and open the template in the editor.
                         <tbody>
                             <tr>
                                 <td>Arabidopsis thanliana</td>
-                                <td>14</td>
-                                <td>62834</td>
-                                <td>68388227</td>
+                                <td>20</td>
+                                <td>69577</td>
+                                <td>98781156</td>
                                 <td>Poly(A) sites from leaf, seed, and root tissues of WT and Oxt6 mutant by poly(A) tag sequencing</td>
                                 <td><a id='ref1' class='ref'>Wu et al. PNAS, 2011; Thomas et al. Plant Cell, 2012; Liu et al. PloS One, 2014</a></td>                     
                                 <td>
@@ -149,7 +149,7 @@ and open the template in the editor.
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_1%20PAT%20minus%20strand%2Cwt_leaf_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>1110951</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_1%20PAT%20minus%20strand%2Cwt_leaf_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>1055461</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -158,7 +158,7 @@ and open the template in the editor.
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1073%2Fpnas.1019732108">Wu et al. PNAS, 2011</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_2%20PAT%20minus%20strand%2Cwt_leaf_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>695258</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_2%20PAT%20minus%20strand%2Cwt_leaf_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>927476</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -167,7 +167,7 @@ and open the template in the editor.
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_3%20PAT%20minus%20strand%2Cwt_leaf_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>22176</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_3%20PAT%20minus%20strand%2Cwt_leaf_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>24269</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -176,7 +176,7 @@ and open the template in the editor.
                                                     <td>seed</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_seed_1%20PAT%20minus%20strand%2Cwt_seed_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>21416</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_seed_1%20PAT%20minus%20strand%2Cwt_seed_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>332010</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -185,7 +185,7 @@ and open the template in the editor.
                                                     <td>seed</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1073%2Fpnas.1019732108">Wu et al. PNAS, 2011</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_seed_2%20PAT%20minus%20strand%2Cwt_seed_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>1314335</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_seed_2%20PAT%20minus%20strand%2Cwt_seed_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>2230409</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -194,7 +194,7 @@ and open the template in the editor.
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_1%20PAT%20minus%20strand%2Cwt_root_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>16229894</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_1%20PAT%20minus%20strand%2Cwt_root_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>16232735</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -203,7 +203,7 @@ and open the template in the editor.
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_2%20PAT%20minus%20strand%2Cwt_root_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>10703765</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_2%20PAT%20minus%20strand%2Cwt_root_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>10700327</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -212,7 +212,7 @@ and open the template in the editor.
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_3%20PAT%20minus%20strand%2Cwt_root_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>12541261</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_3%20PAT%20minus%20strand%2Cwt_root_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>12547544</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -221,7 +221,7 @@ and open the template in the editor.
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_1%20PAT%20minus%20strand%2Coxt6_root_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>977997</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_1%20PAT%20minus%20strand%2Coxt6_root_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>5861620</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -230,7 +230,7 @@ and open the template in the editor.
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_2%20PAT%20minus%20strand%2Coxt6_root_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>76768</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_2%20PAT%20minus%20strand%2Coxt6_root_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>10174020</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -239,7 +239,7 @@ and open the template in the editor.
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_3%20PAT%20minus%20strand%2Coxt6_root_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>2176288</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_3%20PAT%20minus%20strand%2Coxt6_root_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>5653903</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -248,7 +248,7 @@ and open the template in the editor.
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_1%20PAT%20minus%20strand%2Coxt6_leaf_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>6092063</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_1%20PAT%20minus%20strand%2Coxt6_leaf_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>1222315</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -257,7 +257,7 @@ and open the template in the editor.
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_2%20PAT%20minus%20strand%2Coxt6_leaf_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>10589959</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_2%20PAT%20minus%20strand%2Coxt6_leaf_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>74911</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Arabidopsis thanliana</td>
@@ -266,7 +266,61 @@ and open the template in the editor.
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
                                                     <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_3%20PAT%20minus%20strand%2Coxt6_leaf_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>5875054</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_3%20PAT%20minus%20strand%2Coxt6_leaf_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>2569857</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Arabidopsis thanliana</td>
+                                                    <td>oxt6::C30G 1</td>
+                                                    <td>Oxt6</td>
+                                                    <td>root</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cg1%20PAT%20plus%20strand%2Cg1%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>2277879</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Arabidopsis thanliana</td>
+                                                    <td>oxt6::C30G 2</td>
+                                                    <td>Oxt6</td>
+                                                    <td>root</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cg2%20PAT%20plus%20strand%2Cg2%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>4324508</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Arabidopsis thanliana</td>
+                                                    <td>oxt6::C30G 3</td>
+                                                    <td>Oxt6</td>
+                                                    <td>root</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cg3%20PAT%20plus%20strand%2Cg3%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>5510456</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Arabidopsis thanliana</td>
+                                                    <td>oxt6::C30GM 1</td>
+                                                    <td>Oxt6</td>
+                                                    <td>root</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cgm1%20PAT%20plus%20strand%2Cgm1%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>5360339</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Arabidopsis thanliana</td>
+                                                    <td>oxt6::C30GM 2</td>
+                                                    <td>Oxt6</td>
+                                                    <td>root</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cgm2%20PAT%20plus%20strand%2Cgm2%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>5204727</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Arabidopsis thanliana</td>
+                                                    <td>oxt6::C30GM 3</td>
+                                                    <td>Oxt6</td>
+                                                    <td>root</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cgm3%20PAT%20plus%20strand%2Cgm3%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>6886779</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -287,11 +341,11 @@ and open the template in the editor.
                             </tr>
                             <tr>
                                <td>Oryza sativa</td>
-                                <td>1</td>
-                                <td>32657</td>
-                                <td>57852</td>
-                                <td>Poly(A) sites extracted from ESTs</td>
-                                <td><a id='ref2' class="ref">Shen et al. Nucleic Acids Res, 2008</a></td>                     
+                                <td>10</td>
+                                <td>55465</td>
+                                <td>1236410</td>
+                                <td>Poly(A) sites extracted from ESTs and RNA-seq reads</td>
+                                <td><a id='ref2' class="ref">Shen et al. Nucleic Acids Res, 2008; Davidson et al. Plant J, 2012; Wang et al. Plant J, 2015</a></td>                     
                                 <td>
                                     <a class='img' target="_blank" href="../jbrowse/?data=data/japonica">
                                         <!--<span class="tablebutton" title="Browse poly(A) sites in Jbrowse">Chr</span>-->
@@ -332,6 +386,87 @@ and open the template in the editor.
                                                     <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
                                                     <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cfrom_EST%20PAT%20minus%20strand%2Cfrom_EST%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>57852</a></td>
                                                 </tr>
+                                                <tr>
+                                                    <td>Oryza sativa</td>
+                                                    <td>from_RNAseq</td>
+                                                    <td>mix</td>
+                                                    <td>mix</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22443345">Davidson et al. Plant J, 2012</a></td>
+                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
+                                                    <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cfrom_RNAseq%20PAT%20plus%20strand%2Cfrom_RNAseq%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>47180</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Oryza sativa</td>
+                                                    <td>flower_buds</td>
+                                                    <td>WT</td>
+                                                    <td>flower</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
+                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
+                                                    <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cflower_buds%20PAT%20plus%20strand%2Cflower_buds%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>153823</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Oryza sativa</td>
+                                                    <td>flowers</td>
+                                                    <td>WT</td>
+                                                    <td>flower</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
+                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
+                                                    <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cflowers%20PAT%20plus%20strand%2Cflowers%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>124224</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Oryza sativa</td>
+                                                    <td>leaves_before_flowering</td>
+                                                    <td>WT</td>
+                                                    <td>leaf</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
+                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
+                                                    <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cleaves_before_flowering%20PAT%20plus%20strand%2Cleaves_before_flowering%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>139209</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Oryza sativa</td>
+                                                    <td>leaves_after_flowering</td>
+                                                    <td>WT</td>
+                                                    <td>leaf</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
+                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
+                                                    <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cleaves_after_flowering%20PAT%20plus%20strand%2Cleaves_after_flowering%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>127962</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Oryza sativa</td>
+                                                    <td>roots_before_flowering</td>
+                                                    <td>WT</td>
+                                                    <td>root</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
+                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
+                                                    <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Croots_before_flowering%20PAT%20plus%20strand%2Croots_before_flowering%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>168028</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Oryza sativa</td>
+                                                    <td>roots_after_flowering</td>
+                                                    <td>WT</td>
+                                                    <td>root</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
+                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
+                                                    <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Croots_after_flowering%20%20PAT%20minus%20strand%2Croots_after_flowering%20PAT%20plus%20strand' title="View in jbrowse" target='_blanck'>114200</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Oryza sativa</td>
+                                                    <td>milk_grains</td>
+                                                    <td>WT</td>
+                                                    <td>grain</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
+                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
+                                                    <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cmilk_grains%20PAT%20plus%20strand%2Cmilk_grains%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>163445</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Oryza sativa</td>
+                                                    <td>mature_seeds</td>
+                                                    <td>WT</td>
+                                                    <td>seed</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
+                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
+                                                    <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cmature_seeds%20PAT%20plus%20strand%2Cmature_seeds%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>140487</a></td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                         <div class="ym-grid "  style="text-align: center">
@@ -347,11 +482,11 @@ and open the template in the editor.
                             </tr>
                             <tr>
                                 <td>Medicago truncatula</td>
-                                <td>1</td>
-                                <td>42691</td>
-                                <td>2747920</td>
-                                <td>Poly(A) sites from leaf tissue by poly(A) tag sequencing</td>
-                                <td><a id='ref3' class="ref">Wu et al. BMC Genomics, 2014</a></td>                     
+                                <td>8</td>
+                                <td>61258</td>
+                                <td>3412026</td>
+                                <td>poly(A) sites extracted from RNA-seq and  PAT-seq sequence reads</td>
+                                <td><a id='ref3' class="ref">Wu et al. BMC Genomics, 2014; Wang et al.  BMC Plant Biology, 2015; Mertens et al. Plant Physiology, 2016</a></td>                     
                                 <td>
                                     <a class='img' target="_blank" href="../jbrowse/?data=data/mtr">
                                         <!--<span class="tablebutton" title="Browse poly(A) sites in Jbrowse">Chr</span>-->
@@ -389,7 +524,70 @@ and open the template in the editor.
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1186%2F1471-2164-15-615">Wu et al. BMC Genomics, 2014</a></td>
                                                     <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
-                                                    <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Cwt_leaf_1%20PAT%20minus%20strand%2Cwt_leaf_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target="_blank">2747920</a></td>
+                                                    <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Cwt_leaf_1%20PAT%20minus%20strand%2Cwt_leaf_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target="_blank">3146287</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Medicago truncatula</td>
+                                                    <td>hairy root</td>
+                                                    <td>WT</td>
+                                                    <td>root</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387579">Mertens et al. Plant Physiology, 2016</a></td>
+                                                    <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
+                                                    <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Chairy_root%20PAT%20plus%20strand%2Chairy_root%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">6690</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Medicago truncatula</td>
+                                                    <td>leaf CK</td>
+                                                    <td>WT</td>
+                                                    <td>leaf</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
+                                                    <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
+                                                    <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Cleaf_CK%20PAT%20plus%20strand%2Cleaf_CK%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">51490</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Medicago truncatula</td>
+                                                    <td>leaf OS</td>
+                                                    <td>WT</td>
+                                                    <td>leaf</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
+                                                    <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
+                                                    <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Cleaf_OS%20PAT%20plus%20strand%2Cleaf_OS%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">37338</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Medicago truncatula</td>
+                                                    <td>leaf SS</td>
+                                                    <td>WT</td>
+                                                    <td>leaf</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
+                                                    <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
+                                                    <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Cleaf_SS%20PAT%20plus%20strand%2Cleaf_SS%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">29059</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Medicago truncatula</td>
+                                                    <td>root CK</td>
+                                                    <td>WT</td>
+                                                    <td>root</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
+                                                    <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
+                                                    <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Croot_CK%20PAT%20plus%20strand%2Croot_CK%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">42947</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Medicago truncatula</td>
+                                                    <td>root OS</td>
+                                                    <td>WT</td>
+                                                    <td>root</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
+                                                    <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
+                                                    <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Croot_OS%20PAT%20plus%20strand%2Croot_OS%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">47675</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Medicago truncatula</td>
+                                                    <td>root SS</td>
+                                                    <td>WT</td>
+                                                    <td>root</td>
+                                                    <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
+                                                    <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
+                                                    <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Croot_SS%20PAT%20plus%20strand%2Croot_SS%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">50540</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -543,14 +741,14 @@ and open the template in the editor.
             $('#ref2').webuiPopover({
                 placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
                 title:'Link to',
-                content:'<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1093%2Fnar%2Fgkn158">Shen et al. Nucleic Acids Res, 2008</a>',
+                content:'<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1093%2Fnar%2Fgkn158">Shen et al. Nucleic Acids Res, 2008</a><br><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22443345">Davidson et al. Plant J, 2012</a><br><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a>',
                 trigger:'hover',
                 type:'html'
             });
             $('#ref3').webuiPopover({
                 placement:'right',//值: auto,top,right,bottom,left,top-right,top-left,bottom-right,bottom-left
                 title:'Link to',
-                content:'<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1186%2F1471-2164-15-615">Wu et al. BMC Genomics, 2014</a>',
+                content:'<a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1186%2F1471-2164-15-615">Wu et al. BMC Genomics, 2014</a><br><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a><br><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387579">Mertens et al. Plant Physiology, 2016</a>',
                 trigger:'hover',
                 type:'html'
             });
