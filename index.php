@@ -129,198 +129,156 @@ and open the template in the editor.
                                     <td class="more1_content" colspan="9" >
                                         <div class="box info">
 
-                                        <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5db95b;width:90%;margin: 10px 5%;">
+                                        <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5db95b;margin: 10px 1%;">
                                             <thead>
                                                 <tr class="theme" bgcolor="#5db95b">
-                                                    <td class="theme"  height="24">Species</td>
                                                     <td class="theme"  height="24">Label</td>
-                                                    <td class="theme"  height="24">Cell Line</td>
                                                     <td class="theme"  height="24">Tissue</td>
                                                     <td class="theme"  height="24">Reference</td>
-                                                    <td class="theme"  height="24">Genome Annotation</td>
                                                     <td class="theme"  height="24">PATs</td>
+                                                    <td class="theme"  height="24">Description</td>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>wt leaf 1</td>
-                                                    <td>WT</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_1%20PAT%20minus%20strand%2Cwt_leaf_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>1055461</a></td>
+                                                    <td>Plants were grown in soil in a climate-controlled growth room under short-day (8-h daylight) conditions, or under sterile conditions by germinating seeds, to capture as broad a range of poly(A) sites in leaves as possible.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>wt leaf 2</td>
-                                                    <td>WT</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1073%2Fpnas.1019732108">Wu et al. PNAS, 2011</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
-                                                    <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_2%20PAT%20minus%20strand%2Cwt_leaf_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>927476</a></td>
+                                                   <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_2%20PAT%20minus%20strand%2Cwt_leaf_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>927476</a></td>
+                                                   <td>Plants were grown in soil in a climate-controlled growth room under short-day (8-h daylight) conditions, or under sterile conditions by germinating seeds, to capture as broad a range of poly(A) sites in leaves as possible.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>wt leaf 3</td>
-                                                    <td>WT</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_3%20PAT%20minus%20strand%2Cwt_leaf_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>24269</a></td>
+                                                    <td>Plants were grown in soil in a climate-controlled growth room under short-day (8-h daylight) conditions, or under sterile conditions by germinating seeds, to capture as broad a range of poly(A) sites in leaves as possible.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>wt seed 1</td>
-                                                    <td>WT</td>
                                                     <td>seed</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_seed_1%20PAT%20minus%20strand%2Cwt_seed_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>332010</a></td>
+                                                    <td>RNA was isolated from dried Arabidopsis seed.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>wt seed 2</td>
-                                                    <td>WT</td>
                                                     <td>seed</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1073%2Fpnas.1019732108">Wu et al. PNAS, 2011</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_seed_2%20PAT%20minus%20strand%2Cwt_seed_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>2230409</a></td>
+                                                    <td>RNA was isolated from dried Arabidopsis seed.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>wt root 1</td>
-                                                    <td>WT</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_1%20PAT%20minus%20strand%2Cwt_root_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>16232735</a></td>
+                                                    <td>Total RNA were isolated from 10-day old roots.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>wt root 2</td>
-                                                    <td>WT</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_2%20PAT%20minus%20strand%2Cwt_root_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>10700327</a></td>
+                                                    <td>Total RNA were isolated from 10-day old roots.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>wt root 3</td>
-                                                    <td>WT</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_3%20PAT%20minus%20strand%2Cwt_root_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>12547544</a></td>
+                                                    <td>Total RNA were isolated from 10-day old roots.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>oxt6 root 1</td>
-                                                    <td>Oxt6</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_1%20PAT%20minus%20strand%2Coxt6_root_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>5861620</a></td>
+                                                    <td>A mutant deﬁcient in CPSF30 expression. Total RNA were isolated from 10-day old roots.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>oxt6 root 2</td>
-                                                    <td>Oxt6</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_2%20PAT%20minus%20strand%2Coxt6_root_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>10174020</a></td>
+                                                    <td>A mutant deﬁcient in CPSF30 expression. Total RNA were isolated from 10-day old roots.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>oxt6 root 3</td>
-                                                    <td>Oxt6</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_3%20PAT%20minus%20strand%2Coxt6_root_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>5653903</a></td>
+                                                    <td>A mutant deﬁcient in CPSF30 expression. Total RNA were isolated from 10-day old roots.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>oxt6 leaf 1</td>
-                                                    <td>Oxt6</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_1%20PAT%20minus%20strand%2Coxt6_leaf_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>1222315</a></td>
+                                                    <td>A mutant deﬁcient in CPSF30 expression. Seedlings were germinated and grown in growth chambers set at 22 ℃ under continuous light.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>oxt6 leaf 2</td>
-                                                    <td>Oxt6</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_2%20PAT%20minus%20strand%2Coxt6_leaf_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>74911</a></td>
+                                                    <td>A mutant deﬁcient in CPSF30 expression. Seedlings were germinated and grown in growth chambers set at 22 ℃ under continuous light.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>oxt6 leaf 3</td>
-                                                    <td>Oxt6</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_3%20PAT%20minus%20strand%2Coxt6_leaf_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>2569857</a></td>
+                                                    <td>A mutant deﬁcient in CPSF30 expression. Seedlings were germinated and grown in growth chambers set at 22 ℃ under continuous light.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>oxt6::C30G 1</td>
-                                                    <td>Oxt6</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cg1%20PAT%20plus%20strand%2Cg1%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>2277879</a></td>
+                                                    <td>Transgenes that encode the wild-type AtCPSF30 were introduced into the oxt6 mutant that is deﬁcient in CPSF30 expression. Total RNA were isolated from 10-day old roots.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>oxt6::C30G 2</td>
-                                                    <td>Oxt6</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cg2%20PAT%20plus%20strand%2Cg2%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>4324508</a></td>
+                                                    <td>Transgenes that encode the wild-type AtCPSF30 were introduced into the oxt6 mutant that is deﬁcient in CPSF30 expression. Total RNA were isolated from 10-day old roots.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>oxt6::C30G 3</td>
-                                                    <td>Oxt6</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cg3%20PAT%20plus%20strand%2Cg3%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>5510456</a></td>
+                                                    <td>Transgenes that encode the wild-type AtCPSF30 were introduced into the oxt6 mutant that is deﬁcient in CPSF30 expression. Total RNA were isolated from 10-day old roots.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>oxt6::C30GM 1</td>
-                                                    <td>Oxt6</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cgm1%20PAT%20plus%20strand%2Cgm1%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>5360339</a></td>
+                                                    <td>A mutant deficient in its interaction with calmodulin were introduced into the oxt6 mutant that is deﬁcient in CPSF30 expression. Total RNA were isolated from 10-day old roots.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>oxt6::C30GM 2</td>
-                                                    <td>Oxt6</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cgm2%20PAT%20plus%20strand%2Cgm2%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>5204727</a></td>
+                                                    <td>A mutant deficient in its interaction with calmodulin were introduced into the oxt6 mutant that is deﬁcient in CPSF30 expression. Total RNA were isolated from 10-day old roots.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Arabidopsis thanliana</td>
                                                     <td>oxt6::C30GM 3</td>
-                                                    <td>Oxt6</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
-                                                    <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
                                                     <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cgm3%20PAT%20plus%20strand%2Cgm3%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>6886779</a></td>
+                                                    <td>A mutant deficient in its interaction with calmodulin were introduced into the oxt6 mutant that is deﬁcient in CPSF30 expression. Total RNA were isolated from 10-day old roots.</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -369,103 +327,81 @@ and open the template in the editor.
                                         <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5db95b;width:100%;margin: 10px 2px;">
                                             <tbody>
                                                 <tr class="theme">
-                                                    <td class="theme" bgcolor="#5db95b" align="center" height="24">Species</td>
                                                     <td class="theme" bgcolor="#5db95b" align="center" height="24">Label</td>
-                                                    <td class="theme" bgcolor="#5db95b" align="center" height="24">Cell Line</td>
                                                     <td class="theme" bgcolor="#5db95b" align="center" height="24">Tissue</td>
                                                     <td class="theme" bgcolor="#5db95b" align="center" height="24">Reference</td>
-                                                    <td class="theme" bgcolor="#5db95b" align="center" height="24">Genome Annotation</td>
                                                     <td class="theme" bgcolor="#5db95b" align="center" height="24">PATs</td>
+                                                    <td class="theme" bgcolor="#5db95b" align="center" height="24">Description</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Oryza sativa</td>
                                                     <td>from EST</td>
                                                     <td>mix</td>
-                                                    <td>mix</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1093%2Fnar%2Fgkn158">Shen et al. Plant Cell, 2012</a></td>
-                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
                                                     <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cfrom_EST%20PAT%20minus%20strand%2Cfrom_EST%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>57852</a></td>
+                                                    <td>ESTs and partial or complete cDNA sequences, were collected from GenBank.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Oryza sativa</td>
                                                     <td>from RNAseq</td>
                                                     <td>mix</td>
-                                                    <td>mix</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22443345">Davidson et al. Plant J, 2012</a></td>
-                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
                                                     <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cfrom_RNAseq%20PAT%20plus%20strand%2Cfrom_RNAseq%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>47180</a></td>
+                                                    <td>Poly(A) sites collected from RNA-seq reads of leaf, endosperm, embryo, seed, pistil, anther, and inflorescence tissues.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Oryza sativa</td>
                                                     <td>flower buds</td>
-                                                    <td>WT</td>
                                                     <td>flower</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
-                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
                                                     <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cflower_buds%20PAT%20plus%20strand%2Cflower_buds%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>153823</a></td>
+                                                    <td>Poly(A) sites collected from RNA-seq reads. Seeds from the cultivated rice subspecies Oryza sativa L. ssp. Japonica cultivar Nipponbare were grown in a greenhouse in Singapore under natural light conditions. Flower buds were collected before ﬂowering.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Oryza sativa</td>
                                                     <td>flowers</td>
-                                                    <td>WT</td>
                                                     <td>flower</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
-                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
                                                     <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cflowers%20PAT%20plus%20strand%2Cflowers%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>124224</a></td>
+                                                    <td>Poly(A) sites collected from RNA-seq reads of flower tissue.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Oryza sativa</td>
                                                     <td>leaves before flowering</td>
-                                                    <td>WT</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
-                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
                                                     <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cleaves_before_flowering%20PAT%20plus%20strand%2Cleaves_before_flowering%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>139209</a></td>
+                                                    <td>Poly(A) sites collected from RNA-seq reads of leaves. The before-ﬂowering sample was deﬁned as a mixture of different stages in a period from panicle initiation to 1 day before ﬂowering.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Oryza sativa</td>
                                                     <td>leaves after flowering</td>
-                                                    <td>WT</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
-                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
                                                     <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cleaves_after_flowering%20PAT%20plus%20strand%2Cleaves_after_flowering%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>127962</a></td>
+                                                    <td>Poly(A) sites collected from RNA-seq reads of leaves. The after-ﬂowering sample was deﬁned as a mixture of different stages after the ﬂowering day.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Oryza sativa</td>
                                                     <td>roots before flowering</td>
-                                                    <td>WT</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
-                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
                                                     <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Croots_before_flowering%20PAT%20plus%20strand%2Croots_before_flowering%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>168028</a></td>
+                                                    <td>Poly(A) sites collected from RNA-seq reads of roots. The before-ﬂowering sample was deﬁned as a mixture of different stages in a period from panicle initiation to 1 day before ﬂowering.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Oryza sativa</td>
                                                     <td>roots after flowering</td>
-                                                    <td>WT</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
-                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
                                                     <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Croots_after_flowering%20%20PAT%20minus%20strand%2Croots_after_flowering%20PAT%20plus%20strand' title="View in jbrowse" target='_blanck'>114200</a></td>
+                                                    <td>Poly(A) sites collected from RNA-seq reads of roots. The after-ﬂowering sample was deﬁned as a mixture of different stages after the ﬂowering day.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Oryza sativa</td>
                                                     <td>milk grains</td>
-                                                    <td>WT</td>
                                                     <td>grain</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
-                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
                                                     <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cmilk_grains%20PAT%20plus%20strand%2Cmilk_grains%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>163445</a></td>
+                                                    <td>Poly(A) sites collected from RNA-seq reads of grains.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Oryza sativa</td>
                                                     <td>mature seeds</td>
-                                                    <td>WT</td>
                                                     <td>seed</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
-                                                    <td><a href='http://rice.plantbiology.msu.edu/' target='_blanck'>MSU v7</a></td>
                                                     <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cmature_seeds%20PAT%20plus%20strand%2Cmature_seeds%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>140487</a></td>
+                                                    <td>Poly(A) sites collected from RNA-seq reads of seeds.</td>
                                                 </tr>
                                             </tbody>
                                         </table>
