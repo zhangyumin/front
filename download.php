@@ -434,7 +434,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Oryza sativa</td>
-                        <td><a id='line22' onclick="GetDetail(this)" style="cursor:pointer;color:blue">from_RNAseq</a></td>
+                        <td><a id='line22' onclick="GetDetail(this)" style="cursor:pointer;color:blue">from RNAseq</a></td>
                         <td>mix</td>
                         <td>mix</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22443345">Davidson et al. Plant J, 2012</a></td>
@@ -450,7 +450,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Oryza sativa</td>
-                        <td><a id='line23' onclick="GetDetail(this)" style="cursor:pointer;color:blue">flower_buds</a></td>
+                        <td><a id='line23' onclick="GetDetail(this)" style="cursor:pointer;color:blue">flower buds</a></td>
                         <td>WT</td>
                         <td>flower</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -482,7 +482,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Oryza sativa</td>
-                        <td><a id='line25' onclick="GetDetail(this)" style="cursor:pointer;color:blue">leaves_before_flowering</a></td>
+                        <td><a id='line25' onclick="GetDetail(this)" style="cursor:pointer;color:blue">leaves before flowering</a></td>
                         <td>WT</td>
                         <td>leaf</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -498,7 +498,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Oryza sativa</td>
-                        <td><a id='line26' onclick="GetDetail(this)" style="cursor:pointer;color:blue">leaves_after_flowering</a></td>
+                        <td><a id='line26' onclick="GetDetail(this)" style="cursor:pointer;color:blue">leaves after flowering</a></td>
                         <td>WT</td>
                         <td>leaf</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -514,7 +514,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Oryza sativa</td>
-                        <td><a id='line27' onclick="GetDetail(this)" style="cursor:pointer;color:blue">roots_before_flowering</a></td>
+                        <td><a id='line27' onclick="GetDetail(this)" style="cursor:pointer;color:blue">roots before flowering</a></td>
                         <td>WT</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -530,7 +530,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Oryza sativa</td>
-                        <td><a id='line28' onclick="GetDetail(this)" style="cursor:pointer;color:blue">roots_after_flowering</a></td>
+                        <td><a id='line28' onclick="GetDetail(this)" style="cursor:pointer;color:blue">roots after flowering</a></td>
                         <td>WT</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -546,7 +546,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Oryza sativa</td>
-                        <td><a id='line29' onclick="GetDetail(this)" style="cursor:pointer;color:blue">milk_grains</a></td>
+                        <td><a id='line29' onclick="GetDetail(this)" style="cursor:pointer;color:blue">milk grains</a></td>
                         <td>WT</td>
                         <td>grain</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -562,7 +562,7 @@ and open the template in the editor.
                     </tr>
                     <tr style="border-bottom: 1px #ccc dashed">
                         <td>Oryza sativa</td>
-                        <td><a id='line30' onclick="GetDetail(this)" style="cursor:pointer;color:blue">mature_seeds</a></td>
+                        <td><a id='line30' onclick="GetDetail(this)" style="cursor:pointer;color:blue">mature seeds</a></td>
                         <td>WT</td>
                         <td>seed</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
