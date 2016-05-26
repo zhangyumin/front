@@ -390,7 +390,7 @@ and open the template in the editor.
                         <td>Oxt6</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
-                        <td><a href='http://www.arabidopsis.org/' target='_blanck'>TAIR 10</a></td>
+                        <td><a href='http://www.arabidopsis.org/' targt='_blanck'>TAIR 10</a></td>
                         <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cgm2%20PAT%20plus%20strand%2Cgm2%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>5204727</a></td>
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_gm2_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_gm2_PAC" title="File of poly(A) site clusters"/>PAC</a>
