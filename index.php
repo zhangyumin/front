@@ -445,85 +445,67 @@ and open the template in the editor.
                                         <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5db95b;width:100%;margin: 10px 2px;">
                                             <tbody>
                                                 <tr class="theme" bgcolor="#5db95b">
-                                                    <td class="theme"  height="24">Species</td>
                                                     <td class="theme"  height="24">Label</td>
-                                                    <td class="theme"  height="24">Cell Line</td>
                                                     <td class="theme"  height="24">Tissue</td>
                                                     <td class="theme"  height="24">Reference</td>
-                                                    <td class="theme"  height="24">Genome Annotation</td>
                                                     <td class="theme"  height="24">PATs</td>
+                                                    <td class="theme"  height="24">Description</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Medicago truncatula</td>
                                                     <td>wt leaf</td>
-                                                    <td>WT</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1186%2F1471-2164-15-615">Wu et al. BMC Genomics, 2014</a></td>
-                                                    <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
                                                     <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Cwt_leaf_1%20PAT%20minus%20strand%2Cwt_leaf_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target="_blank">3146287</a></td>
+                                                    <td>RNA was isolated from the combined leaves and washed roots of 3-4 week-old nodule-free plants.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Medicago truncatula</td>
                                                     <td>hairy root</td>
-                                                    <td>WT</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387579">Mertens et al. Plant Physiology, 2016</a></td>
-                                                    <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
                                                     <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Chairy_root%20PAT%20plus%20strand%2Chairy_root%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">6690</a></td>
+                                                    <td>Independent hairy root lines expressing a non-functional GUS gene.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Medicago truncatula</td>
                                                     <td>leaf CK</td>
-                                                    <td>WT</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
-                                                    <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
                                                     <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Cleaf_CK%20PAT%20plus%20strand%2Cleaf_CK%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">51490</a></td>
+                                                    <td>mRNA isolated from leaves of seedlings treated with control (CK).</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Medicago truncatula</td>
                                                     <td>leaf OS</td>
-                                                    <td>WT</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
-                                                    <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
                                                     <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Cleaf_OS%20PAT%20plus%20strand%2Cleaf_OS%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">37338</a></td>
+                                                    <td>mRNA isolated from leaves of M. truncatula seedlings treated with osmotic stress (OS).</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Medicago truncatula</td>
                                                     <td>leaf SS</td>
-                                                    <td>WT</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
-                                                    <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
                                                     <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Cleaf_SS%20PAT%20plus%20strand%2Cleaf_SS%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">29059</a></td>
+                                                    <td>mRNA isolated from leaves of seedlings treated with salt stress (SS).</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Medicago truncatula</td>
                                                     <td>root CK</td>
-                                                    <td>WT</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
-                                                    <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
                                                     <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Croot_CK%20PAT%20plus%20strand%2Croot_CK%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">42947</a></td>
+                                                    <td>mRNA isolated from roots of seedlings treated with control (CK).</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Medicago truncatula</td>
                                                     <td>root OS</td>
-                                                    <td>WT</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
-                                                    <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
                                                     <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Croot_OS%20PAT%20plus%20strand%2Croot_OS%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">47675</a></td>
+                                                    <td>mRNA isolated from roots of seedlings treated with osmotic stress (OS).</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Medicago truncatula</td>
                                                     <td>root SS</td>
-                                                    <td>WT</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
-                                                    <td><a href='http://medicago.jcvi.org/medicago/index.php#' target="_blank">JCVI Medtr v4</a></td>
                                                     <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Croot_SS%20PAT%20plus%20strand%2Croot_SS%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">50540</a></td>
+                                                    <td>mRNA isolated from roots of seedlings treated with salt stress (SS).</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -569,49 +551,39 @@ and open the template in the editor.
                                         <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5db95b;width:100%;margin: 10px 2px;">
                                             <tbody>
                                                 <tr class="theme" bgcolor="#5db95b">
-                                                    <td class="theme"  height="24">Species</td>
                                                     <td class="theme"  height="24">Label</td>
-                                                    <td class="theme"  height="24">Cell Line</td>
                                                     <td class="theme"  height="24">Tissue</td>
                                                     <td class="theme"  height="24">Reference</td>
-                                                    <td class="theme"  height="24">Genome Annotation</td>
                                                     <td class="theme"  height="24">PATs</td>
+                                                    <td class="theme"  height="24">Description</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Chlamydomonas reinhardtii</td>
                                                     <td>from illumina</td>
                                                     <td>mix</td>
-                                                    <td>mix</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
-                                                    <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
                                                     <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2Cfrom_illumina%20PAT%20plus%20strand%2Cfrom_illumina%20%20PAT%20minus%20strand&highlight=' title="View in jbrowse" target="_blank">622248</a></td>
+                                                    <td>Illumina data were from DNAnexus (<a href='http://sra.dnanexus.com'/>http://sra.dnanexus.com/</a>)</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Chlamydomonas reinhardtii</td>
                                                     <td>from 454</td>
                                                     <td>mix</td>
-                                                    <td>mix</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
-                                                    <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
                                                     <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2CGene%20annotation%2CFrom_454%20PAT%20minus%20strand%2CFrom_454%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target="_blank">324305</a></td>
+                                                    <td>454 data were from DNAnexus (<a href='http://sra.dnanexus.com'/>http://sra.dnanexus.com/</a>) or Dr. Olivier Vallon from Institut de Biologie Physico-Chimmique.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Chlamydomonas reinhardtii</td>
                                                     <td>from EST</td>
                                                     <td>mix</td>
-                                                    <td>mix</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
-                                                    <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
                                                     <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2CGene%20annotation%2CFrom_EST%20PAT%20minus%20strand%2CFrom_EST%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target="_blank">56754</a></td>
+                                                    <td>ESTs were collected from both JGI and NCBI GenBank.</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Chlamydomonas reinhardtii</td>
                                                     <td>from PAT-seq</td>
                                                     <td>mix</td>
-                                                    <td>mix</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0146107">Bell et al. PloS one, 2016</a></td>
-                                                    <td><a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Creinhardtii' target="_blank">Creinhardtii 281 v55</a></td>
                                                     <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2CGene%20annotation%2CFrom_PATseq%20PAT%20plus%20strand%2CFrom_PATseq%20%20PAT%20minus%20strand&highlight=' title="View in jbrowse" target="_blank">12532698</a></td>
+                                                    <td>Poly(A) sites in in cultures grown in four different media types: Tris-Phosphate (TP), Tris-Phosphate-Acetate (TAP), High-Salt (HS), and High-Salt-Acetate (HAS).</td>
                                                 </tr>
                                             </tbody>
                                         </table>
