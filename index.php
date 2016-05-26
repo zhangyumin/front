@@ -388,7 +388,7 @@ and open the template in the editor.
                                                 </tr>
                                                 <tr>
                                                     <td>Oryza sativa</td>
-                                                    <td>from_RNAseq</td>
+                                                    <td>from RNAseq</td>
                                                     <td>mix</td>
                                                     <td>mix</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22443345">Davidson et al. Plant J, 2012</a></td>
@@ -397,7 +397,7 @@ and open the template in the editor.
                                                 </tr>
                                                 <tr>
                                                     <td>Oryza sativa</td>
-                                                    <td>flower_buds</td>
+                                                    <td>flower buds</td>
                                                     <td>WT</td>
                                                     <td>flower</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -415,7 +415,7 @@ and open the template in the editor.
                                                 </tr>
                                                 <tr>
                                                     <td>Oryza sativa</td>
-                                                    <td>leaves_before_flowering</td>
+                                                    <td>leaves before flowering</td>
                                                     <td>WT</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -424,7 +424,7 @@ and open the template in the editor.
                                                 </tr>
                                                 <tr>
                                                     <td>Oryza sativa</td>
-                                                    <td>leaves_after_flowering</td>
+                                                    <td>leaves after flowering</td>
                                                     <td>WT</td>
                                                     <td>leaf</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -433,7 +433,7 @@ and open the template in the editor.
                                                 </tr>
                                                 <tr>
                                                     <td>Oryza sativa</td>
-                                                    <td>roots_before_flowering</td>
+                                                    <td>roots before flowering</td>
                                                     <td>WT</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -442,7 +442,7 @@ and open the template in the editor.
                                                 </tr>
                                                 <tr>
                                                     <td>Oryza sativa</td>
-                                                    <td>roots_after_flowering</td>
+                                                    <td>roots after flowering</td>
                                                     <td>WT</td>
                                                     <td>root</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -451,7 +451,7 @@ and open the template in the editor.
                                                 </tr>
                                                 <tr>
                                                     <td>Oryza sativa</td>
-                                                    <td>milk_grains</td>
+                                                    <td>milk grains</td>
                                                     <td>WT</td>
                                                     <td>grain</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -460,7 +460,7 @@ and open the template in the editor.
                                                 </tr>
                                                 <tr>
                                                     <td>Oryza sativa</td>
-                                                    <td>mature_seeds</td>
+                                                    <td>mature seeds</td>
                                                     <td>WT</td>
                                                     <td>seed</td>
                                                     <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
