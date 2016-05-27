@@ -346,7 +346,7 @@ and open the template in the editor.
                         <td><a href="./download_data.php?type=1&name=Ath_TAIR10_gm3_PAT" title="Poly(A) site file: Chr, Strand, Coordinate, Number_of_PATs"/>PAT</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_gm3_PAC" title="File of poly(A) site clusters"/>PAC</a>
                         |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_gm3_PAC.fa.zip" title="Sequence file of poly(A) site clusters (PACs)"/>Sequence</a>
-                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_gm3_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>m
+                        |&nbsp;<a href="./download_data.php?type=1&name=Ath_TAIR10_gm3_PAT_Track.zip" title="Jbrowse track file of poly(A) site tagnum (PATs)"/>PAT Track</a></td>
                     </tr>
                     <tr>
                         <td>Oryza sativa</td>
