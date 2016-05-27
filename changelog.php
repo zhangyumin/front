@@ -68,6 +68,11 @@
                 </tbody>
             </table>
             <div class="log">
+                <h4>V1.2.1 (2016-05-20)</h4>
+                <span class="title">Add new poly(A) site datasets.</span>
+                <br><span class="text">We have collected additional six samples from mutant samples for Arabidopsis and 18 samples from RNA-seq data for rice and Medicago.</span>
+            </div>
+            <div class="log">
                 <h4>V1.2.0 (2016-03-28)</h4>
                 <span class="title">Update the web UI and extensively debugging.</span>
                 <br><span class="text">Change the logo, adjust the text, alter the layout of web pages, and extensively test the website.</span>
