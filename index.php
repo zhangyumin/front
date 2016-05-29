@@ -421,7 +421,7 @@ and open the template in the editor.
                                 <td>8</td>
                                 <td>61258</td>
                                 <td>3412026</td>
-                                <td>poly(A) sites extracted from RNA-seq and  PAT-seq sequence reads</td>
+                                <td>Poly(A) sites extracted from RNA-seq and  PAT-seq sequence reads</td>
                                 <td><a id='ref3' class="ref">Wu et al. BMC Genomics, 2014; Wang et al.  BMC Plant Biology, 2015; Mertens et al. Plant Physiology, 2016</a></td>                     
                                 <td>
                                     <a class='img' target="_blank" href="../jbrowse/?data=data/mtr">
