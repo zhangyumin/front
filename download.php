@@ -643,7 +643,7 @@ and open the template in the editor.
                 <font color="#224055" ><b>Downloading demo data in PlantAPA</b></font>
             </h2>
             <table  class="bordertable">
-                <head>
+                <thead>
                 <tr>
                     <th>File</th>
                     <th>Description</th>
