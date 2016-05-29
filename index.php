@@ -289,6 +289,7 @@ and open the template in the editor.
                                             <div class="ym-g50 ym-gr" >
                                                 <img src='./pic/arab_PATs.png' style="width:400px;height: 240px"/>
                                             </div>
+                                            <span>Distributions of poly(A) site clusters (PACs) and poly(A) tags (PATs) </span>
                                         </div>
                                             <div class="ym-grid " style="clear: both;" >
                                                 
@@ -412,6 +413,7 @@ and open the template in the editor.
                                             <div class="ym-g50 ym-gl">
                                                 <img src='./pic/japonica_PATs.png' style="width:400px;height: 240px"/>
                                             </div>
+                                            <span>Distributions of poly(A) site clusters (PACs) and poly(A) tags (PATs) </span>
                                         </div>
                                     </div>
                             </td>
@@ -516,6 +518,7 @@ and open the template in the editor.
                                             <div class="ym-g50 ym-gl">
                                                 <img src='./pic/mtr_PATs.png' style="width:400px;height: 240px"/>
                                             </div>
+                                            <span>Distributions of poly(A) site clusters (PACs) and poly(A) tags (PATs) </span>
 
                                         </div> 
                                         <div class="ym-grid" style="clear:both">
@@ -594,6 +597,7 @@ and open the template in the editor.
                                             <div class="ym-g50 ym-gl">
                                                 <img src='./pic/chlamy_PATs.png' style="width:400px;height: 240px"/>
                                             </div>
+                                            <span>Distributions of poly(A) site clusters (PACs) and poly(A) tags (PATs) </span>
                                         </div>
                                         <div class="ym-grid" style="clear:both">
                                         </div>        
