@@ -661,7 +661,7 @@ and open the template in the editor.
                     <td>Ath.demo.NGS.fq</td>
                     <td>Short read for PAC Trap (Arabidopsis thaliana)</td>
                     <td>25.5MB</td>
-                    <td><a href="./download_data.php?type=1&name=arab_sample_100k.fastq"/>Download</td>
+                    <td><a href="./download_data.php?type=1&name=Ath.demo.NGS.fq"/>Download</td>
                 </tr>
                 <tr>
                     <td>Ath.demo.EST.fa</td>
