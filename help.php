@@ -114,6 +114,370 @@
                             <img class="pic" src="./pic/help/pipeline.png"/>
                             <br>Pipeline to determine PAC and the PAC table
                         </div>
+                        <p id='datasets'>
+                            <table cellspacing="1" cellpadding="0" border="0" style="border:1px dotted #5db95b;margin: 10px 1%;">
+                                <thead>
+                                    <tr class="theme" bgcolor="#5db95b">
+                                        <td class="theme"  height="24">Label</td>
+                                        <td class="theme"  height="24">Tissue</td>
+                                        <td class="theme"  height="24">Reference</td>
+                                        <td class="theme"  height="24">PATs</td>
+                                        <td class="theme"  height="24">PACs</td>
+                                        <td class="theme"  height="24">Description</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6" style="background-color:#f2dede">Arabidopsis thaliana (Genome annotation: TAIR 10; all raw data were sequenced by PAT-seq)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>wt leaf 1</td>
+                                        <td>leaf</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_1%20PAT%20minus%20strand%2Cwt_leaf_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>1055461</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,wt_leaf_1_PAC" target="_blank">11570</a></td>
+                                        <td>Plants were grown in soil in a climate-controlled growth room under short-day (8-h daylight) conditions, or under sterile conditions by germinating seeds, to capture as broad a range of poly(A) sites in leaves as possible.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>wt leaf 2</td>
+                                        <td>leaf</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1073%2Fpnas.1019732108">Wu et al. PNAS, 2011</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_2%20PAT%20minus%20strand%2Cwt_leaf_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>927476</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,wt_leaf_2_PAC" target="_blank">13678</a></td>
+                                        <td>Plants were grown in soil in a climate-controlled growth room under short-day (8-h daylight) conditions, or under sterile conditions by germinating seeds, to capture as broad a range of poly(A) sites in leaves as possible.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>wt leaf 3</td>
+                                        <td>leaf</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_leaf_3%20PAT%20minus%20strand%2Cwt_leaf_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>24269</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,wt_leaf_3_PAC" target="_blank">3989</a></td>
+                                        <td>Plants were grown in soil in a climate-controlled growth room under short-day (8-h daylight) conditions, or under sterile conditions by germinating seeds, to capture as broad a range of poly(A) sites in leaves as possible.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>wt seed 1</td>
+                                        <td>seed</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_seed_1%20PAT%20minus%20strand%2Cwt_seed_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>332010</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,wt_seed_1_PAC" target="_blank">7567</a></td>
+                                        <td>RNA was isolated from dried Arabidopsis seed.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>wt seed 2</td>
+                                        <td>seed</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1073%2Fpnas.1019732108">Wu et al. PNAS, 2011</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_seed_2%20PAT%20minus%20strand%2Cwt_seed_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>2230409</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,wt_seed_2_PAC" target="_blank">15106</a></td>
+                                        <td>RNA was isolated from dried Arabidopsis seed.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>wt root 1</td>
+                                        <td>root</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_1%20PAT%20minus%20strand%2Cwt_root_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>16232735</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,wt_root_1_PAC" target="_blank">53850</a></td>
+                                        <td>Total RNA were isolated from 10-day old roots.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>wt root 2</td>
+                                        <td>root</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_2%20PAT%20minus%20strand%2Cwt_root_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>10700327</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,wt_root_2_PAC" target="_blank">18993</a></td>
+                                        <td>Total RNA were isolated from 10-day old roots.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>wt root 3</td>
+                                        <td>root</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cwt_root_3%20PAT%20minus%20strand%2Cwt_root_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>12547544</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,wt_root_3_PAC" target="_blank"/>55747</td>
+                                        <td>Total RNA were isolated from 10-day old roots.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>oxt6 root 1</td>
+                                        <td>root</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_1%20PAT%20minus%20strand%2Coxt6_root_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>5861620</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,oxt6_root_1_PAC" target="_blank"/>23428</td>
+                                        <td>A mutant deﬁcient in CPSF30 expression. Total RNA were isolated from 10-day old roots.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>oxt6 root 2</td>
+                                        <td>root</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_2%20PAT%20minus%20strand%2Coxt6_root_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>10174020</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,oxt6_root_2_PAC" target="_blank"/>18923</td>
+                                        <td>A mutant deﬁcient in CPSF30 expression. Total RNA were isolated from 10-day old roots.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>oxt6 root 3</td>
+                                        <td>root</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_root_3%20PAT%20minus%20strand%2Coxt6_root_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>5653903</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,oxt6_root_3_PAC" target="_blank"/>48191</td>
+                                        <td>A mutant deﬁcient in CPSF30 expression. Total RNA were isolated from 10-day old roots.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>oxt6 leaf 1</td>
+                                        <td>leaf</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_1%20PAT%20minus%20strand%2Coxt6_leaf_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>1222315</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,oxt6_leaf_1_PAC" target="_blank"/>13112</td>
+                                        <td>A mutant deﬁcient in CPSF30 expression. Seedlings were germinated and grown in growth chambers set at 22 ℃ under continuous light.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>oxt6 leaf 2</td>
+                                        <td>leaf</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_2%20PAT%20minus%20strand%2Coxt6_leaf_2%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>74911</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,oxt6_leaf_2_PAC" target="_blank"/>6950</td>
+                                        <td>A mutant deﬁcient in CPSF30 expression. Seedlings were germinated and grown in growth chambers set at 22 ℃ under continuous light.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>oxt6 leaf 3</td>
+                                        <td>leaf</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Coxt6_leaf_3%20PAT%20minus%20strand%2Coxt6_leaf_3%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>2569857</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,oxt6_leaf_3_PAC" target="_blank"/>15788</td>
+                                        <td>A mutant deﬁcient in CPSF30 expression. Seedlings were germinated and grown in growth chambers set at 22 ℃ under continuous light.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>oxt6::C30G 1</td>
+                                        <td>root</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cg1%20PAT%20plus%20strand%2Cg1%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>2277879</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,g1_PAC" target="_blank"/>24681</td>
+                                        <td>Transgenes that encode the wild-type AtCPSF30 were introduced into the oxt6 mutant that is deﬁcient in CPSF30 expression. Total RNA were isolated from 10-day old roots.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>oxt6::C30G 2</td>
+                                        <td>root</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cg2%20PAT%20plus%20strand%2Cg2%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>4324508</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,g2_PAC" target="_blank"/>18838</td>
+                                        <td>Transgenes that encode the wild-type AtCPSF30 were introduced into the oxt6 mutant that is deﬁcient in CPSF30 expression. Total RNA were isolated from 10-day old roots.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>oxt6::C30G 3</td>
+                                        <td>root</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cg3%20PAT%20plus%20strand%2Cg3%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>5510456</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,g3_PAC" target="_blank"/>47620</td>
+                                        <td>Transgenes that encode the wild-type AtCPSF30 were introduced into the oxt6 mutant that is deﬁcient in CPSF30 expression. Total RNA were isolated from 10-day old roots.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>oxt6::C30GM 1</td>
+                                        <td>root</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cgm1%20PAT%20plus%20strand%2Cgm1%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>5360339</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,gm1_PAC" target="_blank"/>23679</td>
+                                        <td>A mutant deficient in its interaction with calmodulin were introduced into the oxt6 mutant that is deﬁcient in CPSF30 expression. Total RNA were isolated from 10-day old roots.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>oxt6::C30GM 2</td>
+                                        <td>root</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cgm2%20PAT%20plus%20strand%2Cgm2%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>5204727</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,gm2_PAC" target="_blank"/>16862</td>
+                                        <td>A mutant deficient in its interaction with calmodulin were introduced into the oxt6 mutant that is deﬁcient in CPSF30 expression. Total RNA were isolated from 10-day old roots.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>oxt6::C30GM 3</td>
+                                        <td>root</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
+                                        <td><a href='../jbrowse/?data=data/arab&tracks=Gene%20annotation%2CDNA%2Cgm3%20PAT%20plus%20strand%2Cgm3%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>6886779</a></td>
+                                        <td><a href="/jbrowse/?data=data/arab&tracks=PlantAPA stored PAC,gm3_PAC" target="_blank"/>49522</td>
+                                        <td>A mutant deficient in its interaction with calmodulin were introduced into the oxt6 mutant that is deﬁcient in CPSF30 expression. Total RNA were isolated from 10-day old roots.</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" style="background-color:#f2dede">Oryza sativa (Genome annotation: MSU v7; raw data were ESTs or RNA-seq reads)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>from EST</td>
+                                        <td>mix</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1093%2Fnar%2Fgkn158">Shen et al. Plant Cell, 2012</a></td>
+                                        <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cfrom_EST%20PAT%20minus%20strand%2Cfrom_EST%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target='_blanck'>57852</a></td>
+                                        <td><a href="/jbrowse/?data=data/japonica&tracks=PlantAPA stored PAC,From_EST_PAC" target="_blank"/>28616</td>
+                                        <td>ESTs and partial or complete cDNA sequences, were collected from GenBank.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>from RNAseq</td>
+                                        <td>mix</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22443345">Davidson et al. Plant J, 2012</a></td>
+                                        <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cfrom_RNAseq%20PAT%20plus%20strand%2Cfrom_RNAseq%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>47180</a></td>
+                                        <td><a href="/jbrowse/?data=data/japonica&tracks=PlantAPA stored PAC,From_RNAseq_PAC" target="_blank"/>11870</td>
+                                        <td>Poly(A) sites collected from RNA-seq reads of leaf, endosperm, embryo, seed, pistil, anther, and inflorescence tissues.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>flower buds</td>
+                                        <td>flower</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
+                                        <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cflower_buds%20PAT%20plus%20strand%2Cflower_buds%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>153823</a></td>
+                                        <td><a href="/jbrowse/?data=data/japonica&tracks=PlantAPA stored PAC,flower_buds_PAC" target="_blank"/>25115</td>
+                                        <td>Poly(A) sites collected from RNA-seq reads. Seeds from the cultivated rice subspecies Oryza sativa L. ssp. Japonica cultivar Nipponbare were grown in a greenhouse in Singapore under natural light conditions. Flower buds were collected before ﬂowering.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>flowers</td>
+                                        <td>flower</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
+                                        <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cflowers%20PAT%20plus%20strand%2Cflowers%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>124224</a></td>
+                                        <td><a href="/jbrowse/?data=data/japonica&tracks=PlantAPA stored PAC,flowers_PAC" target="_blank"/>22116</td>
+                                        <td>Poly(A) sites collected from RNA-seq reads of flower tissue.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>leaves before flowering</td>
+                                        <td>leaf</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
+                                        <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cleaves_before_flowering%20PAT%20plus%20strand%2Cleaves_before_flowering%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>139209</a></td>
+                                        <td><a href="/jbrowse/?data=data/japonica&tracks=PlantAPA stored PAC,leaves_before_flowering_PAC" target="_blank"/>21345</td>
+                                        <td>Poly(A) sites collected from RNA-seq reads of leaves. The before-ﬂowering sample was deﬁned as a mixture of different stages in a period from panicle initiation to 1 day before ﬂowering.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>leaves after flowering</td>
+                                        <td>leaf</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
+                                        <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cleaves_after_flowering%20PAT%20plus%20strand%2Cleaves_after_flowering%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>127962</a></td>
+                                        <td><a href="/jbrowse/?data=data/japonica&tracks=PlantAPA stored PAC,leaves_after_flowering_PAC" target="_blank"/>21147</td>
+                                        <td>Poly(A) sites collected from RNA-seq reads of leaves. The after-ﬂowering sample was deﬁned as a mixture of different stages after the ﬂowering day.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>roots before flowering</td>
+                                        <td>root</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
+                                        <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Croots_before_flowering%20PAT%20plus%20strand%2Croots_before_flowering%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>168028</a></td>
+                                        <td><a href="/jbrowse/?data=data/japonica&tracks=PlantAPA stored PAC,roots_before_flowering_PAC" target="_blank"/>23692</td>
+                                        <td>Poly(A) sites collected from RNA-seq reads of roots. The before-ﬂowering sample was deﬁned as a mixture of different stages in a period from panicle initiation to 1 day before ﬂowering.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>roots after flowering</td>
+                                        <td>root</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
+                                        <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Croots_after_flowering%20%20PAT%20minus%20strand%2Croots_after_flowering%20PAT%20plus%20strand' title="View in jbrowse" target='_blanck'>114200</a></td>
+                                        <td><a href="/jbrowse/?data=data/japonica&tracks=PlantAPA stored PAC,roots_after_flowering_PAC" target="_blank"/>19770</td>
+                                        <td>Poly(A) sites collected from RNA-seq reads of roots. The after-ﬂowering sample was deﬁned as a mixture of different stages after the ﬂowering day.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>milk grains</td>
+                                        <td>grain</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
+                                        <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cmilk_grains%20PAT%20plus%20strand%2Cmilk_grains%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>163445</a></td>
+                                        <td><a href="/jbrowse/?data=data/japonica&tracks=PlantAPA stored PAC,milk_grains_PAC" target="_blank"/>15720</td>
+                                        <td>Poly(A) sites collected from RNA-seq reads of grains.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>mature seeds</td>
+                                        <td>seed</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
+                                        <td><a href='../jbrowse/?data=data/japonica&tracks=DNA%2CGene%20annotation%2Cmature_seeds%20PAT%20plus%20strand%2Cmature_seeds%20%20PAT%20minus%20strand' title="View in jbrowse" target='_blanck'>140487</a></td>
+                                        <td><a href="/jbrowse/?data=data/japonica&tracks=PlantAPA stored PAC,mature_seeds_PAC" target="_blank"/>18778</td>
+                                        <td>Poly(A) sites collected from RNA-seq reads of seeds.</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" style="background-color:#f2dede">Medicago truncatula (Genome annotation: JCVI Medtr v4; raw data were sequenced from PAT-seq or RNA-seq)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>wt leaf 1</td>
+                                        <td>leaf</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1186%2F1471-2164-15-615">Wu et al. BMC Genomics, 2014</a></td>
+                                        <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Cwt_leaf_1%20PAT%20minus%20strand%2Cwt_leaf_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target="_blank">3146287</a></td>
+                                        <td><a href="/jbrowse/?data=data/mtr&tracks=PlantAPA stored PAC,wt_leaf_1_PAC" target="_blank"/>44685</td>
+                                        <td>RNA was isolated from the combined leaves and washed roots of 3-4 week-old nodule-free plants.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>hairy root</td>
+                                        <td>root</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387579">Mertens et al. Plant Physiology, 2016</a></td>
+                                        <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Chairy_root%20PAT%20plus%20strand%2Chairy_root%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">6690</a></td>
+                                        <td><a href="/jbrowse/?data=data/mtr&tracks=PlantAPA stored PAC,hairy_root_PAC" target="_blank"/>3262</td>
+                                        <td>Independent hairy root lines expressing a non-functional GUS gene.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>leaf CK</td>
+                                        <td>leaf</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
+                                        <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Cleaf_CK%20PAT%20plus%20strand%2Cleaf_CK%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">29059</a></td>
+                                        <td><a href="/jbrowse/?data=data/mtr&tracks=PlantAPA stored PAC,leaf_CK_PAC" target="_blank"/>4099</td>
+                                        <td>mRNA isolated from leaves of seedlings treated with control (CK).</td>
+                                    </tr>
+                                    <tr>
+                                        <td>leaf OS</td>
+                                        <td>leaf</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
+                                        <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Cleaf_OS%20PAT%20plus%20strand%2Cleaf_OS%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">51490</a></td>
+                                        <td><a href="/jbrowse/?data=data/mtr&tracks=PlantAPA stored PAC,leaf_OS_PAC" target="_blank"/>7225</td>
+                                        <td>mRNA isolated from leaves of M. truncatula seedlings treated with osmotic stress (OS).</td>
+                                    </tr>
+                                    <tr>
+                                        <td>leaf SS</td>
+                                        <td>leaf</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
+                                        <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Cleaf_SS%20PAT%20plus%20strand%2Cleaf_SS%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">37338</a></td>
+                                        <td><a href="/jbrowse/?data=data/mtr&tracks=PlantAPA stored PAC,leaf_SS_PAC" target="_blank"/>4911</td>
+                                        <td>mRNA isolated from leaves of seedlings treated with salt stress (SS).</td>
+                                    </tr>
+                                    <tr>
+                                        <td>root CK</td>
+                                        <td>root</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
+                                        <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Croot_CK%20PAT%20plus%20strand%2Croot_CK%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">50540</a></td>
+                                        <td><a href="/jbrowse/?data=data/mtr&tracks=PlantAPA stored PAC,root_CK_PAC" target="_blank"/>9877</td>
+                                        <td>mRNA isolated from roots of seedlings treated with control (CK).</td>
+                                    </tr>
+                                    <tr>
+                                        <td>root OS</td>
+                                        <td>root</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
+                                        <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Croot_OS%20PAT%20plus%20strand%2Croot_OS%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">42947</a></td>
+                                        <td><a href="/jbrowse/?data=data/mtr&tracks=PlantAPA stored PAC,root_OS_PAC" target="_blank"/>9413</td>
+                                        <td>mRNA isolated from roots of seedlings treated with osmotic stress (OS).</td>
+                                    </tr>
+                                    <tr>
+                                        <td>root SS</td>
+                                        <td>root</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
+                                        <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Croot_SS%20PAT%20plus%20strand%2Croot_SS%20%20PAT%20minus%20strand' title="View in jbrowse" target="_blank">47675</a></td>
+                                        <td><a href="/jbrowse/?data=data/mtr&tracks=PlantAPA stored PAC,root_SS_PAC" target="_blank"/>13287</td>
+                                        <td>mRNA isolated from roots of seedlings treated with salt stress (SS).</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" style="background-color:#f2dede">Chlamydomonas reinhardtii (Genome annotation: Creinhardtii 281 v55)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>from illumina</td>
+                                        <td>mix</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
+                                        <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2Cfrom_illumina%20PAT%20plus%20strand%2Cfrom_illumina%20%20PAT%20minus%20strand&highlight=' title="View in jbrowse" target="_blank">622248</a></td>
+                                        <td><a href="/jbrowse/?data=data/chlamy&tracks=PlantAPA stored PAC,From_illumina_PAC" target="_blank"/>35630</td>
+                                        <td>Illumina data were from DNAnexus (<a href='http://sra.dnanexus.com'/>http://sra.dnanexus.com/</a>)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>from 454</td>
+                                        <td>mix</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
+                                        <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2CGene%20annotation%2CFrom_454%20PAT%20minus%20strand%2CFrom_454%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target="_blank">324305</a></td>
+                                        <td><a href="/jbrowse/?data=data/chlamy&tracks=PlantAPA stored PAC,From_454_PAC" target="_blank"/>20423</td>
+                                        <td>454 data were from DNAnexus (<a href='http://sra.dnanexus.com'/>http://sra.dnanexus.com/</a>) or Dr. Olivier Vallon from Institut de Biologie Physico-Chimmique.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>from EST</td>
+                                        <td>mix</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
+                                        <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2CGene%20annotation%2CFrom_EST%20PAT%20minus%20strand%2CFrom_EST%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target="_blank">56754</a></td>
+                                        <td><a href="/jbrowse/?data=data/chlamy&tracks=PlantAPA stored PAC,From_EST_PAC" target="_blank"/>9512</td>
+                                        <td>ESTs were collected from both JGI and NCBI GenBank.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>from PAT-seq</td>
+                                        <td>mix</td>
+                                        <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0146107">Bell et al. PloS one, 2016</a></td>
+                                        <td><a href='../jbrowse/?data=data%2Fchlamy&tracks=DNA%2CGene%20annotation%2CFrom_PATseq%20PAT%20plus%20strand%2CFrom_PATseq%20%20PAT%20minus%20strand&highlight=' title="View in jbrowse" target="_blank">12532698</a></td>
+                                        <td><a href="/jbrowse/?data=data/chlamy&tracks=PlantAPA stored PAC,From_PATseq_PAC" target="_blank"/>14820</td>
+                                        <td>Poly(A) sites in in cultures grown in four different media types: Tris-Phosphate (TP), Tris-Phosphate-Acetate (TAP), High-Salt (HS), and High-Salt-Acetate (HAS).</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </p>
                         <p id="download">Users can download PATs, PACs, and relevent sequences from the <a href="./download.php">download</a> page.</p> 
                         <div class="picdiv">
                             <img class="pic" src="./pic/help/download.png"/>
