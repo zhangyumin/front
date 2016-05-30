@@ -784,7 +784,10 @@ and open the template in the editor.
                             {
                                     type : 'category',
                                     axisLabel:{
-                                            interval:0
+                                            interval:0,
+                                            formatter:function(val){
+                                                return val.split("_").join("\n").split("::").join("\n").split(" ").join("\n");
+                                            }
                                     },
 //                                data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
                                    data : ['<?php
@@ -896,7 +899,10 @@ and open the template in the editor.
                             {
                                     type : 'category',
                                     axisLabel:{
-                                            interval:0
+                                            interval:0,
+                                            formatter:function(val){
+                                                return val.split("_").join("\n").split("::").join("\n").split(" ").join("\n");
+                                            }
                                     },
 //                                data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
                                    data : ['<?php
@@ -1015,7 +1021,10 @@ and open the template in the editor.
                             {
                                     type : 'category',
                                     axisLabel:{
-                                            interval:0
+                                            interval:0,
+                                            formatter:function(val){
+                                                return val.split("_").join("\n").split("::").join("\n").split(" ").join("\n");
+                                            }
                                     },
 //                                data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
                                    data : ['<?php
@@ -1133,7 +1142,10 @@ and open the template in the editor.
                             {
                                     type : 'category',
                                     axisLabel:{
-                                            interval:0
+                                            interval:0,
+                                            formatter:function(val){
+                                                return val.split("_").join("\n").split("::").join("\n").split(" ").join("\n");
+                                            }
                                     },
 //                                data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
                                    data : ['<?php
@@ -1251,7 +1263,10 @@ and open the template in the editor.
                             {
                                     type : 'category',
                                     axisLabel:{
-                                            interval:0
+                                            interval:0,
+                                            formatter:function(val){
+                                                return val.split("_").join("\n").split("::").join("\n").split(" ").join("\n");
+                                            }
                                     },
 //                                data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
                                    data : ['<?php
@@ -1383,7 +1398,10 @@ and open the template in the editor.
                             {
                                     type : 'category',
                                     axisLabel:{
-                                            interval:0
+                                            interval:0,
+                                            formatter:function(val){
+                                                return val.split("_").join("\n").split("::").join("\n").split(" ").join("\n");
+                                            }
                                     },
 //                                data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
                                    data : ['<?php
@@ -1506,7 +1524,10 @@ and open the template in the editor.
                             {
                                     type : 'category',
                                     axisLabel:{
-                                            interval:0
+                                            interval:0,
+                                            formatter:function(val){
+                                                return val.split("_").join("\n").split("::").join("\n").split(" ").join("\n");
+                                            }
                                     },
 //                                data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
                                    data : ['<?php
@@ -1628,7 +1649,10 @@ and open the template in the editor.
                             {
                                     type : 'category',
                                     axisLabel:{
-                                            interval:0
+                                            interval:0,
+                                            formatter:function(val){
+                                                return val.split("_").join("\n").split("::").join("\n").split(" ").join("\n");
+                                            }
                                     },
 //                                data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
                                    data : ['<?php
