@@ -377,7 +377,7 @@
                                         <td colspan="6" style="background-color:#f2dede">Medicago truncatula (Genome annotation: JCVI Medtr v4; raw data were sequenced from PAT-seq or RNA-seq)</td>
                                     </tr>
                                     <tr>
-                                        <td>wt leaf 1</td>
+                                        <td>wt leaf</td>
                                         <td>leaf</td>
                                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1186%2F1471-2164-15-615">Wu et al. BMC Genomics, 2014</a></td>
                                         <td><a href='../jbrowse/?data=data%2Fmtr&tracks=DNA%2CGene%20annotation%2Cwt_leaf_1%20PAT%20minus%20strand%2Cwt_leaf_1%20PAT%20plus%20strand&highlight=' title="View in jbrowse" target="_blank">3146287</a></td>
