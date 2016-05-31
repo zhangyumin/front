@@ -37,7 +37,12 @@ and open the template in the editor.
         <script type="text/javascript">
             function GetDetail(a){
                 var id = a.id+"_detail";
-                console.log(id);
+                if($('#'+id).is(":visible")){
+                    $('#'+a.id+' img').attr("src","./pic/plus.png");
+                }
+                else{
+                    $('#'+a.id+' img').attr("src","./pic/minus.png");
+                }
                 $('#'+id).slideToggle();
             }
         </script>
@@ -98,7 +103,7 @@ and open the template in the editor.
                 <tbody>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line1' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">wt leaf 1</a></td>
+                        <td><a id='line1' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>wt leaf 1</a></td>
                         <td>WT</td>
                         <td>leaf</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
@@ -114,7 +119,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line2' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">wt leaf 2</a></td>
+                        <td><a id='line2' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>wt leaf 2</a></td>
                         <td>WT</td>
                         <td>leaf</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1073%2Fpnas.1019732108">Wu et al. PNAS, 2011</a></td>
@@ -130,7 +135,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line3' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">wt leaf 3</a></td>
+                        <td><a id='line3' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>wt leaf 3</a></td>
                         <td>WT</td>
                         <td>leaf</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
@@ -146,7 +151,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line4' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">wt seed 1</a></td>
+                        <td><a id='line4' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>wt seed 1</a></td>
                         <td>WT</td>
                         <td>seed</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
@@ -162,7 +167,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line5' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">wt seed 2</a></td>
+                        <td><a id='line5' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>wt seed 2</a></td>
                         <td>WT</td>
                         <td>seed</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1073%2Fpnas.1019732108">Wu et al. PNAS, 2011</a></td>
@@ -178,7 +183,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line6' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">wt root 1</a></td>
+                        <td><a id='line6' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>wt root 1</a></td>
                         <td>WT</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
@@ -194,7 +199,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line7' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">wt root 2</a></td>
+                        <td><a id='line7' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>wt root 2</a></td>
                         <td>WT</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
@@ -210,7 +215,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line8' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">wt root 3</a></td>
+                        <td><a id='line8' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>wt root 3</a></td>
                         <td>WT</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
@@ -226,7 +231,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line9' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">oxt6 root 1</a></td>
+                        <td><a id='line9' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>oxt6 root 1</a></td>
                         <td>Oxt6</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
@@ -242,7 +247,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line10' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">oxt6 root 2</a></td>
+                        <td><a id='line10' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>oxt6 root 2</a></td>
                         <td>Oxt6</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
@@ -258,7 +263,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line11' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">oxt6 root 3</a></td>
+                        <td><a id='line11' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>oxt6 root 3</a></td>
                         <td>Oxt6</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
@@ -274,7 +279,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line12' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">oxt6 leaf 1</a></td>
+                        <td><a id='line12' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>oxt6 leaf 1</a></td>
                         <td>Oxt6</td>
                         <td>leaf</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
@@ -290,7 +295,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line13' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">oxt6 leaf 2</a></td>
+                        <td><a id='line13' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>oxt6 leaf 2</a></td>
                         <td>Oxt6</td>
                         <td>leaf</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
@@ -306,7 +311,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line14' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">oxt6 leaf 3</a></td>
+                        <td><a id='line14' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>oxt6 leaf 3</a></td>
                         <td>Oxt6</td>
                         <td>leaf</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23136375">Thomas et al. Plant Cell, 2012</a></td>
@@ -322,7 +327,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line15' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">oxt6::C30G 1</a></td>
+                        <td><a id='line15' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>oxt6::C30G 1</a></td>
                         <td>Oxt6</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
@@ -338,7 +343,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line16' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">oxt6::C30G 2</a></td>
+                        <td><a id='line16' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>oxt6::C30G 2</a></td>
                         <td>Oxt6</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
@@ -354,7 +359,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line17' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">oxt6::C30G 3</a></td>
+                        <td><a id='line17' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>oxt6::C30G 3</a></td>
                         <td>Oxt6</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
@@ -370,7 +375,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line18' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">oxt6::C30GM 1</a></td>
+                        <td><a id='line18' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>oxt6::C30GM 1</a></td>
                         <td>Oxt6</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
@@ -386,7 +391,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line19' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">oxt6::C30GM 2</a></td>
+                        <td><a id='line19' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>oxt6::C30GM 2</a></td>
                         <td>Oxt6</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
@@ -402,7 +407,7 @@ and open the template in the editor.
                     </tr>
                     <tr style="border-bottom: 1px #ccc dashed">
                         <td>Arabidopsis thanliana</td>
-                        <td><a id='line20' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">oxt6::C30GM 3</a></td>
+                        <td><a id='line20' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>oxt6::C30GM 3</a></td>
                         <td>Oxt6</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0115779">Liu et al. PloS One, 2014</a></td>
@@ -418,7 +423,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Oryza sativa</td>
-                        <td><a id='line21' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">from EST</a></td>
+                        <td><a id='line21' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>from EST</a></td>
                         <td>mix</td>
                         <td>mix</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1093%2Fnar%2Fgkn158">Shen et al. Plant Cell, 2012</a></td>
@@ -434,7 +439,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Oryza sativa</td>
-                        <td><a id='line22' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">from RNAseq</a></td>
+                        <td><a id='line22' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>from RNAseq</a></td>
                         <td>mix</td>
                         <td>mix</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/22443345">Davidson et al. Plant J, 2012</a></td>
@@ -450,7 +455,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Oryza sativa</td>
-                        <td><a id='line23' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">flower buds</a></td>
+                        <td><a id='line23' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>flower buds</a></td>
                         <td>WT</td>
                         <td>flower</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -466,7 +471,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Oryza sativa</td>
-                        <td><a id='line24' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">flowers</a></td>
+                        <td><a id='line24' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>flowers</a></td>
                         <td>WT</td>
                         <td>flower</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -482,7 +487,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Oryza sativa</td>
-                        <td><a id='line25' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">leaves before flowering</a></td>
+                        <td><a id='line25' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>leaves before flowering</a></td>
                         <td>WT</td>
                         <td>leaf</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -498,7 +503,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Oryza sativa</td>
-                        <td><a id='line26' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">leaves after flowering</a></td>
+                        <td><a id='line26' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>leaves after flowering</a></td>
                         <td>WT</td>
                         <td>leaf</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -514,7 +519,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Oryza sativa</td>
-                        <td><a id='line27' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">roots before flowering</a></td>
+                        <td><a id='line27' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>roots before flowering</a></td>
                         <td>WT</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -530,7 +535,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Oryza sativa</td>
-                        <td><a id='line28' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">roots after flowering</a></td>
+                        <td><a id='line28' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>roots after flowering</a></td>
                         <td>WT</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -546,7 +551,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Oryza sativa</td>
-                        <td><a id='line29' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">milk grains</a></td>
+                        <td><a id='line29' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>milk grains</a></td>
                         <td>WT</td>
                         <td>grain</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -562,7 +567,7 @@ and open the template in the editor.
                     </tr>
                     <tr style="border-bottom: 1px #ccc dashed">
                         <td>Oryza sativa</td>
-                        <td><a id='line30' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">mature seeds</a></td>
+                        <td><a id='line30' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>mature seeds</a></td>
                         <td>WT</td>
                         <td>seed</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387578">Wang et al. Plant J, 2015</a></td>
@@ -578,7 +583,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Medicago truncatula</td>
-                        <td><a id='line31' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">wt leaf</a></td>
+                        <td><a id='line31' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>wt leaf</a></td>
                         <td>WT</td>
                         <td>leaf</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1186%2F1471-2164-15-615">Wu et al. BMC Genomics, 2014</a></td>
@@ -594,7 +599,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Medicago truncatula</td>
-                        <td><a id='line32' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">hairy root</a></td>
+                        <td><a id='line32' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>hairy root</a></td>
                         <td>WT</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26387579">Mertens et al. Plant Physiology, 2016</a></td>
@@ -610,7 +615,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Medicago truncatula</td>
-                        <td><a id='line33' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">leaf CK</a></td>
+                        <td><a id='line33' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>leaf CK</a></td>
                         <td>WT</td>
                         <td>leaf</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
@@ -626,7 +631,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Medicago truncatula</td>
-                        <td><a id='line34' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">leaf OS</a></td>
+                        <td><a id='line34' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>leaf OS</a></td>
                         <td>WT</td>
                         <td>leaf</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
@@ -642,7 +647,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Medicago truncatula</td>
-                        <td><a id='line35' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">leaf SS</a></td>
+                        <td><a id='line35' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>leaf SS</a></td>
                         <td>WT</td>
                         <td>leaf</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
@@ -658,7 +663,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Medicago truncatula</td>
-                        <td><a id='line36' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">root CK</a></td>
+                        <td><a id='line36' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>root CK</a></td>
                         <td>WT</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
@@ -674,7 +679,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Medicago truncatula</td>
-                        <td><a id='line37' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">root OS</a></td>
+                        <td><a id='line37' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>root OS</a></td>
                         <td>WT</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
@@ -690,7 +695,7 @@ and open the template in the editor.
                     </tr>
                     <tr style="border-bottom: 1px #ccc dashed">
                         <td>Medicago truncatula</td>
-                        <td><a id='line38' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">root SS</a></td>
+                        <td><a id='line38' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>root SS</a></td>
                         <td>WT</td>
                         <td>root</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/26048392">Wang et al.  BMC Plant Biology, 2015</a></td>
@@ -706,7 +711,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Chlamydomonas reinhardtii</td>
-                        <td><a id='line39' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">from illumina</a></td>
+                        <td><a id='line39' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>from illumina</a></td>
                         <td>mix</td>
                         <td>mix</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
@@ -722,7 +727,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Chlamydomonas reinhardtii</td>
-                        <td><a id='line40' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">from 454</a></td>
+                        <td><a id='line40' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>from 454</a></td>
                         <td>mix</td>
                         <td>mix</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
@@ -738,7 +743,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Chlamydomonas reinhardtii</td>
-                        <td><a id='line41' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">from EST</a></td>
+                        <td><a id='line41' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>from EST</a></td>
                         <td>mix</td>
                         <td>mix</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1534%2Fg3.114.010249">Zhao et al. G3:Genes|Genomes|Genetics, 2014</a></td>
@@ -754,7 +759,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Chlamydomonas reinhardtii</td>
-                        <td><a id='line42' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample">from PAT-seq</a></td>
+                        <td><a id='line42' onclick="GetDetail(this)" style="cursor:pointer;color:blue" title="Show detailed informatin of this sample"><img src="./pic/plus.png" style="width: 15px;vertical-align: bottom"/>from PAT-seq</a></td>
                         <td>mix</td>
                         <td>mix</td>
                         <td><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=10.1371%2Fjournal.pone.0146107">Bell et al. PloS one, 2016</a></td>
