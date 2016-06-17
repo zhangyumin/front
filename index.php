@@ -74,7 +74,7 @@ and open the template in the editor.
                                 Version 1.2.0&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2016-03-28
                             <ul>
                                 <li>Update the web UI and extensively debugging</li>
-                            </ul>
+                            </ul
                             </div>
                         </div>
                     </div>
