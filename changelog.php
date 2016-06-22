@@ -68,6 +68,11 @@
                 </tbody>
             </table>
             <div class="log">
+                <h4>Article is published  (2016-06-21)</h4>
+                <span class="title">Article is published.</span>
+                <br><span class="text">PlantAPA has been published in Frontiers in Plant Science, section Plant Genetics and Genomics.</span>
+            </div>
+            <div class="log">
                 <h4>V1.2.1 (2016-05-20)</h4>
                 <span class="title">Add new poly(A) site datasets.</span>
                 <br><span class="text">We have collected additional six samples from mutant samples for Arabidopsis and 18 samples from RNA-seq data for rice and Medicago.</span>
