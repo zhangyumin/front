@@ -55,7 +55,7 @@ and open the template in the editor.
                             <hr style="margin:10px 0px;border-top: 1px solid #d5d5d5;clear: both">
                             <p style="font-size:17px;word-spacing:0px; letter-spacing: 0px;color: #000;text-align: justify;">PlantAPA is a web server for query, visualization, and analysis of poly(A) sites in plants, which can profile heterogeneous cleavage sites and quantify expression pattern of poly(A) sites across different conditions. To date, PlantAPA provides the largest database of APA in plants, including rice, Arabidopsis, <span  style="font-style:italic">Medicago truncatula</span>, and <span style="font-style:italic">Chlamydomonas reinhardtii</span>.</p>
                             <p style="float:left;width:83%;font-weight: bold">Please cite the following paper when using PlantAPA. <br>
-                                <a href="http://dx.doi.org/10.3389/fpls.2016.00889" target="_blank">Wu, X., Zhang, Y., and Li, Q.Q. (2016). PlantAPA: a portal for visualization and analysis of alternative polyadenylation in plants. Frontiers in Plant Science 7. doi: 10.3389/fpls.2016.00889.</a></p>
+                            <a href="http://dx.doi.org/10.3389/fpls.2016.00889" target="_blank">Wu, X., Zhang, Y., and Li, Q.Q. (2016). PlantAPA: a portal for visualization and analysis of alternative polyadenylation in plants. Frontiers in Plant Science 7. doi: 10.3389/fpls.2016.00889.</a></p>
                             <p style="float:right;"><a href="./info.php" style="background-color:#5db95b;color:#fff;padding: 6px 12px;font-size: 12px;text-align: center;vertical-align: middle;border-radius: 4px;">More details</a></p>
                         </div>  
                     </div>
