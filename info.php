@@ -103,6 +103,19 @@ and open the template in the editor.
                         </div>
                     </div>
                 </div><br>
+                <div class="row aniview" av-animation="slideInUp">
+                    <div class="col-md-12">
+                        <div class="panel panel-info">
+                            <div class="panel-heading" id="summaryHeading">
+                                <h3 class="panel-title">●&nbsp;  Citation</h3>
+                            </div>
+                            <div class="panel-body">
+                                <p>Please cite the following paper when using PlantAPA. <br>
+                                <a href="http://dx.doi.org/10.3389/fpls.2016.00889" target="_blank">Wu, X., Zhang, Y., and Li, Q.Q. (2016). PlantAPA: a portal for visualization and analysis of alternative polyadenylation in plants. Frontiers in Plant Science 7. doi: 10.3389/fpls.2016.00889.</a></p>
+                             </div>
+                        </div>
+                    </div>
+                </div><br>
                   <div class="row aniview" av-animation="slideInUp">
                     <div class="col-md-12">
                         <div class="panel panel-info">
